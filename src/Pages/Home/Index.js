@@ -1,5 +1,5 @@
 import React from "react";
 
 export const HomePage = () => {
-  return <div>Paladin</div>;
+  return <div>HomePage</div>;
 };

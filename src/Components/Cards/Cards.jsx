@@ -6,19 +6,21 @@ import Typography from "@mui/material/Typography";
 import { Box, Button, CardActionArea, CardActions } from "@mui/material";
 import { AddressPostion, ReviewsPosition } from "./CardsStyle";
 import StarRating from "../StarRatings/StarRatings";
+import PropTypes from "prop-types";
 
-export default function CardsSection() {
-  const CardData = [
-    {
-      image:
-        "https://res.cloudinary.com/practicaldev/image/fetch/s--Zib71Fgv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n082uxea33j6zq3mca7u.png",
-      name: "Aadhi Pet Care",
-      address: "Anna Nagar, Chennai",
-      type: "Villa",
-      distance: "0.2kms",
-      reviews: "(75 reviews)",
-    },
-  ];
+export default function CardsSection({ Data }) {
+  const CardData = Data;
+  // [
+  //   {
+  //     image:
+  //       "https://res.cloudinary.com/practicaldev/image/fetch/s--Zib71Fgv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n082uxea33j6zq3mca7u.png",
+  //     name: "Aadhi Pet Care",
+  //     address: "Anna Nagar, Chennai",
+  //     type: "Villa",
+  //     distance: "0.2kms",
+  //     reviews: "(75 reviews)",
+  //   },
+  // ];
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -61,3 +63,7 @@ export default function CardsSection() {
     </Card>
   );
 }
+
+CardsSection.propTypes = {
+  Data: PropTypes.arrayOf.isRequired,
+};

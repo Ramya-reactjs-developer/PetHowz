@@ -18,19 +18,20 @@ import {
   MealTypography,
   textAlign,
 } from "./CardsStyle";
-
-export default function MealCard() {
-  const CardData = [
-    {
-      mealImage:
-        "https://static.onecms.io/wp-content/uploads/sites/19/2019/02/19/apple-quinoa-bowl-with-cinnamon-ricotta-1809-p102-2000.jpg",
-      meal1: "Scrambled Egg 1 Nos",
-      meal2: "Boiled Rice - 1 Bowl",
-      meal3: "Steamed Carrot - 60 gms",
-      meal4: "Chicken Breast - 60 gms",
-      price: "₹ 450",
-    },
-  ];
+import PropTypes from "prop-types";
+export default function MealCard({ Data }) {
+  const CardData = Data;
+  //  [
+  //   {
+  //     mealImage:
+  //       "https://static.onecms.io/wp-content/uploads/sites/19/2019/02/19/apple-quinoa-bowl-with-cinnamon-ricotta-1809-p102-2000.jpg",
+  //     meal1: "Scrambled Egg 1 Nos",
+  //     meal2: "Boiled Rice - 1 Bowl",
+  //     meal3: "Steamed Carrot - 60 gms",
+  //     meal4: "Chicken Breast - 60 gms",
+  //     price: "₹ 450",
+  //   },
+  // ];
 
   return (
     <Box sx={{ width: "100%", maxWidth: "500px", maxHeight: "465" }}>
@@ -135,3 +136,6 @@ export default function MealCard() {
     </Box>
   );
 }
+MealCard.propTypes = {
+  Data: PropTypes.arrayOf.isRequired,
+};

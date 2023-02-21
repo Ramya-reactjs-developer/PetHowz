@@ -17,20 +17,22 @@ import {
   PetHomeCardSize,
   textAlign,
 } from "./CardsStyle";
+import PropTypes from "prop-types";
 
-export default function PetHomeCard() {
-  const CardData = [
-    {
-      ownerPic:
-        "https://play-lh.googleusercontent.com/i1qvljmS0nE43vtDhNKeGYtNlujcFxq72WAsyD2htUHOac57Z9Oiew0FrpGKlEehOvo=w240-h480-rw",
-      ownername: "John",
-      petName: "Max,chalie",
-      venueBooked: "Adhi Pet Care",
-      totalCosts: "380",
-      bookedDate: "20 Jun 2022",
-      noOfDays: "5",
-    },
-  ];
+export default function PetHomeCard({ Data }) {
+  const CardData = Data;
+  //  [
+  //   {
+  //     ownerPic:
+  //       "https://play-lh.googleusercontent.com/i1qvljmS0nE43vtDhNKeGYtNlujcFxq72WAsyD2htUHOac57Z9Oiew0FrpGKlEehOvo=w240-h480-rw",
+  //     ownername: "John",
+  //     petName: "Max,chalie",
+  //     venueBooked: "Adhi Pet Care",
+  //     totalCosts: "380",
+  //     bookedDate: "20 Jun 2022",
+  //     noOfDays: "5",
+  //   },
+  // ];
 
   return (
     <Card sx={PetHomeCardSize}>
@@ -103,3 +105,6 @@ export default function PetHomeCard() {
     </Card>
   );
 }
+PetHomeCard.propTypes = {
+  Data: PropTypes.arrayOf.isRequired,
+};

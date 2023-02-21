@@ -17,20 +17,22 @@ import {
   TopButtonPosition,
   TopButtonStyle,
 } from "./CardsStyle";
+import PropTypes from "prop-types";
 
-export default function ServicePackagesCards() {
-  const CardData = [
-    {
-      price: "₹ 1999",
-      offeredPrice: "₹ 999",
-      service1: "Bath with Shampoo and conditioner",
-      service2: "Blow Dry",
-      service3: "Nail Clipping",
-      service4: "Ear Cleaning",
-      service5: "Paw Massage",
-      service6: "Combing/Brushing",
-    },
-  ];
+export default function ServicePackagesCards({ Data }) {
+  const CardData = Data;
+  //  [
+  //   {
+  //     price: "₹ 1999",
+  //     offeredPrice: "₹ 999",
+  //     service1: "Bath with Shampoo and conditioner",
+  //     service2: "Blow Dry",
+  //     service3: "Nail Clipping",
+  //     service4: "Ear Cleaning",
+  //     service5: "Paw Massage",
+  //     service6: "Combing/Brushing",
+  //   },
+  // ];
 
   return (
     <Box sx={{ width: "420px" }}>
@@ -125,3 +127,6 @@ export default function ServicePackagesCards() {
     </Box>
   );
 }
+ServicePackagesCards.propTypes = {
+  Data: PropTypes.arrayOf.isRequired,
+};
