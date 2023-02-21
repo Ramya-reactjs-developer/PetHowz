@@ -4,7 +4,7 @@ import React, { useState } from "react";
 const StarRating = () => {
   const ratingValue = 3.5;
 
-  const [value, setValue] = useState(ratingValue);
+  const [value] = useState(ratingValue);
 
   //   const handleRatingChange = (event, newValue) => {
   //     setValue(newValue);

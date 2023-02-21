@@ -128,6 +128,7 @@ export const MealCardHeader = {
   display: "flex",
   gap: "20px",
   borderBottom: "1px dashed #707070",
+
   maxWidth: "500px",
   height: "230px",
   width: "100%",
