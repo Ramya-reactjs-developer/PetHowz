@@ -1,0 +1,33 @@
+.Label-Style {
+  background-color: #ff9062;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.Input-Field {
+  display: none;
+}
+.Button-Style {
+  background-color: red;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 0px;
+}
+.Preview-Images {
+  display: inline-block;
+  margin: 5px;
+  position: relative;
+}
+.Image-Size {
+  width: 100px;
+  height: 100px;
+}
+.Button-Position {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
