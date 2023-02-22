@@ -72,6 +72,8 @@ const CustomTypography = (props) => {
         return colors.gray.primary;
       case "text":
         return colors.orange.primary;
+      case "black":
+        return colors.black.primary;
       default:
         return colors.orange.primary;
     }
