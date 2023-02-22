@@ -16,6 +16,7 @@ const CustomTypography = (props) => {
     customClass,
     customStyle,
     requiredField,
+    fontSize,
     align,
     component,
     gutterBottom,
@@ -84,6 +85,7 @@ const CustomTypography = (props) => {
       color={getColorType(colorType)}
       sx={customStyle}
       className={`${type === "error" && "errorText"} ${customClass}`}
+      fontSize={fontSize}
       align={align}
       component={component}
       gutterBottom={gutterBottom}
@@ -104,6 +106,7 @@ CustomTypography.propTypes = {
   customClass: PropTypes.string,
   customStyle: PropTypes.objectOf(PropTypes.oneOfType),
   requiredField: PropTypes.string,
+  fontSize: PropTypes.string,
   align: PropTypes.string,
   component: PropTypes.string,
   noWrap: PropTypes.bool,
@@ -115,6 +118,7 @@ CustomTypography.defaultProps = {
   customClass: "",
   customStyle: {},
   requiredField: "",
+  fontSize: "",
   align: "",
   component: "",
   noWrap: false,
