@@ -74,7 +74,7 @@ export default function ClinicMaster() {
           <Item>
             {" "}
             <CustomButton
-              btnTitle="submit"
+              btnTitle="Submit"
               variant="contained"
               color="primary"
               btnStyles={{
