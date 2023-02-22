@@ -15,6 +15,7 @@ function CustomButton(props) {
       variant={variant}
       color={color}
       sx={btnStyles}
+      style={{ textTransform: 'none' }}
       onClick={onClickHandle}
       className={customClass}
       type="submit"
