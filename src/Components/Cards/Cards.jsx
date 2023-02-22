@@ -4,9 +4,12 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Box, Button, CardActionArea, CardActions } from "@mui/material";
-import { AddressPostion, ReviewsPosition } from "./Style";
+import { AddressPostion, CardBtnStyles, ReviewsPosition } from "./Style";
 import StarRating from "../StarRatings/StarRatings";
 import PropTypes from "prop-types";
+import CustomTypography from "../Typography/Typography";
+import CustomButton from "../Button/Button";
+import CustomIcons from "../../Utils/Icons/Index";
 
 export default function CardsSection({ Data }) {
   const CardData = Data;
@@ -43,7 +46,7 @@ export default function CardsSection({ Data }) {
             <Card
               key={key}
               sx={{
-                maxWidth: 300,
+                maxWidth: 340,
               }}
             >
               <Box>
@@ -52,39 +55,84 @@ export default function CardsSection({ Data }) {
                     component="img"
                     image={item.image}
                     alt="dog"
-                    sx={{ width: "300px", height: "200px" }}
+                    sx={{ width: "340px", height: "200px" }}
                   />
                 </CardActionArea>
                 <CardActions>
                   <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    {/* <Typography gutterBottom variant="h5" component="div">
                       {item.name}
-                    </Typography>
+                    </Typography> */}
+                    <Box></Box>
+                    <CustomTypography
+                      text={item.name}
+                      type="h6"
+                      colorType="black"
+                    />
                     <Box sx={AddressPostion}>
-                      <Typography color="text.secondary">
+                      <Box
+                        sx={{
+                          display: "flex",
+                          alignItems: "center",
+                          gap: "10px",
+                        }}
+                      >
+                        <img src={CustomIcons.Location} alt="location" />
+                        <CustomTypography
+                          text={item.address}
+                          type="caption"
+                          colorType="senary"
+                        />
+                      </Box>
+                      <Box>
+                        <CustomTypography
+                          text={item.distance}
+                          type="caption"
+                          colorType="senary"
+                        />
+                      </Box>
+                      {/* <Typography color="text.secondary">
+                        <img src={CustomIcons.Location} alt="location" />
                         {item.address}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
+                      </Typography> */}
+                      {/* <Typography variant="body2" color="text.secondary">
                         {item.distance}
-                      </Typography>
+                      </Typography> */}
                     </Box>
-                    <Typography color="text.secondary">{item.type}</Typography>
+                    {/* <Typography color="text.secondary">{item.type}</Typography> */}
+                    <Box>
+                      <CustomTypography
+                        text={item.type}
+                        type="caption"
+                        colorType="senary"
+                      />
+                    </Box>
                     <Box sx={ReviewsPosition}>
                       <Box>
                         <Typography>
                           <StarRating Data={item.ratings} />
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        {/* <Typography variant="body2" color="text.secondary">
                           {item.reviews}
-                        </Typography>
+                        </Typography> */}
+                        <CustomTypography
+                          text={item.reviews}
+                          type="caption"
+                          colorType="senary"
+                        />
                       </Box>
-                      <Button
+                      {/* <Button
                         size="large"
                         variant="contained"
                         color="secondary"
                       >
                         View Details
-                      </Button>
+                      </Button> */}
+                      <CustomButton
+                        btnTitle="View Details"
+                        color="primary"
+                        btnStyles={CardBtnStyles}
+                      />
                     </Box>
                   </CardContent>
                 </CardActions>

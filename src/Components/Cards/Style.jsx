@@ -1,7 +1,9 @@
 export const AddressPostion = {
+  pt: "5px",
   display: "flex",
   alignItems: "center",
-  gap: "5.5rem",
+  // justifyContent: "space-evenly",
+  gap: "3.75rem",
 };
 export const ReviewsPosition = {
   display: "flex",
@@ -161,3 +163,5 @@ export const MealCardButtonPostion = {
   pt: "10px",
   textAlign: "center",
 };
+
+export const CardBtnStyles = { color: "white" };
