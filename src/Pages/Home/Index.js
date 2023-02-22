@@ -1,5 +1,76 @@
 import React from "react";
+import CardsSection from "../../Components/Cards/Cards";
+import { Box } from "@mui/material";
 
 export const HomePage = () => {
-  return <div>HomePage</div>;
+  const CardData = [
+    {
+      image:
+        "https://res.cloudinary.com/practicaldev/image/fetch/s--Zib71Fgv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n082uxea33j6zq3mca7u.png",
+      name: "Aadhi Pet Care",
+      address: "Anna Nagar, Chennai",
+      type: "Villa",
+      distance: "0.2kms",
+      ratings: "3.5",
+      reviews: "(75 reviews)",
+    },
+    {
+      image:
+        "https://res.cloudinary.com/practicaldev/image/fetch/s--Zib71Fgv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n082uxea33j6zq3mca7u.png",
+      name: "Aadhi Pet Care",
+      address: "Anna Nagar, Chennai",
+      type: "Villa",
+      distance: "0.2kms",
+      ratings: "3.5",
+      reviews: "(75 reviews)",
+    },
+    {
+      image:
+        "https://res.cloudinary.com/practicaldev/image/fetch/s--Zib71Fgv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n082uxea33j6zq3mca7u.png",
+      name: "Aadhi Pet Care",
+      address: "Anna Nagar, Chennai",
+      type: "Villa",
+      distance: "0.2kms",
+      ratings: "3.5",
+      reviews: "(75 reviews)",
+    },
+    {
+      image:
+        "https://res.cloudinary.com/practicaldev/image/fetch/s--Zib71Fgv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n082uxea33j6zq3mca7u.png",
+      name: "Aadhi Pet Care",
+      address: "Anna Nagar, Chennai",
+      type: "Villa",
+      distance: "0.2kms",
+      ratings: "3.5",
+      reviews: "(75 reviews)",
+    },
+    {
+      image:
+        "https://res.cloudinary.com/practicaldev/image/fetch/s--Zib71Fgv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n082uxea33j6zq3mca7u.png",
+      name: "Aadhi Pet Care",
+      address: "Anna Nagar, Chennai",
+      type: "Villa",
+      distance: "0.2kms",
+      ratings: "3.5",
+      reviews: "(75 reviews)",
+    },
+    {
+      image:
+        "https://res.cloudinary.com/practicaldev/image/fetch/s--Zib71Fgv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n082uxea33j6zq3mca7u.png",
+      name: "Aadhi Pet Care",
+      address: "Anna Nagar, Chennai",
+      type: "Villa",
+      distance: "0.2kms",
+      ratings: "3.5",
+      reviews: "(75 reviews)",
+    },
+  ];
+  return (
+    <div>
+      HomePage
+      <Box>
+        <CardsSection Data={CardData} />
+      </Box>
+    </div>
+  );
 };

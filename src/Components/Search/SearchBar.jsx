@@ -1,6 +1,6 @@
 import SearchIcon from "@mui/icons-material/Search";
-
 import "./SearchBar.css";
+import PropTypes from "prop-types";
 
 export default function SearchBar({ SearchValue, handleSearch, placeholder }) {
   return (
@@ -20,3 +20,8 @@ export default function SearchBar({ SearchValue, handleSearch, placeholder }) {
     </div>
   );
 }
+
+SearchBar.propTypes = {
+  SearchValue: PropTypes.string.isRequired,
+  handleSearch: PropTypes.func.isRequired,
+};

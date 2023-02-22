@@ -1,8 +1,10 @@
 import { Rating } from "@mui/material";
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
-const StarRating = () => {
-  const ratingValue = 3.5;
+const StarRating = ({ Data }) => {
+  const ratingValue = Data;
+  // 3.5;
 
   const [value] = useState(ratingValue);
 
@@ -26,3 +28,6 @@ const StarRating = () => {
 };
 
 export default StarRating;
+StarRating.propTypes = {
+  Data: PropTypes.string.isRequired,
+};

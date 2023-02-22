@@ -17,7 +17,7 @@ import {
   MealIcon,
   MealTypography,
   textAlign,
-} from "./CardsStyle";
+} from "./Style";
 import PropTypes from "prop-types";
 export default function MealCard({ Data }) {
   const CardData = Data;

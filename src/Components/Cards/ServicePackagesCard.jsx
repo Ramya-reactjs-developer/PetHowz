@@ -16,7 +16,7 @@ import {
   ServiceTypography,
   TopButtonPosition,
   TopButtonStyle,
-} from "./CardsStyle";
+} from "./Style";
 import PropTypes from "prop-types";
 
 export default function ServicePackagesCards({ Data }) {

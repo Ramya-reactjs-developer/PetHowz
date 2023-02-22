@@ -1,6 +1,6 @@
 import { Card, CardActionArea, CardMedia } from "@mui/material";
 import * as React from "react";
-import { ImageCardsSize } from "./CardsStyle";
+import { ImageCardsSize } from "./Style";
 import PropTypes from "prop-types";
 export default function ImageCards({ imagePath }) {
   return (

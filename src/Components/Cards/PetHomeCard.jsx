@@ -16,7 +16,7 @@ import {
   PetHomeCardPosition,
   PetHomeCardSize,
   textAlign,
-} from "./CardsStyle";
+} from "./Style";
 import PropTypes from "prop-types";
 
 export default function PetHomeCard({ Data }) {

@@ -1,19 +1,22 @@
 import React from "react";
 import "./Table.css";
-export const Table = () => {
-  const TableData = [
-    {
-      area: "1200 Sq.ft",
-      size: "3 Bedrooms",
-      type: "Villa",
-      prefer: "Small Pets",
+import PropTypes from "prop-types";
 
-      capacity: "8-10 pets",
-      petsAccepted: "Cats & Dogs",
-      location: "Anna Nagar, Chennai",
-      canProvide: "Oral Medication",
-    },
-  ];
+export const Table = ({ Data }) => {
+  const TableData = Data;
+  // [
+  //   {
+  //     area: "1200 Sq.ft",
+  //     size: "3 Bedrooms",
+  //     type: "Villa",
+  //     prefer: "Small Pets",
+
+  //     capacity: "8-10 pets",
+  //     petsAccepted: "Cats & Dogs",
+  //     location: "Anna Nagar, Chennai",
+  //     canProvide: "Oral Medication",
+  //   },
+  // ];
 
   return (
     <div>
@@ -62,4 +65,7 @@ export const Table = () => {
       </table>
     </div>
   );
+};
+Table.propTypes = {
+  Data: PropTypes.arrayOf.isRequired,
 };
