@@ -1,0 +1,8 @@
+.transparent-header {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+  .AppBar-root {
+    transition: background-color 0.2s ease-in-out;
+  }
+    
