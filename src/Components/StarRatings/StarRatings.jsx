@@ -1,4 +1,4 @@
-import { Rating } from "@mui/material";
+import { Box, Rating } from "@mui/material";
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
@@ -13,21 +13,21 @@ const StarRating = ({ Data }) => {
   //   };
 
   return (
-    <div>
+    <Box>
       <Rating
-        name="star-rating"
-        value={value}
+        name="size-small"
+        value={parseFloat(value)}
         // onChange={handleRatingChange}
         size="small"
         precision={0.5}
         max={5}
         readOnly
       />
-    </div>
+    </Box>
   );
 };
 
 export default StarRating;
 StarRating.propTypes = {
-  Data: PropTypes.string.isRequired,
+  Data: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };

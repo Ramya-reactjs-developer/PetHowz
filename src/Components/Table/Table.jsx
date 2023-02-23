@@ -67,5 +67,5 @@ export const Table = ({ Data }) => {
   );
 };
 Table.propTypes = {
-  Data: PropTypes.arrayOf.isRequired,
+  Data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
 };

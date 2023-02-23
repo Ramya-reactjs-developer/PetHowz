@@ -2,11 +2,13 @@ import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { Box, Button, CardActionArea, CardActions } from "@mui/material";
-import { AddressPostion, ReviewsPosition } from "./Style";
-import StarRating from "../StarRatings/StarRatings";
+import { Box, CardActionArea, CardActions, Grid } from "@mui/material";
+import { AddressPostion, CardBtnStyles, ReviewsPosition } from "./Style";
 import PropTypes from "prop-types";
+import CustomTypography from "../Typography/Typography";
+import CustomButton from "../Button/Button";
+import CustomIcons from "../../Utils/Icons/Index";
+import { CustomizedRatings } from "../StarRatings/CustomizedRatings";
 
 export default function CardsSection({ Data }) {
   const CardData = Data;
@@ -21,82 +23,123 @@ export default function CardsSection({ Data }) {
   //     reviews: "(75 reviews)",
   //   },
   // ];
+  const OverAllCArdPostions = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "30px",
+    flexWrap: "wrap",
+  };
+
+  const CardSize = {
+    width: "100%",
+    maxWidth: "248px",
+  };
+  const CardMediaSize = {
+    margin: "auto",
+    width: "100%",
+    height: "200px",
+    maxWidth: "248px",
+  };
+
+  const AddressSubPosition1 = {
+    display: "flex",
+    alignItems: "center",
+    gap: "7px",
+  };
+  const AddressSubPosition2 = {
+    pt: "10px",
+    display: "flex",
+    alignItems: "center",
+    gap: "7px",
+  };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        gap: "50px",
-        flexWrap: "wrap",
-      }}
-    >
-      {CardData.map((item, key) => {
-        return (
-          <Box
-          // sx={{
-          //   display: "flex",
-          //   alignItems: "center",
-          //   justifyContent: "space-evenly",
-          // }}
-          >
-            <Card
-              key={key}
-              sx={{
-                maxWidth: 300,
-              }}
-            >
-              <Box>
-                <CardActionArea>
-                  <CardMedia
-                    component="img"
-                    image={item.image}
-                    alt="dog"
-                    sx={{ width: "300px", height: "200px" }}
-                  />
-                </CardActionArea>
-                <CardActions>
-                  <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {item.name}
-                    </Typography>
-                    <Box sx={AddressPostion}>
-                      <Typography color="text.secondary">
-                        {item.address}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {item.distance}
-                      </Typography>
-                    </Box>
-                    <Typography color="text.secondary">{item.type}</Typography>
-                    <Box sx={ReviewsPosition}>
-                      <Box>
-                        <Typography>
-                          <StarRating Data={item.ratings} />
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          {item.reviews}
-                        </Typography>
+    <Grid item container xl={12} lg={12} md={12} sm={12} xs={12}>
+      <Box sx={OverAllCArdPostions}>
+        {CardData.map((item, key) => {
+          return (
+            <Box key={key}>
+              <Card sx={CardSize}>
+                <Box>
+                  <CardActionArea>
+                    <CardMedia
+                      component="img"
+                      image={item.image}
+                      alt="dog"
+                      sx={CardMediaSize}
+                    />
+                  </CardActionArea>
+                  <CardActions>
+                    <CardContent>
+                      <Box></Box>
+                      <CustomTypography
+                        text={item.name}
+                        type="h6"
+                        colorType="black"
+                      />
+                      <Box sx={AddressPostion}>
+                        <Box sx={AddressSubPosition1}>
+                          <img src={CustomIcons.Location} alt="location" />
+                          <CustomTypography
+                            text={item.address}
+                            type="caption"
+                            colorType="senary"
+                            fontSize="12px"
+                          />
+                        </Box>
+                        <Box>
+                          <CustomTypography
+                            text={item.distance}
+                            type="caption"
+                            colorType="senary"
+                            fontSize="12px"
+                          />
+                        </Box>
                       </Box>
-                      <Button
-                        size="large"
-                        variant="contained"
-                        color="secondary"
-                      >
-                        View Details
-                      </Button>
-                    </Box>
-                  </CardContent>
-                </CardActions>
-              </Box>
-            </Card>
-          </Box>
-        );
-      })}
-    </Box>
+
+                      <Box sx={AddressSubPosition2}>
+                        <img src={CustomIcons.Building} alt="location" />
+                        <CustomTypography
+                          text={item.type}
+                          type="caption"
+                          colorType="senary"
+                          fontSize="12px"
+                        />
+                      </Box>
+                      <Box sx={ReviewsPosition}>
+                        <Box>
+                          <Box>
+                            <CustomizedRatings Data={item.ratings} />
+                          </Box>
+
+                          <CustomTypography
+                            text={item.reviews}
+                            type="caption"
+                            colorType="senary"
+                            fontSize="12px"
+                          />
+                        </Box>
+
+                        <CustomButton
+                          btnTitle="View Details"
+                          color="primary"
+                          btnStyles={CardBtnStyles}
+                          fontSize="12px"
+                        />
+                      </Box>
+                    </CardContent>
+                  </CardActions>
+                </Box>
+              </Card>
+            </Box>
+          );
+        })}
+      </Box>
+    </Grid>
   );
 }
 
 CardsSection.propTypes = {
-  Data: PropTypes.arrayOf.isRequired,
+  Data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
 };
