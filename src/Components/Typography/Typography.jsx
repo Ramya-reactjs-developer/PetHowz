@@ -119,7 +119,7 @@ CustomTypography.defaultProps = {
   customStyle: {},
   requiredField: "",
   fontSize: "",
-  align: "",
+  align: "left",
   component: "",
   noWrap: false,
   paragraph: false,

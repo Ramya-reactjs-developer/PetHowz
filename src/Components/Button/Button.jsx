@@ -16,9 +16,9 @@ function CustomButton(props) {
       variant={variant}
       color={color}
       sx={btnStyles}
-      style={{ textTransform: 'none' }}
       onClick={onClickHandle}
       className={customClass}
+      style={{ textTransform: "none" }}
       type="submit"
     >
       {btnTitle}
