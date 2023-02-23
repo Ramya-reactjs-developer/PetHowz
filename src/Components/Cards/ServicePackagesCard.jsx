@@ -128,5 +128,5 @@ export default function ServicePackagesCards({ Data }) {
   );
 }
 ServicePackagesCards.propTypes = {
-  Data: PropTypes.arrayOf.isRequired,
+  Data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
 };

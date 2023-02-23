@@ -106,5 +106,5 @@ export default function PetHomeCard({ Data }) {
   );
 }
 PetHomeCard.propTypes = {
-  Data: PropTypes.arrayOf.isRequired,
+  Data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
 };

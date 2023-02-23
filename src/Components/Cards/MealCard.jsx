@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 
 import { Box, Button, CardActions, CardMedia } from "@mui/material";
-import DoneIcon from "@mui/icons-material/Done";
+
 import {
   MealCardButtonPostion,
   MealCardButtonStyle,
@@ -14,11 +14,13 @@ import {
   MealCardPostion,
   MealCardTopButton,
   MealCardTopButtonPosition,
-  MealIcon,
   MealTypography,
   textAlign,
 } from "./Style";
 import PropTypes from "prop-types";
+import CustomButton from "../Button/Button";
+import CustomIcons from "../../Utils/Icons/Index";
+
 export default function MealCard({ Data }) {
   const CardData = Data;
   //  [
@@ -36,9 +38,15 @@ export default function MealCard({ Data }) {
   return (
     <Box sx={{ width: "100%", maxWidth: "500px", maxHeight: "465" }}>
       <Box sx={MealCardTopButtonPosition}>
-        <Button sx={MealCardTopButton} variant="contained">
+        {/* <Button sx={MealCardTopButton} variant="contained">
           Meow Meal
-        </Button>
+        </Button> */}
+        <CustomButton
+          btnTitle="Meow Meal"
+          color="primary"
+          btnStyles={MealCardTopButton}
+          fontSize="12px"
+        />
       </Box>
       <Card sx={MealCardPostion}>
         <Box>
@@ -62,33 +70,26 @@ export default function MealCard({ Data }) {
                           Whats Included
                         </Typography>
                         <Box sx={MealTypography}>
-                          <Typography sx={MealIcon}>
-                            <DoneIcon />
-                          </Typography>
+                          <img src={CustomIcons.DoneTick} alt="tick" />
+
                           <Typography color="text.secondary" fontSize="16">
                             {item.meal1}
                           </Typography>
                         </Box>
                         <Box sx={MealTypography}>
-                          <Typography sx={MealIcon}>
-                            <DoneIcon />
-                          </Typography>
+                          <img src={CustomIcons.DoneTick} alt="tick" />
                           <Typography color="text.secondary" fontSize="16">
                             {item.meal2}
                           </Typography>
                         </Box>
                         <Box sx={MealTypography}>
-                          <Typography sx={MealIcon}>
-                            <DoneIcon />
-                          </Typography>
+                          <img src={CustomIcons.DoneTick} alt="tick" />
                           <Typography color="text.secondary" fontSize="16">
                             {item.meal3}
                           </Typography>
                         </Box>
                         <Box sx={MealTypography}>
-                          <Typography sx={MealIcon}>
-                            <DoneIcon />
-                          </Typography>
+                          <img src={CustomIcons.DoneTick} alt="tick" />
                           <Typography color="text.secondary" fontSize="16">
                             {item.meal4}
                           </Typography>
@@ -137,5 +138,5 @@ export default function MealCard({ Data }) {
   );
 }
 MealCard.propTypes = {
-  Data: PropTypes.arrayOf.isRequired,
+  Data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
 };

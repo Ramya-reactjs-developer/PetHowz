@@ -26,7 +26,7 @@ import Playtime from "../../Assets/Icons/Playtime.svg";
 import Twitter from "../../Assets/Icons/Twitter.svg";
 import Vegnonveg from "../../Assets/Icons/Vegnonveg.svg";
 import Youtube from "../../Assets/Icons/Youtube.svg";
-
+import DoneTick from "../../Assets/Icons/Done.svg";
 const CustomIcons = {
   Logo,
   Addons,
@@ -56,5 +56,6 @@ const CustomIcons = {
   Twitter,
   Vegnonveg,
   Youtube,
+  DoneTick,
 };
 export default CustomIcons;

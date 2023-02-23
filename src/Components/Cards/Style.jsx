@@ -3,13 +3,13 @@ export const AddressPostion = {
   display: "flex",
   alignItems: "center",
   // justifyContent: "space-evenly",
-  gap: "3.75rem",
+  gap: "1.45rem",
 };
 export const ReviewsPosition = {
   display: "flex",
   alignItems: "center",
   justifyContent: "space-between",
-  pt: "5px",
+  pt: "20px",
 };
 export const ImageCardsSize = { maxWidth: 345, borderRadius: 3 };
 export const PetHomeCardSize = { maxWidth: "950px", height: "175px" };
@@ -147,6 +147,7 @@ export const MealCardTopButton = {
   background: "#FF9BA9",
   borderTopLeftRadius: "10px",
   borderTopRightRadius: "10px",
+  color: "white",
 };
 export const MealCardMedia = {
   width: "200px",
