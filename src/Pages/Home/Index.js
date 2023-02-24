@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import CardsSection from "../../Components/Cards/Cards";
+// import CardsSection from "../../Components/Cards/Cards";
 import { Box, Grid, Typography } from "@mui/material";
 import SearchBar from "../../Components/Search/SearchBar";
-
+// import { CustomImage } from "../../Utils/Images/index";
 import "./Home.css";
 import CustomButton from "../../Components/Button/Button";
 import CustomTypography from "../../Components/Typography/Typography";
