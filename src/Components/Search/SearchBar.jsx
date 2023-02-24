@@ -1,19 +1,27 @@
-import SearchIcon from "@mui/icons-material/Search";
+import { useState } from "react";
+import CustomIcons from "../../Utils/Icons/Index";
 import "./SearchBar.css";
 import PropTypes from "prop-types";
 
-export default function SearchBar({ SearchValue, handleSearch, placeholder }) {
+export default function SearchBar({ SearchValue, handleSearch, iconValue }) {
+  // const [icon] = useState(iconValue);
+  console.log(iconValue, "icon");
   return (
-    <div>
+    <div className="Input-Style">
+      {/* {iconValue ? (
+        ""
+      ) : ( */}
       <div id="search-icon">
-        <SearchIcon />
+        <img src={CustomIcons.Search} alt="search" />
       </div>
+
       <div id="search-input">
+        {" "}
         <input
           type="text"
+          name="V"
           value={SearchValue}
-          name="Search"
-          placeholder="           Seach For Pet Spaces and Services near you"
+          placeholder="Seach For Pet Spaces and Services near you"
           onChange={handleSearch}
         />
       </div>
