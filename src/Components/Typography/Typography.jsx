@@ -5,7 +5,7 @@ import colors from "../../Utils/Colors/Index";
 import "./Typography.css";
 
 const CustomTypography = (props) => {
-  const { type, text, colorType, customClass, customStyle, requiredField } =
+  const { type, text, colorType, customClass, customStyle, requiredField ,textAlign,fontSize,fontFamily,fontWeight} =
     props;
   /**
    * @name getFontType
@@ -13,22 +13,32 @@ const CustomTypography = (props) => {
    */
   const getFontType = () => {
     switch (type) {
-      case "heading":
+      case "head":
+        return "h1";
+      case "head1":
         return "h2";
-      case "header":
+      case "head2":
+        return "h3";
+      case "head4":
+        return "h4";
+      case "head5":
         return "h5";
-      case "subHeading":
+      case "head6":
         return "h6";
-      case "caption":
+      case "sub1":
         return "subtitle1";
-      case "title":
+      case "sub2":
         return "subtitle2";
-      case "link":
-        return "caption";
-      case "error":
+      case "b1":
+        return "body1";
+      case "b2":
+        return "body2";
+      case "bt":
+        return "button";
+      case "cap":
         return "caption";
       default:
-        return "subtitle1";
+        return "overline";
     }
   };
   /**
@@ -37,22 +47,22 @@ const CustomTypography = (props) => {
    */
   const getColorType = () => {
     switch (colorType) {
-      case "primary":
-        return colors.blue.secondary;
-      case "secondary":
+      case "orange":
+        return colors.orange.primary;
+      case "white":
         return colors.white.primary;
-      case "tertiary":
-        return colors.yellow.primary;
-      case "quaternary":
+      case "red":
+        return colors.error.primary;
+      case "blue":
         return colors.blue.tertiary;
-      case "quinary":
-        return colors.gray.quinary;
-      case "senary":
+      case "grey":
         return colors.gray.primary;
+      case "grey2":
+        return colors.gray.secondary;
       case "text":
         return colors.orange.primary;
       default:
-        return colors.orange.secondary;
+        return colors.black.primary;
     }
   };
   return (
@@ -61,6 +71,12 @@ const CustomTypography = (props) => {
       color={getColorType(colorType)}
       sx={customStyle}
       className={`${type === "error" && "errorText"} ${customClass}`}
+      textAlign={textAlign}
+      fontSize={fontSize}
+      fontFamily={fontFamily}
+      fontWeight={fontWeight}
+
+
     >
       {text}
       {requiredField && <span className="required">*</span>}
@@ -76,10 +92,18 @@ CustomTypography.propTypes = {
   customClass: PropTypes.string,
   customStyle: PropTypes.objectOf(PropTypes.oneOfType),
   requiredField: PropTypes.string,
+  textAlign: PropTypes.string,
+  fontSize: PropTypes.string,
+  fontFamily: PropTypes.string,
+  fontWeight: PropTypes.string,
 };
 CustomTypography.defaultProps = {
   colorType: "",
   customClass: "",
   customStyle: {},
   requiredField: "",
+  textAlign: "",
+  fontSize: "",
+  fontFamily: "",
+  fontWeight: "",
 };
