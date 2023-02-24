@@ -241,7 +241,7 @@ export default function ClinicMaster() {
         </Grid>
         <Grid item xs={6} md={4}>
           <Item>
-            <CustomTypography type="h5" text="Typography" component="div" />
+            <CustomTypography  type="heading" text="Typography" colorType="tertiary" />
           </Item>
         </Grid>
       </Grid>

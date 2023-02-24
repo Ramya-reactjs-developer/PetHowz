@@ -3,43 +3,21 @@ import PropTypes from "prop-types";
 import { Typography } from "@mui/material";
 import colors from "../../Utils/Colors/Index";
 import "./Typography.css";
-/**
- *
- * @param {object} props - required props
- * @returns {React.ReactElement} - returns the typography component
- */
+
 const CustomTypography = (props) => {
-  const {
-    type,
-    text,
-    colorType,
-    customClass,
-    customStyle,
-    requiredField,
-    fontSize,
-    align,
-    component,
-    gutterBottom,
-    noWrap,
-    paragraph,
-  } = props;
+  const { type, text, colorType, customClass, customStyle, requiredField } =
+    props;
   /**
    * @name getFontType
    * @returns {React.ReactElement}  - returns the required  font type of text
    */
   const getFontType = () => {
     switch (type) {
-      case "h1":
-        return "h1";
-      case "h2":
+      case "heading":
         return "h2";
-      case "h3":
-        return "h3";
-      case "h4":
-        return "h4";
-      case "h5":
+      case "header":
         return "h5";
-      case "h6":
+      case "subHeading":
         return "h6";
       case "caption":
         return "subtitle1";
@@ -73,10 +51,8 @@ const CustomTypography = (props) => {
         return colors.gray.primary;
       case "text":
         return colors.orange.primary;
-      case "black":
-        return colors.black.primary;
       default:
-        return colors.orange.primary;
+        return colors.orange.secondary;
     }
   };
   return (
@@ -85,12 +61,6 @@ const CustomTypography = (props) => {
       color={getColorType(colorType)}
       sx={customStyle}
       className={`${type === "error" && "errorText"} ${customClass}`}
-      fontSize={fontSize}
-      align={align}
-      component={component}
-      gutterBottom={gutterBottom}
-      noWrap={noWrap}
-      paragraph={paragraph}
     >
       {text}
       {requiredField && <span className="required">*</span>}
@@ -106,22 +76,10 @@ CustomTypography.propTypes = {
   customClass: PropTypes.string,
   customStyle: PropTypes.objectOf(PropTypes.oneOfType),
   requiredField: PropTypes.string,
-  fontSize: PropTypes.string,
-  align: PropTypes.string,
-  component: PropTypes.string,
-  noWrap: PropTypes.bool,
-  paragraph: PropTypes.bool,
-  gutterBottom: PropTypes.bool,
 };
 CustomTypography.defaultProps = {
   colorType: "",
   customClass: "",
   customStyle: {},
   requiredField: "",
-  fontSize: "",
-  align: "left",
-  component: "",
-  noWrap: false,
-  paragraph: false,
-  gutterBottom: false,
 };
