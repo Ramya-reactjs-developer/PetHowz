@@ -1,0 +1,52 @@
+.petImage{
+    /* display: flex !important; */
+}
+.PetBoardImage{
+    width: 650px !important;
+    height:400px !important
+}
+
+.PetBoardImage img{
+    width: 100% !important;
+    height:100%!important
+}
+.petHost{
+    font-size: 25px !important;
+    color: #000 !important;
+}
+.petHostHeader{
+    width: 600px !important;
+    height:400px !important;
+    display: inline-flex;
+    /* justify-content: center; */
+    align-items: center;
+    position: relative;
+}
+.pet-heading{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.petChoose{
+    position: absolute;
+    left: 0;
+    top: 70px;
+}
+.petService{
+    color: #2C3051 !important;
+    font-family: sans-serif !important;
+    font-size: 17px !important;
+    font-weight: 500 !important;
+
+}
+.PetBoardImage-image{
+    color: #000 !important;
+    text-align: center;
+}
+.textWidth .PetBoardImage-image{
+    text-align: center !important;
+}
+.textWidth{
+    width:150px !important;
+
+}
