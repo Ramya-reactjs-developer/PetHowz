@@ -68,7 +68,7 @@ const CustomTypography = (props) => {
   return (
     <Typography
       variant={getFontType(type)}
-      // color={getColorType(colorType)}
+      color={getColorType(colorType)}
       sx={customStyle}
       className={`${type === "error" && "errorText"} ${customClass}`}
       textAlign={textAlign}
