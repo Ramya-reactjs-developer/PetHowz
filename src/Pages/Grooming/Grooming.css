@@ -1,0 +1,16 @@
+.groomText{
+    color: #2C3051 !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    padding: 18px 60px !important;
+}
+.groomCardStyles{
+    border: 2px solid #FF9966 !important;
+    padding: 6px !important;
+    color: #FF9966 !important;
+    background-color: #fff !important;
+}
+.groomButton{
+    padding: 50px 0;
+    text-align: center;
+}

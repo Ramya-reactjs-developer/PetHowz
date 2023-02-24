@@ -1,31 +1,59 @@
-import { useState } from "react";
 import CustomIcons from "../../Utils/Icons/Index";
-import "./SearchBar.css";
 import PropTypes from "prop-types";
+import { Box, TextField } from "@mui/material";
 
-export default function SearchBar({ SearchValue, handleSearch, iconValue }) {
-  // const [icon] = useState(iconValue);
-  console.log(iconValue, "icon");
+export default function SearchBar({ SearchValue, handleSearch }) {
   return (
-    <div className="Input-Style">
-      {/* {iconValue ? (
-        ""
-      ) : ( */}
-      <div id="search-icon">
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        border: "3px solid #f57059",
+        borderRadius: "35px",
+        width: {
+          xl: "500px",
+          lg: "500px",
+          md: "500px",
+          sm: "500px",
+        },
+        height: "70px",
+      }}
+    >
+      <Box sx={{ pl: "25px" }}>
         <img src={CustomIcons.Search} alt="search" />
-      </div>
+      </Box>
 
-      <div id="search-input">
+      <Box>
         {" "}
-        <input
+        <TextField
+          variant="standard"
+          sx={{
+            width: {
+              xl: "400px",
+              lg: "400px",
+              md: "400px",
+              sm: "400px",
+              xs: "200px",
+            },
+            mb: "10px",
+            height: "20px",
+            borderRadius: "20px",
+            border: "none",
+            outline: "none",
+            fontsize: "larger",
+            padding: "20px",
+          }}
           type="text"
           name="V"
           value={SearchValue}
           placeholder="Seach For Pet Spaces and Services near you"
           onChange={handleSearch}
+          InputProps={{
+            disableUnderline: true,
+          }}
         />
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 
