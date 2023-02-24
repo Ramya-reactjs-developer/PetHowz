@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./Assets/Theme/Index";
-import { Grooming } from "./Pages/Grooming/Grooming";
+// import { Grooming } from "./Pages/Grooming/Grooming";
 // import { HomePage } from "./Pages/Home/Index";
 // import Masters from './Pages/Masters/Index';
 import { RouterNavigation } from "./Router/Index";
@@ -10,7 +10,7 @@ function App() {
     <>
       <ThemeProvider theme={theme}>
         {/* <Masters/> */}
-        <Grooming/>
+        {/* <Grooming/> */}
         {/* <HomePage /> */}
         <RouterNavigation />
       </ThemeProvider>
