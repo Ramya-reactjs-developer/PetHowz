@@ -4,6 +4,7 @@ import { HomePage } from "../Pages/Home/Index";
 import ClinicMaster from "../Pages/Masters/ClinicMaster";
 import { Box } from "@mui/material";
 import DrawerAppBar from "../Components/AppBar/AppBar";
+import { Grooming } from "../Pages/Grooming/Grooming";
 
 export const Layout = () => {
   return (
@@ -19,6 +20,7 @@ export const Layout = () => {
       <Routes>
         <Route path="/" index element={<HomePage />} />
         <Route path="Cmasters" index element={<ClinicMaster />} />
+        <Route path="grooming" index element={<Grooming />} />
       </Routes>
     </div>
   );

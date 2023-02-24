@@ -13,6 +13,7 @@ function App() {
         <Grooming/>
         {/* <HomePage /> */}
         <RouterNavigation />
+        
       </ThemeProvider>
     </>
   );
