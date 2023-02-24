@@ -5,7 +5,7 @@ import SearchBar from "../../Components/Search/SearchBar";
 // import { CustomImage } from "../../Utils/Images/index";
 import "./Home.css";
 import CustomButton from "../../Components/Button/Button";
-// import CustomTypography from "../../Components/Typography/Typography";
+import CustomTypography from "../../Components/Typography/Typography";
 
 export const HomePage = () => {
   const CardData = [
@@ -158,12 +158,9 @@ export const HomePage = () => {
         >
           <Box>
             <Box>
-              {/* <img src={CustomImage.Bg} alt="bg" width={100} />
-              <img src={CustomImage.Screenshot} alt="bg" width={100} /> */}
               <Typography variant="h3" fontWeight="bolder" color="primary">
                 FIND PET BOARDING SPACES
               </Typography>
-
               <Typography variant="h3" fontWeight="bolder" color="primary">
                 & PET SERVICE PROVIDERS
               </Typography>
@@ -234,7 +231,15 @@ export const HomePage = () => {
         </Box>
         {/* </div> */}
       </Grid>
-      <Grid item></Grid>
+      <Grid item>
+        <Box>
+          <CustomTypography
+            text="Our Services"
+            colorType="black"
+            type="header"
+          />
+        </Box>
+      </Grid>
       {/* <Grid item>
         <Box>
           <CardsSection Data={CardData} />
