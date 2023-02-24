@@ -57,32 +57,32 @@ const CustomTypography = (props) => {
    *@name getColorType
    *@returns {React.ReactElement}- returns the required type of text  colors
    */
-  const getColorType = () => {
-    switch (colorType) {
-      case "primary":
-        return colors.blue.secondary;
-      case "secondary":
-        return colors.white.primary;
-      case "tertiary":
-        return colors.yellow.primary;
-      case "quaternary":
-        return colors.blue.tertiary;
-      case "quinary":
-        return colors.gray.quinary;
-      case "senary":
-        return colors.gray.primary;
-      case "text":
-        return colors.orange.primary;
-      case "black":
-        return colors.black.primary;
-      default:
-        return colors.orange.primary;
-    }
-  };
+  // const getColorType = () => {
+  //   switch (colorType) {
+  //     case "primary":
+  //       return colors.blue.secondary;
+  //     case "secondary":
+  //       return colors.white.primary;
+  //     case "tertiary":
+  //       return colors.yellow.primary;
+  //     case "quaternary":
+  //       return colors.blue.tertiary;
+  //     case "quinary":
+  //       return colors.gray.quinary;
+  //     case "senary":
+  //       return colors.gray.primary;
+  //     case "text":
+  //       return colors.orange.primary;
+  //     case "black":
+  //       return colors.black.primary;
+  //     default:
+  //       return colors.orange.primary;
+  //   }
+  // };
   return (
     <Typography
       variant={getFontType(type)}
-      color={getColorType(colorType)}
+      // color={getColorType(colorType)}
       sx={customStyle}
       className={`${type === "error" && "errorText"} ${customClass}`}
       fontSize={fontSize}
