@@ -13,6 +13,7 @@ import CustomTextarea from "../../Components/TextArea/TextArea";
 import CustomTimePicker from "../../Components/TimePicker/TimePicker";
 import CustomTextField from "../../Components/TextField/TextField";
 import CustomTypography from "../../Components/Typography/Typography";
+import Footer from "../../Components/Footer/Footer";
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
@@ -240,10 +241,11 @@ export default function ClinicMaster() {
         </Grid>
         <Grid item xs={6} md={4}>
           <Item>
-            <CustomTypography type="h5" text="Typography" component="div" />
+            <CustomTypography  type="heading" text="Typography" colorType="tertiary" />
           </Item>
         </Grid>
       </Grid>
+      <Footer/>
     </Box>
   );
 }

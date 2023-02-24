@@ -1,6 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import CardsSection from "../../Components/Cards/Cards";
-import { Box, Grid } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
+import SearchBar from "../../Components/Search/SearchBar";
+import { CustomImage } from "../../Utils/Images/Index";
+import "./Home.css";
+import CustomButton from "../../Components/Button/Button";
+import CustomTypography from "../../Components/Typography/Typography";
 
 export const HomePage = () => {
   const CardData = [
@@ -117,15 +122,124 @@ export const HomePage = () => {
       price: "₹ 450",
     },
   ];
+  const [searchData, setSearchData] = useState("");
+
+  console.log(searchData, "ss");
+  const OnSetSearch = (e) => {
+    setSearchData(e.target.value);
+  };
+
+  useEffect(() => {}, [searchData]);
   return (
     // <div>
     //   HomePage
-    <Grid item container>
-      <Grid item>
+    <Grid item container xl={12} lg={12} md={12} sm={12} xs={12}>
+      <Grid
+        // alignItems={"center"}
+        // justifyContent={"center"}
+        item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
+        {/* <div className="Home-Banner"> */}
+        <Box
+          sx={{
+            pt: { xl: "0px", lg: "0px", md: "0px", sm: "0px", xs: "6rem" },
+            width: "100%",
+            height: "100vh",
+            display: "flex",
+            textAlign: "center",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Box>
+            <Box>
+              {/* <img src={CustomImage.Bg} alt="bg" width={100} />
+              <img src={CustomImage.Screenshot} alt="bg" width={100} /> */}
+              <Typography variant="h3" fontWeight="bolder" color="primary">
+                FIND PET BOARDING SPACES
+              </Typography>
+
+              <Typography variant="h3" fontWeight="bolder" color="primary">
+                & PET SERVICE PROVIDERS
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: {
+                  xl: "flex",
+                  lg: "flex",
+                  md: "flex",
+                  sm: "flex",
+                  xs: "block",
+                },
+                // flexDirection: {
+                //   xl: "row",
+                //   lg: "row",
+                //   md: "row",
+                //   sm: "row",
+                //   xs: "column",
+                // },
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "20px",
+                pt: "40px",
+                textAlign: "center",
+              }}
+            >
+              <Box>
+                <SearchBar
+                  SearchValue={searchData}
+                  handleSearch={(e) => {
+                    OnSetSearch(e);
+                  }}
+                />
+              </Box>
+              <Box
+                sx={{
+                  pt: {
+                    xl: "0px",
+                    lg: "0px",
+                    md: "0px",
+                    sm: "0px",
+                    xs: "1rem",
+                  },
+                }}
+              >
+                <CustomButton
+                  btnTitle="Search Now"
+                  color="primary"
+                  btnStyles={{
+                    p: "20px",
+                    borderRadius: "40px",
+                    width: {
+                      xl: "200px",
+                      lg: "200px",
+                      md: "200px",
+                      sm: "200px",
+                      xs: "200px",
+                    },
+                    color: "white",
+                    fontSize: "19px",
+                    fontWeight: "bold",
+                  }}
+                />
+              </Box>
+            </Box>
+          </Box>
+        </Box>
+        {/* </div> */}
+      </Grid>
+      <Grid item></Grid>
+      {/* <Grid item>
         <Box>
           <CardsSection Data={CardData} />
         </Box>
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };
