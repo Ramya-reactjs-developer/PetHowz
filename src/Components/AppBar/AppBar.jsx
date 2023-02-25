@@ -237,7 +237,7 @@ const Header = (props) => {
   return (
     <>
       <ElevationScroll {...props}>
-        <AppBar position="fixed" sx={{ background: "white" }}>
+        <AppBar position="sticky" sx={{ background: "white" }}>
           <Toolbar>
             <img
               src={CustomIcons.Logo}
