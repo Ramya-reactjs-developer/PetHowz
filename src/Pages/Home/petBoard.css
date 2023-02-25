@@ -10,6 +10,14 @@
     width: 100% !important;
     height:100%!important
 }
+.pet-image{
+    width: 200px !important;
+    height:100px !important
+}
+.pet-image img{
+    width: 100%!important;
+    height:100% !important
+}
 .petHost{
     font-size: 25px !important;
     color: #000 !important;
@@ -46,7 +54,10 @@
 .textWidth .PetBoardImage-image{
     text-align: center !important;
 }
-.textWidth{
+.petListImage{
+    text-align: center !important;
+}
+/* .textWidth{
     width:150px !important;
 
-}
+} */
