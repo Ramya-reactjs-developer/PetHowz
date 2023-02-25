@@ -1,0 +1,109 @@
+.Bottom_Radio {
+    padding-bottom: 10px;
+}
+
+.uploadImageContainer {
+    width: 100%;
+
+
+    font-family: Poppins_semiBold;
+    color: #484850;
+    font-size: 16px !important;
+
+    padding: 8.5px 14px;
+    border-radius: 4px !important;
+    text-align: right;
+}
+
+.active_Inactive {
+    margin-top: 0px !important;
+}
+
+.MuiRadio-root {
+    color: #c1c1c1 !important;
+    cursor: pointer;
+}
+
+.InputText {
+    margin-left: 0px !important;
+}
+
+.MuiRadio-root.Mui-checked {
+    color: #fcc018 !important;
+    cursor: pointer;
+}
+
+.textInputField {
+    width: 100%;
+   
+}
+.textInputField .MuiOutlinedInput-input{
+    text-transform: capitalize !important;
+}
+.submitButton:hover {
+    background-color: #f4a01c !important;
+}
+
+.active_Inactive {
+    margin-top: 0px !important;
+}
+
+.input_alignChange {
+    margin-left: 0 !important;
+}
+
+.dateEditChange {
+    position: relative;
+}
+
+.dateIconEdit .MuiIconButton-root {
+    position: absolute;
+    right: 22px;
+    cursor: pointer;
+
+}
+/* .Mui-error{
+    border: none !important;
+} */
+.dateIconEdit .MuiOutlinedInput-notchedOutline{
+    border-color: #c1c1c1!important;
+}
+.dateIconEdit .MuiOutlinedInput-input {
+    border: " 2px solid #c1c1c1!important";
+    cursor: pointer;
+    padding: 8.5px 14px !important;
+}
+
+.dateIconEdit .MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 8.5px 14px !important;
+}
+.SubmitButtonColor .MuiButton-root:hover{
+    color: aliceblue !important;
+    background-color: #f4a01c !important;
+ }
+ .SubmitButtonColor{
+    margin: 0px !important;
+    margin-right: 10px !important;
+    color: #f8bd22 !important;
+ }
+ .SubmitButtonColor .MuiButton-root {
+  width:100% !important;
+ }
+ .CancelButtonColor .MuiButton-root {
+    width:100% !important;
+ }
+ .CancelButtonColor{
+    margin: 0px !important;
+    margin-right: 10px !important;
+ }
+ .table_name h5{
+    color: #204768 !important;
+    font-size: 20px !important;
+ }
+ .text_Capitalize .MuiFormControl-root-MuiTextField-root{
+text-transform: capitalize !important;
+ }
+
+    .forDescription.input:first-letter {
+            text-transform: capitalize !important;
+        }
