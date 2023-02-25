@@ -3,6 +3,7 @@ import { Grid, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import CustomIcons from "../../Utils/Icons/Index";
+import CustomImages from "../../Utils/Images/index";
 const Footer = () => {
   return (
     <Grid
@@ -15,60 +16,112 @@ const Footer = () => {
     >
       <Grid item xs={12} sm={12} md={4}>
         <Typography variant="h6">Head Office</Typography>
+        <Box sx={{display:'flex' ,alignItems: "start"}}> <img src={CustomIcons.Location} alt="location" style={{margin:"5px 5px 0px 0px"}}/>
         <Typography variant="body1">
-          <img src={CustomIcons.Location} alt="location" />
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec
-          leo at nibh fringilla commodo.
+      
+          91 Springboard, Gopala Krishna Complex, 45/3 Residency Road, Mahatma
+          Gandhi Rd, ShanthalamNagar, Ashok Nagar, Bengaluru, Karnataka - 560025
+        </Typography>
+        </Box>
+        <Typography variant="body1">
+          <img src={CustomIcons.Phone} alt="location"  style={{margin:"5px 5px 0px 0px"}}/>
+          098840 42119
         </Typography>
         <Typography variant="body1">
-          <img src={CustomIcons.Phone} alt="location" />
-          9876543210
-        </Typography>
-        <Typography variant="body1">
-          <img src={CustomIcons.Mail} alt="location" />
-          asdf@gmail.com
+          <img src={CustomIcons.Mail} alt="location"  style={{margin:"5px 5px 0px 0px"}}/>
+          support@pethows.com
         </Typography>
       </Grid>
-    
+
       <Grid item xs={12} sm={6} md={2}>
         <Typography variant="h6">Site Links</Typography>
-        <Typography variant="body1">Link 1</Typography>
-        <Typography variant="body1">Link 2</Typography>
-        <Typography variant="body1">Link 3</Typography>
+        <Typography variant="body1">Products</Typography>
+        <Typography variant="body1">Services</Typography>
+        <Typography variant="body1">About Us</Typography>
+        <Typography variant="body1">Contact</Typography>
       </Grid>
       <Grid item xs={12} sm={6} md={2} sx={{}}>
         <Typography variant="h6">Follow Us</Typography>
-        <img src={CustomIcons.Insta} height="25px" alt="location" style={{marginRight:"10px"}}/>
-        <img src={CustomIcons.Youtube}height="25px" alt="location" style={{marginRight:"10px"}}/>
-        <img src={CustomIcons.Facebook} height="25px" alt="location" style={{marginRight:"10px"}}/>
-        <img src={CustomIcons.Twitter} height="25px" alt="location" style={{marginRight:"10px"}}/>
-    
+        <img
+          src={CustomIcons.Insta}
+          height="25px"
+          alt="location"
+          style={{ marginRight: "10px" }}
+        />
+        <img
+          src={CustomIcons.Youtube}
+          height="25px"
+          alt="location"
+          style={{ marginRight: "10px" }}
+        />
+        <img
+          src={CustomIcons.Facebook}
+          height="25px"
+          alt="location"
+          style={{ marginRight: "10px" }}
+        />
+        <img
+          src={CustomIcons.Twitter}
+          height="25px"
+          alt="location"
+          style={{ marginRight: "10px" }}
+        />
       </Grid>
       <Grid item xs={12} sm={12} md={4}>
         <Typography variant="h6">Service We Provide</Typography>
-        <Typography variant="body1">Link 1</Typography>
-        <Typography variant="body1">Link 2</Typography>
-        <Grid item sx={{display:"flex" ,justifyContent:"space-between",alignItems:"center"}} >
-        <Typography variant="body1">Link 3</Typography>
-        <Box sx={{display:"flex" }}>
-        <img src={CustomIcons.Building} height="25px" alt="location" style={{marginRight:"10px"}}/>
-        <img src={CustomIcons.Facebook} height="25px" alt="location" style={{marginRight:"10px"}}/>
-        </Box>
+        <Typography variant="body1">Pet Sitting</Typography>
+        <Typography variant="body1">Pet Training</Typography>
+        <Typography variant="body1">Pet Walking</Typography>
+        <Typography variant="body1">Pet Grooming</Typography>
+        <Typography variant="body1">Pet Breading</Typography>
+        <Grid
+          item
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <Typography variant="body1">Pet Photography</Typography>
+          <Box sx={{ display: "flex" }}>
+            <img
+              src={CustomImages.GooglePlay}
+              height="40px"
+              alt="location"
+              style={{ marginRight: "10px" }}
+            />
+            <img
+              src={CustomImages.AppStore}
+              height="40px"
+              alt="location"
+              style={{ marginRight: "10px" }}
+            />
+          </Box>
+        </Grid>
       </Grid>
+      <Grid item xs={12} sx={{ marginTop: "20px" }}>
+        <Divider variant="fullWidth" color="#d6cccb" />
       </Grid>
-      <Grid item xs={12} sx={{ marginTop: "20px"}}><Divider variant="fullWidth" color="#d6cccb"/></Grid>
 
-      <Grid item xs={12} sx={{display:"flex" ,justifyContent:"space-between",alignItems:"center"}} >
+      <Grid
+        item
+        xs={12}
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <Typography variant="body1" sx={{ color: "#999999" }}>
           © {new Date().getFullYear()} Pethowz. All Rights Reserved.
         </Typography>
-        <Box sx={{display:"flex" }}>
-        <Typography variant="body1" sx={{ color: "#999999" ,margin:"10px"}}>
-          Terms & Conditions
-        </Typography>
-        <Typography variant="body1" sx={{ color: "#999999" ,margin:"10px"}} >
-          Privacy
-        </Typography>
+        <Box sx={{ display: "flex" }}>
+          <Typography variant="body1" sx={{ color: "#999999", margin: "10px" }}>
+            Terms & Conditions
+          </Typography>
+          <Typography variant="body1" sx={{ color: "#999999", margin: "10px" }}>
+            Privacy
+          </Typography>
         </Box>
       </Grid>
     </Grid>
