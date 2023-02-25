@@ -79,10 +79,10 @@ const Footer = () => {
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center",
+            alignItems: "start",
           }}
         >
-          <Typography variant="body1">Pet Photography</Typography>
+          <Typography variant="body1" >Pet Photography</Typography>
           <Box sx={{ display: "flex" }}>
             <img
               src={CustomImages.GooglePlay}
