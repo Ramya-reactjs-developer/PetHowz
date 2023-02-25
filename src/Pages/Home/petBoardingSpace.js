@@ -21,9 +21,9 @@ export const PetBoardingSpace = () => {
     },
   ];
   return (
-    <Grid container>
+    <Grid container md={12} sm={12} lg={12} xs={12}>
       <Grid container md={12} sm={12} lg={12} xs={12} className="petImage">
-        <Grid item md={6} sm={6} xs={12}>
+        <Grid item md={6} sm={6} lg={6} xs={12}>
           {/* {CardData?.map((item) => {
             return ( */}
           <PetBoardImageCards
@@ -57,23 +57,27 @@ export const PetBoardingSpace = () => {
               lg={12}
               xs={12}
               pt={2}
+              className="petListImage"
               display="inline-flex"
             >
               <PetBoardImageCards
                 imagePath={CustomImages.Dog2}
                 text="Pet Home Boarding "
+                CustomImage="pet-image"
                 // imagePath={CardData.imagePath}
                 petBoardText="PetBoardImage-image"
               />
               <PetBoardImageCards
                 imagePath={CustomImages.Dog2}
                 text="Pet Home Boarding & Services"
+                CustomImage="pet-image"
                 // imagePath={CardData.imagePath}
                 petBoardText="PetBoardImage-image"
               />
               <PetBoardImageCards
                 imagePath={CustomImages.Dog2}
                 text="Pet Services"
+                CustomImage="pet-image"
                 // imagePath={CardData.imagePath}
                 petBoardText="PetBoardImage-image"
               />
