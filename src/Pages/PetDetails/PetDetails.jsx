@@ -8,7 +8,8 @@ import { makeStyles } from "@mui/styles";
 import CustomTypography from "../../Components/Typography/Typography";
 import CustomButton from "../../Components/Button/Button";
 import CustomTextField from "../../Components/TextField/TextField";
-
+import { PetDetailsEntries } from './PetDetailsEntries';
+import CustomForm from "../../Components/CustomForm/CustomForm";
 const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiTextField-root": {
@@ -23,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 const MyForm = () => {
   const classes = useStyles();
-  const [formData, setFormData] = useState({
+  const [entry, setEntry] = React.useState([]);
+  const [formData, setFormData] = useState([{
     input1: "",
     input2: "",
     input3: "",
@@ -36,7 +38,7 @@ const MyForm = () => {
     input10: "",
     input11: "",
     file: null,
-  });
+  }]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -68,7 +70,7 @@ const MyForm = () => {
           />
           <CustomTextField
             name="name"
-            value={formData.input1}
+            // value={formData.input1}
             onChange={handleInputChange}
             placeholder="hii"
             fullWidth
@@ -253,6 +255,10 @@ const MyForm = () => {
           {/* <Custom variant="contained" color="primary" type="submit" >
             Submit
 </Custom> */}
+        </Grid>
+
+        <Grid className="NewsBorder">
+          <CustomForm AllEntries={entry.length > 0 ? entry : PetDetailsEntries}  />
         </Grid>
       </Grid>
     </form>

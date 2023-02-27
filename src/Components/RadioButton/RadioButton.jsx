@@ -1,50 +1,68 @@
-import React from "react";
-import PropTypes from "prop-types";
-import {
-  FormControl,
-  FormControlLabel,
-  FormLabel,
-  Radio,
-  RadioGroup,
-} from "@mui/material";
-
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import { FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup } from '@mui/material';
+import CustomTypography from '../Typography/Typography';
+import './RadioButton.css';
+/**
+ *
+ * @param {*} props --required props
+ * @returns {React.ReactElement} returns the radioButton Component
+ */
 function CustomRadioButton(props) {
-  const { name, value, label, options, onChange } = props;
+  const { onChange, data, value, labelText, requiredField } = props;
+  // const [value, setValue] = React.useState('female');
+  // console.log('valu', defaultValue);
+  // const [initialValue, setInitialDefaultValue] = React.useState();
+  console.log(value, 'twygfg');
+
+  // React.useEffect(() => {
+  //   setInitialDefaultValue(defaultValue);
+  // }, [defaultValue]);
 
   return (
-    <FormControl>
-      <FormLabel id="demo-controlled-radio-buttons-group">{label}</FormLabel>
-      <RadioGroup
-        name={name}
-        value={value}
-        onChange={onChange}
-        row
-        aria-labelledby="demo-controlled-radio-buttons-group"
-      >
-        {options.map((option,index) => (
-          <FormControlLabel
-            key={index}
-            value={option.value}
-            control={<Radio />}
-            label={option.label}
-          />
-        ))}
-      </RadioGroup>
-    </FormControl>
+    <Grid item md={12} sm={12} xs={12} className="radioLabel">
+      <FormControl>
+        <FormLabel id="demo-controlled-radio-buttons-group">
+          <CustomTypography text={labelText} requiredField={requiredField && 'required'} customClass="textDropdown" />
+        </FormLabel>
+        <RadioGroup
+          aria-labelledby="demo-radio-buttons-group-label"
+          name="radio-buttons-group"
+          onChange={(e) => onChange(e)}
+          // value={value !== '' ? value : 'Active'}
+          className="radio_text"
+          value={value}
+          // defaultValue="Active"
+          row
+        >
+          {data?.map((item, index) => {
+            const key = index;
+            return (
+              <Grid key={key}>
+                <FormControlLabel value={item.name} control={<Radio color="secondary" />} label={item.name} />
+              </Grid>
+            );
+          })}
+        </RadioGroup>
+      </FormControl>
+    </Grid>
   );
 }
 
-CustomRadioButton.propTypes = {
-  name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  onChange: PropTypes.func.isRequired,
-};
-
 export default CustomRadioButton;
+
+CustomRadioButton.propTypes = {
+  onChange: PropTypes.func,
+  data: PropTypes.arrayOf().isRequired,
+  labelText: PropTypes.string,
+  value: PropTypes.string,
+  // defaultValue: PropTypes.string,
+  requiredField: PropTypes.string,
+};
+CustomRadioButton.defaultProps = {
+  onChange: () => null,
+  labelText: '',
+  value: '',
+  // defaultValue: '',
+  requiredField: '',
+};

@@ -27,6 +27,8 @@ import Twitter from "../../Assets/Icons/Twitter.svg";
 import Vegnonveg from "../../Assets/Icons/Vegnonveg.svg";
 import Youtube from "../../Assets/Icons/Youtube.svg";
 import DoneTick from "../../Assets/Icons/Done.svg";
+import ModalClose from "../../Assets/Icons/redCross.png";
+import LogoUploader from "../../Assets/Icons/logoUploader.svg";
 const CustomIcons = {
   Logo,
   Addons,
@@ -57,5 +59,7 @@ const CustomIcons = {
   Vegnonveg,
   Youtube,
   DoneTick,
+  ModalClose,
+  LogoUploader,
 };
 export default CustomIcons;

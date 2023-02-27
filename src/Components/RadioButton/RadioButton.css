@@ -1,0 +1,27 @@
+
+
+.radioLabel{
+    color: #204768 !important;
+    font-size: 16px !important;
+    padding-bottom: 5px;
+ 
+    
+}
+
+.radioLabel .MuiFormGroup-root{
+flex-wrap: nowrap !important;
+}
+.MuiRadio-root {
+    color: #c1c1c1 !important;
+    cursor: pointer;
+}
+
+.MuiRadio-root.Mui-checked {
+    color: #fc9218 !important;
+    cursor: pointer;
+}
+.radio_text .MuiTypography-root{
+font-size: 13px !important;
+    color: #000;
+    font-family: Poppins !important;
+}

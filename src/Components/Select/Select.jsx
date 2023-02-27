@@ -1,38 +1,57 @@
-import React from "react";
-import { makeStyles } from "@mui/styles";
-import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
-
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-}));
-
-function CustomSelect({ label, options, value, onChange }) {
-  const classes = useStyles();
-
+/* eslint-disable react/forbid-prop-types */
+import PropTypes from 'prop-types';
+import React from 'react';
+import './Select.css';
+/**
+ *
+ * @param {*} props required props
+ * @returns {React.ReactElement} returns the dropdown component
+ */
+function CustomSelect(props) {
+  const { value, dropdown, style, onChangeData, disabled, error, errmsg, placeholder, className } = props;
   return (
-    <FormControl
-      className={classes.formControl}
-      variant="filled"
-      sx={{ m: 1, minWidth: 120 }}
-    >
-      <InputLabel id="demo-simple-select-filled-label">{label}</InputLabel>
-      <Select
-        labelId="demo-simple-select-filled-label"
-        id="demo-simple-select-filled"
-        value={value}
-        onChange={onChange}
-      >
-        {options.map((option,index) => (
-          <MenuItem key={index} value={option.value}>
-            {option.label}
-          </MenuItem>
-        ))}
-      </Select>
-    </FormControl>
+    <div className="dropdown">
+      <div>
+        <select
+          disabled={disabled && disabled}
+          style={style}
+          onChange={(e) => onChangeData && onChangeData(e.target.value)}
+          className={`dropdownStyling ${className}`}
+        >
+          <option value="" disabled selected>
+            {placeholder}
+          </option>
+          {dropdown.map((data) => (
+            <option value={data.id} selected={value === data.id} className="option">
+              {data.value}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="Errormsg">
+        <div>{error && errmsg}</div>
+      </div>
+    </div>
   );
 }
-
 export default CustomSelect;
+CustomSelect.propTypes = {
+  value: PropTypes.string.isRequired,
+  dropdown: PropTypes.arrayOf(PropTypes.any).isRequired,
+  style: PropTypes.objectOf,
+  onChangeData: PropTypes.func,
+  disabled: PropTypes.bool,
+  error: PropTypes.bool,
+  errmsg: PropTypes.bool,
+  placeholder: PropTypes.string,
+  className: PropTypes.string,
+};
+CustomSelect.defaultProps = {
+  style: {},
+  onChangeData: null,
+  disabled: false,
+  error: false,
+  errmsg: '',
+  placeholder: '',
+  className: '',
+};
