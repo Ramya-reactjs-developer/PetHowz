@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/require-default-props */
-import React from 'react';
+import React, { useEffect } from 'react';
 import propTypes from 'prop-types';
 import { Controller, useForm } from 'react-hook-form';
 import { Grid } from '@mui/material';
@@ -17,6 +17,7 @@ import TextInput from '../TextInput/TextInput';
 import VideoUploader from '../VideoUploader/videoUploader';
 import CheckboxLabels from '../CheckBox/CustomCheckbox';
 import AddNewTable from '../AddNewTable/AddNewTable';
+
 import './CustomForm.css';
 
 /**
@@ -28,9 +29,10 @@ function CustomForm(props) {
   // const defaultValues = {};
   const { AllEntries, onReceiveData, onChangeRadioAction, customFormData, defaultValues, editTrue } = props;
   const [values, setValues] = React.useState([]);
+  console.log(values, 'arhulvalues');
   const [upload, setUpload] = React.useState(null);
   const [resetValue, setResetValue] = React.useState([]);
-  console.log('resset', defaultValues);
+  console.log('reset', defaultValues);
 
   const [colorValue, setColorValue] = React.useState('');
   const {
@@ -166,11 +168,12 @@ function CustomForm(props) {
     customFormData(customData);
     reset(defaultValues);
     setResetValue(!resetValue);
+    console.log('customImage', defaultValues);
   };
   const handleCancel = () => {
     reset(defaultValues);
   };
-  console.log('customImage', AllEntries);
+
   return (
     <Grid container item md={12} sm={12} xs={12}>
       {AllEntries?.map((keyValue) => (

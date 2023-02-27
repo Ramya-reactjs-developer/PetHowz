@@ -6,6 +6,7 @@ import ClinicMaster from "../Pages/Masters/ClinicMaster";
 import DrawerAppBar from "../Components/AppBar/AppBar";
 import { Grooming } from "../Pages/Grooming/Grooming";
 import { PetBoardingSpace } from "../Pages/Home/petBoardingSpace";
+import PetDetails from "../Pages/PetDetails/PetDetails";
 import Footer from "../Components/Footer/Footer";
 
 export const Layout = () => {
@@ -24,6 +25,7 @@ export const Layout = () => {
         <Route path="Cmasters" index element={<ClinicMaster />} />
         <Route path="grooming" index element={<Grooming />} />
         <Route path="PetBoardingSpace" index element={<PetBoardingSpace />} />
+        <Route path="MyPetDetails" index element={<PetDetails />} />
       </Routes>
       <Footer />
     </div>
