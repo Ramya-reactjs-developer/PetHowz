@@ -1,21 +1,34 @@
-import { Card, CardActionArea, CardMedia } from "@mui/material";
+import { Card, CardActionArea, CardMedia, Grid } from "@mui/material";
 import * as React from "react";
-import { ImageCardsSize } from "./Style";
 import PropTypes from "prop-types";
-export default function ImageCards({ imagePath }) {
+export default function ImageCards({
+  ImagePath,
+  CardWidth,
+  CardHeight,
+  ImageWidth,
+  ImageHeight,
+}) {
   return (
-    <Card sx={ImageCardsSize}>
-      <CardActionArea>
+    <Grid item>
+      <Card
+        sx={{
+          maxWidth: CardWidth,
+          maxHeight: CardHeight,
+          borderRadius: 3,
+          width: "100%",
+        }}
+      >
         <CardMedia
           component="img"
-          height="140"
-          image={imagePath}
+          image={ImagePath}
+          width={ImageWidth}
+          height={ImageHeight}
           alt="green iguana"
         />
-      </CardActionArea>
-    </Card>
+      </Card>
+    </Grid>
   );
 }
 ImageCards.propTypes = {
-  imagePath: PropTypes.string.isRequired,
+  imagePath: PropTypes.any.isRequired,
 };

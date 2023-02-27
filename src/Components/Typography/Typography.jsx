@@ -5,8 +5,18 @@ import colors from "../../Utils/Colors/Index";
 import "./Typography.css";
 
 const CustomTypography = (props) => {
-  const { type, text, colorType, customClass, customStyle, requiredField ,textAlign,fontSize,fontFamily,fontWeight} =
-    props;
+  const {
+    type,
+    text,
+    colorType,
+    customClass,
+    customStyle,
+    requiredField,
+    textAlign,
+    fontSize,
+    fontFamily,
+    fontWeight,
+  } = props;
   /**
    * @name getFontType
    * @returns {React.ReactElement}  - returns the required  font type of text
@@ -75,8 +85,6 @@ const CustomTypography = (props) => {
       fontSize={fontSize}
       fontFamily={fontFamily}
       fontWeight={fontWeight}
-
-
     >
       {text}
       {requiredField && <span className="required">*</span>}
