@@ -5,18 +5,18 @@ import propTypes from 'prop-types';
 import { Controller, useForm } from 'react-hook-form';
 import { Grid } from '@mui/material';
 import CustomTypography from '../Typography/Typography';
-import MultipleSelectChip from '../MultipleDropdown/MultipleDropdown';
-import CustomDropdown from '../CustomDropdown/Dropdown';
-import CustomDatePicker from '../DatePicker/datePicker';
+// import MultipleSelectChip from '../MultipleDropdown/MultipleDropdown';
+// import CustomSelect from '../Select/Select';
+// import CustomDatePicker from '../DatePicker/datePicker';
 import CustomFileUploader from '../FileUploader/FileUpload';
-import TextInputColorPicker from '../InputColorPicker/TextInputColor';
-import CustomRadioButton from '../RadioButton/RadioButton';
-import customIcons from '../../utils/icons';
-import CustomButton from '../CustomButton/CustomButton';
-import TextInput from '../TextInput/TextInput';
-import VideoUploader from '../VideoUploader/videoUploader';
-import CheckboxLabels from '../CheckBox/CustomCheckbox';
-import AddNewTable from '../AddNewTable/AddNewTable';
+// import TextInputColorPicker from '../InputColorPicker/TextInputColor';
+// import CustomRadioButton from '../RadioButton/RadioButton';
+import customIcons from '../../Utils/Icons/Index';
+import CustomButton from '../Button/Button';
+import CustomTextField from '../TextField/TextField';
+// import VideoUploader from '../VideoUploader/videoUploader';
+// import CheckboxLabels from '../CheckBox/CustomCheckbox';
+// import AddNewTable from '../AddNewTable/AddNewTable';
 import './CustomForm.css';
 
 /**
@@ -184,7 +184,7 @@ function CustomForm(props) {
             }}
             render={({ field: { onChange, value } }) => (
               <>
-                {keyValue?.isRadioAction && (
+                {/* {keyValue?.isRadioAction && (
                   <Grid item md={12} sm={12} xs={12} my={2} mx={2}>
                     <CustomRadioButton
                       labelText={keyValue.label}
@@ -199,8 +199,8 @@ function CustomForm(props) {
                       customClass={keyValue.customClass}
                     />
                   </Grid>
-                )}
-                {keyValue?.isBirthdayPicker && (
+                )} */}
+                {/* {keyValue?.isBirthdayPicker && (
                   <Grid item md={12} my={2} mx={2} sm={12} xs={12} className="dateEditChange">
                     <CustomDatePicker
                       labelText={keyValue.label}
@@ -215,10 +215,10 @@ function CustomForm(props) {
                       maxDate={keyValue.maxDate}
                     />
                   </Grid>
-                )}
+                )} */}
                 {keyValue?.isTextInput && (
                   <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
-                    <TextInput
+                    <CustomTextField
                       label={keyValue.label}
                       onHandleChange={onChange}
                       value={value}
@@ -237,7 +237,7 @@ function CustomForm(props) {
                   </Grid>
                 )}
 
-                {keyValue?.isCheckBoxAction && (
+                {/* {keyValue?.isCheckBoxAction && (
                   <Grid item md={12} my={2} mx={2} sm={12} xs={12} className="checkboxRow">
                     <CheckboxLabels
                       data={keyValue?.checkBoxData}
@@ -250,10 +250,10 @@ function CustomForm(props) {
                       forWidth={keyValue.forWidth}
                     />
                   </Grid>
-                )}
-                {keyValue?.isDropdown && (
+                )} */}
+                {/* {keyValue?.isDropdown && (
                   <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
-                    <CustomDropdown
+                    <CustomSelect
                       label={keyValue?.label}
                       labelText={keyValue.labelText}
                       handleChange={onChange}
@@ -263,8 +263,8 @@ function CustomForm(props) {
                       // placeholder={keyValue.placeholder}
                     />
                   </Grid>
-                )}
-                {keyValue?.isTextInputColorPicker && (
+                )} */}
+                {/* {keyValue?.isTextInputColorPicker && (
                   <Grid item md={12} sm={12} xs={12}>
                     <TextInputColorPicker
                       label={keyValue.label}
@@ -285,7 +285,7 @@ function CustomForm(props) {
                       resetValue={resetValue}
                     />
                   </Grid>
-                )}
+                )} */}
                 {keyValue?.isFileUploader && (
                   <Grid item md={12} sm={12} my={2} mx={2} xs={12} className="circleLogoBox">
                     <CustomFileUploader
@@ -302,7 +302,7 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
-                {keyValue?.isVideoUploader && (
+                {/* {keyValue?.isVideoUploader && (
                   <Grid item md={12} sm={12} my={2} mx={2} xs={12} className="circleLogoBox">
                     <VideoUploader
                       upLoad={customIcons.LogoUploader}
@@ -318,7 +318,7 @@ function CustomForm(props) {
                       height={100}
                     />
                   </Grid>
-                )}
+                )} */}
                 {keyValue?.isSubmitButton && (
                   <Grid item md={12} sm={12} xs={12} mx={2} className="SubmitButtonColor">
                     <CustomButton
@@ -351,7 +351,7 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
-                {keyValue?.isMultipleSelectChip && (
+                {/* {keyValue?.isMultipleSelectChip && (
                   <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
                     <MultipleSelectChip
                       onSelectValue={(e) => {
@@ -366,8 +366,8 @@ function CustomForm(props) {
                       requiredField={keyValue.requiredField}
                     />
                   </Grid>
-                )}
-                {keyValue?.bookSlotTable && (
+                )} */}
+                {/* {keyValue?.bookSlotTable && (
                   <Grid item md={12} my={2} mx={2} sm={12} xs={12} className="table_name">
                     <AddNewTable
                       // fields={keyValue.fields}
@@ -377,7 +377,7 @@ function CustomForm(props) {
                       slotLable={keyValue.slotLable}
                     />
                   </Grid>
-                )}
+                )} */}
                 {keyValue?.isCustomTypography && (
                   <Grid item md={12} sm={12} xs={12}>
                     <CustomTypography type="header" text={keyValue.text} customClass={keyValue.customClass} />

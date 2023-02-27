@@ -8,34 +8,46 @@ export const PetBoardingSpace = () => {
   // const CardData = Data;
   const imagePath = [
     {
-      imagePath: CustomImages.Dog1,
+      image: CustomImages.Dog1,
+      text:"ghfghf"
     },
     {
-      imagePath: CustomImages.Dog2,
+      image: CustomImages.Dog2,
+      text:"loooo"
     },
     {
-      imagePath: CustomImages.Dog1,
+      image: CustomImages.Dog1,
+      text:"llll"
     },
     {
-      imagePath: CustomImages.Dog2,
+      image: CustomImages.Dog2,
+      text:"kkk"
+    },
+  ];
+  const imagePaths = [
+    {
+      image: CustomImages.Dog1,
     },
   ];
   return (
     <Grid container md={12} sm={12} lg={12} xs={12}>
-      <Grid container md={12} sm={12} lg={12} xs={12} className="petImage">
+      <Grid container md={12} sm={12} lg={12} xs={12}>
         <Grid item md={6} sm={6} lg={6} xs={12}>
           {/* {CardData?.map((item) => {
             return ( */}
-          <PetBoardImageCards
-            imagePath={CustomImages.Dog1}
-            // imagePath={imagePath}
-            customClass="PetBoardImage"
-          />
+          <Grid item md={12} sm={12} lg={12} xs={12} className="PetBoardImage">
+            <PetBoardImageCards
+              // imagePath={CustomImages.Dog2}
+              imagePath={imagePaths}
+              CustomImage="petImage"
+            />
+          </Grid>
+
           {/* );
           })} */}
         </Grid>
-        <Grid item md={6} sm={6} xs={12} className="petHostHeader">
-          <Grid>
+        <Grid item md={6} sm={6} lg={6} xs={12} className="petHostHeader">
+          <Grid item md={12} sm={12} lg={12} xs={12}>
             <Grid item md={12} sm={12} lg={12} xs={12} className="pet-heading">
               <CustomTypography
                 text="Become a Pet Host"
@@ -51,36 +63,43 @@ export const PetBoardingSpace = () => {
               />
             </Grid>
             <Grid
-              item
+              container
               md={12}
               sm={12}
               lg={12}
               xs={12}
               pt={2}
-              className="petListImage"
-              display="inline-flex"
+              className=""
+            
             >
-              <PetBoardImageCards
-                imagePath={CustomImages.Dog2}
-                text="Pet Home Boarding "
-                CustomImage="pet-image"
-                // imagePath={CardData.imagePath}
-                petBoardText="PetBoardImage-image"
-              />
-              <PetBoardImageCards
-                imagePath={CustomImages.Dog2}
-                text="Pet Home Boarding & Services"
-                CustomImage="pet-image"
-                // imagePath={CardData.imagePath}
-                petBoardText="PetBoardImage-image"
-              />
-              <PetBoardImageCards
-                imagePath={CustomImages.Dog2}
-                text="Pet Services"
-                CustomImage="pet-image"
-                // imagePath={CardData.imagePath}
-                petBoardText="PetBoardImage-image"
-              />
+              <Grid item md={3} sm={12} lg={3} xs={12} className="">
+                <PetBoardImageCards
+                  // imagePath={CustomImages.Dog1}
+                  text="Pet Home Boarding "
+                  CustomImage="pet-image"
+                  customClass="petListImage"
+                  imagePath={imagePath}
+                  petBoardText="PetBoardImage-image"
+                />
+              </Grid>
+              <Grid item md={3} sm={12} lg={3} xs={12}>
+                {/* <PetBoardImageCards
+                  imagePath={CustomImages.Dog1}
+                  text="Pet Home Boarding "
+                  CustomImage="pet-image"
+                  // imagePath={CardData.imagePath}
+                  petBoardText="PetBoardImage-image"
+                /> */}
+              </Grid>
+              <Grid item md={3} sm={12} lg={3} xs={12}>
+                {/* <PetBoardImageCards
+                  imagePath={CustomImages.Dog1}
+                  text="Pet Home Boarding "
+                  CustomImage="pet-image"
+                  // imagePath={CardData.imagePath}
+                  petBoardText="PetBoardImage-image"
+                /> */}
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
