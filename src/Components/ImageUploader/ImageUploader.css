@@ -4,6 +4,8 @@
   padding: 10px;
   border-radius: 4px;
   cursor: pointer;
+  width: 200px;
+  text-align: center;
 }
 .Input-Field {
   display: none;
@@ -29,5 +31,33 @@
 .Button-Position {
   position: absolute;
   top: 0;
+
   right: 0;
+}
+.Delete-Button-Style {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid #ff9062;
+  color: #ff9062;
+}
+.Align-Selsections {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 50px;
+}
+.Arrow-Style {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ff9062;
+  color: white;
+}
+.Arrow-Position {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }

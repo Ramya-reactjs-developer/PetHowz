@@ -8,6 +8,7 @@ import { Grooming } from "../Pages/Grooming/Grooming";
 import { PetBoardingSpace } from "../Pages/Home/petBoardingSpace";
 import PetDetails from "../Pages/PetDetails/PetDetails";
 import Footer from "../Components/Footer/Footer";
+import { BasicDetails } from "../Pages/New/Index";
 
 export const Layout = () => {
   return (
@@ -26,8 +27,10 @@ export const Layout = () => {
         <Route path="grooming" index element={<Grooming />} />
         <Route path="PetBoardingSpace" index element={<PetBoardingSpace />} />
         <Route path="MyPetDetails" index element={<PetDetails />} />
+
+        <Route path="BasicDetails" index element={<BasicDetails />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
