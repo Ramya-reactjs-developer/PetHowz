@@ -29,7 +29,7 @@
 }
 
 .MuiRadio-root.Mui-checked {
-    color: #fcc018 !important;
+    color: #fc9518 !important;
     cursor: pointer;
 }
 
@@ -41,7 +41,7 @@
     text-transform: capitalize !important;
 }
 .submitButton:hover {
-    background-color: #f4a01c !important;
+    background-color: #d68b13 !important;
 }
 
 .active_Inactive {
@@ -84,7 +84,7 @@
  .SubmitButtonColor{
     margin: 0px !important;
     margin-right: 10px !important;
-    color: #f8bd22 !important;
+    color: #f89122 !important;
  }
  .SubmitButtonColor .MuiButton-root {
   width:100% !important;
