@@ -273,7 +273,7 @@ function CustomForm(props) {
                       forWidth={keyValue.forWidth}
                     />
                   </Grid>
-                )} 
+                )}
                 {keyValue?.isDropdown && (
                   <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
                     <CustomSelect
@@ -287,7 +287,7 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
- 
+
                 {keyValue?.isFileUploader && (
                   <Grid
                     item
@@ -298,7 +298,7 @@ function CustomForm(props) {
                     xs={12}
                     className="circleLogoBox"
                   >
-                    <CustomImageUploader/>
+                    <CustomImageUploader />
                     {/* <CustomImageUploader
                       upLoad={customIcons.LogoUploader}
                       label={keyValue.label}

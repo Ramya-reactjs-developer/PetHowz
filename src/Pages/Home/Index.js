@@ -7,6 +7,8 @@ import CustomButton from "../../Components/Button/Button";
 import ImageCards from "../../Components/Cards/ImageCards";
 import customImages from "../../Utils/Images";
 import CardsSection from "../../Components/Cards/Cards";
+import CustomTypography from "../../Components/Typography/Typography";
+import { TextDecreaseTwoTone, TextFormat } from "@mui/icons-material";
 
 export const HomePage = () => {
   const CardData = [
@@ -217,30 +219,14 @@ export const HomePage = () => {
         display={"flex"}
         alignItems={"center"}
         justifyContent={"center"}
-        // justifyContent={"center"}
         flexWrap={"wrap"}
         pl={{ lg: "0px", md: "150px", sm: "30px" }}
         pr={{ lg: "0px", md: "150px", sm: "10px" }}
-        rowSpacing={12}
-        // rowGap={12}
-        // alignItems={{ md: "none", sm: "center" }}
-        // justifyContent={{ md: "none", sm: "center" }}
-        // flexWrap={"wrap"}
         md={12}
         xs={12}
         pt={"30px"}
       >
-        {/* <Box
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-            mx: "auto",
-          }}
-        > */}
-
-        <Grid item lg={3} md={6} sm={6} xs={12}>
+        <Grid item justifyContent={"center"} lg={3} md={6} sm={6} xs={12}>
           <Box>
             <ImageCards
               ImagePath={customImages.s1}
@@ -248,8 +234,8 @@ export const HomePage = () => {
               CardHeight={"600px"}
               ImageWidth={"325px"}
               ImageHeight={"600px"}
-              // CardWidth={{ lg: "320px", md: "230px", xs: "300px" }}
-              // CardHeight="580px"
+              service={"Pet Grooming"}
+              sub={"Starting From ₹ 700"}
             />
           </Box>
           <Box sx={{ pt: "20px" }}>
@@ -259,8 +245,8 @@ export const HomePage = () => {
               CardHeight={"300px"}
               ImageWidth={"325px"}
               ImageHeight={"300px"}
-              // CardWidth={{ lg: "325px", md: "230px", xs: "300px" }}
-              // CardHeight="300px"
+              service={"Pet Relocation"}
+              sub={"Starting From ₹ 700"}
             />
           </Box>
         </Grid>
@@ -273,8 +259,8 @@ export const HomePage = () => {
               CardHeight={"300px"}
               ImageWidth={"325px"}
               ImageHeight={"300px"}
-              // CardWidth={{ lg: "325px", md: "230px", xs: "300px" }}
-              // CardHeight={{ lg: "320px", md: "320px" }}
+              service={"Pet Walking"}
+              sub={"Starting From ₹ 700"}
             />
           </Box>
           <Box sx={{ pt: "20px" }}>
@@ -284,8 +270,8 @@ export const HomePage = () => {
               CardHeight={"600px"}
               ImageWidth={"325px"}
               ImageHeight={"600px"}
-              // CardWidth={{ lg: "325px", md: "230px", xs: "300px" }}
-              // CardHeight="600px"
+              service={"Pet Sitting"}
+              sub={"Starting From ₹ 700"}
             />
           </Box>
         </Grid>
@@ -305,8 +291,8 @@ export const HomePage = () => {
               CardHeight={"600px"}
               ImageWidth={"325px"}
               ImageHeight={"600px"}
-              // CardWidth={{ lg: "325px", md: "230px", xs: "300px" }}
-              // CardHeight={{ lg: "600px", md: "280px" }}
+              service={"Pet Taxi"}
+              sub={"Starting From ₹ 700"}
             />
           </Box>
           <Box sx={{ pt: "20px" }}>
@@ -316,8 +302,8 @@ export const HomePage = () => {
               CardHeight={"300px"}
               ImageWidth={"325px"}
               ImageHeight={"300px"}
-              // CardWidth={{ lg: "325px", md: "230px", xs: "300px" }}
-              // ImageHeight="280px"
+              service={"Pet Breeding"}
+              sub={"Starting From ₹ 700"}
             />
           </Box>
         </Grid>
@@ -337,8 +323,8 @@ export const HomePage = () => {
               CardHeight={"300px"}
               ImageWidth={"325px"}
               ImageHeight={"300px"}
-              // CardWidth={{ lg: "325px", md: "230px", xs: "300px" }}
-              // CardHeight="300px"
+              service={"Pet Training"}
+              sub={"Starting From ₹ 700"}
             />
           </Box>
           <Box sx={{ pt: "20px" }}>
@@ -348,9 +334,8 @@ export const HomePage = () => {
               CardHeight={"600px"}
               ImageWidth={"325px"}
               ImageHeight={"600px"}
-
-              // CardWidth={{ lg: "325px", md: "230px", xs: "300px" }}
-              // CardHeight={{ lg: "600px", md: "300px" }}
+              service={"Pet Photography"}
+              sub={"700 Jobs"}
             />
           </Box>
         </Grid>
@@ -378,15 +363,17 @@ export const HomePage = () => {
         sx={{ background: "#ffeee8", mt: "30px", pt: "50px", pb: "30px" }}
       >
         <Grid item xs={12} pt={"30px"}>
-          <Typography variant="h3" textAlign="center">
-            Recommended Pet Boarding Spaces Near You
+          <Typography fontSize={"40px"} textAlign="center">
+            Recommended{" "}
+            <span style={{ fontWeight: "bold" }}>Pet Boarding Spaces </span>{" "}
+            Near You
           </Typography>
         </Grid>
-        {/* <Box sx={{ pt: "40px", pb: "40px" }}>
+        <Grid item xs={12} sx={{ pt: "10px", pb: "10px" }}>
           <Box>
             <CardsSection Data={CardData} />
           </Box>
-        </Box> */}
+        </Grid>
         <Grid item textAlign={"center"} xs={12} pt={"60px"} pb={"60px"}>
           <CustomButton
             btnTitle="Discover More!"
