@@ -6,15 +6,29 @@ import "./Style";
 
 import PropTypes from "prop-types";
 export default function PetBoardImageCards(props) {
-  const { customClass, imagePath, text, petBoardText,CustomImage } = props;
+  const { customClass, imagePath, text, petBoardText, CustomImage } = props;
+  console.log(imagePath, "imagePath");
   // const image = Data;
   return (
-    <Grid item md={12} sm={12} lg={12} xs={12} mr={3} className={customClass}>
+    <Grid item md={12} sm={12} lg={12} xs={12} mr={3}>
       {/* {image?.map((item) => {
         return ( */}
 
-      <CardMedia>
-        <img src={imagePath} alt="" className={CustomImage} />
+      <CardMedia class={customClass}>
+        {imagePath.map((item) => {
+          return (
+            <Grid item md={12} sm={12} lg={12} xs={12} className={CustomImage}>
+              <img src={item.image} alt="" />
+              <CustomTypography
+                variant="body2"
+                text={item.text}
+                type="subHeading"
+                customClass={petBoardText}
+              />
+            </Grid>
+          );
+        })}
+{/* 
         <Grid item md={12} sm={12} lg={12} xs={12} className="textWidth">
           <CustomTypography
             variant="body2"
@@ -22,7 +36,7 @@ export default function PetBoardImageCards(props) {
             type="subHeading"
             customClass={petBoardText}
           />
-        </Grid>
+        </Grid> */}
       </CardMedia>
 
       {/* );
@@ -31,17 +45,17 @@ export default function PetBoardImageCards(props) {
   );
 }
 PetBoardImageCards.propTypes = {
-  imagePath: PropTypes.string,
+  imagePath: PropTypes.array,
   PetBoardImage: PropTypes.string,
-  CustomImage : PropTypes.string,
+  CustomImage: PropTypes.string,
   customClass: PropTypes.string,
   text: PropTypes.string,
   petBoardText: PropTypes.string,
   // Data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
 };
 PetBoardImageCards.defaultProps = {
-  imagePath: "",
-  CustomImage:"",
+  imagePath: [],
+  CustomImage: "",
   text: "",
   petBoardText: "",
   customClass: "",
