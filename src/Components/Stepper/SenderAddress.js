@@ -3,7 +3,10 @@ import { LabelContext } from "../../Pages/Home/petHost/labelDataContext";
 // import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import { petSpaceEntries, DefaultPetSpaceValues } from "../../Pages/Home/petHost/petSpaceEntries";
+import {
+  petSpaceEntries,
+  DefaultPetSpaceValues,
+} from "../../Pages/Home/petHost/petSpaceEntries";
 import CustomForm from "../CustomForm/CustomForm";
 import { Grid } from "@mui/material";
 import "./style.css";
@@ -62,13 +65,13 @@ const SenderAddress = (props) => {
         value={sender.zipCode}
       /> */}
       <Grid>
-      <CustomForm
-        AllEntries={petSpaceEntries}
-        // onReceiveData={onReceiveData}
-        defaultValues={DefaultPetSpaceValues}
-      />
-</Grid>
-      
+        <CustomForm
+          AllEntries={petSpaceEntries}
+          // onReceiveData={onReceiveData}
+          defaultValues={DefaultPetSpaceValues}
+        />
+      </Grid>
+
       <ButtonGroup
         variant="contained"
         color="primary"

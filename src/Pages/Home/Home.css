@@ -1,12 +1,12 @@
 .Home-Banner {
-  background-image: url("../../Assets//Images/Home\ BG.png");
+  /* padding-top: 18rem; */
+  background-image: url("../../Assets/Images/Home\ BG.png");
   background-repeat: no-repeat;
   width: 100%;
-  height: 80vh;
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+  height: auto;
+  /* object-fit: fill; */
+  background-size: cover;
+  background-position: center;
 }
 
 

@@ -14,7 +14,7 @@
 .fileUploader {
   position: absolute;
   height: 400px !important;
-  width: 200px !important;
+  width: 10px !important;
   left: -200px !important;
   top: -200px !important;
   background: transparent !important;

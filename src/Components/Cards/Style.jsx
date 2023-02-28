@@ -2,8 +2,8 @@ export const AddressPostion = {
   pt: "5px",
   display: "flex",
   alignItems: "center",
-  // justifyContent: "space-evenly",
-  gap: "1.45rem",
+
+  gap: "10px",
 };
 export const ReviewsPosition = {
   display: "flex",

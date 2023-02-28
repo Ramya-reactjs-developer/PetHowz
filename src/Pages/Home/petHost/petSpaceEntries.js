@@ -107,8 +107,8 @@ export const petSpaceEntries = [
     {
         isFileUploader: true,
         name: 'fileUploader',
-        label: 'Upload Image',
-        breakpoint: 6,
+        label: 'Add Photos',
+        breakpoint: 8,
         customClass: 'uploadImageContainer',
         validation: { required: true },
         error_message: 'Upload Image',

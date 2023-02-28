@@ -24,22 +24,23 @@ export default function CardsSection({ Data }) {
   //   },
   // ];
   const OverAllCArdPostions = {
+    p: "25px",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center",
-    gap: "30px",
+
+    gap: { lg: "30px", md: "100px", sm: "150px" },
     flexWrap: "wrap",
   };
 
   const CardSize = {
     width: "100%",
-    maxWidth: "248px",
+    maxWidth: "250px",
   };
   const CardMediaSize = {
     margin: "auto",
     width: "100%",
     height: "200px",
-    maxWidth: "248px",
+    maxWidth: "250px",
   };
 
   const AddressSubPosition1 = {
@@ -55,7 +56,7 @@ export default function CardsSection({ Data }) {
   };
 
   return (
-    <Grid item container xl={12} lg={12} md={12} sm={12} xs={12}>
+    <Grid container item xl={12} lg={12} md={12} sm={12} xs={12}>
       <Box sx={OverAllCArdPostions}>
         {CardData.map((item, key) => {
           return (
@@ -85,7 +86,7 @@ export default function CardsSection({ Data }) {
                             text={item.address}
                             type="caption"
                             colorType="senary"
-                            fontSize="12px"
+                            fontSize="10px"
                           />
                         </Box>
                         <Box>
@@ -93,7 +94,7 @@ export default function CardsSection({ Data }) {
                             text={item.distance}
                             type="caption"
                             colorType="senary"
-                            fontSize="12px"
+                            fontSize="10px"
                           />
                         </Box>
                       </Box>
@@ -104,7 +105,7 @@ export default function CardsSection({ Data }) {
                           text={item.type}
                           type="caption"
                           colorType="senary"
-                          fontSize="12px"
+                          fontSize="10px"
                         />
                       </Box>
                       <Box sx={ReviewsPosition}>
@@ -117,7 +118,7 @@ export default function CardsSection({ Data }) {
                             text={item.reviews}
                             type="caption"
                             colorType="senary"
-                            fontSize="12px"
+                            fontSize="10px"
                           />
                         </Box>
 
@@ -125,7 +126,7 @@ export default function CardsSection({ Data }) {
                           btnTitle="View Details"
                           color="primary"
                           btnStyles={CardBtnStyles}
-                          fontSize="12px"
+                          fontSize="10px"
                         />
                       </Box>
                     </CardContent>
