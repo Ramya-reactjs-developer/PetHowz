@@ -14,7 +14,7 @@ import CustomDatePicker from "../DatePicker/DatePicker";
 import CustomRadioButton from "../RadioButton/RadioButton";
 import CustomCheckbox from "../CheckBox/CheckBox";
 import CustomSelect from "../Select/Select";
-// import CustomImageUploader from "../ImageUploader/ImageUploader";
+import CustomImageUploader from "../ImageUploader/MultiImageUploader";
 import MultipleSelectChip from "../MultipleDropdown/MultipleDropdown";
 
 /**
