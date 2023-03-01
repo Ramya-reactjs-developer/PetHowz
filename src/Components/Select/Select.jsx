@@ -1,57 +1,97 @@
-/* eslint-disable react/forbid-prop-types */
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import { FormControl, Select, MenuItem, Box, InputLabel } from '@mui/material';
 import './Select.css';
+import CustomTypography from '../Typography/Typography';
 /**
  *
- * @param {*} props required props
- * @returns {React.ReactElement} returns the dropdown component
+ * @param {object} props - props required in normal dropdown
+ * @returns {React.ReactElement} - returns the normal dropdown
  */
 function CustomSelect(props) {
-  const { value, dropdown, style, onChangeData, disabled, error, errmsg, placeholder, className } = props;
+  const {
+    data,
+    handleChange,
+    // dropDownChange,
+    labelText,
+    value,
+    disabled,
+    name,
+    label,
+    customClass,
+    selectedValue,
+    placeholder,
+    requiredField,
+  } = props;
+  console.log(selectedValue, 'handleChange');
   return (
-    <div className="dropdown">
-      <div>
-        <select
-          disabled={disabled && disabled}
-          style={style}
-          onChange={(e) => onChangeData && onChangeData(e.target.value)}
-          className={`dropdownStyling ${className}`}
+    <Box className="box" item md={12} sm={12}>
+      <Box>
+        <CustomTypography
+          type="caption"
+          text={labelText}
+          placeholder={placeholder}
+          customClass="textDropdown"
+          // colorType="senary"
+          requiredField={requiredField}
+        />
+      </Box>
+      <FormControl className="formControl" fullWidth disabled={disabled} size="small">
+        <InputLabel id="demo-simple-select-label" color="primary" className="input">
+          {placeholder}
+        </InputLabel>
+
+        <Select
+          size="small"
+          name={name}
+          fullWidth
+          // labelId="demo-simple-select-label"
+          // id="demo-simple-select"
+          labelId="demo-select-small"
+          id="demo-select-small"
+          value={value}
+          label={label}
+          selectedValue={selectedValue}
+          data={data}
+          className={`${customClass} ${disabled && 'disable'} customDropdown`}
+          onChange={(e) => handleChange(e)}
+          // dropDownChange={(e) => dropDownChange(e)}
+          displayEmpty
+          inputProps={{ 'aria-label': 'Without label' }}
         >
-          <option value="" disabled selected>
-            {placeholder}
-          </option>
-          {dropdown.map((data) => (
-            <option value={data.id} selected={value === data.id} className="option">
-              {data.value}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="Errormsg">
-        <div>{error && errmsg}</div>
-      </div>
-    </div>
+          {data?.length &&
+            data?.map((item) => (
+              <MenuItem value={item?.value} key={item?.id}>
+                {item?.value}
+              </MenuItem>
+            ))}
+        </Select>
+      </FormControl>
+    </Box>
   );
 }
 export default CustomSelect;
+
 CustomSelect.propTypes = {
-  value: PropTypes.string.isRequired,
-  dropdown: PropTypes.arrayOf(PropTypes.any).isRequired,
-  style: PropTypes.objectOf,
-  onChangeData: PropTypes.func,
+  data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
+  handleChange: PropTypes.func.isRequired,
+  // dropDownChange: PropTypes.func.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   disabled: PropTypes.bool,
-  error: PropTypes.bool,
-  errmsg: PropTypes.bool,
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  selectedValue: PropTypes.bool,
+  customClass: PropTypes.string,
+  requiredField: PropTypes.bool,
   placeholder: PropTypes.string,
-  className: PropTypes.string,
+  labelText: PropTypes.string,
 };
 CustomSelect.defaultProps = {
-  style: {},
-  onChangeData: null,
   disabled: false,
-  error: false,
-  errmsg: '',
+  label: '',
+  customClass: '',
+  selectedValue: '',
+  requiredField: false,
   placeholder: '',
-  className: '',
+  labelText: '',
 };
