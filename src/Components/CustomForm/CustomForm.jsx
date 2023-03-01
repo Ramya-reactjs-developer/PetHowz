@@ -191,7 +191,7 @@ function CustomForm(props) {
             }}
             render={({ field: { onChange, value } }) => (
               <>
-                {keyValue?.isRadioAction && (
+                {/* {keyValue?.isRadioAction && (
                   <Grid item md={12} sm={12} xs={12} my={2} mx={2}>
                     <CustomRadioButton
                       labelText={keyValue.label}
@@ -230,7 +230,7 @@ function CustomForm(props) {
                       maxDate={keyValue.maxDate}
                     />
                   </Grid>
-                )}
+                )} */}
                 {keyValue?.isTextInput && (
                   <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
                     <TextField
@@ -360,7 +360,7 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
-                {keyValue?.isMultipleSelectChip && (
+                {/* {/* {keyValue?.isMultipleSelectChip && (
                   <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
                     <MultipleSelectChip
                       onSelectValue={(e) => {
@@ -375,7 +375,7 @@ function CustomForm(props) {
                       requiredField={keyValue.requiredField}
                     />
                   </Grid>
-                )}
+                )} */}
 
                 {keyValue?.isCustomTypography && (
                   <Grid item md={12} sm={12} xs={12}>
