@@ -5,7 +5,7 @@ import propTypes from "prop-types";
 import { Controller, useForm } from "react-hook-form";
 import { Grid } from "@mui/material";
 import CustomTypography from "../Typography/Typography";
-// import customIcons from "../../Utils/Icons/Index";
+import customIcons from "../../Utils/Icons/Index";
 import CustomButton from "../Button/Button";
 import TextField from "../TextField/TextField";
 
@@ -14,8 +14,9 @@ import CustomDatePicker from "../DatePicker/DatePicker";
 import CustomRadioButton from "../RadioButton/RadioButton";
 import CustomCheckbox from "../CheckBox/CheckBox";
 import CustomSelect from "../Select/Select";
-import CustomImageUploader from "../ImageUploader/MultiImageUploader";
+import CustomImageUploader from "../FileUploader/FileUpload";
 import MultipleSelectChip from "../MultipleDropdown/MultipleDropdown";
+import CustomIcons from "../../Utils/Icons/Index";
 
 /**
  * @param {*} props defines the prop
@@ -191,7 +192,7 @@ function CustomForm(props) {
             }}
             render={({ field: { onChange, value } }) => (
               <>
-                {/* {keyValue?.isRadioAction && (
+                {keyValue?.isRadioAction && (
                   <Grid item md={12} sm={12} xs={12} my={2} mx={2}>
                     <CustomRadioButton
                       labelText={keyValue.label}
@@ -230,7 +231,7 @@ function CustomForm(props) {
                       maxDate={keyValue.maxDate}
                     />
                   </Grid>
-                )} */}
+                )}
                 {keyValue?.isTextInput && (
                   <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
                     <TextField
@@ -299,8 +300,8 @@ function CustomForm(props) {
                     className="circleLogoBox"
                   >
                     {/* <CustomImageUploader /> */}
-                    {/* <CustomImageUploader
-                      upLoad={customIcons.LogoUploader}
+                    <CustomImageUploader
+                      upLoad={CustomIcons.Food}
                       label={keyValue.label}
                       customClass={keyValue.customClass}
                       getImage={(val) => {
@@ -310,7 +311,7 @@ function CustomForm(props) {
                       regForm={keyValue.regForm}
                       defaultImage={keyValue.defaultImage}
                       resetValue={resetValue}
-                    /> */}
+                    />
                   </Grid>
                 )}
 
@@ -412,11 +413,15 @@ function CustomForm(props) {
               />
             </Grid>
           )}
-          {/* {errors && errors[keyValue?.name]?.type === 'pattern' && (
+          {errors && errors[keyValue?.name]?.type === "pattern" && (
             <Grid>
-              <CustomTypography text={`${keyValue?.label} invalid format`} colorType="error" type="error" />
+              <CustomTypography
+                text={`${keyValue?.label} invalid format`}
+                colorType="error"
+                type="error"
+              />
             </Grid>
-          )} */}
+          )}
           {errors && errors[keyValue?.name]?.type === "pattern" && (
             <Grid>
               <CustomTypography

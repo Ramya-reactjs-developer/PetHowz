@@ -12,22 +12,22 @@ export const PetDetailsEntries = [
     validation_error_message: "Text is in Invalid format",
     error_message: "First Text",
   },
- {
+  {
     isDropdown: true,
-    name: 'ads_place',
+    name: "ads_place",
     breakpoint: 3,
-    labelText: 'Select Ads Place',
-    placeholder: 'Ads Place',
+    labelText: "Select Ads Place",
+    placeholder: "Ads Place",
     disabled: false,
-    error_message: 'Select Ads Place ',
+    error_message: "Select Ads Place ",
     DropdownData: [
       {
         id: 1,
-        value: 'Home Gallery',
+        value: "Home Gallery",
       },
       {
         id: 2,
-        value: 'Home Video',
+        value: "Home Video",
       },
     ],
     validation: { required: true },
@@ -60,7 +60,7 @@ export const PetDetailsEntries = [
     validation_error_message: "Text is in Invalid format",
     error_message: "First Text",
   },
-    {
+  {
     isTextInput: true,
     name: "firstText",
     label: "Banner ",
@@ -151,7 +151,6 @@ export const PetDetailsEntries = [
     validation_error_message: "Text is in Invalid format",
     error_message: "First Text",
   },
- 
 
   {
     isFileUploader: true,
@@ -165,7 +164,6 @@ export const PetDetailsEntries = [
     error_message: "Upload Image",
   },
 
-
   {
     isSubmitButton: true,
     name: "submit_button",
@@ -173,7 +171,4 @@ export const PetDetailsEntries = [
     breakpoint: 1,
     customClass: "sourceButton",
   },
-
- 
 ];
-

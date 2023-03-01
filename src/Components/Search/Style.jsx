@@ -1,18 +1,15 @@
 export const SearchInputPosition = {
   display: "flex",
   alignItems: "center",
+  justifyContents: "center",
   border: "3px solid #f57059",
   borderRadius: "35px",
-  width: {
-    xs: "500px",
-  },
+  width: "100%",
+  maxWidth: { sm: "500px", xs: "290px" },
   height: "70px",
 };
 export const TextFieldCustomazation = {
   width: {
-    xl: "400px",
-    lg: "400px",
-    md: "400px",
     sm: "400px",
     xs: "200px",
   },
