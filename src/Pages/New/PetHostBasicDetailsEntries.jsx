@@ -1,11 +1,5 @@
 export const PetHostBasicDetailsEntries = [
   {
-    isEmptySpace: true,
-    breakpoint: 5,
-    name: "space",
-  },
-
-  {
     isTextInput: true,
     name: "Name of Pet",
     label: "Your Name",
