@@ -14,7 +14,7 @@ import CustomDatePicker from "../DatePicker/DatePicker";
 import CustomRadioButton from "../RadioButton/RadioButton";
 import CustomCheckbox from "../CheckBox/CheckBox";
 import CustomSelect from "../Select/Select";
-import CustomImageUploader from "../ImageUploader/ImageUploader";
+// import CustomImageUploader from "../ImageUploader/ImageUploader";
 import MultipleSelectChip from "../MultipleDropdown/MultipleDropdown";
 
 /**
@@ -298,7 +298,7 @@ function CustomForm(props) {
                     xs={12}
                     className="circleLogoBox"
                   >
-                    <CustomImageUploader />
+                    {/* <CustomImageUploader /> */}
                     {/* <CustomImageUploader
                       upLoad={customIcons.LogoUploader}
                       label={keyValue.label}
