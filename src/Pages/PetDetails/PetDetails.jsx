@@ -21,7 +21,7 @@ const MyForm = () => {
           colorType="senary"
         />
         </Grid>
-        <Grid item spacing={5}>
+        <Grid item spacing={2}>
         <Grid className="NewsBorder">
           <CustomForm
             AllEntries={entry.length > 0 ? entry : PetDetailsEntries}
