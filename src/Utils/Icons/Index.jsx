@@ -27,10 +27,13 @@ import Twitter from "../../Assets/Icons/Twitter.svg";
 import Vegnonveg from "../../Assets/Icons/Vegnonveg.svg";
 import Youtube from "../../Assets/Icons/Youtube.svg";
 import DoneTick from "../../Assets/Icons/Done.svg";
+import modalClose from "../../Assets/Icons/redCross.png";
 import ModalClose from "../../Assets/Icons/redCross.png";
 import LogoUploader from "../../Assets/Icons/logoUploader.svg";
+import ProfileAvatar from "../../Assets/Icons/ProfileAvatar.svg";
 const CustomIcons = {
   Logo,
+  modalClose,
   Addons,
   AirCondition,
   AllowedOnBed,
@@ -61,5 +64,6 @@ const CustomIcons = {
   DoneTick,
   ModalClose,
   LogoUploader,
+  ProfileAvatar,
 };
 export default CustomIcons;

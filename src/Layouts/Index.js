@@ -4,6 +4,7 @@ import { HomePage } from "../Pages/Home/Index";
 import DrawerAppBar from "../Components/AppBar/AppBar";
 import { Grooming } from "../Pages/Grooming/Grooming";
 import { PetBoardingSpace } from "../Pages/Home/petBoardingSpace";
+import GroomingService from "../Pages/GroomingService/GroomingService";
 import PetHost from "../Pages/Home/petHost/PetHost";
 import PetSpace from "../Pages/Home/petHost/petSpace";
 import PetDetails from "../Pages/PetDetails/PetDetails";
@@ -18,6 +19,7 @@ export const Layout = () => {
       <Routes>
         <Route path="/" index element={<HomePage />} />
         <Route path="grooming" index element={<Grooming />} />
+        <Route path="groomingService" index element={<GroomingService />} />
         <Route path="PetBoardingSpace" index element={<PetBoardingSpace />} />
         <Route path="PetHost" index element={<PetHost />} />
         <Route path="PetSpace" index element={<PetSpace />} />

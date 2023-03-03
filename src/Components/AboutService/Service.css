@@ -1,0 +1,33 @@
+.serviceImage{
+    max-width: 150px;
+    height: 126px;
+}
+.serviceImage img{
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+}
+.serviceName{
+    font-size: 18px !important;
+    font-weight: bold !important;
+}
+.serviceProfessional{
+    font-size: 18px !important;
+    color: #999 !important;
+}
+.serviceYear{
+    font-size: 18px !important;
+    color: #999 !important;
+}
+
+.serviceContent{
+    color: #545A58 !important;
+}
+.serviceBtn{
+    text-align: end;
+}
+.btnBottomText{
+    padding-right: 42px;
+    padding-top: 10px;
+    color: #545A58 !important;
+}

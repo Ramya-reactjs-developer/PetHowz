@@ -138,6 +138,7 @@ export const PetDetailsEntries = [
     validation_error_message: "Text is in Invalid format",
     error_message: "First Text",
   },
+ 
   {
     isTextInput: true,
     name: "firstText",
