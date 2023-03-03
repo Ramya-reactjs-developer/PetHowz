@@ -1,5 +1,7 @@
 import Dog1 from "../../Assets/Images/dogs.jpg";
 import Dog2 from "../../Assets/Images/dogss.jpg";
+import PetImage from "../../Assets/Images/download.jpeg";
+import Service from "../../Assets/Images/service.jpg";
 import s1 from "../../Assets/Images/s1.jpg";
 import s2 from "../../Assets/Images/s2.png";
 import s3 from "../../Assets/Images/s3.png";
@@ -14,6 +16,8 @@ import AppStore from "../../Assets/Images/AppStore.png";
 const customImages = {
   Dog1,
   Dog2,
+  PetImage,
+  Service,
   s1,
   s2,
   s3,

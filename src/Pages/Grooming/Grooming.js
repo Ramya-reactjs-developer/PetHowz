@@ -99,6 +99,7 @@ export const Grooming = () => {
       reviews: "(75 reviews)",
     },
   ];
+
   return (
     <Grid className="container" item md={12} lg={12} sm={12} xs={12}>
       <Grid item md={12} lg={12} sm={12} xs={12}>
