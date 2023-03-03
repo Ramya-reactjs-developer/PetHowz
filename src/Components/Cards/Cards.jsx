@@ -3,12 +3,22 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import { Box, CardActionArea, CardActions, Grid } from "@mui/material";
-import { AddressPostion, CardBtnStyles, ReviewsPosition } from "./Style";
+// import { AddressPosition, CardBtnStyles, ReviewsPosition } from "./Style";
 import PropTypes from "prop-types";
 import CustomTypography from "../Typography/Typography";
 import CustomButton from "../Button/Button";
 import CustomIcons from "../../Utils/Icons/Index";
 import { CustomizedRatings } from "../StarRatings/CustomizedRatings";
+import {
+  AddressPosition,
+  AddressSubPosition1,
+  AddressSubPosition2,
+  CardBtnStyles,
+  CardMediaSize,
+  CardSize,
+  OverAllCArdPostions,
+  ReviewsPosition,
+} from "./Style";
 
 export default function CardsSection({ Data }) {
   const CardData = Data;
@@ -23,40 +33,19 @@ export default function CardsSection({ Data }) {
   //     reviews: "(75 reviews)",
   //   },
   // ];
-  const OverAllCArdPostions = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: "30px",
-    flexWrap: "wrap",
-  };
-
-  const CardSize = {
-    width: "100%",
-    maxWidth: "248px",
-  };
-  const CardMediaSize = {
-    margin: "auto",
-    width: "100%",
-    height: "200px",
-    maxWidth: "248px",
-  };
-
-  const AddressSubPosition1 = {
-    display: "flex",
-    alignItems: "center",
-    gap: "7px",
-  };
-  const AddressSubPosition2 = {
-    pt: "10px",
-    display: "flex",
-    alignItems: "center",
-    gap: "7px",
-  };
 
   return (
-    <Grid item container xl={12} lg={12} md={12} sm={12} xs={12}>
-      <Box sx={OverAllCArdPostions}>
+    <Grid
+      container
+      sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      item
+      xl={12}
+      lg={12}
+      md={12}
+      sm={12}
+      xs={12}
+    >
+      <Grid item sx={OverAllCArdPostions}>
         {CardData.map((item, key) => {
           return (
             <Box key={key}>
@@ -70,30 +59,30 @@ export default function CardsSection({ Data }) {
                       sx={CardMediaSize}
                     />
                   </CardActionArea>
-                  <CardActions>
+                  <CardActions sx={{ maxWidth: "250px" }}>
                     <CardContent>
                       <Box></Box>
                       <CustomTypography
                         text={item.name}
                         type="h6"
-                        colorType="black"
+                        colorType="text"
                       />
-                      <Box sx={AddressPostion}>
+                      <Box sx={AddressPosition}>
                         <Box sx={AddressSubPosition1}>
                           <img src={CustomIcons.Location} alt="location" />
                           <CustomTypography
                             text={item.address}
-                            type="caption"
+                            type="title"
+                            customStyle={{ fontSize: "10px" }}
                             colorType="senary"
-                            fontSize="12px"
                           />
                         </Box>
                         <Box>
                           <CustomTypography
                             text={item.distance}
-                            type="caption"
+                            type="title"
+                            customStyle={{ fontSize: "10px" }}
                             colorType="senary"
-                            fontSize="12px"
                           />
                         </Box>
                       </Box>
@@ -102,9 +91,9 @@ export default function CardsSection({ Data }) {
                         <img src={CustomIcons.Building} alt="location" />
                         <CustomTypography
                           text={item.type}
-                          type="caption"
+                          type="title"
+                          customStyle={{ fontSize: "10px" }}
                           colorType="senary"
-                          fontSize="12px"
                         />
                       </Box>
                       <Box sx={ReviewsPosition}>
@@ -115,9 +104,9 @@ export default function CardsSection({ Data }) {
 
                           <CustomTypography
                             text={item.reviews}
-                            type="caption"
+                            type="title"
+                            customStyle={{ fontSize: "10px" }}
                             colorType="senary"
-                            fontSize="12px"
                           />
                         </Box>
 
@@ -125,7 +114,6 @@ export default function CardsSection({ Data }) {
                           btnTitle="View Details"
                           color="primary"
                           btnStyles={CardBtnStyles}
-                          fontSize="12px"
                         />
                       </Box>
                     </CardContent>
@@ -135,7 +123,7 @@ export default function CardsSection({ Data }) {
             </Box>
           );
         })}
-      </Box>
+      </Grid>
     </Grid>
   );
 }

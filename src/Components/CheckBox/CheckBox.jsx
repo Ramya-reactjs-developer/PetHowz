@@ -1,33 +1,68 @@
-import React from 'react';
-import { makeStyles } from '@mui/styles';
-import {FormControlLabel,Checkbox} from '@mui/material';
+/* eslint-disable no-unused-vars */
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import { FormControlLabel, FormControl, FormGroup, Checkbox, FormLabel, Grid } from '@mui/material';
+import CustomTypography from '../Typography/Typography';
+import './CheckBox.css';
+/**
+ *
+ * @param {*} props --required props
+ * @returns {React.ReactElement} returns the checkBox Component
+ */
 
-
-const useStyles = makeStyles({
-  root: {
-    '& .MuiCheckbox-root': {
-      color: 'primary'
-    }
-  }
-});
-
-const CustomCheckbox = ({ name, label, checked, onChange }) => {
-  const classes = useStyles();
-
+function CheckboxLabels(props) {
+  const { onChange, labelText, value, data, id, label, labelPlacement } = props;
   return (
-    <FormControlLabel
-      control={
-        <Checkbox
-          name={name}
-          checked={checked}
+    <Grid className="checkboxStyle">
+      <FormControl>
+        <FormLabel id="demo-controlled-radio-buttons-group">
+          <CustomTypography text={labelText} colorType="primary" customClass="textLabel" />
+        </FormLabel>
+        <FormGroup
+          labelled="demo-controlled-radio-buttons-group"
+          name="controlled-radio-buttons-group"
           onChange={onChange}
-          color="primary"
-        />
-      }
-      label={label}
-      classes={{ root: classes.root }}
-    />
+          value={value}
+          style={{ display: 'flex', flexDirection: 'row' }}
+        >
+          {data?.map((item, index) => {
+            const key = index;
+            return (
+              <Grid key={key}>
+                <FormControlLabel
+                  style={{ display: 'flex' }}
+                  id={id && 'customStyle'}
+                  control={<Checkbox color="warning" />}
+                  label={item.name}
+                  value={item.name}
+                  labelPlacement={labelPlacement}
+                />
+              </Grid>
+            );
+          })}
+        </FormGroup>
+      </FormControl>
+    </Grid>
   );
-};
+}
+export default CheckboxLabels;
 
-export default CustomCheckbox;
+CheckboxLabels.propTypes = {
+  onChange: PropTypes.func,
+  data: PropTypes.arrayOf().isRequired,
+  labelText: PropTypes.string,
+  value: PropTypes.string,
+  // defaultValue: PropTypes.string,
+  labelPlacement: PropTypes.string,
+  id: PropTypes.string,
+  label: PropTypes.string,
+};
+CheckboxLabels.defaultProps = {
+  onChange: () => null,
+  labelText: '',
+  value: '',
+  // defaultValue: "",
+  labelPlacement: '',
+  id: '',
+  label: '',
+};

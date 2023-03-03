@@ -1,9 +1,40 @@
-export const AddressPostion = {
+export const OverAllCArdPostions = {
+  p: "25px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  gap: "30px",
+  flexWrap: "wrap",
+};
+
+export const CardSize = {
+  width: "100%",
+  maxWidth: "250px",
+};
+export const CardMediaSize = {
+  margin: "auto",
+  width: "100%",
+  height: "200px",
+  maxWidth: "250px",
+};
+
+export const AddressSubPosition1 = {
+  display: "flex",
+  alignItems: "center",
+  gap: "7px",
+};
+export const AddressSubPosition2 = {
+  pt: "10px",
+  display: "flex",
+  alignItems: "center",
+  gap: "7px",
+};
+export const AddressPosition = {
   pt: "5px",
   display: "flex",
   alignItems: "center",
-  // justifyContent: "space-evenly",
-  gap: "1.45rem",
+  justifyContent: "flex-start",
+  gap: "55px",
 };
 export const ReviewsPosition = {
   display: "flex",
@@ -11,7 +42,10 @@ export const ReviewsPosition = {
   justifyContent: "space-between",
   pt: "20px",
 };
+export const CardBtnStyles = { color: "white" };
+
 export const ImageCardsSize = { maxWidth: 345, borderRadius: 3 };
+
 export const PetHomeCardSize = { maxWidth: "950px", height: "175px" };
 
 export const PetHomeCardPosition = { display: "flex", gap: "30px" };
@@ -164,5 +198,3 @@ export const MealCardButtonPostion = {
   pt: "10px",
   textAlign: "center",
 };
-
-export const CardBtnStyles = { color: "white" };

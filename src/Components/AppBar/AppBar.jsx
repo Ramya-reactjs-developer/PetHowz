@@ -193,7 +193,6 @@ import {
   List,
   ListItemButton,
   ListItemIcon,
-  Typography,
   ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -243,6 +242,9 @@ const Header = (props) => {
               src={CustomIcons.Logo}
               alt="LOGO"
               sx={{ transform: "scale(2)" }}
+              height="60px"
+              style={{margin:"10px 0px 10px 0px"}}
+
             />
 
             {isMatch ? (

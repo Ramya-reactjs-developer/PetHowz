@@ -28,6 +28,8 @@ import Vegnonveg from "../../Assets/Icons/Vegnonveg.svg";
 import Youtube from "../../Assets/Icons/Youtube.svg";
 import DoneTick from "../../Assets/Icons/Done.svg";
 import modalClose from "../../Assets/Icons/redCross.png";
+import ModalClose from "../../Assets/Icons/redCross.png";
+import LogoUploader from "../../Assets/Icons/logoUploader.svg";
 const CustomIcons = {
   Logo,
   modalClose,
@@ -59,5 +61,7 @@ const CustomIcons = {
   Vegnonveg,
   Youtube,
   DoneTick,
+  ModalClose,
+  LogoUploader,
 };
 export default CustomIcons;
