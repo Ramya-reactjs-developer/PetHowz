@@ -10,7 +10,7 @@ import PetSpace from "../Pages/Home/petHost/petSpace";
 import PetDetails from "../Pages/PetDetails/PetDetails";
 import Footer from "../Components/Footer/Footer";
 import { BasicDetails } from "../Pages/New/Index";
-import { MyDashBoard } from "../Pages/HostDashBoard/Index";
+import { MyDashBoard } from "../Pages/HoastDashBoard/Index";
 
 export const Layout = () => {
   return (
