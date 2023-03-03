@@ -29,6 +29,7 @@ import Youtube from "../../Assets/Icons/Youtube.svg";
 import DoneTick from "../../Assets/Icons/Done.svg";
 import ModalClose from "../../Assets/Icons/redCross.png";
 import LogoUploader from "../../Assets/Icons/logoUploader.svg";
+import ProfileAvatar from "../../Assets/Icons/ProfileAvatar.svg";
 const CustomIcons = {
   Logo,
   Addons,
@@ -61,5 +62,6 @@ const CustomIcons = {
   DoneTick,
   ModalClose,
   LogoUploader,
+  ProfileAvatar,
 };
 export default CustomIcons;

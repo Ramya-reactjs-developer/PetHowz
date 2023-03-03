@@ -5,17 +5,20 @@ import propTypes from "prop-types";
 import { Controller, useForm } from "react-hook-form";
 import { Grid } from "@mui/material";
 import CustomTypography from "../Typography/Typography";
-// import customIcons from "../../Utils/Icons/Index";
 import CustomButton from "../Button/Button";
 import TextField from "../TextField/TextField";
-
 import "./CustomForm.css";
 import CustomDatePicker from "../DatePicker/DatePicker";
 import CustomRadioButton from "../RadioButton/RadioButton";
 import CustomCheckbox from "../CheckBox/CheckBox";
 import CustomSelect from "../Select/Select";
 import CustomImageUploader from "../ImageUploader/MultiImageUploader";
+import CustomFileupload from "../FileUploader/FileUpload";
+import ProfileImageUploader from "../../Components/ProfileImageUploader/ProfileImageUploader";
+
+
 import MultipleSelectChip from "../MultipleDropdown/MultipleDropdown";
+import CustomIcons from "../../Utils/Icons/Index";
 
 /**
  * @param {*} props defines the prop
@@ -299,8 +302,20 @@ function CustomForm(props) {
                     className="circleLogoBox"
                   >
                     {/* <CustomImageUploader /> */}
-                    {/* <CustomImageUploader
-                      upLoad={customIcons.LogoUploader}
+              <ProfileImageUploader
+                upLoad={CustomIcons.Food}
+                label={keyValue.label}
+                customClass={keyValue.customClass}
+                getImage={(val) => {
+                  onChange(val);
+                  getImage(val);
+                }}
+                regForm={keyValue.regForm}
+                defaultImage={keyValue.defaultImage}
+                resetValue={resetValue}
+              /> 
+                    {/* <CustomFileupload
+                      upLoad={CustomIcons.Food}
                       label={keyValue.label}
                       customClass={keyValue.customClass}
                       getImage={(val) => {
