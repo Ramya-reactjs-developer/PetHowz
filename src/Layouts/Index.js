@@ -23,7 +23,7 @@ export const Layout = () => {
         <Route path="MyPetDetails" index element={<PetDetails />} />
         <Route path="BasicDetails" index element={<BasicDetails />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
