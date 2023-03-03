@@ -300,7 +300,7 @@ function CustomForm(props) {
                     className="circleLogoBox"
                   >
                     {/* <CustomImageUploader /> */}
-                    {/* <CustomImageUploader
+                    <CustomImageUploader
                       upLoad={customIcons.LogoUploader}
                       label={keyValue.label}
                       customClass={keyValue.customClass}
@@ -361,7 +361,7 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
-                {/* {/* {keyValue?.isMultipleSelectChip && (
+                 {keyValue?.isMultipleSelectChip && (
                   <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
                     <MultipleSelectChip
                       onSelectValue={(e) => {
@@ -376,7 +376,7 @@ function CustomForm(props) {
                       requiredField={keyValue.requiredField}
                     />
                   </Grid>
-                )} */}
+                )}
 
                 {keyValue?.isCustomTypography && (
                   <Grid item md={12} sm={12} xs={12}>
