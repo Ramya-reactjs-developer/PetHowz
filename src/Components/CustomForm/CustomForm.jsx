@@ -5,16 +5,15 @@ import propTypes from "prop-types";
 import { Controller, useForm } from "react-hook-form";
 import { Grid } from "@mui/material";
 import CustomTypography from "../Typography/Typography";
-import customIcons from "../../Utils/Icons/Index";
+// import customIcons from "../../Utils/Icons/Index";
 import CustomButton from "../Button/Button";
 import TextField from "../TextField/TextField";
-
 import "./CustomForm.css";
 import CustomDatePicker from "../DatePicker/DatePicker";
 import CustomRadioButton from "../RadioButton/RadioButton";
 import CustomCheckbox from "../CheckBox/CheckBox";
 import CustomSelect from "../Select/Select";
-import CustomImageUploader from "../FileUploader/FileUpload";
+import CustomImageUploader from "../ImageUploader/MultiImageUploader";
 import MultipleSelectChip from "../MultipleDropdown/MultipleDropdown";
 import CustomIcons from "../../Utils/Icons/Index";
 
@@ -300,8 +299,8 @@ function CustomForm(props) {
                     className="circleLogoBox"
                   >
                     {/* <CustomImageUploader /> */}
-                    <CustomImageUploader
-                      upLoad={CustomIcons.Food}
+                    {/* <CustomImageUploader
+                      upLoad={customIcons.LogoUploader}
                       label={keyValue.label}
                       customClass={keyValue.customClass}
                       getImage={(val) => {
