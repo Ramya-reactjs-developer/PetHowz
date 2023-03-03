@@ -1,0 +1,17 @@
+#card1 {
+  background: transparent linear-gradient(180deg, #e90b7e 0%, #ff5a5a 100%) 0%
+    0% no-repeat padding-box;
+}
+
+#card2 {
+  background: transparent linear-gradient(180deg, #407bff 0%, #2c55b1 100%) 0%
+    0% no-repeat padding-box;
+}
+
+#card3 {
+  background-color: aqua;
+}
+
+#card4 {
+  background-color: aqua;
+}
