@@ -27,8 +27,10 @@ import Twitter from "../../Assets/Icons/Twitter.svg";
 import Vegnonveg from "../../Assets/Icons/Vegnonveg.svg";
 import Youtube from "../../Assets/Icons/Youtube.svg";
 import DoneTick from "../../Assets/Icons/Done.svg";
+import modalClose from "../../Assets/Icons/redCross.png";
 const CustomIcons = {
   Logo,
+  modalClose,
   Addons,
   AirCondition,
   AllowedOnBed,

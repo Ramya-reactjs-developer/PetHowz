@@ -17,20 +17,8 @@ import {
 } from "./Style";
 import PropTypes from "prop-types";
 
-export default function ServicePackagesCards({ Data }) {
+export default function PackagesCards({ Data }) {
   const CardData = Data;
-  //  [
-  //   {
-  //     price: "₹ 1999",
-  //     offeredPrice: "₹ 999",
-  //     service1: "Bath with Shampoo and conditioner",
-  //     service2: "Blow Dry",
-  //     service3: "Nail Clipping",
-  //     service4: "Ear Cleaning",
-  //     service5: "Paw Massage",
-  //     service6: "Combing/Brushing",
-  //   },
-  // ];
 
   return (
     <Box sx={{ width: "420px" }}>
@@ -125,6 +113,6 @@ export default function ServicePackagesCards({ Data }) {
     </Box>
   );
 }
-ServicePackagesCards.propTypes = {
+PackagesCards.propTypes = {
   Data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
 };
