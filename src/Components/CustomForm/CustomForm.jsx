@@ -5,19 +5,18 @@ import React, { useEffect } from "react";
 import propTypes from "prop-types";
 import { Controller, useForm } from "react-hook-form";
 import { Grid } from "@mui/material";
+import "./CustomForm.css";
 import CustomTypography from "../Typography/Typography";
 import customIcons from "../../Utils/Icons/Index";
 import CustomButton from "../Button/Button";
 import TextField from "../TextField/TextField";
-
-import "./CustomForm.css";
 import CustomDatePicker from "../DatePicker/DatePicker";
 import CustomRadioButton from "../RadioButton/RadioButton";
 import CustomCheckbox from "../CheckBox/CheckBox";
 import CustomSelect from "../Select/Select";
 import CustomImageUploader from "../FileUploader/FileUpload";
 import MultipleSelectChip from "../MultipleDropdown/MultipleDropdown";
-import CustomIcons from "../../Utils/Icons/Index";
+import ProfileImageUploader from "../ProfileImageUploader/ProfileImageUploader";
 
 /**
  * @param {*} props defines the prop
@@ -300,9 +299,8 @@ function CustomForm(props) {
                     xs={12}
                     className="circleLogoBox"
                   >
-                    {/* <CustomImageUploader /> */}
                     <CustomImageUploader
-                      upLoad={CustomIcons.Food}
+                      upLoad={customIcons.LogoUploader}
                       label={keyValue.label}
                       customClass={keyValue.customClass}
                       getImage={(val) => {
@@ -313,6 +311,11 @@ function CustomForm(props) {
                       defaultImage={keyValue.defaultImage}
                       resetValue={resetValue}
                     />
+                  </Grid>
+                )}
+                {keyValue?.isProfileUploader && (
+                  <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
+                    <ProfileImageUploader />
                   </Grid>
                 )}
 
@@ -362,7 +365,7 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
-                {/* {/* {keyValue?.isMultipleSelectChip && (
+                {keyValue?.isMultipleSelectChip && (
                   <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
                     <MultipleSelectChip
                       onSelectValue={(e) => {
@@ -377,7 +380,7 @@ function CustomForm(props) {
                       requiredField={keyValue.requiredField}
                     />
                   </Grid>
-                )} */}
+                )}
 
                 {keyValue?.isCustomTypography && (
                   <Grid item md={12} sm={12} xs={12}>
