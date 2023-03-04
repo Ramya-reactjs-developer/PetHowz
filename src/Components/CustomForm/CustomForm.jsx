@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/require-default-props */
-/* Custom */
+/* eslint-disable react/require-default-props */
 import React, { useEffect } from "react";
 import propTypes from "prop-types";
 import { Controller, useForm } from "react-hook-form";
@@ -14,10 +14,9 @@ import CustomDatePicker from "../DatePicker/DatePicker";
 import CustomRadioButton from "../RadioButton/RadioButton";
 import CustomCheckbox from "../CheckBox/CheckBox";
 import CustomSelect from "../Select/Select";
-import CustomImageUploader from "../ImageUploader/MultiImageUploader";
+import CustomImageUploader from "../FileUploader/FileUpload";
 import MultipleSelectChip from "../MultipleDropdown/MultipleDropdown";
 import ProfileImageUploader from "../ProfileImageUploader/ProfileImageUploader";
-
 
 /**
  * @param {*} props defines the prop
@@ -315,16 +314,8 @@ function CustomForm(props) {
                   </Grid>
                 )}
                 {keyValue?.isProfileUploader && (
-                  <Grid
-                    item
-                    md={12}
-                    sm={12}
-                    my={2}
-                    mx={2}
-                    xs={12}
-                
-                  >
-                    <ProfileImageUploader/>
+                  <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
+                    <ProfileImageUploader />
                   </Grid>
                 )}
 
@@ -374,7 +365,7 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
-                 {keyValue?.isMultipleSelectChip && (
+                {keyValue?.isMultipleSelectChip && (
                   <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
                     <MultipleSelectChip
                       onSelectValue={(e) => {
