@@ -6,7 +6,7 @@ import { Button, Grid } from "@mui/material";
 import CustomIcons from "../../Utils/Icons/Index";
 // import CustomButton from "../Button/Button";
 import Camera from '@mui/icons-material/CameraAlt';
-import './ProfileImageUploader.css'
+import './ProfileImageUploader2.css'
 export const AvatarInput = styled.div`
   margin-bottom: 10px;
   position: relative;
@@ -51,7 +51,7 @@ export const AvatarInput = styled.div`
   }
 `;
 
-export default function ProfileImageUploader() {
+export default function ProfileImageUploader2() {
   const [url, setUrl] = useState(CustomIcons.ProfileAvatar);
 
   const handleFiles = (files) => {
@@ -70,10 +70,9 @@ export default function ProfileImageUploader() {
         base64={true}
         handleFiles={handleFiles}
         className="filebutton"
-        style={{height:"50px",width:"50px"}}
       >
-        <Button variant="contained">
-       hi</Button>
+        <Button variant="contained" sx={{borderRadius:"100%", height:"50px",width:"50px"}}  >
+        <Camera fontSize="small" sx={{height:"20px",width:"20px"}} /></Button>
       </ReactFileReader>
     </Grid>
   );

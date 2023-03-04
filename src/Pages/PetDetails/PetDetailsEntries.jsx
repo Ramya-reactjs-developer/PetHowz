@@ -154,13 +154,13 @@ export const PetDetailsEntries = [
   },
 
   {
-    isFileUploader: true,
+    isProfileUploader: true,
     name: "fileUploader",
     label: "Upload Image",
     // pattern: /^.*\.(jpg|jpeg|gif|JPG|png|PNG)$/,
     pattern: /\.(jpeg|png|gif|bmp)$/i,
     breakpoint: 3,
-    customClass: "uploadImageContainer",
+    // customClass: "uploadImageContainer",
     validation: { required: true },
     error_message: "Upload Image",
   },
