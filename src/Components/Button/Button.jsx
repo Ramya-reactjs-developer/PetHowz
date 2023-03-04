@@ -34,10 +34,10 @@ CustomButton.propTypes = {
   btnStyles: PropTypes.oneOfType([PropTypes.object]),
   onClickHandle: PropTypes.func,
 };
-// CustomButton.defaultProps = {
-//   variant: "contained",
-//   color: "",
-//   customClass: "",
-//   btnStyles: {},
-//   onClickHandle: () => null,
-// };
+CustomButton.defaultProps = {
+  variant: "contained",
+  color: "",
+  customClass: "",
+  btnStyles: {},
+  onClickHandle: () => null,
+};
