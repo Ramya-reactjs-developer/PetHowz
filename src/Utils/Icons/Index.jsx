@@ -31,8 +31,16 @@ import modalClose from "../../Assets/Icons/redCross.png";
 import ModalClose from "../../Assets/Icons/redCross.png";
 import LogoUploader from "../../Assets/Icons/logoUploader.svg";
 import ProfileAvatar from "../../Assets/Icons/ProfileAvatar.svg";
+import Location2 from "../../Assets/Icons/map-pin-line.svg";
+import Edit from "../../Assets/Icons/pencil-line.svg";
+import Email from "../../Assets/Icons/mail-line.svg";
+import Call from "../../Assets/Icons/phone-line.svg";
 const CustomIcons = {
   Logo,
+  Call,
+  Email,
+  Location2,
+  Edit,
   modalClose,
   Addons,
   AirCondition,

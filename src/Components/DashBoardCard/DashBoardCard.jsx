@@ -7,14 +7,9 @@ import { CardActionArea } from "@mui/material";
 import { Box } from "@mui/system";
 import "../DashBoardCard/DashBoardCard.css";
 
-export default function DashBoardCard({
-  id = "card1",
-  tittle = "new user",
-  icon,
-  number = "5",
-}) {
+export default function DashBoardCard({ id, tittle, icon, number, MWidth }) {
   return (
-    <Card id={id} sx={{ borderRadius: "15px" }}>
+    <Card id={id} sx={{ borderRadius: "15px", maxWidth: MWidth }}>
       <CardActionArea>
         <CardContent>
           <Typography
@@ -35,11 +30,14 @@ export default function DashBoardCard({
               pt: "3.5rem",
             }}
           >
-            <Typography fontSize="large">{icon}</Typography>
+            <img src={icon} width={50} alt="icon" />
 
             <Typography
-              variant="h4"
-              sx={{ font: "normal normal bold 36dp/63dp Roboto" }}
+              variant="h2"
+              sx={{
+                font: "normal normal bold 36dp/63dp Roboto",
+                color: "white",
+              }}
             >
               {number}
             </Typography>
@@ -53,6 +51,6 @@ export default function DashBoardCard({
 DashBoardCard.propTypes = {
   id: PropTypes.string.isRequired,
   tittle: PropTypes.string.isRequired,
-  icon: PropTypes.node.isRequired,
+  icon: PropTypes.any.isRequired,
   number: PropTypes.string.isRequired,
 };

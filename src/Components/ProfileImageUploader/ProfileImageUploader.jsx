@@ -68,7 +68,7 @@ export default function ProfileImageUploader() {
         base64={true}
         handleFiles={handleFiles}
       >
-        <Button variant="contained" >sdfs</Button>
+        <Button variant="contained">sdfs</Button>
         {/* <FiCamera style={{ width: 30, height: 30 }} as={Button} /> */}
       </ReactFileReader>
     </Grid>
