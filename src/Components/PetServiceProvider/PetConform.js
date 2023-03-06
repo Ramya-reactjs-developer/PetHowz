@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
-import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
+import { LabelContext } from "../../Pages/PetService/LableData";
 // import TextField from "@material-ui/core/TextField";
 import CustomTextField from "../TextField/TextField";
 import CustomButton from "../Button/Button";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import InputAdornment from "@material-ui/core/InputAdornment";
-import "./style.css";
+// import "./style.css";
 import { upper } from "../../Pages/JoinPetHost/petHost/common/normalijation";
 
-const Confirmation = () => {
+const PetConfirmation = () => {
   const value = useContext(LabelContext);
   const [shippingCoast, setshippingCoast] = useState(0);
 
@@ -194,4 +194,4 @@ const Confirmation = () => {
     </>
   );
 };
-export default Confirmation;
+export default PetConfirmation;

@@ -1,26 +1,29 @@
-.pet-Image{
+.pet-Image {
     width: 650px !important;
-    height:500px !important
+    height: 500px !important
 }
 
-.pet-Image img{
+.pet-Image img {
     width: 100% !important;
-    height:100%!important
+    height: 100% !important
 }
-.petHost-Header{
+
+.petHost-Header {
     width: 600px !important;
-    height:500px !important;
+    height: 500px !important;
     display: inline-flex;
     /* justify-content: center; */
     align-items: center;
     position: relative;
 }
-.pet-Host{
+
+.pet-Host {
     font-size: 25px !important;
     color: #000 !important;
     font-weight: 700 !important;
 }
-.petHostService{
+
+.petHostService {
     color: #2C3051 !important;
     font-family: sans-serif !important;
     font-size: 17px !important;
@@ -30,35 +33,42 @@
 
 /* petSpace */
 
-.App{
+.App {
     font-family: sans-serif !important;
     /* text-align: center !important; */
     /* justify-content: center !important; */
-    margin: 30px !important;
-    padding: 10px !important;
-  }
-  h4{
+    /* margin: 30px !important; */
+    /* padding: 10px !important; */
+}
+
+h4 {
     font-size: 30px !important;
-  }
-  h5 {
+}
+
+h5 {
     color: rgb(80, 150, 255);
     font-size: 16px !important;
-  }
-  h3 {
+}
+
+h3 {
     /* position: absolute !important; */
     color: rgb(80, 150, 255);
     left: 80px;
-  }
-  .form {
+}
+
+.form {
     min-height: 180px !important;
-  }
-  .child {
+}
+
+.child {
     position: relative !important;
-    margin-top: 40px !important ;
-  }
-  .stepper-button>div>div{
+    margin-top: 40px !important;
+}
+
+.stepper-button>div>div {
     display: inline-grid !important;
-  }
-  .textBox{
-    width:400px !important
-  }
+}
+
+.textBox {
+    /* width: 400px !important */
+}

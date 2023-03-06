@@ -7,8 +7,8 @@ import GetWeight from "../../../Components/Stepper/GetWeight";
 import ShippingOption from "../../../Components/Stepper/ShippingOption";
 import Printonly from "../../../Components/Stepper/PrintOnly";
 import { LabelContext } from "../petHost/labelDataContext";
-import { petSpaceEntries, DefaultPetSpaceValues } from "./petSpaceEntries";
-import CustomForm from "../../../Components/CustomForm/CustomForm";
+// import { petSpaceEntries, DefaultPetSpaceValues } from "./petSpaceEntries";
+// import CustomForm from "../../../Components/CustomForm/CustomForm";
 import { Grid } from "@mui/material";
 import "./petHost.css";
 const PetSpace = () => {

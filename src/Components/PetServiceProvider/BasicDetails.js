@@ -1,30 +1,33 @@
 import React, { useContext } from "react";
-import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
-import TextField from "@material-ui/core/TextField";
+import { LabelContext } from "../../Pages/PetService/LableData";
+// import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import {
-  petSpaceEntries,
-  DefaultPetSpaceValues,
-} from "../../Pages/JoinPetHost/petHost/petSpaceEntries";
+  BasicDetailsEntries,
+  DefaultBasicDetailsValues,
+} from "../../Pages/PetService/BasicDetailsEntries";
 import CustomForm from "../CustomForm/CustomForm";
 import { Grid } from "@mui/material";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import "./style.css";
+// import "./style.css";
 
-const GetWeight = (props) => {
+const PetBasicDetails = (props) => {
   const value = useContext(LabelContext);
-  const weight = value.labelInfo.weight;
-  const btnDisbaled = weight.length > 0;
+  const sender = value.labelInfo.sender;
+  const btnDisbaled =
+    sender.name.length > 0 &&
+    sender.city.length > 0 &&
+    sender.zipCode.length > 0 &&
+    sender.state.length > 0;
   return (
     <form>
-      <h4> Enter Weight Details</h4>
-      <Grid>
+      <h4> Become a Pet Service Provider</h4>
+      <h5> Fill up Your Basic Details</h5>
+      <Grid container item md={12} lg={12} xs={12} sm={12}>
         <CustomForm
-          AllEntries={petSpaceEntries}
-          textFieldChange={value.handleChange}
+          AllEntries={BasicDetailsEntries}
           // onReceiveData={onReceiveData}
-          defaultValues={DefaultPetSpaceValues}
+          defaultValues={DefaultBasicDetailsValues}
         />
       </Grid>
 
@@ -34,9 +37,6 @@ const GetWeight = (props) => {
         aria-label="text primary button group"
         style={{ marginTop: 15 }}
       >
-        <Button onClick={() => value.prevPage()} style={{ margin: 25 }}>
-          Previous
-        </Button>
         <Button
           disabled={!btnDisbaled}
           onClick={() => value.nextPage()}
@@ -48,4 +48,4 @@ const GetWeight = (props) => {
     </form>
   );
 };
-export default GetWeight;
+export default PetBasicDetails;

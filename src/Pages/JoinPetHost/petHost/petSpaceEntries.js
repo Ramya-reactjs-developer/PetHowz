@@ -4,6 +4,7 @@ export const petSpaceEntries = [
         isTextInput: true,
         name: 'firstText',
         label: 'Type of Boarding',
+        value:"state",
         placeholder: 'Individual House',
         breakpoint: 6,
         validation: { required: true },
@@ -15,7 +16,7 @@ export const petSpaceEntries = [
     },
     {
         isTextInput: true,
-        name: 'firstText',
+        name: 'secondText',
         label: 'Category of Pet Boarded',
         placeholder: 'Cat',
         breakpoint: 6,
@@ -28,7 +29,7 @@ export const petSpaceEntries = [
     },
     {
         isTextInput: true,
-        name: 'firstText',
+        name: 'thirdText',
         label: 'No of Pets (Boarding Capacity)',
         placeholder: 'Enter Number',
         breakpoint: 6,
@@ -41,7 +42,7 @@ export const petSpaceEntries = [
     },
     {
         isTextInput: true,
-        name: 'firstText',
+        name: 'fourthText',
         label: 'Total Sq Feet of the Space',
         placeholder: 'Enter Number',
         breakpoint: 6,
@@ -54,7 +55,7 @@ export const petSpaceEntries = [
       },
       {
         isTextInput: true,
-        name: 'firstText',
+        name: 'fivethText',
         label: 'Price for Pet Day Boardind (24 Hours) ',
         placeholder: 'Enter Price',
         breakpoint: 6,
@@ -67,7 +68,7 @@ export const petSpaceEntries = [
     },
     {
         isTextInput: true,
-        name: 'firstText',
+        name: 'sixthText',
         label: 'Price for Day Care (Boarding',
         placeholder: 'Enter Price',
         breakpoint: 6,
@@ -80,7 +81,7 @@ export const petSpaceEntries = [
     },
     {
         isTextInput: true,
-        name: 'firstText',
+        name: 'seventhText',
         label: 'No of Bed Rooms',
         placeholder: 'Enter Number',
         breakpoint: 6,
@@ -93,7 +94,7 @@ export const petSpaceEntries = [
     },
     {
         isTextInput: true,
-        name: 'firstText',
+        name: 'eighthText',
         label: 'How many pets can you host at?',
         placeholder: 'Enter a Number',
         breakpoint: 6,
@@ -123,9 +124,14 @@ export const petSpaceEntries = [
 ]
 export const DefaultPetSpaceValues = {
     firstText: '',
-    SecondText: '',
-    Status: '',
-    ThirdText: '',
+    secondText: '',
+    thirdText: '',
+    fourthText: "",
+    fivethText: "",
+    sixthText: "",
+    seventhText: "",
+    eighthText: "",
+    fileUploader:"",
     // submit_button: '',
     // cancel_button: '',
   };

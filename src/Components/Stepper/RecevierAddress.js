@@ -1,71 +1,119 @@
+// import React, { useContext } from "react";
+// import { Grid } from "@mui/material";
+// import CustomForm from "../CustomForm/CustomForm";
+// import {
+//   petSpaceEntries,
+//   DefaultPetSpaceValues,
+// } from "../../Pages/JoinPetHost/petHost/petSpaceEntries";
+// import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
+// import TextField from "@material-ui/core/TextField";
+// import Button from "@material-ui/core/Button";
+// import ButtonGroup from "@material-ui/core/ButtonGroup";
+
+// const RecevierAddress = (props) => {
+//   const value = useContext(LabelContext);
+//   const recevier = value.labelInfo?.recevier;
+//   console.log(recevier, "recevier");
+//   console.log(value, "kjdhjkhfjhjbf");
+
+//   const btnDisbaled =
+//     recevier.firstText?.length > 0 &&
+//     recevier.secondText?.length > 0 &&
+//     recevier.thirdText?.length > 0 &&
+//     recevier.fourthText?.length > 0 &&
+//     recevier.fivethText?.length > 0 &&
+//     recevier.sixthText?.length > 0 &&
+//     recevier.seventhText?.length > 0 &&
+//     recevier.eighthText?.length > 0 &&
+//     recevier.fileUploader?.length > 0;
+//   console.log(btnDisbaled, "btnDisbaled");
+//   return (
+//     <form>
+//       <h4> Enter Recevier Details</h4>
+//       <Grid>
+//         <CustomForm
+//           AllEntries={petSpaceEntries}
+//           textFieldChange={value.handleChange}
+//           // onReceiveData={onReceiveData}
+//           defaultValues={DefaultPetSpaceValues}
+//         />
+//       </Grid>
+//       <ButtonGroup
+//         variant="contained"
+//         color="primary"
+//         aria-label="text primary button group"
+//         style={{ marginTop: 15 }}
+//       >
+//         <Button onClick={() => value.prevPage()} style={{ margin: 25 }}>
+//           Previous
+//         </Button>
+//         <Button
+//           disabled={!btnDisbaled}
+//           onClick={() => value.nextPage()}
+//           style={{ margin: 25 }}
+//         >
+//           Next
+//         </Button>
+//       </ButtonGroup>
+//     </form>
+//   );
+// };
+// export default RecevierAddress;
 import React, { useContext } from "react";
-import { LabelContext } from "../../Pages/Home/petHost/labelDataContext";
-import TextField from "@material-ui/core/TextField";
+import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
+// import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
+import {
+  petHostEntries,
+  DefaultPetHostValues,
+} from "../../Pages/JoinPetHost/petHost/petHostEntries";
+import CustomForm from "../CustomForm/CustomForm";
+import { Grid } from "@mui/material";
+import "./style.css";
 
 const RecevierAddress = (props) => {
   const value = useContext(LabelContext);
-  const recevier = value.labelInfo.recevier;
+  const receiver = value.labelInfo?.receiver;
+  console.log(receiver, "vLOGG");
+  console.log(value, "VBHRTHHH");
+
   const btnDisbaled =
-    recevier.name.length > 0 &&
-    recevier.city.length > 0 &&
-    recevier.zipCode.length > 0 &&
-    recevier.state.length > 0;
+    receiver.Status1?.length > 0 &&
+    receiver.Status2?.length > 0 &&
+    receiver.Status3?.length > 0 &&
+    receiver.Status4?.length > 0 &&
+    receiver.Status5?.length > 0 &&
+    receiver.Status6?.length > 0 &&
+    receiver.Status7?.length > 0 &&
+    receiver.Status8?.length > 0 &&
+    receiver.Status9?.length > 0 &&
+    receiver.Status10?.length > 0;
+  console.log(btnDisbaled, "btnDisbaled");
+  // sender.name.length > 0 &&
+  // sender.city.length > 0 &&
+  // sender.zipCode.length > 0 &&
+  // sender.state.length > 0;
   return (
     <form>
-      <h4> Enter Recevier Details</h4>
-      <TextField
-        label="Enter Full Name"
-        style={{ margin: 8, width: "93%" }}
-        fullWidth
-        margin="normal"
-        required
-        onChange={value.setRecevierInfo("name")}
-        value={recevier.name}
-      />
-      <TextField
-        label="Enter Street Address"
-        style={{ margin: 8, width: "93%" }}
-        fullWidth
-        margin="normal"
-        required
-        onChange={value.setRecevierInfo("street")}
-        value={recevier.street}
-      />
-      <div>
-        <TextField
-          required
-          style={{ width: "31%", margin: 1 }}
-          label="Enter City"
-          onChange={value.setRecevierInfo("city")}
-          value={recevier.city}
+      <h4> Become a Pet pet Host</h4>
+      <h5> Rules</h5>
+
+      <Grid>
+        <CustomForm
+          AllEntries={petHostEntries}
+          onChangeRadioAction={value.handleOnChange}
+          // onReceiveData={onReceiveData}
+          defaultValues={DefaultPetHostValues}
         />
-        <TextField
-          required
-          style={{ width: "31%", margin: 1 }}
-          label="Enter State"
-          onChange={value.setRecevierInfo("state")}
-          value={recevier.state}
-        />
-        <TextField
-          required
-          style={{ width: "31%", margin: 1 }}
-          label="Enter ZipCode"
-          onChange={value.setRecevierInfo("zipCode")}
-          type="number"
-          value={recevier.zipCode}
-        />
-      </div>
+      </Grid>
+
       <ButtonGroup
         variant="contained"
         color="primary"
         aria-label="text primary button group"
         style={{ marginTop: 15 }}
       >
-        <Button onClick={() => value.prevPage()} style={{ margin: 25 }}>
-          Previous
-        </Button>
         <Button
           disabled={!btnDisbaled}
           onClick={() => value.nextPage()}

@@ -2,26 +2,26 @@ import React, { useState, createContext } from "react";
 
 export const LabelContext = createContext();
 
-export const LabelProvider = (props) => {
+export const LabelData = (props) => {
   const [page, setPage] = useState(0);
-  console.log(page,"klnkhcui")
+  console.log(page, "klnkhcui");
   const [labelInfo, setlabelInfo] = useState({
     sender: {
       name: "",
       street: "",
       city: "",
       state: "",
-      zipCode: ""
+      zipCode: "",
     },
     recevier: {
       name: "",
       street: "",
       city: "",
       state: "",
-      zipCode: ""
+      zipCode: "",
     },
     weight: "",
-    shippingOption: "1"
+    shippingOption: "1",
   });
 
   const nextPage = () => {
@@ -39,21 +39,21 @@ export const LabelProvider = (props) => {
   const setSenderInfo = (prop) => (event) => {
     setlabelInfo({
       ...labelInfo,
-      sender: { ...labelInfo.sender, [prop]: event.target.value }
+      sender: { ...labelInfo.sender, [prop]: event.target.value },
     });
   };
   const setRecevierInfo = (prop) => (event) => {
     setlabelInfo({
       ...labelInfo,
-      recevier: { ...labelInfo.recevier, [prop]: event.target.value }
+      recevier: { ...labelInfo.recevier, [prop]: event.target.value },
     });
   };
   const steps = [
-    { title: "Get Sender addrtess" },
-    { title: "Get Reciver addrtess" },
-    { title: "Get Weight" },
-    { title: "Get Shipping Option" },
-    { title: "confirm" }
+    { title: "Basic Details" },
+    { title: "About You" },
+    { title: "Services Provider" },
+    { title: "Upload Images" },
+    { title: "Service Packages" },
   ];
 
   return (
@@ -66,7 +66,7 @@ export const LabelProvider = (props) => {
         labelInfo,
         handleChange,
         setSenderInfo,
-        setRecevierInfo
+        setRecevierInfo,
       }}
     >
       {props.children}
