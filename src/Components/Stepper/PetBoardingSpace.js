@@ -6,12 +6,12 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import {
   petSpaceEntries,
   DefaultPetSpaceValues,
-} from "../../Pages/JoinPetHost/petHost/petSpaceEntries";
+} from "../../Pages/JoinPetHost/petHost/petBoardingSpaceEntries";
 import CustomForm from "../CustomForm/CustomForm";
 import { Grid } from "@mui/material";
 import "./style.css";
 
-const SenderAddress = (props) => {
+const PetBoardingSpace = (props) => {
   const value = useContext(LabelContext);
   const sender = value.labelInfo?.sender;
   console.log(sender, "valugggge");
@@ -36,7 +36,7 @@ const SenderAddress = (props) => {
     <form>
       <h4> Become a Pet pet Host</h4>
       <h5> Fill up details the pet boarding</h5>
-    
+
       <Grid>
         <CustomForm
           AllEntries={petSpaceEntries}
@@ -63,4 +63,4 @@ const SenderAddress = (props) => {
     </form>
   );
 };
-export default SenderAddress;
+export default PetBoardingSpace;
