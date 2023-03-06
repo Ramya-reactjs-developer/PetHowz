@@ -13,7 +13,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import "./style.css";
 import { DefaultPetSpaceValues } from "../../Pages/JoinPetHost/petHost/petSpaceEntries";
 
-const GetWeight = (props) => {
+const PetHostAbout = (props) => {
   const value = useContext(LabelContext);
   const weight = value.labelInfo.weight;
   const btnDisbaled = weight.length > 0;
@@ -58,4 +58,4 @@ const GetWeight = (props) => {
     </form>
   );
 };
-export default GetWeight;
+export default PetHostAbout;

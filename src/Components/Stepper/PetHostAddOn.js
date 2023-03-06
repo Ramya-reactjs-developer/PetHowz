@@ -65,16 +65,13 @@ import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import {
-  DefaultPetHostAddOnValues,
-  PetHostAddOnEntries,
-} from "../../Pages/JoinPetHost/petHost/PetHostAddOnEntries";
+import { PetHostAddOnEntries } from "../../Pages/JoinPetHost/petHost/PetHostAddOnEntries";
 import CustomForm from "../CustomForm/CustomForm";
 import { Grid, Typography } from "@mui/material";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import "./style.css";
 
-const GetShippingOption = (props) => {
+const PetHostAddOn = (props) => {
   const value = useContext(LabelContext);
   const weight = value.labelInfo.weight;
   const btnDisbaled = weight.length > 0;
@@ -88,10 +85,7 @@ const GetShippingOption = (props) => {
       </Typography>
       <Grid>
         <CustomForm
-          AllEntries={PetHostAddOnEntries}
-          textFieldChange={value.handleChange}
-          // onReceiveData={onReceiveData}
-          defaultValues={DefaultPetHostAddOnValues}
+          AllEntries={entry.length > 0 ? entry : PetHostAddOnEntries}
         />
       </Grid>
 
@@ -115,4 +109,4 @@ const GetShippingOption = (props) => {
     </form>
   );
 };
-export default GetShippingOption;
+export default PetHostAddOn;

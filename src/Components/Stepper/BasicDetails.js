@@ -194,7 +194,7 @@ import { Grid, Typography } from "@mui/material";
 import "./style.css";
 import { DefaultPetSpaceValues } from "../../Pages/JoinPetHost/petHost/petSpaceEntries";
 
-const PrintOnly = (props) => {
+const BasicDetails = (props) => {
   const value = useContext(LabelContext);
   const weight = value.labelInfo.weight;
   const btnDisbaled = weight.length > 0;
@@ -240,4 +240,4 @@ const PrintOnly = (props) => {
     </form>
   );
 };
-export default PrintOnly;
+export default BasicDetails;

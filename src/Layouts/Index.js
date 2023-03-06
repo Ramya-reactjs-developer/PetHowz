@@ -3,9 +3,8 @@ import { Route, Routes } from "react-router-dom";
 import { HomePage } from "../Pages/Home/Index";
 import DrawerAppBar from "../Components/AppBar/AppBar";
 import { Grooming } from "../Pages/Grooming/Grooming";
-import { PetBoardingSpace } from "../Pages/JoinPetHost/petBoardingSpace";
-import PetHost from "../Pages/JoinPetHost/petHost/PetHost";
-import PetSpace from "../Pages/JoinPetHost/petHost/petSpace";
+import { BecomePetHostService } from "../Pages/JoinPetHost/BecomePetHostService";
+import PetHomeBoarding from "../Pages/JoinPetHost/petHost/PetHomeBoarding";
 // import { PetBoardingSpace } from "../Pages/Home/petBoardingSpace";
 import GroomingService from "../Pages/GroomingService/GroomingService";
 // import PetHost from "../Pages/Home/petHost/PetHost";
@@ -35,10 +34,13 @@ export const Layout = () => {
         <Route path="/" index element={<HomePage />} />
         <Route path="grooming" index element={<Grooming />} />
         <Route path="groomingService" index element={<GroomingService />} />
-        <Route path="PetBoardingSpace" index element={<PetBoardingSpace />} />
-        <Route path="PetHost" index element={<PetHost />} />
-        <Route path="PetSpace" index element={<PetSpace />} />
-        {/* <Route path="MyPetDetails" index element={<PetDetails />} /> */}
+        <Route
+          path="BecomePetHostService"
+          index
+          element={<BecomePetHostService />}
+        />
+        <Route path="PetHomeBoarding" index element={<PetHomeBoarding />} />
+        <Route path="MyPetDetails" index element={<PetDetails />} />
         <Route path="BasicDetails" index element={<BasicDetails />} />
         <Route path="petService" index element={<PetService />} />
 
