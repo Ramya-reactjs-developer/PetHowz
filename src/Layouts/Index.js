@@ -3,6 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import { HomePage } from "../Pages/Home/Index";
 import DrawerAppBar from "../Components/AppBar/AppBar";
 import { Grooming } from "../Pages/Grooming/Grooming";
+import { PetBoardingSpace } from "../Pages/JoinPetHost/petBoardingSpace";
+import PetHost from "../Pages/JoinPetHost/petHost/PetHost"
+import PetSpace from "../Pages/JoinPetHost/petHost/petSpace"
 import { PetBoardingSpace } from "../Pages/Home/petBoardingSpace";
 import GroomingService from "../Pages/GroomingService/GroomingService";
 import PetHost from "../Pages/Home/petHost/PetHost";
