@@ -2,7 +2,7 @@ import { Grid } from "@mui/material";
 import React from "react";
 import CustomTypography from "../../Components/Typography/Typography";
 
-export const MyPetsDashBoard = () => {
+export const MyPetsCustomerDB = () => {
   return (
     <Grid container item xs={12}>
       {" "}
