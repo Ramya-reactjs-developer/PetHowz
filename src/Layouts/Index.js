@@ -6,13 +6,14 @@ import { Grooming } from "../Pages/Grooming/Grooming";
 import { PetBoardingSpace } from "../Pages/JoinPetHost/petBoardingSpace";
 import PetHost from "../Pages/JoinPetHost/petHost/PetHost"
 import PetSpace from "../Pages/JoinPetHost/petHost/petSpace"
-import { PetBoardingSpace } from "../Pages/Home/petBoardingSpace";
+// import { PetBoardingSpace } from "../Pages/Home/petBoardingSpace";
 import GroomingService from "../Pages/GroomingService/GroomingService";
-import PetHost from "../Pages/Home/petHost/PetHost";
-import PetSpace from "../Pages/Home/petHost/petSpace";
+// import PetHost from "../Pages/Home/petHost/PetHost";
+// import PetSpace from "../Pages/Home/petHost/petSpace";
 import PetDetails from "../Pages/PetDetails/PetDetails";
 import Footer from "../Components/Footer/Footer";
 import { BasicDetails } from "../Pages/New/Index";
+import PetService from "../Pages/PetService/PetService";
 import { MyDashBoard } from "../Pages/HostDashBoard/Index";
 import { MyProfileDashBoard } from "../Pages/HostDashBoard/MyProfileDashBoard";
 import { MyPetsDashBoard } from "../Pages/HostDashBoard/MyPetsDashBoard";
@@ -34,40 +35,10 @@ export const Layout = () => {
         <Route path="PetSpace" index element={<PetSpace />} />
         <Route path="MyPetDetails" index element={<PetDetails />} />
         <Route path="BasicDetails" index element={<BasicDetails />} />
-        <Route path="MyDashBoard" index element={<MyDashBoard />} />
-        <Route
-          path="MyProfileDashBoard"
-          index
-          element={<MyProfileDashBoard />}
-        />
-        <Route path="MyPetsDashBoard" index element={<MyPetsDashBoard />} />
-        <Route
-          path="MyBookingsDashBoard"
-          index
-          element={<MyBookingsDashBoard />}
-        />
-        <Route
-          path="MyBoardingSpaceDashBoard"
-          index
-          element={<MyBoardingSpaceDashBoard />}
-        />
-        <Route
-          path="MyServicesDashBoard"
-          index
-          element={<MyServicesDashBoard />}
-        />
-        <Route
-          path="MyBookingsDashBoard"
-          index
-          element={<MyBookingsDashBoard />}
-        />
-        <Route
-          path="BookingRequestsDashBoard"
-          index
-          element={<BookingRequestsDashBoard />}
-        />
+        <Route path="petservice" index element={<PetService />} />
       </Routes>
-      <Footer />
+
+      {/* <Footer /> */}
     </div>
   );
 };

@@ -236,6 +236,8 @@ function CustomForm(props) {
                 )}
                 {keyValue?.isTextInput && (
                   <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
+                    {console.log(value, "value")}
+
                     <TextField
                       label={keyValue.label}
                       onHandleChange={(e) => {
@@ -257,7 +259,6 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
-
                 {keyValue?.isCheckBoxAction && (
                   <Grid
                     item
@@ -317,7 +318,7 @@ function CustomForm(props) {
                       resetValue={resetValue}
                     />
                   </Grid>
-<<<<<<< HEAD
+
                 )} */}
                 {keyValue?.isFileUploader && (
                   <Grid
@@ -329,7 +330,7 @@ function CustomForm(props) {
                     xs={12}
                     className="circleLogoBox"
                   >
-                    <CustomFileUploader
+                    <CustomImageUploader
                       upLoad={customIcons.LogoUploader}
                       label={keyValue.label}
                       // onHandleChange={(e) => {
@@ -346,7 +347,7 @@ function CustomForm(props) {
                       defaultImage={keyValue.defaultImage}
                       resetValue={resetValue}
                     />
-                    </Grid>
+                  </Grid>
                 )}
                 {keyValue?.isProfileUploader && (
                   <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
