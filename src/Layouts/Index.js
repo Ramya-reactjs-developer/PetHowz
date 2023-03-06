@@ -14,13 +14,7 @@ import PetDetails from "../Pages/PetDetails/PetDetails";
 import Footer from "../Components/Footer/Footer";
 import { BasicDetails } from "../Pages/New/Index";
 import PetService from "../Pages/PetService/PetService";
-import { MyDashBoard } from "../Pages/HostDashBoard/Index";
-import { MyProfileDashBoard } from "../Pages/HostDashBoard/MyProfileDashBoard";
-import { MyPetsDashBoard } from "../Pages/HostDashBoard/MyPetsDashBoard";
-import { MyBookingsDashBoard } from "../Pages/HostDashBoard/MyBookingsDashBoard";
-import { MyBoardingSpaceDashBoard } from "../Pages/HostDashBoard/MyBoardingSpaceDashBoard";
-import { MyServicesDashBoard } from "../Pages/HostDashBoard/MyServicesDashBoard";
-import { BookingRequestsDashBoard } from "../Pages/HostDashBoard/BookingRequestsDashBoard";
+
 import { MyProfileHostDB } from "../Pages/HostDashBoard/MyProfileHostDB";
 import { MyPetsHostDB } from "../Pages/HostDashBoard/MyPetsHostDB";
 import { MyBookingsHostDB } from "../Pages/HostDashBoard/MyBookingsHostDB";
