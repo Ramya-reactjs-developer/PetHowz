@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { LabelContext } from "../../Pages/Home/petHost/labelDataContext";
+import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
 import Radio from "@material-ui/core/Radio";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import RadioGroup from "@material-ui/core/RadioGroup";

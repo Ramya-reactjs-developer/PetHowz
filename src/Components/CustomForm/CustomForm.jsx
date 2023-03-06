@@ -1,21 +1,24 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/require-default-props */
+/* eslint-disable react/require-default-props */
 import React, { useEffect } from "react";
 import propTypes from "prop-types";
 import { Controller, useForm } from "react-hook-form";
 import { Grid } from "@mui/material";
+import "./CustomForm.css";
 import CustomTypography from "../Typography/Typography";
-// import customIcons from "../../Utils/Icons/Index";
+import customIcons from "../../Utils/Icons/Index";
 import CustomButton from "../Button/Button";
 import TextField from "../TextField/TextField";
+import CustomFileUploader from "../FileUploader/FileUpload";
 import "./CustomForm.css";
 import CustomDatePicker from "../DatePicker/DatePicker";
 import CustomRadioButton from "../RadioButton/RadioButton";
 import CustomCheckbox from "../CheckBox/CheckBox";
 import CustomSelect from "../Select/Select";
-import CustomImageUploader from "../ImageUploader/MultiImageUploader";
+import CustomImageUploader from "../FileUploader/FileUpload";
 import MultipleSelectChip from "../MultipleDropdown/MultipleDropdown";
-import CustomIcons from "../../Utils/Icons/Index";
+import ProfileImageUploader from "../ProfileImageUploader/ProfileImageUploader";
 
 /**
  * @param {*} props defines the prop
@@ -237,7 +240,10 @@ function CustomForm(props) {
 
                     <TextField
                       label={keyValue.label}
-                      onHandleChange={onChange}
+                      onHandleChange={(e) => {
+                        onChange(e);
+                        props.textFieldChange(e, keyValue.name);
+                      }}
                       value={value}
                       multiline={keyValue.multiline}
                       rows={keyValue.rows}
@@ -288,7 +294,8 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
-                {keyValue?.isFileUploader && (
+
+                {/* {keyValue?.isFileUploader && (
                   <Grid
                     item
                     md={12}
@@ -299,7 +306,7 @@ function CustomForm(props) {
                     className="circleLogoBox"
                   >
                     <CustomImageUploader
-                      upLoad={CustomIcons.LogoUploader}
+                      upLoad={customIcons.LogoUploader}
                       label={keyValue.label}
                       customClass={keyValue.customClass}
                       getImage={(val) => {
@@ -311,7 +318,105 @@ function CustomForm(props) {
                       resetValue={resetValue}
                     />
                   </Grid>
+
+                )} */}
+                {keyValue?.isFileUploader && (
+                  <Grid
+                    item
+                    md={12}
+                    sm={12}
+                    my={2}
+                    mx={2}
+                    xs={12}
+                    className="circleLogoBox"
+                  >
+                    <CustomImageUploader
+                      upLoad={customIcons.LogoUploader}
+                      label={keyValue.label}
+                      // onHandleChange={(e) => {
+                      //   onChange(e);
+                      //   props.textFieldChange(e, keyValue.name);
+                      // }}
+                      customClass={keyValue.customClass}
+                      getImage={(val) => {
+                        onChange(val);
+                        getImage(val);
+                        props.textFieldChange(val, keyValue.name);
+                      }}
+                      regForm={keyValue.regForm}
+                      defaultImage={keyValue.defaultImage}
+                      resetValue={resetValue}
+                    />
+                  </Grid>
                 )}
+                {keyValue?.isProfileUploader && (
+                  <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
+                    <ProfileImageUploader />
+                  </Grid>
+                )}
+                {keyValue?.isSubmitButton && (
+                  <Grid
+                    item
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    mx={2}
+                    className="SubmitButtonColor"
+                  >
+                    <CustomButton
+                      btnTitle={keyValue.buttonTitle}
+                      variant="contained"
+                      color="primary"
+                      customClass={keyValue.customClass}
+                      btnStyles={{
+                        color: "#fff",
+                        // background: "#F8BD22",
+                        marginTop: "50px",
+                      }}
+                      onClickHandle={handleSubmit(onSubmit)}
+                    />
+                  </Grid>
+                )}
+                {keyValue.isCancelButton && (
+                  <Grid
+                    item
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    mx={2}
+                    className="CancelButtonColor"
+                  >
+                    <CustomButton
+                      btnTitle={keyValue.buttonTitle}
+                      customClass={keyValue.customClass}
+                      variant="outlined"
+                      color="primary"
+                      btnStyles={{
+                        color: "#7b7b7be6",
+                        marginTop: "50px",
+                        border: "1px solid #E2E2E2",
+                      }}
+                      onClickHandle={() => handleCancel()}
+                    />
+                  </Grid>
+                )}
+                {keyValue?.isMultipleSelectChip && (
+                  <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
+                    <MultipleSelectChip
+                      onSelectValue={(e) => {
+                        onChange(e);
+                        onSelectValue(e, keyValue.name);
+                      }}
+                      selectValue={value}
+                      onChipClose={(e, val) => handleDelete(e, val)}
+                      label={keyValue.label}
+                      labelText={keyValue.labelText}
+                      dropDownList={keyValue.DropdownData}
+                      requiredField={keyValue.requiredField}
+                    />
+                  </Grid>
+                )}
+
                 {keyValue?.isCustomTypography && (
                   <Grid item md={12} sm={12} xs={12}>
                     <CustomTypography

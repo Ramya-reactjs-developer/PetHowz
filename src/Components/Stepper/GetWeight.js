@@ -1,8 +1,14 @@
 import React, { useContext } from "react";
-import { LabelContext } from "../../Pages/Home/petHost/labelDataContext";
+import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
+import {
+  petSpaceEntries,
+  DefaultPetSpaceValues,
+} from "../../Pages/JoinPetHost/petHost/petSpaceEntries";
+import CustomForm from "../CustomForm/CustomForm";
+import { Grid } from "@mui/material";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import "./style.css";
 
@@ -13,22 +19,14 @@ const GetWeight = (props) => {
   return (
     <form>
       <h4> Enter Weight Details</h4>
-
-      <TextField
-        id="standard-full-width"
-        label="Enter Weight **Numbers Only"
-        style={{ margin: 8 }}
-        fullWidth
-        margin="normal"
-        type="number"
-        required
-        className="form"
-        onChange={value.handleChange("weight")}
-        value={weight}
-        InputProps={{
-          startAdornment: <InputAdornment position="start">lbs:</InputAdornment>
-        }}
-      />
+      <Grid>
+        <CustomForm
+          AllEntries={petSpaceEntries}
+          textFieldChange={value.handleChange}
+          // onReceiveData={onReceiveData}
+          defaultValues={DefaultPetSpaceValues}
+        />
+      </Grid>
 
       <ButtonGroup
         variant="contained"

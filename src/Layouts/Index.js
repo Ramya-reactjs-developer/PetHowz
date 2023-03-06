@@ -3,14 +3,24 @@ import { Route, Routes } from "react-router-dom";
 import { HomePage } from "../Pages/Home/Index";
 import DrawerAppBar from "../Components/AppBar/AppBar";
 import { Grooming } from "../Pages/Grooming/Grooming";
-import { PetBoardingSpace } from "../Pages/Home/petBoardingSpace";
+import { PetBoardingSpace } from "../Pages/JoinPetHost/petBoardingSpace";
+import PetHost from "../Pages/JoinPetHost/petHost/PetHost"
+import PetSpace from "../Pages/JoinPetHost/petHost/petSpace"
+// import { PetBoardingSpace } from "../Pages/Home/petBoardingSpace";
 import GroomingService from "../Pages/GroomingService/GroomingService";
-import PetHost from "../Pages/Home/petHost/PetHost";
-import PetSpace from "../Pages/Home/petHost/petSpace";
+// import PetHost from "../Pages/Home/petHost/PetHost";
+// import PetSpace from "../Pages/Home/petHost/petSpace";
 import PetDetails from "../Pages/PetDetails/PetDetails";
 import Footer from "../Components/Footer/Footer";
 import { BasicDetails } from "../Pages/New/Index";
 import PetService from "../Pages/PetService/PetService";
+import { MyDashBoard } from "../Pages/HostDashBoard/Index";
+import { MyProfileDashBoard } from "../Pages/HostDashBoard/MyProfileDashBoard";
+import { MyPetsDashBoard } from "../Pages/HostDashBoard/MyPetsDashBoard";
+import { MyBookingsDashBoard } from "../Pages/HostDashBoard/MyBookingsDashBoard";
+import { MyBoardingSpaceDashBoard } from "../Pages/HostDashBoard/MyBoardingSpaceDashBoard";
+import { MyServicesDashBoard } from "../Pages/HostDashBoard/MyServicesDashBoard";
+import { BookingRequestsDashBoard } from "../Pages/HostDashBoard/BookingRequestsDashBoard";
 
 export const Layout = () => {
   return (
