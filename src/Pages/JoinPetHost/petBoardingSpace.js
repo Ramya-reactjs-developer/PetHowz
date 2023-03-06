@@ -19,10 +19,10 @@ export const PetBoardingSpace = () => {
       image: CustomImages.Dog1,
       text:"llll"
     },
-    {
-      image: CustomImages.Dog2,
-      text:"kkk"
-    },
+    // {
+    //   image: CustomImages.Dog2,
+    //   text:"kkk"
+    // },
   ];
   const imagePaths = [
     {
