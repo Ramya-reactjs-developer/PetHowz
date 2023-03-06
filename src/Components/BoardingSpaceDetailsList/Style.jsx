@@ -1,5 +1,4 @@
 export const BoardingSpaceDetailListPostion = {
-  width: "60%",
   m: "0px",
   p: "0px",
   display: "flex",

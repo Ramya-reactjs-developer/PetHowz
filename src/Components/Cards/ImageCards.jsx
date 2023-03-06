@@ -74,3 +74,12 @@ ImageCards.propTypes = {
   service: PropTypes.any.isRequired,
   sub: PropTypes.any.isRequired,
 };
+ImageCards.defaultProps = {
+  imagePath: "",
+  CardWidth: "",
+  CardHeight: "",
+  ImageWidth: "",
+  ImageHeight: "",
+  service: "",
+  sub: "",
+};

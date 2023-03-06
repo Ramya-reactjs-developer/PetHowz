@@ -1,16 +1,13 @@
 #card1 {
-  background: transparent linear-gradient(180deg, #7500bf 0%, #742afc 100%) 0%
-    0% no-repeat padding-box;
+  background: #94bbe4 0% 0% no-repeat padding-box;
 }
 
 #card2 {
-  background: transparent linear-gradient(180deg, #e90b7e 0%, #ff5a5a 100%) 0%
-    0% no-repeat padding-box;
+  background: #f39397 0% 0% no-repeat padding-box;
 }
 
 #card3 {
-  background: transparent linear-gradient(180deg, #26d65f 0%, #bbdb4c 100%) 0%
-    0% no-repeat padding-box;
+  background: #d8d9da 0% 0% no-repeat padding-box;
 }
 
 #card4 {

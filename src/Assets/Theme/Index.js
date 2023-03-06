@@ -6,7 +6,7 @@ const theme = createTheme({
       main: colors.orange.primary,
     },
     secondary: {
-      main: colors.blue.primary,
+      main: colors.white.primary,
     },
     tertiary: {
       main: colors.gray.secondary,
