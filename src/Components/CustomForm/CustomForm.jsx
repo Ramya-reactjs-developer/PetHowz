@@ -5,16 +5,16 @@ import propTypes from "prop-types";
 import { Controller, useForm } from "react-hook-form";
 import { Grid } from "@mui/material";
 import CustomTypography from "../Typography/Typography";
-// import customIcons from "../../Utils/Icons/Index";
+import customIcons from "../../Utils/Icons/Index";
 import CustomButton from "../Button/Button";
 import TextField from "../TextField/TextField";
-
+import CustomFileUploader from "../FileUploader/FileUpload";
 import "./CustomForm.css";
 import CustomDatePicker from "../DatePicker/DatePicker";
 import CustomRadioButton from "../RadioButton/RadioButton";
 import CustomCheckbox from "../CheckBox/CheckBox";
 import CustomSelect from "../Select/Select";
-import CustomImageUploader from "../ImageUploader/ImageUploader";
+// import CustomImageUploader from "../ImageUploader/MultiImageUploader";
 import MultipleSelectChip from "../MultipleDropdown/MultipleDropdown";
 
 /**
@@ -191,7 +191,7 @@ function CustomForm(props) {
             }}
             render={({ field: { onChange, value } }) => (
               <>
-                {/* {keyValue?.isRadioAction && (
+                {keyValue?.isRadioAction && (
                   <Grid item md={12} sm={12} xs={12} my={2} mx={2}>
                     <CustomRadioButton
                       labelText={keyValue.label}
@@ -230,12 +230,15 @@ function CustomForm(props) {
                       maxDate={keyValue.maxDate}
                     />
                   </Grid>
-                )} */}
+                )}
                 {keyValue?.isTextInput && (
                   <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
                     <TextField
                       label={keyValue.label}
-                      onHandleChange={onChange}
+                      onHandleChange={(e) => {
+                        onChange(e);
+                        props.textFieldChange(e, keyValue.name);
+                      }}
                       value={value}
                       multiline={keyValue.multiline}
                       rows={keyValue.rows}
@@ -288,7 +291,7 @@ function CustomForm(props) {
                   </Grid>
                 )}
 
-                {keyValue?.isFileUploader && (
+                {/* {keyValue?.isFileUploader && (
                   <Grid
                     item
                     md={12}
@@ -299,7 +302,7 @@ function CustomForm(props) {
                     className="circleLogoBox"
                   >
                     <CustomImageUploader />
-                    {/* <CustomImageUploader
+                    <CustomImageUploader
                       upLoad={customIcons.LogoUploader}
                       label={keyValue.label}
                       customClass={keyValue.customClass}
@@ -310,10 +313,38 @@ function CustomForm(props) {
                       regForm={keyValue.regForm}
                       defaultImage={keyValue.defaultImage}
                       resetValue={resetValue}
-                    /> */}
+                    />
+                  </Grid>
+                )} */}
+                {keyValue?.isFileUploader && (
+                  <Grid
+                    item
+                    md={12}
+                    sm={12}
+                    my={2}
+                    mx={2}
+                    xs={12}
+                    className="circleLogoBox"
+                  >
+                    <CustomFileUploader
+                      upLoad={customIcons.LogoUploader}
+                      label={keyValue.label}
+                      // onHandleChange={(e) => {
+                      //   onChange(e);
+                      //   props.textFieldChange(e, keyValue.name);
+                      // }}
+                      customClass={keyValue.customClass}
+                      getImage={(val) => {
+                        onChange(val);
+                        getImage(val);
+                        props.textFieldChange(val, keyValue.name);
+                      }}
+                      regForm={keyValue.regForm}
+                      defaultImage={keyValue.defaultImage}
+                      resetValue={resetValue}
+                    />
                   </Grid>
                 )}
-
                 {keyValue?.isSubmitButton && (
                   <Grid
                     item

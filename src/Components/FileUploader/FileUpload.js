@@ -25,7 +25,7 @@ function CustomFileUploader(props) {
     // resetValue
   } = props;
 
-  console.log('image', defaultImage);
+  console.log('image', regForm);
   // const [name, setName] = useState();
   // console.log(name, 'setttttt');
   const [selectedImage, setSelectedImage] = useState();
@@ -58,6 +58,8 @@ function CustomFileUploader(props) {
    * @param {Event} e defines the event
    */
   const imageChange = async (e) => {
+  console.log(imageChange,"imageChange");
+
     const arr = [];
     arr.push(e.target.files[0]);
     e.preventDefault();

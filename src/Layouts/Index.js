@@ -5,9 +5,9 @@ import ClinicMaster from "../Pages/Masters/ClinicMaster";
 // import { Box } from "@mui/material";
 import DrawerAppBar from "../Components/AppBar/AppBar";
 import { Grooming } from "../Pages/Grooming/Grooming";
-import { PetBoardingSpace } from "../Pages/Home/petBoardingSpace";
-import PetHost from "../Pages/Home/petHost/PetHost"
-import PetSpace from "../Pages/Home/petHost/petSpace"
+import { PetBoardingSpace } from "../Pages/JoinPetHost/petBoardingSpace";
+import PetHost from "../Pages/JoinPetHost/petHost/PetHost"
+import PetSpace from "../Pages/JoinPetHost/petHost/petSpace"
 import PetDetails from "../Pages/PetDetails/PetDetails";
 import Footer from "../Components/Footer/Footer";
 import { BasicDetails } from "../Pages/New/Index";
