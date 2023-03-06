@@ -10,6 +10,7 @@ import PetSpace from "../Pages/Home/petHost/petSpace";
 import PetDetails from "../Pages/PetDetails/PetDetails";
 import Footer from "../Components/Footer/Footer";
 import { BasicDetails } from "../Pages/New/Index";
+import PetService from "../Pages/PetService/PetService";
 
 export const Layout = () => {
   return (
@@ -24,7 +25,9 @@ export const Layout = () => {
         <Route path="PetSpace" index element={<PetSpace />} />
         <Route path="MyPetDetails" index element={<PetDetails />} />
         <Route path="BasicDetails" index element={<BasicDetails />} />
+        <Route path="petservice" index element={<PetService />} />
       </Routes>
+
       {/* <Footer /> */}
     </div>
   );

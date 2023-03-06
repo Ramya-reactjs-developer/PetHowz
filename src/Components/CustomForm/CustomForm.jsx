@@ -233,6 +233,8 @@ function CustomForm(props) {
                 )}
                 {keyValue?.isTextInput && (
                   <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
+                    {console.log(value, "value")}
+
                     <TextField
                       label={keyValue.label}
                       onHandleChange={onChange}
@@ -251,7 +253,6 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
-
                 {keyValue?.isCheckBoxAction && (
                   <Grid
                     item
@@ -287,7 +288,6 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
-
                 {keyValue?.isFileUploader && (
                   <Grid
                     item
@@ -298,9 +298,8 @@ function CustomForm(props) {
                     xs={12}
                     className="circleLogoBox"
                   >
-                    {/* <CustomImageUploader /> */}
-                    {/* <CustomImageUploader
-                      upLoad={customIcons.LogoUploader}
+                    <CustomImageUploader
+                      upLoad={CustomIcons.LogoUploader}
                       label={keyValue.label}
                       customClass={keyValue.customClass}
                       getImage={(val) => {
@@ -313,70 +312,6 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
-
-                {keyValue?.isSubmitButton && (
-                  <Grid
-                    item
-                    md={12}
-                    sm={12}
-                    xs={12}
-                    mx={2}
-                    className="SubmitButtonColor"
-                  >
-                    <CustomButton
-                      btnTitle={keyValue.buttonTitle}
-                      variant="contained"
-                      color="primary"
-                      customClass={keyValue.customClass}
-                      btnStyles={{
-                        color: "#fff",
-                        // background: "#F8BD22",
-                        marginTop: "50px",
-                      }}
-                      onClickHandle={handleSubmit(onSubmit)}
-                    />
-                  </Grid>
-                )}
-                {keyValue.isCancelButton && (
-                  <Grid
-                    item
-                    md={12}
-                    sm={12}
-                    xs={12}
-                    mx={2}
-                    className="CancelButtonColor"
-                  >
-                    <CustomButton
-                      btnTitle={keyValue.buttonTitle}
-                      customClass={keyValue.customClass}
-                      variant="outlined"
-                      color="primary"
-                      btnStyles={{
-                        color: "#7b7b7be6",
-                        marginTop: "50px",
-                        border: "1px solid #E2E2E2",
-                      }}
-                      onClickHandle={() => handleCancel()}
-                    />
-                  </Grid>
-                )}
-                {/* {/* {keyValue?.isMultipleSelectChip && (
-                  <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
-                    <MultipleSelectChip
-                      onSelectValue={(e) => {
-                        onChange(e);
-                        onSelectValue(e, keyValue.name);
-                      }}
-                      selectValue={value}
-                      onChipClose={(e, val) => handleDelete(e, val)}
-                      label={keyValue.label}
-                      labelText={keyValue.labelText}
-                      dropDownList={keyValue.DropdownData}
-                      requiredField={keyValue.requiredField}
-                    />
-                  </Grid>
-                )} */}
-
                 {keyValue?.isCustomTypography && (
                   <Grid item md={12} sm={12} xs={12}>
                     <CustomTypography
