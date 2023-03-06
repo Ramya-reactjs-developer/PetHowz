@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { LabelProvider } from "../src/Pages/Home/petHost/labelDataContext";
+import { LabelProvider } from "../src/Pages/JoinPetHost/petHost/labelDataContext";
 import { LabelData } from '../src/Pages/PetService/LableData';
 // import { LabelProvider } from "../src/Pages/JoinPetHost/petHost/labelDataContext";
 import App from "./App";
