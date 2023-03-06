@@ -1,6 +1,8 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+import { useDispatch, useSelector } from "react-redux";
+import actions from "../../Actions";
 import { Box, CardActionArea, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import CustomTypography from "../Typography/Typography";
@@ -10,12 +12,29 @@ import { CustomizedRatings } from "../StarRatings/CustomizedRatings";
 import "./GroomingCard.css";
 
 export default function GroomingCardsSection({ Data }) {
-  const GroomingData = Data;
+  // const GroomingData = Data;
+
+      const dispatch = useDispatch();
+      const { grooming } = useSelector((state) => state?.grooming);
+      console.log(grooming, "galleryImage");
+
+      React.useEffect(() => {
+        const data = { data: {}, method: "get", apiName: "getAllPetSpace" };
+        dispatch(actions.GROOMING(data));
+      }, [dispatch]);
 
   return (
-    <Grid container xl={12} lg={12} md={12} sm={12} xs={12} className="mainCard">
+    <Grid
+      container
+      xl={12}
+      lg={12}
+      md={12}
+      sm={12}
+      xs={12}
+      className="mainCard"
+    >
       <Grid item className="CardPositions">
-        {GroomingData.map((item, key) => {
+        {grooming?.data?.map((item, key) => {
           return (
             <Box key={key}>
               <Card className="mainCardSize">
@@ -25,7 +44,7 @@ export default function GroomingCardsSection({ Data }) {
                   </CardActionArea>
                   <CardContent>
                     <CustomTypography
-                      text={item.name}
+                      text={item.Pet_boarding_space_name}
                       type="header"
                       colorType="black"
                     />
@@ -33,7 +52,21 @@ export default function GroomingCardsSection({ Data }) {
                       <Grid className="AddressArea1">
                         <img src={CustomIcons.Location} alt="location" />
                         <CustomTypography
-                          text={item.address}
+                          text={item.city}
+                          type="link"
+                          colorType="senary"
+                          fontSize="12px"
+                          customClass="addressText"
+                        />
+                        <CustomTypography
+                          text=","
+                          type="link"
+                          colorType="senary"
+                          fontSize="12px"
+                          customClass="addressText"
+                        />
+                        <CustomTypography
+                          text={item.state}
                           type="link"
                           colorType="senary"
                           fontSize="12px"
@@ -53,7 +86,7 @@ export default function GroomingCardsSection({ Data }) {
                     <Box className="AddressSubPosition2">
                       <img src={CustomIcons.Building} alt="location" />
                       <CustomTypography
-                        text={item.type}
+                        text={item.category_of_pet_boarded}
                         type="caption"
                         colorType="senary"
                         fontSize="12px"

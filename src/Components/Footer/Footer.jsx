@@ -80,10 +80,14 @@ const Footer = () => {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "start",
+            '@media (max-width: 1024px)': {
+            display: 'block',
+            },
           }}
+         
         >
           <Typography variant="body1" >Pet Photography</Typography>
-          <Box sx={{ display: "flex" }}>
+          <Box sx={{ display: "flex" , justifyContent: "space-between",}} >
             <img
               src={CustomImages.GooglePlay}
               height="40px"

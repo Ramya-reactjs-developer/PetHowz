@@ -1,0 +1,47 @@
+/* .PriceTypography{
+    color: red;
+    text-decoration: line-through;
+}
+
+;
+.ServiceButtonPostion{
+    margin: auto;
+    padding-top: 10rem;
+      text-align: center;
+}
+export const ServiceButtonStyle= {
+    width: "200px",
+        borderRadius: "20px",
+        background: "#F85A47",
+}
+export const ServiceIcon= {
+    color: "#00C828"
+}
+export const ServicePackageCardPostion= {
+    borderRadius: "15px",
+        position: "relative",
+        zIndex: "-1",
+}
+export const ServicePackageHeader= {
+    borderBottom: "1px dashed #707070",
+        textAlign: "center",
+
+        width: "370px",
+}
+export const ServiceTypography= {
+    padding: "5px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+}
+export const MealCardTopButtonPosition= {
+    position: "relative",
+        textAlign: "center",
+        top: "7px",
+        zIndex: "1",
+}
+export const TopButtonStyle= {
+    width: "200px",
+        borderRadius: "20px",
+        background: "#FF9BA9",
+} */
