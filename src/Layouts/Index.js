@@ -10,10 +10,9 @@ import PetSpace from "../Pages/JoinPetHost/petHost/petSpace";
 import GroomingService from "../Pages/GroomingService/GroomingService";
 // import PetHost from "../Pages/Home/petHost/PetHost";
 // import PetSpace from "../Pages/Home/petHost/petSpace";
-import PetDetails from "../Pages/PetDetails/PetDetails";
+// import PetDetails from "../Pages/PetDetails/PetDetails";
 import Footer from "../Components/Footer/Footer";
 import { BasicDetails } from "../Pages/New/Index";
-import PetService from "../Pages/PetService/PetService";
 
 import { MyProfileHostDB } from "../Pages/HostDashBoard/MyProfileHostDB";
 import { MyPetsHostDB } from "../Pages/HostDashBoard/MyPetsHostDB";
@@ -26,6 +25,7 @@ import { CustomerDashBoard } from "../Pages/CustomerDashBoard/Index";
 import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfileCustomerDB";
 import { MyPetsCustomerDB } from "../Pages/CustomerDashBoard/MyPetsCustomerDB";
 import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookingsCustomerDb";
+import PetService from "../Pages/PetService/PetService";
 
 export const Layout = () => {
   return (
@@ -38,8 +38,9 @@ export const Layout = () => {
         <Route path="PetBoardingSpace" index element={<PetBoardingSpace />} />
         <Route path="PetHost" index element={<PetHost />} />
         <Route path="PetSpace" index element={<PetSpace />} />
-        <Route path="MyPetDetails" index element={<PetDetails />} />
+        {/* <Route path="MyPetDetails" index element={<PetDetails />} /> */}
         <Route path="BasicDetails" index element={<BasicDetails />} />
+        <Route path="petService" index element={<PetService />} />
 
         {/* Host DashBoard        */}
         <Route path="HostDashBoard" index element={<HostDashBoard />} />

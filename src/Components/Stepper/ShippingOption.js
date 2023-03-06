@@ -66,10 +66,11 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import {
-  PetHostAddOnEntries
+  DefaultPetHostAddOnValues,
+  PetHostAddOnEntries,
 } from "../../Pages/JoinPetHost/petHost/PetHostAddOnEntries";
 import CustomForm from "../CustomForm/CustomForm";
-import { Grid,Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import "./style.css";
 
@@ -78,20 +79,20 @@ const GetShippingOption = (props) => {
   const weight = value.labelInfo.weight;
   const btnDisbaled = weight.length > 0;
 
-
-
   const [entry, setEntry] = React.useState([]);
 
   return (
     <form>
-  <Typography variant="h4">
-            Fill Up Details About Your Add on Package
-          </Typography>
+      <Typography variant="h4">
+        Fill Up Details About Your Add on Package
+      </Typography>
       <Grid>
-    
-          <CustomForm
-            AllEntries={entry.length > 0 ? entry : PetHostAddOnEntries}
-          />
+        <CustomForm
+          AllEntries={PetHostAddOnEntries}
+          textFieldChange={value.handleChange}
+          // onReceiveData={onReceiveData}
+          defaultValues={DefaultPetHostAddOnValues}
+        />
       </Grid>
 
       <ButtonGroup
@@ -115,4 +116,3 @@ const GetShippingOption = (props) => {
   );
 };
 export default GetShippingOption;
-

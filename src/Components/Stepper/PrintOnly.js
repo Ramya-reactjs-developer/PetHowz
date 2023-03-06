@@ -185,19 +185,19 @@ import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import {
-  PetHostBasicDetailsEntries
+  DefaultPetHostBasicDetailsValues,
+  PetHostBasicDetailsEntries,
 } from "../../Pages/JoinPetHost/petHost/PetHostBasicDetailsEntries";
 import CustomForm from "../CustomForm/CustomForm";
-import { Grid,Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 // import InputAdornment from "@material-ui/core/InputAdornment";
 import "./style.css";
+import { DefaultPetSpaceValues } from "../../Pages/JoinPetHost/petHost/petSpaceEntries";
 
 const PrintOnly = (props) => {
   const value = useContext(LabelContext);
   const weight = value.labelInfo.weight;
   const btnDisbaled = weight.length > 0;
-
-
 
   const [entry, setEntry] = React.useState([]);
 
@@ -211,10 +211,13 @@ const PrintOnly = (props) => {
           // onReceiveData={onReceiveData}
           defaultValues={DefaultPetSpaceValues}
         /> */}
-         <Typography variant="h4">Fill Up Your Basic Details</Typography>
-          <CustomForm
-            AllEntries={entry.length > 0 ? entry : PetHostBasicDetailsEntries}
-          />
+        <Typography variant="h4">Fill Up Your Basic Details</Typography>
+        <CustomForm
+          AllEntries={PetHostBasicDetailsEntries}
+          textFieldChange={value.handleChange}
+          // onReceiveData={onReceiveData}
+          defaultValues={DefaultPetHostBasicDetailsValues}
+        />
       </Grid>
 
       <ButtonGroup

@@ -2,7 +2,7 @@ import { Grid } from "@mui/material";
 import React from "react";
 import CustomTypography from "../../Components/Typography/Typography";
 import { Box } from "@mui/system";
-import CustomIcons from "../../Utils/Icons/Index";
+// import CustomIcons from "../../Utils/Icons/Index";
 import CustomButton from "../../Components/Button/Button";
 import ProfileImageUploader2 from "../../Components/ProfileImageUploader2/ProfileImageUploader2";
 

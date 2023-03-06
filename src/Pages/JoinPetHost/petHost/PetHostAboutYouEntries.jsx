@@ -1,7 +1,7 @@
 export const PetHostAboutYouEntries = [
   {
     isTextInput: true,
-    name: "Professional Status",
+    name: "ProfessionalStatus",
     label: "Professional Status",
     placeholder: "Enter Your Profession",
     breakpoint: 6,
@@ -15,7 +15,7 @@ export const PetHostAboutYouEntries = [
   },
   {
     isTextInput: true,
-    name: "Live Alone Or With Family",
+    name: "LiveAloneOrWithFamily",
     label: "Live Alone Or With Family ?",
     placeholder: "Enter Details",
     breakpoint: 6,
@@ -30,7 +30,7 @@ export const PetHostAboutYouEntries = [
   },
   {
     isTextInput: true,
-    name: "About you",
+    name: "Aboutyou",
     label: "Tell us something about you and your passion towards pet",
     breakpoint: 12,
     type: "text",
@@ -46,7 +46,7 @@ export const PetHostAboutYouEntries = [
   },
   {
     isTextInput: true,
-    name: "about the pet",
+    name: "aboutthepet",
     label:
       "Tell us about the type of pet you have and your experience in boarding or other services",
     breakpoint: 12,
@@ -63,7 +63,7 @@ export const PetHostAboutYouEntries = [
   },
   {
     isTextInput: true,
-    name: "about the pet",
+    name: "aboutthepettype",
     label:
       "Tell us about the type of pet you have and your experience in boarding or other services",
     breakpoint: 12,
@@ -80,21 +80,21 @@ export const PetHostAboutYouEntries = [
   },
   {
     isRadioAction: true,
-    name: "Oral Medication",
+    name: "OralMedication",
     label: "Can You Provide Oral Medication ?",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
-    defaultValue: "Male",
+    defaultValue: "No",
     validation: { required: true },
     error_message: "Status",
   },
   {
     isRadioAction: true,
-    name: "Oral Medication",
+    name: "FirstAid",
     label: "Can You Provide First Aid ?",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
-    defaultValue: "Male",
+    defaultValue: "No",
     validation: { required: true },
     error_message: "Status",
   },
@@ -104,11 +104,20 @@ export const PetHostAboutYouEntries = [
     breakpoint: 11,
     name: "space",
   },
-  {
-    isSubmitButton: true,
-    name: "submit_button",
-    buttonTitle: "Submit",
-    breakpoint: 1,
-    customClass: "sourceButton",
-  },
+  // {
+  //   isSubmitButton: true,
+  //   name: "submit_button",
+  //   buttonTitle: "Submit",
+  //   breakpoint: 1,
+  //   customClass: "sourceButton",
+  // },
 ];
+export const DefaultPetHostAboutYouValues = {
+  ProfessionalStatus: "",
+  LiveAloneOrWithFamily: "",
+  Aboutyou: "",
+  aboutthepet: "",
+  aboutthepettype: "",
+  OralMedication: "",
+  FirstAid: "",
+};

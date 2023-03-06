@@ -4,25 +4,25 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import {
-  PetHostAboutYouEntries
+  DefaultPetHostAboutYouValues,
+  PetHostAboutYouEntries,
 } from "../../Pages/JoinPetHost/petHost/PetHostAboutYouEntries";
 import CustomForm from "../CustomForm/CustomForm";
-import { Grid,Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import "./style.css";
+import { DefaultPetSpaceValues } from "../../Pages/JoinPetHost/petHost/petSpaceEntries";
 
 const GetWeight = (props) => {
   const value = useContext(LabelContext);
   const weight = value.labelInfo.weight;
   const btnDisbaled = weight.length > 0;
 
-
-
   const [entry, setEntry] = React.useState([]);
 
   return (
     <form>
-         <Typography variant="h4">Fill Up Details About You</Typography>
+      <Typography variant="h4">Fill Up Details About You</Typography>
       <Grid>
         {/* <CustomForm
           AllEntries={petSpaceEntries}
@@ -30,9 +30,12 @@ const GetWeight = (props) => {
           // onReceiveData={onReceiveData}
           defaultValues={DefaultPetSpaceValues}
         /> */}
-          <CustomForm
-            AllEntries={entry.length > 0 ? entry : PetHostAboutYouEntries}
-          />
+        <CustomForm
+          AllEntries={PetHostAboutYouEntries}
+          textFieldChange={value.handleChange}
+          // onReceiveData={onReceiveData}
+          defaultValues={DefaultPetHostAboutYouValues}
+        />
       </Grid>
 
       <ButtonGroup
