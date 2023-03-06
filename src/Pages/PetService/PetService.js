@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Stepper from "react-stepper-horizontal";
 // import SenderAddress from "../../../Components/Stepper/SenderAddress";
-import RecevierAddress from "../../Components/Stepper/RecevierAddress";
+// import RecevierAddress from "../../Components/Stepper/RecevierAddress";
 // import Confirmation from "../../../Components/Stepper/Confirmation";
 // import GetWeight from "../../../Components/Stepper/GetWeight";
 // import ShippingOption from "../../../Components/Stepper/ShippingOption";
@@ -37,7 +37,7 @@ const PetService = () => {
 
         <Grid item md={7} sm={7} lg={7} xs={12}>
           {value.page === 0 && <PetBasicDetails />}
-          {value.page === 1 && <RecevierAddress />}
+          {/* {value.page === 1 && <RecevierAddress />} */}
           {value.page === 2 && <PetConfirmation />}
           {/* {value.page === 2 && <GetWeight />}
           {value.page === 3 && <ShippingOption />}

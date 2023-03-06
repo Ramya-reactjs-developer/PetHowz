@@ -73,7 +73,7 @@ import { Grid,Typography } from "@mui/material";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import "./style.css";
 
-const GetShippingOption = (props) => {
+const PetHostAddOn = (props) => {
   const value = useContext(LabelContext);
   const weight = value.labelInfo.weight;
   const btnDisbaled = weight.length > 0;
@@ -114,5 +114,5 @@ const GetShippingOption = (props) => {
     </form>
   );
 };
-export default GetShippingOption;
+export default PetHostAddOn;
 

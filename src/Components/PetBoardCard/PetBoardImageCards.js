@@ -6,7 +6,7 @@ import "./Style";
 
 import PropTypes from "prop-types";
 export default function PetBoardImageCards(props) {
-  const { customClass, imagePath, text, petBoardText, CustomImage } = props;
+  const { customClass, imagePath, text,onClick, petBoardText, CustomImage } = props;
   console.log(imagePath, "imagePath");
   // const image = Data;
   return (
@@ -18,7 +18,7 @@ export default function PetBoardImageCards(props) {
         {imagePath.map((item) => {
           return (
             <Grid item md={12} sm={12} lg={12} xs={12} className={CustomImage}>
-              <img src={item.image} alt="" />
+              <img src={item.image} alt="" onClick={onClick} />
               <CustomTypography
                 variant="body2"
                 text={item.text}
@@ -46,6 +46,7 @@ export default function PetBoardImageCards(props) {
 }
 PetBoardImageCards.propTypes = {
   imagePath: PropTypes.array,
+  onClick:PropTypes.func,
   PetBoardImage: PropTypes.string,
   CustomImage: PropTypes.string,
   customClass: PropTypes.string,
@@ -56,6 +57,7 @@ PetBoardImageCards.propTypes = {
 PetBoardImageCards.defaultProps = {
   imagePath: [],
   CustomImage: "",
+  onClick:"",
   text: "",
   petBoardText: "",
   customClass: "",

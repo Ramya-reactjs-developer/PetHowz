@@ -67,12 +67,12 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import {
   petHostEntries,
   DefaultPetHostValues,
-} from "../../Pages/JoinPetHost/petHost/petHostEntries";
+} from "../../Pages/JoinPetHost/petHost/RuleAmenitiesEntries";
 import CustomForm from "../CustomForm/CustomForm";
 import { Grid } from "@mui/material";
 import "./style.css";
 
-const RecevierAddress = (props) => {
+const RulesAmenities = (props) => {
   const value = useContext(LabelContext);
   const receiver = value.labelInfo?.receiver;
   console.log(receiver, "vLOGG");
@@ -136,4 +136,4 @@ const RecevierAddress = (props) => {
     </form>
   );
 };
-export default RecevierAddress;
+export default RulesAmenities;

@@ -192,7 +192,7 @@ import { Grid,Typography } from "@mui/material";
 // import InputAdornment from "@material-ui/core/InputAdornment";
 import "./style.css";
 
-const PrintOnly = (props) => {
+const BasicDetails = (props) => {
   const value = useContext(LabelContext);
   const weight = value.labelInfo.weight;
   const btnDisbaled = weight.length > 0;
@@ -237,4 +237,4 @@ const PrintOnly = (props) => {
     </form>
   );
 };
-export default PrintOnly;
+export default BasicDetails;

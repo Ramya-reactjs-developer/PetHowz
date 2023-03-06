@@ -1,23 +1,24 @@
 import React from "react";
 import PetBoardImageCards from "../../Components/PetBoardCard/PetBoardImageCards";
 import CustomImages from "../../Utils/Images/index";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Box, Grid } from "@mui/material";
 import CustomTypography from "../../Components/Typography/Typography";
 import "./petBoard.css";
-export const PetBoardingSpace = () => {
+export const BecomePetHostService = () => {
   // const CardData = Data;
   const imagePath = [
     {
       image: CustomImages.Dog1,
-      text:"ghfghf"
+      text: "Pet Home Boarding",
     },
     {
       image: CustomImages.Dog2,
-      text:"loooo"
+      text: "loooo",
     },
     {
       image: CustomImages.Dog1,
-      text:"llll"
+      text: "llll",
     },
     // {
     //   image: CustomImages.Dog2,
@@ -29,6 +30,8 @@ export const PetBoardingSpace = () => {
       image: CustomImages.Dog1,
     },
   ];
+  const navigate = useNavigate();
+  const clickImage = () => { navigate("/PetHomeBoarding") };
   return (
     <Grid container md={12} sm={12} lg={12} xs={12}>
       <Grid container md={12} sm={12} lg={12} xs={12}>
@@ -62,16 +65,7 @@ export const PetBoardingSpace = () => {
                 customClass="petService"
               />
             </Grid>
-            <Grid
-              container
-              md={12}
-              sm={12}
-              lg={12}
-              xs={12}
-              pt={2}
-              className=""
-            
-            >
+            <Grid container md={12} sm={12} lg={12} xs={12} pt={2} className="">
               <Grid item md={3} sm={12} lg={3} xs={12} className="">
                 <PetBoardImageCards
                   // imagePath={CustomImages.Dog1}
@@ -79,6 +73,7 @@ export const PetBoardingSpace = () => {
                   CustomImage="pet-image"
                   customClass="petListImage"
                   imagePath={imagePath}
+                  onClick={clickImage}
                   petBoardText="PetBoardImage-image"
                 />
               </Grid>
