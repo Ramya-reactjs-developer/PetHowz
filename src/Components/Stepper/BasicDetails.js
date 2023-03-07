@@ -184,23 +184,58 @@ import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
 // import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import {
-  DefaultPetHostBasicDetailsValues,
-  PetHostBasicDetailsEntries,
-} from "../../Pages/JoinPetHost/petHost/PetHostBasicDetailsEntries";
+
 import CustomForm from "../CustomForm/CustomForm";
 import { Grid, Typography } from "@mui/material";
 // import InputAdornment from "@material-ui/core/InputAdornment";
 import "./style.css";
-import { DefaultPetSpaceValues } from "../../Pages/JoinPetHost/petHost/petSpaceEntries";
+import {
+  DefaultPetHostBasicDetailsValues,
+  PetHostBasicDetailsEntries,
+} from "../../Pages/JoinPetHost/petHost/PetHostBasicDetailsEntries";
 
-const BasicDetails = (props) => {
+const BasicDetails = () => {
   const value = useContext(LabelContext);
-  const weight = value.labelInfo.weight;
-  const btnDisbaled = weight.length > 0;
-
-  const [entry, setEntry] = React.useState([]);
-
+  const BD = value.labelInfo?.BasicDetails;
+  const pg = value.page;
+  const btnDisbaled =
+    BD.NameofPet?.length > 2 &&
+    BD.mobile_number?.length > 9 &&
+    BD.NameOfYourPetBoardingSpace?.length > 0 &&
+    BD.Address?.length > 0 &&
+    BD.City?.length > 0 &&
+    BD.State?.length > 0 &&
+    BD.Locality?.length > 0 &&
+    BD.Pincode?.length > 5;
+  console.log(BD.NameofPet, "name");
+  console.log(BD.Status1, "gen");
+  // BD.Address?.length > 0 &&
+  // BD.City?.length > 0 &&
+  // BD.State?.length > 0 &&
+  // BD.Locality?.length > 0 &&
+  // BD.Pincode?.length > 0;
+  // BD.mobile_number?.length > 0 &&
+  // BD.Gender?.length > 0 &&
+  // BD.dob?.length > 0 &&
+  // BD.NNameOfYourPetBoardingSpace?.length > 0 &&
+  // BD.Address?.length > 0 &&
+  // BD.City?.length > 0 &&
+  // BD.State?.length > 0 &&
+  // BD.Locality?.length > 0 &&
+  // BD.Pincode?.length > 0;
+  //  mobile_number: "",
+  // Gender: "",
+  // dob: "",
+  // NameOfYourPetBoardingSpace: "",
+  // Address: "",
+  // City: "",
+  // State: "",
+  // Locality: "",
+  // Pincode: "",
+  console.log(pg, "pg");
+  console.log(BD, "BD");
+  console.log(value, "valueBD");
+  console.log(btnDisbaled, "btnDisbaled");
   return (
     <form>
       <h4> Enter Weight Details</h4>
@@ -226,15 +261,15 @@ const BasicDetails = (props) => {
         aria-label="text primary button group"
         style={{ marginTop: 15 }}
       >
-        <Button onClick={() => value.prevPage()} style={{ margin: 25 }}>
+        {/* <Button onClick={() => value.prevPage()} style={{ margin: 25 }}>
           Previous
-        </Button>
+        </Button> */}
         <Button
           disabled={!btnDisbaled}
           onClick={() => value.nextPage()}
           style={{ margin: 25 }}
         >
-          Next
+          {console.log(value, "vvvvvv")}Next
         </Button>
       </ButtonGroup>
     </form>

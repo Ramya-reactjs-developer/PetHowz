@@ -27,14 +27,24 @@ export const PetHostBasicDetailsEntries = [
     requiredField: true,
     error_message: "Mobile Number",
   },
+  // {
+  //   isRadioAction: true,
+  //   name: "Gender",
+  //   label: "Gender",
+  //   breakpoint: 6,
+  //   radioButtonData: [{ name: "Male" }, { name: "Female" }, { name: "Others" }],
+
+  //   validation: { required: true },
+  //   error_message: "Status",
+  // },
   {
     isRadioAction: true,
-    name: "Gender",
-    label: "Gender",
+    name: "Status1",
+    label: "Do you have dedicated boarding area for pets?",
     breakpoint: 6,
-    radioButtonData: [{ name: "Male" }, { name: "Female" }, { name: "Others" }],
-    defaultValue: "Male",
+    radioButtonData: [{ name: "Active" }, { name: "Inactive" }],
     validation: { required: true },
+    requiredField: true,
     error_message: "Status",
   },
   {
@@ -48,7 +58,6 @@ export const PetHostBasicDetailsEntries = [
     validation_error_message: "Date of Birth is in Invalid format",
     validation: { required: true },
     requiredField: true,
-    maxDate: "11/02/2004",
     error_message: "Date of Birth",
   },
   {
@@ -157,7 +166,7 @@ export const PetHostBasicDetailsEntries = [
 export const DefaultPetHostBasicDetailsValues = {
   NameofPet: "",
   mobile_number: "",
-  Gender: "",
+  Status1: "",
   dob: "",
   NameOfYourPetBoardingSpace: "",
   Address: "",

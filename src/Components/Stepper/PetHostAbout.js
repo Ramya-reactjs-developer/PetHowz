@@ -1,25 +1,30 @@
 import React, { useContext } from "react";
 import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
-import TextField from "@material-ui/core/TextField";
+// import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
+
+import CustomForm from "../CustomForm/CustomForm";
+import { Grid, Typography } from "@mui/material";
+// import InputAdornment from "@material-ui/core/InputAdornment";
+import "./style.css";
 import {
   DefaultPetHostAboutYouValues,
   PetHostAboutYouEntries,
 } from "../../Pages/JoinPetHost/petHost/PetHostAboutYouEntries";
-import CustomForm from "../CustomForm/CustomForm";
-import { Grid, Typography } from "@mui/material";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import "./style.css";
-import { DefaultPetSpaceValues } from "../../Pages/JoinPetHost/petHost/petSpaceEntries";
 
 const PetHostAbout = (props) => {
   const value = useContext(LabelContext);
-  const weight = value.labelInfo.weight;
-  const btnDisbaled = weight.length > 0;
+  const AY = value.labelInfo.AboutYou;
+  const btnDisbaled = AY.ProfessionalStatus.length > 0;
 
-  const [entry, setEntry] = React.useState([]);
-
+  //   ProfessionalStatus: "",
+  // LiveAloneOrWithFamily: "",
+  // Aboutyou: "",
+  // aboutthepet: "",
+  // aboutthepettype: "",
+  // OralMedication: "",
+  // FirstAid: "",
   return (
     <form>
       <Typography variant="h4">Fill Up Details About You</Typography>

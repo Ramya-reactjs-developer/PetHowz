@@ -3,13 +3,14 @@ import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
 // import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import {
-  petSpaceEntries,
-  DefaultPetSpaceValues,
-} from "../../Pages/JoinPetHost/petHost/petBoardingSpaceEntries";
+
 import CustomForm from "../CustomForm/CustomForm";
 import { Grid } from "@mui/material";
 import "./style.css";
+import {
+  DefaultPetSpaceValues,
+  petSpaceEntries,
+} from "../../Pages/JoinPetHost/petHost/petBoardingSpaceEntries";
 
 const PetBoardingSpace = (props) => {
   const value = useContext(LabelContext);

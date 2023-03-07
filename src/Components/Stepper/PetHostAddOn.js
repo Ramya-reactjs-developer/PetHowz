@@ -62,22 +62,25 @@
 // export default GetShippingOption;
 import React, { useContext } from "react";
 import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
-import TextField from "@material-ui/core/TextField";
+// import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import { PetHostAddOnEntries } from "../../Pages/JoinPetHost/petHost/PetHostAddOnEntries";
+import {
+  DefaultPetHostAddOnValues,
+  PetHostAddOnEntries,
+} from "../../Pages/JoinPetHost/petHost/PetHostAddOnEntries";
 import CustomForm from "../CustomForm/CustomForm";
 import { Grid, Typography } from "@mui/material";
-import InputAdornment from "@material-ui/core/InputAdornment";
+// import InputAdornment from "@material-ui/core/InputAdornment";
 import "./style.css";
 
 const PetHostAddOn = (props) => {
   const value = useContext(LabelContext);
-  const weight = value.labelInfo.weight;
-  const btnDisbaled = weight.length > 0;
-
-  const [entry, setEntry] = React.useState([]);
-
+  const AO = value.labelInfo.AddOn;
+  const btnDisbaled =
+    AO.Rate.length > 0 &&
+    AO.AddOnPackage.length > 0 &&
+    AO.WhatisIncluded.length > 0;
   return (
     <form>
       <Typography variant="h4">
@@ -85,7 +88,11 @@ const PetHostAddOn = (props) => {
       </Typography>
       <Grid>
         <CustomForm
-          AllEntries={entry.length > 0 ? entry : PetHostAddOnEntries}
+          // AllEntries={entry.length > 0 ? entry : PetHostAddOnEntries}
+          AllEntries={PetHostAddOnEntries}
+          textFieldChange={value.handleChange}
+          // onReceiveData={onReceiveData}
+          defaultValues={DefaultPetHostAddOnValues}
         />
       </Grid>
 
