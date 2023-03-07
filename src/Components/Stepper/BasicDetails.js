@@ -190,7 +190,8 @@ import { Grid, Typography } from "@mui/material";
 // import InputAdornment from "@material-ui/core/InputAdornment";
 import "./style.css";
 import {
-  DefaultPetHostBasicDetailsValues,
+  BasicDetailsEntries,
+  DefaultBasicDetailsValues,
   PetHostBasicDetailsEntries,
 } from "../../Pages/JoinPetHost/petHost/PetHostBasicDetailsEntries";
 
@@ -199,14 +200,16 @@ const BasicDetails = () => {
   const BD = value.labelInfo?.BasicDetails;
   const pg = value.page;
   const btnDisbaled =
-    BD.NameofPet?.length > 2 &&
-    BD.mobile_number?.length > 9 &&
-    BD.NameOfYourPetBoardingSpace?.length > 0 &&
-    BD.Address?.length > 0 &&
-    BD.City?.length > 0 &&
-    BD.State?.length > 0 &&
-    BD.Locality?.length > 0 &&
-    BD.Pincode?.length > 5;
+    BD.firstText?.length > 0 &&
+    BD.SecondText?.length > 0 &&
+    BD.ThirdText?.length > 0 &&
+    BD.fourthText?.length > 0 &&
+    BD.fifthText?.length > 0 &&
+    BD.sixthText?.length > 0 &&
+    BD.seventhText?.length > 0 &&
+    BD.pin_code?.length > 0 &&
+    BD.fileUploader?.length > 0 &&
+    BD.location?.length > 0;
   console.log(BD.NameofPet, "name");
   console.log(BD.Status1, "gen");
   // BD.Address?.length > 0 &&
@@ -238,7 +241,6 @@ const BasicDetails = () => {
   console.log(btnDisbaled, "btnDisbaled");
   return (
     <form>
-      <h4> Enter Weight Details</h4>
       <Grid>
         {/* <CustomForm
           AllEntries={petSpaceEntries}
@@ -248,10 +250,10 @@ const BasicDetails = () => {
         /> */}
         <Typography variant="h4">Fill Up Your Basic Details</Typography>
         <CustomForm
-          AllEntries={PetHostBasicDetailsEntries}
+          AllEntries={BasicDetailsEntries}
           textFieldChange={value.handleChange}
           // onReceiveData={onReceiveData}
-          defaultValues={DefaultPetHostBasicDetailsValues}
+          defaultValues={DefaultBasicDetailsValues}
         />
       </Grid>
 

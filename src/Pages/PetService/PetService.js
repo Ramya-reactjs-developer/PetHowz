@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import Stepper from "react-stepper-horizontal";
 import Confirmation from "../../Components/Stepper/Confirmation";
-import GetWeight from "../../Components/Stepper/GetWeight";
-import ShippingOption from "../../Components/Stepper/ShippingOption";
-import Printonly from "../../Components/Stepper/PrintOnly";
+// import GetWeight from "../../Components/Stepper/GetWeight";
+// import ShippingOption from "../../Components/Stepper/ShippingOption";
+// import Printonly from "../../Components/Stepper/PrintOnly";
 // import { LabelContext } from "../JoinPetHost/petHost/labelDataContext";
 import { LabelContext } from "../PetService/LableData";
 // import { petSpaceEntries, DefaultPetSpaceValues } from "./petSpaceEntries";
@@ -12,7 +12,6 @@ import { Grid } from "@mui/material";
 import "./PetService.css";
 import PetBasicDetails from "../../Components/PetServiceProvider/BasicDetails";
 import AboutPet from "../../Components/PetServiceProvider/AboutPet";
-
 
 const PetService = () => {
   const value = useContext(LabelContext);
@@ -38,10 +37,10 @@ const PetService = () => {
           {/* {value.page === 0 && <SenderAddress />} */}
           {value.page === 0 && <PetBasicDetails />}
           {value.page === 1 && <AboutPet />}
-          {value.page === 2 && <GetWeight />}
-          {value.page === 3 && <ShippingOption />}
+          {/* {value.page === 2 && <GetWeight />} */}
+          {/* {value.page === 3 && <ShippingOption />} */}
           {value.page === 4 && <Confirmation />}
-          {value.page === 5 && <Printonly />}
+          {/* {value.page === 5 && <Printonly />} */}
         </Grid>
       </Grid>
     </Grid>
