@@ -23,7 +23,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "firstText",
+    name: "SecondText",
     label: "Contact Person Mobile Number",
     placeholder: "Enter Mobile Number",
     breakpoint: 6,
@@ -36,7 +36,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "firstText",
+    name: "ThirdText",
     label: "Name of Your Pet Service Space",
     placeholder: "",
     breakpoint: 6,
@@ -49,7 +49,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "firstText",
+    name: "fourthText",
     label: "Address",
     placeholder: "",
     breakpoint: 6,
@@ -64,7 +64,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "firstText",
+    name: "fifthText",
     label: "City",
     placeholder: "Enter City",
     breakpoint: 6,
@@ -77,7 +77,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "firstText",
+    name: "sixthText",
     label: "State",
     placeholder: "Enter State",
     breakpoint: 6,
@@ -90,7 +90,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "firstText",
+    name: "seventhText",
     label: "Locality",
     placeholder: "Enter Locality",
     breakpoint: 6,
@@ -103,7 +103,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "firstText",
+    name: "pin_code",
     label: "Pincode",
     placeholder: "Enter Pincode",
     breakpoint: 6,
@@ -116,7 +116,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "firstText",
+    name: "location",
     label: "Pin Location",
     placeholder: "Location",
     breakpoint: 6,
@@ -146,9 +146,14 @@ export const BasicDetailsEntries = [
 export const DefaultBasicDetailsValues = {
   firstText: "",
   SecondText: "",
-  Status: "",
+  fourthText: "",
   ThirdText: "",
+  fifthText: "",
+  sixthText: "",
+  seventhText: "",
   fileUploader: "",
+  pin_code: "",
+  location: "",
   // submit_button: '',
   // cancel_button: '',
 };

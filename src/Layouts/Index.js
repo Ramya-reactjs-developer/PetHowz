@@ -35,7 +35,7 @@ export const Layout = () => {
         <Route path="PetSpace" index element={<PetSpace />} />
         <Route path="MyPetDetails" index element={<PetDetails />} />
         <Route path="BasicDetails" index element={<BasicDetails />} />
-        <Route path="petservice" index element={<PetService />} />
+        <Route path="petService" index element={<PetService />} />
       </Routes>
 
       {/* <Footer /> */}
