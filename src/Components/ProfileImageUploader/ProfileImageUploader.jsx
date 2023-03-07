@@ -5,8 +5,8 @@ import ReactFileReader from "react-file-reader";
 import { Button, Grid } from "@mui/material";
 import CustomIcons from "../../Utils/Icons/Index";
 // import CustomButton from "../Button/Button";
-import Camera from '@mui/icons-material/CameraAlt';
-import './ProfileImageUploader.css'
+// import Camera from '@mui/icons-material/CameraAlt';
+import "./ProfileImageUploader.css";
 export const AvatarInput = styled.div`
   margin-bottom: 10px;
   position: relative;
@@ -60,7 +60,7 @@ export default function ProfileImageUploader() {
   };
 
   return (
-    <Grid sx={{position:"relative"}}>
+    <Grid sx={{ position: "relative" }}>
       <AvatarInput>
         <img src={url} alt="Avatar Placeholder" />
       </AvatarInput>
@@ -70,10 +70,9 @@ export default function ProfileImageUploader() {
         base64={true}
         handleFiles={handleFiles}
         className="filebutton"
-        style={{height:"50px",width:"50px"}}
+        style={{ height: "50px", width: "50px" }}
       >
-        <Button variant="contained">
-       hi</Button>
+        <Button variant="contained">hi</Button>
       </ReactFileReader>
     </Grid>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Table.css";
+
 import { Box, Typography } from "@mui/material";
 import { BoadingSpaceListSize, BoardingSpaceDetailListPostion } from "./Style";
 import PropTypes from "prop-types";
@@ -58,6 +58,10 @@ export const BoardingSpaceDetailList = ({ Data }) => {
               <Typography fontWeight="bold">Location</Typography>
               <Typography color="text.secondary">{item.location}</Typography>
             </Box>
+            <Box sx={BoadingSpaceListSize}>
+              <Typography fontWeight="bold">Can Provide</Typography>
+              <Typography color="text.secondary">{item.canProvide}</Typography>
+            </Box>
           </Box>
         );
       })}
@@ -65,5 +69,5 @@ export const BoardingSpaceDetailList = ({ Data }) => {
   );
 };
 BoardingSpaceDetailList.propTypes = {
-  Data: PropTypes.arrayOf.isRequired,
+  Data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
 };

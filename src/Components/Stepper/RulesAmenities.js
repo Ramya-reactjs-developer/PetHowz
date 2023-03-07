@@ -67,12 +67,12 @@ import ButtonGroup from "@material-ui/core/ButtonGroup";
 import {
   petHostEntries,
   DefaultPetHostValues,
-} from "../../Pages/JoinPetHost/petHost/petHostEntries";
+} from "../../Pages/JoinPetHost/petHost/RuleAmenitiesEntries";
 import CustomForm from "../CustomForm/CustomForm";
 import { Grid } from "@mui/material";
 import "./style.css";
 
-const RecevierAddress = (props) => {
+const RulesAmenities = (props) => {
   const value = useContext(LabelContext);
   const receiver = value.labelInfo?.receiver;
   console.log(receiver, "vLOGG");
@@ -88,7 +88,17 @@ const RecevierAddress = (props) => {
     receiver.Status7?.length > 0 &&
     receiver.Status8?.length > 0 &&
     receiver.Status9?.length > 0 &&
-    receiver.Status10?.length > 0;
+    receiver.Status10?.length > 0 &&
+    receiver.Status11?.length > 0 &&
+    receiver.Status12?.length > 0 &&
+    receiver.Status13?.length > 0 &&
+    receiver.Status14?.length > 0 &&
+    receiver.Status15?.length > 0 &&
+    receiver.Status16?.length > 0 &&
+    receiver.Status17?.length > 0 &&
+    receiver.Status18?.length > 0 &&
+    receiver.firstText?.length > 0 &&
+    receiver.Status19?.length > 0;
   console.log(btnDisbaled, "btnDisbaled");
   // sender.name.length > 0 &&
   // sender.city.length > 0 &&
@@ -103,6 +113,7 @@ const RecevierAddress = (props) => {
         <CustomForm
           AllEntries={petHostEntries}
           onChangeRadioAction={value.handleOnChange}
+          textFieldChange={value.handleChange}
           // onReceiveData={onReceiveData}
           defaultValues={DefaultPetHostValues}
         />
@@ -125,4 +136,4 @@ const RecevierAddress = (props) => {
     </form>
   );
 };
-export default RecevierAddress;
+export default RulesAmenities;

@@ -1,12 +1,12 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import CustomTypography from "../../Components/Typography/Typography";
-import ProfileImageUploader from "../../Components/ProfileImageUploader/ProfileImageUploader";
 import { Box } from "@mui/system";
-import CustomIcons from "../../Utils/Icons/Index";
+// import CustomIcons from "../../Utils/Icons/Index";
 import CustomButton from "../../Components/Button/Button";
+import ProfileImageUploader2 from "../../Components/ProfileImageUploader2/ProfileImageUploader2";
 
-export const MyProfileDashBoard = () => {
+export const MyProfileHostDB = () => {
   return (
     <Grid container item xs={12}>
       {" "}
@@ -25,7 +25,7 @@ export const MyProfileDashBoard = () => {
         xs={12}
       >
         <Grid item lg={2} md={3} sm={4} xs={12} textAlign={"center"}>
-          <ProfileImageUploader />
+          <ProfileImageUploader2 />
           <Box
             sx={{
               display: "flex",
@@ -34,11 +34,12 @@ export const MyProfileDashBoard = () => {
             }}
           >
             <CustomTypography text="john" type="title" colorType="text" />
-
+            {/* 
             <CustomButton
               btnTitle={<img src={CustomIcons.Edit} alt="edit" />}
               color="primary"
-            />
+              btnStyles={{ border: "none" }}
+            /> */}
           </Box>
         </Grid>
         <Grid item lg={3} md={3} sm={5} xs={12}>
@@ -55,7 +56,15 @@ export const MyProfileDashBoard = () => {
                 type="title"
                 colorType="text"
               />
-              <CustomButton btnTitle={"Change email"} color="primary" />
+              <CustomButton
+                btnTitle={"Change email"}
+                color="primary"
+                btnStyles={{
+                  background: "none",
+                  boxShadow: "none",
+                  color: "red",
+                }}
+              />
             </Box>
             <Box
               sx={{
@@ -68,7 +77,15 @@ export const MyProfileDashBoard = () => {
                 type="title"
                 colorType="text"
               />
-              <CustomButton btnTitle={"Change Number"} color="primary" />
+              <CustomButton
+                btnTitle={"Change Phone Number"}
+                color="primary"
+                btnStyles={{
+                  background: "none",
+                  boxShadow: "none",
+                  color: "red",
+                }}
+              />
             </Box>
             <Box>
               <CustomTypography
@@ -76,7 +93,16 @@ export const MyProfileDashBoard = () => {
                 type="title"
                 colorType="text"
               />
-              <CustomButton btnTitle={"Change Address"} color="primary" />
+              <CustomButton
+                btnTitle={"Change Address"}
+                color="primary"
+                btnStyles={{
+                  background: "none",
+                  boxShadow: "none",
+                  color: "red",
+                  p: 0,
+                }}
+              />
             </Box>
 
             {/* <Box>
