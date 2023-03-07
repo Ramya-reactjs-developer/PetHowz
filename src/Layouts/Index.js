@@ -40,7 +40,7 @@ export const Layout = () => {
           element={<BecomePetHostService />}
         />
         <Route path="PetHomeBoarding" index element={<PetHomeBoarding />} />
-        <Route path="MyPetDetails" index element={<PetDetails />} />
+        {/* <Route path="MyPetDetails" index element={<PetDetails />} /> */}
         <Route path="BasicDetails" index element={<BasicDetails />} />
         <Route path="petService" index element={<PetService />} />
 

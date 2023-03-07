@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
+// import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
 import { LabelContext } from "../../Pages/PetService/LableData";
-// import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import {
@@ -9,23 +9,37 @@ import {
 } from "../../Pages/PetService/BasicDetailsEntries";
 import CustomForm from "../CustomForm/CustomForm";
 import { Grid } from "@mui/material";
-// import "./style.css";
+import "./style.css";
 
 const PetBasicDetails = (props) => {
   const value = useContext(LabelContext);
-  const sender = value.labelInfo.sender;
-  const btnDisbaled =
-    sender.name.length > 0 &&
-    sender.city.length > 0 &&
-    sender.zipCode.length > 0 &&
-    sender.state.length > 0;
+  const sender = value.labelInfo?.sender;
+  console.log(value, "sender");
+  
+
+
+  const btnDisabled =
+    sender.firstText?.length > 0 &&
+    sender.SecondText?.length > 0 &&
+    sender.ThirdText?.length > 0 &&
+    sender.fourthText?.length > 0 &&
+    sender.fifthText?.length > 0 &&
+    sender.sixthText?.length > 0 &&
+    sender.seventhText?.length > 0 &&
+    sender.pin_code?.length > 0 &&
+    sender.fileUploader?.length > 0 &&
+    sender.location?.length > 0;
+  console.log(btnDisabled, "btnDisbaled");
+
   return (
     <form>
       <h4> Become a Pet Service Provider</h4>
-      <h5> Fill up Your Basic Details</h5>
-      <Grid container item md={12} lg={12} xs={12} sm={12}>
+      <h5> Fill up details the pet boarding</h5>
+
+      <Grid>
         <CustomForm
           AllEntries={BasicDetailsEntries}
+          textFieldChange={value.handleChange}
           // onReceiveData={onReceiveData}
           defaultValues={DefaultBasicDetailsValues}
         />
@@ -38,7 +52,7 @@ const PetBasicDetails = (props) => {
         style={{ marginTop: 15 }}
       >
         <Button
-          disabled={!btnDisbaled}
+          disabled={!btnDisabled}
           onClick={() => value.nextPage()}
           style={{ margin: 25 }}
         >
