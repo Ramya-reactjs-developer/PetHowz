@@ -14,59 +14,55 @@ import {
 } from "../../Pages/JoinPetHost/petHost/PetHostAboutYouEntries";
 
 const PetHostAbout = (props) => {
+
   const value = useContext(LabelContext);
-  const AY = value.labelInfo.AboutYou;
-  const btnDisbaled =
-    // AY.professional_status?.length > 0 &&
-    AY.tell_us_something_about_you_and_your_passion_towards_pet?.length > 0;
-  // AY.tell_us_about_the_type_of_pet_you_have_and_your_experience?.length > 0 &&
-  // AY.tell_us_about_the_type_of_pet_you_have_and_your_experience_two?.length >
-  //   0 &&
-  // AY.can_provide_oral_medication?.length > 0 &&
-  // AY.can_you_provide_first_aid?.length > 0;
-  //   ProfessionalStatus: "",
-  // LiveAloneOrWithFamily: "",
-  // Aboutyou: "",
-  // aboutthepet: "",
-  // aboutthepettype: "",
-  // OralMedication: "",
-  // FirstAid: "",
+  const AV = value.labelInfo?.receiver;
+  console.log(AV, "valkjndjhfdjiue");
+
+  const btnDisabled =
+    // receiver.professional_status?.length > 0 &&
+    AV.tell_us_something_about_you_and_your_passion_towards_pet?.length >
+      0 &&
+    AV.tell_us_about_the_type_of_pet_you_have_and_your_experience
+      ?.length > 0 &&
+    AV.tell_us_about_the_type_of_pet_you_have_and_your_experience_two
+      ?.length > 0 &&
+    AV.can_provide_oral_medication?.length > 0 &&
+    AV.can_you_provide_first_aid?.length > 0;
   return (
     <form>
-      <Typography variant="h4">Fill Up Details About You</Typography>
-      <Grid>
-        {/* <CustomForm
-          AllEntries={petSpaceEntries}
-          textFieldChange={value.handleChange}
-          // onReceiveData={onReceiveData}
-          defaultValues={DefaultPetSpaceValues}
-        /> */}
-        <CustomForm
-          AllEntries={PetHostAboutYouEntries}
-          textFieldChange={value.handleChange}
-          // onReceiveData={onReceiveData}
-          defaultValues={DefaultPetHostAboutYouValues}
-        />
-      </Grid>
+    <h4> Become a Pet Service Provider</h4>
+    <h5>
+      {" "}
+      Share these details which describe you as a pet host/pet service
+      provider.
+    </h5>
 
-      <ButtonGroup
-        variant="contained"
-        color="primary"
-        aria-label="text primary button group"
-        style={{ marginTop: 15 }}
+    <Grid>
+      <CustomForm
+        AllEntries={PetHostAboutYouEntries}
+        onChangeRadioAction={value.handleOnChange}
+        textFieldChange={value.handleChange}
+        // onReceiveData={onReceiveData}
+        defaultValues={DefaultPetHostAboutYouValues}
+      />
+    </Grid>
+
+    <ButtonGroup
+      variant="contained"
+      color="primary"
+      aria-label="text primary button group"
+      style={{ marginTop: 15 }}
+    >
+      <Button
+        disabled={!btnDisabled}
+        onClick={() => value.nextPage()}
+        style={{ margin: 25 }}
       >
-        <Button onClick={() => value.prevPage()} style={{ margin: 25 }}>
-          Previous
-        </Button>
-        <Button
-          disabled={!btnDisbaled}
-          onClick={() => value.nextPage()}
-          style={{ margin: 25 }}
-        >
-          Next
-        </Button>
-      </ButtonGroup>
-    </form>
+        Next
+      </Button>
+    </ButtonGroup>
+  </form>
   );
 };
 export default PetHostAbout;

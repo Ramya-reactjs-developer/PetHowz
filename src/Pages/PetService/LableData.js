@@ -19,7 +19,7 @@ export const LabelData = (props) => {
       location: "",
     },
     receiver: {
-      professional_status: "",
+      // professional_status: "",
       tell_us_something_about_you_and_your_passion_towards_pet: "",
       tell_us_about_the_type_of_pet_you_have_and_your_experience: "",
       tell_us_about_the_type_of_pet_you_have_and_your_experience_two: "",

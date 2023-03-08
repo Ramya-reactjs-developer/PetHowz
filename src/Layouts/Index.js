@@ -12,6 +12,8 @@ import GroomingService from "../Pages/GroomingService/GroomingService";
 // import PetDetails from "../Pages/PetDetails/PetDetails";
 import Footer from "../Components/Footer/Footer";
 import { BasicDetails } from "../Pages/New/Index";
+import PetService from "../Pages/PetService/PetService";
+import PetCare from '../Pages/PetCare/PetCare';
 
 import { MyProfileHostDB } from "../Pages/HostDashBoard/MyProfileHostDB";
 import { MyPetsHostDB } from "../Pages/HostDashBoard/MyPetsHostDB";
@@ -24,7 +26,8 @@ import { CustomerDashBoard } from "../Pages/CustomerDashBoard/Index";
 import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfileCustomerDB";
 import { MyPetsCustomerDB } from "../Pages/CustomerDashBoard/MyPetsCustomerDB";
 import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookingsCustomerDb";
-import PetService from "../Pages/PetService/PetService";
+// import PetService from "../Pages/PetService/PetService";
+
 
 export const Layout = () => {
   return (
@@ -39,6 +42,9 @@ export const Layout = () => {
           index
           element={<BecomePetHostService />}
         />
+        <Route path="PetCare" index element={<PetCare />} />
+
+PetCare
         <Route path="PetHomeBoarding" index element={<PetHomeBoarding />} />
         {/* <Route path="MyPetDetails" index element={<PetDetails />} /> */}
         <Route path="BasicDetails" index element={<BasicDetails />} />
