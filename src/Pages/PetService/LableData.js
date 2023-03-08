@@ -26,20 +26,25 @@ export const LabelData = (props) => {
       can_provide_oral_medication: "",
       can_you_provide_first_aid: "",
     },
-    // receiver: {
-    //   Status1: "",
-    //   Status2: "",
-    //   Status3: "",
-    //   Status4: "",
-    //   Status5: "",
-    //   Status6: "",
-    //   Status7: "",
-    //   tell_us_something_about_you_and_your_passion_towards_pet: "",
-    //   Status9: "",
-    //   Status10: "",
-    // },
-    // weight: "",
-    // shippingOption: "1",
+    weight: {
+      list_the_pet_services_you_are_providing: "",
+      category_of_pets_boarded: "",
+      no_of_pets: "",
+      providing_these_services_at: "",
+      do_you_provide_doorstep_service: "",
+      service_overview: "",
+      do_you_have_dedicated_boarding_area_for_pets: "",
+      do_you_have_kids_at_home: "",
+      can_provide_oral_medication: "",
+      do_you_have_a_playing_area_for_pets: "",
+      pets_allowed_on_beds: "",
+      do_you_have_air_conditioner_in_pet_sleeping_area: "",
+      pets_allowed_on_furniture: "",
+      do_you_have_other_pets_at_home: "",
+      do_you_have_other_pets_at_home_two: "",
+      do_you_pet_sleeping_area: "",
+    },
+    shippingOption: "1",
   });
 
   const nextPage = () => {
@@ -83,7 +88,7 @@ export const LabelData = (props) => {
         ...labelInfo,
         sender: { ...labelInfo.sender, [name]: event.target.value },
         receiver: { ...labelInfo.receiver, [name]: event.target.value },
-        // weight: { ...labelInfo.weight, [name]: value },
+        weight: { ...labelInfo.weight, [name]: event.target.value },
         // shippingOption: { ...labelInfo.shippingOption, [name]: value },
       });
     };
@@ -104,8 +109,6 @@ export const LabelData = (props) => {
         prevPage,
         labelInfo,
         handleChange,
-        // setSenderInfo,
-        // setRecevierInfo,
         handleOnChange,
       }}
     >
