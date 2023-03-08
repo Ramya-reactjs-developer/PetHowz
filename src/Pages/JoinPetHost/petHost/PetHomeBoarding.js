@@ -5,7 +5,7 @@ import PetHostAbout from "../../../Components/Stepper/PetHostAbout";
 import PetHostAddOn from "../../../Components/Stepper/PetHostAddOn";
 import PetBoardingSpace from "../../../Components/Stepper/PetBoardingSpace";
 import RulesAmenities from "../../../Components/Stepper/RulesAmenities";
-import Printonly from "../../../Components/Stepper/BasicDetails";
+import Confirmation from "../../../Components/Stepper/Confirmation";
 import { LabelContext } from "./labelDataContext";
 // import { petSpaceEntries, DefaultPetSpaceValues } from "./petSpaceEntries";
 // import CustomForm from "../../../Components/CustomForm/CustomForm";
@@ -37,7 +37,7 @@ const PetSpace = () => {
           {value.page === 2 && <PetBoardingSpace />}
           {value.page === 3 && <RulesAmenities />}
           {value.page === 4 && <PetHostAddOn />}
-          {/* {value.page === 5 && <Printonly />} */}
+          {value.page === 5 && <Confirmation />}
         </Grid>
       </Grid>
     </Grid>

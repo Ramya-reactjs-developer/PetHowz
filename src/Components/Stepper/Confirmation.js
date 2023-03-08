@@ -3,12 +3,34 @@ import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
 // import TextField from "@material-ui/core/TextField";
 import CustomTextField from "../TextField/TextField";
 import CustomButton from "../Button/Button";
-import Button from "@material-ui/core/Button";
+// import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import "./style.css";
 import { upper } from "../../Pages/JoinPetHost/petHost/common/normalijation";
-
+import CustomForm from "../CustomForm/CustomForm";
+import { Grid, Typography } from "@mui/material";
+import {
+  DefaultPetHostAboutYouValues,
+  PetHostAboutYouEntries,
+} from "../../Pages/JoinPetHost/petHost/PetHostAboutYouEntries";
+import {
+  BasicDetailsEntries,
+  DefaultBasicDetailsValues,
+  PetHostBasicDetailsEntries,
+} from "../../Pages/JoinPetHost/petHost/PetHostBasicDetailsEntries";
+import {
+  DefaultPetSpaceValues,
+  petSpaceEntries,
+} from "../../Pages/JoinPetHost/petHost/petBoardingSpaceEntries";
+import {
+  DefaultPetHostAddOnValues,
+  PetHostAddOnEntries,
+} from "../../Pages/JoinPetHost/petHost/PetHostAddOnEntries";
+import {
+  petHostEntries,
+  DefaultPetHostValues,
+} from "../../Pages/JoinPetHost/petHost/RuleAmenitiesEntries";
 const Confirmation = () => {
   const value = useContext(LabelContext);
   const [shippingCoast, setshippingCoast] = useState(0);
@@ -27,157 +49,55 @@ const Confirmation = () => {
   console.log(value, "value");
   return (
     <>
-      <h6> Sender Details</h6>
-      <div className="child">
-        <CustomTextField
-          label="label"
-          style={{ margin: 8, width: "93%" }}
-          value={upper(value.labelInfo.sender.name)}
-          //   onChange={onChange}
-          placeholder="placeholder"
-          InputProps={{
-            readOnly: true,
-          }}
+      <h6> Basic Details</h6>
+      <Grid className="child">
+        <CustomForm
+          AllEntries={BasicDetailsEntries}
+          textFieldChange={value.handleChange}
+          // onReceiveData={onReceiveData}
+          defaultValues={DefaultBasicDetailsValues}
         />
-        <CustomTextField
-          label="Street Address"
-          fullWidth
-          margin="normal"
-          style={{ margin: 8, width: "93%" }}
-          value={upper(value.labelInfo.sender.street)}
-          //   onChange={onChange}
-          placeholder="placeholder"
-          InputProps={{
-            readOnly: true,
-          }}
-        />
-
-        <CustomTextField
-          label="City"
-          required
-          style={{ margin: 1, width: "93%" }}
-          value={upper(value.labelInfo.sender.city)}
-          //   onChange={onChange}
-          placeholder="placeholder"
-          InputProps={{
-            readOnly: true,
-          }}
+      </Grid>
+      <h6> Pet Host About</h6>
+      <Grid className="child">
+      <CustomForm
+        AllEntries={PetHostAboutYouEntries}
+        onChangeRadioAction={value.handleOnChange}
+        textFieldChange={value.handleChange}
+        // onReceiveData={onReceiveData}
+        defaultValues={DefaultPetHostAboutYouValues}
+      />
+      </Grid>
+      <h6> Pet Boarding Sapce</h6>
+      <Grid className="child">
+      <CustomForm
+          AllEntries={petSpaceEntries}
+          textFieldChange={value.handleChange}
+          // onReceiveData={onReceiveData}
+          defaultValues={DefaultPetSpaceValues}
         />
 
-        <CustomTextField
-          label="State"
-          required
-          style={{ margin: 1, width: "31%" }}
-          value={upper(value.labelInfo.sender.state)}
-          //   onChange={onChange}
-          placeholder="placeholder"
-          InputProps={{
-            readOnly: true,
-          }}
+      </Grid>
+      <h6> Pet Host Add On</h6>
+      <Grid className="child">
+      <CustomForm
+          // AllEntries={entry.length > 0 ? entry : PetHostAddOnEntries}
+          AllEntries={PetHostAddOnEntries}
+          textFieldChange={value.handleChange}
+          // onReceiveData={onReceiveData}
+          defaultValues={DefaultPetHostAddOnValues}
         />
-
-        <CustomTextField
-          label="ZipCode"
-          required
-          style={{ margin: 1, width: "31%" }}
-          value={upper(value.labelInfo.sender.zipCode)}
-          //   onChange={onChange}
-          placeholder="placeholder"
-          InputProps={{
-            readOnly: true,
-          }}
+      </Grid>
+      <h6>Rules Amenities</h6>
+      <Grid className="child">
+      <CustomForm
+          AllEntries={petHostEntries}
+          onChangeRadioAction={value.handleOnChange}
+          textFieldChange={value.handleChange}
+          // onReceiveData={onReceiveData}
+          defaultValues={DefaultPetHostValues}
         />
-      </div>
-      <h6> Recevier Details</h6>
-      <div className="child">
-        <CustomTextField
-          style={{ margin: 8, width: "93%" }}
-          fullWidth
-          value={upper(value.labelInfo.recevier.name)}
-          InputProps={{
-            readOnly: true,
-          }}
-        />
-        <CustomTextField
-          style={{ margin: 8, width: "93%" }}
-          label="Street Address"
-          fullWidth
-          margin="normal"
-          value={upper(value.labelInfo.recevier.street)}
-          InputProps={{
-            readOnly: true,
-          }}
-        />
-
-        <CustomTextField
-          required
-          style={{ width: "31%", margin: 1 }}
-          label="City"
-          value={upper(value.labelInfo.recevier.city)}
-          InputProps={{
-            readOnly: true,
-          }}
-        />
-        <CustomTextField
-          required
-          style={{ width: "31%", margin: 1 }}
-          label="State"
-          value={upper(value.labelInfo.recevier.state)}
-          InputProps={{
-            readOnly: true,
-          }}
-        />
-        <CustomTextField
-          required
-          style={{ width: "31%", margin: 1 }}
-          label="ZipCode"
-          value={value.labelInfo.recevier.zipCode}
-          InputProps={{
-            readOnly: true,
-          }}
-        />
-      </div>
-      <h6> weight</h6>
-      <div className="child">
-        <CustomTextField
-          id="standard-full-width"
-          style={{ margin: 8, width: "93%" }}
-          fullWidth
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">lbs:</InputAdornment>
-            ),
-            readOnly: true,
-          }}
-          value={value.labelInfo.weight}
-        />
-      </div>
-      <h6> Slected Shipping option</h6>
-      <div className="child">
-        <CustomTextField
-          id="standard-full-width"
-          style={{ margin: 8, width: "93%" }}
-          fullWidth
-          value={value.labelInfo.shippingOption === "1" ? "GROUND" : "PRIOROTY"}
-          InputProps={{
-            readOnly: true,
-          }}
-        />
-      </div>
-      <h6>Total shipping Coast</h6>
-      <div className="child">
-        <CustomTextField
-          id="standard-full-width"
-          style={{ margin: 8, width: "93%" }}
-          fullWidth
-          value={shippingCoast}
-          ed
-          InputProps={{
-            startAdornment: <InputAdornment position="start">$</InputAdornment>,
-            readOnly: true,
-          }}
-        />
-      </div>
+      </Grid>
       <ButtonGroup
         variant="contained"
         color="primary"
