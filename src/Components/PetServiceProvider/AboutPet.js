@@ -11,14 +11,13 @@ import {
 } from "../../Pages/PetService/AboutPetEntries";
 import "./style.css";
 
-
 const AboutPet = (props) => {
   const value = useContext(LabelContext);
   const receiver = value.labelInfo?.receiver;
-  console.log(receiver, "value");
+  console.log(receiver, "valkjndjhfdjiue");
 
   const btnDisabled =
-    receiver.professional_status?.length > 0 &&
+    // receiver.professional_status?.length > 0 &&
     receiver.tell_us_something_about_you_and_your_passion_towards_pet?.length >
       0 &&
     receiver.tell_us_about_the_type_of_pet_you_have_and_your_experience
@@ -41,6 +40,7 @@ const AboutPet = (props) => {
         <CustomForm
           AllEntries={AboutPetEntries}
           onChangeRadioAction={value.handleOnChange}
+          textFieldChange={value.handleChange}
           // onReceiveData={onReceiveData}
           defaultValues={DefaultAboutPetValues}
         />

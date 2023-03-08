@@ -1,31 +1,31 @@
 export const PetHostAboutYouEntries = [
-  {
-    isDropdown: true,
-    name: "professional_status",
-    label: "Professional Status",
-    placeholder: "Select Profession",
-    DropdownData: [
-      {
-        id: 1,
-        value: "Student",
-      },
-      {
-        id: 2,
-        value: "Housewife",
-      },
-      {
-        id: 3,
-        value: "Professional boarder",
-      },
-      {
-        id: 4,
-        value: "Working Professional",
-      },
-    ],
-    breakpoint: 3,
-    disabled: true,
-    validation: { required: true },
-  },
+  // {
+  //   isDropdown: true,
+  //   name: "professional_status",
+  //   label: "Professional Status",
+  //   placeholder: "Select Profession",
+  //   DropdownData: [
+  //     {
+  //       id: 1,
+  //       value: "Student",
+  //     },
+  //     {
+  //       id: 2,
+  //       value: "Housewife",
+  //     },
+  //     {
+  //       id: 3,
+  //       value: "Professional boarder",
+  //     },
+  //     {
+  //       id: 4,
+  //       value: "Working Professional",
+  //     },
+  //   ],
+  //   breakpoint: 3,
+  //   disabled: true,
+  //   validation: { required: true },
+  // },
   {
     isTextInput: true,
     name: "tell_us_something_about_you_and_your_passion_towards_pet",
@@ -86,6 +86,7 @@ export const PetHostAboutYouEntries = [
   {
     isRadioAction: true,
     name: "can_you_provide_first_aid",
+    
     label: "Can you provide first aid?",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
@@ -95,7 +96,7 @@ export const PetHostAboutYouEntries = [
   },
 ];
 export const DefaultPetHostAboutYouValues = {
-  professional_status: "",
+  // professional_status: "",
   tell_us_something_about_you_and_your_passion_towards_pet: "",
   tell_us_about_the_type_of_pet_you_have_and_your_experience: "",
   tell_us_about_the_type_of_pet_you_have_and_your_experience_two: "",
