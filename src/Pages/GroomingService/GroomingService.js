@@ -3,7 +3,9 @@ import React from "react";
 import customImages from "../../Utils/Images";
 import GroomModal from "./Model";
 import "./GroomingService.css";
+import CustomIcons from "../../Utils/Icons/Index"
 import CustomTypography from "../../Components/Typography/Typography";
+import ImageList from "../../Components/ImageList/ImageList"
 import Service from "../../Components/AboutService/Service";
 import ServicePackagesCards from "../../Components/Cards/ServicePackagesCard";
 
@@ -26,7 +28,52 @@ const GroomingService = () => {
       service6: "Combing/Brushing",
     },
   ];
-
+  const imageList = [
+    {
+      image: CustomIcons.BoardingArea,
+      text: "Dedicated Boarding Area",
+    },
+    {
+      image: CustomIcons.PlayArea,
+      text: "Dedicated Play Area",
+    },
+    {
+      image: CustomIcons.Service,
+      text: "A/C-Pet Sleeping Area",
+    },
+    {
+      image: CustomIcons.Service,
+      text: "Pets Allowed on Beds",
+    },
+    {
+      image: CustomIcons.Service,
+      text: "Pets Allowed on Furniture",
+    },
+    {
+      image: CustomIcons.PeriodicUpdate,
+      text: "Periodic update-Photos/Videos",
+    },
+    {
+      image: CustomIcons.CuddleTime,
+      text: "Cuddle Time",
+    },
+    {
+      image: CustomIcons.Playtime,
+      text: "Play Time",
+    },
+    {
+      image: CustomIcons.PetSitter,
+      text: "Dedicated Pet Sitter",
+    },
+    {
+      image: CustomIcons.OutdoorSpace,
+      text: "Outdoor Space/Open Space",
+    },
+    {
+      image: CustomIcons.Cctv,
+      text: "CCTV (@ Boarding area)",
+    },
+  ];
   return (
     <Grid className="container">
       <Grid container md={12} lg={12} sm={12} xs={12}>
@@ -155,6 +202,21 @@ const GroomingService = () => {
           text="We are a leading pet grooming service provider in Bengaluru, we provide superlative quality, convenient, flexible, cost-effective and complete grooming services at the comfort of your home. Our pet grooming packages include a bath with shampoo and conditioner, full body hair trimming, nail cutting, ear cleaning, tick and flea treatment, and much more. Our cat and dog grooming service in the city is the most dependable and trustworthy service as we provide trained professionals and use premium quality products and equipment. You can choose from a variety of pet grooming packages on our app and book your pet grooming based on your pet's specific requirements."
           customClass="overviewContent"
         />
+      </Grid>
+      <Grid container md={12} sm={12} lg={12} xs={12} pl={3}>
+        <Grid item md={12} sm={12} lg={12} xs={12} display="flex">
+          <Grid className="AmenitiesImage">
+            <img src={CustomIcons.Amenities} alt="" />
+          </Grid>
+          <Grid pl={3}>
+            <CustomTypography
+              type="head"
+              text="Amenities"
+              customClass="AmenitiesHeader"
+            />
+          </Grid>
+        </Grid>
+        <ImageList imageLists={imageList} />
       </Grid>
       <Grid
         container
