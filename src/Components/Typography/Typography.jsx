@@ -21,6 +21,8 @@ const CustomTypography = (props) => {
     switch (type) {
       case "heading":
         return "h2";
+      case "heading2":
+        return "h3";
       case "header":
         return "h5";
       case "subHeading":

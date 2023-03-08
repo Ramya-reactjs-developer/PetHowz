@@ -9,11 +9,12 @@ import PetHomeBoarding from "../Pages/JoinPetHost/petHost/PetHomeBoarding";
 import GroomingService from "../Pages/GroomingService/GroomingService";
 // import PetHost from "../Pages/Home/petHost/PetHost";
 // import PetSpace from "../Pages/Home/petHost/petSpace";
-import PetDetails from "../Pages/PetDetails/PetDetails";
+// import PetDetails from "../Pages/PetDetails/PetDetails";
 import Footer from "../Components/Footer/Footer";
 import { BasicDetails } from "../Pages/New/Index";
 import PetService from "../Pages/PetService/PetService";
 import PetCare from '../Pages/PetCare/PetCare';
+
 import { MyProfileHostDB } from "../Pages/HostDashBoard/MyProfileHostDB";
 import { MyPetsHostDB } from "../Pages/HostDashBoard/MyPetsHostDB";
 import { MyBookingsHostDB } from "../Pages/HostDashBoard/MyBookingsHostDB";
@@ -25,6 +26,7 @@ import { CustomerDashBoard } from "../Pages/CustomerDashBoard/Index";
 import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfileCustomerDB";
 import { MyPetsCustomerDB } from "../Pages/CustomerDashBoard/MyPetsCustomerDB";
 import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookingsCustomerDb";
+// import PetService from "../Pages/PetService/PetService";
 
 export const Layout = () => {
   return (
@@ -34,14 +36,18 @@ export const Layout = () => {
         <Route path="/" index element={<HomePage />} />
         <Route path="grooming" index element={<Grooming />} />
         <Route path="groomingService" index element={<GroomingService />} />
-        <Route path="BecomePetHostService" index element={<BecomePetHostService />}
+        <Route
+          path="BecomePetHostService"
+          index
+          element={<BecomePetHostService />}
         />
         <Route path="PetCare" index element={<PetCare />} />
 
 PetCare
         <Route path="PetHomeBoarding" index element={<PetHomeBoarding />} />
-        <Route path="MyPetDetails" index element={<PetDetails />} />
+        {/* <Route path="MyPetDetails" index element={<PetDetails />} /> */}
         <Route path="BasicDetails" index element={<BasicDetails />} />
+        <Route path="petService" index element={<PetService />} />
 
         {/* Host DashBoard        */}
         <Route path="HostDashBoard" index element={<HostDashBoard />} />

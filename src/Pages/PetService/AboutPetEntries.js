@@ -1,4 +1,4 @@
-export const PetHostAboutYouEntries = [
+export const AboutPetEntries = [
   {
     isDropdown: true,
     name: "professional_status",
@@ -93,8 +93,9 @@ export const PetHostAboutYouEntries = [
     requiredField: true,
     error_message: "Status",
   },
+  
 ];
-export const DefaultPetHostAboutYouValues = {
+export const DefaultAboutPetValues = {
   professional_status: "",
   tell_us_something_about_you_and_your_passion_towards_pet: "",
   tell_us_about_the_type_of_pet_you_have_and_your_experience: "",

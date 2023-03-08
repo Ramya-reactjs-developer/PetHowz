@@ -1,11 +1,11 @@
 export const PetHostAddOnEntries = [
   {
     isTextInput: true,
-    name: " Add On Package",
+    name: "AddOnPackage",
     label: "Name Of Your Add On Package",
     placeholder: "Enter Package Name",
     breakpoint: 11,
-    value:"state",
+    value: "state",
     type: "text",
     customClass: "",
     pattern: /^[a-zA-Z ]*$/,
@@ -17,7 +17,7 @@ export const PetHostAddOnEntries = [
 
   {
     isSubmitButton: true,
-    name: "submit_button",
+    name: "add_button",
     buttonTitle: "+",
     breakpoint: 1,
     customClass: "sourceButton",
@@ -25,11 +25,11 @@ export const PetHostAddOnEntries = [
 
   {
     isTextInput: true,
-    name: "What is Included",
+    name: "WhatisIncluded",
     label: "What is Included ?",
     placeholder: "List what are included with the package",
     breakpoint: 12,
-    value:"state",
+    value: "state",
     type: "text",
     customClass: "",
     pattern: /^[a-zA-Z ]*$/,
@@ -46,7 +46,7 @@ export const PetHostAddOnEntries = [
     label: "Rate",
     placeholder: "Enter the rate of packages",
     breakpoint: 12,
-    value:"state",
+    value: "state",
     type: "text",
     customClass: "",
     pattern: /^[a-zA-Z ]*$/,
@@ -61,11 +61,17 @@ export const PetHostAddOnEntries = [
     breakpoint: 10,
     name: "space",
   },
-  {
-    isSubmitButton: true,
-    name: "submit_button",
-    buttonTitle: "Save & Submit",
-    breakpoint: 2,
-    customClass: "sourceButton",
-  },
+  // {
+  //   isSubmitButton: true,
+  //   name: "submit_button",
+  //   buttonTitle: "Save & Submit",
+  //   breakpoint: 2,
+  //   customClass: "sourceButton",
+  // },
 ];
+export const DefaultPetHostAddOnValues = {
+  AddOnPackage: "",
+  add_button: "",
+  WhatisIncluded: "",
+  Rate: "",
+};

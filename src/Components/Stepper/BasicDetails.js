@@ -184,26 +184,63 @@ import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
 // import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import {
-  PetHostBasicDetailsEntries
-} from "../../Pages/JoinPetHost/petHost/PetHostBasicDetailsEntries";
+
 import CustomForm from "../CustomForm/CustomForm";
-import { Grid,Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 // import InputAdornment from "@material-ui/core/InputAdornment";
 import "./style.css";
+import {
+  BasicDetailsEntries,
+  DefaultBasicDetailsValues,
+  PetHostBasicDetailsEntries,
+} from "../../Pages/JoinPetHost/petHost/PetHostBasicDetailsEntries";
 
-const BasicDetails = (props) => {
+const BasicDetails = () => {
   const value = useContext(LabelContext);
-  const weight = value.labelInfo.weight;
-  const btnDisbaled = weight.length > 0;
-
-
-
-  const [entry, setEntry] = React.useState([]);
-
+  const BD = value.labelInfo?.BasicDetails;
+  const pg = value.page;
+  const btnDisbaled =
+    BD.firstText?.length > 0 &&
+    BD.SecondText?.length > 0 &&
+    BD.ThirdText?.length > 0 &&
+    BD.fourthText?.length > 0 &&
+    BD.fifthText?.length > 0 &&
+    BD.sixthText?.length > 0 &&
+    BD.seventhText?.length > 0 &&
+    BD.pin_code?.length > 0 &&
+    BD.fileUploader?.length > 0 &&
+    BD.location?.length > 0;
+  console.log(BD.NameofPet, "name");
+  console.log(BD.Status1, "gen");
+  // BD.Address?.length > 0 &&
+  // BD.City?.length > 0 &&
+  // BD.State?.length > 0 &&
+  // BD.Locality?.length > 0 &&
+  // BD.Pincode?.length > 0;
+  // BD.mobile_number?.length > 0 &&
+  // BD.Gender?.length > 0 &&
+  // BD.dob?.length > 0 &&
+  // BD.NNameOfYourPetBoardingSpace?.length > 0 &&
+  // BD.Address?.length > 0 &&
+  // BD.City?.length > 0 &&
+  // BD.State?.length > 0 &&
+  // BD.Locality?.length > 0 &&
+  // BD.Pincode?.length > 0;
+  //  mobile_number: "",
+  // Gender: "",
+  // dob: "",
+  // NameOfYourPetBoardingSpace: "",
+  // Address: "",
+  // City: "",
+  // State: "",
+  // Locality: "",
+  // Pincode: "",
+  console.log(pg, "pg");
+  console.log(BD, "BD");
+  console.log(value, "valueBD");
+  console.log(btnDisbaled, "btnDisbaled");
   return (
     <form>
-      <h4> Enter Weight Details</h4>
       <Grid>
         {/* <CustomForm
           AllEntries={petSpaceEntries}
@@ -211,10 +248,13 @@ const BasicDetails = (props) => {
           // onReceiveData={onReceiveData}
           defaultValues={DefaultPetSpaceValues}
         /> */}
-         <Typography variant="h4">Fill Up Your Basic Details</Typography>
-          <CustomForm
-            AllEntries={entry.length > 0 ? entry : PetHostBasicDetailsEntries}
-          />
+        <Typography variant="h4">Fill Up Your Basic Details</Typography>
+        <CustomForm
+          AllEntries={BasicDetailsEntries}
+          textFieldChange={value.handleChange}
+          // onReceiveData={onReceiveData}
+          defaultValues={DefaultBasicDetailsValues}
+        />
       </Grid>
 
       <ButtonGroup
@@ -223,15 +263,15 @@ const BasicDetails = (props) => {
         aria-label="text primary button group"
         style={{ marginTop: 15 }}
       >
-        <Button onClick={() => value.prevPage()} style={{ margin: 25 }}>
+        {/* <Button onClick={() => value.prevPage()} style={{ margin: 25 }}>
           Previous
-        </Button>
+        </Button> */}
         <Button
           disabled={!btnDisbaled}
           onClick={() => value.nextPage()}
           style={{ margin: 25 }}
         >
-          Next
+          {console.log(value, "vvvvvv")}Next
         </Button>
       </ButtonGroup>
     </form>

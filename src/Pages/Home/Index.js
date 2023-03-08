@@ -8,7 +8,13 @@ import ImageCards from "../../Components/Cards/ImageCards";
 import customImages from "../../Utils/Images";
 import CardsSection from "../../Components/Cards/Cards";
 import CustomTypography from "../../Components/Typography/Typography";
-import { TextDecreaseTwoTone, TextFormat } from "@mui/icons-material";
+import {
+  DiscoverButtonStyle,
+  HomeBanner,
+  SearchBarStyle,
+  SearchButtonPadding,
+  SearchButtonStyle,
+} from "./HomeStyle";
 
 export const HomePage = () => {
   const CardData = [
@@ -128,43 +134,27 @@ export const HomePage = () => {
         xs={12}
       >
         <div className="Home-Banner">
-          <Box
-            sx={{
-              pt: { xl: "0rem", lg: "0px", md: "0px", sm: "0px", xs: "0rem" },
-              width: "100%",
-              height: "100vh",
-              display: "flex",
-              textAlign: "center",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <Box sx={HomeBanner}>
             <Box>
               <Box>
-                <Typography variant="h3" fontWeight="bolder" color="primary">
+                {/* <Typography variant="h3" fontWeight="bolder" color="primary">
                   FIND PET BOARDING SPACES
                 </Typography>
                 <Typography variant="h3" fontWeight="bolder" color="primary">
                   & PET SERVICE PROVIDERS
-                </Typography>
+                </Typography> */}
+                <CustomTypography
+                  text="FIND PET BOARDING SPACES"
+                  type="heading2"
+                  colorType="primary"
+                />
+                <CustomTypography
+                  text="& PET SERVICE PROVIDERS"
+                  type="heading2"
+                  colorType="primary"
+                />
               </Box>
-              <Box
-                sx={{
-                  display: {
-                    xl: "flex",
-                    lg: "flex",
-                    md: "flex",
-                    sm: "flex",
-                    xs: "block",
-                  },
-
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "20px",
-                  pt: "40px",
-                  textAlign: "center",
-                }}
-              >
+              <Box sx={SearchBarStyle}>
                 <Box>
                   <SearchBar
                     SearchValue={searchData}
@@ -173,34 +163,11 @@ export const HomePage = () => {
                     }}
                   />
                 </Box>
-                <Box
-                  sx={{
-                    pt: {
-                      xl: "0px",
-                      lg: "0px",
-                      md: "0px",
-                      sm: "0px",
-                      xs: "1rem",
-                    },
-                  }}
-                >
+                <Box sx={SearchButtonPadding}>
                   <CustomButton
                     btnTitle="Search Now"
                     color="primary"
-                    btnStyles={{
-                      p: "20px",
-                      borderRadius: "40px",
-                      width: {
-                        xl: "200px",
-                        lg: "200px",
-                        md: "200px",
-                        sm: "200px",
-                        xs: "200px",
-                      },
-                      color: "white",
-                      fontSize: "19px",
-                      fontWeight: "bold",
-                    }}
+                    btnStyles={SearchButtonStyle}
                   />
                 </Box>
               </Box>
@@ -208,10 +175,15 @@ export const HomePage = () => {
           </Box>
         </div>
       </Grid>
-      <Grid item md={12} sm={12} xs={12}>
-        <Typography variant="h3" textAlign="center">
+      <Grid item md={12} sm={12} xs={12} textAlign={"center"}>
+        {/* <Typography variant="h3" textAlign="center">
           Our Services
-        </Typography>
+        </Typography> */}
+        <CustomTypography
+          text="Our Services"
+          type="heading2"
+          colorType="text"
+        />
       </Grid>
 
       <Grid
@@ -345,16 +317,7 @@ export const HomePage = () => {
         <CustomButton
           btnTitle="Discover More!"
           color="primary"
-          btnStyles={{
-            p: "20px",
-            borderRadius: "40px",
-            width: {
-              xs: "250px",
-            },
-            color: "white",
-            fontSize: "19px",
-            fontWeight: "bold",
-          }}
+          btnStyles={DiscoverButtonStyle}
         />
       </Grid>
       <Grid
@@ -378,16 +341,7 @@ export const HomePage = () => {
           <CustomButton
             btnTitle="Discover More!"
             color="primary"
-            btnStyles={{
-              p: "20px",
-              borderRadius: "40px",
-              width: {
-                xs: "250px",
-              },
-              color: "white",
-              fontSize: "19px",
-              fontWeight: "bold",
-            }}
+            btnStyles={DiscoverButtonStyle}
           />
         </Grid>
       </Grid>
