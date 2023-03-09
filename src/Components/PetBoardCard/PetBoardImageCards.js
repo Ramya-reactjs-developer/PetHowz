@@ -28,19 +28,8 @@ export default function PetBoardImageCards(props) {
             </Grid>
           );
         })}
-{/* 
-        <Grid item md={12} sm={12} lg={12} xs={12} className="textWidth">
-          <CustomTypography
-            variant="body2"
-            text={text}
-            type="subHeading"
-            customClass={petBoardText}
-          />
-        </Grid> */}
-      </CardMedia>
 
-      {/* );
-       })} */}
+      </CardMedia>
     </Grid>
   );
 }

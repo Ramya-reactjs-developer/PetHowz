@@ -12,6 +12,8 @@ import GroomingService from "../Pages/GroomingService/GroomingService";
 // import PetDetails from "../Pages/PetDetails/PetDetails";
 import Footer from "../Components/Footer/Footer";
 import { BasicDetails } from "../Pages/New/Index";
+import PetService from "../Pages/PetService/PetService";
+import PetCare from "../Pages/PetCare/PetCare";
 
 import PetService from "../Pages/PetService/PetService";
 import { HostDashBoard } from "../Pages/HostDashBoard/Index";
@@ -39,11 +41,12 @@ export const Layout = () => {
           index
           element={<BecomePetHostService />}
         />
+        <Route path="PetCare" index element={<PetCare />} />
+        PetCare
         <Route path="PetHomeBoarding" index element={<PetHomeBoarding />} />
         {/* <Route path="MyPetDetails" index element={<PetDetails />} /> */}
         <Route path="BasicDetails" index element={<BasicDetails />} />
         <Route path="petService" index element={<PetService />} />
-
         {/* Host DashBoard        */}
         <Route path="HostDashBoard" index element={<HostDashBoard />} />
         <Route path="MyProfileHostDB" index element={<MyProfileHostDB />} />
@@ -61,7 +64,6 @@ export const Layout = () => {
           index
           element={<BookingRequestsHostDB />}
         />
-
         {/* Customer DashBoard        */}
         <Route path="CustomerDashBoard" index element={<CustomerDashBoard />} />
         <Route
