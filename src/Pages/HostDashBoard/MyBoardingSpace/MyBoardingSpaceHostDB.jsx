@@ -1,14 +1,14 @@
 import { Grid } from "@mui/material";
 import React from "react";
-import CustomTypography from "../../Components/Typography/Typography";
-import CustomButton from "../../Components/Button/Button";
-import ImageCards from "../../Components/Cards/ImageCards";
-import customImages from "../../Utils/Images";
-import { BoardingSpaceDetailList } from "../../Components/BoardingSpaceDetailsList/BoardingSPaceDetailsList";
-import CustomForm from "../../Components/CustomForm/CustomForm";
+import CustomTypography from "../../../Components/Typography/Typography";
+import CustomButton from "../../../Components/Button/Button";
+import ImageCards from "../../../Components/Cards/ImageCards";
+import customImages from "../../../Utils/Images";
+import { BoardingSpaceDetailList } from "../../../Components/BoardingSpaceDetailsList/BoardingSPaceDetailsList";
+import CustomForm from "../../../Components/CustomForm/CustomForm";
+import MealCard from "../../../Components/Cards/MealCard";
 import { PetHostAmentiesEntries } from "./PetHostAmentiesEntries";
 import { PetHostFoodEntries } from "./PetHostFoodEntries";
-import MealCard from "../../Components/Cards/MealCard";
 
 export const MyBoardingSpaceHostDB = () => {
   const [entry] = React.useState([]);
