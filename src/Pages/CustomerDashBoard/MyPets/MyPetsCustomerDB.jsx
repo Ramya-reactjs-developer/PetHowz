@@ -1,6 +1,6 @@
 import { Grid } from "@mui/material";
 import React from "react";
-import CustomTypography from "../../Components/Typography/Typography";
+import CustomTypography from "../../../Components/Typography/Typography";
 
 export const MyPetsCustomerDB = () => {
   return (

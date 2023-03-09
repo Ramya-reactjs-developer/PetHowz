@@ -119,6 +119,7 @@ export const ServicePackageHeader = {
   textAlign: "center",
 
   width: "370px",
+  pb: "20px",
 };
 
 export const PriceTypography = { color: "red", textDecoration: "line-through" };
@@ -141,6 +142,7 @@ export const ServiceButtonStyle = {
   width: "200px",
   borderRadius: "20px",
   background: "#F85A47",
+  color: "white",
 };
 
 export const TopButtonStyle = {
