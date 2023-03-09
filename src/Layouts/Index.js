@@ -14,8 +14,6 @@ import Footer from "../Components/Footer/Footer";
 import { BasicDetails } from "../Pages/New/Index";
 import PetService from "../Pages/PetService/PetService";
 import PetCare from "../Pages/PetCare/PetCare";
-
-import PetService from "../Pages/PetService/PetService";
 import { HostDashBoard } from "../Pages/HostDashBoard/Index";
 import { MyProfileHostDB } from "../Pages/HostDashBoard/MyProfile/MyProfileHostDB";
 import { MyPetsHostDB } from "../Pages/HostDashBoard/MyPets/MyPetsHostDB";
