@@ -1,16 +1,16 @@
 import { Grid } from "@mui/material";
 import React from "react";
-import CustomTypography from "../../Components/Typography/Typography";
-import CustomTab from "../../Components/Tab/Tab";
+import CustomTypography from "../../../Components/Typography/Typography";
+import CustomTab from "../../../Components/Tab/Tab";
 
-export const BookingRequestsHostDB = () => {
+export const MyBookingsCustomerDB = () => {
   const tabNames = [{ label: "Pet Home Boarding" }, { label: "Pet Services" }];
   return (
     <Grid container item xs={12}>
       {" "}
       <Grid item textAlign={"left"} xs={12} pt={"40px"}>
         <CustomTypography
-          text="BookingRequests"
+          text="MyBookings"
           type="subHeading"
           colorType="text"
         />

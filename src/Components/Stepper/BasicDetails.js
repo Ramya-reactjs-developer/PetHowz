@@ -198,6 +198,8 @@ import {
 const BasicDetails = () => {
   const value = useContext(LabelContext);
   const BD = value.labelInfo?.BasicDetails;
+  console.log(BD,"manoj")
+
   const pg = value.page;
   const btnDisbaled =
     BD.firstText?.length > 0 &&

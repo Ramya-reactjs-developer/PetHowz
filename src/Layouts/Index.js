@@ -5,30 +5,28 @@ import DrawerAppBar from "../Components/AppBar/AppBar";
 import { Grooming } from "../Pages/Grooming/Grooming";
 import { BecomePetHostService } from "../Pages/JoinPetHost/BecomePetHostService";
 import PetHomeBoarding from "../Pages/JoinPetHost/petHost/PetHomeBoarding";
-// import { PetBoardingSpace } from "../Pages/Home/petBoardingSpace";
 import GroomingService from "../Pages/GroomingService/GroomingService";
-// import PetHost from "../Pages/Home/petHost/PetHost";
-// import PetSpace from "../Pages/Home/petHost/petSpace";
-// import PetDetails from "../Pages/PetDetails/PetDetails";
 import Footer from "../Components/Footer/Footer";
 import { BasicDetails } from "../Pages/New/Index";
 import PetService from "../Pages/PetService/PetService";
-import PetCare from '../Pages/PetCare/PetCare';
-
-import { MyProfileHostDB } from "../Pages/HostDashBoard/MyProfileHostDB";
-import { MyPetsHostDB } from "../Pages/HostDashBoard/MyPetsHostDB";
-import { MyBookingsHostDB } from "../Pages/HostDashBoard/MyBookingsHostDB";
-import { MyBoardingSpaceHostDB } from "../Pages/HostDashBoard/MyBoardingSpaceHostDB";
-import { MyServicesHostDB } from "../Pages/HostDashBoard/MyServicesHostDB";
-import { BookingRequestsHostDB } from "../Pages/HostDashBoard/BookingRequestsHostDb";
+import PetCare from "../Pages/PetCare/PetCare";
 import { HostDashBoard } from "../Pages/HostDashBoard/Index";
+import { MyProfileHostDB } from "../Pages/HostDashBoard/MyProfile/MyProfileHostDB";
+import { MyPetsHostDB } from "../Pages/HostDashBoard/MyPets/MyPetsHostDB";
+import { MyBookingsHostDB } from "../Pages/HostDashBoard/MyBookings/MyBookingsHostDB";
+import { MyServicesHostDB } from "../Pages/HostDashBoard/MyServices/MyServicesHostDB";
+import { BookingRequestsHostDB } from "../Pages/HostDashBoard/MyBookingRequest/BookingRequestsHostDb";
+import { MyPetsCustomerDB } from "../Pages/CustomerDashBoard/MyPets/MyPetsCustomerDB";
+import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfile/MyProfileCustomerDB";
+import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookings/MyBookingsCustomerDb";
 import { CustomerDashBoard } from "../Pages/CustomerDashBoard/Index";
-import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfileCustomerDB";
-import { MyPetsCustomerDB } from "../Pages/CustomerDashBoard/MyPetsCustomerDB";
-import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookingsCustomerDb";
+// import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfileCustomerDB";
+// import { MyPetsCustomerDB } from "../Pages/CustomerDashBoard/MyPetsCustomerDB";
+// import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookingsCustomerDb";
 // import Login from "../Pages/Login/Login";
 // import PetService from "../Pages/PetService/PetService";
 
+import { MyBoardingSpaceHostDB } from "../Pages/HostDashBoard/MyBoardingSpace/MyBoardingSpaceHostDB";
 
 export const Layout = () => {
   return (
@@ -61,7 +59,6 @@ export const Layout = () => {
           element={<MyBoardingSpaceHostDB />}
         />
         <Route path="MyServicesHostDB" index element={<MyServicesHostDB />} />
-        <Route path="MyBookingsHostDB" index element={<MyBookingsHostDB />} />
         <Route
           path="BookingRequestsHostDB"
           index
