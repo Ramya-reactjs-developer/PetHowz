@@ -1,0 +1,19 @@
+.rdw-editor-toolbar>div{
+    display: inline-flex !important;
+    max-width: 100% !important;
+    padding: 5px !important;
+}
+.App {
+  font-family: sans-serif;
+  /* text-align: center; */
+}
+/* .texteditor{
+    padding: 10px !important;
+} */
+
+
+.demo-editor{
+  border: 1px solid #ddd !important;
+  height: 40px;
+  padding: 10px;
+}

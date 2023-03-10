@@ -184,7 +184,6 @@ import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
 // import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-
 import CustomForm from "../CustomForm/CustomForm";
 import { Grid, Typography } from "@mui/material";
 // import InputAdornment from "@material-ui/core/InputAdornment";
@@ -198,7 +197,7 @@ import {
 const BasicDetails = () => {
   const value = useContext(LabelContext);
   const BD = value.labelInfo?.BasicDetails;
-  console.log(BD,"manoj")
+  console.log(BD, "manoj");
 
   const pg = value.page;
   const btnDisbaled =
