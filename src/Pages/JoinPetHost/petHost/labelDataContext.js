@@ -59,6 +59,16 @@ export const LabelProvider = (props) => {
       Status19: "",
       ThirdText: "",
     },
+    shippingOption: {
+      fileUploader: [],
+      fileUploaderImage: [],
+    },
+    service: {
+      header_menu: "",
+      firstText: "",
+      whats_included: "",
+      rate: "",
+    },
     AddOn: { AddOnPackage: "", add_button: "", WhatisIncluded: "", Rate: "" },
   });
   // console.log(labelInfo,"labelInfo");
@@ -80,7 +90,8 @@ export const LabelProvider = (props) => {
       sender: { ...labelInfo.sender, [name]: value },
       receiver: { ...labelInfo.receiver, [name]: value },
       AddOn: { ...labelInfo.AddOn, [name]: value },
-      // shippingOption: { ...labelInfo.shippingOption, [name]: value },
+      shippingOption: { ...labelInfo.shippingOption, [name]: value },
+      service: { ...labelInfo.shippingOption, [name]: value },
     });
   };
   const handleOnChange = (event, name) => {
@@ -91,7 +102,11 @@ export const LabelProvider = (props) => {
       receiver: { ...labelInfo.receiver, [name]: event.target.value },
       BasicDetails: { ...labelInfo.BasicDetails, [name]: event.target.value },
       AddOn: { ...labelInfo.AddOn, [name]: event.target.value },
-      // shippingOption: { ...labelInfo.shippingOption, [name]: value },
+      service: { ...labelInfo.weight, [name]: event.target.value },
+      shippingOption: {
+        ...labelInfo.shippingOption,
+        [name]: event.target.value,
+      },
     });
   };
 
@@ -132,7 +147,6 @@ export const LabelProvider = (props) => {
         // setSenderInfo,
         // setRecevierInfo,
       }}
-      // width="100px"
     >
       {props.children}
     </LabelContext.Provider>

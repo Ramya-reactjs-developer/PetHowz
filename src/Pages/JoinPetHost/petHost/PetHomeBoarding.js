@@ -9,6 +9,8 @@ import Faqs from "../../../Components/Stepper/Faqs";
 import Confirmation from "../../../Components/Stepper/Confirmation";
 import { LabelContext } from "./labelDataContext";
 import customImages from "../../../Utils/Images/index";
+import UploadImage from "../../../Components/Stepper/UploadImage"
+// import ServicePackage from "../../../Components/Stepper/ServicePackage"
 // import { petSpaceEntries, DefaultPetSpaceValues } from "./petSpaceEntries";
 // import CustomForm from "../../../Components/CustomForm/CustomForm";
 import { Grid } from "@mui/material";
@@ -39,7 +41,7 @@ const PetSpace = () => {
             <img src={customImages.Dog1} alt="" />
           </Grid>
           <Grid item md={12} sm={12} xs={12} lg={12} className="stepperPage">
-            {value.page !== 6 && (
+            {value.page !== 7 && (
               <Stepper steps={value.steps} activeStep={value.page} />
             )}
           </Grid>
@@ -50,8 +52,9 @@ const PetSpace = () => {
           {value.page === 1 && <PetHostAbout />}
           {value.page === 2 && <PetBoardingSpace />}
           {value.page === 3 && <RulesAmenities />}
-          {value.page === 4 && <RulesAmenities />}
+          {value.page === 4 && <UploadImage />}
           {value.page === 5 && <PetHostAddOn />}
+          {/* {value.page === 1 && <ServicePackage />} */}
           {value.page === 6 && <Faqs />}
           {value.page === 7 && <Confirmation />}
         </Grid>
