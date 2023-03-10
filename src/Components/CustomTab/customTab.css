@@ -1,0 +1,12 @@
+.tabValue {
+  color: #8c8f92;
+  font-weight: 600 !important;
+  font-size: 27px !important;
+  text-transform: unset !important;
+  
+}
+.tabValue.MuiButtonBase-root{
+color:#f8c57273;
+font-size: 20px !important;
+}
+

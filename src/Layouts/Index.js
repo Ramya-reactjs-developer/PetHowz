@@ -20,6 +20,12 @@ import { MyPetsCustomerDB } from "../Pages/CustomerDashBoard/MyPets/MyPetsCustom
 import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfile/MyProfileCustomerDB";
 import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookings/MyBookingsCustomerDb";
 import { CustomerDashBoard } from "../Pages/CustomerDashBoard/Index";
+// import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfileCustomerDB";
+// import { MyPetsCustomerDB } from "../Pages/CustomerDashBoard/MyPetsCustomerDB";
+// import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookingsCustomerDb";
+// import Login from "../Pages/Login/Login";
+// import PetService from "../Pages/PetService/PetService";
+
 import { MyBoardingSpaceHostDB } from "../Pages/HostDashBoard/MyBoardingSpace/MyBoardingSpaceHostDB";
 
 export const Layout = () => {
@@ -28,6 +34,7 @@ export const Layout = () => {
       <DrawerAppBar />
       <Routes>
         <Route path="/" index element={<HomePage />} />
+        {/* <Route path="login" index element={<Login />} /> */}
         <Route path="grooming" index element={<Grooming />} />
         <Route path="groomingService" index element={<GroomingService />} />
         <Route
