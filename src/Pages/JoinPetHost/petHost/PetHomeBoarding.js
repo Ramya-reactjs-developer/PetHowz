@@ -5,8 +5,10 @@ import PetHostAbout from "../../../Components/Stepper/PetHostAbout";
 import PetHostAddOn from "../../../Components/Stepper/PetHostAddOn";
 import PetBoardingSpace from "../../../Components/Stepper/PetBoardingSpace";
 import RulesAmenities from "../../../Components/Stepper/RulesAmenities";
+import Faqs from "../../../Components/Stepper/Faqs";
 import Confirmation from "../../../Components/Stepper/Confirmation";
 import { LabelContext } from "./labelDataContext";
+import customImages from "../../../Utils/Images/index";
 // import { petSpaceEntries, DefaultPetSpaceValues } from "./petSpaceEntries";
 // import CustomForm from "../../../Components/CustomForm/CustomForm";
 import { Grid } from "@mui/material";
@@ -25,10 +27,22 @@ const PetSpace = () => {
         display="flex"
         justifyContent="center"
       >
-        <Grid item md={5} sm={5} lg={5} xs={12} className="stepper-button">
-          {value.page !== 5 && (
-            <Stepper steps={value.steps} activeStep={value.page} />
-          )}
+        <Grid
+          container
+          md={5}
+          sm={5}
+          lg={5}
+          xs={12}
+          className="stepper-button"
+        >
+          <Grid item md={12} sm={12} xs={12} lg={12} className="siepperImage">
+            <img src={customImages.Dog1} alt="" />
+          </Grid>
+          <Grid item md={12} sm={12} xs={12} lg={12} className="stepperPage">
+            {value.page !== 6 && (
+              <Stepper steps={value.steps} activeStep={value.page} />
+            )}
+          </Grid>
         </Grid>
 
         <Grid item md={7} sm={7} lg={7} xs={12}>
@@ -36,8 +50,10 @@ const PetSpace = () => {
           {value.page === 1 && <PetHostAbout />}
           {value.page === 2 && <PetBoardingSpace />}
           {value.page === 3 && <RulesAmenities />}
-          {value.page === 4 && <PetHostAddOn />}
-          {value.page === 5 && <Confirmation />}
+          {value.page === 4 && <RulesAmenities />}
+          {value.page === 5 && <PetHostAddOn />}
+          {value.page === 6 && <Faqs />}
+          {value.page === 7 && <Confirmation />}
         </Grid>
       </Grid>
     </Grid>

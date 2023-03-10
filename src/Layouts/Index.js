@@ -28,6 +28,7 @@ import { CustomerDashBoard } from "../Pages/CustomerDashBoard/Index";
 
 import { MyBoardingSpaceHostDB } from "../Pages/HostDashBoard/MyBoardingSpace/MyBoardingSpaceHostDB";
 
+
 export const Layout = () => {
   return (
     <div>
@@ -72,6 +73,8 @@ export const Layout = () => {
           element={<MyProfileCustomerDB />}
         />
         <Route path="MyPetsCustomerDB" index element={<MyPetsCustomerDB />} />
+      
+
         <Route
           path="MyBookingsCustomerDB"
           index
