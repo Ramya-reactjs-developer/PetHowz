@@ -14,7 +14,7 @@ export const LabelData = (props) => {
       fifthText: "",
       sixthText: "",
       seventhText: "",
-      fileUploader: "",
+      fileUploader: [],
       pin_code: "",
       location: "",
     },
@@ -27,8 +27,8 @@ export const LabelData = (props) => {
       can_you_provide_first_aid: "",
     },
     weight: {
-      list_the_pet_services_you_are_providing: "",
-      category_of_pets_boarded: "",
+      // list_the_pet_services_you_are_providing: "",
+      // category_of_pets_boarded: "",
       no_of_pets: "",
       providing_these_services_at: "",
       do_you_provide_doorstep_service: "",
@@ -44,7 +44,16 @@ export const LabelData = (props) => {
       do_you_have_other_pets_at_home_two: "",
       do_you_pet_sleeping_area: "",
     },
-    shippingOption: "1",
+    shippingOption: {
+      fileUploader: [],
+      fileUploaderImage: [],
+    },
+    service: {
+      header_menu: "",
+      firstText: "",
+      whats_included: "",
+      rate: "",
+    },
   });
 
   const nextPage = () => {
@@ -55,22 +64,7 @@ export const LabelData = (props) => {
     setPage(page - 1);
   };
   console.log(page, "page");
-  // const handleChange = (prop) => (event) => {
-  //   setlabelInfo({ ...labelInfo, [prop]: event.target.value });
-  // };
 
-  // const setSenderInfo = (prop) => (event) => {
-  //   setlabelInfo({
-  //     ...labelInfo,
-  //     sender: { ...labelInfo.sender, [prop]: event.target.value },
-  //   });
-  // };
-  // const setRecevierInfo = (prop) => (event) => {
-  //   setlabelInfo({
-  //     ...labelInfo,
-  //     receiver: { ...labelInfo.receiver, [prop]: event.target.value },
-  //   });
-  // };
 
   const handleChange = (value, name) => {
     // console.log(value, name, "value");
@@ -80,6 +74,7 @@ export const LabelData = (props) => {
       receiver: { ...labelInfo.receiver, [name]: value },
       weight: { ...labelInfo.weight, [name]: value },
       shippingOption: { ...labelInfo.shippingOption, [name]: value },
+      service: { ...labelInfo.shippingOption, [name]: value },
     });
   };
     const handleOnChange = (event, name) => {
@@ -89,7 +84,11 @@ export const LabelData = (props) => {
         sender: { ...labelInfo.sender, [name]: event.target.value },
         receiver: { ...labelInfo.receiver, [name]: event.target.value },
         weight: { ...labelInfo.weight, [name]: event.target.value },
-        // shippingOption: { ...labelInfo.shippingOption, [name]: value },
+        service: { ...labelInfo.weight, [name]: event.target.value },
+        shippingOption: {
+          ...labelInfo.shippingOption,
+          [name]: event.target.value,
+        },
       });
     };
   const steps = [
@@ -98,6 +97,7 @@ export const LabelData = (props) => {
     { title: "Services Provider" },
     { title: "Upload Images" },
     { title: "Service Packages" },
+    { title: "Faq's" },
   ];
 
   return (

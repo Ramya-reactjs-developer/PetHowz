@@ -46,16 +46,28 @@ export const CardBtnStyles = { color: "white" };
 
 export const ImageCardsSize = { maxWidth: 345, borderRadius: 3 };
 
-export const PetHomeCardSize = { maxWidth: "950px", height: "175px" };
+export const PetHomeCardSize = {
+  // maxWidth: "950px",
+  width: "100%",
+  height: "auto",
+  p: "15px",
+};
 
-export const PetHomeCardPosition = { display: "flex", gap: "30px" };
+export const PetHomeCardPosition = {
+  display: { sm: "flex", xs: "block" },
+  alignItems: "center",
+  justifyContent: "flex-start",
+  gap: "20px",
+};
 
 export const OwnerProfile = {
-  width: "100px",
-  height: "140px",
-  p: "10px",
-  borderRight: "1px dashed Grey",
-  textAlign: "center",
+  // width: "100px",
+  // height: "140px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "flex-start",
+  // borderRight: "1px dashed Grey",
+  // textAlign: "center",
 };
 
 export const OwnerProfileSize = {
@@ -63,42 +75,47 @@ export const OwnerProfileSize = {
   borderRadius: "50px",
 };
 
-export const Info1Postion = { display: "flex", gap: "60px" };
+export const Info1Postion = {
+  display: { sm: "flex", xs: "block" },
+
+  justifyContent: "flex-start",
+  gap: "50px",
+};
 
 export const Info1SubPostion1 = {
   display: "flex",
-  alignItems: "center",
-  gap: "80px",
-  pt: "20px",
+
+  justifyContent: "flex-start",
+  gap: "50px",
 };
 
-export const Info1SubPostion2 = {
-  display: "flex",
-  alignItems: "center",
+// export const Info1SubPostion2 = {
+//   display: "flex",
+//   alignItems: "center",
 
-  gap: "35px",
-  pt: "10px",
-};
-export const Info1SubPostion3 = {
-  display: "flex",
-  alignItems: "center",
-  gap: "80px",
-  pt: "10px",
-};
-export const Info2Postion = {
-  display: "flex",
-  alignItems: "center",
+//   gap: "35px",
+//   pt: "10px",
+// };
+// export const Info1SubPostion3 = {
+//   display: "flex",
+//   alignItems: "center",
+//   gap: "80px",
+//   pt: "10px",
+// };
+// export const Info2Postion = {
+//   display: "flex",
+//   alignItems: "center",
 
-  gap: "30px",
-  pt: "20px",
-};
-export const Info2SubPostion1 = {
-  display: "flex",
-  alignItems: "center",
+//   gap: "30px",
+//   pt: "20px",
+// };
+// export const Info2SubPostion1 = {
+//   display: "flex",
+//   alignItems: "center",
 
-  gap: "45px",
-  pt: "10px",
-};
+//   gap: "45px",
+//   pt: "10px",
+// };
 export const textAlign = { textAlign: "left" };
 
 export const TopButtonPosition = {
@@ -163,12 +180,14 @@ export const MealCardPostion = {
   zIndex: "-1",
 };
 export const MealCardHeader = {
-  display: "flex",
+  display: { sm: "flex", xs: "block" },
+  alignItems: "center",
+  justifyContent: "center",
   gap: "20px",
-  borderBottom: "1px dashed #707070",
+  pb: "10px",
 
   maxWidth: "500px",
-  height: "230px",
+  height: "auto",
   width: "100%",
   pt: "10px",
 };
@@ -179,21 +198,24 @@ export const MealCardTopButtonPosition = {
   zIndex: "1",
 };
 export const MealCardTopButton = {
-  width: "500px",
+  maxWidth: { sm: "500px", xs: "auto" },
+  width: "100%",
   background: "#FF9BA9",
   borderTopLeftRadius: "10px",
   borderTopRightRadius: "10px",
   color: "white",
 };
 export const MealCardMedia = {
-  width: "200px",
-  height: "200px",
+  width: "160px",
+  height: "160px",
   borderRadius: "10px",
 };
 export const MealCardButtonStyle = {
   width: "200px",
   borderRadius: "10px",
   background: "#F85A47",
+  color: "white",
+  textTransform: "none",
 };
 export const MealCardButtonPostion = {
   mx: "auto",

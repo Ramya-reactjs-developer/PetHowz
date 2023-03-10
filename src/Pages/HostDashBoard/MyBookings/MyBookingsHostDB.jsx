@@ -5,7 +5,7 @@ import CustomTab from "../../../Components/Tab/Tab";
 import PetHomeCard from "../../../Components/Cards/PetHomeCard";
 
 export const MyBookingsHostDB = () => {
-  const [value, setValue] = React.useState();
+  const [value, setValue] = React.useState(0);
   const tabList = [
     {
       id: 1,
@@ -23,6 +23,16 @@ export const MyBookingsHostDB = () => {
   };
 
   const CardData = [
+    {
+      ownerPic:
+        "https://play-lh.googleusercontent.com/i1qvljmS0nE43vtDhNKeGYtNlujcFxq72WAsyD2htUHOac57Z9Oiew0FrpGKlEehOvo=w240-h480-rw",
+      ownername: "John",
+      petName: "Max,chalie",
+      venueBooked: "Adhi Pet Care",
+      totalCosts: "380",
+      bookedDate: "20 Jun 2022",
+      noOfDays: "5",
+    },
     {
       ownerPic:
         "https://play-lh.googleusercontent.com/i1qvljmS0nE43vtDhNKeGYtNlujcFxq72WAsyD2htUHOac57Z9Oiew0FrpGKlEehOvo=w240-h480-rw",
@@ -56,7 +66,7 @@ export const MyBookingsHostDB = () => {
           colorType="text"
         />
       </Grid>
-      <Grid className="customTab" item pt={3} md={12} lg={12} xs={12} sm={12}>
+      <Grid className="customTab" item pt={3} xs={12}>
         <CustomTab
           tabList={tabList}
           handleChange={handleChange}

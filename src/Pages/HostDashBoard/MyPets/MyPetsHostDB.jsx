@@ -3,8 +3,13 @@ import React from "react";
 import CustomTypography from "../../../Components/Typography/Typography";
 import { MyPetsCards } from "../../../Components/MyPetsCards/MyPetsCards";
 import CustomButton from "../../../Components/Button/Button";
+import { AddAnother } from "./AddAnother";
 
 export const MyPetsHostDB = () => {
+  const [open, setOpen] = React.useState(false);
+  const onAddAnother = () => {
+    setOpen(true);
+  };
   return (
     <Grid container item xs={12}>
       {" "}
@@ -30,6 +35,7 @@ export const MyPetsHostDB = () => {
           <CustomButton
             btnTitle="+"
             color="primary"
+            onClickHandle={onAddAnother}
             btnStyles={{
               color: "white",
               width: "50px",
@@ -44,6 +50,9 @@ export const MyPetsHostDB = () => {
             colorType="primary"
           />
         </Box>
+      </Grid>
+      <Grid item xs={12}>
+        <AddAnother open={open} />
       </Grid>
     </Grid>
   );
