@@ -6,9 +6,10 @@ import ImageCards from "../../../Components/Cards/ImageCards";
 import customImages from "../../../Utils/Images";
 import { BoardingSpaceDetailList } from "../../../Components/BoardingSpaceDetailsList/BoardingSPaceDetailsList";
 import CustomForm from "../../../Components/CustomForm/CustomForm";
-import MealCard from "../../../Components/Cards/MealCard";
 import { PetHostAmentiesEntries } from "./PetHostAmentiesEntries";
 import { PetHostFoodEntries } from "./PetHostFoodEntries";
+import MealCardCustomized from "../../../Components/Cards/MealCardCustomized";
+import MealCard from "../../../Components/Cards/MealCard";
 
 export const MyBoardingSpaceHostDB = () => {
   const [entry] = React.useState([]);
@@ -26,6 +27,15 @@ export const MyBoardingSpaceHostDB = () => {
     },
   ];
   const CardData = [
+    {
+      mealImage:
+        "https://static.onecms.io/wp-content/uploads/sites/19/2019/02/19/apple-quinoa-bowl-with-cinnamon-ricotta-1809-p102-2000.jpg",
+      meal1: "Scrambled Egg 1 Nos",
+      meal2: "Boiled Rice - 1 Bowl",
+      meal3: "Steamed Carrot - 60 gms",
+      meal4: "Chicken Breast - 60 gms",
+      price: "₹ 450",
+    },
     {
       mealImage:
         "https://static.onecms.io/wp-content/uploads/sites/19/2019/02/19/apple-quinoa-bowl-with-cinnamon-ricotta-1809-p102-2000.jpg",
@@ -59,7 +69,11 @@ export const MyBoardingSpaceHostDB = () => {
         <CustomButton
           btnTitle={"Edit Details"}
           color={"secondary"}
-          btnStyles={{ background: "red" }}
+          btnStyles={{
+            borderRadius: "15px",
+            background: "#F85A47",
+            color: "white",
+          }}
         />
       </Grid>
       <Grid
@@ -147,11 +161,16 @@ export const MyBoardingSpaceHostDB = () => {
         <CustomButton
           btnTitle={"Add"}
           color={"secondary"}
-          btnStyles={{ background: "red" }}
+          btnStyles={{
+            width: "120px",
+            borderRadius: "15px",
+            background: "#F85A47",
+            color: "white",
+          }}
         />
       </Grid>
       <Grid item xs={12}>
-        <MealCard Data={CardData} />
+        <MealCardCustomized Data={CardData} />
       </Grid>
     </Grid>
   );

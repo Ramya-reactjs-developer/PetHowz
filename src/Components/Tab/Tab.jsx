@@ -21,6 +21,7 @@ function CustomTab(props) {
               style: {
                 backgroundColor: item.tabColor,
                 textColor: item.textColor,
+
                 // left: '8px',
                 // width: '75px',
                 // height: '3px'
@@ -35,10 +36,8 @@ function CustomTab(props) {
                 "&.MuiTab-root": {
                   "&.Mui-selected": {
                     borderRadius: "23px",
-                    background: "red",
+                    background: "#F85A47",
                     color: item.tabColor,
-                    fontWeight: 600,
-                    fontSize: "16px",
                   },
                 },
               }}

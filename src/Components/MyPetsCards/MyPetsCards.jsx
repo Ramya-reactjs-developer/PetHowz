@@ -168,7 +168,7 @@ export const MyPetsCards = () => {
                               color: "white",
                               width: "120px",
                               borderRadius: "25px",
-                              background: "red",
+                              background: "#F85A47",
                             }}
                             onClickHandle={OnOpen}
                           />
@@ -327,10 +327,10 @@ export const MyPetsCards = () => {
                         btnTitle="Hide Details"
                         color="primary"
                         btnStyles={{
-                          color: "white",
                           width: "120px",
-                          borderRadius: "25px",
-                          background: "red",
+                          borderRadius: "20px",
+                          background: "#F85A47",
+                          color: "white",
                         }}
                         onClickHandle={OnClose}
                       />

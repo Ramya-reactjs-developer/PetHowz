@@ -52,7 +52,6 @@ export const Layout = () => {
           element={<MyBoardingSpaceHostDB />}
         />
         <Route path="MyServicesHostDB" index element={<MyServicesHostDB />} />
-        <Route path="MyBookingsHostDB" index element={<MyBookingsHostDB />} />
         <Route
           path="BookingRequestsHostDB"
           index

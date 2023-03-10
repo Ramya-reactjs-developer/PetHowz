@@ -75,10 +75,10 @@ export const MyServicesHostDB = () => {
           btnTitle={"Add"}
           color={"secondary"}
           btnStyles={{
-            background: "red",
+            background: "#F85A47",
             color: "white",
-            width: "100px",
-            borderRadius: "10px",
+            width: "130px",
+            borderRadius: "15px",
           }}
         />
       </Grid>
@@ -154,10 +154,10 @@ export const MyServicesHostDB = () => {
           btnTitle={"Add"}
           color={"secondary"}
           btnStyles={{
-            background: "red",
+            background: "#F85A47",
             color: "white",
-            width: "100px",
-            borderRadius: "10px",
+            width: "130px",
+            borderRadius: "15px",
           }}
         />
       </Grid>

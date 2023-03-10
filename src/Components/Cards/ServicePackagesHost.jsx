@@ -163,10 +163,11 @@ export default function ServicePackagesHost({ Data }) {
                       >
                         <Button
                           sx={{
-                            width: "100px",
+                            width: "120px",
                             borderRadius: "20px",
                             background: "#F85A47",
                             color: "white",
+                            textTransform: "none",
                           }}
                           variant="contained"
                         >
@@ -174,10 +175,13 @@ export default function ServicePackagesHost({ Data }) {
                         </Button>
                         <Button
                           sx={{
-                            width: "100px",
-                            borderRadius: "20px",
+                            width: "120px",
+                            borderRadius: "15px",
                             background: "transparent",
                             color: "#F85A47",
+                            border: "1px solid #F85A47",
+                            boxShadow: "none",
+                            textTransform: "none",
                           }}
                           variant="contained"
                         >

@@ -3,19 +3,18 @@ import Card from "@mui/material/Card";
 
 import Typography from "@mui/material/Typography";
 
-import { Box, CardMedia } from "@mui/material";
+import { Box, CardMedia, Grid } from "@mui/material";
 import {
   Info1Postion,
   Info1SubPostion1,
-  Info1SubPostion2,
-  Info1SubPostion3,
-  Info2Postion,
-  Info2SubPostion1,
+  // Info1SubPostion2,
+  // Info1SubPostion3,
+  // Info2Postion,
+  // Info2SubPostion1,
   OwnerProfile,
   OwnerProfileSize,
   PetHomeCardPosition,
   PetHomeCardSize,
-  textAlign,
 } from "./Style";
 import PropTypes from "prop-types";
 
@@ -35,74 +34,89 @@ export default function PetHomeCard({ Data }) {
   // ];
 
   return (
-    <Card sx={PetHomeCardSize}>
-      <Box sx={{ pt: "7px" }}>
+    <Grid
+      container
+      // sx={{
+      //   display: "flex",
+      //   alignItems: "center",
+      //   justifyContent: "flex-start",
+      // }}
+      item
+      xs={12}
+    >
+      {" "}
+      <Grid
+        item
+        lg={6}
+        md={8}
+        sm={10}
+        xs={12}
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "flex-start",
+          gap: "30px",
+          flexWrap: "wrap",
+        }}
+      >
         {CardData.map((item, key) => {
           return (
-            <Box key={key} sx={PetHomeCardPosition}>
-              <Box sx={OwnerProfile}>
-                <CardMedia
-                  sx={OwnerProfileSize}
-                  component="img"
-                  image={item.ownerPic}
-                  alt="dog"
-                />
+            <Card sx={PetHomeCardSize}>
+              <Box sx={{ pt: "7px" }}>
+                <Box key={key} sx={PetHomeCardPosition}>
+                  <Box sx={OwnerProfile}>
+                    <CardMedia
+                      sx={OwnerProfileSize}
+                      component="img"
+                      image={item.ownerPic}
+                      alt="dog"
+                    />
 
-                <Typography fontSize={28} sx={{ pt: "5px" }}>
-                  {item.ownername}
-                </Typography>
-              </Box>
-              <Box sx={Info1Postion}>
-                <Box>
-                  <Box sx={Info1SubPostion1}>
-                    <Typography fontSize={21} sx={textAlign}>
-                      Pet Name
-                    </Typography>
-                    <Typography fontSize={21} color="text.secondary">
-                      {item.petName}
-                    </Typography>
+                    {/* <Typography fontSize={28} sx={{ pt: "5px" }}>
+                      {item.ownername}
+                    </Typography> */}
                   </Box>
-                  <Box sx={Info1SubPostion2}>
-                    <Typography fontSize={21} sx={textAlign}>
-                      Venue Booked
-                    </Typography>
-                    <Typography fontSize={21} color="text.secondary">
-                      {item.venueBooked}
-                    </Typography>
-                  </Box>
-                  <Box sx={Info1SubPostion3}>
-                    <Typography fontSize={21} sx={textAlign}>
-                      Total Cost
-                    </Typography>
-                    <Typography fontSize={21} color="text.secondary">
-                      {item.totalCosts}
-                    </Typography>
-                  </Box>
-                </Box>
-                <Box>
-                  <Box sx={Info2Postion}>
-                    <Typography fontSize={21} sx={textAlign}>
-                      Booked Date
-                    </Typography>
-                    <Typography fontSize={21} color="text.secondary">
-                      {item.bookedDate}
-                    </Typography>
-                  </Box>
-                  <Box sx={Info2SubPostion1}>
-                    <Typography fontSize={21} sx={textAlign}>
-                      No Of Days
-                    </Typography>
-                    <Typography fontSize={21} color="text.secondary">
-                      {item.noOfDays}
-                    </Typography>
+                  <Box sx={Info1Postion}>
+                    <Box sx={Info1SubPostion1}>
+                      <Box>
+                        <Typography lineHeight={2.5}>Pet Name</Typography>
+                        <Typography lineHeight={2.5}>Venue Booked</Typography>
+                        <Typography lineHeight={2.5}>Total Cost</Typography>
+                      </Box>
+                      <Box>
+                        <Typography color="text.secondary" lineHeight={2.5}>
+                          {item.petName}
+                        </Typography>
+                        <Typography color="text.secondary" lineHeight={2.5}>
+                          {item.venueBooked}
+                          <Typography color="text.secondary" lineHeight={2.5}>
+                            {item.totalCosts}
+                          </Typography>
+                        </Typography>
+                      </Box>
+                    </Box>
+                    <Box sx={Info1SubPostion1}>
+                      <Box>
+                        <Typography lineHeight={2.5}>Booked Date</Typography>
+                        <Typography lineHeight={2.5}>No Of Days</Typography>
+                      </Box>
+                      <Box>
+                        <Typography color="text.secondary" lineHeight={2.5}>
+                          {item.bookedDate}
+                        </Typography>
+                        <Typography color="text.secondary" lineHeight={2.5}>
+                          {item.noOfDays}
+                        </Typography>
+                      </Box>
+                    </Box>
                   </Box>
                 </Box>
               </Box>
-            </Box>
+            </Card>
           );
         })}
-      </Box>
-    </Card>
+      </Grid>
+    </Grid>
   );
 }
 PetHomeCard.propTypes = {
