@@ -108,10 +108,14 @@ export const LabelProvider = (props) => {
   //   });
   // };
   const steps = [
-    { title: "Get Sender addrtess" },
-    { title: "Get Reciver addrtess" },
-    { title: "Get Weight" },
-    { title: "Get Shipping Option" },
+    { title: "Basic Details" },
+    { title: "About You" },
+    { title: "About the Pet Boarding Space" },
+    { title: "Rules & Amenities" },
+    { title: "Upload Images" },
+    { title: "Add Ons" },
+    { title: "Service Packages" },
+    { title: "Faq's" },
     { title: "confirm" },
   ];
 
@@ -128,6 +132,7 @@ export const LabelProvider = (props) => {
         // setSenderInfo,
         // setRecevierInfo,
       }}
+      // width="100px"
     >
       {props.children}
     </LabelContext.Provider>
