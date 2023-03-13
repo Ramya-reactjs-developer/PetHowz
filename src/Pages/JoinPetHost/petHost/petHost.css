@@ -27,9 +27,18 @@
     font-weight: 500 !important;
 }
 
-
+.siepperImage{
+position: absolute;
+}
 /* petSpace */
-
+.siepperImage{
+  width: 400px !important;
+  height: 600px !important;
+}
+.siepperImage img{
+  width: 100% !important;
+  height: 100%!important;
+}
 .App{
     font-family: sans-serif !important;
     /* text-align: center !important; */
@@ -52,12 +61,24 @@
   .form {
     min-height: 180px !important;
   }
+  .stepperPage>div>div>div>div{
+    border-top: none !important;
+    position: unset !important;
+  }
   .child {
     position: relative !important;
     margin-top: 40px !important ;
   }
-  .stepper-button>div>div{
+  .stepperPage>div>div>div{
+    height: 25px;
+    width: 15.1111% !important;
+    /* position: unset !important; */
+  }
+  .stepperPage>div>div{
     display: inline-grid !important;
+    position: absolute;
+    height: 250px;
+    /* width: unset !important; */
   }
   /* .textBox{
     width:400px !important

@@ -13,12 +13,13 @@ import "./style.css";
 
 const ServiceDetails = (props) => {
   const value = useContext(LabelContext);
+  console.log(value, "senderValue");
+
   const weight = value.labelInfo?.weight;
-  console.log(value, "sender");
 
   const btnDisabled =
-    weight.list_the_pet_services_you_are_providing?.length > 0 &&
-    weight.category_of_pets_boarded?.length > 0 &&
+    // weight.list_the_pet_services_you_are_providing?.length > 0 &&
+    // weight.category_of_pets_boarded?.length > 0 &&
     weight.no_of_pets?.length > 0 &&
     weight.providing_these_services_at?.length > 0 &&
     weight.do_you_provide_doorstep_service?.length > 0 &&
@@ -27,13 +28,13 @@ const ServiceDetails = (props) => {
     weight.do_you_have_kids_at_home?.length > 0 &&
     weight.can_provide_oral_medication?.length > 0 &&
     weight.do_you_have_a_playing_area_for_pets?.length > 0 &&
-    weight.pets_allowed_on_beds?.length > 0&&
-    weight.do_you_have_air_conditioner_in_pet_sleeping_area?.length > 0&&
-    weight.pets_allowed_on_furniture?.length > 0&&
-    weight.do_you_have_other_pets_at_home?.length > 0&&
-    weight.do_you_have_other_pets_at_home_two?.length > 0&&
+    weight.pets_allowed_on_beds?.length > 0 &&
+    weight.do_you_have_air_conditioner_in_pet_sleeping_area?.length > 0 &&
+    weight.pets_allowed_on_furniture?.length > 0 &&
+    weight.do_you_have_other_pets_at_home?.length > 0 &&
+    weight.do_you_have_other_pets_at_home_two?.length > 0 &&
     weight.do_you_pet_sleeping_area?.length > 0;
-    console.log(btnDisabled, "btnDisbaled");
+  console.log(btnDisabled, "btnDisbaled");
 
   return (
     <form>
@@ -44,6 +45,7 @@ const ServiceDetails = (props) => {
         <CustomForm
           AllEntries={ServiceDetailsEntries}
           textFieldChange={value.handleChange}
+          onChangeRadioAction={value.handleOnChange}
           // onReceiveData={onReceiveData}
           defaultValues={DefaultServiceDetailsValues}
         />

@@ -14,11 +14,11 @@ export const BecomePetHostService = () => {
     },
     {
       image: CustomImages.Dog2,
-      text: "loooo",
+      text: "Pet Home Boarding & Pet Services",
     },
     {
       image: CustomImages.Dog1,
-      text: "llll",
+      text: "Pet Services",
     },
     // {
     //   image: CustomImages.Dog2,
@@ -31,7 +31,10 @@ export const BecomePetHostService = () => {
     },
   ];
   const navigate = useNavigate();
-  const clickImage = () => { navigate("/PetHomeBoarding") };
+  const clickImage = () => {
+    navigate("/PetHomeBoarding");
+    
+  };
   return (
     <Grid container md={12} sm={12} lg={12} xs={12}>
       <Grid container md={12} sm={12} lg={12} xs={12}>

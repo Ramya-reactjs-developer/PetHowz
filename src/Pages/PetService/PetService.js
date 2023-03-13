@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 import Stepper from "react-stepper-horizontal";
-import Confirmation from "../../Components/Stepper/Confirmation";
-// import { LabelContext } from "../JoinPetHost/petHost/labelDataContext";
 import { LabelContext } from "../PetService/LableData";
 import { Grid } from "@mui/material";
-import "./PetService.css";
 import PetBasicDetails from "../../Components/PetServiceProvider/BasicDetails";
 import AboutPet from "../../Components/PetServiceProvider/AboutPet";
 import ServiceDetails from "../../Components/PetServiceProvider/ServiceDetails";
+import UploadImage from "../../Components/PetServiceProvider/UploadImage";
+import "./PetService.css";
+import AddScreen from "../../Components/PetServiceProvider/CommonPage";
+import Confirmation from "../../Components/Stepper/Confirmation";
 
 const PetService = () => {
   const value = useContext(LabelContext);
@@ -34,8 +35,9 @@ const PetService = () => {
           {value.page === 1 && <AboutPet />}
           {value.page === 2 && <ServiceDetails />}
           {/* {value.page === 3 && <ShippingOption />} */}
-          {value.page === 4 && <Confirmation />}
-          {/* {value.page === 5 && <Printonly />} */}
+          {value.page === 3 && <UploadImage />}
+          {value.page === 4 && <AddScreen />}
+          {value.page === 5 && <Confirmation />}
         </Grid>
       </Grid>
     </Grid>

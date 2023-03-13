@@ -20,10 +20,17 @@ import { MyPetsCustomerDB } from "../Pages/CustomerDashBoard/MyPets/MyPetsCustom
 import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfile/MyProfileCustomerDB";
 import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookings/MyBookingsCustomerDb";
 import { CustomerDashBoard } from "../Pages/CustomerDashBoard/Index";
+// import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfileCustomerDB";
+// import { MyPetsCustomerDB } from "../Pages/CustomerDashBoard/MyPetsCustomerDB";
+// import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookingsCustomerDb";
+// import Login from "../Pages/Login/Login";
+// import PetService from "../Pages/PetService/PetService";
+
 import { MyBoardingSpaceHostDB } from "../Pages/HostDashBoard/MyBoardingSpace/MyBoardingSpaceHostDB";
 import { AddAddress } from "../Pages/CustomerRegistration/AddAddress";
 import { RegisterToPethowz } from "../Pages/CustomerRegistration/RegisterToPetHowz";
 import { RequestBooking } from "../Pages/RequestBooking/RequestBooking";
+
 
 export const Layout = () => {
   return (
@@ -31,6 +38,7 @@ export const Layout = () => {
       <DrawerAppBar />
       <Routes>
         <Route path="/" index element={<HomePage />} />
+        {/* <Route path="login" index element={<Login />} /> */}
         <Route path="grooming" index element={<Grooming />} />
         <Route path="groomingService" index element={<GroomingService />} />
         <Route
@@ -68,6 +76,8 @@ export const Layout = () => {
           element={<MyProfileCustomerDB />}
         />
         <Route path="MyPetsCustomerDB" index element={<MyPetsCustomerDB />} />
+      
+
         <Route
           path="MyBookingsCustomerDB"
           index
