@@ -5,16 +5,15 @@ import Typography from "@mui/material/Typography";
 
 import { Box, Button, CardMedia, Grid } from "@mui/material";
 import {
-  Info1Postion,
+  ApproveBtn,
+  BookingReqMain,
+  BookingReqSub,
+  BtnPostion,
+  CancelBtn,
   Info1SubPostion1,
-  // Info1SubPostion2,
-  // Info1SubPostion3,
-  // Info2Postion,
-  // Info2SubPostion1,
-  OwnerProfile,
-  OwnerProfileSize,
   PetHomeCardPosition,
   PetHomeCardSize,
+  infoMainPostion,
 } from "./Style";
 import PropTypes from "prop-types";
 
@@ -34,30 +33,9 @@ export default function BookingRequestsCard({ Data }) {
   // ];
 
   return (
-    <Grid
-      container
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "flex-start",
-        gap: "30px",
-      }}
-      item
-      xs={12}
-    >
+    <Grid container item xs={12}>
       {" "}
-      <Grid
-        item
-        xs={12}
-        sx={{
-          p: "10px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: { sm: "flex-start", xs: "center" },
-          gap: "30px",
-          flexWrap: "wrap",
-        }}
-      >
+      <Grid item xs={12} sx={BookingReqSub}>
         {CardData.map((item, key) => {
           return (
             <Card
@@ -67,14 +45,7 @@ export default function BookingRequestsCard({ Data }) {
               <Card sx={PetHomeCardSize}>
                 <Box sx={{ pt: "7px" }}>
                   <Box sx={PetHomeCardPosition}>
-                    <Box
-                      sx={{
-                        display: { sm: "flex", xs: "block" },
-
-                        justifyContent: "flex-start",
-                        gap: "100px",
-                      }}
-                    >
+                    <Box sx={infoMainPostion}>
                       <Box sx={Info1SubPostion1}>
                         <Box>
                           <Typography lineHeight={2.5}>
@@ -114,40 +85,9 @@ export default function BookingRequestsCard({ Data }) {
                   </Box>
                 </Box>
               </Card>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: { sm: "flex-end", xs: "center" },
-                  gap: "20px",
-                  pr: "5px",
-                  pt: "10px",
-                }}
-              >
-                <Button
-                  sx={{
-                    width: { sm: "120px", xs: "100px" },
-                    borderRadius: "10px",
-                    background: "#F85A47",
-                    color: "white",
-                    textTransform: "none",
-                  }}
-                >
-                  Approve
-                </Button>
-                <Button
-                  sx={{
-                    width: { sm: "120px", xs: "100px" },
-                    borderRadius: "10px",
-                    background: "transparent",
-                    color: "#F85A47",
-                    border: "1px solid #F85A47",
-                    boxShadow: "none",
-                    textTransform: "none",
-                  }}
-                >
-                  Cancel
-                </Button>
+              <Box sx={BtnPostion}>
+                <Button sx={ApproveBtn}>Approve</Button>
+                <Button sx={CancelBtn}>Cancel</Button>
               </Box>
             </Card>
           );

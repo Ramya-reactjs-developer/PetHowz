@@ -47,9 +47,6 @@ export default function PetHomeCard({ Data }) {
       {" "}
       <Grid
         item
-        lg={6}
-        md={8}
-        sm={10}
         xs={12}
         sx={{
           display: "flex",
@@ -61,58 +58,70 @@ export default function PetHomeCard({ Data }) {
       >
         {CardData.map((item, key) => {
           return (
-            <Card sx={PetHomeCardSize}>
-              <Box sx={{ pt: "7px" }}>
-                <Box key={key} sx={PetHomeCardPosition}>
-                  <Box sx={OwnerProfile}>
-                    <CardMedia
-                      sx={OwnerProfileSize}
-                      component="img"
-                      image={item.ownerPic}
-                      alt="dog"
-                    />
+            <Grid
+              Item
+              display={"flex"}
+              alignItems={"center"}
+              justifyContent={"flex-start"}
+              // lg={4}
+              // md={6}
+              // sm={10}
+              // xs={12}
+              key={key}
+            >
+              <Card sx={PetHomeCardSize}>
+                <Box sx={{ pt: "7px" }}>
+                  <Box sx={PetHomeCardPosition}>
+                    <Box sx={OwnerProfile}>
+                      <CardMedia
+                        sx={OwnerProfileSize}
+                        component="img"
+                        image={item.ownerPic}
+                        alt="dog"
+                      />
 
-                    {/* <Typography fontSize={28} sx={{ pt: "5px" }}>
+                      {/* <Typography fontSize={28} sx={{ pt: "5px" }}>
                       {item.ownername}
                     </Typography> */}
-                  </Box>
-                  <Box sx={Info1Postion}>
-                    <Box sx={Info1SubPostion1}>
-                      <Box>
-                        <Typography lineHeight={2.5}>Pet Name</Typography>
-                        <Typography lineHeight={2.5}>Venue Booked</Typography>
-                        <Typography lineHeight={2.5}>Total Cost</Typography>
-                      </Box>
-                      <Box>
-                        <Typography color="text.secondary" lineHeight={2.5}>
-                          {item.petName}
-                        </Typography>
-                        <Typography color="text.secondary" lineHeight={2.5}>
-                          {item.venueBooked}
-                          <Typography color="text.secondary" lineHeight={2.5}>
-                            {item.totalCosts}
-                          </Typography>
-                        </Typography>
-                      </Box>
                     </Box>
-                    <Box sx={Info1SubPostion1}>
-                      <Box>
-                        <Typography lineHeight={2.5}>Booked Date</Typography>
-                        <Typography lineHeight={2.5}>No Of Days</Typography>
+                    <Box sx={Info1Postion}>
+                      <Box sx={Info1SubPostion1}>
+                        <Box>
+                          <Typography lineHeight={2.5}>Pet Name</Typography>
+                          <Typography lineHeight={2.5}>Venue Booked</Typography>
+                          <Typography lineHeight={2.5}>Total Cost</Typography>
+                        </Box>
+                        <Box>
+                          <Typography color="text.secondary" lineHeight={2.5}>
+                            {item.petName}
+                          </Typography>
+                          <Typography color="text.secondary" lineHeight={2.5}>
+                            {item.venueBooked}
+                            <Typography color="text.secondary" lineHeight={2.5}>
+                              {item.totalCosts}
+                            </Typography>
+                          </Typography>
+                        </Box>
                       </Box>
-                      <Box>
-                        <Typography color="text.secondary" lineHeight={2.5}>
-                          {item.bookedDate}
-                        </Typography>
-                        <Typography color="text.secondary" lineHeight={2.5}>
-                          {item.noOfDays}
-                        </Typography>
+                      <Box sx={Info1SubPostion1}>
+                        <Box>
+                          <Typography lineHeight={2.5}>Booked Date</Typography>
+                          <Typography lineHeight={2.5}>No Of Days</Typography>
+                        </Box>
+                        <Box>
+                          <Typography color="text.secondary" lineHeight={2.5}>
+                            {item.bookedDate}
+                          </Typography>
+                          <Typography color="text.secondary" lineHeight={2.5}>
+                            {item.noOfDays}
+                          </Typography>
+                        </Box>
                       </Box>
                     </Box>
                   </Box>
                 </Box>
-              </Box>
-            </Card>
+              </Card>
+            </Grid>
           );
         })}
       </Grid>

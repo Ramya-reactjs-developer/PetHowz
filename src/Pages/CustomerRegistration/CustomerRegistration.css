@@ -1,0 +1,37 @@
+.Box-Image {
+  /* padding-top: 18rem; */
+
+  background-image: url("../../Assets/Images/Register.jpeg");
+
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+  /* object-fit: fill; */
+  background-size: cover;
+
+  /* background-position: center; */
+}
+.Box-Image1 {
+  /* padding-top: 18rem; */
+
+  background-image: url("../../Assets/Images/Register.jpeg");
+
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+  /* object-fit: fill; */
+  background-size: cover;
+
+  /* background-position: center; */
+}
+.Box-color {
+  background-color: #f85a47;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+}
+.sourceButton {
+  /* position: relative;
+  top: 4rem; */
+  background: #f85a47;
+}

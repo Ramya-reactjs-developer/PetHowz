@@ -1,7 +1,7 @@
 export const PetHostAmentiesEntries = [
   {
     isRadioAction: true,
-    name: "dedicated boarding area",
+    name: "dedicatedboardingarea",
     label: "Do you have dedicated boarding area for pets?",
     breakpoint: 4,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
@@ -11,7 +11,7 @@ export const PetHostAmentiesEntries = [
   },
   {
     isRadioAction: true,
-    name: "kids at home",
+    name: "kidsathome",
     label: "Do you have kids at home?",
     breakpoint: 4,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
@@ -31,7 +31,7 @@ export const PetHostAmentiesEntries = [
   },
   {
     isRadioAction: true,
-    name: "playing area",
+    name: "playingarea",
     label: "Do you have a playing area for pets?",
     breakpoint: 4,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
@@ -51,7 +51,7 @@ export const PetHostAmentiesEntries = [
   },
   {
     isRadioAction: true,
-    name: "Cuddle Time",
+    name: "CuddleTime",
     label: "Cuddle Time",
     breakpoint: 4,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
@@ -62,7 +62,7 @@ export const PetHostAmentiesEntries = [
 
   {
     isRadioAction: true,
-    name: " A/C",
+    name: "A/C",
     label: "Do you A/C in pet sleeping area?",
     breakpoint: 4,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
@@ -184,7 +184,7 @@ export const PetHostAmentiesEntries = [
 
   {
     isRadioAction: true,
-    name: " A/C",
+    name: "AC",
     label: "Do you A/C in pet sleeping area?",
     breakpoint: 4,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
@@ -214,7 +214,7 @@ export const PetHostAmentiesEntries = [
   },
   {
     isRadioAction: true,
-    name: "other pets",
+    name: "otherpets",
     label: "Do you have other pets at home?",
     breakpoint: 4,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
@@ -224,7 +224,7 @@ export const PetHostAmentiesEntries = [
   },
   {
     isRadioAction: true,
-    name: "Pets allowed",
+    name: "Petsallowed",
     label: "Pets allowed on Beds?",
     breakpoint: 4,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
@@ -234,7 +234,7 @@ export const PetHostAmentiesEntries = [
   },
   {
     isRadioAction: true,
-    name: "Play time",
+    name: "Playtime",
     label: "Play time",
     breakpoint: 4,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
@@ -243,3 +243,19 @@ export const PetHostAmentiesEntries = [
     error_message: "Status",
   },
 ];
+
+export const DefaultAmentiesEntriesValues = {
+  dedicatedboardingarea: "",
+  kidsathome: "",
+  Food: "",
+  playingarea: "",
+  Beds: "",
+  CuddleTime: "",
+  AC: "",
+  Furniture: "",
+  Walking: "",
+  otherpets: "",
+  Petsallowed: "",
+  Playtime: "",
+  submit_button: "",
+};

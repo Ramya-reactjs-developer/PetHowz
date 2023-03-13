@@ -12,7 +12,7 @@ import PetService from "../Pages/PetService/PetService";
 import PetCare from "../Pages/PetCare/PetCare";
 import { HostDashBoard } from "../Pages/HostDashBoard/Index";
 import { MyProfileHostDB } from "../Pages/HostDashBoard/MyProfile/MyProfileHostDB";
-import { MyPetsHostDB } from "../Pages/HostDashBoard/MyPets/MyPetsHostDB";
+// import { MyPetsHostDB } from "../Pages/HostDashBoard/MyPets/MyPetsHostDB";
 import { MyBookingsHostDB } from "../Pages/HostDashBoard/MyBookings/MyBookingsHostDB";
 import { MyServicesHostDB } from "../Pages/HostDashBoard/MyServices/MyServicesHostDB";
 import { BookingRequestsHostDB } from "../Pages/HostDashBoard/MyBookingRequest/BookingRequestsHostDb";
@@ -21,6 +21,9 @@ import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfile/MyProf
 import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookings/MyBookingsCustomerDb";
 import { CustomerDashBoard } from "../Pages/CustomerDashBoard/Index";
 import { MyBoardingSpaceHostDB } from "../Pages/HostDashBoard/MyBoardingSpace/MyBoardingSpaceHostDB";
+import { AddAddress } from "../Pages/CustomerRegistration/AddAddress";
+import { RegisterToPethowz } from "../Pages/CustomerRegistration/RegisterToPetHowz";
+import { RequestBooking } from "../Pages/RequestBooking/RequestBooking";
 
 export const Layout = () => {
   return (
@@ -44,7 +47,7 @@ export const Layout = () => {
         {/* Host DashBoard        */}
         <Route path="HostDashBoard" index element={<HostDashBoard />} />
         <Route path="MyProfileHostDB" index element={<MyProfileHostDB />} />
-        <Route path="MyPetsHostDB" index element={<MyPetsHostDB />} />
+        {/* <Route path="MyPetsHostDB" index element={<MyPetsHostDB />} /> */}
         <Route path="MyBookingsHostDB" index element={<MyBookingsHostDB />} />
         <Route
           path="MyBoardingSpaceHostDB"
@@ -70,6 +73,11 @@ export const Layout = () => {
           index
           element={<MyBookingsCustomerDB />}
         />
+        {/* Register PetHowz */}
+        <Route path="RegisterToPethowz" index element={<RegisterToPethowz />} />
+        <Route path="AddAddress" index element={<AddAddress />} />
+        {/* Request Booking */}
+        <Route path="RequestBooking" index element={<RequestBooking />} />
       </Routes>
 
       {/* <Footer /> */}

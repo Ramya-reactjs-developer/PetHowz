@@ -4,14 +4,15 @@ import CustomTypography from "../../../Components/Typography/Typography";
 import CustomButton from "../../../Components/Button/Button";
 import CustomIcons from "../../../Utils/Icons/Index";
 import ServicePackagesHost from "../../../Components/Cards/ServicePackagesHost";
+import { AddBtn } from "../MyBoardingSpace/BoardingSpaceStyle";
 
 export const MyServicesHostDB = () => {
-  const tabNames = [
-    { label: "Grooming" },
-    { label: "Pet Sitting" },
-    { label: "Pet Walking" },
-    { label: "Pet Taxi" },
-  ];
+  // const tabNames = [
+  //   { label: "Grooming" },
+  //   { label: "Pet Sitting" },
+  //   { label: "Pet Walking" },
+  //   { label: "Pet Taxi" },
+  // ];
   const CardData = [
     {
       type: "Spa Bath",
@@ -47,6 +48,19 @@ export const MyServicesHostDB = () => {
       service6: "Combing/Brushing",
     },
   ];
+  const ServiceAddbtn = {
+    color: "white",
+    width: "50px",
+    height: "60px",
+    borderRadius: "50%",
+    fontSize: "35px",
+  };
+  const HostAddBtn = {
+    background: "#F85A47",
+    color: "white",
+    width: "130px",
+    borderRadius: "15px",
+  };
   return (
     <Grid container item xs={12}>
       {" "}
@@ -71,16 +85,11 @@ export const MyServicesHostDB = () => {
           type="subHeading"
           colorType="text"
         />
-        <CustomButton
+        {/* <CustomButton
           btnTitle={"Add"}
           color={"secondary"}
-          btnStyles={{
-            background: "#F85A47",
-            color: "white",
-            width: "130px",
-            borderRadius: "15px",
-          }}
-        />
+          btnStyles={HostAddBtn}
+        /> */}
       </Grid>
       <Grid
         item
@@ -97,6 +106,7 @@ export const MyServicesHostDB = () => {
           <Card>
             <Box sx={{ float: "right" }}>
               <img src={CustomIcons.Edit} alt="delete" />
+              <img src={CustomIcons.Edit} alt="delete" />
             </Box>
             <CardContent sx={{ pt: "30px" }}>
               <CustomTypography
@@ -110,6 +120,7 @@ export const MyServicesHostDB = () => {
         <Grid item md={2} sm={5} xs={12}>
           <Card>
             <Box sx={{ float: "right" }}>
+              <img src={CustomIcons.Edit} alt="delete" />
               <img src={CustomIcons.Edit} alt="delete" />
             </Box>
             <CardContent sx={{ pt: "30px" }}>
@@ -125,6 +136,7 @@ export const MyServicesHostDB = () => {
           <Card>
             <Box sx={{ float: "right" }}>
               <img src={CustomIcons.Edit} alt="delete" />
+              <img src={CustomIcons.Edit} alt="delete" />
             </Box>
             <CardContent sx={{ pt: "30px" }}>
               <CustomTypography
@@ -133,6 +145,23 @@ export const MyServicesHostDB = () => {
                 colorType="text"
               />
             </CardContent>
+          </Card>
+        </Grid>
+        <Grid item md={2} sm={5} xs={12}>
+          <Card>
+            <Box>
+              <CustomButton
+                btnTitle="+"
+                color="primary"
+                // onClickHandle={onAddAnother}
+                btnStyles={ServiceAddbtn}
+              />
+              <CustomTypography
+                text="Add Service"
+                type="subHeading"
+                colorType="primary"
+              />
+            </Box>
           </Card>
         </Grid>
       </Grid>
@@ -153,12 +182,7 @@ export const MyServicesHostDB = () => {
         <CustomButton
           btnTitle={"Add"}
           color={"secondary"}
-          btnStyles={{
-            background: "#F85A47",
-            color: "white",
-            width: "130px",
-            borderRadius: "15px",
-          }}
+          btnStyles={HostAddBtn}
         />
       </Grid>
       <Grid item xs={12}>
