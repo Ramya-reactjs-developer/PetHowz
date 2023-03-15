@@ -32,6 +32,7 @@ import { AddAddress } from "../Pages/CustomerRegistration/AddAddress";
 import { RegisterToPethowz } from "../Pages/CustomerRegistration/RegisterToPetHowz";
 import { RequestBooking } from "../Pages/RequestBooking/RequestBooking";
 import { AllServices } from "../Pages/AllServices/Index";
+import MyProfileEdit from "../Pages/HostDashBoard/MyProfile/MyProfileEdit";
 
 
 export const Layout = () => {
@@ -80,7 +81,12 @@ export const Layout = () => {
           index
           element={<BookingRequestsHostDB />}
         />
-        Customer DashBoard       
+          <Route
+          path="MyProfileEdit"
+          index
+          element={<MyProfileEdit />}
+        />
+         
 
          <Route path="CustomerDashBoard" index element={<CustomerDashBoard />} /> 
          <Route
