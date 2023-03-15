@@ -10,24 +10,40 @@ import {
   Typography,
 } from "@mui/material";
 // import { AddressPosition, CardBtnStyles, ReviewsPosition } from "./Style";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import CustomTypography from "../Typography/Typography";
 import CustomButton from "../Button/Button";
 
-export const MyPetsCards = () => {
-  const CardData = [
-    {
-      image:
-        "https://res.cloudinary.com/practicaldev/image/fetch/s--Zib71Fgv--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/n082uxea33j6zq3mca7u.png",
-      name: "Aadhi Pet Care",
-      address: "Anna Nagar, Chennai",
-      type: "Villa",
-      distance: "0.2kms",
-      reviews: "(75 reviews)",
-    },
-  ];
+export const MyPetsCards = ({ ListData, onEdit }) => {
   const [open, setOpen] = React.useState(false);
   const [hide, setHide] = React.useState(true);
+
+  const [dob] = React.useState(ListData[0].DateofBirth);
+  const [age, setAge] = React.useState("");
+
+  function calculateAge() {
+    const birthDate = new Date(dob);
+    const today = new Date();
+    let yearsDiff = today.getFullYear() - birthDate.getFullYear();
+    console.log(yearsDiff, "y");
+    setAge(yearsDiff);
+  }
+  // Check if the birth month and day is later than current month and day
+  //   if (
+  //     today.getMonth() < birthDate.getMonth() ||
+  //     (today.getMonth() === birthDate.getMonth() &&
+  //       today.getDate() < birthDate.getDate())
+  //   ) {
+  //     yearsDiff--;
+  //   }
+
+  //   setAge(yearsDiff);
+  // }
+  React.useEffect(() => {
+    calculateAge();
+    return () => {};
+  }, [age, dob]);
+
   const OnOpen = () => {
     setOpen(true);
     setHide(false);
@@ -36,19 +52,7 @@ export const MyPetsCards = () => {
     setOpen(false);
     setHide(true);
   };
-  const ListData = [
-    {
-      PetName: "Alan",
-      PetType: "Dog",
-      DateofBirth: "01-02-2020",
-      Interests: "Interests",
-      WalkingRoutine: "30 mins daily at 5PM",
 
-      Breed: "Golden Retriever",
-      Weight: "5.2 Kgs",
-      FoodPreference: "Bones, Pedigree, Lamb.",
-    },
-  ];
   return (
     <Grid
       container
@@ -63,7 +67,7 @@ export const MyPetsCards = () => {
       <Grid
         item
         sx={{
-          p: "25px",
+          pt: "10px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -71,7 +75,7 @@ export const MyPetsCards = () => {
           flexWrap: "wrap",
         }}
       >
-        {CardData.map((item, key) => {
+        {ListData.map((item, key) => {
           return (
             <Box key={key}>
               <Card
@@ -82,84 +86,68 @@ export const MyPetsCards = () => {
                 <Box
                   sx={{
                     display: { xs: "flex" },
-                    gap: "10px",
-                    flexWrap: "wrap",
+                    // gap: "15px",
+                    // flexWrap: "wrap",
                   }}
                 >
                   {/* <Box sx={{ maxWidth: "350px" }}> */}
-                  <CardActionArea
-                    sx={{ maxWidth: "130px", textAlign: "center" }}
-                  >
+                  <Box sx={{ maxWidth: "130px", textAlign: "center" }}>
                     <CardMedia
                       component="img"
                       image={item.image}
                       alt="dog"
                       sx={{
-                        p: "10px",
-                        margin: "auto",
-                        width: "100%",
+                        p: "15px",
+
                         height: "110px",
-                        maxWidth: "110px",
+                        width: "110px",
                         borderRadius: "50%",
                       }}
                     />
 
-                    {ListData.map((item, key) => {
-                      return (
-                        <Box key={key}>
-                          <Typography color="text.secondary">
-                            {item.PetName}
-                          </Typography>
-                        </Box>
-                      );
-                    })}
-                  </CardActionArea>
+                    <Typography color="text.secondary">
+                      {item.PetName}
+                    </Typography>
+                  </Box>
                   {/* </Box> */}
                   {hide ? (
                     <CardActions sx={{ maxWidth: "280px" }}>
                       <CardContent>
-                        {ListData.map((item, key) => {
-                          return (
-                            <Box key={key}>
-                              <Box
-                                sx={{
-                                  display: "flex",
-                                  alignItems: "center",
-                                  gap: "5px ",
-                                }}
-                              >
-                                <Typography fontWeight="bold">
-                                  {" "}
-                                  Date of Birth
-                                </Typography>
-                                <Typography color="text.secondary">
-                                  {item.DateofBirth}
-                                </Typography>
-                              </Box>
+                        <Box>
+                          <Box
+                            sx={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "5px ",
+                            }}
+                          >
+                            <Typography fontWeight="bold"> Age</Typography>
+                            <Typography color="text.secondary">
+                              {/* {item.DateofBirth} */}
+                              {age}
+                            </Typography>
+                          </Box>
 
-                              <Box
-                                sx={{
-                                  display: "flex",
-                                  alignItems: "center",
-                                  gap: "5px ",
-                                  pt: "10px",
-                                }}
-                              >
-                                <Typography fontWeight="bold">
-                                  Weight
-                                </Typography>
-                                <Typography color="text.secondary">
-                                  {item.Weight}
-                                </Typography>
-                              </Box>
-                              <Box sx={{ pt: "10px" }}>
-                                <Typography color="text.secondary">
-                                  {item.Breed}
-                                </Typography>
-                              </Box>
-                            </Box>
-                          );
-                        })}
+                          <Box
+                            sx={{
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "5px ",
+                              pt: "10px",
+                            }}
+                          >
+                            <Typography fontWeight="bold">Weight</Typography>
+                            <Typography color="text.secondary">
+                              {item.Weight}
+                            </Typography>
+                          </Box>
+                          <Box sx={{ pt: "10px" }}>
+                            <Typography color="text.secondary">
+                              {item.Breed}
+                            </Typography>
+                          </Box>
+                        </Box>
+
                         <Box sx={{ pt: "15px" }}>
                           <CustomButton
                             btnTitle="View Details"
@@ -178,89 +166,77 @@ export const MyPetsCards = () => {
                   ) : (
                     ""
                   )}
-                  <Box>
-                    {open ? (
-                      <CardActions>
-                        <CardContent
-                        // sx={{
-                        //   display: "flex",
-                        //   alignItems: "center",
-                        //   justifyContent: "space-evenly",
-                        // }}
+
+                  {open ? (
+                    <CardActions>
+                      <CardContent>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            alignItems: "left",
+                            justifyContent: "flex-start",
+                            gap: "80px",
+                            flexWrap: "wrap",
+                            textAlign: "left",
+                          }}
                         >
-                          {ListData.map((item, key) => {
-                            return (
-                              <Box
-                                key={key}
-                                sx={{
-                                  m: "0px",
-                                  p: "0px",
-                                  display: "flex",
-                                  gap: "70px",
-                                  flexWrap: "wrap",
-                                  textAlign: "left",
-                                }}
-                              >
-                                <Box sx={{ height: "10px" }}>
-                                  <Typography fontWeight="bold">
-                                    Pet Type
-                                  </Typography>
-                                  <Typography color="text.secondary">
-                                    {item.PetType}
-                                  </Typography>
-                                </Box>
+                          <Box sx={{ height: "10px" }}>
+                            <Typography fontWeight="bold">Pet Type</Typography>
+                            <Typography color="text.secondary">
+                              {item.PetType}
+                            </Typography>
+                          </Box>
 
-                                <Box sx={{ height: "10px" }}>
-                                  <Typography fontWeight="bold">
-                                    DateofBirth
-                                  </Typography>
-                                  <Typography color="text.secondary">
-                                    {item.DateofBirth}
-                                  </Typography>
-                                </Box>
+                          <Box sx={{ height: "10px" }}>
+                            <Typography fontWeight="bold">
+                              DateofBirth
+                            </Typography>
+                            <Typography color="text.secondary">
+                              {item.DateofBirth}
+                            </Typography>
+                          </Box>
+                          <Box sx={{ height: "10px" }}>
+                            <Typography fontWeight="bold">Interests</Typography>
+                            <Typography color="text.secondary">
+                              {item.Interests}
+                            </Typography>
+                          </Box>
 
-                                <Box sx={{ height: "10px" }}>
-                                  <Typography fontWeight="bold">
-                                    Walking Routine
-                                  </Typography>
-                                  <Typography color="text.secondary">
-                                    {item.WalkingRoutine}
-                                  </Typography>
-                                </Box>
-                                <Box sx={{ height: "10px" }}>
-                                  <Typography fontWeight="bold">
-                                    Breed
-                                  </Typography>
-                                  <Typography color="text.secondary">
-                                    {item.Breed}
-                                  </Typography>
-                                </Box>
+                          <Box sx={{ height: "10px" }}>
+                            <Typography fontWeight="bold">
+                              Walking Routine
+                            </Typography>
+                            <Typography color="text.secondary">
+                              {item.WalkingRoutine}
+                            </Typography>
+                          </Box>
+                          <Box sx={{ height: "10px" }}>
+                            <Typography fontWeight="bold">Breed</Typography>
+                            <Typography color="text.secondary">
+                              {item.Breed}
+                            </Typography>
+                          </Box>
 
-                                <Box sx={{ height: "10px" }}>
-                                  <Typography fontWeight="bold">
-                                    Weight
-                                  </Typography>
-                                  <Typography color="text.secondary">
-                                    {item.Weight}
-                                  </Typography>
-                                </Box>
-                                <Box sx={{ height: "10px" }}>
-                                  <Typography fontWeight="bold">
-                                    Food Preference
-                                  </Typography>
-                                  <Typography color="text.secondary">
-                                    {item.FoodPreference}
-                                  </Typography>
-                                </Box>
-                              </Box>
-                            );
-                          })}
-                        </CardContent>
-                      </CardActions>
-                    ) : (
-                      ""
-                    )}
-                  </Box>
+                          <Box sx={{ height: "10px" }}>
+                            <Typography fontWeight="bold">Weight</Typography>
+                            <Typography color="text.secondary">
+                              {item.Weight}
+                            </Typography>
+                          </Box>
+                          <Box sx={{ height: "10px" }}>
+                            <Typography fontWeight="bold">
+                              Food Preference
+                            </Typography>
+                            <Typography color="text.secondary">
+                              {item.FoodPreference}
+                            </Typography>
+                          </Box>
+                        </Box>
+                      </CardContent>
+                    </CardActions>
+                  ) : (
+                    ""
+                  )}
                 </Box>
                 {open ? (
                   <Box>
@@ -283,17 +259,13 @@ export const MyPetsCards = () => {
                           colorType="text"
                         />
                         <Box>
-                          {ListData.map((item, key) => {
-                            return (
-                              <Box key={key}>
-                                <CustomTypography
-                                  text={item.PetName}
-                                  type="subHeading"
-                                  colorType="text"
-                                />
-                              </Box>
-                            );
-                          })}
+                          <Box>
+                            <CustomTypography
+                              text={item.PetName}
+                              type="subHeading"
+                              colorType="text"
+                            />
+                          </Box>
                         </Box>
                       </Box>
                       <Typography>
@@ -315,6 +287,7 @@ export const MyPetsCards = () => {
                       <CustomButton
                         btnTitle="Edit Details"
                         color="primary"
+                        onClickHandle={onEdit}
                         btnStyles={{
                           color: "red",
                           border: " 1px solid red",
@@ -348,6 +321,6 @@ export const MyPetsCards = () => {
   );
 };
 
-// MyPetsCards.propTypes = {
-//   Data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
-// };
+MyPetsCards.propTypes = {
+  ListData: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
+};

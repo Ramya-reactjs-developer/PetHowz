@@ -3,6 +3,13 @@ import React from "react";
 import CustomTypography from "../../../Components/Typography/Typography";
 import ProfileImageUploader2 from "../../../Components/ProfileImageUploader2/ProfileImageUploader2";
 import CustomButton from "../../../Components/Button/Button";
+import {
+  ChangeAddressBtn,
+  ChangeEmailBtn,
+  ChangeNumberBtn,
+  CustomerDetailsPosition,
+  CustomerProfilePostion,
+} from "./CustomerProfileStyle";
 
 export const MyProfileCustomerDB = () => {
   return (
@@ -24,13 +31,7 @@ export const MyProfileCustomerDB = () => {
       >
         <Grid item lg={2} md={3} sm={4} xs={12} textAlign={"center"}>
           <ProfileImageUploader2 />
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <Box sx={CustomerProfilePostion}>
             <CustomTypography text="john" type="title" colorType="text" />
             {/* 
             <CustomButton
@@ -42,13 +43,7 @@ export const MyProfileCustomerDB = () => {
         </Grid>
         <Grid item sm={5} xs={12}>
           <Box>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-              }}
-            >
+            <Box sx={CustomerDetailsPosition}>
               <CustomTypography
                 text="john@gmail.com"
                 type="title"
@@ -57,11 +52,7 @@ export const MyProfileCustomerDB = () => {
               <CustomButton
                 btnTitle={"Change email"}
                 color="primary"
-                btnStyles={{
-                  background: "none",
-                  boxShadow: "none",
-                  color: "red",
-                }}
+                btnStyles={ChangeEmailBtn}
               />
             </Box>
             <Box
@@ -78,11 +69,7 @@ export const MyProfileCustomerDB = () => {
               <CustomButton
                 btnTitle={"Change Phone Number"}
                 color="primary"
-                btnStyles={{
-                  background: "none",
-                  boxShadow: "none",
-                  color: "red",
-                }}
+                btnStyles={ChangeNumberBtn}
               />
             </Box>
             <Box>
@@ -94,12 +81,7 @@ export const MyProfileCustomerDB = () => {
               <CustomButton
                 btnTitle={"Change Address"}
                 color="primary"
-                btnStyles={{
-                  background: "none",
-                  boxShadow: "none",
-                  color: "red",
-                  p: 0,
-                }}
+                btnStyles={ChangeAddressBtn}
               />
             </Box>
 
