@@ -15,6 +15,7 @@ import {
   SearchButtonPadding,
   SearchButtonStyle,
 } from "./HomeStyle";
+import { Link } from "react-router-dom";
 
 export const HomePage = () => {
   const CardData = [
@@ -110,6 +111,18 @@ export const HomePage = () => {
     },
   ];
 
+  const AllSevices = [
+    {
+      image1: customImages.s1,
+      image2: customImages.s2,
+      image3: customImages.s3,
+      image4: customImages.s4,
+      image5: customImages.s5,
+      image6: customImages.s6,
+      image7: customImages.s7,
+      image8: customImages.s8,
+    },
+  ];
   const [searchData, setSearchData] = useState("");
 
   console.log(searchData, "ss");
@@ -185,140 +198,242 @@ export const HomePage = () => {
           colorType="text"
         />
       </Grid>
+      {AllSevices.map((item, key) => {
+        return (
+          <Grid
+            item
+            display={"flex"}
+            alignItems={"center"}
+            justifyContent={{ sm: "flex-start", xs: "center" }}
+            flexWrap={"wrap"}
+            pl={{ lg: "5px", md: "150px", sm: "30px", xs: "5px" }}
+            pr={{ lg: "5px", md: "150px", sm: "10px", xs: "0px" }}
+            md={12}
+            xs={12}
+            pt={"30px"}
+          >
+            <Grid item lg={3} md={6} sm={6} xs={12}>
+              <Box>
+                <ImageCards
+                  ImagePath={item.image1}
+                  CardWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  CardHeight={"600px"}
+                  ImageWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  ImageHeight={"600px"}
+                  service={"Pet Grooming"}
+                  sub={"Starting From ₹ 700"}
+                />
+              </Box>
+              <Box sx={{ pt: "20px" }}>
+                <ImageCards
+                  ImagePath={item.image2}
+                  CardWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  CardHeight={"300px"}
+                  ImageWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  ImageHeight={"300px"}
+                  service={"Pet Relocation"}
+                  sub={"Starting From ₹ 700"}
+                />
+              </Box>
+            </Grid>
+            <Grid item lg={3} md={6} sm={6} xs={12} pt={{ sm: 0, xs: "20px" }}>
+              <Box>
+                {" "}
+                <ImageCards
+                  ImagePath={item.image3}
+                  CardWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  CardHeight={"300px"}
+                  ImageWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  ImageHeight={"300px"}
+                  service={"Pet Walking"}
+                  sub={"Starting From ₹ 700"}
+                />
+              </Box>
+              <Box sx={{ pt: "20px" }}>
+                <ImageCards
+                  ImagePath={item.image4}
+                  CardWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  CardHeight={"600px"}
+                  ImageWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  ImageHeight={"600px"}
+                  service={"Pet Sitting"}
+                  sub={"Starting From ₹ 700"}
+                />
+              </Box>
+            </Grid>
+            <Grid
+              item
+              lg={3}
+              md={6}
+              sm={6}
+              xs={12}
+              pt={{ lg: "0px", md: "40px", xs: "20px" }}
+            >
+              <Box>
+                {" "}
+                <ImageCards
+                  ImagePath={item.image5}
+                  CardWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  CardHeight={"600px"}
+                  ImageWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  ImageHeight={"600px"}
+                  service={"Pet Taxi"}
+                  sub={"Starting From ₹ 700"}
+                />
+              </Box>
+              <Box sx={{ pt: "20px" }}>
+                <ImageCards
+                  ImagePath={item.image6}
+                  CardWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  CardHeight={"300px"}
+                  ImageWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  ImageHeight={"300px"}
+                  service={"Pet Breeding"}
+                  sub={"Starting From ₹ 700"}
+                />
+              </Box>
+            </Grid>
+            <Grid
+              item
+              lg={3}
+              md={6}
+              sm={6}
+              xs={12}
+              pt={{ lg: "0px", md: "40px", xs: "20px" }}
+            >
+              <Box>
+                {" "}
+                <ImageCards
+                  ImagePath={item.image7}
+                  CardWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  CardHeight={"300px"}
+                  ImageWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  ImageHeight={"300px"}
+                  service={"Pet Training"}
+                  sub={"Starting From ₹ 700"}
+                />
+              </Box>
+              <Box sx={{ pt: "20px" }}>
+                <ImageCards
+                  ImagePath={item.image8}
+                  CardWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  CardHeight={"600px"}
+                  ImageWidth={{
+                    xl: "500px",
+                    lg: "325px",
+                    md: "300px",
+                    sm: "280px",
+                    xs: "325px",
+                  }}
+                  ImageHeight={"600px"}
+                  service={"Pet Photography"}
+                  sub={"700 Jobs"}
+                />
+              </Box>
+            </Grid>
+            {/* </Box> */}
+          </Grid>
+        );
+      })}
 
-      <Grid
-        item
-        display={"flex"}
-        alignItems={"center"}
-        justifyContent={"center"}
-        flexWrap={"wrap"}
-        pl={{ lg: "0px", md: "150px", sm: "30px" }}
-        pr={{ lg: "0px", md: "150px", sm: "10px" }}
-        md={12}
-        xs={12}
-        pt={"30px"}
-      >
-        <Grid item justifyContent={"center"} lg={3} md={6} sm={6} xs={12}>
-          <Box>
-            <ImageCards
-              ImagePath={customImages.s1}
-              CardWidth={"325px"}
-              CardHeight={"600px"}
-              ImageWidth={"325px"}
-              ImageHeight={"600px"}
-              service={"Pet Grooming"}
-              sub={"Starting From ₹ 700"}
-            />
-          </Box>
-          <Box sx={{ pt: "20px" }}>
-            <ImageCards
-              ImagePath={customImages.s2}
-              CardWidth={"325px"}
-              CardHeight={"300px"}
-              ImageWidth={"325px"}
-              ImageHeight={"300px"}
-              service={"Pet Relocation"}
-              sub={"Starting From ₹ 700"}
-            />
-          </Box>
-        </Grid>
-        <Grid item lg={3} md={6} sm={6} xs={12} pt={{ sm: 0, xs: "20px" }}>
-          <Box>
-            {" "}
-            <ImageCards
-              ImagePath={customImages.s3}
-              CardWidth={"325px"}
-              CardHeight={"300px"}
-              ImageWidth={"325px"}
-              ImageHeight={"300px"}
-              service={"Pet Walking"}
-              sub={"Starting From ₹ 700"}
-            />
-          </Box>
-          <Box sx={{ pt: "20px" }}>
-            <ImageCards
-              ImagePath={customImages.s4}
-              CardWidth={"325px"}
-              CardHeight={"600px"}
-              ImageWidth={"325px"}
-              ImageHeight={"600px"}
-              service={"Pet Sitting"}
-              sub={"Starting From ₹ 700"}
-            />
-          </Box>
-        </Grid>
-        <Grid
-          item
-          lg={3}
-          md={6}
-          sm={6}
-          xs={12}
-          pt={{ lg: "0px", md: "40px", xs: "20px" }}
-        >
-          <Box>
-            {" "}
-            <ImageCards
-              ImagePath={customImages.s5}
-              CardWidth={"325px"}
-              CardHeight={"600px"}
-              ImageWidth={"325px"}
-              ImageHeight={"600px"}
-              service={"Pet Taxi"}
-              sub={"Starting From ₹ 700"}
-            />
-          </Box>
-          <Box sx={{ pt: "20px" }}>
-            <ImageCards
-              ImagePath={customImages.s6}
-              CardWidth={"325px"}
-              CardHeight={"300px"}
-              ImageWidth={"325px"}
-              ImageHeight={"300px"}
-              service={"Pet Breeding"}
-              sub={"Starting From ₹ 700"}
-            />
-          </Box>
-        </Grid>
-        <Grid
-          item
-          lg={3}
-          md={6}
-          sm={6}
-          xs={12}
-          pt={{ lg: "0px", md: "40px", xs: "20px" }}
-        >
-          <Box>
-            {" "}
-            <ImageCards
-              ImagePath={customImages.s7}
-              CardWidth={"325px"}
-              CardHeight={"300px"}
-              ImageWidth={"325px"}
-              ImageHeight={"300px"}
-              service={"Pet Training"}
-              sub={"Starting From ₹ 700"}
-            />
-          </Box>
-          <Box sx={{ pt: "20px" }}>
-            <ImageCards
-              ImagePath={customImages.s8}
-              CardWidth={"325px"}
-              CardHeight={"600px"}
-              ImageWidth={"325px"}
-              ImageHeight={"600px"}
-              service={"Pet Photography"}
-              sub={"700 Jobs"}
-            />
-          </Box>
-        </Grid>
-        {/* </Box> */}
-      </Grid>
       <Grid item textAlign={"center"} xs={12} pt={"40px"} pb={"40px"}>
-        <CustomButton
-          btnTitle="Discover More!"
-          color="primary"
-          btnStyles={DiscoverButtonStyle}
-        />
+        <Link to={"AllServices"} style={{ textDecoration: "none" }}>
+          <CustomButton
+            btnTitle="Discover More!"
+            color="primary"
+            btnStyles={DiscoverButtonStyle}
+          />
+        </Link>
       </Grid>
       <Grid
         item

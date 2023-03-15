@@ -30,7 +30,7 @@ import { MyBoardingSpaceHostDB } from "../Pages/HostDashBoard/MyBoardingSpace/My
 import { AddAddress } from "../Pages/CustomerRegistration/AddAddress";
 import { RegisterToPethowz } from "../Pages/CustomerRegistration/RegisterToPetHowz";
 import { RequestBooking } from "../Pages/RequestBooking/RequestBooking";
-
+import { AllServices } from "../Pages/AllServices/Index";
 
 export const Layout = () => {
   return (
@@ -69,25 +69,25 @@ export const Layout = () => {
           element={<BookingRequestsHostDB />}
         />
         {/* Customer DashBoard        */}
-        <Route path="CustomerDashBoard" index element={<CustomerDashBoard />} />
+        {/* <Route path="CustomerDashBoard" index element={<CustomerDashBoard />} />
         <Route
           path="MyProfileCustomerDB"
           index
           element={<MyProfileCustomerDB />}
         />
         <Route path="MyPetsCustomerDB" index element={<MyPetsCustomerDB />} />
-      
-
         <Route
           path="MyBookingsCustomerDB"
           index
           element={<MyBookingsCustomerDB />}
-        />
+        /> */}
         {/* Register PetHowz */}
         <Route path="RegisterToPethowz" index element={<RegisterToPethowz />} />
         <Route path="AddAddress" index element={<AddAddress />} />
         {/* Request Booking */}
         <Route path="RequestBooking" index element={<RequestBooking />} />
+        {/* Home=>  All Service */}
+        <Route path="AllServices" index element={<AllServices />} />
       </Routes>
 
       {/* <Footer /> */}

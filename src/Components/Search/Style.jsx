@@ -10,7 +10,8 @@ export const SearchInputPosition = {
 };
 export const TextFieldCustomazation = {
   width: {
-    sm: "400px",
+    md: "400px",
+    sm: "270px",
     xs: "200px",
   },
   mb: "10px",
