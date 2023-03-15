@@ -12,7 +12,6 @@ import PetService from "../Pages/PetService/PetService";
 import PetCare from "../Pages/PetCare/PetCare";
 import { HostDashBoard } from "../Pages/HostDashBoard/Index";
 import { MyProfileHostDB } from "../Pages/HostDashBoard/MyProfile/MyProfileHostDB";
-import { MyPetsHostDB } from "../Pages/HostDashBoard/MyPets/MyPetsHostDB";
 import { MyBookingsHostDB } from "../Pages/HostDashBoard/MyBookings/MyBookingsHostDB";
 import { MyServicesHostDB } from "../Pages/HostDashBoard/MyServices/MyServicesHostDB";
 import { BookingRequestsHostDB } from "../Pages/HostDashBoard/MyBookingRequest/BookingRequestsHostDb";
@@ -68,7 +67,7 @@ export const Layout = () => {
         {/* Host DashBoard        */}
         <Route path="HostDashBoard" index element={<HostDashBoard />} />
         <Route path="MyProfileHostDB" element={<MyProfileHostDB />} />
-        <Route path="MyPetsHostDB" index element={<MyPetsHostDB />} />
+        {/* <Route path="MyPetsHostDB" index element={<MyPetsHostDB />} /> */}
         <Route path="MyBookingsHostDB" element={<MyBookingsHostDB />} />
         <Route
           path="MyBoardingSpaceHostDB"

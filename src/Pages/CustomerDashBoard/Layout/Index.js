@@ -1,34 +1,12 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
 import { Route, Routes } from "react-router-dom";
-import { HomePage } from "../../../Pages/Home/Index";
-import DrawerAppBar from "../../../Components/AppBar/AppBar";
-import { Grooming } from "../../../Pages/Grooming/Grooming";
-import { BecomePetHostService } from "../../../Pages/JoinPetHost/BecomePetHostService";
-import PetHomeBoarding from "../../../Pages/JoinPetHost/petHost/PetHomeBoarding";
-import GroomingService from "../../../Pages/GroomingService/GroomingService";
-import Footer from "../../../Components/Footer/Footer";
-import { BasicDetails } from "../../../Pages/New/Index";
-import PetService from "../../../Pages/PetService/PetService";
-import PetCare from "../../../Pages/PetCare/PetCare";
-import { HostDashBoard } from "../../../Pages/HostDashBoard/Index";
-import { MyProfileHostDB } from "../../../Pages/HostDashBoard/MyProfile/MyProfileHostDB";
-import { MyPetsHostDB } from "../../../Pages/HostDashBoard/MyPets/MyPetsHostDB";
-import { MyBookingsHostDB } from "../../../Pages/HostDashBoard/MyBookings/MyBookingsHostDB";
-import { MyServicesHostDB } from "../../../Pages/HostDashBoard/MyServices/MyServicesHostDB";
-import { BookingRequestsHostDB } from "../../../Pages/HostDashBoard/MyBookingRequest/BookingRequestsHostDb";
-import { MyPetsCustomerDB } from "../../../Pages/CustomerDashBoard/MyPets/MyPetsCustomerDB";
-import { MyProfileCustomerDB } from "../../../Pages/CustomerDashBoard/MyProfile/MyProfileCustomerDB";
-import { MyBookingsCustomerDB } from "../../../Pages/CustomerDashBoard/MyBookings/MyBookingsCustomerDb";
-import { CustomerDashBoard } from "../../../Pages/CustomerDashBoard/Index";
-import AddYourPetLogin from "../../../Pages/AddYourPet/AddYourPet";
-// import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfileCustomerDB";
-// import { MyPetsCustomerDB } from "../Pages/CustomerDashBoard/MyPetsCustomerDB";
-// import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookingsCustomerDb";
-// import Login from "../Pages/Login/Login";
-// import PetService from "../Pages/PetService/PetService";
+
 import ProtectedRoute from "../../../Pages/CustomerDashBoard/Layout/Layout";
-import { MyBoardingSpaceHostDB } from "../../../Pages/HostDashBoard/MyBoardingSpace/MyBoardingSpaceHostDB";
+import { CustomerDashBoard } from "../Index";
+import { MyProfileCustomerDB } from "../MyProfile/MyProfileCustomerDB";
+import { MyBookingsCustomerDB } from "../MyBookings/MyBookingsCustomerDb";
+
 
 export const DashBoardLayout = () => {
   return (
@@ -76,19 +54,19 @@ export const DashBoardLayout = () => {
               element={<BookingRequestsHostDB />}
             /> */}
           {/* Customer DashBoard        */}
-          <Route path="CustomerDashBoard" element={<CustomerDashBoard />} />
+      
           <Route
             path="/Pet-howz/MyProfileCustomerDB"
             element={<MyProfileCustomerDB />}
           />
-          <Route path="MyPetsCustomerDB" element={<MyPetsCustomerDB />} />
+          
           {/* <Route path="AddYourPetLogin" index element={<AddYourPetLogin />} /> */}
           <Route path="Pet-howz" index element={<ProtectedRoute />} />
           {/* <Route path="ProtectedRoute" index element={<ProtectedRoute />} />
         <Route path="ProtectedRoute" index element={<ProtectedRoute />} /> */}
           <Route
             path="MyBookingsCustomerDB"
-            element={<MyBookingsCustomerDB />}
+            element={<MyBookingsCustomerDB/>}
           />
         </Routes>
       </Grid>
