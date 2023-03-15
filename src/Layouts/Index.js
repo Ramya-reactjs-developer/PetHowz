@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { HomePage } from "../Pages/Home/Index";
-import DrawerAppBar from "../Components/AppBar/AppBar";
+import DrawerAppBar from "../Components/AppBar/AppBar.jsx";
 import { Grooming } from "../Pages/Grooming/Grooming";
 import { BecomePetHostService } from "../Pages/JoinPetHost/BecomePetHostService";
 import PetHomeBoarding from "../Pages/JoinPetHost/petHost/PetHomeBoarding";
