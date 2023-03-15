@@ -11,3 +11,4 @@ export const RouterNavigation = () => {
     </Router>
   );
 };
+export default RouterNavigation;

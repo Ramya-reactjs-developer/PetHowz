@@ -2,7 +2,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "./Assets/Theme/Index";
 import { Provider } from "react-redux";
 import store from './Reducers';
-import { RouterNavigation } from "./Router/Index";
+import RouterNavigation from "./Router/Index";
 // import Login from "./Pages/Login/Login";
 import './App.css';
 // import { Grooming } from "./Pages/Grooming/Grooming";
@@ -13,9 +13,6 @@ function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        {/* <Masters/> */}
-        {/* <Grooming/> */}
-        {/* <HomePage /> */}
         <RouterNavigation />
         {/* <Login/> */}
       </ThemeProvider>
