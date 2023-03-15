@@ -15,11 +15,8 @@ import {
   SearchButtonPadding,
   SearchButtonStyle,
 } from "./HomeStyle";
-<<<<<<< HEAD
-import { Outlet } from "react-router";
-=======
+
 import { Link } from "react-router-dom";
->>>>>>> 11eccf5a774af637c6e46a1fa40a86a602dfec3c
 
 export const HomePage = () => {
   const CardData = [
@@ -467,8 +464,7 @@ export const HomePage = () => {
       </Grid>
      
      
-      <Outlet/>
-      <DashBoardLayout />
+    
     </Grid>
   );
 };

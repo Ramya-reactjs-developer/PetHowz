@@ -100,7 +100,7 @@
 .text_Capitalize .MuiFormControl-root-MuiTextField-root {
   text-transform: capitalize !important;
 }
-<<<<<<< HEAD
+
 .SubmitButtonColor .MuiButton-root:hover{
     color: aliceblue !important;
     background-color: #f4a01c !important;
@@ -132,7 +132,6 @@ text-transform: capitalize !important;
 .forDescription.input:first-letter {
         text-transform: capitalize !important;
     }
-=======
 
 .forDescription.input:first-letter {
   text-transform: capitalize !important;
@@ -140,4 +139,4 @@ text-transform: capitalize !important;
 body label {
   color: black !important;
 }
->>>>>>> 11eccf5a774af637c6e46a1fa40a86a602dfec3c
+
