@@ -88,6 +88,7 @@
  }
  .SubmitButtonColor .MuiButton-root {
   width:100% !important;
+  margin-top: 0 !important;
  }
  .CancelButtonColor .MuiButton-root {
     width:100% !important;
@@ -104,6 +105,6 @@
 text-transform: capitalize !important;
  }
 
-    .forDescription.input:first-letter {
-            text-transform: capitalize !important;
-        }
+.forDescription.input:first-letter {
+        text-transform: capitalize !important;
+    }

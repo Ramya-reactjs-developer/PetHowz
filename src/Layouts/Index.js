@@ -20,14 +20,14 @@ import { MyPetsCustomerDB } from "../Pages/CustomerDashBoard/MyPets/MyPetsCustom
 import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfile/MyProfileCustomerDB";
 import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookings/MyBookingsCustomerDb";
 import { CustomerDashBoard } from "../Pages/CustomerDashBoard/Index";
+import AddYourPetLogin from "../Pages/AddYourPet/AddYourPet";
 // import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfileCustomerDB";
 // import { MyPetsCustomerDB } from "../Pages/CustomerDashBoard/MyPetsCustomerDB";
 // import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookingsCustomerDb";
 // import Login from "../Pages/Login/Login";
 // import PetService from "../Pages/PetService/PetService";
-
+import ProtectedRoute from "../Pages/CustomerDashBoard/Layout/Layout";
 import { MyBoardingSpaceHostDB } from "../Pages/HostDashBoard/MyBoardingSpace/MyBoardingSpaceHostDB";
-
 
 export const Layout = () => {
   return (
@@ -49,12 +49,16 @@ export const Layout = () => {
         {/* <Route path="MyPetDetails" index element={<PetDetails />} /> */}
         <Route path="BasicDetails" index element={<BasicDetails />} />
         <Route path="petService" index element={<PetService />} />
-        {/* Host DashBoard        */}
-        <Route path="HostDashBoard" index element={<HostDashBoard />} />
-        <Route path="MyProfileHostDB" index element={<MyProfileHostDB />} />
-        <Route path="MyPetsHostDB" index element={<MyPetsHostDB />} />
-        <Route path="MyBookingsHostDB" index element={<MyBookingsHostDB />} />
         <Route
+            path="/Pet-howz/MyProfileCustomerDB"
+            element={<MyProfileCustomerDB />}
+          />
+        {/* Host DashBoard        */}
+        {/* <Route path="HostDashBoard" index element={<HostDashBoard />} />
+        <Route path="MyProfileHostDB" element={<MyProfileHostDB />} />
+        <Route path="MyPetsHostDB" index element={<MyPetsHostDB />} />
+        <Route path="MyBookingsHostDB" element={<MyBookingsHostDB />} /> */}
+        {/* <Route
           path="MyBoardingSpaceHostDB"
           index
           element={<MyBoardingSpaceHostDB />}
@@ -64,22 +68,20 @@ export const Layout = () => {
           path="BookingRequestsHostDB"
           index
           element={<BookingRequestsHostDB />}
-        />
+        /> */}
         {/* Customer DashBoard        */}
-        <Route path="CustomerDashBoard" index element={<CustomerDashBoard />} />
-        <Route
+        {/* <Route path="CustomerDashBoard" index element={<CustomerDashBoard />} /> */}
+        {/* <Route
           path="MyProfileCustomerDB"
           index
           element={<MyProfileCustomerDB />}
-        />
-        <Route path="MyPetsCustomerDB" index element={<MyPetsCustomerDB />} />
-      
-
-        <Route
-          path="MyBookingsCustomerDB"
-          index
-          element={<MyBookingsCustomerDB />}
-        />
+        /> */}
+        {/* <Route path="MyPetsCustomerDB" element={<MyPetsCustomerDB />} /> */}
+        <Route path="AddYourPetLogin" index element={<AddYourPetLogin />} />
+        {/* <Route path="DashBoardLayout" index element={<ProtectedRoute />} /> */}
+        {/* <Route path="ProtectedRoute" index element={<ProtectedRoute />} />
+        <Route path="ProtectedRoute" index element={<ProtectedRoute />} /> */}
+        {/* <Route path="MyBookingsCustomerDB" element={<MyBookingsCustomerDB />} /> */}
       </Routes>
 
       {/* <Footer /> */}

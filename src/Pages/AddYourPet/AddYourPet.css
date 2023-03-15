@@ -1,0 +1,61 @@
+.loginImg{
+    max-width: 100% !important;
+    height: 105vh;
+   
+}
+.loginImg img{
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+}
+.logoImg{
+    width: 150px;
+    height: 100px;
+    margin: 0 auto !important;
+}
+.logoImg img{
+    width: 100%;
+    height: 100%;
+}
+
+.loginText{
+    width: 315px;
+    margin: 0 auto !important;
+    text-align: left;
+}
+.loginText h6{
+    font-size: 22px !important;
+    font-weight: bold !important;
+    color: #000 !important;
+    padding: 10px 0 !important;
+}
+.loginText span{
+    color: #2c3051 !important;
+    padding: 10px 0 !important;
+}
+.input_width{
+    width: 320px;
+    margin: 0 auto !important;
+}
+
+.LoginSec{
+    display: inline-flex;
+    justify-content: center;
+}
+.rightAlign{
+    height: 70vh;
+    margin: auto 0;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+}
+.formAlign>div{
+    margin-bottom: 0 !important;
+}
+/* .sourceButton{
+    margin-bottom: 10px !important;
+} */
