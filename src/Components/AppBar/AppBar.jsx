@@ -18,6 +18,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
+import { NavLink, useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CustomIcons from "../../Utils/Icons/Index";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
@@ -56,6 +57,12 @@ const Header = (props) => {
   const [openDrawer, setOpenDrawer] = useState(false);
   const container =
     window !== undefined ? () => window().document.body : undefined;
+
+  const navigate = useNavigate();
+    const DashBoard = () => {
+      navigate("/Pet-howz");
+    };
+  
   return (
     <>
       <ElevationScroll {...props}>
@@ -125,7 +132,7 @@ const Header = (props) => {
                         sx={{ marginY: "10px", borderRadius: "50px" }}
                         variant="contained"
                         fullWidth
-                        onClick={() => setOpenDrawer(!openDrawer)}
+                        onClick={() =>alert("gvhvgvg")}
                       >
                         Login
                       </Button>
@@ -163,7 +170,8 @@ const Header = (props) => {
                 </Button>
                 <Button
                   sx={{ marginLeft: "10px", borderRadius: "50px" }}
-                  variant="contained"
+                    variant="contained"
+                    onClick={DashBoard}
                 >
                   Login
                 </Button>

@@ -31,8 +31,10 @@ function CustomForm(props) {
     AllEntries,
     onReceiveData,
     onChangeRadioAction,
+    textFieldChange,
     customFormData,
     defaultValues,
+    gridAlign,
     editTrue,
   } = props;
   const [values, setValues] = React.useState([]);
@@ -184,7 +186,7 @@ function CustomForm(props) {
   return (
     <Grid container item md={12} sm={12} xs={12}>
       {AllEntries?.map((keyValue) => (
-        <Grid item md={keyValue.breakpoint} sm={12} xs={12}>
+        <Grid item md={keyValue.breakpoint} sm={12} xs={12} className={gridAlign}>
           <Controller
             control={control}
             rules={{
@@ -260,7 +262,7 @@ function CustomForm(props) {
                       label={keyValue.label}
                       onHandleChange={(e) => {
                         onChange(e);
-                        props.textFieldChange(e, keyValue.name);
+                        textFieldChange(e, keyValue.name);
                       }}
                       value={value}
                       multiline={keyValue.multiline}
@@ -509,12 +511,14 @@ CustomForm.propTypes = {
   onReceiveData: propTypes.func,
   // handleCancel: propTypes.func,
   onChangeRadioAction: propTypes.func,
+  textFieldChange:propTypes.func,
   customFormData: propTypes.func,
   editTrue: propTypes.string,
 };
 CustomForm.defaultProps = {
   // handleCancel: () => null,
   onReceiveData: () => null,
+  textFieldChange:()=>null,
   onChangeRadioAction: () => null,
   customFormData: () => null,
   editTrue: "",
