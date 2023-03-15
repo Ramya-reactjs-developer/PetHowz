@@ -31,6 +31,8 @@ import { AddAddress } from "../Pages/CustomerRegistration/AddAddress";
 import { RegisterToPethowz } from "../Pages/CustomerRegistration/RegisterToPetHowz";
 import { RequestBooking } from "../Pages/RequestBooking/RequestBooking";
 import { AllServices } from "../Pages/AllServices/Index";
+import { Box } from "@mui/material";
+import { EditMyBoardingSpaceHostDB } from "../Pages/HostDashBoard/MyBoardingSpace/EditMyBoardingSpace/EditMyBoardingSpace";
 
 export const Layout = () => {
   return (
@@ -69,7 +71,7 @@ export const Layout = () => {
           element={<BookingRequestsHostDB />}
         />
         {/* Customer DashBoard        */}
-        {/* <Route path="CustomerDashBoard" index element={<CustomerDashBoard />} />
+        <Route path="CustomerDashBoard" index element={<CustomerDashBoard />} />
         <Route
           path="MyProfileCustomerDB"
           index
@@ -80,7 +82,7 @@ export const Layout = () => {
           path="MyBookingsCustomerDB"
           index
           element={<MyBookingsCustomerDB />}
-        /> */}
+        />
         {/* Register PetHowz */}
         <Route path="RegisterToPethowz" index element={<RegisterToPethowz />} />
         <Route path="AddAddress" index element={<AddAddress />} />
@@ -88,9 +90,15 @@ export const Layout = () => {
         <Route path="RequestBooking" index element={<RequestBooking />} />
         {/* Home=>  All Service */}
         <Route path="AllServices" index element={<AllServices />} />
+        <Route
+          path="EditMyBoardingSpaceHostDB"
+          index
+          element={<EditMyBoardingSpaceHostDB />}
+        />
       </Routes>
-
-      {/* <Footer /> */}
+      <Box sx={{ pt: "40px" }}>
+        <Footer />
+      </Box>
     </div>
   );
 };

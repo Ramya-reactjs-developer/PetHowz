@@ -83,9 +83,9 @@
   margin-right: 10px !important;
   color: #f89122 !important;
 }
-.SubmitButtonColor .MuiButton-root {
+/* .SubmitButtonColor .MuiButton-root {
   width: 100% !important;
-}
+} */
 .CancelButtonColor .MuiButton-root {
   width: 100% !important;
 }

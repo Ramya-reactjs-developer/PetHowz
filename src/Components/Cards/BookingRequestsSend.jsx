@@ -18,7 +18,7 @@ import {
 } from "./Style";
 import PropTypes from "prop-types";
 
-export default function BookingRequestsSend({ Data }) {
+export default function BookingRequestsSend({ Data, onClickHandle }) {
   const CardData = Data;
 
   return (
@@ -115,6 +115,7 @@ export default function BookingRequestsSend({ Data }) {
                             color: "white",
                             textTransform: "none",
                           }}
+                          onClick={onClickHandle}
                         >
                           Proceed To Pay
                         </Button>
