@@ -1,0 +1,16 @@
+/* @media screen and (min-width:768px){
+    .Layout_Slidemenu_Size{
+        width:220px;
+    }
+} */
+.main_box_div > div {
+  padding: 24px;
+}
+.topMainGrid {
+  margin-top: 0px !important;
+  /* padding-top: 13px; */
+}
+.dashBoardOutlet{
+  height: 600px !important;
+
+}

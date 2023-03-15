@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import SearchBar from "../../Components/Search/SearchBar";
-
+import DashBoardLayout from "../CustomerDashBoard/Layout/Layout"
 import "./Home.css";
 import CustomButton from "../../Components/Button/Button";
 import ImageCards from "../../Components/Cards/ImageCards";
@@ -15,6 +15,7 @@ import {
   SearchButtonPadding,
   SearchButtonStyle,
 } from "./HomeStyle";
+
 import { Link } from "react-router-dom";
 
 export const HomePage = () => {
@@ -446,7 +447,11 @@ export const HomePage = () => {
             btnStyles={DiscoverButtonStyle}
           />
         </Grid>
+       
       </Grid>
+     
+     
+    
     </Grid>
   );
 };
