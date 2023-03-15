@@ -1,0 +1,353 @@
+.styledToolbar {
+  display: flex;
+  justify-content : right;
+  align-items: center;
+  min-height: 55px;
+    padding: 5px 16px 0px 7px;
+}
+
+
+.UserBox{
+  display: none;
+  gap: 10px;
+  align-items: center;
+  display: flex;
+}
+
+.DropDown{
+  justify-content: center;
+  padding: 0px 10px;
+  align-items: center;
+}
+
+.Icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+    display: none;
+  }
+.adminIcon{
+  cursor: pointer;
+}
+
+.AdminName {
+  font-family: Poppins !important;
+}
+
+.AppBarDropDown li {
+  font-family: Poppins !important;
+}
+
+.Nav-drop{
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 120px;
+}
+.nav_fix{
+  height: 120px;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.pages {
+  color: #316685;
+  text-align: center;
+  font-size: calc(1.5rem + 2vw);
+  margin-top: 10%;
+}
+.Appbar_btn{
+  display: inline-flex;
+}
+.Appbar_btn button{
+  padding: 7px 20px;
+}
+.Appmenu{
+  display: inline-flex;
+  justify-content: center;
+}
+.pethowsLogo{
+  width: 180px;
+  /* height: 100px; */
+}
+.pethowsLogo img{
+  width: 100%;
+  height: 100%;
+}
+.navbar{
+  width: 100%;
+  height: 120px;
+  background-color: #fff;
+  position: sticky;
+  top: 0 !important;
+}
+.drop_lang_edit {
+  padding-left: 5px;
+  height: 22px;
+}
+.nav-container{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* .navbar {
+  background-color: #fff;
+  margin-bottom: 5px !important;
+  margin: initial;
+  align-items: center;
+  font-size: 1.2rem;
+  z-index: 20;
+  border-radius: 50px;
+  box-shadow: 0px 10px 45px #ddddddab;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+} */
+
+.Appbar {
+  font-size: 17px !important;
+  font-weight: 500 !important;
+}
+
+/* .Appbar:hover {
+  color: #F8BD22 !important;
+} */
+/* 
+.Navdropdown {
+  width: 95px;
+  height: 95px;
+  padding: 30px !important;
+  border-radius: 43%;
+  background-color: #fff;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  box-shadow: 0px 10px 44px #ddddddab;
+  position: absolute;
+  right: 15px;
+  z-index: 9999;
+} */
+
+/* .Navdropdown .MuiOutlinedInput-input {
+  border: none !important;
+} */
+/* 
+.Navdropdown .css-1869usk-MuiFormControl-root {
+  min-width: 100% !important;
+  width: 100%;
+  margin: 0px;
+} */
+
+/* .nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+} */
+
+/* .main-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+} */
+
+/* .Appmenu {
+  margin-top: 23px !important;
+  width: 963px;
+  display: flex;
+  justify-content: center;
+} */
+
+/* .nav-logo {
+  margin-left: 20px;
+  cursor: pointer;
+  display: block;
+} */
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  margin-right: 2rem;
+}
+
+.nav-links {
+  color: #000;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  height: 100%;
+  border-bottom: 3px solid transparent;
+}
+
+/* .fa-code {
+  margin-left: 1rem;
+} */
+
+.nav-item {
+  padding: 10px;
+  line-height: 10px;
+  padding-right: 20px;
+}
+
+/* .nav-item:after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 0;
+  background: transparent;
+  transition: width 0.7s ease, background-color 0.5s ease;
+} */
+
+/* .nav-item:hover:after {
+  width: 100%;
+  background: #F8BD22 !important;
+}
+
+.nav-item.active {
+  color: #F8BD22 !important;
+  border: 1px solid #F8BD22 !important;
+} */
+
+/* .nav-icon {
+  display: none;
+} */
+
+/* .homeDrop .MuiOutlinedInput-input {
+  border: none !important;
+} */
+
+/* .homeDrop .css-15i69cl {
+  position: absolute;
+  left: 36px !important;
+  top: 16px !important;
+} */
+
+/* .Navdropdown .root-MuiSelect-icon{
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important; 
+  width: 1em !important;
+  height: 1em !important;
+  display: inline-block !important;
+  fill: currentColor !important;
+  -webkit-flex-shrink: 0 !important;
+  -ms-flex-negative: 0 !important;
+  flex-shrink: 0 !important;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms !important;
+  font-size: 1.5rem !important;
+  position: absolute !important;
+  right: 1000px !important;
+  top: calc(50% - 0.5em) !important;
+  pointer-events: none !important;
+  color: rgba(0, 0, 0, 0.54) !important;
+  color: #AEAFAF !important;
+} */
+/* @media screen and (max-width: 960px) {
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 1pxsolid #fff;
+    position: absolute;
+    top: 100px;
+    left: -110%;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .nav-menu.active {
+    background: #F8BD22;
+    left: 0px;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+
+  .nav-item .active {
+    color: #F8BD22 !important;
+    border: none;
+  }
+
+  .nav-links {
+    width: 100%;
+    display: table;
+  }
+
+  .nav-icon {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(-100%, 60%);
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #F8BD22 !important;
+  }
+} */
+
+/* .Nav-drop {
+  padding: 1em;
+} */
+
+/* .Navdropdown .css-b1884d {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0px;
+  border: 0px;
+  vertical-align: top;
+  margin: 5px;
+  min-width: 60px !important;
+} */
+
+/* @media only screen and (max-width: 600px) {
+  .navbar {
+    width: 70%;
+  }
+
+  .Astrologo img {
+    width: 160px !important;
+  }
+
+  .nav-menu .active {
+    background-color: #F8BD22 !important;
+    border-radius: 15px;
+  }
+} */
+
+/* @media only screen and (min-width: 600px) and (min-width: 1200px) {
+  .navbar {
+    margin: initial;
+  }
+} */
+
+/* @media screen and (min-width: 1350px) {
+  .navbar {
+    background-color: #fff;
+    margin-bottom: 5px !important;
+    margin: auto;
+    align-items: center;
+    font-size: 1.2rem;
+    z-index: 20;
+    border-radius: 50px;
+    box-shadow: 0px 10px 45px #ddddddab;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+  }
+} */
