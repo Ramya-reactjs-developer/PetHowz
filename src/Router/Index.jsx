@@ -1,12 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-// import Layout from "../layout/index";
+import { DashBoardLayout } from "../Pages/CustomerDashBoard/Layout/Index";
 import { Layout } from "../Layouts/Index";
 
-function RouterNavigation () {
+export const RouterNavigation = () => {
   return (
     <Router>
       <Layout />
+      <DashBoardLayout />
     </Router>
   );
 };

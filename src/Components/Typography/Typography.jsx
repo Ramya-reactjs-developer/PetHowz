@@ -23,6 +23,8 @@ const CustomTypography = (props) => {
         return "h2";
       case "heading2":
         return "h3";
+      case "heading3":
+        return "h4";
       case "header":
         return "h5";
       case "subHeading":

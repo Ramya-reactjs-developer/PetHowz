@@ -1,4 +1,4 @@
-export const AddAnotherEntries = [
+export const AddAnotherPetEntries = [
   {
     isTextInput: true,
     name: "PetName",
@@ -143,7 +143,7 @@ export const AddAnotherEntries = [
   },
   {
     isFileUploader: true,
-    name: "fileUploader",
+    name: "fileUploader2",
     label: "Add License",
     breakpoint: 4,
     customClass: "uploadImageContainer",
@@ -236,11 +236,38 @@ export const AddAnotherEntries = [
   },
   {
     isFileUploader: true,
-    name: "Add Photos",
+    name: "AddPhotos",
     label: "Add Photos",
     breakpoint: 4,
     customClass: "uploadImageContainer",
     validation: { required: true },
     error_message: "Upload Image",
   },
+  {
+    isEmptySpace: true,
+    breakpoint: 4,
+    name: "space",
+  },
+  {
+    isSubmitButton: true,
+    name: "submit_button",
+    buttonTitle: "Submit",
+    breakpoint: 2,
+  },
 ];
+export const DefaultAddAnotherPetEntriesValues = {
+  PetName: "",
+  YourPetType: "",
+  YourPetBreed: "",
+  Gender: "",
+  dob: "",
+  Weight: "",
+  fileUploader: "",
+  fileUploader2: "",
+  description: "",
+  Interest: "",
+  WalkingRoutine: "",
+  FoodPreference: "",
+  AddPhotos: "",
+  submit_button: "",
+};

@@ -79,14 +79,14 @@ export const Info1Postion = {
   display: { sm: "flex", xs: "block" },
 
   justifyContent: "flex-start",
-  gap: "50px",
+  gap: "30px",
 };
 
 export const Info1SubPostion1 = {
   display: "flex",
 
   justifyContent: "flex-start",
-  gap: "50px",
+  gap: "30px",
 };
 
 // export const Info1SubPostion2 = {
@@ -221,4 +221,48 @@ export const MealCardButtonPostion = {
   mx: "auto",
   pt: "10px",
   textAlign: "center",
+};
+export const infoMainPostion = {
+  display: { sm: "flex", xs: "block" },
+
+  justifyContent: "flex-start",
+  gap: "100px",
+};
+export const BtnPostion = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: { sm: "flex-end", xs: "center" },
+  gap: "20px",
+  pr: "5px",
+  pt: "10px",
+};
+export const ApproveBtn = {
+  width: { sm: "120px", xs: "100px" },
+  borderRadius: "10px",
+  background: "#F85A47",
+  color: "white",
+  textTransform: "none",
+};
+export const CancelBtn = {
+  width: { sm: "120px", xs: "100px" },
+  borderRadius: "10px",
+  background: "transparent",
+  color: "#F85A47",
+  border: "1px solid #F85A47",
+  boxShadow: "none",
+  textTransform: "none",
+};
+// export const BookingReqMain = {
+//   // display: "flex",
+//   // alignItems: "center",
+//   // justifyContent: "flex-start",
+//   // gap: "30px",
+// };
+export const BookingReqSub = {
+  p: "10px",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: { sm: "flex-start", xs: "center" },
+  gap: "30px",
+  flexWrap: "wrap",
 };

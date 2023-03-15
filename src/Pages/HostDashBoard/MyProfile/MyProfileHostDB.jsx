@@ -3,6 +3,12 @@ import React from "react";
 import CustomTypography from "../../../Components/Typography/Typography";
 import ProfileImageUploader2 from "../../../Components/ProfileImageUploader2/ProfileImageUploader2";
 import CustomButton from "../../../Components/Button/Button";
+import {
+  ChangeAddressHost,
+  ChangeEmailHost,
+  ChangeNumberHost,
+  HostProfileDetails,
+} from "./ProfileHostStyle";
 
 export const MyProfileHostDB = () => {
   return (
@@ -42,13 +48,7 @@ export const MyProfileHostDB = () => {
         </Grid>
         <Grid item lg={3} md={3} sm={5} xs={12}>
           <Box>
-            <Box
-              sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-              }}
-            >
+            <Box sx={HostProfileDetails}>
               <CustomTypography
                 text="john@gmail.com"
                 type="title"
@@ -57,11 +57,7 @@ export const MyProfileHostDB = () => {
               <CustomButton
                 btnTitle={"Change email"}
                 color="primary"
-                btnStyles={{
-                  background: "none",
-                  boxShadow: "none",
-                  color: "red",
-                }}
+                btnStyles={ChangeEmailHost}
               />
             </Box>
             <Box
@@ -78,11 +74,7 @@ export const MyProfileHostDB = () => {
               <CustomButton
                 btnTitle={"Change Phone Number"}
                 color="primary"
-                btnStyles={{
-                  background: "none",
-                  boxShadow: "none",
-                  color: "red",
-                }}
+                btnStyles={ChangeNumberHost}
               />
             </Box>
             <Box>
@@ -94,12 +86,7 @@ export const MyProfileHostDB = () => {
               <CustomButton
                 btnTitle={"Change Address"}
                 color="primary"
-                btnStyles={{
-                  background: "none",
-                  boxShadow: "none",
-                  color: "red",
-                  p: 0,
-                }}
+                btnStyles={ChangeAddressHost}
               />
             </Box>
 

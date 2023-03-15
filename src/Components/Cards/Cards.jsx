@@ -37,12 +37,8 @@ export default function CardsSection({ Data }) {
   return (
     <Grid
       container
-      sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+      // sx={{ display: "flex", alignItems: "center", justifyContent: "center" }}
       item
-      xl={12}
-      lg={12}
-      md={12}
-      sm={12}
       xs={12}
     >
       <Grid item sx={OverAllCArdPostions}>

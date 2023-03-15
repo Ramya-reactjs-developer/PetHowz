@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Button, Grid } from "@mui/material";
 import React from "react";
 import CustomTypography from "../../../Components/Typography/Typography";
 import CustomButton from "../../../Components/Button/Button";
@@ -6,11 +6,18 @@ import ImageCards from "../../../Components/Cards/ImageCards";
 import customImages from "../../../Utils/Images";
 import { BoardingSpaceDetailList } from "../../../Components/BoardingSpaceDetailsList/BoardingSPaceDetailsList";
 import CustomForm from "../../../Components/CustomForm/CustomForm";
-import { PetHostAmentiesEntries } from "./PetHostAmentiesEntries";
-import { PetHostFoodEntries } from "./PetHostFoodEntries";
+import {
+  DefaultAmentiesEntriesValues,
+  PetHostAmentiesEntries,
+} from "./PetHostAmentiesEntries";
+import {
+  DefaultFoodEntriesValues,
+  PetHostFoodEntries,
+} from "./PetHostFoodEntries";
 import MealCardCustomized from "../../../Components/Cards/MealCardCustomized";
 import MealCard from "../../../Components/Cards/MealCard";
-
+import { AddBtn, EditDetailsBtn } from "./BoardingSpaceStyle";
+import "./BoardingSpaceStyle.css";
 export const MyBoardingSpaceHostDB = () => {
   const [entry] = React.useState([]);
   const ListData = [
@@ -46,6 +53,10 @@ export const MyBoardingSpaceHostDB = () => {
       price: "₹ 450",
     },
   ];
+  // const onADD = () => {
+
+  // };
+
   return (
     <Grid container item xs={12}>
       {" "}
@@ -69,11 +80,7 @@ export const MyBoardingSpaceHostDB = () => {
         <CustomButton
           btnTitle={"Edit Details"}
           color={"secondary"}
-          btnStyles={{
-            borderRadius: "15px",
-            background: "#F85A47",
-            color: "white",
-          }}
+          btnStyles={EditDetailsBtn}
         />
       </Grid>
       <Grid
@@ -137,15 +144,18 @@ export const MyBoardingSpaceHostDB = () => {
       </Grid>
       <Grid item xs={12}>
         <CustomForm
-          AllEntries={entry.length > 0 ? entry : PetHostAmentiesEntries}
+          AllEntries={PetHostAmentiesEntries}
+          defaultValues={DefaultAmentiesEntriesValues}
         />
+        {/* <Button onClick={onADD}>Add</Button> */}
       </Grid>
       <Grid item textAlign={"left"} xs={12} pt={"60px"}>
         <CustomTypography text="Food" type="subHeading" colorType="text" />
       </Grid>
       <Grid item xs={12} pt={"20px"}>
         <CustomForm
-          AllEntries={entry.length > 0 ? entry : PetHostFoodEntries}
+          AllEntries={PetHostFoodEntries}
+          defaultValues={DefaultFoodEntriesValues}
         />
       </Grid>
       <Grid
@@ -158,16 +168,7 @@ export const MyBoardingSpaceHostDB = () => {
         pt={"40px"}
       >
         <CustomTypography text="Add Ons" type="subHeading" colorType="text" />
-        <CustomButton
-          btnTitle={"Add"}
-          color={"secondary"}
-          btnStyles={{
-            width: "120px",
-            borderRadius: "15px",
-            background: "#F85A47",
-            color: "white",
-          }}
-        />
+        <CustomButton btnTitle={"Add"} color={"secondary"} btnStyles={AddBtn} />
       </Grid>
       <Grid item xs={12}>
         <MealCardCustomized Data={CardData} />

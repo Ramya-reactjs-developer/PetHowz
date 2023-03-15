@@ -12,8 +12,11 @@ import s7 from "../../Assets/Images/s7.png";
 import s8 from "../../Assets/Images/s8.jpg";
 import GooglePlay from "../../Assets/Images/GooglePlay.png";
 import AppStore from "../../Assets/Images/AppStore.png";
-
+import Register from "../../Assets/Images/Register.jpeg";
+import SubmitBooking from "../../Assets/Images/BookingSubmit.svg";
 const customImages = {
+  SubmitBooking,
+  Register,
   Dog1,
   Dog2,
   PetImage,

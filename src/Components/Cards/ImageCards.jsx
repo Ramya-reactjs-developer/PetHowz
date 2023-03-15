@@ -33,7 +33,7 @@ export default function ImageCards({
     zIndex: 1,
   };
   return (
-    <Grid item>
+    <Grid item sm={12} xs={10}>
       <Card sx={ImageCardSize}>
         <CardActionArea>
           <CardMedia
@@ -74,12 +74,12 @@ ImageCards.propTypes = {
   service: PropTypes.any.isRequired,
   sub: PropTypes.any.isRequired,
 };
-ImageCards.defaultProps = {
-  imagePath: "",
-  CardWidth: "",
-  CardHeight: "",
-  ImageWidth: "",
-  ImageHeight: "",
-  service: "",
-  sub: "",
-};
+// ImageCards.defaultProps = {
+//   imagePath: "",
+//   CardWidth: "",
+//   CardHeight: "",
+//   ImageWidth: "",
+//   ImageHeight: "",
+//   service: "",
+//   sub: "",
+// };
