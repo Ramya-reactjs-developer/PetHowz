@@ -242,39 +242,39 @@ const BasicDetails = () => {
   console.log(btnDisbaled, "btnDisbaled");
   return (
     <form>
-      <Grid>
-        {/* <CustomForm
-          AllEntries={petSpaceEntries}
-          textFieldChange={value.handleChange}
-          // onReceiveData={onReceiveData}
-          defaultValues={DefaultPetSpaceValues}
-        /> */}
-        <Typography variant="h4">Fill Up Your Basic Details</Typography>
-        <CustomForm
-          AllEntries={BasicDetailsEntries}
-          textFieldChange={value.handleChange}
-          // onReceiveData={onReceiveData}
-          defaultValues={DefaultBasicDetailsValues}
-        />
-      </Grid>
+      <Grid container md={12} sm={12} lg={12} xs={12}>
+        <Grid item md={12} sm={12} lg={12} xs={12}>
+          <Grid item md={12} sm={12} lg={12} xs={12}>
+            <Typography variant="h4">Fill Up Your Basic Details</Typography>
+          </Grid>
+          <Grid item md={12} sm={12} lg={12} xs={12}>
+            <CustomForm
+              AllEntries={BasicDetailsEntries}
+              textFieldChange={value.handleChange}
+              // onReceiveData={onReceiveData}
+              defaultValues={DefaultBasicDetailsValues}
+            />
+          </Grid>
+        </Grid>
 
-      <ButtonGroup
-        variant="contained"
-        color="primary"
-        aria-label="text primary button group"
-        style={{ marginTop: 15 }}
-      >
-        {/* <Button onClick={() => value.prevPage()} style={{ margin: 25 }}>
+        <ButtonGroup
+          variant="contained"
+          color="primary"
+          aria-label="text primary button group"
+          style={{ marginTop: 15 }}
+        >
+          {/* <Button onClick={() => value.prevPage()} style={{ margin: 25 }}>
           Previous
         </Button> */}
-        <Button
-          disabled={!btnDisbaled}
-          onClick={() => value.nextPage()}
-          style={{ margin: 25 }}
-        >
-          {console.log(value, "vvvvvv")}Next
-        </Button>
-      </ButtonGroup>
+          <Button
+            disabled={!btnDisbaled}
+            onClick={() => value.nextPage()}
+            style={{ margin: 25 }}
+          >
+            {console.log(value, "vvvvvv")}Next
+          </Button>
+        </ButtonGroup>
+      </Grid>
     </form>
   );
 };

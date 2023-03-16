@@ -186,7 +186,13 @@ function CustomForm(props) {
   return (
     <Grid container item md={12} sm={12} xs={12}>
       {AllEntries?.map((keyValue) => (
-        <Grid item md={keyValue.breakpoint} sm={12} xs={12} className={gridAlign}>
+        <Grid
+          item
+          md={keyValue.breakpoint}
+          sm={12}
+          xs={12}
+          className={gridAlign}
+        >
           <Controller
             control={control}
             rules={{
@@ -216,18 +222,29 @@ function CustomForm(props) {
                       defaultValue
                       customClass={keyValue.customClass}
                     />
-                    <CustomRadioButton
-                      labelText={keyValue.label2}
-                      onChange={(e) => {
-                        onChange(e);
-                        onChangeRadioAction(e, keyValue.name2);
-                      }}
-                      value={value}
-                      data={keyValue.radioButtonData2}
-                      requiredField={keyValue.requiredField}
-                      defaultValue
-                      customClass={keyValue.customClass2}
-                    />
+
+                    {/* {keyValue?.isRadioAction2 && (
+                      <Grid item md={12} sm={12} xs={12} my={2} mx={2}>
+                        <CustomTypography
+                          type="header"
+                          text={keyValue.text}
+                          customClass={keyValue.customClass}
+                          colorType={keyValue.colorType}
+                        />
+                        <CustomRadioButton
+                          labelText={keyValue.label2}
+                          onChange={(e) => {
+                            onChange(e);
+                            onChangeRadioAction(e, keyValue.name2);
+                          }}
+                          value={value}
+                          data={keyValue.radioButtonData2}
+                          requiredField={keyValue.requiredField}
+                          defaultValue
+                          customClass={keyValue.customClass2}
+                        />
+                      </Grid>
+                    )} */}
                   </Grid>
                 )}
                 {keyValue?.isBirthdayPicker && (
@@ -511,14 +528,14 @@ CustomForm.propTypes = {
   onReceiveData: propTypes.func,
   // handleCancel: propTypes.func,
   onChangeRadioAction: propTypes.func,
-  textFieldChange:propTypes.func,
+  textFieldChange: propTypes.func,
   customFormData: propTypes.func,
   editTrue: propTypes.string,
 };
 CustomForm.defaultProps = {
   // handleCancel: () => null,
   onReceiveData: () => null,
-  textFieldChange:()=>null,
+  textFieldChange: () => null,
   onChangeRadioAction: () => null,
   customFormData: () => null,
   editTrue: "",
