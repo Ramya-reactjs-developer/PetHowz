@@ -57,7 +57,7 @@ export const MyBookingsCustomerDB = () => {
     },
   ];
   return (
-    <Grid container item xs={10}>
+    <Grid container item xs={12}>
       {" "}
       <Grid item textAlign={"left"} xs={12} pt={"40px"}>
         <CustomTypography

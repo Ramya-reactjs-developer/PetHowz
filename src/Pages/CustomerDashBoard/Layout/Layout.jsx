@@ -86,7 +86,7 @@ import { Outlet } from "react-router-dom";
 import SideMenu from "../../../Components/SideMenu/SideMenu";
 // import { navList } from "./sideMenuEntries";
 import customIcons from "../../../Utils/Icons/Index";
-import "./Layout.css";
+// import "./Layout.css";
 /**
  *
  * @returns
@@ -116,10 +116,10 @@ function ProtectedRoute({ navData }) {
         sm={12}
         xs={12}
       >
-        <Grid item xl={2} lg={2} md={2} sm={3} xs={2}>
+        <Grid item xl={2} lg={2} md={2} sm={3} xs={3}>
           <SideMenu navList={navData} menuCollapse={menuCollapse} />
         </Grid>
-        <Grid item xl={2} lg={10} md={9} sm={10} xs={10}>
+        <Grid item xl={10} lg={10} md={10} sm={9} xs={9}>
           <Outlet />
         </Grid>
       </Grid>

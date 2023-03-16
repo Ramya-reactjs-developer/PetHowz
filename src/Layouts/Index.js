@@ -10,7 +10,7 @@ export const Layout = () => {
       <main>
         <Outlet />
       </main>
-      <footer>
+      <footer style={{ paddingTop: "30px" }}>
         <Footer />
       </footer>
     </div>

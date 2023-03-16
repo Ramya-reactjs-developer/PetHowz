@@ -1,20 +1,19 @@
 .header {
   position: absolute;
   width: 220px;
-  height: 30vh !important;
   /* padding-top: 10px; */
   /* height: 200px; */
   /* overflow-y: scroll; */
 }
-/* .header scroll {
-  margin: 4px, 4px;
-  padding: 4px;
+/* .header  scroll{
+  margin:4px, 4px;
+  padding:4px;
   background-color: green;
   width: 500px;
   height: 110px;
   overflow-x: hidden;
   overflow-y: auto;
-  text-align: justify;
+  text-align:justify;
 } */
 .header .pro-sidebar {
   height: 94vh !important;

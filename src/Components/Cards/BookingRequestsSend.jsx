@@ -60,7 +60,7 @@ export default function BookingRequestsSend({ Data, onClickHandle }) {
                         display: { sm: "flex", xs: "block" },
 
                         justifyContent: "flex-start",
-                        gap: "100px",
+                        gap: "50px",
                       }}
                     >
                       <Box sx={Info1SubPostion1}>

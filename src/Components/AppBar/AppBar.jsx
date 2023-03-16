@@ -25,7 +25,7 @@ import CustomIcons from "../../Utils/Icons/Index";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import './AppBar.css';
+import "./AppBar.css";
 function ElevationScroll(props) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -185,7 +185,7 @@ const Header = (props) => {
                     </Link>
                     <Link
                       exact
-                      to="/petService"
+                      to="/BecomePetHostService"
                       activeClassName="active"
                       className="nav-links"
                       style={{ textDecoration: "none" }}

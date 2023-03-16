@@ -54,31 +54,32 @@ export const CustomerDashBoard = () => {
     setValue(newValue);
   };
   return (
-    <Grid container item xl={10} lg={10} md={11} sm={10} xs={10}>
+    <Grid container item xl={12} lg={12} md={12} sm={12} xs={12}>
       <Grid
         item
         display={"flex"}
         alignItems={"center"}
         justifyContent={"flex-start"}
         flexWrap={"wrap"}
-        rowGap={{
-          xl: "30px",
-          lg: "30px",
-          md: "30px",
-          sm: "30px",
-          xs: "30px",
-        }}
-        columnGap={{
-          xl: 0,
-          lg: 0,
-          md: "30px",
-          sm: "30px",
-          xs: "30px",
-        }}
+        // rowGap={{
+        //   xl: "30px",
+        //   lg: "30px",
+        //   md: "30px",
+        //   sm: "30px",
+        //   xs: "30px",
+        // }}
+        // columnGap={{
+        //   xl: 0,
+        //   lg: 0,
+        //   md: "30px",
+        //   sm: "30px",
+        //   xs: "30px",
+        // }}
+        gap={"30px"}
         pt={"30px"}
         xs={12}
       >
-        <Grid item lg={4} md={6} sm={6} xs={12}>
+        <Grid item xl={3} lg={3} md={4} sm={5} xs={8}>
           <DashBoardCard
             id="card1"
             tittle="Bookings Done"
@@ -87,16 +88,16 @@ export const CustomerDashBoard = () => {
             MWidth="300px"
           />
         </Grid>
-        <Grid item lg={4} md={6} sm={6} xs={12}>
+        <Grid item xl={3} lg={3} md={4} sm={5} xs={8}>
           <DashBoardCard
             id="card2"
-            tittle="Booking Requests Send"
+            tittle=" Requests Send"
             icon={CustomIcons.Building}
             number="5"
             MWidth="300px"
           />
         </Grid>
-        <Grid item lg={4} md={6} sm={6} xs={12}>
+        <Grid item xl={3} lg={3} md={4} sm={5} xs={8}>
           <DashBoardCard
             id="card3"
             tittle="Pets Added"
