@@ -9,11 +9,14 @@ import "../DashBoardCard/DashBoardCard.css";
 
 export default function DashBoardCard({ id, tittle, icon, number, MWidth }) {
   return (
-    <Card id={id} sx={{ borderRadius: "15px", maxWidth: MWidth }}>
+    <Card
+      id={id}
+      sx={{ borderRadius: "15px", maxWidth: MWidth, height: "auto" }}
+    >
       <CardActionArea>
         <CardContent>
           <Typography
-            variant="h5"
+            variant="h6"
             sx={{
               textAlign: "left",
               font: " normal normal medium 22dp/17dp Roboto",
