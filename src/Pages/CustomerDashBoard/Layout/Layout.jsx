@@ -23,7 +23,7 @@
 //   const [menuCollapse, setMenuCollapse] = React.useState(false);
 
 //   const menuItemList = [
- 
+
 //     {
 //       source: customIcons.Logout,
 //       menuText: "Logout",
@@ -33,7 +33,6 @@
 //     alert("sdfasf");
 //     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
 //   };
-
 
 //   return (
 //     <Grid
@@ -45,7 +44,7 @@
 //       xs={12}
 //       className="topMainGrid"
 //     >
-    
+
 //       <Grid
 //         container
 //         md={12}
@@ -80,24 +79,24 @@
 // export default ProtectedRoute;
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-expressions */
-import React from 'react';
-import { Grid, Paper } from '@mui/material';
-import { Outlet } from 'react-router-dom';
+import React from "react";
+import { Grid, Paper } from "@mui/material";
+import { Outlet } from "react-router-dom";
 // import CustomAppBar from "../../../Components/AppBar/AppBar";
 import SideMenu from "../../../Components/SideMenu/SideMenu";
-import { navList } from './sideMenuEntries';
+// import { navList } from "./sideMenuEntries";
 import customIcons from "../../../Utils/Icons/Index";
 import "./Layout.css";
 /**
  *
  * @returns
  */
-function ProtectedRoute({ children }) {
+function ProtectedRoute({ children, navData }) {
   const [menuCollapse, setMenuCollapse] = React.useState(false);
   const menuItemList = [
     {
       source: customIcons.Logout,
-      menuText: 'Logout',
+      menuText: "Logout",
     },
   ];
   const onMenuClick = () => {
@@ -105,18 +104,24 @@ function ProtectedRoute({ children }) {
   };
 
   return (
-    <Grid container item md={12} lg={12} sm={12} xs={12} className="setUp">
-      <Grid item md={1.3} lg={1.3} sm={1.3} xs={1.3} className="SideBar">
-        <SideMenu navList={navList} menuCollapse={menuCollapse} />
+    <Grid
+      container
+      item
+      xl={12}
+      lg={12}
+      md={12}
+      sm={12}
+      xs={12}
+      className="setUp"
+    >
+      <Grid item xl={2} lg={2} md={1} sm={2} xs={2}>
+        <SideMenu navList={navData} menuCollapse={menuCollapse} />
       </Grid>
-      <Grid item md={10.7} lg={10.7} sm={10.7} xs={10.7}>
-       <Paper elevation={0}>{children || <Outlet />}</Paper>
-  
+      <Grid item xl={10} lg={10} md={11} sm={10} xs={10}>
+        <Paper elevation={0}>{children || <Outlet />}</Paper>
       </Grid>
     </Grid>
   );
 }
 
-export default ProtectedRoute
-
-
+export default ProtectedRoute;

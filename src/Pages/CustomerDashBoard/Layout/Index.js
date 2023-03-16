@@ -7,7 +7,6 @@ import { CustomerDashBoard } from "../Index";
 import { MyProfileCustomerDB } from "../MyProfile/MyProfileCustomerDB";
 import { MyBookingsCustomerDB } from "../MyBookings/MyBookingsCustomerDb";
 
-
 export const DashBoardLayout = () => {
   return (
     <div>
@@ -54,19 +53,19 @@ export const DashBoardLayout = () => {
               element={<BookingRequestsHostDB />}
             /> */}
           {/* Customer DashBoard        */}
-      
+
           <Route
             path="/Pet-howz/MyProfileCustomerDB"
             element={<MyProfileCustomerDB />}
           />
-          
+
           {/* <Route path="AddYourPetLogin" index element={<AddYourPetLogin />} /> */}
           <Route path="Pet-howz" index element={<ProtectedRoute />} />
           {/* <Route path="ProtectedRoute" index element={<ProtectedRoute />} />
         <Route path="ProtectedRoute" index element={<ProtectedRoute />} /> */}
           <Route
             path="MyBookingsCustomerDB"
-            element={<MyBookingsCustomerDB/>}
+            element={<MyBookingsCustomerDB />}
           />
         </Routes>
       </Grid>

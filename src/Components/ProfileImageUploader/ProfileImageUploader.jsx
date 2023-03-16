@@ -12,8 +12,8 @@ export const AvatarInput = styled.div`
   position: relative;
   align-self: center;
   img {
-    width: 186px;
-    height: 186px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 50%;
   }
@@ -66,13 +66,15 @@ export default function ProfileImageUploader() {
       </AvatarInput>
 
       <ReactFileReader
-        fileTypes={[".png", ".jpg"]}
+        fileTypes={[".png", ".jpg", ".jpeg", ".tif", ".tiff"]}
         base64={true}
         handleFiles={handleFiles}
         className="filebutton"
-        style={{ height: "50px", width: "50px" }}
+        style={{ height: "60px", width: "100px" }}
       >
-        <Button variant="contained">hi</Button>
+        <Button variant="contained" className="profile_img_upload">
+          Choose Image
+        </Button>
       </ReactFileReader>
     </Grid>
   );

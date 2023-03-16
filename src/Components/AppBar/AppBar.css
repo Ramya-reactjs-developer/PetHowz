@@ -1,0 +1,14 @@
+.header_text{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.text_align{
+    color: #000 !important;
+}
+.Appbar_btn button{
+    height: 40px;
+    border-radius: 50px;
+    font-size: 15px;
+}
+
