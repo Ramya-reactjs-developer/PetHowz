@@ -54,18 +54,31 @@ export const CustomerDashBoard = () => {
     setValue(newValue);
   };
   return (
-    <Grid container item xs={12}>
+    <Grid container item xl={10} lg={10} md={11} sm={10} xs={10}>
       <Grid
         item
         display={"flex"}
         alignItems={"center"}
         justifyContent={"flex-start"}
         flexWrap={"wrap"}
-        gap={"30px"}
+        rowGap={{
+          xl: "30px",
+          lg: "30px",
+          md: "30px",
+          sm: "30px",
+          xs: "30px",
+        }}
+        columnGap={{
+          xl: 0,
+          lg: 0,
+          md: "30px",
+          sm: "30px",
+          xs: "30px",
+        }}
         pt={"30px"}
         xs={12}
       >
-        <Grid item lg={2} md={3} sm={4} xs={12}>
+        <Grid item lg={4} md={6} sm={6} xs={12}>
           <DashBoardCard
             id="card1"
             tittle="Bookings Done"
@@ -74,7 +87,7 @@ export const CustomerDashBoard = () => {
             MWidth="300px"
           />
         </Grid>
-        <Grid item lg={2} md={3} sm={4} xs={12}>
+        <Grid item lg={4} md={6} sm={6} xs={12}>
           <DashBoardCard
             id="card2"
             tittle="Booking Requests Send"
@@ -83,7 +96,7 @@ export const CustomerDashBoard = () => {
             MWidth="300px"
           />
         </Grid>
-        <Grid item lg={2} md={3} sm={4} xs={12}>
+        <Grid item lg={4} md={6} sm={6} xs={12}>
           <DashBoardCard
             id="card3"
             tittle="Pets Added"
@@ -96,7 +109,7 @@ export const CustomerDashBoard = () => {
       <Grid item textAlign={"left"} xs={12} pt={"40px"}>
         <CustomTypography
           text="Booking Requests Send"
-          type="subHeading"
+          type="caption"
           colorType="text"
         />
       </Grid>
