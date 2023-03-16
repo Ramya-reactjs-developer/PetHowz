@@ -1,5 +1,5 @@
 import { Box, Card, CardActionArea, CardMedia, Grid } from "@mui/material";
-import * as React from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import CustomTypography from "../Typography/Typography";
 
