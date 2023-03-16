@@ -14,6 +14,7 @@ import GooglePlay from "../../Assets/Images/GooglePlay.png";
 import AppStore from "../../Assets/Images/AppStore.png";
 import Register from "../../Assets/Images/Register.jpeg";
 import SubmitBooking from "../../Assets/Images/BookingSubmit.svg";
+import petsStepper from "../../Assets/Images/petsStepper.png"
 const customImages = {
   SubmitBooking,
   Register,
@@ -31,5 +32,6 @@ const customImages = {
   s8,
   GooglePlay,
   AppStore,
+  petsStepper,
 };
 export default customImages;
