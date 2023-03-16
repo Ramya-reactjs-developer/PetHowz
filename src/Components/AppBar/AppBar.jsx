@@ -25,6 +25,7 @@ import CustomIcons from "../../Utils/Icons/Index";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import './AppBar.css';
 function ElevationScroll(props) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -70,14 +71,15 @@ const Header = (props) => {
       <ElevationScroll {...props}>
         <AppBar position="sticky" sx={{ background: "white" }}>
           <Toolbar>
-            <img
-              src={CustomIcons.Logo}
-              alt="LOGO"
-              sx={{ transform: "scale(2)" }}
-              height="60px"
-              style={{ margin: "10px 0px 10px 0px" }}
-            />
-
+            <Grid container md={2} lg={2}>
+              <img
+                src={CustomIcons.Logo}
+                alt="LOGO"
+                sx={{ transform: "scale(2)" }}
+                height="60px"
+                style={{ margin: "10px 0px 10px 0px" }}
+              />
+            </Grid>
             {isMatch ? (
               <>
                 <Drawer
@@ -150,76 +152,85 @@ const Header = (props) => {
               </>
             ) : (
               <>
-                <Tabs
-                  sx={{ marginLeft: "auto" }}
-                  indicatorColor="secondary"
-                  textColor="inherit"
-                  value={value}
-                  onChange={(e, value) => setValue(value)}
+                <Grid
+                  container
+                  md={8}
+                  lg={8}
+                  sm={12}
+                  xs={12}
+                  className="header_text"
                 >
-                  <Link
-                    to="/"
-                    activeClassName="active"
-                    style={{ textDecoration: "none" }}
+                  <Tabs
+                    // sx={{ marginLeft: "auto" }}
+                    indicatorColor="secondary"
+                    textColor="inherit"
+                    value={value}
+                    onChange={(e, value) => setValue(value)}
                   >
-                    {" "}
-                    <Tab label="Home" />
-                  </Link>
-                  <Link
-                    to="/grooming"
-                    activeClassName="active"
-                    style={{ textDecoration: "none" }}
-                  >
-                    {" "}
-                    <Tab label="Pet Spaces" />
-                  </Link>
-                  <Link
-                    exact
-                    to="/petService"
-                    activeClassName="active"
-                    className="nav-links"
-                    style={{ textDecoration: "none" }}
-                  >
-                    <Tab label="Join as Pet Host" />
-                  </Link>
-                  <Link
-                    exact
-                    to="/AllServices"
-                    activeClassName="active"
-                    className="nav-links"
-                    style={{ textDecoration: "none" }}
-                  >
-                    {" "}
-                    <Tab label="Our Services" />
-                  </Link>
-                  <Tab label="Contact Us" />
-                </Tabs>
+                    <Link
+                      to="/"
+                      activeClassName="active"
+                      style={{ textDecoration: "none" }}
+                    >
+                      {" "}
+                      <Tab className="text_align" label="Home" />
+                    </Link>
+                    <Link
+                      to="/grooming"
+                      activeClassName="active"
+                      style={{ textDecoration: "none" }}
+                    >
+                      {" "}
+                      <Tab className="text_align" label="Pet Spaces" />
+                    </Link>
+                    <Link
+                      exact
+                      to="/petService"
+                      activeClassName="active"
+                      className="nav-links"
+                      style={{ textDecoration: "none" }}
+                    >
+                      <Tab className="text_align" label="Join as Pet Host" />
+                    </Link>
+                    <Link
+                      exact
+                      to="/AllServices"
+                      activeClassName="active"
+                      className="nav-links"
+                      style={{ textDecoration: "none" }}
+                    >
+                      {" "}
+                      <Tab className="text_align" label="Our Services" />
+                    </Link>
+                    <Tab className="text_align" label="Contact Us" />
+                  </Tabs>
+                </Grid>
                 <Grid
                   item
                   md={2}
                   lg={2}
-                  sm={6}
-                  xs={6}
+                  sm={2}
+                  xs={2}
                   pt={1}
                   className="Appbar_btn"
                 >
                   <Button
-                    sx={{
-                      marginLeft: "auto",
-                      borderRadius: "50px",
-                      height: "45px",
-                    }}
+                    // sx={{
+                    //   marginLeft: "auto",
+                    //   borderRadius: "50px",
+                    //   height: "40px",
+                    // }}
                     variant="contained"
                     color="secondary"
                   >
                     Franchise
                   </Button>
                   <Button
-                    sx={{
-                      marginLeft: "10px",
-                      borderRadius: "50px",
-                      height: "45px",
-                    }}
+                    // sx={{
+                    //   marginLeft: "10px",
+                    //   borderRadius: "50px",
+                    //   height: "40px",
+                    // }}
                     variant="contained"
                   >
                     Login

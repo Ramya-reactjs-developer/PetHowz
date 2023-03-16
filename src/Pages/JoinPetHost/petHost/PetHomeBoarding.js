@@ -9,7 +9,7 @@ import Faqs from "../../../Components/Stepper/Faqs";
 import Confirmation from "../../../Components/Stepper/Confirmation";
 import { LabelContext } from "./labelDataContext";
 import customImages from "../../../Utils/Images/index";
-import UploadImage from "../../../Components/Stepper/UploadImage"
+import UploadImage from "../../../Components/Stepper/UploadImage";
 // import ServicePackage from "../../../Components/Stepper/ServicePackage"
 // import { petSpaceEntries, DefaultPetSpaceValues } from "./petSpaceEntries";
 // import CustomForm from "../../../Components/CustomForm/CustomForm";
@@ -21,7 +21,7 @@ const PetSpace = () => {
   return (
     <Grid container md={12} sm={12} xs={12} lg={12} className="App">
       <Grid
-        item
+        container
         md={12}
         sm={12}
         lg={12}
@@ -29,16 +29,10 @@ const PetSpace = () => {
         display="flex"
         justifyContent="center"
       >
-        <Grid
-          container
-          md={5}
-          sm={5}
-          lg={5}
-          xs={12}
-          className="stepper-button"
-        >
+        <Grid item md={5} sm={5} lg={5} xs={12} className="stepper-button">
           <Grid item md={12} sm={12} xs={12} lg={12} className="siepperImage">
-            <img src={customImages.Dog1} alt="" />
+            {/* <img src={customImages.petsStepper} alt="" /> */}
+            <Grid className="image_front_color"></Grid>
           </Grid>
           <Grid item md={12} sm={12} xs={12} lg={12} className="stepperPage">
             {value.page !== 7 && (
@@ -46,7 +40,6 @@ const PetSpace = () => {
             )}
           </Grid>
         </Grid>
-
         <Grid item md={7} sm={7} lg={7} xs={12}>
           {value.page === 0 && <BasicDetails />}
           {value.page === 1 && <PetHostAbout />}

@@ -1,12 +1,22 @@
 export const BasicDetailsEntries = [
   {
-    isFileUploader: true,
+    isEmptySpace: true,
+    breakpoint: 4,
+    name: "space",
+  },
+  {
+    isProfileUploader: true,
     name: "fileUploader",
     label: "Add Photos",
-    breakpoint: 8,
+    breakpoint: 4,
     customClass: "uploadImageContainer",
     validation: { required: true },
     error_message: "Upload Image",
+  },
+  {
+    isEmptySpace: true,
+    breakpoint: 4,
+    name: "space",
   },
   {
     isTextInput: true,

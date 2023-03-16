@@ -1,3 +1,4 @@
+import { Grid } from "@mui/material";
 import React, { useState, createContext } from "react";
 
 export const LabelContext = createContext();
@@ -135,20 +136,22 @@ export const LabelProvider = (props) => {
   ];
 
   return (
-    <LabelContext.Provider
-      value={{
-        page,
-        steps,
-        nextPage,
-        prevPage,
-        labelInfo,
-        handleChange,
-        handleOnChange,
-        // setSenderInfo,
-        // setRecevierInfo,
-      }}
-    >
-      {props.children}
-    </LabelContext.Provider>
+    <Grid container md={12} sm={12} xs={12}>
+      <LabelContext.Provider
+        value={{
+          page,
+          steps,
+          nextPage,
+          prevPage,
+          labelInfo,
+          handleChange,
+          handleOnChange,
+          // setSenderInfo,
+          // setRecevierInfo,
+        }}
+      >
+        {props.children}
+      </LabelContext.Provider>
+    </Grid>
   );
 };

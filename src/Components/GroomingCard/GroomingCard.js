@@ -12,16 +12,16 @@ import { CustomizedRatings } from "../StarRatings/CustomizedRatings";
 import "./GroomingCard.css";
 
 export default function GroomingCardsSection({ Data }) {
-  // const GroomingData = Data;
+  const GroomingData = Data;
 
-      const dispatch = useDispatch();
-      const { grooming } = useSelector((state) => state?.grooming);
-      console.log(grooming, "galleryImage");
+      // const dispatch = useDispatch();
+      // const { grooming } = useSelector((state) => state?.grooming);
+      // console.log(grooming, "galleryImage");
 
-      React.useEffect(() => {
-        const data = { data: {}, method: "get", apiName: "getAllPetSpace" };
-        dispatch(actions.GROOMING(data));
-      }, [dispatch]);
+      // React.useEffect(() => {
+      //   const data = { data: {}, method: "get", apiName: "getAllPetSpace" };
+      //   dispatch(actions.GROOMING(data));
+      // }, [dispatch]);
 
   return (
     <Grid
@@ -34,7 +34,8 @@ export default function GroomingCardsSection({ Data }) {
       className="mainCard"
     >
       <Grid item className="CardPositions">
-        {grooming?.data?.map((item, key) => {
+        {/* {grooming?.data?.map((item, key) => { */}
+        {GroomingData?.map((item, key) => {
           return (
             <Box key={key}>
               <Card className="mainCardSize">
@@ -44,7 +45,8 @@ export default function GroomingCardsSection({ Data }) {
                   </CardActionArea>
                   <CardContent>
                     <CustomTypography
-                      text={item.Pet_boarding_space_name}
+                      // text={item.Pet_boarding_space_name}
+                      text={item.name}
                       type="header"
                       colorType="black"
                     />
@@ -52,7 +54,8 @@ export default function GroomingCardsSection({ Data }) {
                       <Grid className="AddressArea1">
                         <img src={CustomIcons.Location} alt="location" />
                         <CustomTypography
-                          text={item.city}
+                          // text={item.city}
+                          text={item.address}
                           type="link"
                           colorType="senary"
                           fontSize="12px"
@@ -86,7 +89,8 @@ export default function GroomingCardsSection({ Data }) {
                     <Box className="AddressSubPosition2">
                       <img src={CustomIcons.Building} alt="location" />
                       <CustomTypography
-                        text={item.category_of_pet_boarded}
+                        // text={item.category_of_pet_boarded}
+                        text={item.type}
                         type="caption"
                         colorType="senary"
                         fontSize="12px"

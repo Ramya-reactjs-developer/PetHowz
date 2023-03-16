@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/require-default-props */
-import React, { useEffect } from "react";
+import React from "react";
 import propTypes from "prop-types";
 import { Controller, useForm } from "react-hook-form";
 import { Grid } from "@mui/material";
@@ -186,7 +186,13 @@ function CustomForm(props) {
   return (
     <Grid container item md={12} sm={12} xs={12}>
       {AllEntries?.map((keyValue) => (
-        <Grid item md={keyValue.breakpoint} sm={12} xs={12} className={gridAlign}>
+        <Grid
+          item
+          md={keyValue.breakpoint}
+          sm={12}
+          xs={12}
+          className={gridAlign}
+        >
           <Controller
             control={control}
             rules={{
@@ -216,18 +222,29 @@ function CustomForm(props) {
                       defaultValue
                       customClass={keyValue.customClass}
                     />
-                    <CustomRadioButton
-                      labelText={keyValue.label2}
-                      onChange={(e) => {
-                        onChange(e);
-                        onChangeRadioAction(e, keyValue.name2);
-                      }}
-                      value={value}
-                      data={keyValue.radioButtonData2}
-                      requiredField={keyValue.requiredField}
-                      defaultValue
-                      customClass={keyValue.customClass2}
-                    />
+
+                    {/* {keyValue?.isRadioAction2 && (
+                      <Grid item md={12} sm={12} xs={12} my={2} mx={2}>
+                        <CustomTypography
+                          type="header"
+                          text={keyValue.text}
+                          customClass={keyValue.customClass}
+                          colorType={keyValue.colorType}
+                        />
+                        <CustomRadioButton
+                          labelText={keyValue.label2}
+                          onChange={(e) => {
+                            onChange(e);
+                            onChangeRadioAction(e, keyValue.name2);
+                          }}
+                          value={value}
+                          data={keyValue.radioButtonData2}
+                          requiredField={keyValue.requiredField}
+                          defaultValue
+                          customClass={keyValue.customClass2}
+                        />
+                      </Grid>
+                    )} */}
                   </Grid>
                 )}
                 {keyValue?.isBirthdayPicker && (
@@ -369,6 +386,35 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
+                {/* {keyValue?.isProfileUploader && (
+                  <Grid
+                    item
+                    md={12}
+                    sm={12}
+                    my={2}
+                    mx={2}
+                    xs={12}
+                    className="circleLogoBox"
+                  >
+                    <CustomImageUploader
+                      upLoad={customIcons.LogoUploader}
+                      label={keyValue.label}
+                      // onHandleChange={(e) => {
+                      //   onChange(e);
+                      //   props.textFieldChange(e, keyValue.name);
+                      // }}
+                      customClass={keyValue.customClass}
+                      getImage={(val) => {
+                        onChange(val);
+                        getImage(val);
+                        props.textFieldChange(val, keyValue.name);
+                      }}
+                      regForm={keyValue.regForm}
+                      defaultImage={keyValue.defaultImage}
+                      resetValue={resetValue}
+                    />
+                  </Grid>
+                )} */}
                 {keyValue?.isProfileUploader && (
                   <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
                     <ProfileImageUploader />
@@ -511,14 +557,14 @@ CustomForm.propTypes = {
   onReceiveData: propTypes.func,
   // handleCancel: propTypes.func,
   onChangeRadioAction: propTypes.func,
-  textFieldChange:propTypes.func,
+  textFieldChange: propTypes.func,
   customFormData: propTypes.func,
   editTrue: propTypes.string,
 };
 CustomForm.defaultProps = {
   // handleCancel: () => null,
   onReceiveData: () => null,
-  textFieldChange:()=>null,
+  textFieldChange: () => null,
   onChangeRadioAction: () => null,
   customFormData: () => null,
   editTrue: "",
