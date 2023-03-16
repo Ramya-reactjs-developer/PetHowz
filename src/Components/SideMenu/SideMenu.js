@@ -112,7 +112,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Grid, Typography } from "@mui/material";
-import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
+import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import PropTypes from "prop-types";
 import customImages from "../../Utils/Images/index";
 import "./sideMenu.css";
@@ -135,7 +135,7 @@ function SideMenu(props) {
 
   return (
     <Grid className="header">
-      <ProSidebar collapsed={menuCollapse} style={{ width: "100%" }}>
+      <Sidebar collapsed={menuCollapse} style={{ width: "100%" }}>
         <Typography>
           <img
             src={customImages.PraxisLogo}
@@ -169,7 +169,7 @@ function SideMenu(props) {
             ))}
           </Grid>
         </Menu>
-      </ProSidebar>
+      </Sidebar>
     </Grid>
   );
 }

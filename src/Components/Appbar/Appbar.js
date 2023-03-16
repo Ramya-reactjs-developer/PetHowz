@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import { Grid, Button, Toolbar } from "@mui/material";
 import { Outlet, Link } from "react-router-dom";
 import CustomTypography from "../../Components/Typography/Typography";
-import customIcons from '../../Utils/Icons/Index';
+import customIcons from "../../Utils/Icons/Index";
 import "./Appbar.css";
 function NavBar(props) {
-
   const [click, setClick] = useState(false);
-
 
   const handleClick = () => setClick(!click);
   const Close = () => setClick(false);
@@ -84,7 +82,7 @@ function NavBar(props) {
                 <li className="nav-item">
                   <Link
                     exact
-                    to="/"
+                    to="/AllServices"
                     activeClassName="active"
                     className="nav-links"
                     onClick={click ? handleClick : null}
