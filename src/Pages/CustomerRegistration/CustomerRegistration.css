@@ -24,13 +24,13 @@
 
   /* background-position: center; */
 }
-.Box-color {
+.Box-color{
   background-color: #f85a47;
   opacity: 0.5;
   width: 100%;
   height: 100%;
 }
-.sourceButton {
+.sourceButton{
   /* position: relative;
   top: 4rem; */
   background: #f85a47;

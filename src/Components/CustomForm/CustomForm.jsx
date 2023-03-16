@@ -186,7 +186,13 @@ function CustomForm(props) {
   return (
     <Grid container item md={12} sm={12} xs={12}>
       {AllEntries?.map((keyValue) => (
-        <Grid item md={keyValue.breakpoint} sm={12} xs={12} className={gridAlign}>
+        <Grid
+          item
+          md={keyValue.breakpoint}
+          sm={12}
+          xs={12}
+          className={gridAlign}
+        >
           <Controller
             control={control}
             rules={{
@@ -369,6 +375,35 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
+                {/* {keyValue?.isProfileUploader && (
+                  <Grid
+                    item
+                    md={12}
+                    sm={12}
+                    my={2}
+                    mx={2}
+                    xs={12}
+                    className="circleLogoBox"
+                  >
+                    <CustomImageUploader
+                      upLoad={customIcons.LogoUploader}
+                      label={keyValue.label}
+                      // onHandleChange={(e) => {
+                      //   onChange(e);
+                      //   props.textFieldChange(e, keyValue.name);
+                      // }}
+                      customClass={keyValue.customClass}
+                      getImage={(val) => {
+                        onChange(val);
+                        getImage(val);
+                        props.textFieldChange(val, keyValue.name);
+                      }}
+                      regForm={keyValue.regForm}
+                      defaultImage={keyValue.defaultImage}
+                      resetValue={resetValue}
+                    />
+                  </Grid>
+                )} */}
                 {keyValue?.isProfileUploader && (
                   <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
                     <ProfileImageUploader />

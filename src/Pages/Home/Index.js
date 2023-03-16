@@ -161,11 +161,13 @@ export const HomePage = () => {
                   text="FIND PET BOARDING SPACES"
                   type="heading2"
                   colorType="primary"
+                  customStyle={{ fontFamily: "Cooper" }}
                 />
                 <CustomTypography
                   text="& PET SERVICE PROVIDERS"
                   type="heading2"
                   colorType="primary"
+                  customStyle={{ fontFamily: "Cooper" }}
                 />
               </Box>
               <Box sx={SearchBarStyle}>
@@ -218,7 +220,6 @@ export const HomePage = () => {
                 <ImageCards
                   ImagePath={item.image1}
                   CardWidth={{
-                    xl: "500px",
                     lg: "325px",
                     md: "300px",
                     sm: "280px",
@@ -226,7 +227,6 @@ export const HomePage = () => {
                   }}
                   CardHeight={"600px"}
                   ImageWidth={{
-                    xl: "500px",
                     lg: "325px",
                     md: "300px",
                     sm: "280px",
@@ -241,7 +241,6 @@ export const HomePage = () => {
                 <ImageCards
                   ImagePath={item.image2}
                   CardWidth={{
-                    xl: "500px",
                     lg: "325px",
                     md: "300px",
                     sm: "280px",
@@ -249,7 +248,6 @@ export const HomePage = () => {
                   }}
                   CardHeight={"300px"}
                   ImageWidth={{
-                    xl: "500px",
                     lg: "325px",
                     md: "300px",
                     sm: "280px",
@@ -267,7 +265,6 @@ export const HomePage = () => {
                 <ImageCards
                   ImagePath={item.image3}
                   CardWidth={{
-                    xl: "500px",
                     lg: "325px",
                     md: "300px",
                     sm: "280px",
@@ -275,7 +272,6 @@ export const HomePage = () => {
                   }}
                   CardHeight={"300px"}
                   ImageWidth={{
-                    xl: "500px",
                     lg: "325px",
                     md: "300px",
                     sm: "280px",
@@ -290,7 +286,6 @@ export const HomePage = () => {
                 <ImageCards
                   ImagePath={item.image4}
                   CardWidth={{
-                    xl: "500px",
                     lg: "325px",
                     md: "300px",
                     sm: "280px",
@@ -298,7 +293,6 @@ export const HomePage = () => {
                   }}
                   CardHeight={"600px"}
                   ImageWidth={{
-                    xl: "500px",
                     lg: "325px",
                     md: "300px",
                     sm: "280px",
@@ -323,7 +317,6 @@ export const HomePage = () => {
                 <ImageCards
                   ImagePath={item.image5}
                   CardWidth={{
-                    xl: "500px",
                     lg: "325px",
                     md: "300px",
                     sm: "280px",
@@ -331,7 +324,6 @@ export const HomePage = () => {
                   }}
                   CardHeight={"600px"}
                   ImageWidth={{
-                    xl: "500px",
                     lg: "325px",
                     md: "300px",
                     sm: "280px",
@@ -346,7 +338,6 @@ export const HomePage = () => {
                 <ImageCards
                   ImagePath={item.image6}
                   CardWidth={{
-                    xl: "500px",
                     lg: "325px",
                     md: "300px",
                     sm: "280px",
@@ -379,7 +370,6 @@ export const HomePage = () => {
                 <ImageCards
                   ImagePath={item.image7}
                   CardWidth={{
-                    xl: "500px",
                     lg: "325px",
                     md: "300px",
                     sm: "280px",
@@ -387,7 +377,6 @@ export const HomePage = () => {
                   }}
                   CardHeight={"300px"}
                   ImageWidth={{
-                    xl: "500px",
                     lg: "325px",
                     md: "300px",
                     sm: "280px",
@@ -402,7 +391,6 @@ export const HomePage = () => {
                 <ImageCards
                   ImagePath={item.image8}
                   CardWidth={{
-                    xl: "500px",
                     lg: "325px",
                     md: "300px",
                     sm: "280px",
@@ -410,7 +398,6 @@ export const HomePage = () => {
                   }}
                   CardHeight={"600px"}
                   ImageWidth={{
-                    xl: "500px",
                     lg: "325px",
                     md: "300px",
                     sm: "280px",

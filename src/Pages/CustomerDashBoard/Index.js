@@ -5,6 +5,7 @@ import CustomIcons from "../../Utils/Icons/Index";
 import CustomTypography from "../../Components/Typography/Typography";
 import CustomTab from "../../Components/Tab/Tab";
 import BookingRequestsSend from "../../Components/Cards/BookingRequestsSend";
+import ProceedToPayModal from "./ProceedToPayModal";
 
 export const CustomerDashBoard = () => {
   const CardData = [
@@ -39,6 +40,16 @@ export const CustomerDashBoard = () => {
       tabColor: "white",
     },
   ];
+  const [open, setOpen] = React.useState(true);
+  const [Modal, setModal] = React.useState(false);
+
+  const modalOpen = () => {
+    setModal(true);
+  };
+  const onMoadalClose = () => {
+    setModal(false);
+  };
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -96,8 +107,15 @@ export const CustomerDashBoard = () => {
           value={value}
           className="tabBar"
         />
+        {Modal ? (
+          <ProceedToPayModal open={open} onModalClose={onMoadalClose} />
+        ) : (
+          ""
+        )}
         <Box pt={"20px"}>
-          {value === 0 && <BookingRequestsSend Data={CardData} />}
+          {value === 0 && (
+            <BookingRequestsSend Data={CardData} onClickHandle={modalOpen} />
+          )}
           {value === 1 && <BookingRequestsSend Data={CardData} />}
         </Box>
       </Grid>

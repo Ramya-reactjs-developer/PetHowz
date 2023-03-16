@@ -3,6 +3,7 @@ import {
   AppBar,
   Box,
   Button,
+  Grid,
   Tab,
   Tabs,
   Toolbar,
@@ -23,6 +24,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CustomIcons from "../../Utils/Icons/Index";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+import './AppBar.css';
 function ElevationScroll(props) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -59,23 +62,24 @@ const Header = (props) => {
     window !== undefined ? () => window().document.body : undefined;
 
   const navigate = useNavigate();
-    const DashBoard = () => {
-      navigate("/Pet-howz");
-    };
-  
+  const DashBoard = () => {
+    navigate("/Pet-howz");
+  };
+
   return (
     <>
       <ElevationScroll {...props}>
         <AppBar position="sticky" sx={{ background: "white" }}>
           <Toolbar>
-            <img
-              src={CustomIcons.Logo}
-              alt="LOGO"
-              sx={{ transform: "scale(2)" }}
-              height="60px"
-              style={{ margin: "10px 0px 10px 0px" }}
-            />
-
+            <Grid container md={2} lg={2}>
+              <img
+                src={CustomIcons.Logo}
+                alt="LOGO"
+                sx={{ transform: "scale(2)" }}
+                height="60px"
+                style={{ margin: "10px 0px 10px 0px" }}
+              />
+            </Grid>
             {isMatch ? (
               <>
                 <Drawer
@@ -132,7 +136,7 @@ const Header = (props) => {
                         sx={{ marginY: "10px", borderRadius: "50px" }}
                         variant="contained"
                         fullWidth
-                        onClick={() =>alert("gvhvgvg")}
+                        onClick={() => alert("gvhvgvg")}
                       >
                         Login
                       </Button>
@@ -148,33 +152,90 @@ const Header = (props) => {
               </>
             ) : (
               <>
-                <Tabs
-                  sx={{ marginLeft: "auto" }}
-                  indicatorColor="secondary"
-                  textColor="inherit"
-                  value={value}
-                  onChange={(e, value) => setValue(value)}
+                <Grid
+                  container
+                  md={8}
+                  lg={8}
+                  sm={12}
+                  xs={12}
+                  className="header_text"
                 >
-                  <Tab label="Home" />
-                  <Tab label="Pet Spaces" />
-                  <Tab label="Join as Pet Host" />
-                  <Tab label="Our Services" />
-                  <Tab label="Contact Us" />
-                </Tabs>
-                <Button
-                  sx={{ marginLeft: "auto", borderRadius: "50px" }}
-                  variant="contained"
-                  color="secondary"
+                  <Tabs
+                    // sx={{ marginLeft: "auto" }}
+                    indicatorColor="secondary"
+                    textColor="inherit"
+                    value={value}
+                    onChange={(e, value) => setValue(value)}
+                  >
+                    <Link
+                      to="/"
+                      activeClassName="active"
+                      style={{ textDecoration: "none" }}
+                    >
+                      {" "}
+                      <Tab className="text_align" label="Home" />
+                    </Link>
+                    <Link
+                      to="/grooming"
+                      activeClassName="active"
+                      style={{ textDecoration: "none" }}
+                    >
+                      {" "}
+                      <Tab className="text_align" label="Pet Spaces" />
+                    </Link>
+                    <Link
+                      exact
+                      to="/petService"
+                      activeClassName="active"
+                      className="nav-links"
+                      style={{ textDecoration: "none" }}
+                    >
+                      <Tab className="text_align" label="Join as Pet Host" />
+                    </Link>
+                    <Link
+                      exact
+                      to="/AllServices"
+                      activeClassName="active"
+                      className="nav-links"
+                      style={{ textDecoration: "none" }}
+                    >
+                      {" "}
+                      <Tab className="text_align" label="Our Services" />
+                    </Link>
+                    <Tab className="text_align" label="Contact Us" />
+                  </Tabs>
+                </Grid>
+                <Grid
+                  item
+                  md={2}
+                  lg={2}
+                  sm={2}
+                  xs={2}
+                  pt={1}
+                  className="Appbar_btn"
                 >
-                  Franchise
-                </Button>
-                <Button
-                  sx={{ marginLeft: "10px", borderRadius: "50px" }}
+                  <Button
+                    // sx={{
+                    //   marginLeft: "auto",
+                    //   borderRadius: "50px",
+                    //   height: "40px",
+                    // }}
                     variant="contained"
-                    onClick={DashBoard}
-                >
-                  Login
-                </Button>
+                    color="secondary"
+                  >
+                    Franchise
+                  </Button>
+                  <Button
+                    // sx={{
+                    //   marginLeft: "10px",
+                    //   borderRadius: "50px",
+                    //   height: "40px",
+                    // }}
+                    variant="contained"
+                  >
+                    Login
+                  </Button>
+                </Grid>
               </>
             )}
           </Toolbar>
@@ -185,3 +246,159 @@ const Header = (props) => {
 };
 
 export default Header;
+
+// import React, { useState } from "react";
+// import { Grid, Button, Toolbar } from "@mui/material";
+// import { Outlet, Link } from "react-router-dom";
+// import CustomTypography from "../../Components/Typography/Typography";
+// import customIcons from "../../Utils/Icons/Index";
+// import "./Appbar.css";
+// function NavBar(props) {
+//   const [click, setClick] = useState(false);
+
+//   const handleClick = () => setClick(!click);
+//   const Close = () => setClick(false);
+//   return (
+//     <Grid>
+//       <Grid className={click ? "main-container" : ""} onClick={() => Close()} />
+//       <Grid className="Nav-drop" display="flex">
+//         <Toolbar
+//           className=" container navbar"
+//           onClick={(e) => e.stopPropagation()}
+//         >
+//           <Grid
+//             container
+//             md={12}
+//             lg={12}
+//             sm={12}
+//             xs={12}
+//             className="nav-container"
+//           >
+//             <Grid item md={2} lg={2} sm={6} xs={6} className="Logoicon">
+//               <Link exact to="/" className="nav-logo">
+//                 <Grid className="pethowsLogo">
+//                   <img src={customIcons.Logo} alt="" />
+//                 </Grid>
+//               </Link>
+//             </Grid>
+//             <Grid item md={8} lg={8} sm={12} xs={12} pt={1} className="Appmenu">
+//               <ul className={click ? "nav-menu active" : "nav-menu"}>
+//                 <li className="nav-item">
+//                   <Link
+//                     exact
+//                     to="/"
+//                     activeClassName="active"
+//                     className="nav-links"
+//                     onClick={click ? handleClick : null}
+//                   >
+//                     <CustomTypography
+//                       text="HOME"
+//                       customClass="Appbar"
+//                       type="header"
+//                     />
+//                   </Link>
+//                 </li>
+//                 <li className="nav-item">
+//                   <Link
+//                     exact
+//                     to="/grooming"
+//                     activeClassName="active"
+//                     className="nav-links"
+//                     onClick={click ? handleClick : null}
+//                   >
+//                     <CustomTypography
+//                       text="BOARDING SPACES"
+//                       customClass="Appbar"
+//                       type="header"
+//                     />
+//                   </Link>
+//                 </li>
+//                 <li className="nav-item">
+//                   <Link
+//                     exact
+//                     to="/petService"
+//                     activeClassName="active"
+//                     className="nav-links"
+//                     onClick={click ? handleClick : null}
+//                   >
+//                     <CustomTypography
+//                       text="JOIN AS PET HOST"
+//                       customClass="Appbar"
+//                       type="header"
+//                     />
+//                   </Link>
+//                 </li>
+//                 <li className="nav-item">
+//                   <Link
+//                     exact
+//                     to="/AllServices"
+//                     activeClassName="active"
+//                     className="nav-links"
+//                     onClick={click ? handleClick : null}
+//                   >
+//                     <CustomTypography
+//                       text="PET SERVICES"
+//                       customClass="Appbar"
+//                       type="header"
+//                     />
+//                   </Link>
+//                 </li>
+//                 <li className="nav-item">
+//                   <Link
+//                     exact
+//                     to="/"
+//                     activeClassName="active"
+//                     className="nav-links"
+//                     onClick={click ? handleClick : null}
+//                   >
+//                     <CustomTypography
+//                       text="CONTACT US"
+//                       customClass="Appbar"
+//                       type="header"
+//                     />
+//                   </Link>
+//                 </li>
+//               </ul>
+//               {/* <Grid className="nav-icon" onClick={handleClick}>
+//                 <i className={click ? "fa fa-times" : "fa fa-bars"}></i>
+//               </Grid> */}
+//             </Grid>
+//             <Grid
+//               item
+//               md={2}
+//               lg={2}
+//               sm={6}
+//               xs={6}
+//               pt={1}
+//               className="Appbar_btn"
+//             >
+//               <Button
+//                 sx={{
+//                   marginLeft: "auto",
+//                   borderRadius: "50px",
+//                   height: "45px",
+//                 }}
+//                 variant="contained"
+//                 color="secondary"
+//               >
+//                 Franchise
+//               </Button>
+//               <Button
+//                 sx={{
+//                   marginLeft: "10px",
+//                   borderRadius: "50px",
+//                   height: "45px",
+//                 }}
+//                 variant="contained"
+//               >
+//                 Login
+//               </Button>
+//             </Grid>
+//           </Grid>
+//         </Toolbar>
+//       </Grid>
+//       <Outlet />
+//     </Grid>
+//   );
+// }
+// export default NavBar;
