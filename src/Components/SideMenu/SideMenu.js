@@ -115,7 +115,7 @@ import { Grid, Typography } from "@mui/material";
 import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import PropTypes from "prop-types";
 import customImages from "../../Utils/Images/index";
-import "./sideMenu.css";
+// import "./sideMenu.css";
 
 /**
  *
@@ -134,7 +134,7 @@ function SideMenu(props) {
   };
 
   return (
-    <Grid className="header">
+    <Grid item className="header">
       <ProSidebar collapsed={menuCollapse} style={{ width: "100%" }}>
         <Typography>
           <img
@@ -145,7 +145,7 @@ function SideMenu(props) {
         </Typography>
 
         <Menu iconShape="square">
-          <Grid className="headerAlignment">
+          <Grid item className="headerAlignment">
             {navList?.map((nav, index) => (
               <div
                 onClick={() => NavSelect(index)}

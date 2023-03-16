@@ -46,7 +46,7 @@ export const MyProfileHostDB = () => {
             /> */}
           </Box>
         </Grid>
-        <Grid item lg={3} md={3} sm={5} xs={12}>
+        <Grid item lg={4} md={6} sm={8} xs={12}>
           <Box>
             <Box sx={HostProfileDetails}>
               <CustomTypography
