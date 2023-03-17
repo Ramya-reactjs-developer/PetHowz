@@ -1,6 +1,6 @@
 import { Grid } from '@mui/material';
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import customImages from '../../Utils/Images';
 // import entries from './LoginEntries';
 import './Login.css';
@@ -84,6 +84,22 @@ const Login = () => {
                 />
               </Grid>
             </form>
+            <Grid pt={2} className="googleGrid">
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                to="/https://accounts.google.com/v3/signin/identifier?dsh=S-435618783%3A1679050594426781&ifkv=AWnogHdcogBclojIsc_9xbHbnlYh3M2JPMohu8n83lV0HNIxQMGXq181ythzXg6RixF_YsKjOArDSw&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+              >
+                <CustomButton
+                  image={CustomIcons.Google}
+                  btnTitle="Sign In With Google"
+                  color="primary"
+                  variant="contained"
+                  // btnStyles={{ color: "white", width: "320px" }}
+                  customClass="googleBtn"
+                />
+              </Link>
+            </Grid>
           </Grid>
         </Grid>
       </Grid>

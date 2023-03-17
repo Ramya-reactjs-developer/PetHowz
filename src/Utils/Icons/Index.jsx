@@ -35,8 +35,10 @@ import Location2 from "../../Assets/Icons/map-pin-line.svg";
 import Edit from "../../Assets/Icons/pencil-line.svg";
 import Email from "../../Assets/Icons/mail-line.svg";
 import Call from "../../Assets/Icons/phone-line.svg";
+import Google from "../../Assets/Icons/google.png";
 const CustomIcons = {
   Logo,
+  Google,
   Call,
   Email,
   Location2,
