@@ -40,20 +40,17 @@ export const MyPetsCustomerDB = () => {
   };
 
   return (
-    <Grid container item xs={10}>
+    <Grid container item xs={12}>
       {" "}
       <Grid item textAlign={"left"} xs={12} pt={"40px"}>
         <CustomTypography text="My Pets" type="subHeading" colorType="text" />
       </Grid>
       <Grid item xs={12}>
-        <Grid item md={8} sm={8} xs={12}>
-          <MyPetsCards ListData={ListData} onEdit={onEdit} />{" "}
-        </Grid>
+        <MyPetsCards ListData={ListData} onEdit={onEdit} />{" "}
       </Grid>
       <Grid
         item
-        sm={4}
-        xs={2}
+        xs={12}
         pt={"10px"}
         display={"flex"}
         alignItems={"center"}
@@ -76,7 +73,6 @@ export const MyPetsCustomerDB = () => {
       </Grid>
       <Grid item xs={12}>
         <AddAnotherPet open={open} onClose={onClose} />
-        {console.log(open, "open1")}
       </Grid>
     </Grid>
   );

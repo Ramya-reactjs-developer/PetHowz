@@ -1,5 +1,6 @@
 import { Grid } from "@mui/material";
-import { Outlet } from "react-router";
+import React from "react";
+import { Outlet } from "react-router-dom";
 import AppBar from "../Components/AppBar/AppBar.jsx";
 import Footer from "../Components/Footer/Footer.jsx";
 export const Layout = () => {

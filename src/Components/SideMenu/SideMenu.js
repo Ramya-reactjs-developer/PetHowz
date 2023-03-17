@@ -112,9 +112,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { Grid, Typography } from "@mui/material";
-import { SidebarHeader, Menu, MenuItem } from "react-pro-sidebar";
+import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar";
 import PropTypes from "prop-types";
-import customImages from "../../Utils/Images/index";
+// import customImages from "../../Utils/Images/index";
 // import "./sideMenu.css";
 
 /**
@@ -135,14 +135,10 @@ function SideMenu(props) {
 
   return (
     <Grid item className="header">
-      <SidebarHeader collapsed={menuCollapse} style={{ width: "100%" }}>
-        <Typography>
-          <img
-            src={customImages.PraxisLogo}
-            className="praxisLogo"
-            alt="logo"
-          />
-        </Typography>
+      <ProSidebar collapsed={menuCollapse} style={{ width: "100%" }}>
+        {/* <Typography>
+          <img src={customImages.Dog1} className="praxisLogo" alt="logo" />
+        </Typography> */}
 
         <Menu iconShape="square">
           <Grid item className="headerAlignment">
@@ -169,7 +165,7 @@ function SideMenu(props) {
             ))}
           </Grid>
         </Menu>
-      </SidebarHeader>
+      </ProSidebar>
     </Grid>
   );
 }

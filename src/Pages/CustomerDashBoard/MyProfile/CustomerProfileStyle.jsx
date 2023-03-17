@@ -2,6 +2,7 @@ export const CustomerProfilePostion = {
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  flexWrap: "wrap",
 };
 export const CustomerDetailsPosition = {
   display: "flex",

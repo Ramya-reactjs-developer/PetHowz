@@ -51,7 +51,7 @@ export const MyEnquiriesCustomerDB = () => {
     setValue(newValue);
   };
   return (
-    <Grid container item xs={10}>
+    <Grid container item xs={12}>
       <Grid className="customTab" item pt={3} xs={12}>
         <CustomTab
           tabList={tabList}
