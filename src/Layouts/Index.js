@@ -8,11 +8,11 @@ export const Layout = () => {
     <Grid container md={12} lg={12} sm={12} xs={12}>
       <Grid item md={12} lg={12} sm={12} xs={12}>
         <AppBar />
-      </header>
-      <main style={{ paddingTop: "80px" }}>
+      </Grid>
+      <Grid item md={12} lg={12} sm={12} xs={12}>
         <Outlet />
-      </main>
-      <footer style={{ position: "sticky" }}>
+      </Grid>
+      <Grid style={{ paddingTop: "10px" }} item md={12} lg={12} sm={12} xs={12}>
         <Footer />
       </Grid>
     </Grid>
