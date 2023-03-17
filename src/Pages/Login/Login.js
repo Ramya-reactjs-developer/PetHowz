@@ -85,7 +85,11 @@ const Login = () => {
               </Grid>
             </form>
             <Grid pt={2} className="googleGrid">
-              <Link to="/https://accounts.google.com/v3/signin/identifier?dsh=S-435618783%3A1679050594426781&ifkv=AWnogHdcogBclojIsc_9xbHbnlYh3M2JPMohu8n83lV0HNIxQMGXq181ythzXg6RixF_YsKjOArDSw&flowName=GlifWebSignIn&flowEntry=ServiceLogin">
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                to="/https://accounts.google.com/v3/signin/identifier?dsh=S-435618783%3A1679050594426781&ifkv=AWnogHdcogBclojIsc_9xbHbnlYh3M2JPMohu8n83lV0HNIxQMGXq181ythzXg6RixF_YsKjOArDSw&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+              >
                 <CustomButton
                   image={CustomIcons.Google}
                   btnTitle="Sign In With Google"

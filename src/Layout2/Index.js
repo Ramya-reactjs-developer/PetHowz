@@ -6,6 +6,7 @@ import DrawerAppBar from "../../../Components/AppBar/AppBar";
 import { Grooming } from "../../../Pages/Grooming/Grooming";
 import { BecomePetHostService } from "../../../Pages/JoinPetHost/BecomePetHostService";
 import PetHomeBoarding from "../../../Pages/JoinPetHost/petHost/PetHomeBoarding";
+import BothBoardAndService from "../Pages/JoinPetHost/BothBoardAndService/BothBoardAndService"
 import GroomingService from "../../../Pages/GroomingService/GroomingService";
 import Footer from "../../../Components/Footer/Footer";
 import { BasicDetails } from "../../../Pages/New/Index";
@@ -50,8 +51,10 @@ export const DashBoardLayout = () => {
               element={<BecomePetHostService />}
             />
             <Route path="PetCare" index element={<PetCare />} />
-            PetCare
             <Route path="PetHomeBoarding" index element={<PetHomeBoarding />} />
+            <Route path="BothBoardAndService" index element={<BothBoardAndService />} />
+
+            
             {/* <Route path="MyPetDetails" index element={<PetDetails />} /> */}
             <Route path="BasicDetails" index element={<BasicDetails />} />
             <Route path="petService" index element={<PetService />} />

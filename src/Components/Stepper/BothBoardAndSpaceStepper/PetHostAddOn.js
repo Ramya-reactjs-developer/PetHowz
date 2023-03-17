@@ -61,27 +61,27 @@
 // };
 // export default GetShippingOption;
 import React, { useContext } from "react";
-import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
+import { BothLabelContext } from "../../../Pages/JoinPetHost/BothBoardAndService/BothlabelDataContext";
 // import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import {
   DefaultPetHostAddOnValues,
   PetHostAddOnEntries,
-} from "../../Pages/JoinPetHost/petHost/PetHostAddOnEntries";
-import CustomForm from "../CustomForm/CustomForm";
+} from "../../../Pages/JoinPetHost/BothBoardAndService/PetHostAddOnEntries";
+import CustomForm from "../../CustomForm/CustomForm";
 import { Grid, Typography } from "@mui/material";
 // import InputAdornment from "@material-ui/core/InputAdornment";
 import "./style.css";
 
 const PetHostAddOn = (props) => {
-  const value = useContext(LabelContext);
+  const value = useContext(BothLabelContext);
   const AO = value.labelInfo.AddOn;
   const btnDisbaled =
-  AO.Rate.length > 0 &&
-  AO.AddOnPackage.length > 0 &&
-  AO.WhatisIncluded.length > 0 &&
-  AO.fileUploader.length > 0;
+    AO.Rate.length > 0 &&
+    AO.AddOnPackage.length > 0 &&
+    AO.WhatisIncluded.length > 0 &&
+    AO.fileUploader.length > 0;
   return (
     <form>
       <Typography variant="h4">
