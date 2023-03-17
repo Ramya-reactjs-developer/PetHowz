@@ -19,6 +19,7 @@ import CustomSelect from "../Select/Select";
 import CustomImageUploader from "../FileUploader/FileUpload";
 import MultipleSelectChip from "../MultipleDropdown/MultipleDropdown";
 import ProfileImageUploader from "../ProfileImageUploader/ProfileImageUploader";
+import CustomProfileUploader from '../ProfileUploader/ProfileUpload'
 
 /**
  * @param {*} props defines the prop
@@ -375,7 +376,7 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
-                {/* {keyValue?.isProfileUploader && (
+                {keyValue?.isProfileImageUploader && (
                   <Grid
                     item
                     md={12}
@@ -385,7 +386,7 @@ function CustomForm(props) {
                     xs={12}
                     className="circleLogoBox"
                   >
-                    <CustomImageUploader
+                    <CustomProfileUploader
                       upLoad={customIcons.LogoUploader}
                       label={keyValue.label}
                       // onHandleChange={(e) => {
@@ -403,7 +404,7 @@ function CustomForm(props) {
                       resetValue={resetValue}
                     />
                   </Grid>
-                )} */}
+                )}
                 {keyValue?.isProfileUploader && (
                   <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
                     <ProfileImageUploader />

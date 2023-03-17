@@ -31,7 +31,7 @@ const Login = () => {
       localStorage.setItem('isLoggedIn', true);
       localStorage.setItem('email', email);
 
-      navigate("/pet-howz/home");
+      navigate("/home");
     } else {
       alert('Invalid credentials');
     }
@@ -44,7 +44,7 @@ const Login = () => {
         <img src={customImages.Service} alt="" />
       </Grid>
       <Grid item md={6} lg={6} sm={12} xs={12} className="LoginSec">
-        <Grid className="rightAlign"> 
+        <Grid className="rightAlign">
           <Grid item md={12} lg={12} sm={12} xs={12} className="logoImg">
             <img src={CustomIcons.Logo} alt="" />
           </Grid>
@@ -56,57 +56,47 @@ const Login = () => {
               customClass=""
             />
           </Grid>
-          <Grid item md={12} lg={12} sm={12} xs={12} pt={3} className="">
-            {/* {entries?.map((keyValue) => (
-              <Grid item pb={2} className="inputSec">
-                <Controller
-                  control={control}
-                  rules={{
-                    required: keyValue?.validation?.isRequired,
-                    pattern: keyValue?.pattern,
-                  }}
-                  render={({ field: { onChange, value } }) => (
-                    <Grid item md={12} sm={12} className="input_width">
-                      {keyValue.textField && (
-                        <Grid className="loginTextBox">
-                          <CustomTextField
-                            value={value}
-                            placeholder={keyValue.placeholder}
-                            type={keyValue.type}
-                            onHandleChange={onChange}
-                            iconSource={keyValue.iconSource}
-                            isLogin
-                          />
-                        </Grid>
-                      )}
-                    </Grid>
-                  )}
-                  name={keyValue.entryName}
-                />
-                {errors[keyValue.entryName]?.type === "required" && (
-                  <Grid display="flex">
-                    <CustomTypography
-                      customClass="loginErrorText"
-                      colorType="error"
-                      text={`${keyValue.label} is required`}
-                    />
-                  </Grid>
-                )}
-                {errors[keyValue.entryName]?.type === "pattern" && (
-                  <Grid display="flex">
-                    <CustomTypography
-                      customClass="loginErrorText"
-                      colorType="error"
-                      text={`${keyValue.label} is Invalid`}
-                    />
-                  </Grid>
-                )}
-              </Grid>
-            ))} */}
+          <form onSubmit={handleSubmit}>
+            {/* <Grid className="inputBox"> */}
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <br />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            {/* </Grid> */}
+            <Grid
+              display="flex"
+              justifyContent="center"
+              className="submitButton"
+              pt={3.5}
+            >
+              <CustomButton
+                btnTitle="LOGIN"
+                color="primary"
+                variant="contained"
+                btnStyles={{
+                  width: "350px",
+                  color: "white",
+                  backgroundColor: "#4a0239",
+                  // boxShadow: '0px 6px 20px #EE8E5480',
+                }}
+              />
+            </Grid>
+          </form>
+          {/* <Grid item md={12} lg={12} sm={12} xs={12} pt={3} className="">
             <form onSubmit={handleSubmit}>
-          {/* <Grid className="inputBox"> */}
           <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-          <br />
+          <br/>
           <input
             type="password"
             placeholder="Password"
@@ -114,7 +104,6 @@ const Login = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          {/* </Grid> */}
         </form>
           </Grid>
           <Grid className="input_width loginButton">
@@ -124,7 +113,7 @@ const Login = () => {
               variant="contained"
               btnStyles={{ color: "white", width: "320px" }}
             />
-          </Grid>
+          </Grid> */}
         </Grid>
       </Grid>
     </Grid>

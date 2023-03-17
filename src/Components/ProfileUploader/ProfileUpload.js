@@ -7,13 +7,13 @@ import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import CustomTypography from '../Typography/Typography';
 import CustomIcons from '../../Utils/Icons/Index';
-import './fileUpload.css';
+import './ProfileUpload.css';
 /**
  * @param {*} props defines the prop
  * @name CustomFileUploader
  * @returns {React.ReactElement} return the FileUploader component
  */
-function CustomFileUploader(props) {
+function CustomProfileUploader(props) {
   const fileRef = useRef();
   const {
     fileType,
@@ -134,7 +134,7 @@ function CustomFileUploader(props) {
             <img
               src={(fileType === 'image' && selectedImage) || defaultImage}
               alt=""
-              className={selectedImage ? 'imageUpload' : 'none'}
+              className={selectedImage ? 'ProfileImageUpload' : 'none'}
             />
           ) : (
             // </div>
@@ -196,8 +196,8 @@ function CustomFileUploader(props) {
     </Grid>
   );
 }
-export default CustomFileUploader;
-CustomFileUploader.propTypes = {
+export default CustomProfileUploader;
+CustomProfileUploader.propTypes = {
   fileType: propTypes.string,
   label: propTypes.string,
   upLoad: propTypes.string,
@@ -205,11 +205,11 @@ CustomFileUploader.propTypes = {
   getImage: propTypes.func,
   defaultImage: propTypes.string,
 };
-CustomFileUploader.defaultProps = {
-  fileType: 'image',
-  label: '',
-  upLoad: 'image',
+CustomProfileUploader.defaultProps = {
+  fileType: "image",
+  label: "",
+  upLoad: "image",
   regForm: false,
-  getImage: 'image',
-  defaultImage: 'image',
+  getImage: "image",
+  defaultImage: "image",
 };
