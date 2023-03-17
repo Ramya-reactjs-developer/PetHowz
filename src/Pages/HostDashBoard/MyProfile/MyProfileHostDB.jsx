@@ -25,6 +25,8 @@ export const MyProfileHostDB = () => {
         item
         display={{ sm: "flex", xs: "block" }}
         justifyContent={"flex-start"}
+        gap={"40px"}
+        flexWrap={"wrap"}
         pt={"20px"}
         xs={12}
       >
@@ -46,7 +48,7 @@ export const MyProfileHostDB = () => {
             /> */}
           </Box>
         </Grid>
-        <Grid item lg={3} md={3} sm={5} xs={12}>
+        <Grid item lg={4} md={6} sm={8} xs={12}>
           <Box>
             <Box sx={HostProfileDetails}>
               <CustomTypography
@@ -115,14 +117,14 @@ export const MyProfileHostDB = () => {
       >
         {/* <Grid container item md={10} lg={10} sm={12} xs={12} pl={2}> */}
 
-        <Grid item md={3} lg={3} sm={6} xs={6}>
+        <Grid item md={4} sm={6} xs={6}>
           <CustomTypography
             type="head"
             text={"Professional Pet Boarder"}
             customClass="serviceProfessional"
           />
         </Grid>
-        <Grid item md={2} lg={2} sm={6} xs={6}>
+        <Grid item md={2} sm={6} xs={6}>
           <CustomTypography
             type="head"
             text={"2 Years"}

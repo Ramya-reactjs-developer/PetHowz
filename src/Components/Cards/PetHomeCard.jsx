@@ -41,6 +41,7 @@ export default function PetHomeCard({ Data }) {
       //   alignItems: "center",
       //   justifyContent: "flex-start",
       // }}
+
       item
       xs={12}
     >
@@ -52,8 +53,8 @@ export default function PetHomeCard({ Data }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "flex-start",
-          gap: "30px",
-          flexWrap: "wrap",
+          gap: "10px",
+          flexWrap: { lg: "nowrap", md: "wrap", sm: "wrap", xs: "wrap" },
         }}
       >
         {CardData.map((item, key) => {

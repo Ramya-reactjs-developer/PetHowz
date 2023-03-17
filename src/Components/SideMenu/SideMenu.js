@@ -114,8 +114,8 @@ import { NavLink } from "react-router-dom";
 import { Grid, Typography } from "@mui/material";
 import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
 import PropTypes from "prop-types";
-import customImages from "../../Utils/Images/index";
-import "./sideMenu.css";
+// import customImages from "../../Utils/Images/index";
+// import "./sideMenu.css";
 
 /**
  *
@@ -134,18 +134,14 @@ function SideMenu(props) {
   };
 
   return (
-    <Grid className="header">
+    <Grid item className="header">
       <Sidebar collapsed={menuCollapse} style={{ width: "100%" }}>
-        <Typography>
-          <img
-            src={customImages.PraxisLogo}
-            className="praxisLogo"
-            alt="logo"
-          />
-        </Typography>
+        {/* <Typography>
+          <img src={customImages.Dog1} className="praxisLogo" alt="logo" />
+        </Typography> */}
 
         <Menu iconShape="square">
-          <Grid className="headerAlignment">
+          <Grid item className="headerAlignment">
             {navList?.map((nav, index) => (
               <div
                 onClick={() => NavSelect(index)}

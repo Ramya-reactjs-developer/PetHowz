@@ -64,14 +64,17 @@ position: absolute;
   .stepperPage>div>div>div>div{
     border-top: none !important;
     position: unset !important;
+    color: #fff!important;
+    font-size: 12px !important;
   }
   .child {
     position: relative !important;
     margin-top: 40px !important ;
   }
   .stepperPage>div>div>div{
-    height: 25px;
-    width: 15.1111% !important;
+    height: 38px;
+    width: 23.1111% !important;
+    padding-left: 20px !important;
     /* position: unset !important; */
   }
   .stepperPage>div>div{
@@ -83,3 +86,17 @@ position: absolute;
   /* .textBox{
     width:400px !important
   } */
+.siepperImage{
+  background-image: url(../../../Assets/Images/petsStepper.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+}
+.image_front_color{
+  width: 100%;
+  background-color: #f85a47;
+  opacity: 0.5;
+  height: 100%;
+}

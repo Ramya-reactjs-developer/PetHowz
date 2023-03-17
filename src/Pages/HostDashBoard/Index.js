@@ -42,7 +42,7 @@ export const HostDashBoard = () => {
     setValue(newValue);
   };
   return (
-    <Grid container item xs={12}>
+    <Grid container item xl={12} lg={12} md={12} sm={12} xs={12}>
       <Grid
         item
         display={"flex"}
@@ -53,7 +53,7 @@ export const HostDashBoard = () => {
         pt={"30px"}
         xs={12}
       >
-        <Grid item lg={2} md={3} sm={4} xs={12}>
+        <Grid item xl={3} lg={3} md={4} sm={5} xs={8}>
           <DashBoardCard
             id="card1"
             tittle="Total Bookings"
@@ -62,7 +62,7 @@ export const HostDashBoard = () => {
             MWidth="300px"
           />
         </Grid>
-        <Grid item lg={2} md={3} sm={4} xs={12}>
+        <Grid item xl={3} lg={3} md={4} sm={5} xs={8}>
           <DashBoardCard
             id="card2"
             tittle="Booking Requests"
@@ -71,7 +71,7 @@ export const HostDashBoard = () => {
             MWidth="300px"
           />
         </Grid>
-        <Grid item lg={2} md={3} sm={4} xs={12}>
+        <Grid item xl={3} lg={3} md={4} sm={5} xs={8}>
           <DashBoardCard
             id="card3"
             tittle="Services Provided"

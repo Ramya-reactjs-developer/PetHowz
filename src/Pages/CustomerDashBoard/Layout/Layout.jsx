@@ -86,12 +86,12 @@ import { Outlet } from "react-router-dom";
 import SideMenu from "../../../Components/SideMenu/SideMenu";
 // import { navList } from "./sideMenuEntries";
 import customIcons from "../../../Utils/Icons/Index";
-import "./Layout.css";
+// import "./Layout.css";
 /**
  *
  * @returns
  */
-function ProtectedRoute({ children, navData }) {
+function ProtectedRoute({ navData }) {
   const [menuCollapse, setMenuCollapse] = React.useState(false);
   const menuItemList = [
     {
@@ -104,21 +104,24 @@ function ProtectedRoute({ children, navData }) {
   };
 
   return (
-    <Grid
-      container
-      item
-      xl={12}
-      lg={12}
-      md={12}
-      sm={12}
-      xs={12}
-      className="setUp"
-    >
-      <Grid item xl={2} lg={2} md={1} sm={2} xs={2}>
-        <SideMenu navList={navData} menuCollapse={menuCollapse} />
-      </Grid>
-      <Grid item xl={10} lg={10} md={11} sm={10} xs={10}>
-        <Paper elevation={0}>{children || <Outlet />}</Paper>
+    <Grid container item xl={12} lg={12} md={12} sm={12} xs={12}>
+      <Grid
+        item
+        display={"flex"}
+        justifyContent={"flex-start"}
+        gap={"5px"}
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
+        <Grid item xl={2} lg={2} md={2} sm={3} xs={3}>
+          <SideMenu navList={navData} menuCollapse={menuCollapse} />
+        </Grid>
+        <Grid item xl={10} lg={10} md={10} sm={9} xs={9}>
+          <Outlet />
+        </Grid>
       </Grid>
     </Grid>
   );
