@@ -69,7 +69,7 @@ const Header = (props) => {
   return (
     <>
       <ElevationScroll {...props}>
-        <AppBar position="sticky" sx={{ background: "white" }}>
+        <AppBar position="fixed" sx={{ background: "white" }}>
           <Toolbar>
             <Grid container md={2} lg={2}>
               <img

@@ -7,10 +7,10 @@ export const Layout = () => {
       <header>
         <AppBar />
       </header>
-      <main>
+      <main style={{ paddingTop: "80px" }}>
         <Outlet />
       </main>
-      <footer style={{ paddingTop: "30px" }}>
+      <footer style={{ position: "sticky" }}>
         <Footer />
       </footer>
     </div>

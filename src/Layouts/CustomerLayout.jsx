@@ -1,11 +1,11 @@
 import React from "react";
-import ProtectedRoute from "../Pages/CustomerDashBoard/Layout/Layout";
 import { navList } from "../Pages/CustomerDashBoard/Layout/sideMenuEntries";
+import ResponsiveDrawer from "../Components/AppBar/ResponsivAppBar";
 
 export const CustomerLayout = () => {
   return (
     <main>
-      <ProtectedRoute navData={navList} />
+      <ResponsiveDrawer navData={navList} />
     </main>
   );
 };
