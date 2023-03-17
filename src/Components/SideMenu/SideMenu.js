@@ -135,7 +135,7 @@ function SideMenu(props) {
 
   return (
     <Grid item className="header">
-      <ProSidebar collapsed={menuCollapse} style={{ width: "100%" }}>
+      <SidebarHeader collapsed={menuCollapse} style={{ width: "100%" }}>
         <Typography>
           <img
             src={customImages.PraxisLogo}

@@ -1,11 +1,11 @@
 import { Grid } from "@mui/material";
 import React, { useState, createContext } from "react";
 
-export const LabelContext = createContext();
+export const BothLabelContext = createContext();
 
-export const LabelProvider = (props) => {
+export const BothLabelProvider = (props) => {
   const [page, setPage] = useState(0);
-  console.log(setPage, "klnkhcui");
+  console.log(page, "klnkhcui");
   const [labelInfo, setlabelInfo] = useState({
     BasicDetails: {
       firstText: "",
@@ -60,17 +60,7 @@ export const LabelProvider = (props) => {
       Status19: "",
       ThirdText: "",
     },
-    shippingOption: {
-      fileUploader: [],
-      fileUploaderImage: [],
-    },
-    service: {
-      header_menu: "",
-      firstText: "",
-      whats_included: "",
-      rate: "",
-    },
-    AddOn: { AddOnPackage: "", add_button: "", WhatisIncluded: "", Rate: "", fileUploader:[] },
+    AddOn: { AddOnPackage: "", add_button: "", WhatisIncluded: "", Rate: "",fileUploader:[] },
   });
   // console.log(labelInfo,"labelInfo");
 
@@ -91,8 +81,6 @@ export const LabelProvider = (props) => {
       sender: { ...labelInfo.sender, [name]: value },
       receiver: { ...labelInfo.receiver, [name]: value },
       AddOn: { ...labelInfo.AddOn, [name]: value },
-      shippingOption: { ...labelInfo.shippingOption, [name]: value },
-      service: { ...labelInfo.shippingOption, [name]: value },
     });
   };
   const handleOnChange = (event, name) => {
@@ -103,11 +91,6 @@ export const LabelProvider = (props) => {
       receiver: { ...labelInfo.receiver, [name]: event.target.value },
       BasicDetails: { ...labelInfo.BasicDetails, [name]: event.target.value },
       AddOn: { ...labelInfo.AddOn, [name]: event.target.value },
-      service: { ...labelInfo.weight, [name]: event.target.value },
-      shippingOption: {
-        ...labelInfo.shippingOption,
-        [name]: event.target.value,
-      },
     });
   };
 
@@ -128,16 +111,13 @@ export const LabelProvider = (props) => {
     { title: "About You" },
     { title: "About the Pet Boarding Space" },
     { title: "Rules & Amenities" },
-    { title: "Upload Images" },
     { title: "Add Ons" },
-    { title: "Service Packages" },
-    { title: "Faq's" },
     { title: "confirm" },
   ];
 
   return (
     <Grid container md={12} sm={12} xs={12}>
-      <LabelContext.Provider
+      <BothLabelContext.Provider
         value={{
           page,
           steps,
@@ -151,7 +131,7 @@ export const LabelProvider = (props) => {
         }}
       >
         {props.children}
-      </LabelContext.Provider>
+      </BothLabelContext.Provider>
     </Grid>
   );
 };

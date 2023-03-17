@@ -32,7 +32,7 @@ export const BecomePetHostService = () => {
   ];
   const navigate = useNavigate();
   const clickImage = () => {
-    navigate("/PetHomeBoarding");
+    navigate("/BothBoardAndService");
     
   };
   return (
