@@ -44,21 +44,22 @@ const PetBasicDetails = (props) => {
           defaultValues={DefaultBasicDetailsValues}
         />
       </Grid>
-
-      <ButtonGroup
-        variant="contained"
-        color="primary"
-        aria-label="text primary button group"
-        style={{ marginTop: 15 }}
-      >
-        <Button
-          disabled={!btnDisabled}
-          onClick={() => value.nextPage()}
-          style={{ margin: 25 }}
+      <Grid className="btn_align_edit">
+        <ButtonGroup
+          variant="contained"
+          color="primary"
+          aria-label="text primary button group"
+          style={{ marginTop: 15 }}
         >
-          Next
-        </Button>
-      </ButtonGroup>
+          <Button
+            disabled={!btnDisabled}
+            onClick={() => value.nextPage()}
+            // style={{ margin: 25 }}
+          >
+            Next
+          </Button>
+        </ButtonGroup>
+      </Grid>
     </form>
   );
 };

@@ -12,3 +12,10 @@
     font-size: 15px;
 }
 
+@media only screen and (min-width: 900px) and (max-width: 1267px){
+    .Appbar_btn button{
+    height: 30px;
+    border-radius: 50px;
+    font-size: 10px;
+    }
+}

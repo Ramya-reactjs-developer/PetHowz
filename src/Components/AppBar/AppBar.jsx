@@ -168,7 +168,7 @@ const Header = (props) => {
                     onChange={(e, value) => setValue(value)}
                   >
                     <Link
-                      to="/"
+                      to="/home"
                       activeClassName="active"
                       style={{ textDecoration: "none" }}
                     >

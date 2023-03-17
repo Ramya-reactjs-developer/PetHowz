@@ -6,3 +6,11 @@
 .gridAlign{
     text-align: end;
 }
+.btn_align_edit{
+    text-align: right;
+    padding: 20px 30px;
+}
+.btn_align_edit button{
+    color: #fff !important;
+    /* background-color: #ff183b !important; */
+}

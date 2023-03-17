@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import { Layout } from "../Layouts/Index";
 import { HomePage } from "../Pages/Home/Index";
-import { Login } from "@mui/icons-material";
+import Login from "../Pages/Login/Login";
 import { AllServices } from "../Pages/AllServices/Index";
 import { Grooming } from "../Pages/Grooming/Grooming";
 import GroomingService from "../Pages/GroomingService/GroomingService";
@@ -33,7 +33,7 @@ import { BookingRequestsHostDB } from "../Pages/HostDashBoard/MyBookingRequest/B
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route index element={<HomePage />} />
+      <Route path="home" index element={<HomePage />} />
       <Route path="Login" element={<Login />} />
       <Route path="AllServices" element={<AllServices />} />
       <Route path="Grooming" element={<Grooming />} />

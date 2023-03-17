@@ -6,9 +6,9 @@ import PetBasicDetails from "../../Components/PetServiceProvider/BasicDetails";
 import AboutPet from "../../Components/PetServiceProvider/AboutPet";
 import ServiceDetails from "../../Components/PetServiceProvider/ServiceDetails";
 import UploadImage from "../../Components/PetServiceProvider/UploadImage";
+import PetHostAddOn from "../../Components/Stepper/PetHostAddOn";
+import Faqs from "../../Components/Stepper/Faqs";
 import "./PetService.css";
-import AddScreen from "../../Components/PetServiceProvider/CommonPage";
-import Confirmation from "../../Components/Stepper/Confirmation";
 
 const PetService = () => {
   const value = useContext(LabelContext);
@@ -36,8 +36,8 @@ const PetService = () => {
           {value.page === 2 && <ServiceDetails />}
           {/* {value.page === 3 && <ShippingOption />} */}
           {value.page === 3 && <UploadImage />}
-          {value.page === 4 && <AddScreen />}
-          {value.page === 5 && <Confirmation />}
+          {value.page === 4 && <PetHostAddOn />}
+          {value.page === 5 && <Faqs />}
         </Grid>
       </Grid>
     </Grid>
