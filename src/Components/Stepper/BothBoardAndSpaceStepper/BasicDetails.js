@@ -180,11 +180,11 @@
 // };
 // export default PrintOnly;
 import React, { useContext } from "react";
-import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
+import { BothLabelContext } from "../../../Pages/JoinPetHost/BothBoardAndService/BothlabelDataContext";
 // import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import CustomForm from "../CustomForm/CustomForm";
+import CustomForm from "../../CustomForm/CustomForm";
 import { Grid, Typography } from "@mui/material";
 // import InputAdornment from "@material-ui/core/InputAdornment";
 import "./style.css";
@@ -192,12 +192,11 @@ import {
   BasicDetailsEntries,
   DefaultBasicDetailsValues,
   PetHostBasicDetailsEntries,
-} from "../../Pages/JoinPetHost/petHost/PetHostBasicDetailsEntries";
+} from "../../../Pages/JoinPetHost/BothBoardAndService/PetHostBasicDetailsEntries";
 
 const BasicDetails = () => {
-  const value = useContext(LabelContext);
+  const value = useContext(BothLabelContext);
   const BD = value.labelInfo?.BasicDetails;
-  console.log(BD, "manoj");
 
   const pg = value.page;
   const btnDisbaled =
@@ -213,29 +212,6 @@ const BasicDetails = () => {
     BD.location?.length > 0;
   console.log(BD.NameofPet, "name");
   console.log(BD.Status1, "gen");
-  // BD.Address?.length > 0 &&
-  // BD.City?.length > 0 &&
-  // BD.State?.length > 0 &&
-  // BD.Locality?.length > 0 &&
-  // BD.Pincode?.length > 0;
-  // BD.mobile_number?.length > 0 &&
-  // BD.Gender?.length > 0 &&
-  // BD.dob?.length > 0 &&
-  // BD.NNameOfYourPetBoardingSpace?.length > 0 &&
-  // BD.Address?.length > 0 &&
-  // BD.City?.length > 0 &&
-  // BD.State?.length > 0 &&
-  // BD.Locality?.length > 0 &&
-  // BD.Pincode?.length > 0;
-  //  mobile_number: "",
-  // Gender: "",
-  // dob: "",
-  // NameOfYourPetBoardingSpace: "",
-  // Address: "",
-  // City: "",
-  // State: "",
-  // Locality: "",
-  // Pincode: "",
   console.log(pg, "pg");
   console.log(BD, "BD");
   console.log(value, "valueBD");

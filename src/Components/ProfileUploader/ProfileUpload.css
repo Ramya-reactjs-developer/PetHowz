@@ -58,11 +58,14 @@
   top: -55%;
   width: 100px;
 } */
-.imageUpload{
-  width: 100%;
-    height: 100%;
+.ProfileImageUpload{
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     border-radius: 50%;
+    position: absolute;
+    top: -160px;
+    border: 1px solid #F85A47;
 }
 
 .regFormImageUpload {

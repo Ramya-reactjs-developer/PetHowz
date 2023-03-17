@@ -55,7 +55,6 @@ export const PetHostAddOnEntries = [
     validation_error_message: "Text is in Invalid format",
     error_message: "First Text",
   },
-
   {
     isFileUploader: true,
     name: "fileUploader",
@@ -65,6 +64,7 @@ export const PetHostAddOnEntries = [
     validation: { required: true },
     error_message: "Upload Image",
   },
+
   {
     isEmptySpace: true,
     breakpoint: 10,

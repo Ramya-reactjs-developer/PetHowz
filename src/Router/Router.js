@@ -5,13 +5,13 @@ import {
 } from "react-router-dom";
 import { Layout } from "../Layouts/Index";
 import { HomePage } from "../Pages/Home/Index";
-import { Login } from "@mui/icons-material";
+import Login from "../Pages/Login/Login";
 import { AllServices } from "../Pages/AllServices/Index";
 import { Grooming } from "../Pages/Grooming/Grooming";
 import GroomingService from "../Pages/GroomingService/GroomingService";
 import { BecomePetHostService } from "../Pages/JoinPetHost/BecomePetHostService";
 import PetCare from "../Pages/PetCare/PetCare";
-import PetSpace from "../Pages/JoinPetHost/petHost/PetHomeBoarding";
+// import PetSpace from "../Pages/JoinPetHost/petHost/PetHomeBoarding";
 import PetService from "../Pages/PetService/PetService";
 import { RegisterToPethowz } from "../Pages/CustomerRegistration/RegisterToPetHowz";
 import { AddAddress } from "../Pages/CustomerRegistration/AddAddress";
@@ -29,18 +29,27 @@ import { MyBookingsHostDB } from "../Pages/HostDashBoard/MyBookings/MyBookingsHo
 import { MyBoardingSpaceHostDB } from "../Pages/HostDashBoard/MyBoardingSpace/MyBoardingSpaceHostDB";
 import { MyServicesHostDB } from "../Pages/HostDashBoard/MyServices/MyServicesHostDB";
 import { BookingRequestsHostDB } from "../Pages/HostDashBoard/MyBookingRequest/BookingRequestsHostDb";
+import PetHomeBoarding from "../Pages/JoinPetHost/petHost/PetHomeBoarding";
+import PetHomeBoardingAndService from "../Pages/JoinPetHost/BothBoardAndService/BothBoardAndService";
+import BothBoardAndService from "../Pages/JoinPetHost/BothBoardAndService/BothBoardAndService";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route index element={<HomePage />} />
+      <Route path="home" index element={<HomePage />} />
       <Route path="Login" element={<Login />} />
       <Route path="AllServices" element={<AllServices />} />
       <Route path="Grooming" element={<Grooming />} />
       <Route path="GroomingService" element={<GroomingService />} />
       <Route path="BecomePetHostService" element={<BecomePetHostService />} />
       <Route path="PetCare" element={<PetCare />} />
-      <Route path="PetSpace" element={<PetSpace />} />
+      <Route path="PetHomeBoarding" element={<PetHomeBoarding />} />
+      <Route path="BothBoardAndService" element={<BothBoardAndService/>} />
+
+      
+      <Route path="PetHomeBoardingAndService" element={<PetHomeBoardingAndService />} />
+
+      
       <Route path="PetService" element={<PetService />} />
 
       {/* Register to PetHowz */}

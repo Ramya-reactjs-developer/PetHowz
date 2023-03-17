@@ -7,16 +7,21 @@
     height: 100%;
     /* object-fit: cover; */
 }
-.logoImg{
+.loginLogoImg{
     width: 150px;
     height: 100px;
     margin: 0 auto !important;
 }
-.logoImg img{
+.loginLogoImg img{
     width: 100%;
     height: 100%;
 }
 
+.inputBox input{
+    width: 280px;
+    padding: 8px 15px;
+    margin: 5px;
+}
 .loginText{
     width: 315px;
     margin: 0 auto !important;
@@ -36,7 +41,9 @@
     width: 320px;
     margin: 0 auto !important;
 }
-
+.loginButton{
+    padding-top: 20px;
+}
 .LoginSec{
     display: inline-flex;
     justify-content: center;
@@ -51,4 +58,17 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
     -webkit-transition-delay: 9999s;
+}
+
+.googleBtn{
+    background-color: #fff !important;
+    color: #000 !important;
+    width: 318px;
+}
+.googleGrid a{
+    text-decoration: none;
+}
+
+.googleGrid img{
+    height: 25px;
 }
