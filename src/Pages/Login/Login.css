@@ -59,3 +59,16 @@ input:-webkit-autofill:active {
     -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
     -webkit-transition-delay: 9999s;
 }
+
+.googleBtn{
+    background-color: #fff !important;
+    color: #000 !important;
+    width: 318px;
+}
+.googleGrid a{
+    text-decoration: none;
+}
+
+.googleGrid img{
+    height: 25px;
+}

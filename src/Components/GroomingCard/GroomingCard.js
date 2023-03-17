@@ -2,7 +2,7 @@ import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { useDispatch, useSelector } from "react-redux";
-import actions from "../../Actions";
+import actions from "../../Redux/Actions/index";
 import { Box, CardActionArea, Grid } from "@mui/material";
 import PropTypes from "prop-types";
 import CustomTypography from "../Typography/Typography";

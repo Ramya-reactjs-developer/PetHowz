@@ -8,8 +8,15 @@ import PropTypes from "prop-types";
  * @returns {React.ReactElement} returns the CustomButton
  */
 function CustomButton(props) {
-  const { btnTitle, variant, color, btnStyles, customClass, onClickHandle } =
-    props;
+  const {
+    btnTitle,
+    variant,
+    color,
+    btnStyles,
+    customClass,
+    onClickHandle,
+    image,
+  } = props;
 
   return (
     <Button
@@ -21,6 +28,7 @@ function CustomButton(props) {
       style={{ textTransform: "none" }}
       type="submit"
     >
+      <img src={image} alt="" />
       {btnTitle}
     </Button>
   );
@@ -33,6 +41,7 @@ CustomButton.propTypes = {
   customClass: PropTypes.string,
   btnStyles: PropTypes.oneOfType([PropTypes.object]),
   onClickHandle: PropTypes.func,
+  image: PropTypes.string,
 };
 CustomButton.defaultProps = {
   variant: "contained",
@@ -40,4 +49,5 @@ CustomButton.defaultProps = {
   customClass: "",
   btnStyles: {},
   onClickHandle: () => null,
+  image: "",
 };
