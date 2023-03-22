@@ -4,6 +4,60 @@ export const AddressEntries = [
   //     breakpoint: 1,
   //     name: "space",
   //   },
+  // {
+  //   isTextInput: true,
+  //   name: "Your_Name",
+  //   label: "Your Name",
+  //   placeholder: "Your Name",
+  //   breakpoint: 4,
+  //   validation: { required: true },
+  //   pattern: /^[a-zA-Z ]*$/,
+  //   requiredField: true,
+  //   customClass: "textBox",
+  //   error_message: "First Text",
+  //   validation_error_message: "Text is in Invalid format",
+  // },
+  // {
+  //   isTextInput: true,
+  //   name: "Mobile_number",
+  //   label: "Mobile number",
+  //   placeholder: "Enter Mobile_number",
+  //   breakpoint: 4,
+  //   validation: { required: true },
+  //   pattern: /^[a-zA-Z ]*$/,
+  //   requiredField: true,
+  //   customClass: "textBox",
+  //   error_message: "First Text",
+  //   validation_error_message: "Text is in Invalid format",
+  // },
+  // {
+  //   isTextInput: true,
+  //   name: "Email",
+  //   label: "Email",
+  //   placeholder: "Enter Email",
+  //   breakpoint: 4,
+  //   validation: { required: true },
+  //   pattern: /^[a-zA-Z ]*$/,
+  //   requiredField: true,
+  //   customClass: "textBox",
+  //   error_message: "First Text",
+  //   validation_error_message: "Text is in Invalid format",
+  // },
+  // {
+  //   isRadioAction: true,
+  //   name: "Gender",
+  //   label: "Gender",
+  //   breakpoint: 4,
+  //   radioButtonData: [{ name: "Photos" }, { name: "Videos" }],
+  //   validation: { required: true },
+  //   requiredField: true,
+  //   error_message: "Status",
+  // },
+  // {
+  //   isEmptySpace: true,
+  //   breakpoint: 8,
+  //   name: "space",
+  // },
   {
     isTextInput: true,
     name: "Street",
@@ -30,11 +84,6 @@ export const AddressEntries = [
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
-  //   {
-  //     isEmptySpace: true,
-  //     breakpoint: 1.05,
-  //     name: "space",
-  //   },
   {
     isTextInput: true,
     name: "Locality",
@@ -48,7 +97,11 @@ export const AddressEntries = [
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
-
+  //   {
+  //     isEmptySpace: true,
+  //     breakpoint: 1.05,
+  //     name: "space",
+  //   },
   {
     isTextInput: true,
     name: "State",
@@ -62,11 +115,6 @@ export const AddressEntries = [
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
-  //   {
-  //     isEmptySpace: true,
-  //     breakpoint: 1,
-  //     name: "space",
-  //   },
   {
     isTextInput: true,
     name: "Pincode",
@@ -80,10 +128,18 @@ export const AddressEntries = [
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
+
+
+  //   {
+  //     isEmptySpace: true,
+  //     breakpoint: 1,
+  //     name: "space",
+  //   },
+
   {
     isTextInput: true,
     name: "Location",
-    label: "Location",
+    label: " Pin Location",
     placeholder: "Enter Location",
     breakpoint: 6,
     validation: { required: true },
@@ -103,7 +159,7 @@ export const AddressEntries = [
     isSubmitButton: true,
     name: "submit_button",
     buttonTitle: "Next",
-    breakpoint: 5.6,
+    breakpoint: 3,
     customClass: "sourceButton",
   },
 ];

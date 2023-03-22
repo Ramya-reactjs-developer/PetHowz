@@ -41,8 +41,8 @@ const loginSlice = createSlice({
   },
   extraReducers: {
     [LOGIN.fulfilled]: (state, action) => {
-      (state.login.loading = false),
-        (state.login.error = false),
+      (state.login.loading = false)
+        (state.login.error = false)
         (state.login = action.payload);
     },
     [LOGIN.pending]: (state, action) => {

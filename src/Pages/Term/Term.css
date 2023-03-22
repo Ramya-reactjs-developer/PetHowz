@@ -59,3 +59,10 @@
 .termsButton{
     text-align: center;
 }
+/* .checkboxRow{
+    text-align: center !important;
+} */
+.checkBox_terms{
+    margin: auto !important;
+    /* font-size: 11px !important; */
+}
