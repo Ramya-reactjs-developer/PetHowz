@@ -1,16 +1,51 @@
 /* eslint-disable no-unused-expressions */
-import { Grid } from "@mui/material";
+import { Checkbox, FormControlLabel, FormGroup, Grid } from "@mui/material";
 import customImages from "../../Utils/Images";
 import CustomTypography from "../../Components/Typography/Typography";
 import CustomIcons from "../../Utils/Icons/Index";
 import CustomButton from "../../Components/Button/Button";
 import CheckboxLabels from "../../Components/CheckBox/CheckBox";
+import CustomForm from "../../Components/CustomForm/CustomForm";
 import "./Term.css";
-
+import { useDispatch, useSelector } from "react-redux";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router";
+import actions from "../../Redux/Actions";
+import { AddTermsentries, DefaultTermsValues } from "./TermsEntries";
 
 const Terms = (props) => {
- 
+  const dispatch = useDispatch();
+  // const [editId, setEditId] = useState();
 
+  const { TermsAndCondition } = useSelector(
+    (state) => state?.TermsAndCondition
+  );
+  console.log(TermsAndCondition, "TermsAndCondition");
+
+  const defaultValues = {};
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    defaultValues,
+  });
+  const navigate = useNavigate();
+  function onReceiveData(data1) {
+    console.log(data1, "checkData");
+    const data = {
+      data: data1,
+      method: "post",
+      apiName: "createPetDetails",
+    };
+    // navigate("/Terms");
+    dispatch(actions.CUSTOMER_ADD_PET(data));
+console.log(data,"datadata")
+    reset({
+      verified_the_data:""
+    });
+  }
   return (
     <Grid container md={12} lg={12} sm={12} xs={12}>
       <Grid item md={6} lg={6} sm={12} xs={12} className="textSec">
@@ -42,15 +77,14 @@ const Terms = (props) => {
           xs={12}
           className="checkboxRow"
         >
-          {/* <CheckboxLabels
-            data={checkBoxData}
-            onChange={onChange}
-            value={value}
-            disabled={keyValue.disabled}
-            labelText={label}
-            // id={keyValue.id}
-            forWidth={forWidth}
-          /> */}
+          <CustomForm
+            AllEntries={AddTermsentries}
+            // textFieldChange=((e)=>{value.handleChange})
+            // textFieldChange={(e) => handleChange(e)}
+            onReceiveData={onReceiveData}
+            defaultValues={DefaultTermsValues}
+            gridAlign="formAlign"
+          />
         </Grid>
         <Grid item md={12} lg={12} sm={12} xs={12} className="termsButton">
           <CustomButton
@@ -58,6 +92,7 @@ const Terms = (props) => {
             color="primary"
             variant="contained"
             btnStyles={{ color: "white", width: "400px" }}
+            handleSubmit={alert("uguyg")}
           />
         </Grid>
       </Grid>

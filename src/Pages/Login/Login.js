@@ -1,22 +1,22 @@
-import { Grid } from '@mui/material';
+import { Grid } from "@mui/material";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import customImages from '../../Utils/Images';
+import customImages from "../../Utils/Images";
 // import entries from './LoginEntries';
-import './Login.css';
-import CustomButton from '../../Components/Button/Button';
-import CustomTypography from '../../Components/Typography/Typography';
-import CustomTextField from '../../Components/TextField/TextField';
-import CustomIcons from '../../Utils/Icons/Index';
+import "./Login.css";
+import CustomButton from "../../Components/Button/Button";
+import CustomTypography from "../../Components/Typography/Typography";
+import CustomTextField from "../../Components/TextField/TextField";
+import CustomIcons from "../../Utils/Icons/Index";
 
 const Login = () => {
 
-      // const {
-      //   control,
-      //   handleSubmit,
-      //   formState: { errors },
-      // } = useForm({ mode: "onBlur" });
-  
+// const {
+  //   control,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm({ mode: "onBlur" });
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -27,17 +27,16 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (email === 'pethows@gmail.com' && password === 'pethows') {
-      localStorage.setItem('isLoggedIn', true);
-      localStorage.setItem('email', email);
+    if (email === "pethows@gmail.com" && password === "pethows") {
+      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("email", email);
 
       navigate("/home");
     } else {
-      alert('Invalid credentials');
+      alert("Invalid credentials");
     }
   };
 
-    
   return (
     <Grid container md={12} lg={12} sm={12} xs={12}>
       <Grid item md={6} lg={6} sm={12} xs={12} className="loginImg">
@@ -105,7 +104,6 @@ const Login = () => {
       </Grid>
     </Grid>
   );
-}
+};
 
 export default Login;
-

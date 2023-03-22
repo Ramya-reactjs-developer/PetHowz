@@ -1,8 +1,14 @@
 import { Box, Grid } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import CustomTypography from "../../../Components/Typography/Typography";
 import ProfileImageUploader2 from "../../../Components/ProfileImageUploader2/ProfileImageUploader2";
 import CustomButton from "../../../Components/Button/Button";
+import { Controller, useForm } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import { AddressEntries } from "../../CustomerRegistration/AddressEntries";
+import actions from "../../../Redux/Actions/index";
+
 import {
   ChangeAddressHost,
   ChangeEmailHost,
@@ -11,6 +17,73 @@ import {
 } from "./ProfileHostStyle";
 
 export const MyProfileHostDB = () => {
+  const [editId, setEditId] = useState();
+  const [editAbleValues, setEditAbleValues] = useState({});
+  const [btnTitle, setBtnTitle] = useState("SUBMIT");
+  const [list, setList] = useState();
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    defaultValues: editAbleValues,
+  });
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // Edit Function
+  const callOnSubmit = (submitData) => {
+    if (editId) {
+      AddressEntries.specialEditPayload.data = { ...submitData };
+      AddressEntries.specialEditPayload.id = editId;
+      dispatch(actions.USER_ADDRESS_DETAILS(AddressEntries.specialEditPayload));
+    } else {
+      AddressEntries.specialCreatePayload.data = { ...submitData };
+      dispatch(
+        actions.USER_ADDRESS_DETAILS(AddressEntries.specialCreatePayload)
+      );
+    }
+    setEditId("");
+    navigate("/AddAddress");
+  };
+
+  const callTableValue = () => {
+    setBtnTitle("SUBMIT");
+    setEditId("");
+
+    reset({});
+    dispatch(actions.USER_ADDRESS_DETAILS(AddressEntries.specialListPayload));
+  };
+  const onSubmit = (data) => {
+    console.log(data, "gggdata");
+    const submitData = { ...data };
+    reset({
+      speciality: "",
+      lab_test: "",
+      imaging_test: "",
+    });
+    callOnSubmit(submitData);
+
+    setList([
+      {
+        id: 1,
+        // title: getToastTitle(),
+        description: editId
+          ? "Data Updated successfully"
+          : "Data Added successfully",
+        backgroundColor: "check",
+        icon: "check",
+      },
+    ]);
+    setBtnTitle("SUBMIT");
+    setEditId("");
+  };
+  // const navigate = useNavigate();
+  // const onSubmit = () => {
+  //   navigate("/AddAddress");
+  // }
   return (
     <Grid container item xs={12}>
       {" "}
@@ -86,9 +159,10 @@ export const MyProfileHostDB = () => {
                 colorType="text"
               />
               <CustomButton
-                btnTitle={"Change Address"}
+                btnTitle="Edit Details"
                 color="primary"
                 btnStyles={ChangeAddressHost}
+                onClickHandle={onSubmit}
               />
             </Box>
 
@@ -103,10 +177,10 @@ export const MyProfileHostDB = () => {
           </Box>
         </Grid>
       </Grid>
-      <Grid item textAlign={"left"} xs={12} pt={"40px"}>
+      {/* <Grid item textAlign={"left"} xs={12} pt={"40px"}>
         <CustomTypography text="About Me" type="subHeading" colorType="text" />
-      </Grid>
-      <Grid
+      </Grid> */}
+      {/* <Grid
         container
         textAlign={"left"}
         md={12}
@@ -115,7 +189,6 @@ export const MyProfileHostDB = () => {
         xs={12}
         pt={"20px"}
       >
-        {/* <Grid container item md={10} lg={10} sm={12} xs={12} pl={2}> */}
 
         <Grid item md={4} sm={6} xs={6}>
           <CustomTypography
@@ -140,8 +213,8 @@ export const MyProfileHostDB = () => {
             customClass="serviceContent"
           />
         </Grid>
-        {/* </Grid> */}
-      </Grid>
+      
+      </Grid> */}
     </Grid>
   );
 };
