@@ -123,6 +123,7 @@ export const HomePage = () => {
       image8: customImages.s8,
     },
   ];
+
   const [searchData, setSearchData] = useState("");
 
   console.log(searchData, "ss");
@@ -183,6 +184,7 @@ export const HomePage = () => {
                     btnTitle="Search Now"
                     color="primary"
                     btnStyles={SearchButtonStyle}
+                    // onClickHandle={onSearch}
                   />
                 </Box>
               </Box>

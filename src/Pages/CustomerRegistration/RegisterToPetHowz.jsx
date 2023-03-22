@@ -1,5 +1,5 @@
-import React from "react";
-import { Box, Grid, TextField } from "@mui/material";
+import React, { useEffect } from "react";
+import { Box, Grid } from "@mui/material";
 import CustomTypography from "../../Components/Typography/Typography";
 import "./CustomerRegistration.css";
 
@@ -8,181 +8,56 @@ import {
   RegisterEntries,
 } from "./RegisterEntries";
 import CustomIcons from "../../Utils/Icons/Index";
+
+import { useDispatch, useSelector } from "react-redux";
 import { Controller, useForm } from "react-hook-form";
+import CustomTextField from "../../Components/TextField/TextField";
 import CustomRadioButton from "../../Components/RadioButton/RadioButton";
-import CustomDatePicker from "../../Components/DatePicker/DatePicker";
-import CustomSelect from "../../Components/Select/Select";
-import CustomImageUploader from "../../Components/FileUploader/FileUpload";
-import ProfileImageUploader from "../../Components/ProfileImageUploader/ProfileImageUploader";
 import CustomButton from "../../Components/Button/Button";
-import MultipleSelectChip from "../../Components/MultipleDropdown/MultipleDropdown";
+import CustomImageUploader from "../../Components/FileUploader/FileUpload";
+import actions from "../../Redux/Actions";
 
 export const RegisterToPethowz = (props) => {
-  //custom form
-  const {
-    AllEntries = RegisterEntries,
-
-    onChangeRadioAction,
-    textFieldChange,
-    customFormData,
-    defaultValues,
-    gridAlign,
-    editTrue,
-  } = props;
-  const [values, setValues] = React.useState([]);
-  console.log(values, "arhulvalues");
-  const [upload, setUpload] = React.useState(null);
+  const dispatch = useDispatch();
+  const defaultValues = DefaultRegisterEntriesValues;
+  // const [state, setstate] = React.useState();
   const [resetValue, setResetValue] = React.useState([]);
-  console.log("reset", defaultValues);
 
-  const [colorValue, setColorValue] = React.useState("");
-
-  const [sssvalue, setValue] = React.useState();
-  const onReceiveData = (data) => {
-    setValue(data);
-  };
-  console.log(sssvalue, "sssdata");
-  React.useEffect(() => {}, [sssvalue]);
   const {
     control,
     handleSubmit,
+    watch,
     formState: { errors },
     reset,
   } = useForm({
-    defaultValues: {
-      audioCall: [
-        {
-          timing: 15,
-          status: true,
-        },
-        {
-          timing: 30,
-          status: true,
-        },
-        {
-          timing: 45,
-          status: true,
-        },
-        {
-          timing: 60,
-          status: true,
-        },
-      ],
-      video: [
-        {
-          timing: 15,
-          status: true,
-        },
-        {
-          timing: 30,
-          status: true,
-        },
-        {
-          timing: 45,
-          status: true,
-        },
-        {
-          timing: 60,
-          status: true,
-        },
-      ],
-      chat: [
-        {
-          timing: 15,
-          status: true,
-        },
-        {
-          timing: 30,
-          status: true,
-        },
-        {
-          timing: 45,
-          status: true,
-        },
-        {
-          timing: 60,
-          status: true,
-        },
-      ],
-      report: [
-        {
-          timing: 15,
-          status: true,
-        },
-        {
-          timing: 30,
-          status: true,
-        },
-        {
-          timing: 45,
-          status: true,
-        },
-        {
-          timing: 60,
-          status: true,
-        },
-      ],
-    },
+    DefaultRegisterEntriesValues,
   });
+  const password = watch("password");
+  const confirmPassword = watch("confirmPassword");
+  function onSubmit(data1) {
+    const formData = new FormData();
+    formData.append("name", data1.name);
+    formData.append("mobile_number", data1.mobile_number);
+    formData.append("gender", data1.gender);
+    formData.append("email", data1.email);
+    formData.append("password", data1.password);
+    formData.append("image", data1.image[0]);
+    const data = {
+      data: formData,
+      method: "post",
+      apiName: "createRegistration",
+    };
+    console.log(data1, "checkdata");
+    dispatch(actions.REGISTERTOPETHOWZ(data));
+  }
 
-  /**
-   *
-   * @param {*} data
-   */
-
-  // useEffect(() => {
-  //   reset(defaultValues);
-  // }, [defaultValues, reset]);
-
-  const getImage = (val) => {
-    setUpload(val);
-    console.log(val, "val");
-  };
-
-  const handleDelete = (e, value) => {
-    e.preventDefault();
-    setValues(values.filter((name) => name !== value));
-  };
-  /**
-   *
-   * @param {*} data
-   */
-  const onSelectValue = (data) => {
-    setValues(data);
-  };
-
-  /**
-   *
-   * @param {*} data
-   */
-  const onSubmit = (data) => {
-    console.log(data, "fadsfadsf");
-    const customData = data;
-    console.log(customData, "customData");
-    const rateCards = [
-      { type: 1, data: customData.audioCall },
-      { type: 2, data: customData.video },
-      { type: 3, data: customData.chat },
-      { type: 4, data: customData.report },
-    ];
-    delete customData.audioCall;
-    delete customData.video;
-    delete customData.chat;
-    delete customData.report;
-    customData.RateCard = rateCards;
-    console.log(customData, "asdasdasd");
-    const AllData = Object.assign(customData, { color_text: colorValue });
-    onReceiveData(AllData);
-    customFormData(customData);
-    reset(defaultValues);
-    setResetValue(!resetValue);
-    console.log("customImage", defaultValues);
-  };
-  const handleCancel = () => {
-    reset(defaultValues);
-  };
   return (
-    <Grid container item xs={12}>
+    <Grid
+      container
+      item
+      xs={12}
+      height={{ xl: "120vh", lg: "120vh", md: "auto", sm: "auto", xs: "auto" }}
+    >
       <Grid item textAlign={"center"} sm={6} xs={12}>
         <img src={CustomIcons.Logo} alt="logo" />
         <Box sx={{ pt: "20px" }}>
@@ -198,79 +73,37 @@ export const RegisterToPethowz = (props) => {
           defaultValues={DefaultRegisterEntriesValues}
           onReceiveData={onReceiveData}
         /> */}
-        <Grid container item md={12} sm={12} xs={12}>
-          {AllEntries?.map((keyValue) => (
-            <Grid
-              item
-              md={keyValue.breakpoint}
-              sm={12}
-              xs={12}
-              className={gridAlign}
-            >
+
+        {/* manual customform */}
+        <Grid container className="NewsBorder" md={12}>
+          {RegisterEntries?.map((keyValue) => (
+            <Grid item md={keyValue.breakpoint} sm={12} xs={12}>
               <Controller
-                control={control}
+                name={keyValue.name}
                 rules={{
                   required: keyValue?.validation?.required,
-                  pattern: keyValue?.pattern,
-                  maxLength: keyValue?.validation?.maxLength,
+                  pattern: keyValue.pattern,
+                  // validate: (value) =>
+                  //   value === password || "passwords not match",
                 }}
+                control={control}
                 render={({ field: { onChange, value } }) => (
                   <>
-                    {keyValue?.isRadioAction && (
-                      <Grid item md={12} sm={12} xs={12} my={2} mx={2}>
-                        <CustomTypography
-                          type="header"
-                          text={keyValue.text}
-                          customClass={keyValue.customClass}
-                          colorType={keyValue.colorType}
-                        />
-                        <CustomRadioButton
-                          labelText={keyValue.label}
-                          onChange={(e) => {
-                            onChange(e);
-                            onChangeRadioAction(e, keyValue.name);
-                          }}
-                          value={value}
-                          data={keyValue.radioButtonData}
-                          requiredField={keyValue.requiredField}
-                          defaultValue
-                          customClass={keyValue.customClass}
-                        />
-
-                        {/* {keyValue?.isRadioAction2 && (
-                      <Grid item md={12} sm={12} xs={12} my={2} mx={2}>
-                        <CustomTypography
-                          type="header"
-                          text={keyValue.text}
-                          customClass={keyValue.customClass}
-                          colorType={keyValue.colorType}
-                        />
-                        <CustomRadioButton
-                          labelText={keyValue.label2}
-                          onChange={(e) => {
-                            onChange(e);
-                            onChangeRadioAction(e, keyValue.name2);
-                          }}
-                          value={value}
-                          data={keyValue.radioButtonData2}
-                          requiredField={keyValue.requiredField}
-                          defaultValue
-                          customClass={keyValue.customClass2}
-                        />
-                      </Grid>
-                    )} */}
-                      </Grid>
-                    )}
-
                     {keyValue?.isTextInput && (
-                      <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
-                        {console.log(value, "value")}
-
-                        <TextField
+                      <Grid
+                        className="textInputWidth"
+                        item
+                        md={12}
+                        sm={12}
+                        xs={12}
+                        my={2}
+                        mx={2}
+                      >
+                        <CustomTextField
                           label={keyValue.label}
                           onHandleChange={(e) => {
                             onChange(e);
-                            textFieldChange(e, keyValue.name);
+                            // textFieldChange(e, keyValue.name);
                           }}
                           value={value}
                           multiline={keyValue.multiline}
@@ -287,15 +120,14 @@ export const RegisterToPethowz = (props) => {
                         />
                       </Grid>
                     )}
-
                     {keyValue?.isFileUploader && (
                       <Grid
                         item
                         md={12}
                         sm={12}
+                        xs={12}
                         my={2}
                         mx={2}
-                        xs={12}
                         className="circleLogoBox"
                       >
                         <CustomImageUploader
@@ -308,7 +140,7 @@ export const RegisterToPethowz = (props) => {
                           customClass={keyValue.customClass}
                           getImage={(val) => {
                             onChange(val);
-                            getImage(val);
+                            // getImage(val);
                             props.textFieldChange(val, keyValue.name);
                           }}
                           regForm={keyValue.regForm}
@@ -317,106 +149,84 @@ export const RegisterToPethowz = (props) => {
                         />
                       </Grid>
                     )}
-
-                    {keyValue?.isProfileUploader && (
-                      <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
-                        <ProfileImageUploader />
-                      </Grid>
-                    )}
-                    {keyValue?.isSubmitButton && (
+                    {keyValue?.isPasswordInput && (
                       <Grid
+                        className="textInputWidth"
                         item
                         md={12}
                         sm={12}
                         xs={12}
+                        my={2}
                         mx={2}
-                        className="SubmitButtonColor"
                       >
-                        <CustomButton
-                          btnTitle={keyValue.buttonTitle}
-                          variant="contained"
-                          color="primary"
-                          customClass={keyValue.customClass}
-                          btnStyles={{
-                            color: "#fff",
-                            // background: "#F8BD22",
-                            marginTop: "50px",
+                        <CustomTextField
+                          label={keyValue.label}
+                          onHandleChange={(e) => {
+                            onChange(e);
+                            // textFieldChange(e, keyValue.name);
                           }}
-                          onClickHandle={handleSubmit(onSubmit)}
-                        />
+                          value={value}
+                          multiline={keyValue.multiline}
+                          rows={keyValue.rows}
+                          type={keyValue.type}
+                          placeholder={keyValue.placeholder}
+                          disabled={keyValue?.disabled}
+                          uniqueText={keyValue.uniqueText}
+                          requiredField={keyValue.requiredField}
+                          // customClass="textBox"
+                          customClass={keyValue.customClass}
+                          defaultValue={keyValue.defaultValue}
+                          resetValue={resetValue}
+                          // textInputIcon={true}
+                        />{" "}
+                        {errors &&
+                          errors[keyValue?.name]?.type === "validate" && (
+                            <Grid>
+                              <CustomTypography
+                                text={`${errors.confirmPassword.message} `}
+                                type="error"
+                              />
+                            </Grid>
+                          )}
                       </Grid>
                     )}
-                    {keyValue.isCancelButton && (
+                    {keyValue?.isRadioAction && (
                       <Grid
                         item
+                        textAlign={"left"}
                         md={12}
                         sm={12}
                         xs={12}
+                        my={2}
                         mx={2}
-                        className="CancelButtonColor"
                       >
-                        <CustomButton
-                          btnTitle={keyValue.buttonTitle}
-                          customClass={keyValue.customClass}
-                          variant="outlined"
-                          color="primary"
-                          btnStyles={{
-                            color: "#7b7b7be6",
-                            marginTop: "50px",
-                            border: "1px solid #E2E2E2",
-                          }}
-                          onClickHandle={() => handleCancel()}
-                        />
-                      </Grid>
-                    )}
-
-                    {keyValue?.isCustomTypography && (
-                      <Grid item md={12} sm={12} xs={12}>
                         <CustomTypography
                           type="header"
                           text={keyValue.text}
                           customClass={keyValue.customClass}
                           colorType={keyValue.colorType}
                         />
-                        <CustomTypography
-                          type="title"
-                          colorType={keyValue.colorType1}
-                          text={keyValue.text2}
-                          customClass={keyValue.customClass1}
+                        <CustomRadioButton
+                          labelText={keyValue.label}
+                          onChange={(e) => {
+                            onChange(e);
+                            // onChangeRadioAction(e, keyValue.name);
+                          }}
+                          value={value}
+                          data={keyValue.radioButtonData}
+                          requiredField={keyValue.requiredField}
+                          defaultValue
+                          customClass={keyValue.customClass}
                         />
                       </Grid>
                     )}
-                    {keyValue?.isEmptySpace && (
-                      <Grid item md={12} customClass={keyValue.customClass} />
-                    )}
                   </>
                 )}
-                name={keyValue?.name}
               />
               {errors && errors[keyValue?.name]?.type === "required" && (
                 <Grid>
                   <CustomTypography
-                    text={`${keyValue?.error_message} is required`}
-                    colorType="error"
-                    customClass="errorText"
-                  />
-                </Grid>
-              )}
-
-              {errors && errors[keyValue?.name]?.type === "maxLength" && (
-                <Grid>
-                  <CustomTypography
-                    text={`${keyValue?.label} is not valid`}
-                    colorType="error"
-                    customClass="errorText"
-                  />
-                </Grid>
-              )}
-              {errors && errors[keyValue?.name]?.type === "pattern" && (
-                <Grid>
-                  <CustomTypography
-                    text={`${keyValue?.label} invalid format`}
-                    colorType="error"
+                    text={`${keyValue?.label} is Required`}
                     type="error"
                   />
                 </Grid>
@@ -424,14 +234,45 @@ export const RegisterToPethowz = (props) => {
               {errors && errors[keyValue?.name]?.type === "pattern" && (
                 <Grid>
                   <CustomTypography
-                    text={`${keyValue?.validation_error_message}`}
-                    colorType="error"
-                    customClass="errorText"
+                    text={`${keyValue?.label} is Invalid`}
+                    type="error"
                   />
                 </Grid>
               )}
             </Grid>
           ))}
+        </Grid>
+        <Grid
+          container
+          md={12}
+          lg={12}
+          sm={12}
+          xs={12}
+          display="inline-flex"
+          justifyContent="space-around"
+          pt={"60px"}
+        >
+          <Grid item xs={5}></Grid>
+          <Grid item>
+            <CustomButton
+              btnTitle="Next"
+              variant="contained"
+              color="primary"
+              btnStyles={{
+                color: "#fff",
+                background: "#f85a47",
+                width: {
+                  lg: "250px",
+                  md: "200px",
+                  sm: "150px",
+                  xs: "200px",
+                },
+                fontSize: "17px",
+                fontFamily: "Poppins_Medium",
+              }}
+              onClickHandle={handleSubmit(onSubmit)}
+            />
+          </Grid>
         </Grid>
       </Grid>
       <Grid item textAlign={"center"} className="Box-Image" sm={6} xs={12}>
