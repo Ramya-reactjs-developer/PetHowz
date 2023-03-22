@@ -1,12 +1,58 @@
-import React from "react";
+import React, { UseEffect } from "react";
 import { Box, Grid } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { Controller, useForm } from "react-hook-form";
+
+import actions from "../../Redux/Actions/index";
 import CustomTypography from "../../Components/Typography/Typography";
 import "./CustomerRegistration.css";
 import CustomForm from "../../Components/CustomForm/CustomForm";
 import CustomIcons from "../../Utils/Icons/Index";
 import { AddressEntries, DefaultAddressEntriesValues } from "./AddressEntries";
+import { useNavigate } from "react-router";
 
 export const AddAddress = () => {
+  const dispatch = useDispatch();
+  // const [editId, setEditId] = useState();
+  const defaultValues = {};
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    defaultValues,
+  });
+
+  const { userAddressDetails } = useSelector(
+    (state) => state?.userAddressDetails
+  );
+  console.log(userAddressDetails, "userAddressDetails");
+  const navigate = useNavigate();
+  function onReceiveData(data1) {
+    console.log(data1, "checkDaggta");
+    const data = {
+      data: data1,
+      method: "post",
+      apiName: "createUserDetails",
+    };
+    navigate("/Terms");
+    dispatch(actions.USER_ADDRESS_DETAILS(data));
+
+    reset({
+      Your_Name: "",
+      Mobile_number: "",
+      Email: "",
+      Gender: "",
+      Street: "",
+      City: "",
+      State: "",
+      Pincode: "",
+      Locality: "",
+      Location: "",
+    });
+  }
+
   return (
     <Grid container item xs={12}>
       <Grid item textAlign={"center"} height={{ lg: "100vh" }} sm={6} xs={12}>
@@ -22,6 +68,7 @@ export const AddAddress = () => {
         <CustomForm
           AllEntries={AddressEntries}
           defaultValues={DefaultAddressEntriesValues}
+          onReceiveData={onReceiveData}
         />
       </Grid>
       <Grid item textAlign={"center"} className="Box-Image1" sm={6} xs={12}>
