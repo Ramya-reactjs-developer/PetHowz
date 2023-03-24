@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { FormControl, Select, MenuItem, Box, InputLabel } from '@mui/material';
-import './Select.css';
-import CustomTypography from '../Typography/Typography';
+import React from "react";
+import PropTypes from "prop-types";
+import { FormControl, Select, MenuItem, Box, InputLabel } from "@mui/material";
+
+import CustomTypography from "../Typography/Typography";
 /**
  *
  * @param {object} props - props required in normal dropdown
@@ -10,6 +10,9 @@ import CustomTypography from '../Typography/Typography';
  */
 function CustomSelect(props) {
   const {
+    customStyle,
+    customStyle2,
+    customStyle3,
     data,
     handleChange,
     // dropDownChange,
@@ -23,7 +26,7 @@ function CustomSelect(props) {
     placeholder,
     requiredField,
   } = props;
-  console.log(selectedValue, 'handleChange');
+  console.log(selectedValue, "handleChange");
   return (
     <Box className="box" item md={12} sm={12}>
       <Box>
@@ -36,13 +39,26 @@ function CustomSelect(props) {
           requiredField={requiredField}
         />
       </Box>
-      <FormControl className="formControl" fullWidth disabled={disabled} size="small">
-        <InputLabel id="demo-simple-select-label" color="primary" className="input">
+      <FormControl
+        className="formControl"
+        fullWidth
+        disabled={disabled}
+        sx={customStyle}
+        // size="large"
+      >
+        <InputLabel
+          id="demo-simple-select-label"
+          color="primary"
+          className="input"
+          sx={customStyle2}
+        >
           {placeholder}
         </InputLabel>
 
         <Select
-          size="small"
+          // size="large"
+          // autoWidth={true}
+          sx={customStyle3}
           name={name}
           fullWidth
           // labelId="demo-simple-select-label"
@@ -53,11 +69,11 @@ function CustomSelect(props) {
           label={label}
           selectedValue={selectedValue}
           data={data}
-          className={`${customClass} ${disabled && 'disable'} customDropdown`}
+          className={`${customClass} ${disabled && "disable"} customDropdown`}
           onChange={(e) => handleChange(e)}
           // dropDownChange={(e) => dropDownChange(e)}
           displayEmpty
-          inputProps={{ 'aria-label': 'Without label' }}
+          inputProps={{ "aria-label": "Without label" }}
         >
           {data?.length &&
             data?.map((item) => (
@@ -85,13 +101,16 @@ CustomSelect.propTypes = {
   requiredField: PropTypes.bool,
   placeholder: PropTypes.string,
   labelText: PropTypes.string,
+  customStyle: PropTypes.any,
+  customStyle2: PropTypes.any,
+  customStyle3: PropTypes.any,
 };
 CustomSelect.defaultProps = {
   disabled: false,
-  label: '',
-  customClass: '',
-  selectedValue: '',
+  label: "",
+  customClass: "",
+  selectedValue: "",
   requiredField: false,
-  placeholder: '',
-  labelText: '',
+  placeholder: "",
+  labelText: "",
 };

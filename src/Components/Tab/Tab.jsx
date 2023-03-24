@@ -1,7 +1,7 @@
 import React from "react";
 import { Tabs, Tab, Box } from "@mui/material";
 import PropTypes from "prop-types";
-import "./Tab.css";
+// import "./Tab.css";
 /**
  *
  * @param {object} props - require props in CustomTab component
@@ -21,6 +21,8 @@ function CustomTab(props) {
               style: {
                 backgroundColor: item.tabColor,
                 textColor: item.textColor,
+                fontSize: item.fontSize,
+                textTransform: "none",
 
                 // left: '8px',
                 // width: '75px',
@@ -38,6 +40,7 @@ function CustomTab(props) {
                     borderRadius: "23px",
                     background: "#F85A47",
                     color: item.tabColor,
+                    textTransform: "none",
                   },
                 },
               }}

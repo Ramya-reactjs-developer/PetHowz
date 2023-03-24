@@ -16,6 +16,8 @@ import {
 } from "./HomeStyle";
 
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import actions from "../../Redux/Actions";
 
 export const HomePage = () => {
   const CardData = [
@@ -123,16 +125,47 @@ export const HomePage = () => {
       image8: customImages.s8,
     },
   ];
-
+  const dispatch = useDispatch();
   const [searchData, setSearchData] = useState("");
+  const [searchDropdownData, setSearchDropdownData] = useState({ city: "" });
 
-  console.log(searchData, "ss");
   const OnSetSearch = (e) => {
     setSearchData(e.target.value);
   };
+  const OnSetDropdownSearch = (e) => {
+    setSearchDropdownData({ ...searchData, city: e.target.value });
+    var updatedValue = { city: e.target.value };
+    const data = {
+      data: updatedValue,
+      method: "post",
+      apiName: "getLocality",
+    };
+    console.log({ city: e.target.value }, "datadrop");
+    dispatch(actions.SEARCHCITY(data));
+  };
 
-  useEffect(() => {}, [searchData]);
+  useEffect(() => {
+    // if (!searchDropdownData) {
+    //   dispatch(actions.SEARCHCITY(data));
+    // }
+  }, [searchDropdownData]);
+  // console.log(searchData, "searchData");
+  // console.log(searchDropdownData, "searchDropdownData");
 
+  const dropdownData = [
+    {
+      id: 1,
+      value: "Chennai",
+    },
+    {
+      id: 2,
+      value: "Delhi",
+    },
+    {
+      id: 3,
+      value: "Kerala",
+    },
+  ];
   return (
     // <div>
     //   HomePage
@@ -170,21 +203,19 @@ export const HomePage = () => {
                   customStyle={{ fontFamily: "Cooper" }}
                 />
               </Box>
-              <Box sx={SearchBarStyle}>
+              <Box>
                 <Box>
                   <SearchBar
+                    dropdownData={dropdownData}
+                    dropdownValue={searchDropdownData.city}
                     SearchValue={searchData}
+                    dropdownName={"city"}
+                    handleDropdownChange={(e) => {
+                      OnSetDropdownSearch(e);
+                    }}
                     handleSearch={(e) => {
                       OnSetSearch(e);
                     }}
-                  />
-                </Box>
-                <Box sx={SearchButtonPadding}>
-                  <CustomButton
-                    btnTitle="Search Now"
-                    color="primary"
-                    btnStyles={SearchButtonStyle}
-                    // onClickHandle={onSearch}
                   />
                 </Box>
               </Box>

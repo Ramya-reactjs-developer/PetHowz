@@ -18,9 +18,9 @@ export const SearchBarStyle = {
   },
 
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "flex-start",
   gap: "20px",
-  pt: "40px",
+
   textAlign: "center",
 };
 
