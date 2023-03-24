@@ -6,6 +6,7 @@ import registertopethowz from "../Slices/RegisterToPethowz/RegisterToPetHowz";
 import userAddressDetailsSlice from "../Slices/userAddress/userAddressDetailsSlice";
 import TermsAndConditionSlice from "../Slices/TermsAndCondition/TermsAndConditionSlice";
 import CustomerAddPetSlice from "../Slices/CustomerAddPet/CustomerAddPetSlice";
+import SearchCitySlice from "../Slices/SearchCity/SearchCitySlice";
 
 const reducer = combineReducers({
   grooming: groomingSlice,
@@ -14,6 +15,7 @@ const reducer = combineReducers({
   registertopethowz: registertopethowz,
   TermsAndCondition: TermsAndConditionSlice,
   CustomerAddPet: CustomerAddPetSlice,
+  searchcity: SearchCitySlice,
 });
 
 const store = configureStore({

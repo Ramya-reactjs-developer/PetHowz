@@ -1,7 +1,7 @@
-import React from 'react';
-import { Tabs, Tab, Box } from '@mui/material';
-import PropTypes from 'prop-types';
-import './customTab.css';
+import React from "react";
+import { Tabs, Tab, Box } from "@mui/material";
+import PropTypes from "prop-types";
+// import "./customTab.css";
 /**
  *
  * @param {object} props - require props in CustomTab component
@@ -10,7 +10,7 @@ import './customTab.css';
 function CustomTab(props) {
   const { tabList, handleChange, value } = props;
   return (
-    <Box sx={{ width: '100%', display: 'flex' }}>
+    <Box sx={{ width: "100%", display: "flex" }}>
       {tabList?.map((item, index) => {
         const key = index;
         return (
@@ -21,9 +21,8 @@ function CustomTab(props) {
               style: {
                 backgroundColor: item.tabColor,
                 textColor: item.textColor,
-                // left: '8px',
-                // width: '75px',
-                // height: '3px'
+                fontSize: item.fontSize,
+                textTransform: "none",
               },
             }}
           >
@@ -32,12 +31,13 @@ function CustomTab(props) {
               label={item.tabText}
               className="tabValue"
               sx={{
-                '&.MuiTab-root': {
-                  '&.Mui-selected': {
+                "&.MuiTab-root": {
+                  "&.Mui-selected": {
                     color: item.tabColor,
-                    fontWeight: 600,
-                    fontSize: '16px',
+
+                    // fontWeight: 600,
                   },
+                  textTransform: "none",
                 },
               }}
             />

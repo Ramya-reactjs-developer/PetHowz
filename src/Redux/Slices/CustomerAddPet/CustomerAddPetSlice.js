@@ -42,9 +42,9 @@ const CustomerAddPetSlice = createSlice({
   },
   extraReducers: {
     [CUSTOMER_ADD_PET.fulfilled]: (state, action) => {
-      (state.CustomerAddPet.loading = false)
+      (state.CustomerAddPet.loading = false)(
         (state.CustomerAddPet.error = false)
-        (state.CustomerAddPet = action.payload);
+      )((state.CustomerAddPet = action.payload));
     },
     [CUSTOMER_ADD_PET.pending]: (state, action) => {
       (state.CustomerAddPet.loading = true),

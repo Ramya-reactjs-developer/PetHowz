@@ -19,11 +19,15 @@ import actions from "../../Redux/Actions";
 
 export const RegisterToPethowz = (props) => {
   const dispatch = useDispatch();
-  const defaultValues = DefaultRegisterEntriesValues;
-  // const [state, setstate] = React.useState();
-  const [resetValue, setResetValue] = React.useState([]);
 
+  const defaultValues = DefaultRegisterEntriesValues;
+  const [state, setstate] = React.useState();
+  console.log(state, "state");
+  const [resetValue, setResetValue] = React.useState([]);
+  const userGet = useSelector((state) => state?.registertopethowz);
+  console.log(userGet, "userget");
   const {
+    register,
     control,
     handleSubmit,
     watch,
@@ -32,8 +36,7 @@ export const RegisterToPethowz = (props) => {
   } = useForm({
     DefaultRegisterEntriesValues,
   });
-  const password = watch("password");
-  const confirmPassword = watch("confirmPassword");
+
   function onSubmit(data1) {
     const formData = new FormData();
     formData.append("name", data1.name);
@@ -50,6 +53,10 @@ export const RegisterToPethowz = (props) => {
     console.log(data1, "checkdata");
     dispatch(actions.REGISTERTOPETHOWZ(data));
   }
+  const password = watch("password");
+  const confirmPassword = watch("confirmPassword");
+  console.log(password, "password");
+  console.log(confirmPassword, "confirmPassword");
 
   return (
     <Grid
@@ -83,8 +90,7 @@ export const RegisterToPethowz = (props) => {
                 rules={{
                   required: keyValue?.validation?.required,
                   pattern: keyValue.pattern,
-                  // validate: (value) =>
-                  //   value === password || "passwords not match",
+                  // validate: (value) => value === password,
                 }}
                 control={control}
                 render={({ field: { onChange, value } }) => (
@@ -179,15 +185,13 @@ export const RegisterToPethowz = (props) => {
                           resetValue={resetValue}
                           // textInputIcon={true}
                         />{" "}
-                        {errors &&
+                        {/* {errors &&
                           errors[keyValue?.name]?.type === "validate" && (
-                            <Grid>
-                              <CustomTypography
-                                text={`${errors.confirmPassword.message} `}
-                                type="error"
-                              />
-                            </Grid>
-                          )}
+                            <CustomTypography
+                              text={`${keyValue?.label} not match`}
+                              type="error"
+                            />
+                          )} */}
                       </Grid>
                     )}
                     {keyValue?.isRadioAction && (
