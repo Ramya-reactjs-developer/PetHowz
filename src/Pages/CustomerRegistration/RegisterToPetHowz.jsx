@@ -16,6 +16,7 @@ import CustomRadioButton from "../../Components/RadioButton/RadioButton";
 import CustomButton from "../../Components/Button/Button";
 import CustomImageUploader from "../../Components/FileUploader/FileUpload";
 import actions from "../../Redux/Actions";
+import { useNavigate } from "react-router";
 
 export const RegisterToPethowz = (props) => {
   const dispatch = useDispatch();
@@ -32,8 +33,13 @@ export const RegisterToPethowz = (props) => {
   } = useForm({
     DefaultRegisterEntriesValues,
   });
+  const navigate = useNavigate();
   const password = watch("password");
   const confirmPassword = watch("confirmPassword");
+
+  const { registertopethowz } = useSelector((state) => state?.registertopethowz);
+  console.log(registertopethowz, "checkdata");
+
   function onSubmit(data1) {
     const formData = new FormData();
     formData.append("name", data1.name);
@@ -48,6 +54,7 @@ export const RegisterToPethowz = (props) => {
       apiName: "createRegistration",
     };
     console.log(data1, "checkdata");
+    navigate("/AddAddress");
     dispatch(actions.REGISTERTOPETHOWZ(data));
   }
 

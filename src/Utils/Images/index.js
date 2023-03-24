@@ -1,5 +1,5 @@
-import Dog1 from "../../Assets/Images/dogs.jpg";
-import Dog2 from "../../Assets/Images/dogss.jpg";
+import Dog1 from "../../Assets/Images/dogs.png";
+import Dog2 from "../../Assets/Images/dogss.png";
 import PetImage from "../../Assets/Images/download.jpeg";
 import Service from "../../Assets/Images/service.jpg";
 import s1 from "../../Assets/Images/s1.jpg";

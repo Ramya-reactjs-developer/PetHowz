@@ -1,6 +1,8 @@
 .PetBoardImage{
 /* align-items: center !important; */
-    
+position: absolute;
+/* width: 450px !important; */
+height: 100%;
 }
 .petImage{
     width: 650px !important;
@@ -42,6 +44,18 @@
     left: 0;
     top: 70px;
 } */
+.image_front_color{
+    width: 100%;
+    background-color: #f85a47;
+    opacity: 0.5;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+.BoaedingCards{
+width: 0 !important;
+}
 .petService{
     color: #2C3051 !important;
     font-family: sans-serif !important;

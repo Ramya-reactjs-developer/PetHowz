@@ -1,4 +1,4 @@
-import { CustomerAddPetAction } from "../Slices/CustomerAddPet/CustomerAddPetSlice";
+import { CustomerAddAnotherPetAction } from "../Slices/CustomerAddPet/CustomerAddPetSlice";
 import { groomingAction } from "../Slices/Grooming/Grooming";
 import { loginAction } from "../Slices/Login/login";
 import { registertopethowzAction } from "../Slices/RegisterToPethowz/RegisterToPetHowz";
@@ -11,7 +11,7 @@ const actions = {
   ...registertopethowzAction,
   ...userAddressDetailsAction,
   ...TermsAndConditionAction,
-  ...CustomerAddPetAction,
+  ...CustomerAddAnotherPetAction,
 };
 
 export default actions;

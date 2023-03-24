@@ -1,17 +1,18 @@
 /* eslint-disable no-unused-expressions */
+import React, { useState } from "react";
 import { Checkbox, FormControlLabel, FormGroup, Grid } from "@mui/material";
 import customImages from "../../Utils/Images";
 import CustomTypography from "../../Components/Typography/Typography";
 import CustomIcons from "../../Utils/Icons/Index";
 import CustomButton from "../../Components/Button/Button";
-import CheckboxLabels from "../../Components/CheckBox/CheckBox";
+import CustomCheckbox from "../../Components/CheckBox/CheckBox";
 import CustomForm from "../../Components/CustomForm/CustomForm";
 import "./Term.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import actions from "../../Redux/Actions";
-import { AddTermsentries, DefaultTermsValues } from "./TermsEntries";
+import { AddTermsEntries, DefaultTermsValues } from "./TermsEntries";
 
 const Terms = (props) => {
   const dispatch = useDispatch();
@@ -32,20 +33,22 @@ const Terms = (props) => {
     defaultValues,
   });
   const navigate = useNavigate();
-  function onReceiveData(data1) {
-    console.log(data1, "checkData");
-    const data = {
-      data: data1,
-      method: "post",
-      apiName: "createPetDetails",
-    };
-    // navigate("/Terms");
-    dispatch(actions.CUSTOMER_ADD_PET(data));
-console.log(data,"datadata")
-    reset({
-      verified_the_data:""
-    });
+  function onSubmit(data1) {
+    // console.log(data1, "checkData");
+    // const data = {
+    //   data: data1,
+    //   method: "post",
+    //   apiName: "updateUserTermsCondtionStatus",
+    // };
+    navigate("/AddYourPetLogin");
+    // dispatch(actions.TERMS_AND_CONDITION(data));
+    // console.log(data, "datadata");
+    // reset({
+    //   verified_the_data: "",
+    // });
   }
+  const [resetValue, setResetValue] = useState([]);
+
   return (
     <Grid container md={12} lg={12} sm={12} xs={12}>
       <Grid item md={6} lg={6} sm={12} xs={12} className="textSec">
@@ -77,14 +80,63 @@ console.log(data,"datadata")
           xs={12}
           className="checkboxRow"
         >
-          <CustomForm
-            AllEntries={AddTermsentries}
-            // textFieldChange=((e)=>{value.handleChange})
-            // textFieldChange={(e) => handleChange(e)}
-            onReceiveData={onReceiveData}
-            defaultValues={DefaultTermsValues}
-            gridAlign="formAlign"
-          />
+          {AddTermsEntries?.map((keyValue) => (
+            <Grid item md={keyValue.breakpoint} sm={12} xs={12}>
+              <Controller
+                name={keyValue.name}
+                rules={{
+                  required: keyValue?.validation?.required,
+                  pattern: keyValue.pattern,
+                  // validate: (value) =>
+                  //   value === password || "passwords not match",
+                }}
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                  <>
+                    {keyValue?.isCheckBoxAction && (
+                      <Grid
+                        className="textInputWidth"
+                        item
+                        md={12}
+                        sm={12}
+                        xs={12}
+                        my={2}
+                        mx={2}
+                      >
+                        <CustomCheckbox
+                          data={keyValue?.checkBoxData}
+                          onChange={onChange}
+                          value={value}
+                          disabled={keyValue.disabled}
+                          labelText={keyValue.label}
+                          requiredField={keyValue.requiredField}
+                          id={keyValue.id}
+                          forWidth={keyValue.forWidth}
+                          resetValue={resetValue}
+                        />
+                      </Grid>
+                    )}
+                  </>
+                )}
+              />
+              {errors && errors[keyValue?.name]?.type === "required" && (
+                <Grid>
+                  <CustomTypography
+                    text={`${keyValue?.label} is Required`}
+                    type="error"
+                  />
+                </Grid>
+              )}
+              {errors && errors[keyValue?.name]?.type === "pattern" && (
+                <Grid>
+                  <CustomTypography
+                    text={`${keyValue?.label} is Invalid`}
+                    type="error"
+                  />
+                </Grid>
+              )}
+            </Grid>
+          ))}
         </Grid>
         <Grid item md={12} lg={12} sm={12} xs={12} className="termsButton">
           <CustomButton
@@ -92,7 +144,7 @@ console.log(data,"datadata")
             color="primary"
             variant="contained"
             btnStyles={{ color: "white", width: "400px" }}
-            handleSubmit={alert("uguyg")}
+            onClickHandle={handleSubmit(onSubmit)}
           />
         </Grid>
       </Grid>

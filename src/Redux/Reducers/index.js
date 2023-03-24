@@ -2,18 +2,18 @@ import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
 import groomingSlice from "../Slices/Grooming/Grooming";
 import loginSlice from "../Slices/Login/login";
-import registertopethowz from "../Slices/RegisterToPethowz/RegisterToPetHowz";
+import registertopethowzSlice from "../Slices/RegisterToPethowz/RegisterToPetHowz";
 import userAddressDetailsSlice from "../Slices/userAddress/userAddressDetailsSlice";
 import TermsAndConditionSlice from "../Slices/TermsAndCondition/TermsAndConditionSlice";
-import CustomerAddPetSlice from "../Slices/CustomerAddPet/CustomerAddPetSlice";
+import CustomerAddAnotherPetSlice from "../Slices/CustomerAddPet/CustomerAddPetSlice"
 
 const reducer = combineReducers({
   grooming: groomingSlice,
   userAddressDetails: userAddressDetailsSlice,
   login: loginSlice,
-  registertopethowz: registertopethowz,
+  registertopethowz: registertopethowzSlice,
   TermsAndCondition: TermsAndConditionSlice,
-  CustomerAddPet: CustomerAddPetSlice,
+  CustomerAddAnotherPet: CustomerAddAnotherPetSlice,
 });
 
 const store = configureStore({
