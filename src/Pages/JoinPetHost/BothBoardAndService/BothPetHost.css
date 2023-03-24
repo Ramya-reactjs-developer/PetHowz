@@ -91,12 +91,4 @@ height: 100%;
   width: 100%;
   height: auto;
 } */
-.image_front_color{
-  width: 100%;
-  background-color: #f85a47;
-  opacity: 0.5;
-  height: 100%;
-  position: absolute;
-  /* top: 0; */
-  left: 0;
-}
+

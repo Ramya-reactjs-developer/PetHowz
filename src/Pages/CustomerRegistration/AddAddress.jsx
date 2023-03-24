@@ -24,10 +24,8 @@ export const AddAddress = () => {
     defaultValues,
   });
 
-  const { userAddressDetails } = useSelector(
-    (state) => state?.userAddressDetails
-  );
-  console.log(userAddressDetails, "userAddressDetails");
+  const { registertopethowz } = useSelector((state) => state?.registertopethowz);
+  console.log(registertopethowz, "registertopethowz");
   const navigate = useNavigate();
   function onReceiveData(data1) {
     console.log(data1, "checkDaggta");

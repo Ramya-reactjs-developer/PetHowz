@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import actions from "../../../Redux/Actions";
+import axios from "axios";
+
 import CustomForm from "../../../Components/CustomForm/CustomForm";
 import {
   AddAnotherPetEntries,
@@ -23,21 +25,18 @@ function AddAnotherPet() {
     defaultValues,
   });
 
-  // const { CustomerAddPet } = useSelector(
-  //   (state) => state?.CustomerAddPet
-  // );
-  // console.log(CustomerAddPet, "CustomerAddPet");
-  const navigate = useNavigate();
+  const { registertopethowz } = useSelector(
+    (state) => state?.registertopethowz
+  );
+  console.log(registertopethowz, "registertopethowz");
   function onReceiveData(data1) {
-    console.log(data1, "checkData");
     const data = {
       data: data1,
       method: "post",
       apiName: "createPetDetails",
     };
-    // navigate("/Terms");
-    dispatch(actions.CUSTOMER_ADD_PET(data));
-console.log(data,"datadata")
+    dispatch(actions.CUSTOMER_ADD_ANOTHER_PET(data));
+    console.log(data,"datadata")
     reset({
       Your_Name: "",
       Mobile_number: "",
@@ -51,6 +50,31 @@ console.log(data,"datadata")
       Location: "",
     });
   }
+
+  // function onReceiveData(data1) {
+  //   console.log(data1, "checkDatasss");
+  //   const data = {
+
+  //     data: data1,
+  //     method: "post",
+  //     apiName: "createPetDetails",
+  //   };
+  //   // navigate("/Terms");
+  //   dispatch(actions.CUSTOMER_ADD_ANOTHER_PET(data));
+  //   console.log(data, "datadata");
+  //   reset({
+  //     Your_Name: "",
+  //     Mobile_number: "",
+  //     Email: "",
+  //     Gender: "",
+  //     Street: "",
+  //     City: "",
+  //     State: "",
+  //     Pincode: "",
+  //     Locality: "",
+  //     Location: "",
+  //   });
+  // }
   return (
     // <Box>
 

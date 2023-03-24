@@ -4,8 +4,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { defaultReject, defaultState } from "../../Constants";
 import { fetchData } from "../../Helpers";
 
-const CUSTOMER_ADD_PET = createAsyncThunk(
-  "CustomerAddPet/CustomerAddPet",
+const CUSTOMER_ADD_ANOTHER_PET = createAsyncThunk(
+  "CustomerAddAnotherPet/CustomerAddAnotherPet",
   // eslint-disable-next-line default-param-last
   async (
     // eslint-disable-next-line default-param-last
@@ -33,34 +33,34 @@ const CUSTOMER_ADD_PET = createAsyncThunk(
   }
 );
 
-const CustomerAddPetSlice = createSlice({
-  name: "CustomerAddPetSlice",
+const CustomerAddAnotherPetSlice = createSlice({
+  name: "CustomerAddAnotherPetSlice",
   initialState: {
-    CustomerAddPet: {
+    CustomerAddAnotherPet: {
       ...defaultState.List,
     },
   },
   extraReducers: {
-    [CUSTOMER_ADD_PET.fulfilled]: (state, action) => {
-      (state.CustomerAddPet.loading = false)(
-        (state.CustomerAddPet.error = false)
-      )((state.CustomerAddPet = action.payload));
+    [CUSTOMER_ADD_ANOTHER_PET.fulfilled]: (state, action) => {
+      (state.CustomerAddAnotherPet.loading = false)(
+        (state.CustomerAddAnotherPet.error = false)
+      )((state.CustomerAddAnotherPet = action.payload));
     },
-    [CUSTOMER_ADD_PET.pending]: (state, action) => {
-      (state.CustomerAddPet.loading = true),
-        (state.CustomerAddPet.error = false),
-        (state.CustomerAddPet.loading = true);
+    [CUSTOMER_ADD_ANOTHER_PET.pending]: (state, action) => {
+      (state.CustomerAddAnotherPet.loading = true),
+        (state.CustomerAddAnotherPet.error = false),
+        (state.CustomerAddAnotherPet.loading = true);
     },
-    [CUSTOMER_ADD_PET.rejected]: (state, action) => {
-      (state.CustomerAddPet.loading = false),
-        (state.CustomerAddPet.error = true),
-        (state.CustomerAddPet = action.payload);
+    [CUSTOMER_ADD_ANOTHER_PET.rejected]: (state, action) => {
+      (state.CustomerAddAnotherPet.loading = false),
+        (state.CustomerAddAnotherPet.error = true),
+        (state.CustomerAddAnotherPet = action.payload);
     },
   },
 });
 
-const CustomerAddPetAction = {
-  CUSTOMER_ADD_PET,
+const CustomerAddAnotherPetAction = {
+  CUSTOMER_ADD_ANOTHER_PET,
 };
-export { CustomerAddPetAction };
-export default CustomerAddPetSlice.reducer;
+export { CustomerAddAnotherPetAction };
+export default CustomerAddAnotherPetSlice.reducer;

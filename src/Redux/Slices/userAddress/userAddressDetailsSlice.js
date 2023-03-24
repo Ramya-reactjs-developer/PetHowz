@@ -41,8 +41,8 @@ const userAddressDetailsSlice = createSlice({
   },
   extraReducers: {
     [USER_ADDRESS_DETAILS.fulfilled]: (state, action) => {
-      (state.userAddressDetails.loading = false),
-        (state.userAddressDetails.error = false),
+      (state.userAddressDetails.loading = false)
+        (state.userAddressDetails.error = false)
         (state.userAddressDetails = action.payload);
     },
     [USER_ADDRESS_DETAILS.pending]: (state, action) => {

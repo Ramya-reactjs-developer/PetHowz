@@ -34,6 +34,7 @@ import PetHomeBoardingAndService from "../Pages/JoinPetHost/BothBoardAndService/
 import BothBoardAndService from "../Pages/JoinPetHost/BothBoardAndService/BothBoardAndService";
 import AddAnotherPet from "../Pages/CustomerDashBoard/MyPets/AddAnotherPet"
 import Terms from "../Pages/Term/Term";
+import AddYourPetLogin from "../Pages/AddYourPet/AddYourPet";
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
@@ -48,7 +49,7 @@ export const router = createBrowserRouter(
       <Route path="BothBoardAndService" element={<BothBoardAndService/>} />
       <Route path="Terms" element={<Terms/>} />
       <Route path="AddAnotherPet" element={<AddAnotherPet/>} />
-
+      <Route path="AddYourPetLogin" element={<AddYourPetLogin/>} />
       
       <Route path="PetHomeBoardingAndService" element={<PetHomeBoardingAndService />} />
 
