@@ -8,10 +8,8 @@ import { petBoardingAction } from "../Slices/PetBoarding/PetBoarding";
 import { petBoardingByIdAction } from "../Slices/PetBoarding/PetBoardingById";
 import { registertopethowzAction } from "../Slices/RegisterToPethowz/RegisterToPetHowz";
 import { overallsearchAction } from "../Slices/SearchCity/OverAllSearchSlice";
-
 import { searchcityAction } from "../Slices/SearchCity/SearchCitySlice";
 import { searchcitygetlocalityAction } from "../Slices/SearchCity/SearchGetLocalitySlice";
-
 import { TermsAndConditionAction } from "../Slices/TermsAndCondition/TermsAndConditionSlice";
 import { userAddressDetailsAction } from "../Slices/userAddress/userAddressDetailsSlice";
 

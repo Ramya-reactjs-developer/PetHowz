@@ -8,7 +8,6 @@ import customImages from "../../Utils/Images/index";
 import CustomTypography from "../../Components/Typography/Typography";
 import CustomButton from "../../Components/Button/Button";
 import "./Grooming.css";
-import { useLocation } from "react-router-dom";
 
 export const Grooming = () => {
   const dispatch = useDispatch();
@@ -24,15 +23,13 @@ export const Grooming = () => {
   const id_pass = petBoarding?.data?.map((item) => item.pet_space_id);
 
   useEffect(() => {
-      const data = {
-        data: {},
-        method: "get",
-        apiName: `getPetSpaceById/${id_pass}`,
-      };
-      dispatch(actions.PETBOARDINGBYID(data));
-    },
-    [dispatch, value]
-  );
+    const data = {
+      data: {},
+      method: "get",
+      apiName: `getPetSpaceById/${id_pass}`,
+    };
+    dispatch(actions.PETBOARDINGBYID(data));
+  }, [dispatch, value]);
 
   const GroomingData = [
     {
@@ -139,7 +136,7 @@ export const Grooming = () => {
         />
       </Grid>
       <Grid item md={12} lg={12} sm={12} xs={12}>
-        <GroomingCardsSection Data={state} />
+        <GroomingCardsSection Data={GroomingData} />
       </Grid>
       <Grid item md={12} lg={12} sm={12} xs={12} className="groomButton">
         <CustomButton
