@@ -137,21 +137,6 @@ export const BasicDetailsEntries = [
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
-  // {
-  //   isFileUploader: true,
-  //   name: "fileUploader",
-  //   label: "Add Photos",
-  //   breakpoint: 8,
-  //   customClass: "uploadImageContainer",
-  //   validation: { required: true },
-  //   error_message: "Upload Image",
-  // },
-  // {
-  //     isSubmitButton: true,
-  //     name: 'submit_button',
-  //     buttonTitle: 'Submit',
-  //     breakpoint: 1,
-  //   },
 ];
 export const DefaultBasicDetailsValues = {
   firstText: "",

@@ -4,7 +4,6 @@ export const LabelContext = createContext();
 
 export const LabelData = (props) => {
   const [page, setPage] = useState(0);
-  console.log(page, "klnkhcui");
   const [labelInfo, setlabelInfo] = useState({
     sender: {
       firstText: "",
@@ -78,7 +77,6 @@ export const LabelData = (props) => {
     });
   };
     const handleOnChange = (event, name) => {
-      // console.log(event.target.value, ",ooooo");
       setlabelInfo({
         ...labelInfo,
         sender: { ...labelInfo.sender, [name]: event.target.value },

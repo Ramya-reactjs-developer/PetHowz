@@ -1,22 +1,22 @@
-import { Grid, CardActionArea } from "@mui/material";
 import React from "react";
+import { Grid, CardActionArea } from "@mui/material";
+import CustomIcons from "../../Utils/Icons/Index";
+import CustomTypography from "../../Components/Typography/Typography";
+import ImageList from "../../Components/ImageList/ImageList";
+import Service from "../../Components/AboutService/Service";
+import ServicePackagesCards from "../../Components/Cards/ServicePackagesCard";
 import customImages from "../../Utils/Images";
 import GroomModal from "./Model";
 import "./GroomingService.css";
-import CustomIcons from "../../Utils/Icons/Index"
-import CustomTypography from "../../Components/Typography/Typography";
-import ImageList from "../../Components/ImageList/ImageList"
-import Service from "../../Components/AboutService/Service";
-import ServicePackagesCards from "../../Components/Cards/ServicePackagesCard";
 
 const GroomingService = () => {
   const [Modal, setModal] = React.useState(false);
-    
-    const modalOpen = () => {
-      setModal(true);
-    }
-  
-  const packageData =[
+
+  const modalOpen = () => {
+    setModal(true);
+  };
+
+  const packageData = [
     {
       price: "₹ 1999",
       offeredPrice: "₹ 999",
@@ -233,10 +233,7 @@ const GroomingService = () => {
           text="Grooming Packages"
           customClass="packageHead"
         />
-        <Grid item
-          md={12}
-          lg={12}
-          sm={12}>
+        <Grid item md={12} lg={12} sm={12}>
           <ServicePackagesCards Data={packageData} />
         </Grid>
       </Grid>

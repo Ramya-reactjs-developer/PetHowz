@@ -2,6 +2,7 @@ import { Box, Card, CardActionArea, CardMedia, Grid } from "@mui/material";
 import React from "react";
 import PropTypes from "prop-types";
 import CustomTypography from "../Typography/Typography";
+import { NavLink } from "react-router-dom";
 
 export default function ImageCards({
   ImagePath,
@@ -11,6 +12,7 @@ export default function ImageCards({
   ImageHeight,
   service,
   sub,
+  onHandleClick,
 }) {
   const ImageCardSize = {
     maxWidth: CardWidth,
@@ -33,8 +35,8 @@ export default function ImageCards({
     zIndex: 1,
   };
   return (
-    <Grid item sm={12} xs={10}>
-      <Card sx={ImageCardSize}>
+    <Grid item sm={12} xs={10} m={1}>
+      <Card sx={ImageCardSize} onClick={onHandleClick}>
         <CardActionArea>
           <CardMedia
             component="img"
@@ -73,6 +75,7 @@ ImageCards.propTypes = {
   ImageHeight: PropTypes.any.isRequired,
   service: PropTypes.any.isRequired,
   sub: PropTypes.any.isRequired,
+  onHandleClick: PropTypes.func.isRequired,
 };
 // ImageCards.defaultProps = {
 //   imagePath: "",

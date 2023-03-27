@@ -27,6 +27,10 @@ export const AddAddress = () => {
 
   const userGet = useSelector((state) => state?.registertopethowz);
 
+  const { registertopethowz } = useSelector(
+    (state) => state?.registertopethowz
+  );
+  console.log(registertopethowz, "registertopethowz");
   const navigate = useNavigate();
   function onReceiveData(data1) {
     const user_id = userGet?.registertopethowz?.data?.user_id;

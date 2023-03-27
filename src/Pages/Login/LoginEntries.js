@@ -1,15 +1,11 @@
-// import CustomIcons from '../../utils/icon';
-
 const entries = [
   {
     textField: true,
-    entryName: "user_name",
+    entryName: "email",
     label: "Username",
-    value: "value",
     placeholder: "Email",
     type: "text",
-    // iconSource: CustomIcons.Mail,
-    pattern: /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/,
+    pattern: /^\w+([\\.-]?\w+)@\w+([\\.-]?\w+)(\.\w{2,3})+$/,
     validation: {
       isRequired: true,
     },
@@ -18,8 +14,6 @@ const entries = [
     textField: true,
     entryName: "password",
     label: "Password",
-    value: "value",
-    // iconSource: CustomIcons.Password,
     placeholder: "Password",
     type: "password",
     validation: {
