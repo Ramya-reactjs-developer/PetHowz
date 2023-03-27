@@ -34,7 +34,6 @@ const fetchData = async (input, method, apiName) => {
     // eslint-disable-next-line no-alert
     alert(err.code);
   });
-
   return res;
 };
 

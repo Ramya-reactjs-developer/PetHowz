@@ -1,3 +1,5 @@
+import { AddYourPetAction } from "../Slices/AddYourPet/AddYourPetSlice";
+import { BookingRequestAction } from "../Slices/BookingRequest/BookingRequestSlice";
 import { CustomerAddAnotherPetAction } from "../Slices/CustomerAddPet/CustomerAddPetSlice";
 import { groomingAction } from "../Slices/Grooming/Grooming";
 import { loginAction } from "../Slices/Login/login";
@@ -19,7 +21,9 @@ const actions = {
   ...userAddressDetailsAction,
   ...TermsAndConditionAction,
   ...CustomerAddAnotherPetAction,
+  ...AddYourPetAction,
   ...searchcityAction,
+  ...BookingRequestAction,
 };
 
 export default actions;

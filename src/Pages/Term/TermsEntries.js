@@ -1,7 +1,7 @@
 export const AddTermsEntries = [
     {
         isCheckBoxAction: true,
-        name: "verified_the_data",
+        name: "status",
         label: "I Confirm I have verified the data above and it is accurate.",
         breakpoint: 12,
         checkBoxData: [{ name: "" }],
@@ -14,5 +14,5 @@ export const AddTermsEntries = [
       },
   ];
   export const DefaultTermsValues = {
-    verified_the_data:""
+    status:""
   };
