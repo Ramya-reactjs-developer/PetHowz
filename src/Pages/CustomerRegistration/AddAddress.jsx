@@ -24,7 +24,9 @@ export const AddAddress = () => {
     defaultValues,
   });
 
-  const { registertopethowz } = useSelector((state) => state?.registertopethowz);
+  const { registertopethowz } = useSelector(
+    (state) => state?.registertopethowz
+  );
   console.log(registertopethowz, "registertopethowz");
   const navigate = useNavigate();
   function onReceiveData(data1) {
