@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { Grid, TextField, InputAdornment } from '@mui/material';
-import PropTypes from 'prop-types';
-import CustomTypography from '../Typography/Typography';
-import './TextField.css';
+import React, { useEffect } from "react";
+import { Grid, TextField, InputAdornment } from "@mui/material";
+import PropTypes from "prop-types";
+import CustomTypography from "../Typography/Typography";
+import "./TextField.css";
 /**
  *
  * @param {object} props - required props in TextInput component
@@ -27,14 +27,14 @@ function CustomTextField(props) {
     resetValue,
   } = props;
   const [onChangeValue, setOnChangeValue] = React.useState(defaultValue);
-  console.log('default', resetValue, value);
+  console.log("default", resetValue, value);
 
   useEffect(() => {
     setOnChangeValue(defaultValue);
   }, [defaultValue]);
 
   useEffect(() => {
-    setOnChangeValue('');
+    setOnChangeValue("");
   }, [resetValue]);
 
   const handleChange = (e) => {
@@ -54,6 +54,7 @@ function CustomTextField(props) {
           onChange={handleChange}
           value={onChangeValue}
           type={type}
+          autoComplete="new-password"
           multiline={multiline}
           // className={customClass}
           disabled={disabled}
@@ -69,6 +70,7 @@ function CustomTextField(props) {
                 {/* {textInputIcon && <img src={iconSource} alt="password" />} */}
               </InputAdornment>
             ),
+            autoCapitalize: "off",
           }}
         />
       </Grid>
@@ -95,17 +97,17 @@ CustomTextField.propTypes = {
   resetValue: PropTypes.bool,
 };
 CustomTextField.defaultProps = {
-  label: '',
+  label: "",
   multiline: false,
   rows: 4,
   disabled: false,
-  type: '',
-  iconSource: '',
+  type: "",
+  iconSource: "",
   textInputIcon: false,
   // isLogin: false,
-  placeholder: '',
+  placeholder: "",
   // uniqueText: false,
-  customClass: '',
-  defaultValue: '',
+  customClass: "",
+  defaultValue: "",
   resetValue: false,
 };

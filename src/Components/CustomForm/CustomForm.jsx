@@ -19,7 +19,7 @@ import CustomSelect from "../Select/Select";
 import CustomImageUploader from "../FileUploader/FileUpload";
 import MultipleSelectChip from "../MultipleDropdown/MultipleDropdown";
 import ProfileImageUploader from "../ProfileImageUploader/ProfileImageUploader";
-import CustomProfileUploader from '../ProfileUploader/ProfileUpload'
+import CustomProfileUploader from "../ProfileUploader/ProfileUpload";
 
 /**
  * @param {*} props defines the prop

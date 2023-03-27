@@ -1,13 +1,13 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable no-console */
-import { Grid } from '@mui/material';
-import React, { useRef, useState } from 'react';
-import propTypes from 'prop-types';
-import Tooltip from '@mui/material/Tooltip';
-import IconButton from '@mui/material/IconButton';
-import CustomTypography from '../Typography/Typography';
-import CustomIcons from '../../Utils/Icons/Index';
-import './fileUpload.css';
+import { Grid } from "@mui/material";
+import React, { useRef, useState } from "react";
+import propTypes from "prop-types";
+import Tooltip from "@mui/material/Tooltip";
+import IconButton from "@mui/material/IconButton";
+import CustomTypography from "../Typography/Typography";
+import CustomIcons from "../../Utils/Icons/Index";
+import "./fileUpload.css";
 /**
  * @param {*} props defines the prop
  * @name CustomFileUploader
@@ -25,16 +25,16 @@ function CustomFileUploader(props) {
     // resetValue
   } = props;
 
-  console.log('image', regForm);
+  console.log("image", regForm);
   // const [name, setName] = useState();
   // console.log(name, 'setttttt');
   const [selectedImage, setSelectedImage] = useState();
   const [uploadProgress, setUploadProgress] = useState(0);
-  const image = 'image/png,image/jpeg/image/jpg';
+  const image = "image/png,image/jpeg/image/jpg";
   // const docs = '.pdf';
   // const videos = 'image/*,audio/*,gif/*,video/mp4,video/x-m4v,video/*';
-  const video = '.mov,.mp4';
-  const [acceptType, setAcceptType] = useState('');
+  const video = ".mov,.mp4";
+  const [acceptType, setAcceptType] = useState("");
   // const [onChangeValue, setOnChangeValue] = React.useState(defaultImage);
   // console.log('defaultImage', defaultImage);
 
@@ -52,13 +52,13 @@ function CustomFileUploader(props) {
   //   setOnChangeValue(inputValue);
   // };
 
-  console.log(uploadProgress, 'uploadProgress');
+  console.log(uploadProgress, "uploadProgress");
   /**
    * @name imageChange
    * @param {Event} e defines the event
    */
   const imageChange = async (e) => {
-  console.log(imageChange,"imageChange");
+    console.log(imageChange, "imageChange");
 
     const arr = [];
     arr.push(e.target.files[0]);
@@ -98,7 +98,7 @@ function CustomFileUploader(props) {
       });
       setSelectedImage([reader.result]);
     };
-    setAcceptType(fileType === 'image' ? image : video);
+    setAcceptType(fileType === "image" ? image : video);
   };
 
   /**
@@ -112,15 +112,22 @@ function CustomFileUploader(props) {
    * @name dropEvent
    */
   const dropEvent = () => {};
-  console.log('selectedImage', upLoad);
+  console.log("selectedImage", upLoad);
 
   return (
     <Grid className="textGrid">
       <Grid md={12} lg={12} sm={12} xs={12} className="ToolTip_Icon">
         {!regForm && (
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <CustomTypography text={label} type="caption" customClass="textLabel" />
-            <Tooltip title="Image size should be below 1 MB" placement="top-start">
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <CustomTypography
+              text={label}
+              type="caption"
+              customClass="textLabel"
+            />
+            <Tooltip
+              title="Image size should be below 1 MB"
+              placement="top-start"
+            >
               <IconButton>
                 <img src={CustomIcons.Information} alt="" />
               </IconButton>
@@ -128,13 +135,23 @@ function CustomFileUploader(props) {
           </div>
         )}
       </Grid>
-      <Grid container item md={12} xs={12} display="flex" justifyContent="center">
-        <Grid onClick={() => fileRef.current.click()} className={regForm ? 'uploadimageGrid' : 'uploadImageContainer'}>
+      <Grid
+        container
+        item
+        md={12}
+        xs={12}
+        display="flex"
+        justifyContent="center"
+      >
+        <Grid
+          onClick={() => fileRef.current.click()}
+          className={regForm ? "uploadimageGrid" : "uploadImageContainer"}
+        >
           {selectedImage ? (
             <img
-              src={(fileType === 'image' && selectedImage) || defaultImage}
+              src={(fileType === "image" && selectedImage) || defaultImage}
               alt=""
-              className={selectedImage ? 'imageUpload' : 'none'}
+              className={selectedImage ? "imageUpload" : "none"}
             />
           ) : (
             // </div>
@@ -184,9 +201,16 @@ function CustomFileUploader(props) {
         /> */}
       </Grid>
       {regForm && (
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <CustomTypography text={label} type="caption" customClass="textLabel" />
-          <Tooltip title="Image size should be below 1 MB" placement="top-start">
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <CustomTypography
+            text={label}
+            type="caption"
+            customClass="textLabel"
+          />
+          <Tooltip
+            title="Image size should be below 1 MB"
+            placement="top-start"
+          >
             <IconButton>
               <img src={CustomIcons.Information} alt="" />
             </IconButton>
@@ -206,10 +230,10 @@ CustomFileUploader.propTypes = {
   defaultImage: propTypes.string,
 };
 CustomFileUploader.defaultProps = {
-  fileType: 'image',
-  label: '',
-  upLoad: 'image',
+  fileType: "image",
+  label: "",
+  upLoad: "image",
   regForm: false,
-  getImage: 'image',
-  defaultImage: 'image',
+  getImage: "image",
+  defaultImage: "image",
 };

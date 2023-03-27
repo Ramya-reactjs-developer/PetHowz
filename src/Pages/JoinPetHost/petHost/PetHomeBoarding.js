@@ -22,14 +22,16 @@ const PetHomeBoarding = () => {
     <Grid container md={12} sm={12} xs={12} lg={12}>
       <Grid container md={12} sm={12} lg={12} xs={12}>
         <Grid item md={5} sm={5} lg={5} xs={12} className="stepper-button">
-          <Grid item md={12} sm={12} xs={12} lg={12} className="stepperImage">
-            <img src={customImages.petsStepper} alt="" className="imgBasic" />
-            <Grid className="image_front_color"></Grid>
-          </Grid>
-          <Grid item md={12} sm={12} xs={12} lg={12} className="stepperPage">
-            {value.page !== 7 && (
-              <Stepper steps={value.steps} activeStep={value.page} />
-            )}
+          <Grid item md={12} sm={12} lg={12} xs={12} >
+            <Grid item md={12} sm={12} xs={12} lg={12} className="stepperImage">
+              <img src={customImages.petsStepper} alt="" className="imgBasic" />
+              <Grid className="image_front_color"></Grid>
+            </Grid>
+            <Grid item md={12} sm={12} xs={12} lg={12} className="stepperPage">
+              {value.page !== 7 && (
+                <Stepper steps={value.steps} activeStep={value.page} />
+              )}
+            </Grid>
           </Grid>
         </Grid>
         <Grid item md={7} sm={7} lg={7} xs={12} p={2}>

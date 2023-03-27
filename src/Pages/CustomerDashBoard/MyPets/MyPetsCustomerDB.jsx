@@ -4,7 +4,7 @@ import React from "react";
 import CustomTypography from "../../../Components/Typography/Typography";
 import { MyPetsCards } from "../../../Components/MyPetsCards/MyPetsCards";
 import CustomButton from "../../../Components/Button/Button";
-import { AddAnotherPet } from "./AddAnotherPet";
+import AddAnotherPet  from "./AddAnotherPet";
 
 export const MyPetsCustomerDB = () => {
   const [open, setOpen] = React.useState(false);
