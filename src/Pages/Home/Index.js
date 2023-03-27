@@ -24,7 +24,7 @@ export const HomePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { ourService } = useSelector((state) => state?.ourService);
-  console.log(ourService, "galleryImage");
+  console.log(ourService, "ourService");
 
   React.useEffect(() => {
     const data = {
@@ -84,32 +84,15 @@ export const HomePage = () => {
   //   },
   // ];
   const [searchData, setSearchData] = useState("");
-  const [searchDropdownData, setSearchDropdownData] = useState("");
   // const [tmpIdArr, setTmpIdsArr] = React.useState();
   // const [petId, setPetId] = useState();
 
+  console.log(searchData, "ss");
   const OnSetSearch = (e) => {
     setSearchData(e.target.value);
   };
-  const OnSetDropdownSearch = (e) => {
-    setSearchDropdownData({ ...searchData, city: e.target.value });
-    var updatedValue = { city: e.target.value };
-    const data = {
-      data: updatedValue,
-      method: "post",
-      apiName: "getLocality",
-    };
-    console.log({ city: e.target.value }, "datadrop");
-    dispatch(actions.SEARCHCITY(data));
-  };
 
-  useEffect(() => {
-    // if (!searchDropdownData) {
-    //   dispatch(actions.SEARCHCITY(data));
-    // }
-  }, [searchDropdownData]);
-  // console.log(searchData, "searchData");
-  // console.log(searchDropdownData, "searchDropdownData");
+  useEffect(() => {}, [searchData]);
 
   const onClickHandle = (key, data) => {
     console.log(key, "key");
@@ -153,20 +136,6 @@ export const HomePage = () => {
   const id_pass = petBoarding?.data?.map((item) => item.user_id);
   console.log(id_pass, "check");
 
-  const dropdownData = [
-    {
-      id: 1,
-      value: "Chennai",
-    },
-    {
-      id: 2,
-      value: "Delhi",
-    },
-    {
-      id: 3,
-      value: "Kerala",
-    },
-  ];
   return (
     // <div>
     //   HomePage
@@ -204,19 +173,20 @@ export const HomePage = () => {
                   customStyle={{ fontFamily: "Cooper" }}
                 />
               </Box>
-              <Box>
+              <Box sx={SearchBarStyle}>
                 <Box>
                   <SearchBar
-                    dropdownData={dropdownData}
-                    dropdownValue={searchDropdownData.city}
                     SearchValue={searchData}
-                    dropdownName={"city"}
-                    handleDropdownChange={(e) => {
-                      OnSetDropdownSearch(e);
-                    }}
                     handleSearch={(e) => {
                       OnSetSearch(e);
                     }}
+                  />
+                </Box>
+                <Box sx={SearchButtonPadding}>
+                  <CustomButton
+                    btnTitle="Search Now"
+                    color="primary"
+                    btnStyles={SearchButtonStyle}
                   />
                 </Box>
               </Box>

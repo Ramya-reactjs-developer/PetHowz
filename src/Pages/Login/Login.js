@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Grid } from "@mui/material";
 import React, { useState, useEffect } from "react";
@@ -19,46 +18,17 @@ import Toast from "../../Utils/Notification/Toast";
 
 const Login = () => {
   const dispatch = useDispatch();
-=======
-import { Grid } from "@mui/material";
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import customImages from "../../Utils/Images";
-// import entries from './LoginEntries';
-import "./Login.css";
-import CustomButton from "../../Components/Button/Button";
-import CustomTypography from "../../Components/Typography/Typography";
-import CustomTextField from "../../Components/TextField/TextField";
-import CustomIcons from "../../Utils/Icons/Index";
-
-const Login = () => {
-
-// const {
-  //   control,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm({ mode: "onBlur" });
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
->>>>>>> 4bb443e51543d3cb5c7db7a52fd50555f68aa702
   const navigate = useNavigate();
   const login = useSelector((state) => state?.login?.login);
   const [list, setList] = useState([]);
   const [showToast, setShowToast] = useState(false);
   console.log(login, "list");
 
-<<<<<<< HEAD
   const {
     control,
     handleSubmit,
     formState: { errors },
   } = useForm({ mode: "onBlur" });
-=======
-    if (email === "pethows@gmail.com" && password === "pethows") {
-      localStorage.setItem("isLoggedIn", true);
-      localStorage.setItem("email", email);
->>>>>>> 4bb443e51543d3cb5c7db7a52fd50555f68aa702
 
   /**
    *
@@ -72,13 +42,7 @@ const Login = () => {
   const setNav = () => {
     setTimeout(() => {
       navigate("/home");
-<<<<<<< HEAD
     }, 3000);
-=======
-    } else {
-      alert("Invalid credentials");
-    }
->>>>>>> 4bb443e51543d3cb5c7db7a52fd50555f68aa702
   };
   useEffect(() => {
     console.log(login?.Message, "checkData");

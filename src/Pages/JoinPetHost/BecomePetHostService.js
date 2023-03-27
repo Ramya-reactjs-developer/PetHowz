@@ -37,7 +37,6 @@ export const BecomePetHostService = () => {
       image: CustomImages.petsStepper,
     },
   ];
-<<<<<<< HEAD
 
   // const clickImage = (id) => {
   //   if (id === 1){
@@ -53,12 +52,6 @@ export const BecomePetHostService = () => {
   // const service = () => {
   //   navigate("/petService");
   // }
-=======
-  const navigate = useNavigate();
-  const clickImage = () => {
-    navigate("/BothBoardAndService");
-  };
->>>>>>> 4bb443e51543d3cb5c7db7a52fd50555f68aa702
   return (
     <Grid container md={12} sm={12} lg={12} xs={12}>
       <Grid container md={12} sm={12} lg={12} xs={12}>
@@ -95,18 +88,7 @@ export const BecomePetHostService = () => {
               />
             </Grid>
             <Grid container md={12} sm={12} lg={12} xs={12} pt={2} className="">
-<<<<<<< HEAD
               <Grid item md={3} sm={12} lg={3} xs={12} className="imageCard_edit">
-=======
-              <Grid
-                container
-                md={3}
-                sm={3}
-                lg={3}
-                xs={12}
-                className="BoaedingCards"
-              >
->>>>>>> 4bb443e51543d3cb5c7db7a52fd50555f68aa702
                 <PetBoardImageCards
                   // imagePath={CustomImages.Dog1}
                   text="Pet Home Boarding "

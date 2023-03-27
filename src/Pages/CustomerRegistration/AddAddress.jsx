@@ -12,10 +12,6 @@ import { AddressEntries, DefaultAddressEntriesValues } from "./AddressEntries";
 import { useNavigate } from "react-router";
 
 export const AddAddress = () => {
-<<<<<<< HEAD
-
-  
-=======
   const dispatch = useDispatch();
   // const [editId, setEditId] = useState();
   const defaultValues = {};
@@ -28,7 +24,9 @@ export const AddAddress = () => {
     defaultValues,
   });
 
-  const { registertopethowz } = useSelector((state) => state?.registertopethowz);
+  const { registertopethowz } = useSelector(
+    (state) => state?.registertopethowz
+  );
   console.log(registertopethowz, "registertopethowz");
   const navigate = useNavigate();
   function onReceiveData(data1) {
@@ -54,7 +52,6 @@ export const AddAddress = () => {
       Location: "",
     });
   }
->>>>>>> 4bb443e51543d3cb5c7db7a52fd50555f68aa702
 
   return (
     <Grid container item xs={12}>
