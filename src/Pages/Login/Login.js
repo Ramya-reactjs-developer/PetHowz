@@ -1,41 +1,75 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Grid } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useForm, Controller } from "react-hook-form";
 import customImages from "../../Utils/Images";
-// import entries from './LoginEntries';
+import Stack from "@mui/material/Stack";
+import LinearProgress from "@mui/material/LinearProgress";
+import { useDispatch, useSelector } from "react-redux";
+import CustomTextField from "../../Components/TextField/TextField";
+import actions from "../../Redux/Actions/index";
+import entries from "./LoginEntries";
 import "./Login.css";
 import CustomButton from "../../Components/Button/Button";
 import CustomTypography from "../../Components/Typography/Typography";
-import CustomTextField from "../../Components/TextField/TextField";
 import CustomIcons from "../../Utils/Icons/Index";
+import Toast from "../../Utils/Notification/Toast";
 
 const Login = () => {
-
-// const {
-  //   control,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm({ mode: "onBlur" });
-
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   // handle login logic
-  // };
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const login = useSelector((state) => state?.login?.login);
+  const [list, setList] = useState([]);
+  const [showToast, setShowToast] = useState(false);
+  console.log(login, "list");
 
-    if (email === "pethows@gmail.com" && password === "pethows") {
-      localStorage.setItem("isLoggedIn", true);
-      localStorage.setItem("email", email);
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: "onBlur" });
 
-      navigate("/home");
-    } else {
-      alert("Invalid credentials");
-    }
+  /**
+   *
+   * @param {*} e
+   */
+  const onSubmit = (dat) => {
+    const data = { data: dat, method: "post", apiName: "userLogin" };
+    dispatch(actions.LOGIN(data));
+    setShowToast(!showToast);
   };
+  const setNav = () => {
+    setTimeout(() => {
+      navigate("/home");
+    }, 3000);
+  };
+  useEffect(() => {
+    console.log(login?.Message, "checkData");
+    if (login?.data?.usertype === 0 && true) {
+      setList([
+        {
+          id: 1,
+          title: "Success",
+          description: "Login Success",
+          backgroundColor: "check",
+          icon: "check",
+        },
+      ]);
+      setNav();
+    }
+    if (login?.Success === false) {
+      setList([
+        {
+          id: 2,
+          title: "Error",
+          description: "Incorrect Email or Password",
+          backgroundColor: "error",
+          icon: "warning",
+        },
+      ]);
+    }
+  }, []);
 
   return (
     <Grid container md={12} lg={12} sm={12} xs={12}>
@@ -56,30 +90,83 @@ const Login = () => {
             />
           </Grid>
           <Grid item md={12} lg={12} sm={12} xs={12} className="">
-            <form onSubmit={handleSubmit}>
-              <Grid className="inputBox">
-                <input
-                  type="email"
-                  placeholder="Email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-                <br />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-              </Grid>
-              <Grid className="input_width loginButton">
+            <form onSubmit={handleSubmit(onSubmit)}>
+              {showToast && (
+                <>
+                  <Stack sx={{ width: "100%", color: "grey.500" }} spacing={2}>
+                    {list?.map((item) => (
+                      <LinearProgress
+                        sx={{
+                          backgroundColor: item?.id === 1 ? "green" : "red",
+                        }}
+                      />
+                    ))}
+                  </Stack>
+                  <Toast toastList={list} position="top-right" />
+                </>
+              )}
+
+              {entries?.map((keyValue) => (
+                <Grid>
+                  <Controller
+                    control={control}
+                    rules={{
+                      required: keyValue?.validation?.isRequired,
+                      pattern: keyValue?.pattern,
+                    }}
+                    render={({ field: { onChange, value } }) => (
+                      <Grid
+                        item
+                        md={12}
+                        sm={12}
+                        pt={2}
+                        className="MailPasswordBox"
+                      >
+                        {keyValue.textField && (
+                          <Grid className="loginTextBox">
+                            <CustomTextField
+                              value={value}
+                              placeholder={keyValue.placeholder}
+                              type={keyValue.type}
+                              onHandleChange={onChange}
+                              isLogin
+                              textInputIcon
+                            />
+                          </Grid>
+                        )}
+                      </Grid>
+                    )}
+                    name={keyValue.entryName}
+                  />
+                  {errors[keyValue.entryName]?.type === "required" && (
+                    <Grid className="login_required">
+                      <CustomTypography
+                        customClass="login_Error_Text"
+                        text={` ${keyValue.label} is required`}
+                      />
+                    </Grid>
+                  )}
+                  {errors[keyValue.entryName]?.type === "pattern" && (
+                    <Grid>
+                      <CustomTypography
+                        customClass="login_Error_Text"
+                        text={`${keyValue.label} is Invalid`}
+                      />
+                    </Grid>
+                  )}
+                </Grid>
+              ))}
+              <Grid display=" inline-flex" justifyContent="center" pt={3.5}>
                 <CustomButton
                   btnTitle="LOGIN"
                   color="primary"
                   variant="contained"
-                  btnStyles={{ color: "white", width: "320px" }}
+                  btnStyles={{
+                    width: "320px",
+                    color: "white",
+                    backgroundColor: "#F85A47",
+                    fontFamily: "Poppins_Medium",
+                  }}
                 />
               </Grid>
             </form>
@@ -87,14 +174,13 @@ const Login = () => {
               <Link
                 target="_blank"
                 rel="noopener noreferrer"
-                to="/https://accounts.google.com/v3/signin/identifier?dsh=S-435618783%3A1679050594426781&ifkv=AWnogHdcogBclojIsc_9xbHbnlYh3M2JPMohu8n83lV0HNIxQMGXq181ythzXg6RixF_YsKjOArDSw&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+                to="https://accounts.google.com/v3/signin/identifier?dsh=S-435618783%3A1679050594426781&ifkv=AWnogHdcogBclojIsc_9xbHbnlYh3M2JPMohu8n83lV0HNIxQMGXq181ythzXg6RixF_YsKjOArDSw&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
               >
                 <CustomButton
                   image={CustomIcons.Google}
                   btnTitle="Sign In With Google"
                   color="primary"
                   variant="contained"
-                  // btnStyles={{ color: "white", width: "320px" }}
                   customClass="googleBtn"
                 />
               </Link>

@@ -1,5 +1,5 @@
 import { Box, Card, Grid } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import CustomTypography from "../../Components/Typography/Typography";
 import "./ReqBookingStyle.css";
 import { BoardingSpaceDetailList } from "../../Components/BoardingSpaceDetailsList/BoardingSPaceDetailsList";
@@ -11,6 +11,8 @@ import {
 } from "./RequestBookingEntries";
 import CustomButton from "../../Components/Button/Button";
 import BookingSubmitModal from "./BookingSubmitModal";
+import { useDispatch, useSelector } from "react-redux";
+import actions from "../../Redux/Actions";
 
 export const RequestBooking = () => {
   const [entry, setEntry] = React.useState([]);
@@ -23,7 +25,19 @@ export const RequestBooking = () => {
   const onMoadalClose = () => {
     setModal(false);
   };
+  const BookingRequest = useSelector((state) => state?.BookingRequest);
+  console.log(BookingRequest, "BookingRequest");
+  const dispatch = useDispatch();
+  useEffect(() => {
 
+    const data = {
+      data: {},
+      method: "get",
+      apiName: "getPetDetailsByUserId",
+    };
+    dispatch(actions.BOOKINGREQUEST(data));
+    console.log(data,"lohhhhdata");
+  }, [dispatch]);
   const ListData = [
     {
       area: "1200 Sq.ft",

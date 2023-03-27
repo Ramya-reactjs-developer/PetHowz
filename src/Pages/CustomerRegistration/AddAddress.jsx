@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import React, { UseEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,18 +25,23 @@ export const AddAddress = () => {
     defaultValues,
   });
 
-  const { registertopethowz } = useSelector((state) => state?.registertopethowz);
+  const userGet = useSelector((state) => state?.registertopethowz);
+
+  const { registertopethowz } = useSelector(
+    (state) => state?.registertopethowz
+  );
   console.log(registertopethowz, "registertopethowz");
   const navigate = useNavigate();
   function onReceiveData(data1) {
-    console.log(data1, "checkDaggta");
-    const data = {
-      data: data1,
-      method: "post",
-      apiName: "createUserDetails",
-    };
-    navigate("/Terms");
-    dispatch(actions.USER_ADDRESS_DETAILS(data));
+    const user_id = userGet?.registertopethowz?.data?.user_id;
+      const data = {
+        data: { ...data1, user_id: user_id },
+        method: "post",
+        apiName: "createUserDetails",
+      };
+      navigate("/Terms");
+      dispatch(actions.USER_ADDRESS_DETAILS(data));
+
 
     reset({
       Your_Name: "",

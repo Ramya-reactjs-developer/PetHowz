@@ -3,8 +3,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { defaultReject, defaultState } from "../../Constants";
 import { fetchData } from "../../Helpers";
 
-const GROOMING = createAsyncThunk(
-  "grooming/grooming",
+const BOOKINGREQUEST = createAsyncThunk(
+  "BookingRequest/BookingRequest",
   // eslint-disable-next-line default-param-last
   async (
     // eslint-disable-next-line default-param-last
@@ -14,7 +14,6 @@ const GROOMING = createAsyncThunk(
   ) => {
     try {
       const data = await fetchData(
-        payload?.id,
         payload?.data,
         payload?.method,
         payload?.apiName
@@ -33,34 +32,34 @@ const GROOMING = createAsyncThunk(
   }
 );
 
-const groomingSlice = createSlice({
-  name: "groomingSlice",
+const BookingRequestSlice = createSlice({
+  name: "loginSlice",
   initialState: {
-    grooming: {
+    BookingRequest: {
       ...defaultState.List,
     },
   },
   extraReducers: {
-    [GROOMING.fulfilled]: (state, action) => {
-      (state.grooming.loading = false),
-        (state.grooming.error = false),
-        (state.grooming = action.payload);
+    [BOOKINGREQUEST.fulfilled]: (state, action) => {
+      (state.BookingRequest.loading = false)
+        (state.BookingRequest.error = false)
+        (state.BookingRequest = action.payload);
     },
-    [GROOMING.pending]: (state, action) => {
-      (state.grooming.loading = true),
-        (state.grooming.error = false),
-        (state.grooming.loading = true);
+    [BOOKINGREQUEST.pending]: (state, action) => {
+      (state.BookingRequest.loading = true),
+        (state.BookingRequest.error = false),
+        (state.BookingRequest.loading = true);
     },
-    [GROOMING.rejected]: (state, action) => {
-      (state.grooming.loading = false),
-        (state.grooming.error = true),
-        (state.grooming = action.payload);
+    [BOOKINGREQUEST.rejected]: (state, action) => {
+      (state.BookingRequest.loading = false),
+        (state.BookingRequest.error = true),
+        (state.BookingRequest = action.payload);
     },
   },
 });
 
-const groomingAction = {
-  GROOMING,
+const BookingRequestAction = {
+  BOOKINGREQUEST,
 };
-export { groomingAction };
-export default groomingSlice.reducer;
+export { BookingRequestAction };
+export default BookingRequestSlice.reducer;

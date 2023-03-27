@@ -11,7 +11,6 @@ import { Grooming } from "../Pages/Grooming/Grooming";
 import GroomingService from "../Pages/GroomingService/GroomingService";
 import { BecomePetHostService } from "../Pages/JoinPetHost/BecomePetHostService";
 import PetCare from "../Pages/PetCare/PetCare";
-// import PetSpace from "../Pages/JoinPetHost/petHost/PetHomeBoarding";
 import PetService from "../Pages/PetService/PetService";
 import { RegisterToPethowz } from "../Pages/CustomerRegistration/RegisterToPetHowz";
 import { AddAddress } from "../Pages/CustomerRegistration/AddAddress";
@@ -39,7 +38,7 @@ import { BoardingResult } from "../Pages/Result/BoardingResult";
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route path="home" index element={<HomePage />} />
+      <Route index element={<HomePage />} />
       <Route path="Login" element={<Login />} />
       <Route path="AllServices" element={<AllServices />} />
       <Route path="Grooming" element={<Grooming />} />
@@ -57,42 +56,50 @@ export const router = createBrowserRouter(
         path="PetHomeBoardingAndService"
         element={<PetHomeBoardingAndService />}
       />
+      <Route path="/PetService" element={<PetService />} />
+      <Route path="BothBoardAndService" element={<BothBoardAndService />} />
+      <Route path="Terms" element={<Terms />} />
+      <Route path="AddAnotherPet" element={<AddAnotherPet />} />
+      <Route path="AddYourPetLogin" element={<AddYourPetLogin />} />
+
+      <Route
+        path="PetHomeBoardingAndService"
+        element={<PetHomeBoardingAndService />}
+      />
 
       <Route path="PetService" element={<PetService />} />
 
       {/* Register to PetHowz */}
       <Route path="RegisterToPethowz" element={<RegisterToPethowz />} />
       <Route path="AddAddress" element={<AddAddress />} />
-
-      {/* Request Booking */}
       <Route path="RequestBooking" element={<RequestBooking />} />
-
-      {/* CustomerDashBoard */}
       <Route path="CustomerLayout" element={<CustomerLayout />}>
         <Route path="CustomerDashBoard" element={<CustomerDashBoard />} />
         <Route path="MyProfileCustomerDB" element={<MyProfileCustomerDB />} />
         <Route path="MyPetsCustomerDB" element={<MyPetsCustomerDB />} />
         <Route path="MyBookingsCustomerDB" element={<MyBookingsCustomerDB />} />
         <Route
+          path="link"
+          element={
+            "https://accounts.google.com/v3/signin/identifier?dsh=S-435618783%3A1679050594426781&ifkv=AWnogHdcogBclojIsc_9xbHbnlYh3M2JPMohu8n83lV0HNIxQMGXq181ythzXg6RixF_YsKjOArDSw&flowName=GlifWebSignIn&flowEntry=ServiceLogin"
+          }
+        />
+        <Route
           path="MyEnquiriesCustomerDB"
           element={<MyEnquiriesCustomerDB />}
         />
       </Route>
-
-      {/* HostDashBoard */}
       <Route path="HostLayout" element={<HostLayout />}>
         <Route path="HostDashBoard" element={<HostDashBoard />} />
         <Route path="MyProfileHostDB" element={<MyProfileHostDB />} />
         <Route path="MyBookingsHostDB" index element={<MyBookingsHostDB />} />
         <Route
           path="MyBoardingSpaceHostDB"
-          index
           element={<MyBoardingSpaceHostDB />}
         />
         <Route path="MyServicesHostDB" index element={<MyServicesHostDB />} />
         <Route
           path="BookingRequestsHostDB"
-          index
           element={<BookingRequestsHostDB />}
         />
       </Route>

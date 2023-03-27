@@ -3,8 +3,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { defaultReject, defaultState } from "../../Constants";
 import { fetchData } from "../../Helpers";
 
-const GROOMING = createAsyncThunk(
-  "grooming/grooming",
+const OURSERVICE = createAsyncThunk(
+  "ourService/ourService",
   // eslint-disable-next-line default-param-last
   async (
     // eslint-disable-next-line default-param-last
@@ -14,7 +14,6 @@ const GROOMING = createAsyncThunk(
   ) => {
     try {
       const data = await fetchData(
-        payload?.id,
         payload?.data,
         payload?.method,
         payload?.apiName
@@ -33,34 +32,34 @@ const GROOMING = createAsyncThunk(
   }
 );
 
-const groomingSlice = createSlice({
-  name: "groomingSlice",
+const ourServiceSlice = createSlice({
+  name: "ourServiceSlice",
   initialState: {
-    grooming: {
+    ourService: {
       ...defaultState.List,
     },
   },
   extraReducers: {
-    [GROOMING.fulfilled]: (state, action) => {
-      (state.grooming.loading = false),
-        (state.grooming.error = false),
-        (state.grooming = action.payload);
+    [OURSERVICE.fulfilled]: (state, action) => {
+      (state.ourService.loading = false),
+        (state.ourService.error = false),
+        (state.ourService = action.payload);
     },
-    [GROOMING.pending]: (state, action) => {
-      (state.grooming.loading = true),
-        (state.grooming.error = false),
-        (state.grooming.loading = true);
+    [OURSERVICE.pending]: (state, action) => {
+      (state.ourService.loading = true),
+        (state.ourService.error = false),
+        (state.ourService.loading = true);
     },
-    [GROOMING.rejected]: (state, action) => {
-      (state.grooming.loading = false),
-        (state.grooming.error = true),
-        (state.grooming = action.payload);
+    [OURSERVICE.rejected]: (state, action) => {
+      (state.ourService.loading = false),
+        (state.ourService.error = true),
+        (state.ourService = action.payload);
     },
   },
 });
 
-const groomingAction = {
-  GROOMING,
+const ourServiceAction = {
+  OURSERVICE,
 };
-export { groomingAction };
-export default groomingSlice.reducer;
+export { ourServiceAction };
+export default ourServiceSlice.reducer;

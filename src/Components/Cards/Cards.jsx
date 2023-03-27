@@ -20,8 +20,9 @@ import {
   ReviewsPosition,
 } from "./Style";
 
-export default function CardsSection({ Data }) {
+export default function CardsSection({ Data, onClickHandle }) {
   const CardData = Data;
+  // const { onClickHandle } = props;
   // [
   //   {
   //     image:
@@ -42,7 +43,7 @@ export default function CardsSection({ Data }) {
       xs={12}
     >
       <Grid item sx={OverAllCArdPostions}>
-        {CardData.map((item, key) => {
+        {CardData?.map((item, key) => {
           return (
             <Box key={key}>
               <Card sx={CardSize}>
@@ -110,6 +111,7 @@ export default function CardsSection({ Data }) {
                           btnTitle="View Details"
                           color="primary"
                           btnStyles={CardBtnStyles}
+                          onClickHandle={onClickHandle}
                         />
                       </Box>
                     </CardContent>
