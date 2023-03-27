@@ -3,8 +3,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { defaultReject, defaultState } from "../../Constants";
 import { fetchData } from "../../Helpers";
 
-const GROOMING = createAsyncThunk(
-  "grooming/grooming",
+const PETBOARDING = createAsyncThunk(
+  "petBoarding/petBoarding",
   // eslint-disable-next-line default-param-last
   async (
     // eslint-disable-next-line default-param-last
@@ -14,7 +14,6 @@ const GROOMING = createAsyncThunk(
   ) => {
     try {
       const data = await fetchData(
-        payload?.id,
         payload?.data,
         payload?.method,
         payload?.apiName
@@ -33,34 +32,34 @@ const GROOMING = createAsyncThunk(
   }
 );
 
-const groomingSlice = createSlice({
-  name: "groomingSlice",
+const petBoardingSlice = createSlice({
+  name: "petBoardingSlice",
   initialState: {
-    grooming: {
+    petBoarding: {
       ...defaultState.List,
     },
   },
   extraReducers: {
-    [GROOMING.fulfilled]: (state, action) => {
-      (state.grooming.loading = false),
-        (state.grooming.error = false),
-        (state.grooming = action.payload);
+    [PETBOARDING.fulfilled]: (state, action) => {
+      (state.petBoarding.loading = false),
+        (state.petBoarding.error = false),
+        (state.petBoarding = action.payload);
     },
-    [GROOMING.pending]: (state, action) => {
-      (state.grooming.loading = true),
-        (state.grooming.error = false),
-        (state.grooming.loading = true);
+    [PETBOARDING.pending]: (state, action) => {
+      (state.petBoarding.loading = true),
+        (state.petBoarding.error = false),
+        (state.petBoarding.loading = true);
     },
-    [GROOMING.rejected]: (state, action) => {
-      (state.grooming.loading = false),
-        (state.grooming.error = true),
-        (state.grooming = action.payload);
+    [PETBOARDING.rejected]: (state, action) => {
+      (state.petBoarding.loading = false),
+        (state.petBoarding.error = true),
+        (state.petBoarding = action.payload);
     },
   },
 });
 
-const groomingAction = {
-  GROOMING,
+const petBoardingAction = {
+  PETBOARDING,
 };
-export { groomingAction };
-export default groomingSlice.reducer;
+export { petBoardingAction };
+export default petBoardingSlice.reducer;

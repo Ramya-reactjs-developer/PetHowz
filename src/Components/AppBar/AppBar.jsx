@@ -168,7 +168,7 @@ const Header = (props) => {
                     onChange={(e, value) => setValue(value)}
                   >
                     <Link
-                      to="/home"
+                      to="/"
                       activeClassName="active"
                       style={{ textDecoration: "none" }}
                     >
@@ -225,16 +225,18 @@ const Header = (props) => {
                   >
                     Franchise
                   </Button>
-                  <Button
-                    // sx={{
-                    //   marginLeft: "10px",
-                    //   borderRadius: "50px",
-                    //   height: "40px",
-                    // }}
-                    variant="contained"
-                  >
-                    Login
-                  </Button>
+                  <NavLink to="/Login" style={{ textDecoration: "none" }}>
+                    <Button
+                      // sx={{
+                      //   marginLeft: "10px",
+                      //   borderRadius: "50px",
+                      //   height: "40px",
+                      // }}
+                      variant="contained"
+                    >
+                      Login
+                    </Button>
+                  </NavLink>
                 </Grid>
               </>
             )}

@@ -2,30 +2,32 @@ import React from "react";
 import customImages from "../../Utils/Images";
 import {
   Box,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
   Grid,
 } from "@mui/material";
-import {
-  AddressPosition,
-  AddressSubPosition1,
-  AddressSubPosition2,
-  CardBtnStyles,
-  CardMediaSize,
-  CardSize,
-  OverAllCArdPostions,
-  ReviewsPosition,
-} from "../../Components/Cards/Style";
+import { useDispatch, useSelector } from "react-redux";
+import actions from "../../Redux/Actions/index";
 import CustomTypography from "../../Components/Typography/Typography";
-import CustomIcons from "../../Utils/Icons/Index";
-import { CustomizedRatings } from "../../Components/StarRatings/CustomizedRatings";
-import CustomButton from "../../Components/Button/Button";
 import ImageCards from "../../Components/Cards/ImageCards";
 
 export const AllServices = () => {
+
+
+  const dispatch = useDispatch();
+  const { ourService } = useSelector((state) => state?.ourService);
+  console.log(ourService, "galleryImage");
+
+  React.useEffect(() => {
+    const data = {
+      data: {
+        limit: -1,
+      },
+      method: "post",
+      apiName: "getAllServiceMaster",
+    };
+    dispatch(actions.OURSERVICE(data));
+  }, [dispatch]);
+
+
   const AllSevices = [
     {
       image: customImages.s1,
@@ -128,9 +130,9 @@ export const AllServices = () => {
           p: "20px",
         }}
       >
-        {AllSevices.map((item, key) => {
+        {ourService?.data?.map((item) => {
           return (
-            <Box key={key}>
+            <Box>
               <ImageCards
                 ImagePath={item.image}
                 CardWidth={{
@@ -140,7 +142,7 @@ export const AllServices = () => {
                   sm: "280px",
                   xs: "325px",
                 }}
-                CardHeight={"470px"}
+                CardHeight={"300px"}
                 ImageWidth={{
                   xl: "375",
                   lg: "325px",
@@ -148,8 +150,8 @@ export const AllServices = () => {
                   sm: "280px",
                   xs: "325px",
                 }}
-                ImageHeight={"470px"}
-                service={item.service}
+                ImageHeight={"300px"}
+                service={item.service_name}
                 sub={item.sub}
               />
             </Box>

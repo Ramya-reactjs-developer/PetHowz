@@ -66,7 +66,7 @@ function CustomTextField(props) {
           InputProps={{
             endAdornment: (
               <InputAdornment position="start">
-                {textInputIcon && <img src={iconSource} alt="password" />}
+                {/* {textInputIcon && <img src={iconSource} alt="password" />} */}
               </InputAdornment>
             ),
           }}

@@ -30,11 +30,9 @@ const PetService = () => {
         </Grid>
 
         <Grid item md={7} sm={7} lg={7} xs={12}>
-          {/* {value.page === 0 && <SenderAddress />} */}
           {value.page === 0 && <PetBasicDetails />}
           {value.page === 1 && <AboutPet />}
           {value.page === 2 && <ServiceDetails />}
-          {/* {value.page === 3 && <ShippingOption />} */}
           {value.page === 3 && <UploadImage />}
           {value.page === 4 && <PetHostAddOn />}
           {value.page === 5 && <Faqs />}

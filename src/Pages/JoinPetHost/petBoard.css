@@ -61,6 +61,11 @@
     display: inline-flex;
     
 }
+
+.imageCard_edit{
+    max-width: 100% !important;
+}
+
 /* .textWidth{
     width:150px !important;
 
