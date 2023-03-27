@@ -33,20 +33,24 @@ const Terms = (props) => {
     defaultValues,
   });
   const navigate = useNavigate();
-  function onSubmit(data1) {
-    // console.log(data1, "checkData");
-    // const data = {
-    //   data: data1,
-    //   method: "post",
-    //   apiName: "updateUserTermsCondtionStatus",
-    // };
+  const userGet = useSelector((state) => state?.registertopethowz);
+  function onSubmit() {
+    console.log(onSubmit, "onSubmit");
+    const user_id = userGet?.registertopethowz?.data?.user_id;
+    console.log(userGet?.registertopethowz?.data, "ggggggggg");
+    const data = {
+      data: { user_id },
+      method: "put",
+      apiName: "updateUserTermsCondtionStatus/user_id",
+    };
     navigate("/AddYourPetLogin");
-    // dispatch(actions.TERMS_AND_CONDITION(data));
-    // console.log(data, "datadata");
-    // reset({
-    //   verified_the_data: "",
-    // });
+    dispatch(actions.TERMS_AND_CONDITION(data));
+    console.log(data, "datadata");
+    reset({
+      status: "",
+    });
   }
+  
   const [resetValue, setResetValue] = useState([]);
 
   return (

@@ -7,6 +7,8 @@ import userAddressDetailsSlice from "../Slices/userAddress/userAddressDetailsSli
 import TermsAndConditionSlice from "../Slices/TermsAndCondition/TermsAndConditionSlice";
 import CustomerAddAnotherPetSlice from "../Slices/CustomerAddPet/CustomerAddPetSlice"
 import SearchCitySlice from "../Slices/SearchCity/SearchCitySlice";
+import AddYourPetSlice from "../Slices/AddYourPet/AddYourPetSlice";
+import BookingRequestSlice from "../Slices/BookingRequest/BookingRequestSlice";
 
 const reducer = combineReducers({
   grooming: groomingSlice,
@@ -14,8 +16,10 @@ const reducer = combineReducers({
   login: loginSlice,
   registertopethowz: registertopethowzSlice,
   TermsAndCondition: TermsAndConditionSlice,
+  AddYourPet:AddYourPetSlice,
   CustomerAddAnotherPet: CustomerAddAnotherPetSlice,
   searchcity: SearchCitySlice,
+  BookingRequest:BookingRequestSlice,
 });
 
 const store = configureStore({
