@@ -2,7 +2,11 @@ import { CustomerAddAnotherPetAction } from "../Slices/CustomerAddPet/CustomerAd
 import { groomingAction } from "../Slices/Grooming/Grooming";
 import { loginAction } from "../Slices/Login/login";
 import { registertopethowzAction } from "../Slices/RegisterToPethowz/RegisterToPetHowz";
+import { overallsearchAction } from "../Slices/SearchCity/OverAllSearchSlice";
+
 import { searchcityAction } from "../Slices/SearchCity/SearchCitySlice";
+import { searchcitygetlocalityAction } from "../Slices/SearchCity/SearchGetLocalitySlice";
+
 import { TermsAndConditionAction } from "../Slices/TermsAndCondition/TermsAndConditionSlice";
 import { userAddressDetailsAction } from "../Slices/userAddress/userAddressDetailsSlice";
 
@@ -14,6 +18,8 @@ const actions = {
   ...TermsAndConditionAction,
   ...CustomerAddAnotherPetAction,
   ...searchcityAction,
+  ...searchcitygetlocalityAction,
+  ...overallsearchAction,
 };
 
 export default actions;

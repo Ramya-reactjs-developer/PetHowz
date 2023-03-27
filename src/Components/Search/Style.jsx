@@ -22,3 +22,18 @@ export const TextFieldCustomazation = {
   fontsize: "larger",
   padding: "20px",
 };
+export const TextFieldCustomazation2 = {
+  width: {
+    md: "100px",
+    sm: "100px",
+    xs: "100px",
+  },
+  // mb: "10px",
+  // height: "20px",
+  // borderRadius: "20px",
+  border: "none",
+  borderRight: "1px solid gray",
+  outline: "none",
+  fontsize: "larger",
+  pl: "20px",
+};

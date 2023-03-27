@@ -54,13 +54,17 @@ function CustomTextField(props) {
           onChange={handleChange}
           value={onChangeValue}
           type={type}
-          autoComplete="new-password"
+          autoComplete="off"
+          autoCapitalize="off"
+          autoCorrect="off"
           multiline={multiline}
           // className={customClass}
-          disabled={disabled}
+
           // className={`${isLogin && 'loginBox'} ${customClass} textBox`}
           // id={uniqueText && 'uppercase'}
           // className="textBox"
+          // disabled
+          // disabled={true}
           className={customClass}
           rows={rows}
           defaultValue={defaultValue}
@@ -70,7 +74,7 @@ function CustomTextField(props) {
                 {textInputIcon && <img src={iconSource} alt="password" />}
               </InputAdornment>
             ),
-            autoCapitalize: "off",
+            disabled: true,
           }}
         />
       </Grid>
