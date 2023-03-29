@@ -35,6 +35,7 @@ import AddAnotherPet from "../Pages/CustomerDashBoard/MyPets/AddAnotherPet";
 import Terms from "../Pages/Term/Term";
 import AddYourPetLogin from "../Pages/AddYourPet/AddYourPet";
 import { BoardingResult } from "../Pages/Result/BoardingResult";
+import { ServiceResult } from "../Pages/Result/ServiceResult";
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
@@ -44,6 +45,7 @@ export const router = createBrowserRouter(
       <Route path="Grooming" element={<Grooming />} />
       <Route path="GroomingService" element={<GroomingService />} />
       <Route path="BoardingResult" element={<BoardingResult />} />
+      <Route path="ServiceResult" element={<ServiceResult />} />
       <Route path="BecomePetHostService" element={<BecomePetHostService />} />
       <Route path="PetCare" element={<PetCare />} />
       <Route path="PetHomeBoarding" element={<PetHomeBoarding />} />

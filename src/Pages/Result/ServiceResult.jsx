@@ -7,18 +7,15 @@ import CustomButton from "../../Components/Button/Button";
 import { useEffect } from "react";
 import actions from "../../Redux/Actions";
 import { useDispatch, useSelector } from "react-redux";
-import CardsSection from "../../Components/Cards/Cards";
+import ServiceCardsSection from "../../Components/Cards/ServiceCards";
 
-export const BoardingResult = () => {
+export const ServiceResult = () => {
   const dispatch = useDispatch();
   const { state } = useLocation();
   console.log(state, "state");
   const OverAllSearchResult = useSelector((state) => state?.overallsearch);
-  console.log(
-    OverAllSearchResult?.overallsearch.data?.spaces,
-    "OverAllSearchResult"
-  );
-  console.log(OverAllSearchResult?.overallsearch.data, "SearchResult");
+  console.log(OverAllSearchResult?.overallsearch, "OverAllSearchResult");
+  //   console.log(OverAllSearchResult?.overallsearch.data[1].datas, "SearchResult");
 
   // if (
   //   searchData.city !== "" ||
@@ -36,7 +33,7 @@ export const BoardingResult = () => {
     const data = {
       data: state,
       method: "post",
-      apiName: "getAllPetSpace",
+      apiName: "getPetServiceByServiceMasterId/:service_master_id",
     };
     dispatch(actions.OVERALLSEARCH(data));
   }, [dispatch]);
@@ -55,7 +52,7 @@ export const BoardingResult = () => {
         xs={12}
       >
         <CustomTypography
-          text={OverAllSearchResult?.overallsearch.data?.title}
+          text={"Pet Services"}
           type="heading3"
           // customClass="groomText"
         />
@@ -75,7 +72,7 @@ export const BoardingResult = () => {
         </Box>
       </Grid>
       <Grid item md={12} lg={12} sm={12} xs={12}>
-        <CardsSection Data={OverAllSearchResult?.overallsearch.data?.spaces} />
+        <ServiceCardsSection Data={OverAllSearchResult?.overallsearch?.data} />
       </Grid>
       <Grid item md={12} lg={12} sm={12} xs={12} className="groomButton">
         <CustomButton

@@ -1,6 +1,6 @@
 // import CustomIcons from "../../Utils/Icons/Index";
 import PropTypes from "prop-types";
-import { Box, TextField } from "@mui/material";
+import { Box, Card, TextField, Typography } from "@mui/material";
 import {
   SearchInputPosition,
   TextFieldCustomazation,
@@ -33,7 +33,8 @@ export default function SearchBar({
   AllLOCALITY,
   handleselect2,
   overAllSearch,
-  // result,
+  cityResult,
+  localityResult,
 }) {
   return (
     <Box sx={{ pt: "40px" }}>
@@ -96,31 +97,44 @@ export default function SearchBar({
                     position: "absolute",
                     // overflow: "scroll",
                     zIndex: "1",
-                    pt: "20px",
-                    cursor: "pointer",
+                    p: "30px 0 0 10px ",
                   }}
                 >
-                  {/* {result ? ( */}
-                  <p
-                  // onChange={(data) => {
-                  //   setState(data.target);
-                  // }}
-                  >
-                    {AllCITY?.map((item) => {
-                      return (
-                        <Box
-                          sx={{ m: "10px 0" }}
-                          key={item.city}
-                          onClick={() => handleselect(item.city)}
-                        >
-                          {item.city}
-                        </Box>
-                      );
-                    })}
-                  </p>
-                  {/* ) : (
-                    "Not Available"
-                  )} */}
+                  {cityResult ? (
+                    <Card
+                      sx={{
+                        p: "5px 15px 5px 10px",
+                        width: "auto",
+                        textAlign: "left",
+                      }}
+                    >
+                      <p>Choose City</p>
+                      {AllCITY?.map((item) => {
+                        return (
+                          <Box
+                            sx={{ m: "10px 0" }}
+                            key={item.city}
+                            onClick={() => handleselect(item.city)}
+                          >
+                            <Typography sx={{ cursor: "pointer" }}>
+                              {item.city}
+                            </Typography>
+                          </Box>
+                        );
+                      })}
+                    </Card>
+                  ) : (
+                    <Card
+                      sx={{
+                        p: "5px 15px 5px 10px",
+                        width: "auto",
+                        textAlign: "left",
+                      }}
+                    >
+                      <p>Choose City</p>
+                      <p>Not Found</p>
+                    </Card>
+                  )}
                 </Box>
               ) : (
                 ""
@@ -146,31 +160,44 @@ export default function SearchBar({
                     position: "absolute",
                     // overflow: "scroll",
                     zIndex: "1",
-                    pt: "20px",
-                    cursor: "pointer",
+                    p: "30px 0 0 10px ",
                   }}
                 >
-                  {/* {result ? ( */}
-                  <p
-                  // onChange={(data) => {
-                  //   setState(data.target);
-                  // }}
-                  >
-                    {AllLOCALITY?.map((item) => {
-                      return (
-                        <Box
-                          sx={{ m: "10px 0" }}
-                          key={item.locality}
-                          onClick={() => handleselect2(item.locality)}
-                        >
-                          {item.locality}
-                        </Box>
-                      );
-                    })}
-                  </p>
-                  {/* ) : (
-                    "Not Available"
-                  )} */}
+                  {localityResult ? (
+                    <Card
+                      sx={{
+                        p: "5px 25px 5px 25px",
+                        width: "225px",
+                        textAlign: "left",
+                      }}
+                    >
+                      <p>Choose Locality</p>
+                      {AllLOCALITY?.map((item) => {
+                        return (
+                          <Box
+                            sx={{ m: "10px 0" }}
+                            key={item.locality}
+                            onClick={() => handleselect2(item.locality)}
+                          >
+                            <Typography sx={{ cursor: "pointer" }}>
+                              {item.locality}
+                            </Typography>
+                          </Box>
+                        );
+                      })}
+                    </Card>
+                  ) : (
+                    <Card
+                      sx={{
+                        p: "5px 25px 5px 25px",
+                        width: "225px",
+                        textAlign: "left",
+                      }}
+                    >
+                      <p>Choose City</p>
+                      <p>Not Found</p>
+                    </Card>
+                  )}
                 </Box>
               ) : (
                 ""

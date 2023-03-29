@@ -117,11 +117,13 @@ export const HomePage = () => {
     locality: "",
     // pet_type: 0,
     limit: -1,
+    service_master_id: "",
   });
   // const [searchDropdownData, setSearchDropdownData] = useState({ city: "" });
   const [dropList, setDropList] = useState(false);
-  const [dropListResult, setDropListResult] = useState(false);
+  const [cityResult, setCityResult] = useState(false);
   const [localityList, setLocalityList] = useState(false);
+  const [localityResult, setLocalityResult] = useState(false);
 
   //tab
   const [tabValue, setTabValue] = React.useState(0);
@@ -156,18 +158,28 @@ export const HomePage = () => {
     };
     console.log({ city: e.target.value }, "datadrop");
     console.log(updatedValue.city.length, "length");
-    if (updatedValue.city.length >= 3) {
+
+    if (updatedValue.city.length >= 2) {
       dispatch(actions.SEARCHCITY(data1));
-      setDropList(true);
+
       // setDropListResult(true);
     } else if (updatedValue.city.length === 0) {
       setDropList(false);
     }
-    // else if (value.city.length === 0) {
-    //   setDropListResult(false);
-    // }
+    if (AllCity?.searchcity?.data.length !== 0) {
+      setCityResult(true);
+      setDropList(true);
+    } else {
+      setCityResult(false);
+    }
   };
+  // function onCheck() {
 
+  // }
+  // useEffect(() => {}, []);
+
+  console.log(AllCity?.searchcity?.data.length, "value.city.length");
+  console.log(cityResult, "value.city.length");
   //search loaclity
   const OnSetSearch = (e) => {
     setSearchData({ ...searchData, locality: e.target.value });
@@ -184,12 +196,18 @@ export const HomePage = () => {
     console.log({ locality: e.target.value }, "datalocality");
     console.log(updatedValue.locality, "localitylength");
     console.log(data1, "combinedValue");
-    if (updatedValue.locality.length >= 3) {
+    if (updatedValue.locality.length >= 2) {
       dispatch(actions.SEARCHCITYGETLOCALITY(data1));
-      setLocalityList(true);
+
       // setDropListResult(true);
     } else if (updatedValue.locality.length === 0) {
       setLocalityList(false);
+    }
+    if (AllLocality?.searchcitygetlocality?.data.length !== 0) {
+      setLocalityResult(true);
+      setLocalityList(true);
+    } else {
+      setLocalityResult(false);
     }
   };
 
@@ -212,8 +230,9 @@ export const HomePage = () => {
   ];
   const handleselect = (item) => {
     console.log(item, "e.taget");
-    setSearchData({ ...searchData, pet_type: tabValue });
+    // setSearchData({ ...searchData, pet_type: tabValue });
     setSearchData({ ...searchData, city: item });
+    setOverAllSearchData({ ...overAllSearchData, city: item });
     setDropList(false);
     // setSearchDropdownData(
     //   item
@@ -227,6 +246,7 @@ export const HomePage = () => {
   const handleselect2 = (item) => {
     console.log(item, "e.taget");
     setSearchData({ ...searchData, locality: item });
+    setOverAllSearchData({ ...overAllSearchData, locality: item });
     setLocalityList(false);
     // setSearchDropdownData(
     //   item
@@ -266,18 +286,27 @@ export const HomePage = () => {
   //   dispatch(actions.OVERALLSEARCH(data));
   // }
 
-  useEffect(() => {}, [searchData]);
+  useEffect(() => {}, [searchData, cityResult]);
 
   // const SendResult = overAllSearchResultValue?.overallsearch?.data;
   //overAllSearch
   const overAllSearch = () => {
     if (
-      searchData.city !== "" &&
-      searchData.locality !== "" &&
+      overAllSearchData.city !== "" &&
+      overAllSearchData.locality !== "" &&
       tabValue === 1
     ) {
       navigate("/BoardingResult", {
-        state: searchData,
+        state: overAllSearchData,
+      });
+    }
+    if (
+      overAllSearchData.city !== "" &&
+      overAllSearchData.locality !== "" &&
+      tabValue === 0
+    ) {
+      navigate("/ServiceResult", {
+        state: overAllSearchData,
       });
     }
     // let updatedValue = {
@@ -403,16 +432,17 @@ export const HomePage = () => {
                     tabList={tabList}
                     tabValue={tabValue}
                     tabHandleChange={tabHandleChange}
-                    // result={dropListResult}
+                    cityResult={cityResult}
                     droplist={dropList}
                     localityList={localityList}
+                    localityResult={localityResult}
                     // setState={setSearchDropdownData}
                     handleselect={(item) => {
                       handleselect(item);
                     }}
                     handleselect2={handleselect2}
-                    AllLOCALITY={localityValue?.searchcitygetlocality?.data}
-                    AllCITY={value?.searchcity?.data}
+                    AllLOCALITY={AllLocality?.searchcitygetlocality?.data}
+                    AllCITY={AllCity?.searchcity?.data}
                     dropdownData={dropdownData}
                     dropdownValue={searchData.city}
                     SearchValue={searchData.locality}
@@ -425,13 +455,6 @@ export const HomePage = () => {
                       OnSetSearch(e);
                     }}
                     overAllSearch={overAllSearch}
-                  />
-                </Box>
-                <Box sx={SearchButtonPadding}>
-                  <CustomButton
-                    btnTitle="Search Now"
-                    color="primary"
-                    btnStyles={SearchButtonStyle}
                   />
                 </Box>
               </Box>
