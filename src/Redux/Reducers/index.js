@@ -10,6 +10,7 @@ import userAddressDetailsSlice from "../Slices/userAddress/userAddressDetailsSli
 import TermsAndConditionSlice from "../Slices/TermsAndCondition/TermsAndConditionSlice";
 import CustomerAddAnotherPetSlice from "../Slices/CustomerAddPet/CustomerAddPetSlice"
 import SearchCitySlice from "../Slices/SearchCity/SearchCitySlice";
+import ourServiceByIdSlice from "../Slices/OurService/OurServiceById";
 
 const reducer = combineReducers({
   grooming: groomingSlice,
@@ -22,6 +23,7 @@ const reducer = combineReducers({
   TermsAndCondition: TermsAndConditionSlice,
   CustomerAddAnotherPet: CustomerAddAnotherPetSlice,
   searchcity: SearchCitySlice,
+  ourServiceById: ourServiceByIdSlice,
 });
 
 const store = configureStore({

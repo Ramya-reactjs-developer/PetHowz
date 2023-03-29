@@ -8,6 +8,7 @@ import { registertopethowzAction } from "../Slices/RegisterToPethowz/RegisterToP
 import { searchcityAction } from "../Slices/SearchCity/SearchCitySlice";
 import { TermsAndConditionAction } from "../Slices/TermsAndCondition/TermsAndConditionSlice";
 import { userAddressDetailsAction } from "../Slices/userAddress/userAddressDetailsSlice";
+import { ourServiceByIdAction } from "../Slices/OurService/OurServiceById";
 
 const actions = {
   ...groomingAction,
@@ -20,6 +21,7 @@ const actions = {
   ...TermsAndConditionAction,
   ...CustomerAddAnotherPetAction,
   ...searchcityAction,
+  ...ourServiceByIdAction,
 };
 
 export default actions;

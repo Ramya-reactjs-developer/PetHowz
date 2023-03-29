@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
@@ -42,7 +43,9 @@ export const HomePage = () => {
 
   React.useEffect(() => {
     const data = {
-      data: { ...id_pass },
+      data: {
+        city: "",
+      },
       method: "post",
       apiName: "getAllPetSpace",
     };
@@ -52,7 +55,7 @@ export const HomePage = () => {
   const CardData = [
     {
       image: customImages.s6,
-      name: petBoarding?.data?.map((item) => item.name),
+      // name: petBoarding?.data?.map((item) => item.name),
       address: "Anna Nagar,Chennai",
       type: "Villa",
       distance: "0.2kms",
@@ -84,7 +87,7 @@ export const HomePage = () => {
   //   },
   // ];
   const [searchData, setSearchData] = useState("");
-  // const [tmpIdArr, setTmpIdsArr] = React.useState();
+  const [tmpIdArr, setTmpIdsArr] = React.useState();
   // const [petId, setPetId] = useState();
 
   console.log(searchData, "ss");
@@ -94,47 +97,67 @@ export const HomePage = () => {
 
   useEffect(() => {}, [searchData]);
 
-  const onClickHandle = (key, data) => {
-    console.log(key, "key");
-    navigate("/grooming");
-    //   {
-    //   state: tmpIdArr[key],
-    //   // state: id_pass,
-    //   id_pass,
-    // };
+  const onClickHandle = (data) => {
+    // console.log(key, "key");
+    navigate("/groomingService", {
+      // state: tmpIdArr[key],
+      // state: id_pass,
+      // id_pass,
+    });
   };
-  // React.useEffect(() => {
-  //   const tmpArr = [];
-  //   const tmpIdsArr = [];
-  //   console.log(tmpIdsArr, "tmpIdsArr");
-  //   petBoarding?.data?.map((value, index) => {
-  //     tmpIdsArr?.push(value.user_id);
-  //     tmpArr?.push({
-  //       sno: index,
-  //     });
-  //   });
-  //   setTmpIdsArr(tmpIdsArr);
-  // }, [petBoarding]);
+  React.useEffect(() => {
+    const tmpArr = [];
+    const tmpIdsArr = [];
+    console.log(tmpIdsArr, "tmpIdsArr");
+    ourService?.data?.map((value, index) => {
+      tmpIdsArr?.push(value.service_master_id);
+      tmpArr?.push({
+        sno: index,
+      });
+    });
+    setTmpIdsArr(tmpIdsArr);
+  }, [ourService]);
 
-  const serviceId = ourService?.data?.map((item) => item.service_master_id);
-  // const serviceId = ourService?.data;
-  console.log(serviceId, "serviceId");
+  const serviceId = ourService?.data?.map((data) => data?.service_master_id);
+  // const serviceId = ourService?.data?.service_master_id;
+  // const idValue = serviceValue;
+  // console.log(serviceValue, "idValue");
 
-  const onHandleClick = () => {
-    // console.log(serviceId.length, "length");
+  const onHandleClick = (key, index) => {
+    // console.log(value, "idCheckData");
+    // const idValue = serviceValue;
+    // console.log(idValue, "idValueData");
+    // console.log(serviceId.length, "length")idCheckData;
     // serviceId.length[0] && navigate("/grooming");
     // serviceId.length[1] && <NavLink to="/petSpace" />;
-     
-     
-    if (serviceId[0]) {
-      navigate("/grooming");
-    }else{
-      navigate("/petSpace");
-    }
+
+    // const arr = [];
+    // ourService?.data?.map((data) => {
+    //   // console.log(data?.service_master_id, "idCheckData");
+
+    //   if (data?.service_master_id === value?.service_master_id) {
+    //     // console.log(value, "idCheckData");
+    //     arr.push(data)
+    //     console.log(arr.push, "idCheckDataValue");
+    //   }
+    //   // const idCheckData = data?.service_master_id;
+    //   // console.log(idCheckData, "idCheckData");
+      
+    // });
+    // navigate("/grooming", {
+    //   state: { response: arr, id: value?.service_master_id || 0},
+    //   // state: tmpIdArr[key],
+    // });
+    navigate("/grooming", {
+      state: tmpIdArr[key],
+      // state: id_pass,
+      // id_pass,
+    });
+
   };
 
-  const id_pass = petBoarding?.data?.map((item) => item.user_id);
-  console.log(id_pass, "check");
+  // const id_pass = petBoarding?.data?.map((item) => item.user_id);
+  // console.log(id_pass, "check");
 
   return (
     // <div>
@@ -218,7 +241,10 @@ export const HomePage = () => {
         xs={12}
         pt={"30px"}
       >
-        {ourService?.data?.map((data) => {
+        {ourService?.data?.map((data, index) => {
+          console.log(data?.service_master_id, "service_master_id");
+          const serviceValue = data?.service_master_id;
+          // console.log(serviceValue, "serviceValue");
           return (
             <Grid item lg={3} md={6} sm={6} xs={12}>
               <Box>
@@ -240,7 +266,14 @@ export const HomePage = () => {
                   ImageHeight={"300px"}
                   service={data?.service_name}
                   sub={"Starting From ₹ 700"}
-                  onHandleClick={onHandleClick}
+                  subId={data?.service_master_id}
+                  // onHandleClick={(id, index) => onHandleClick(id, index)}
+                  // onHandleClick={(subId, id, index) =>
+                  //   onHandleClick(subId, id, index)
+                  // }
+                  onHandleClick={() =>
+                    onHandleClick(index, data?.service_master_id)
+                  }
                 />
               </Box>
             </Grid>

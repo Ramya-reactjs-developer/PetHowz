@@ -12,6 +12,7 @@ export default function ImageCards({
   ImageHeight,
   service,
   sub,
+  subId,
   onHandleClick,
 }) {
   const ImageCardSize = {
@@ -61,6 +62,7 @@ export default function ImageCards({
             colorType="secondary"
           />
           <CustomTypography text={sub} type="title" colorType="secondary" />
+          <CustomTypography text={subId} type="title" colorType="secondary" />
         </Box>
       </Card>
     </Grid>
@@ -75,6 +77,7 @@ ImageCards.propTypes = {
   ImageHeight: PropTypes.any.isRequired,
   service: PropTypes.any.isRequired,
   sub: PropTypes.any.isRequired,
+  subId: PropTypes.any.isRequired,
   onHandleClick: PropTypes.func.isRequired,
 };
 // ImageCards.defaultProps = {
