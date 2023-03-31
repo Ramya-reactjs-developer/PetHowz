@@ -74,7 +74,6 @@ function CustomTextField(props) {
                 {/* {textInputIcon && <img src={iconSource} alt="password" />} */}
               </InputAdornment>
             ),
-            disabled: true,
           }}
         />
       </Grid>

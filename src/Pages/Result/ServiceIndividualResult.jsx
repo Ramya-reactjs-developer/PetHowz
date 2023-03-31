@@ -1,23 +1,25 @@
 import React from "react";
 import { Box, Grid } from "@mui/material";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import CustomTypography from "../../Components/Typography/Typography";
 // import GroomingCardsSection from "../../Components/GroomingCard/GroomingCard";
 import CustomButton from "../../Components/Button/Button";
 import { useEffect } from "react";
 import actions from "../../Redux/Actions";
 import { useDispatch, useSelector } from "react-redux";
+import CardsSection from "../../Components/Cards/Cards";
 import ServiceCardsSection from "../../Components/Cards/ServiceCards";
 
-export const ServiceResult = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+export const ServiceIndividualResult = () => {
+  //   const dispatch = useDispatch();
   const { state } = useLocation();
   console.log(state, "state");
-  const OverAllSearchResult = useSelector((state) => state?.overallsearch);
-  console.log(OverAllSearchResult?.overallsearch.data, "OverAllSearchResult");
-  console.log(OverAllSearchResult?.overallsearch?.data[0]?.datas, "Service");
-  //   console.log(OverAllSearchResult?.overallsearch.data[1].datas, "SearchResult");
+  //   const OverAllSearchResult = useSelector((state) => state?.overallsearch);
+  //   console.log(
+  //     OverAllSearchResult?.overallsearch.data?.spaces,
+  //     "OverAllSearchResult"
+  //   );
+  //   console.log(OverAllSearchResult?.overallsearch.data, "SearchResult");
 
   // if (
   //   searchData.city !== "" ||
@@ -31,20 +33,14 @@ export const ServiceResult = () => {
   //   };
   //   dispatch(actions.OVERALLSEARCH(data));
   // }
-  useEffect(() => {
-    const data = {
-      data: state,
-      method: "post",
-      apiName: "getPetServiceByServiceMasterId/:service_master_id",
-    };
-    dispatch(actions.OVERALLSEARCH(data));
-  }, [dispatch]);
-
-  const onDiscover = (key) => {
-    navigate("/ServiceIndividualResult", {
-      state: OverAllSearchResult?.overallsearch?.data[key],
-    });
-  };
+  //   useEffect(() => {
+  //     const data = {
+  //       data: state,
+  //       method: "post",
+  //       apiName: "getAllPetSpace",
+  //     };
+  //     dispatch(actions.OVERALLSEARCH(data));
+  //   }, [dispatch]);
   return (
     <Grid className="container" item md={12} lg={12} sm={12} xs={12}>
       <Grid
@@ -53,21 +49,20 @@ export const ServiceResult = () => {
         display={"flex"}
         alignItems={"center"}
         justifyContent={"flex-start"}
-        flexWrap={"wrap"}
         gap={"5px"}
         md={12}
         lg={12}
         sm={12}
         xs={12}
       >
-        <CustomTypography
-          text={"Pet Services"}
+        {/* <CustomTypography
+          text={OverAllSearchResult?.overallsearch.data?.title}
           type="heading3"
           // customClass="groomText"
-        />
+        /> */}
         <Box sx={{ display: "flex", pt: "8px" }}>
           <CustomTypography
-            text={" in " + state.city + ", "}
+            text={state.title}
             type="header"
             colorType={"primary"}
             // customClass="groomText"
@@ -81,10 +76,14 @@ export const ServiceResult = () => {
         </Box>
       </Grid>
       <Grid item md={12} lg={12} sm={12} xs={12}>
-        <ServiceCardsSection
-          Data={OverAllSearchResult?.overallsearch?.data}
-          onDiscover={(key) => onDiscover(key)}
-          nos={5}
+        <CardsSection Data={state?.datas} />
+      </Grid>
+      <Grid item md={12} lg={12} sm={12} xs={12} className="groomButton">
+        <CustomButton
+          btnTitle="Load More Spaces"
+          color="primary"
+          customClass="groomCardStyles"
+          fontSize="12px"
         />
       </Grid>
     </Grid>

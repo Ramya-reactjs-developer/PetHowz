@@ -28,7 +28,6 @@ import { MyBookingsHostDB } from "../Pages/HostDashBoard/MyBookings/MyBookingsHo
 import { MyBoardingSpaceHostDB } from "../Pages/HostDashBoard/MyBoardingSpace/MyBoardingSpaceHostDB";
 import { MyServicesHostDB } from "../Pages/HostDashBoard/MyServices/MyServicesHostDB";
 import { BookingRequestsHostDB } from "../Pages/HostDashBoard/MyBookingRequest/BookingRequestsHostDb";
-import PetHomeBoarding from "../Pages/JoinPetHost/petHost/PetHomeBoarding";
 import PetHomeBoardingAndService from "../Pages/JoinPetHost/BothBoardAndService/BothBoardAndService";
 import BothBoardAndService from "../Pages/JoinPetHost/BothBoardAndService/BothBoardAndService";
 import AddAnotherPet from "../Pages/CustomerDashBoard/MyPets/AddAnotherPet";
@@ -36,6 +35,10 @@ import Terms from "../Pages/Term/Term";
 import AddYourPetLogin from "../Pages/AddYourPet/AddYourPet";
 import { BoardingResult } from "../Pages/Result/BoardingResult";
 import { ServiceResult } from "../Pages/Result/ServiceResult";
+import { ServiceIndividualResult } from "../Pages/Result/ServiceIndividualResult";
+import PetHomeBoarding from "../Pages/JoinPetHost/PetHomeBoarding/PetHomeBoarding";
+import { PetBoardingRegistration } from "../Pages/JoinPetHost/PetBoardingRegistration/PetBoardingRegistration";
+
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
@@ -46,6 +49,10 @@ export const router = createBrowserRouter(
       <Route path="GroomingService" element={<GroomingService />} />
       <Route path="BoardingResult" element={<BoardingResult />} />
       <Route path="ServiceResult" element={<ServiceResult />} />
+      <Route
+        path="ServiceIndividualResult"
+        element={<ServiceIndividualResult />}
+      />
       <Route path="BecomePetHostService" element={<BecomePetHostService />} />
       <Route path="PetCare" element={<PetCare />} />
       <Route path="PetHomeBoarding" element={<PetHomeBoarding />} />
@@ -58,6 +65,7 @@ export const router = createBrowserRouter(
         path="PetHomeBoardingAndService"
         element={<PetHomeBoardingAndService />}
       />
+      <Route path="PetHomeBoarding" element={<PetHomeBoarding />} />
       <Route path="/PetService" element={<PetService />} />
       <Route path="BothBoardAndService" element={<BothBoardAndService />} />
       <Route path="Terms" element={<Terms />} />
@@ -67,6 +75,10 @@ export const router = createBrowserRouter(
       <Route
         path="PetHomeBoardingAndService"
         element={<PetHomeBoardingAndService />}
+      />
+      <Route
+        path="PetBoardingRegistration"
+        element={<PetBoardingRegistration />}
       />
 
       <Route path="PetService" element={<PetService />} />

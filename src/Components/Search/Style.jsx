@@ -24,9 +24,9 @@ export const TextFieldCustomazation = {
 };
 export const TextFieldCustomazation2 = {
   width: {
-    md: "100px",
-    sm: "100px",
-    xs: "100px",
+    md: "120px",
+    sm: "120px",
+    xs: "120px",
   },
   // mb: "10px",
   // height: "20px",
