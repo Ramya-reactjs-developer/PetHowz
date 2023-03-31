@@ -8,9 +8,14 @@ import petBoardingByIdSlice from "../Slices/PetBoarding/PetBoardingById";
 import registertopethowzSlice from "../Slices/RegisterToPethowz/RegisterToPetHowz";
 import userAddressDetailsSlice from "../Slices/userAddress/userAddressDetailsSlice";
 import TermsAndConditionSlice from "../Slices/TermsAndCondition/TermsAndConditionSlice";
-import CustomerAddAnotherPetSlice from "../Slices/CustomerAddPet/CustomerAddPetSlice"
+import CustomerAddAnotherPetSlice from "../Slices/CustomerAddPet/CustomerAddPetSlice";
 import SearchCitySlice from "../Slices/SearchCity/SearchCitySlice";
 import ourServiceByIdSlice from "../Slices/OurService/OurServiceById";
+import SearchGetLocalitySlice from "../Slices/SearchCity/SearchGetLocalitySlice";
+import OverAllSearchSlice from "../Slices/SearchCity/OverAllSearchSlice";
+import AddYourPetSlice from "../Slices/AddYourPet/AddYourPetSlice";
+import BookingRequestSlice from "../Slices/BookingRequest/BookingRequestSlice";
+import petCareSlice from "../Slices/Grooming/GroomingService";
 
 const reducer = combineReducers({
   grooming: groomingSlice,
@@ -21,9 +26,14 @@ const reducer = combineReducers({
   petBoardingById: petBoardingByIdSlice,
   registertopethowz: registertopethowzSlice,
   TermsAndCondition: TermsAndConditionSlice,
+  AddYourPet: AddYourPetSlice,
   CustomerAddAnotherPet: CustomerAddAnotherPetSlice,
   searchcity: SearchCitySlice,
   ourServiceById: ourServiceByIdSlice,
+  searchcitygetlocality: SearchGetLocalitySlice,
+  overallsearch: OverAllSearchSlice,
+  BookingRequest: BookingRequestSlice,
+  petCareService: petCareSlice,
 });
 
 const store = configureStore({

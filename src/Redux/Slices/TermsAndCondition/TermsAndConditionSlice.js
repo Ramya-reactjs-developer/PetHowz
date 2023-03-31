@@ -1,11 +1,17 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import React from "react";
+/* eslint-disable no-unused-expressions */
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { defaultReject, defaultState } from "../../Constants";
 import { fetchData } from "../../Helpers";
 
 const TERMS_AND_CONDITION = createAsyncThunk(
   "TermsAndCondition/TermsAndCondition",
-  async (payload = {}, { rejectWithValue }) => {
+  // eslint-disable-next-line default-param-last
+  async (
+    // eslint-disable-next-line default-param-last
+    payload = {},
+
+    { rejectWithValue }
+  ) => {
     try {
       const data = await fetchData(
         payload?.data,
@@ -14,7 +20,7 @@ const TERMS_AND_CONDITION = createAsyncThunk(
       );
       return {
         ...defaultState.List,
-        message: data?.data.message,
+        message: data?.data.Message,
         data: data?.data?.data,
       };
     } catch (error) {
@@ -25,6 +31,7 @@ const TERMS_AND_CONDITION = createAsyncThunk(
     }
   }
 );
+
 const TermsAndConditionSlice = createSlice({
   name: "TermsAndConditionSlice",
   initialState: {
@@ -34,22 +41,23 @@ const TermsAndConditionSlice = createSlice({
   },
   extraReducers: {
     [TERMS_AND_CONDITION.fulfilled]: (state, action) => {
-      (state.TermsAndCondition.loading = false)(
+      (state.TermsAndCondition.loading = false)
         (state.TermsAndCondition.error = false)
-      )((state.TermsAndCondition = action.payload));
+        (state.TermsAndCondition = action.payload);
     },
     [TERMS_AND_CONDITION.pending]: (state, action) => {
-      (state.TermsAndCondition.loading = true)(
-        (state.TermsAndCondition.error = false)
-      )((state.TermsAndCondition = true));
+      (state.TermsAndCondition.loading = true),
+        (state.TermsAndCondition.error = false),
+        (state.TermsAndCondition.loading = true);
     },
     [TERMS_AND_CONDITION.rejected]: (state, action) => {
-      (state.TermsAndCondition.loading = false)(
-        (state.TermsAndCondition.error = true)
-      )((state.TermsAndCondition = action.payload));
+      (state.TermsAndCondition.loading = false),
+        (state.TermsAndCondition.error = true),
+        (state.TermsAndCondition = action.payload);
     },
   },
 });
+
 const TermsAndConditionAction = {
   TERMS_AND_CONDITION,
 };
