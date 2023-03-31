@@ -46,7 +46,7 @@ const Login = () => {
   };
   useEffect(() => {
     console.log(login?.Message, "checkData");
-    if (login?.data?.usertype === 0 && true) {
+    if (login?.data?.user_type === 0 && true) {
       setList([
         {
           id: 1,
