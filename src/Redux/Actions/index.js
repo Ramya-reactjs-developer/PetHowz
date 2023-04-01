@@ -13,6 +13,8 @@ import { searchcityAction } from "../Slices/SearchCity/SearchCitySlice";
 import { searchcitygetlocalityAction } from "../Slices/SearchCity/SearchGetLocalitySlice";
 import { TermsAndConditionAction } from "../Slices/TermsAndCondition/TermsAndConditionSlice";
 import { userAddressDetailsAction } from "../Slices/userAddress/userAddressDetailsSlice";
+import { ourServiceByIdAction } from "../Slices/OurService/OurServiceById";
+import { petCareAction } from "../Slices/Grooming/GroomingService";
 
 const actions = {
   ...groomingAction,
@@ -26,9 +28,11 @@ const actions = {
   ...CustomerAddAnotherPetAction,
   ...AddYourPetAction,
   ...searchcityAction,
+  ...ourServiceByIdAction,
   ...searchcitygetlocalityAction,
   ...overallsearchAction,
   ...BookingRequestAction,
+  ...petCareAction,
   ...phbbasicdetailsAction,
 };
 

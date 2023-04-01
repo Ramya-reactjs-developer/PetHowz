@@ -10,10 +10,12 @@ import userAddressDetailsSlice from "../Slices/userAddress/userAddressDetailsSli
 import TermsAndConditionSlice from "../Slices/TermsAndCondition/TermsAndConditionSlice";
 import CustomerAddAnotherPetSlice from "../Slices/CustomerAddPet/CustomerAddPetSlice";
 import SearchCitySlice from "../Slices/SearchCity/SearchCitySlice";
+import ourServiceByIdSlice from "../Slices/OurService/OurServiceById";
 import SearchGetLocalitySlice from "../Slices/SearchCity/SearchGetLocalitySlice";
 import OverAllSearchSlice from "../Slices/SearchCity/OverAllSearchSlice";
 import AddYourPetSlice from "../Slices/AddYourPet/AddYourPetSlice";
 import BookingRequestSlice from "../Slices/BookingRequest/BookingRequestSlice";
+import petCareSlice from "../Slices/Grooming/GroomingService";
 import PHBBasicDetailsSlice from "../Slices/PetHomeBoardingSlice/PHBBasicDetailsSlice";
 
 const reducer = combineReducers({
@@ -28,9 +30,11 @@ const reducer = combineReducers({
   AddYourPet: AddYourPetSlice,
   CustomerAddAnotherPet: CustomerAddAnotherPetSlice,
   searchcity: SearchCitySlice,
+  ourServiceById: ourServiceByIdSlice,
   searchcitygetlocality: SearchGetLocalitySlice,
   overallsearch: OverAllSearchSlice,
   BookingRequest: BookingRequestSlice,
+  petCareService: petCareSlice,
   phbbasicdetails: PHBBasicDetailsSlice,
 });
 

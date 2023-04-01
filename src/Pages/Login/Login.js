@@ -16,13 +16,15 @@ import CustomTypography from "../../Components/Typography/Typography";
 import CustomIcons from "../../Utils/Icons/Index";
 import Toast from "../../Utils/Notification/Toast";
 
-const Login = () => {
+function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const login = useSelector((state) => state?.login?.login);
+  const loginAdmin = useSelector((state) => state?.login?.login);
+  console.log(loginAdmin, "useSelector");
   const [list, setList] = useState([]);
+  console.log(list, "listValue");
   const [showToast, setShowToast] = useState(false);
-  console.log(login, "list");
+  console.log(loginAdmin, "list");
 
   const {
     control,
@@ -36,40 +38,39 @@ const Login = () => {
    */
   const onSubmit = (dat) => {
     const data = { data: dat, method: "post", apiName: "userLogin" };
-    dispatch(actions.LOGIN(data));
+    dispatch(actions.LOGIN_ADMIN(data));
     setShowToast(!showToast);
   };
   const setNav = () => {
     setTimeout(() => {
-      navigate("/home");
+      navigate("/grooming");
     }, 3000);
   };
   useEffect(() => {
-    console.log(login?.Message, "checkData");
-    if (login?.data?.usertype === 0 && true) {
+    if (loginAdmin?.data?.Success === true) {
       setList([
         {
           id: 1,
-          title: "Success",
-          description: "Login Success",
-          backgroundColor: "check",
-          icon: "check",
+          title: 'Success',
+          description: 'Login Success',
+          backgroundColor: 'check',
+          icon: 'check',
         },
       ]);
       setNav();
     }
-    if (login?.Success === false) {
+    if (loginAdmin?.data?.Success === false) {
       setList([
         {
           id: 2,
-          title: "Error",
-          description: "Incorrect Email or Password",
-          backgroundColor: "error",
-          icon: "warning",
+          title: 'Error',
+          description: 'Incorrect Email or Password',
+          backgroundColor: 'error',
+          icon: 'warning',
         },
       ]);
     }
-  }, []);
+  }, [loginAdmin]);
 
   return (
     <Grid container sm={12} xs={12}>
@@ -112,7 +113,7 @@ const Login = () => {
                       {list?.map((item) => (
                         <LinearProgress
                           sx={{
-                            backgroundColor: item?.id === 1 ? "green" : "red",
+                            backgroundColor: item?.id === 1 ? "#5cb85c" : "red",
                           }}
                         />
                       ))}
@@ -239,6 +240,6 @@ const Login = () => {
       </Grid>
     </Grid>
   );
-};
+}
 
 export default Login;

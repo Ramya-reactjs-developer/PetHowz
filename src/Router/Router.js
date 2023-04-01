@@ -35,6 +35,7 @@ import Terms from "../Pages/Term/Term";
 import AddYourPetLogin from "../Pages/AddYourPet/AddYourPet";
 import { BoardingResult } from "../Pages/Result/BoardingResult";
 import { ServiceResult } from "../Pages/Result/ServiceResult";
+import { AllPetBoarding } from "../Components/AllpetBoarding/AllPetBoarding";
 import { ServiceIndividualResult } from "../Pages/Result/ServiceIndividualResult";
 import PetHomeBoarding from "../Pages/JoinPetHost/PetHomeBoarding/PetHomeBoarding";
 import { PetBoardingRegistration } from "../Pages/JoinPetHost/PetBoardingRegistration/PetBoardingRegistration";
@@ -60,6 +61,7 @@ export const router = createBrowserRouter(
       <Route path="Terms" element={<Terms />} />
       <Route path="AddAnotherPet" element={<AddAnotherPet />} />
       <Route path="AddYourPetLogin" element={<AddYourPetLogin />} />
+      <Route path="AllPetBoarding" element={<AllPetBoarding />} />
 
       <Route
         path="PetHomeBoardingAndService"
@@ -71,7 +73,6 @@ export const router = createBrowserRouter(
       <Route path="Terms" element={<Terms />} />
       <Route path="AddAnotherPet" element={<AddAnotherPet />} />
       <Route path="AddYourPetLogin" element={<AddYourPetLogin />} />
-
       <Route
         path="PetHomeBoardingAndService"
         element={<PetHomeBoardingAndService />}
@@ -82,7 +83,6 @@ export const router = createBrowserRouter(
       />
 
       <Route path="PetService" element={<PetService />} />
-
       {/* Register to PetHowz */}
       <Route path="RegisterToPethowz" element={<RegisterToPethowz />} />
       <Route path="AddAddress" element={<AddAddress />} />

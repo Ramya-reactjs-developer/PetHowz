@@ -1,16 +1,14 @@
 /* eslint-disable no-unused-expressions */
 import React, { useEffect } from "react";
-import GroomingCardsSection from "../../Components/GroomingCard/GroomingCard";
 import { Grid } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import actions from "../../Redux/Actions/index";
-import customImages from "../../Utils/Images/index";
-import CustomTypography from "../../Components/Typography/Typography";
-import CustomButton from "../../Components/Button/Button";
-import "./Grooming.css";
+// import CustomButton from "../../Components/Button/Button";
+import "./AllPetBoarding.css";
+import HomePetCardsSection from "../homeBoarding/homeBoarding";
 
-export const Grooming = () => {
+export const AllPetBoarding = () => {
   const dispatch = useDispatch();
   // const { state } = useLocation();
   const location = useLocation();
@@ -18,36 +16,33 @@ export const Grooming = () => {
   const value = location.state;
   console.log(value, "value");
 
-  const { ourServiceById } = useSelector((state) => state?.ourServiceById);
-  console.log(
-    ourServiceById?.data?.map((item) => item?.datas),
-    "ourServiceById"
-  );
-
+//  const { petBoarding } = useSelector((state) => state?.petBoarding);
+  // console.log(
+  //   petBoarding?.data?.map((item) => item?.datas),
+  //   "ourServiceById"
+  // );
 
   const { ourService } = useSelector((state) => state?.ourService);
   console.log(ourService, "ourService");
 
-  useEffect(() => {
-    const data = {
-      data: {
-        city: "",
-        locality: "",
-        limit: -1,
-      },
-      method: "post",
-      // apiName: `getPetServiceByServiceMasterId/${state.response?.[0]?.service_master_id}`,
-      apiName: `getPetServiceByServiceMasterId/${value}`,
-    };
-    dispatch(actions.OURSERVICEBYID(data));
-  }, [dispatch, value]);
+   React.useEffect(() => {
+     const data = {
+       data: {
+         city: "",
+         limit: -1
+       },
+       method: "post",
+       apiName: "getAllPetSpace",
+     };
+     dispatch(actions.PETBOARDING(data));
+   }, [dispatch]);
 
   const { state } = useLocation();
   console.log(state, "state");
 
   return (
     <Grid className="container" item md={12} lg={12} sm={12} xs={12}>
-      {ourServiceById?.data?.map((data) => {
+      {/* {ourServiceById?.data?.map((data) => {
         return (
           <Grid item md={12} lg={12} sm={12} xs={12}>
             <CustomTypography
@@ -58,23 +53,23 @@ export const Grooming = () => {
             />
           </Grid>
         );
-      })}
+      })} */}
       {/* {ourServiceById?.data?.map((data) => {
         return ( */}
       <Grid item md={12} lg={12} sm={12} xs={12}>
-        <GroomingCardsSection />
+        <HomePetCardsSection />
       </Grid>
       {/* );
        })} */}
 
-      <Grid item md={12} lg={12} sm={12} xs={12} className="groomButton">
+      {/* <Grid item md={12} lg={12} sm={12} xs={12} className="groomButton">
         <CustomButton
           btnTitle="Load More Spaces"
           color="primary"
           customClass="groomCardStyles"
           fontSize="12px"
         />
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };
