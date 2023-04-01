@@ -19,8 +19,14 @@ import {
   OverAllCArdPostions,
   ReviewsPosition,
 } from "./Style";
+import { useNavigate } from "react-router";
 
-export default function ServiceCardsSection({ Data, onClickHandle }) {
+export default function ServiceCardsSection({
+  Data,
+  onClickHandle,
+  onDiscover,
+  nos,
+}) {
   const CardData = Data;
   // const { onClickHandle } = props;
   // [
@@ -34,6 +40,14 @@ export default function ServiceCardsSection({ Data, onClickHandle }) {
   //     reviews: "(75 reviews)",
   //   },
   // ];
+  const [currentPage, setCurrentPage] = React.useState(1);
+
+  const [postsPerPage] = React.useState(nos);
+  /**
+   *  pagination(Get current posts)
+   */
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
   return (
     <Grid
@@ -55,17 +69,20 @@ export default function ServiceCardsSection({ Data, onClickHandle }) {
                   // customClass="groomText"
                 />
               </Grid>
-              {item.datas.length !== 0 ? (
-                <Grid
-                  item
-                  display={"flex"}
-                  alignItems={"center"}
-                  justifyContent={"flex-start"}
-                  gap={"40px"}
-                  xs={12}
-                  pt={"10px"}
-                >
-                  {item?.datas?.map((item, key) => {
+              {/* {item.datas.length !==0 ? ():("Not Found")} */}
+              <Grid
+                item
+                display={"flex"}
+                alignItems={"center"}
+                justifyContent={"flex-start"}
+                flexWrap={"wrap"}
+                gap={"40px"}
+                xs={12}
+                pt={"10px"}
+              >
+                {item?.datas
+                  ?.slice(indexOfFirstPost, indexOfLastPost)
+                  .map((item, key) => {
                     return (
                       <Box key={key}>
                         <Card sx={CardSize}>
@@ -149,10 +166,23 @@ export default function ServiceCardsSection({ Data, onClickHandle }) {
                       </Box>
                     );
                   })}
-                </Grid>
-              ) : (
-                "Not Found"
-              )}
+              </Grid>
+              <Grid
+                item
+                md={12}
+                lg={12}
+                sm={12}
+                xs={12}
+                className="groomButton"
+              >
+                <CustomButton
+                  btnTitle="Discover More"
+                  color="primary"
+                  customClass="groomCardStyles"
+                  fontSize="12px"
+                  onClickHandle={() => onDiscover(key)}
+                />
+              </Grid>
             </Grid>
           );
         })}

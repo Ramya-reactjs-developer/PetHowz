@@ -16,6 +16,7 @@ import OverAllSearchSlice from "../Slices/SearchCity/OverAllSearchSlice";
 import AddYourPetSlice from "../Slices/AddYourPet/AddYourPetSlice";
 import BookingRequestSlice from "../Slices/BookingRequest/BookingRequestSlice";
 import petCareSlice from "../Slices/Grooming/GroomingService";
+import PHBBasicDetailsSlice from "../Slices/PetHomeBoardingSlice/PHBBasicDetailsSlice";
 
 const reducer = combineReducers({
   grooming: groomingSlice,
@@ -34,6 +35,7 @@ const reducer = combineReducers({
   overallsearch: OverAllSearchSlice,
   BookingRequest: BookingRequestSlice,
   petCareService: petCareSlice,
+  phbbasicdetails: PHBBasicDetailsSlice,
 });
 
 const store = configureStore({

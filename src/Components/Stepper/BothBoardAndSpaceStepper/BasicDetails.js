@@ -226,7 +226,7 @@ const BasicDetails = () => {
           <Grid item md={12} sm={12} lg={12} xs={12}>
             <CustomForm
               AllEntries={BasicDetailsEntries}
-              textFieldChange={value.handleChange}
+              // textFieldChange={value.handleChange}
               // onReceiveData={onReceiveData}
               defaultValues={DefaultBasicDetailsValues}
             />

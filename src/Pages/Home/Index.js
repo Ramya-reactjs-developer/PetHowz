@@ -85,7 +85,7 @@ export const HomePage = () => {
     locality: "",
     // pet_type: 0,
     limit: -1,
-    service_master_id: "",
+    service_master_id: 0,
   });
   // const [searchDropdownData, setSearchDropdownData] = useState({ city: "" });
   const [dropList, setDropList] = useState(false);
@@ -127,14 +127,14 @@ export const HomePage = () => {
     console.log({ city: e.target.value }, "datadrop");
     console.log(updatedValue.city.length, "length");
 
-    if (updatedValue.city.length >= 2) {
+    if (updatedValue?.city?.length >= 0) {
       dispatch(actions.SEARCHCITY(data1));
 
       // setDropListResult(true);
-    } else if (updatedValue.city.length === 0) {
+    } else if (updatedValue?.city?.length === 0) {
       setDropList(false);
     }
-    if (AllCity?.searchcity?.data.length !== 0) {
+    if (AllCity?.searchcity?.data?.length !== 0) {
       setCityResult(true);
       setDropList(true);
     } else {
@@ -156,14 +156,14 @@ export const HomePage = () => {
     console.log({ locality: e.target.value }, "datalocality");
     console.log(updatedValue.locality, "localitylength");
     console.log(data1, "combinedValue");
-    if (updatedValue.locality.length >= 2) {
+    if (updatedValue?.locality?.length >= 0) {
       dispatch(actions.SEARCHCITYGETLOCALITY(data1));
 
       // setDropListResult(true);
-    } else if (updatedValue.locality.length === 0) {
+    } else if (updatedValue?.locality?.length === 0) {
       setLocalityList(false);
     }
-    if (AllLocality?.searchcitygetlocality?.data.length !== 0) {
+    if (AllLocality?.searchcitygetlocality?.data?.length !== 0) {
       setLocalityResult(true);
       setLocalityList(true);
     } else {
@@ -222,8 +222,8 @@ export const HomePage = () => {
   //overAllSearch
   const overAllSearch = () => {
     if (
-      overAllSearchData.city !== "" &&
-      overAllSearchData.locality !== "" &&
+      overAllSearchData?.city !== "" &&
+      overAllSearchData?.locality !== "" &&
       tabValue === 1
     ) {
       navigate("/BoardingResult", {
@@ -231,8 +231,8 @@ export const HomePage = () => {
       });
     }
     if (
-      overAllSearchData.city !== "" &&
-      overAllSearchData.locality !== "" &&
+      overAllSearchData?.city !== "" &&
+      overAllSearchData?.locality !== "" &&
       tabValue === 0
     ) {
       navigate("/ServiceResult", {
@@ -377,8 +377,8 @@ export const HomePage = () => {
                     AllLOCALITY={AllLocality?.searchcitygetlocality?.data}
                     AllCITY={AllCity?.searchcity?.data}
                     dropdownData={dropdownData}
-                    dropdownValue={searchData.city}
-                    SearchValue={searchData.locality}
+                    dropdownValue={searchData?.city}
+                    SearchValue={searchData?.locality}
                     dropdownName={"city"}
                     handleDropdownChange={(e) => {
                       OnSetDropdownSearch(e);

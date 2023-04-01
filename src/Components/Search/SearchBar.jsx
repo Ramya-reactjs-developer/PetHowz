@@ -80,6 +80,7 @@ export default function SearchBar({
             /> */}
             <Box sx={{ position: "sticky" }}>
               <TextField
+                autoComplete="off"
                 variant="standard"
                 sx={TextFieldCustomazation2}
                 type="text"
@@ -103,6 +104,7 @@ export default function SearchBar({
                   {cityResult ? (
                     <Card
                       sx={{
+                        mt: "17px",
                         p: "5px 15px 5px 10px",
                         width: "auto",
                         textAlign: "left",
@@ -143,6 +145,7 @@ export default function SearchBar({
             <Box sx={{ position: "sticky" }}>
               {" "}
               <TextField
+                autoComplete="off"
                 variant="standard"
                 sx={TextFieldCustomazation}
                 type="text"

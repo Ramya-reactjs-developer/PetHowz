@@ -70,7 +70,13 @@ export const LabelProvider = (props) => {
       whats_included: "",
       rate: "",
     },
-    AddOn: { AddOnPackage: "", add_button: "", WhatisIncluded: "", Rate: "", fileUploader:[] },
+    AddOn: {
+      AddOnPackage: "",
+      add_button: "",
+      WhatisIncluded: "",
+      Rate: "",
+      fileUploader: [],
+    },
   });
   // console.log(labelInfo,"labelInfo");
 
