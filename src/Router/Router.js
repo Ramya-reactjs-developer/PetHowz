@@ -14,7 +14,6 @@ import PetCare from "../Pages/PetCare/PetCare";
 import PetService from "../Pages/PetService/PetService";
 import { RegisterToPethowz } from "../Pages/CustomerRegistration/RegisterToPetHowz";
 import { AddAddress } from "../Pages/CustomerRegistration/AddAddress";
-import { RequestBooking } from "../Pages/RequestBooking/RequestBooking";
 import { CustomerLayout } from "../Layouts/CustomerLayout";
 import { CustomerDashBoard } from "../Pages/CustomerDashBoard/Index";
 import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfile/MyProfileCustomerDB";
@@ -33,6 +32,7 @@ import BothBoardAndService from "../Pages/JoinPetHost/BothBoardAndService/BothBo
 import AddAnotherPet from "../Pages/CustomerDashBoard/MyPets/AddAnotherPet";
 import Terms from "../Pages/Term/Term";
 import AddYourPetLogin from "../Pages/AddYourPet/AddYourPet";
+import { RequestBooking } from "../Pages/RequestBooking/RequestBooking";
 import { BoardingResult } from "../Pages/Result/BoardingResult";
 import { ServiceResult } from "../Pages/Result/ServiceResult";
 import { AllPetBoarding } from "../Components/AllpetBoarding/AllPetBoarding";
@@ -107,6 +107,8 @@ export const router = createBrowserRouter(
         <Route path="HostDashBoard" element={<HostDashBoard />} />
         <Route path="MyProfileHostDB" element={<MyProfileHostDB />} />
         <Route path="MyBookingsHostDB" index element={<MyBookingsHostDB />} />
+        <Route path="MyBookingsHostDB" index element={<MyBookingsHostDB />} />
+
         <Route
           path="MyBoardingSpaceHostDB"
           element={<MyBoardingSpaceHostDB />}

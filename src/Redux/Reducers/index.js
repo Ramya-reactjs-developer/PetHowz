@@ -14,7 +14,7 @@ import ourServiceByIdSlice from "../Slices/OurService/OurServiceById";
 import SearchGetLocalitySlice from "../Slices/SearchCity/SearchGetLocalitySlice";
 import OverAllSearchSlice from "../Slices/SearchCity/OverAllSearchSlice";
 import AddYourPetSlice from "../Slices/AddYourPet/AddYourPetSlice";
-import BookingRequestSlice from "../Slices/BookingRequest/BookingRequestSlice";
+import PetSpaceBookingSlice from "../Slices/PetSpaceBooking/PetSpaceBookingSlice";
 import petCareSlice from "../Slices/Grooming/GroomingService";
 import PHBBasicDetailsSlice from "../Slices/PetHomeBoardingSlice/PHBBasicDetailsSlice";
 
@@ -25,15 +25,20 @@ const reducer = combineReducers({
   ourService: ourServiceSlice,
   petBoarding: petBoardingSlice,
   petBoardingById: petBoardingByIdSlice,
+  PetSpaceBooking: PetSpaceBookingSlice,
   registertopethowz: registertopethowzSlice,
   TermsAndCondition: TermsAndConditionSlice,
+  AddYourPets: AddYourPetSlice,
+  CustomerAddAnotherPet: CustomerAddAnotherPetSlice,
+  searchcity: SearchCitySlice,
+ 
   AddYourPet: AddYourPetSlice,
   CustomerAddAnotherPet: CustomerAddAnotherPetSlice,
   searchcity: SearchCitySlice,
   ourServiceById: ourServiceByIdSlice,
   searchcitygetlocality: SearchGetLocalitySlice,
   overallsearch: OverAllSearchSlice,
-  BookingRequest: BookingRequestSlice,
+
   petCareService: petCareSlice,
   phbbasicdetails: PHBBasicDetailsSlice,
 });

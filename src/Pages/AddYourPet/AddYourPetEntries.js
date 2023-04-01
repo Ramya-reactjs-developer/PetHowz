@@ -14,56 +14,24 @@ export const AddYourPetentries = [
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
+ 
   {
     isDropdown: true,
     name: "pet_type",
     labelText: "Your Pet Type",
     placeholder: "Select Profession",
-    DropdownData: [
-      {
-        id: 1,
-        value: "Student",
-      },
-      {
-        id: 2,
-        value: "Housewife",
-      },
-      {
-        id: 3,
-        value: "Professional boarder",
-      },
-      {
-        id: 4,
-        value: "Working Professional",
-      },
-    ],
+    DropdownData: [],
     breakpoint: 3,
     disabled: true,
     validation: { required: true },
   },
+
   {
     isDropdown: true,
     name: "pet_breed",
     labelText: "Your Pet Breed",
     placeholder: "Select Profession",
-    DropdownData: [
-      {
-        id: 1,
-        value: "Student",
-      },
-      {
-        id: 2,
-        value: "Housewife",
-      },
-      {
-        id: 3,
-        value: "Professional boarder",
-      },
-      {
-        id: 4,
-        value: "Working Professional",
-      },
-    ],
+    DropdownData: [ ],
     breakpoint: 3,
     disabled: true,
     validation: { required: true },
@@ -79,32 +47,46 @@ export const AddYourPetentries = [
     error_message: "Status",
   },
   {
-    isDropdown: true,
+    isTextInput: true,
     name: "weight",
-    labelText: "Weight",
-    placeholder: "Select Profession",
-    DropdownData: [
-      {
-        id: 1,
-        value: "Student",
-      },
-      {
-        id: 2,
-        value: "Housewife",
-      },
-      {
-        id: 3,
-        value: "Professional boarder",
-      },
-      {
-        id: 4,
-        value: "Working Professional",
-      },
-    ],
+    label: "weight",
+    type: "number",
+    placeholder: "Enter Name",
     breakpoint: 6,
-    disabled: true,
     validation: { required: true },
+    // pattern: /^[a-zA-Z ]*$/,
+    requiredField: true,
+    customClass: "textBox",
+    error_message: "First Text",
+    validation_error_message: "Text is in Invalid format",
   },
+  // {
+  //   isDropdown: true,
+  //   name: "weight",
+  //   labelText: "Weight",
+  //   placeholder: "Select Profession",
+  //   DropdownData: [
+  //     {
+  //       id: 1,
+  //       value: "Student",
+  //     },
+  //     {
+  //       id: 2,
+  //       value: "Housewife",
+  //     },
+  //     {
+  //       id: 3,
+  //       value: "Professional boarder",
+  //     },
+  //     {
+  //       id: 4,
+  //       value: "Working Professional",
+  //     },
+  //   ],
+  //   breakpoint: 6,
+  //   disabled: true,
+  //   validation: { required: true },
+  // },
   {
     isBirthdayPicker: true,
     name: "dob",

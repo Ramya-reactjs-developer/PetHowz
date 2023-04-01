@@ -20,6 +20,7 @@ import CustomImageUploader from "../FileUploader/FileUpload";
 import MultipleSelectChip from "../MultipleDropdown/MultipleDropdown";
 import ProfileImageUploader from "../ProfileImageUploader/ProfileImageUploader";
 import CustomProfileUploader from "../ProfileUploader/ProfileUpload";
+import CustomTimePicker from "../TimePicker/TimePicker";
 
 /**
  * @param {*} props defines the prop
@@ -33,10 +34,12 @@ function CustomForm(props) {
     onReceiveData,
     onChangeRadioAction,
     textFieldChange,
+    handleSelect,
     customFormData,
     defaultValues,
     gridAlign,
     editTrue,
+    // dropdownData,
   } = props;
   const [values, setValues] = React.useState([]);
   console.log(values, "arhulvalues");
@@ -150,6 +153,7 @@ function CustomForm(props) {
    * @param {*} data
    */
   const onSelectValue = (data) => {
+    console.log(data,"lllldata");
     setValues(data);
   };
 
@@ -272,6 +276,30 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
+                  {keyValue?.isDateTimePicker && (
+                      <Grid
+                        item
+                        md={12}
+                        lg={12}
+                        my={2}
+                        mx={5}
+                        sm={12}
+                        xs={12}
+                        className="timeEditChange"
+                      >
+                        <CustomTimePicker
+                          labelText={keyValue.label}
+                          onHandleChange={onChange}
+                          value={keyValue.value}
+                          timeStyle={keyValue.timeStyle}
+                          time={value}
+                          requiredField={keyValue.requiredField}
+                          customClass="timeIconThis"
+                          // maxTime="03/02/2023"
+                          // minTime="03/11/2022"
+                        />
+                      </Grid>
+                    )}
                 {keyValue?.isTextInput && (
                   <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
                     {console.log(value, "value")}
@@ -324,8 +352,13 @@ function CustomForm(props) {
                     <CustomSelect
                       label={keyValue?.label}
                       labelText={keyValue.labelText}
-                      handleChange={onChange}
+                      handleChange={(e) => {
+                        onChange(e);
+                        handleSelect(e, keyValue.name);
+                      }}
+
                       value={value}
+                      // data={dropdownData}
                       data={keyValue.DropdownData}
                       requiredField={keyValue.requiredField}
                       // placeholder={keyValue.placeholder}
@@ -559,6 +592,7 @@ CustomForm.propTypes = {
   // handleCancel: propTypes.func,
   onChangeRadioAction: propTypes.func,
   textFieldChange: propTypes.func,
+  handleSelect: propTypes.func,
   customFormData: propTypes.func,
   editTrue: propTypes.string,
 };
@@ -566,6 +600,7 @@ CustomForm.defaultProps = {
   // handleCancel: () => null,
   onReceiveData: () => null,
   textFieldChange: () => null,
+  handleSelect: () => null,
   onChangeRadioAction: () => null,
   customFormData: () => null,
   editTrue: "",
