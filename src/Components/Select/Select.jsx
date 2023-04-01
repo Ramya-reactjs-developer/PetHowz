@@ -15,7 +15,6 @@ function CustomSelect(props) {
     customStyle3,
     data,
     handleChange,
-    // dropDownChange,
     labelText,
     value,
     disabled,
@@ -26,7 +25,7 @@ function CustomSelect(props) {
     placeholder,
     requiredField,
   } = props;
-  console.log(selectedValue, "handleChange");
+  console.log(handleChange, "handleChange");
   return (
     <Box className="box" item md={12} sm={12}>
       <Box>
@@ -65,19 +64,19 @@ function CustomSelect(props) {
           // id="demo-simple-select"
           labelId="demo-select-small"
           id="demo-select-small"
-          value={value}
+          value={value || ""}
           label={label}
           selectedValue={selectedValue}
+
           data={data}
           className={`${customClass} ${disabled && "disable"} customDropdown`}
           onChange={(e) => handleChange(e)}
-          // dropDownChange={(e) => dropDownChange(e)}
           displayEmpty
           inputProps={{ "aria-label": "Without label" }}
         >
           {data?.length &&
             data?.map((item) => (
-              <MenuItem value={item?.value} key={item?.id}>
+              <MenuItem value={item?.value} name={item?.id}>
                 {item?.value}
               </MenuItem>
             ))}
@@ -91,7 +90,6 @@ export default CustomSelect;
 CustomSelect.propTypes = {
   data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
   handleChange: PropTypes.func.isRequired,
-  // dropDownChange: PropTypes.func.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   disabled: PropTypes.bool,
   name: PropTypes.string.isRequired,

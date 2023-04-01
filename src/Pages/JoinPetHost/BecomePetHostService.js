@@ -17,13 +17,13 @@ export const BecomePetHostService = () => {
       id: 1,
       image: CustomImages.Dog1,
       text: "Pet Home Boarding",
-      nav: "/BothBoardAndService",
+      nav: "/PetHomeBoarding",
     },
     {
       id: 2,
       image: CustomImages.Dog2,
       text: "Pet Home Boarding & Pet Services",
-      nav: "/AddAddress",
+      nav: "/BothBoardAndService",
     },
     {
       id: 3,

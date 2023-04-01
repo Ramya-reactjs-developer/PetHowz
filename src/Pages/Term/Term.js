@@ -41,7 +41,7 @@ const Terms = (props) => {
     const data = {
       data: { user_id },
       method: "put",
-      apiName: "updateUserTermsCondtionStatus/user_id",
+      apiName: `updateUserTermsCondtionStatus/${user_id}`,
     };
     navigate("/AddYourPetLogin");
     dispatch(actions.TERMS_AND_CONDITION(data));

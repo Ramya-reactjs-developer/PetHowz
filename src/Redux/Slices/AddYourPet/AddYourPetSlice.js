@@ -31,35 +31,128 @@ const ADD_YOUR_PET = createAsyncThunk(
     }
   }
 );
+const GET_YOUR_PET_TYPE = createAsyncThunk(
+  "getYourPetType/getYourPetType",
+  // eslint-disable-next-line default-param-last
+  async (
+    // eslint-disable-next-line default-param-last
+    payload = {},
 
+    { rejectWithValue }
+  ) => {
+    try {
+      const data = await fetchData(
+        payload?.data,
+        payload?.method,
+        payload?.apiName
+      );
+      return {
+        ...defaultState.List,
+        message: data?.data.Message,
+        data: data?.data?.data,
+      };
+    } catch (error) {
+      return rejectWithValue({
+        ...defaultReject.List,
+        message: error.message,
+      });
+    }
+  }
+);
+const GET_PET_BREED = createAsyncThunk(
+  "getPetBreed/getPetBreed",
+  // eslint-disable-next-line default-param-last
+  async (
+    // eslint-disable-next-line default-param-last
+    payload = {},
+
+    { rejectWithValue }
+  ) => {
+    try {
+      const data = await fetchData(
+        payload?.data,
+        payload?.method,
+        payload?.apiName
+      );
+      return {
+        ...defaultState.List,
+        message: data?.data.Message,
+        data: data?.data?.data,
+      };
+    } catch (error) {
+      return rejectWithValue({
+        ...defaultReject.List,
+        message: error.message,
+      });
+    }
+  }
+);
 const AddYourPetSlice = createSlice({
   name: "AddYourPetSlice",
   initialState: {
-    AddYourPet: {
+    AddYourPets: {
+      ...defaultState.List,
+    },
+    getYourPetType: {
+      ...defaultState.List,
+    },
+    getPetBreed: {
       ...defaultState.List,
     },
   },
   extraReducers: {
     [ADD_YOUR_PET.fulfilled]: (state, action) => {
-      (state.AddYourPet.loading = false)
-        (state.AddYourPet.error = false)
-        (state.AddYourPet = action.payload);
+      (state.AddYourPets.loading = false),
+        (state.AddYourPets.error = false),
+        (state.AddYourPets = action.payload);
     },
     [ADD_YOUR_PET.pending]: (state, action) => {
-      (state.AddYourPet.loading = true),
-        (state.AddYourPet.error = false),
-        (state.AddYourPet.loading = true);
+      (state.AddYourPets.loading = true),
+        (state.AddYourPets.error = false),
+        (state.AddYourPets.loading = true);
     },
     [ADD_YOUR_PET.rejected]: (state, action) => {
-      (state.AddYourPet.loading = false),
-        (state.AddYourPet.error = true),
-        (state.AddYourPet = action.payload);
+      (state.AddYourPets.loading = false),
+        (state.AddYourPets.error = true),
+        (state.AddYourPets = action.payload);
+    },
+     [GET_YOUR_PET_TYPE.fulfilled]: (state, action) => {
+      (state.getYourPetType.loading = false),
+        (state.getYourPetType.error = false),
+        (state.getYourPetType = action.payload);
+    },
+    [GET_YOUR_PET_TYPE.pending]: (state, action) => {
+      (state.getYourPetType.loading = true),
+        (state.getYourPetType.error = false),
+        (state.getYourPetType.loading = true);
+    },
+    [GET_YOUR_PET_TYPE.rejected]: (state, action) => {
+      (state.getYourPetType.loading = false),
+        (state.getYourPetType.error = true),
+        (state.getYourPetType = action.payload);
+    },
+    [GET_PET_BREED.fulfilled]: (state, action) => {
+      (state.getPetBreed.loading = false),
+        (state.getPetBreed.error = false),
+        (state.getPetBreed = action.payload);
+    },
+    [GET_PET_BREED.pending]: (state, action) => {
+      (state.getPetBreed.loading = true),
+        (state.getPetBreed.error = false),
+        (state.getPetBreed.loading = true);
+    },
+    [GET_PET_BREED.rejected]: (state, action) => {
+      (state.getPetBreed.loading = false),
+        (state.getPetBreed.error = true),
+        (state.getPetBreed = action.payload);
     },
   },
 });
 
 const AddYourPetAction = {
   ADD_YOUR_PET,
+  GET_YOUR_PET_TYPE,
+  GET_PET_BREED,
 };
 export { AddYourPetAction };
 export default AddYourPetSlice.reducer;

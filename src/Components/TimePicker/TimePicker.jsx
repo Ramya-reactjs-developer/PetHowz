@@ -1,31 +1,68 @@
-import * as React from 'react';
-import dayjs from 'dayjs';
-import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import React from "react";
+import PropTypes from "prop-types";
+import { Grid } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { TimePicker } from "@mui/x-date-pickers/TimePicker";
+import CustomTypography from "../Typography/Typography";
+import "./timePicker.css";
 
-
-export default function CustomTimePicker() {
-  const [value, setValue] = React.useState(dayjs('2014-08-18T21:11:54'));
-
-  const handleChange = (newValue) => {
-    setValue(newValue);
-  };
-
+const CustomTimePicker = (props) => {
+  const [value, setValue] = React.useState(null);
+  const {
+    labelText,
+    onHandleChange,
+    timeStyle,
+    minTime,
+    maxTime,
+    disabled,
+    placeholder,
+    requiredField,
+  } = props;
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <Stack spacing={3}>
-  
-        <TimePicker
-          label="Time"
-          value={value}
-          onChange={handleChange}
-          renderInput={(params) => <TextField {...params} />}
+    <Grid className="textGrid">
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <CustomTypography
+          text={labelText}
+          colorType="primary"
+          requiredField={requiredField && "required"}
+          customClass="time_text_edit"
         />
-      
-      </Stack>
-    </LocalizationProvider>
+        <TimePicker
+          value={value}
+          onChange={(newValue) => {
+            setValue(newValue);
+            onHandleChange(newValue);
+          }}
+          maxTime={maxTime}
+          minTime={minTime}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              color="secondary"
+              autoComplete="off"
+              sx={{ width: "100%" }}
+              className={timeStyle}
+              placeholder={placeholder}
+            />
+          )}
+          disabled={disabled}
+        />
+      </LocalizationProvider>
+    </Grid>
   );
-}
+};
+export default CustomTimePicker;
+
+CustomTimePicker.propTypes = {
+  label: PropTypes.string,
+  onHandleChange: PropTypes.func.isRequired,
+  timeStyle: PropTypes.string,
+  disabled: PropTypes.bool,
+};
+CustomTimePicker.defaultProps = {
+  label: "",
+  timeStyle: "",
+  disabled: false,
+};
