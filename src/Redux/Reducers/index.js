@@ -10,8 +10,13 @@ import userAddressDetailsSlice from "../Slices/userAddress/userAddressDetailsSli
 import TermsAndConditionSlice from "../Slices/TermsAndCondition/TermsAndConditionSlice";
 import CustomerAddAnotherPetSlice from "../Slices/CustomerAddPet/CustomerAddPetSlice";
 import SearchCitySlice from "../Slices/SearchCity/SearchCitySlice";
+import ourServiceByIdSlice from "../Slices/OurService/OurServiceById";
+import SearchGetLocalitySlice from "../Slices/SearchCity/SearchGetLocalitySlice";
+import OverAllSearchSlice from "../Slices/SearchCity/OverAllSearchSlice";
 import AddYourPetSlice from "../Slices/AddYourPet/AddYourPetSlice";
 import PetSpaceBookingSlice from "../Slices/PetSpaceBooking/PetSpaceBookingSlice";
+import petCareSlice from "../Slices/Grooming/GroomingService";
+import PHBBasicDetailsSlice from "../Slices/PetHomeBoardingSlice/PHBBasicDetailsSlice";
 
 const reducer = combineReducers({
   grooming: groomingSlice,
@@ -27,6 +32,15 @@ const reducer = combineReducers({
   CustomerAddAnotherPet: CustomerAddAnotherPetSlice,
   searchcity: SearchCitySlice,
  
+  AddYourPet: AddYourPetSlice,
+  CustomerAddAnotherPet: CustomerAddAnotherPetSlice,
+  searchcity: SearchCitySlice,
+  ourServiceById: ourServiceByIdSlice,
+  searchcitygetlocality: SearchGetLocalitySlice,
+  overallsearch: OverAllSearchSlice,
+
+  petCareService: petCareSlice,
+  phbbasicdetails: PHBBasicDetailsSlice,
 });
 
 const store = configureStore({

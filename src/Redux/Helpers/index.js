@@ -29,8 +29,7 @@ const fetchData = async (input, method, apiName) => {
     headers: {
       Authorization: token,
     },
-  })
-    .catch((err) => {
+  }).catch((err) => {
     // eslint-disable-next-line no-alert
     alert(err.code);
   });

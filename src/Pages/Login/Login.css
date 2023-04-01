@@ -1,74 +1,84 @@
-.loginImg{
-    width: 100%;
-    height: 99vh;
-}
-.loginImg img{
-    width: 100%;
-    height: 100%;
-    /* object-fit: cover; */
-}
-.loginLogoImg{
-    width: 150px;
-    height: 100px;
-    margin: 0 auto !important;
-}
-.loginLogoImg img{
-    width: 100%;
-    height: 100%;
+.loginImg {
+  /* padding-top: 18rem; */
+
+  background-image: url("../../Assets/Images/LoginSide.jpg");
+
+  background-repeat: no-repeat;
+  width: 100%;
+  height: auto;
+  /* object-fit: fill; */
+  background-size: cover;
+
+  /* background-position: center; */
 }
 
-.inputBox input{
-    width: 280px;
-    padding: 8px 15px;
-    margin: 5px;
+.loginImg img {
+  width: 100%;
+  height: 100%;
+  /* object-fit: cover; */
 }
-.loginText{
-    width: 315px;
-    margin: 0 auto !important;
-    text-align: left;
+.loginLogoImg {
+  width: 150px;
+  height: 100px;
+  margin: 0 auto !important;
 }
-.loginText h6{
-    font-size: 22px !important;
-    font-weight: bold !important;
-    color: #000 !important;
-    padding: 10px 0 !important;
+.loginLogoImg img {
+  width: 100%;
+  height: 100%;
 }
-.loginText span{
-    color: #2c3051 !important;
-    padding: 10px 0 !important;
+
+.inputBox input {
+  width: 280px;
+  padding: 8px 15px;
+  margin: 5px;
 }
-.input_width{
-    width: 320px;
-    margin: 0 auto !important;
+.loginText {
+  width: 315px;
+  margin: 0 auto !important;
+  text-align: left;
 }
-.loginButton{
-    padding-top: 20px;
+.loginText h6 {
+  font-size: 22px !important;
+  font-weight: bold !important;
+  color: #000 !important;
+  padding: 10px 0 !important;
 }
-.LoginSec{
-    display: inline-flex;
-    justify-content: center;
+.loginText span {
+  color: #2c3051 !important;
+  padding: 10px 0 !important;
 }
-.rightAlign{
-    height: 70vh;
-    margin: auto 0;
+.input_width {
+  width: 320px;
+  margin: 0 auto !important;
+}
+.loginButton {
+  padding-top: 20px;
+}
+.LoginSec {
+  display: inline-flex;
+  justify-content: center;
+}
+.rightAlign {
+  height: 70vh;
+  margin: auto 0;
 }
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
-    -webkit-transition-delay: 9999s;
+  -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+  -webkit-transition-delay: 9999s;
 }
 
-.googleBtn{
-    background-color: #fff !important;
-    color: #000 !important;
-    width: 318px;
+.googleBtn {
+  background-color: #fff !important;
+  color: #000 !important;
+  width: 318px;
 }
-.googleGrid a{
-    text-decoration: none;
+.googleGrid a {
+  text-decoration: none;
 }
 
-.googleGrid img{
-    height: 25px;
+.googleGrid img {
+  height: 25px;
 }

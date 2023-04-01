@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Grid, CardActionArea } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+import actions from "../../Redux/Actions/index";
 import CustomIcons from "../../Utils/Icons/Index";
 import CustomTypography from "../../Components/Typography/Typography";
 import ImageList from "../../Components/ImageList/ImageList";
@@ -11,6 +14,29 @@ import "./GroomingService.css";
 
 const GroomingService = () => {
   const [Modal, setModal] = React.useState(false);
+
+  // const dispatch = useDispatch();
+  // // const { state } = useLocation();
+  // const location = useLocation();
+
+  // const value = location.state;
+  // console.log(value, "valueState");
+
+  // const { groomingService } = useSelector((state) => state?.groomingService);
+  // console.log(groomingService, "groomingService");
+
+  // const { ourService } = useSelector((state) => state?.ourService);
+  // console.log(ourService, "ourService");
+
+  // useEffect(() => {
+  //   const data = {
+  //     data: { pet_space_id: value },
+  //     method: "get",
+  //     // apiName: `getPetServiceByServiceMasterId/${state.response?.[0]?.service_master_id}`,
+  //     apiName: `getPetBoardingById/pet_space_id`,
+  //   };
+  //   dispatch(actions.GROOMINGSERVICE(data));
+  // }, [dispatch, value]);
 
   const modalOpen = () => {
     setModal(true);

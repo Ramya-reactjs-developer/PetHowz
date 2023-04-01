@@ -60,7 +60,13 @@ export const BothLabelProvider = (props) => {
       Status19: "",
       ThirdText: "",
     },
-    AddOn: { AddOnPackage: "", add_button: "", WhatisIncluded: "", Rate: "",fileUploader:[] },
+    AddOn: {
+      AddOnPackage: "",
+      add_button: "",
+      WhatisIncluded: "",
+      Rate: "",
+      fileUploader: [],
+    },
   });
   // console.log(labelInfo,"labelInfo");
 

@@ -19,15 +19,15 @@ export const BecomePetHostService = () => {
       text: "Pet Home Boarding",
       nav: "/PetHomeBoarding",
     },
+    // {
+    //   id: 2,
+    //   image: CustomImages.Dog2,
+    //   text: "Pet Home Boarding & Pet Services",
+    //   nav: "/AddAddress",
+    // },
     {
       id: 2,
       image: CustomImages.Dog2,
-      text: "Pet Home Boarding & Pet Services",
-      nav: "/BothBoardAndService",
-    },
-    {
-      id: 3,
-      image: CustomImages.Dog1,
       text: "Pet Services",
       nav: "/petService",
     },
@@ -55,51 +55,71 @@ export const BecomePetHostService = () => {
   return (
     <Grid container md={12} sm={12} lg={12} xs={12}>
       <Grid container md={12} sm={12} lg={12} xs={12}>
-        <Grid item md={6} sm={6} lg={6} xs={12}>
+        {/* <Grid item md={6} sm={6} lg={6} xs={12}>
           {/* {CardData?.map((item) => {
             return ( */}
-          <Grid item md={12} sm={12} lg={12} xs={12} className="PetBoardImage ">
-          <Grid className="image_front_color"></Grid>
-            <PetBoardImageCards
+        <Grid item md={12} sm={12} lg={12} xs={12} className="PetBoardImage ">
+          {/* <div className="image_front_color"></div> */}
+          {/* <PetBoardImageCards
               // imagePath={CustomImages.Dog2}
               imagePath={imagePaths}
               CustomImage="petImage"
-            />
-            
-          </Grid>
-
-          {/* );
-          })} */}
+            /> */}
         </Grid>
-        <Grid item md={6} sm={6} lg={6} xs={12} className="petHostHeader">
-          <Grid item md={12} sm={12} lg={12} xs={12}>
-            <Grid item md={12} sm={12} lg={12} xs={12} className="pet-heading">
-              <CustomTypography
-                text="Become a Pet Host"
-                type="header"
-                customClass="petHost"
-              />
-            </Grid>
+        {/* );
+          })} */}
+        {/* </Grid> */}
+        <Grid item textAlign={"center"} className="Box-Image3" sm={4} xs={12}>
+          {/* <div className="Box-color3"></div> */}
+        </Grid>
+        <Grid item sm={2} xs={12}>
+          <div></div>
+        </Grid>
+        <Grid item md={6} sm={6} lg={6} xs={12}>
+          <Grid item md={12} sm={12} lg={12} xs={12} className="pet-heading">
+            <CustomTypography
+              text="Become a Pet Host/Pet Service Provider"
+              type="header"
+              customClass="petHost"
+            />
             <Grid item md={12} sm={12} lg={12} xs={12} className="petChoose">
               <CustomTypography
-                text="Choose a Service"
-                type="header"
+                text="Choose the service(s) you want to offer"
+                type="heading2"
                 customClass="petService"
               />
             </Grid>
-            <Grid container md={12} sm={12} lg={12} xs={12} pt={2} className="">
-              <Grid item md={3} sm={12} lg={3} xs={12} className="imageCard_edit">
-                <PetBoardImageCards
-                  // imagePath={CustomImages.Dog1}
-                  text="Pet Home Boarding "
-                  CustomImage="pet-image"
-                  customClass="petListImage"
-                  imagePath={imagePath}
-                  // onClick={clickImage}
-                  petBoardText="PetBoardImage-image"
-                />
-              </Grid>
-              {/* <Grid item md={3} sm={12} lg={3} xs={12}>
+          </Grid>
+          <Grid item md={12} sm={12} lg={12} xs={12} className="petHostHeader">
+            <Grid item md={12} sm={12} lg={12} xs={12}>
+              <Grid
+                container
+                md={12}
+                sm={12}
+                lg={12}
+                xs={12}
+                pt={2}
+                className=""
+              >
+                <Grid
+                  item
+                  md={3}
+                  sm={12}
+                  lg={3}
+                  xs={12}
+                  className="imageCard_edit"
+                >
+                  <PetBoardImageCards
+                    // imagePath={CustomImages.Dog1}
+                    text="Pet Home Boarding "
+                    CustomImage="pet-image"
+                    customClass="petListImage"
+                    imagePath={imagePath}
+                    // onClick={clickImage}
+                    petBoardText="PetBoardImage-image"
+                  />
+                </Grid>
+                {/* <Grid item md={3} sm={12} lg={3} xs={12}>
                 <PetBoardImageCards
                   imagePath={CustomImages.Dog1}
                   text="Pet Home Boarding "
@@ -117,6 +137,7 @@ export const BecomePetHostService = () => {
                   petBoardText="PetBoardImage-image"
                 />
               </Grid> */}
+              </Grid>
             </Grid>
           </Grid>
         </Grid>

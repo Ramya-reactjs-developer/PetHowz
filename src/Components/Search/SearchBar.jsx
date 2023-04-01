@@ -1,7 +1,11 @@
 // import CustomIcons from "../../Utils/Icons/Index";
 import PropTypes from "prop-types";
-import { Box, TextField } from "@mui/material";
-import { SearchInputPosition, TextFieldCustomazation } from "./Style";
+import { Box, Card, TextField, Typography } from "@mui/material";
+import {
+  SearchInputPosition,
+  TextFieldCustomazation,
+  TextFieldCustomazation2,
+} from "./Style";
 import CustomSelect from "../Select/Select";
 import "./SearchBar.css";
 import CustomButton from "../Button/Button";
@@ -13,30 +17,25 @@ import {
   SearchButtonStyle,
 } from "../../Pages/Home/HomeStyle";
 export default function SearchBar({
+  tabList,
+  tabHandleChange,
+  tabValue,
   SearchValue,
   handleSearch,
   dropdownData,
   dropdownValue,
   dropdownName,
   handleDropdownChange,
+  AllCITY,
+  handleselect,
+  droplist,
+  localityList,
+  AllLOCALITY,
+  handleselect2,
+  overAllSearch,
+  cityResult,
+  localityResult,
 }) {
-  const [value, setValue] = React.useState(0);
-
-  const tabList = [
-    {
-      id: 1,
-      tabText: "Pet Services",
-      tabColor: "red",
-    },
-    {
-      id: 2,
-      tabText: "Pet Boarding Spaces",
-      tabColor: "red",
-    },
-  ];
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
   return (
     <Box sx={{ pt: "40px" }}>
       <Box
@@ -46,8 +45,8 @@ export default function SearchBar({
       >
         <CustomTab
           tabList={tabList}
-          handleChange={handleChange}
-          value={value}
+          handleChange={tabHandleChange}
+          value={tabValue}
         />
       </Box>
       <Box sx={SearchBarStyle}>
@@ -62,8 +61,7 @@ export default function SearchBar({
             {/* <Box sx={{ pl: "25px" }}>
           <img src={CustomIcons.Search} alt="search" />
         </Box> */}
-
-            <CustomSelect
+            {/* <CustomSelect
               disabled={false}
               name={dropdownName}
               handleChange={handleDropdownChange}
@@ -79,15 +77,79 @@ export default function SearchBar({
                   borderRadius: "0px",
                 },
               }}
-            />
-
-            <Box>
+            /> */}
+            <Box sx={{ position: "sticky" }}>
+              <TextField
+                autoComplete="off"
+                variant="standard"
+                sx={TextFieldCustomazation2}
+                type="text"
+                name={dropdownName}
+                value={dropdownValue}
+                placeholder="Select City"
+                onChange={handleDropdownChange}
+                InputProps={{
+                  disableUnderline: true,
+                }}
+              />{" "}
+              {droplist ? (
+                <Box
+                  sx={{
+                    position: "absolute",
+                    // overflow: "scroll",
+                    zIndex: "1",
+                    p: "30px 0 0 10px ",
+                  }}
+                >
+                  {cityResult ? (
+                    <Card
+                      sx={{
+                        mt: "17px",
+                        p: "5px 15px 5px 10px",
+                        width: "auto",
+                        textAlign: "left",
+                      }}
+                    >
+                      <p>Choose City</p>
+                      {AllCITY?.map((item) => {
+                        return (
+                          <Box
+                            sx={{ m: "10px 0" }}
+                            key={item.city}
+                            onClick={() => handleselect(item.city)}
+                          >
+                            <Typography sx={{ cursor: "pointer" }}>
+                              {item.city}
+                            </Typography>
+                          </Box>
+                        );
+                      })}
+                    </Card>
+                  ) : (
+                    <Card
+                      sx={{
+                        p: "5px 15px 5px 10px",
+                        width: "auto",
+                        textAlign: "left",
+                      }}
+                    >
+                      <p>Choose City</p>
+                      <p>Not Found</p>
+                    </Card>
+                  )}
+                </Box>
+              ) : (
+                ""
+              )}
+            </Box>
+            <Box sx={{ position: "sticky" }}>
               {" "}
               <TextField
+                autoComplete="off"
                 variant="standard"
                 sx={TextFieldCustomazation}
                 type="text"
-                name="V"
+                name="locality"
                 value={SearchValue}
                 placeholder="Enter Locality"
                 onChange={handleSearch}
@@ -95,6 +157,54 @@ export default function SearchBar({
                   disableUnderline: true,
                 }}
               />
+              {localityList ? (
+                <Box
+                  sx={{
+                    position: "absolute",
+                    // overflow: "scroll",
+                    zIndex: "1",
+                    p: "30px 0 0 10px ",
+                  }}
+                >
+                  {localityResult ? (
+                    <Card
+                      sx={{
+                        p: "5px 25px 5px 25px",
+                        width: "225px",
+                        textAlign: "left",
+                      }}
+                    >
+                      <p>Choose Locality</p>
+                      {AllLOCALITY?.map((item) => {
+                        return (
+                          <Box
+                            sx={{ m: "10px 0" }}
+                            key={item.locality}
+                            onClick={() => handleselect2(item.locality)}
+                          >
+                            <Typography sx={{ cursor: "pointer" }}>
+                              {item.locality}
+                            </Typography>
+                          </Box>
+                        );
+                      })}
+                    </Card>
+                  ) : (
+                    <Card
+                      sx={{
+                        p: "5px 25px 5px 25px",
+                        width: "225px",
+                        textAlign: "left",
+                      }}
+                    >
+                      <p>Choose City</p>
+                      <p>Not Found</p>
+                    </Card>
+                  )}
+                </Box>
+              ) : (
+                ""
+              )}
             </Box>
           </Box>
         </Box>
@@ -103,7 +213,7 @@ export default function SearchBar({
             btnTitle="Search Now"
             color="primary"
             btnStyles={SearchButtonStyle}
-            // onClickHandle={onSearch}
+            onClickHandle={overAllSearch}
           />
         </Box>
       </Box>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import React, { useEffect } from "react";
 import GroomingCardsSection from "../../Components/GroomingCard/GroomingCard";
 import { Grid } from "@mui/material";
@@ -11,133 +12,61 @@ import "./Grooming.css";
 
 export const Grooming = () => {
   const dispatch = useDispatch();
+  // const { state } = useLocation();
   const location = useLocation();
+
   const value = location.state;
   console.log(value, "value");
 
-  const { petBoarding } = useSelector((state) => state?.petBoarding);
-  console.log(petBoarding, "petBoarding");
-  // const { petBoardingById } = useSelector((state) => state?.petBoardingById);
-  // console.log(petBoardingById, "petBoardingById");
-
-  const id_pass = petBoarding?.data?.map((item) => item.pet_space_id);
-
-  useEffect(() => {
-      const data = {
-        data: {},
-        method: "get",
-        apiName: `getPetSpaceById/${id_pass}`,
-      };
-      dispatch(actions.PETBOARDINGBYID(data));
-    },
-    [dispatch, value]
+  const { ourServiceById } = useSelector((state) => state?.ourServiceById);
+  console.log(
+    ourServiceById?.data?.map((item) => item?.datas),
+    "ourServiceById"
   );
 
-  const GroomingData = [
-    {
-      image: customImages.Dog1,
-      name: "Aadhi Pet Care",
-      address: "Anna Nagar, Chennai",
-      type: "Villa",
-      distance: "0.2kms",
-      ratings: "3.5",
-      reviews: "(75 reviews)",
-    },
-    {
-      image: customImages.Dog2,
-      name: "Aadhi Pet Care",
-      address: "Anna Nagar, Chennai",
-      type: "Villa",
-      distance: "0.2kms",
-      ratings: "3.5",
-      reviews: "(75 reviews)",
-    },
-    {
-      image: customImages.Dog1,
-      name: "Aadhi Pet Care",
-      address: "Anna Nagar, Chennai",
-      type: "Villa",
-      distance: "0.2kms",
-      ratings: "3.5",
-      reviews: "(75 reviews)",
-    },
-    {
-      image: customImages.Dog2,
-      name: "Aadhi Pet Care",
-      address: "Anna Nagar, Chennai",
-      type: "Villa",
-      distance: "0.2kms",
-      ratings: "3.5",
-      reviews: "(75 reviews)",
-    },
-    {
-      image: customImages.Dog1,
-      name: "Aadhi Pet Care",
-      address: "Anna Nagar, Chennai",
-      type: "Villa",
-      distance: "0.2kms",
-      ratings: "3.5",
-      reviews: "(75 reviews)",
-    },
-    {
-      image: customImages.Dog2,
-      name: "Aadhi Pet Care",
-      address: "Anna Nagar, Chennai",
-      type: "Villa",
-      distance: "0.2kms",
-      ratings: 3.5,
-      reviews: "(75 reviews)",
-    },
-    {
-      image: customImages.Dog1,
-      name: "Aadhi Pet Care",
-      address: "Anna Nagar, Chennai",
-      type: "Villa",
-      distance: "0.2kms",
-      ratings: "3.5",
-      reviews: "(75 reviews)",
-    },
-    {
-      image: customImages.Dog2,
-      name: "Aadhi Pet Care",
-      address: "Anna Nagar, Chennai",
-      type: "Villa",
-      distance: "0.2kms",
-      ratings: "3.5",
-      reviews: "(75 reviews)",
-    },
-    {
-      image: customImages.Dog1,
-      name: "Aadhi Pet Care",
-      address: "Anna Nagar, Chennai",
-      type: "Villa",
-      distance: "0.2kms",
-      ratings: "3.5",
-      reviews: "(75 reviews)",
-    },
-    {
-      image: customImages.Dog2,
-      name: "Aadhi Pet Care",
-      address: "Anna Nagar, Chennai",
-      type: "Villa",
-      distance: "0.2kms",
-      ratings: "3.5",
-      reviews: "(75 reviews)",
-    },
-  ];
+
+  const { ourService } = useSelector((state) => state?.ourService);
+  console.log(ourService, "ourService");
+
+  useEffect(() => {
+    const data = {
+      data: {
+        city: "",
+        locality: "",
+        limit: -1,
+      },
+      method: "post",
+      // apiName: `getPetServiceByServiceMasterId/${state.response?.[0]?.service_master_id}`,
+      apiName: `getPetServiceByServiceMasterId/${value}`,
+    };
+    dispatch(actions.OURSERVICEBYID(data));
+  }, [dispatch, value]);
+
+  const { state } = useLocation();
+  console.log(state, "state");
 
   return (
     <Grid className="container" item md={12} lg={12} sm={12} xs={12}>
+      {ourServiceById?.data?.map((data) => {
+        return (
+          <Grid item md={12} lg={12} sm={12} xs={12}>
+            <CustomTypography
+              text={data?.title}
+              // text="Grooming"
+              type="header"
+              customClass="groomText"
+            />
+          </Grid>
+        );
+      })}
+      {/* {ourServiceById?.data?.map((data) => {
+        return ( */}
       <Grid item md={12} lg={12} sm={12} xs={12}>
-        <CustomTypography
-          text="Grooming"
-          type="header"
-          customClass="groomText"
-        />
+        <GroomingCardsSection />
       </Grid>
-      <Grid item md={12} lg={12} sm={12} xs={12}>
-        <GroomingCardsSection Data={GroomingData} />
-      </Grid>
+      {/* );
+       })} */}
+
       <Grid item md={12} lg={12} sm={12} xs={12} className="groomButton">
         <CustomButton
           btnTitle="Load More Spaces"

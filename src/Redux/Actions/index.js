@@ -6,10 +6,15 @@ import { ourServiceAction } from "../Slices/OurService/OurService";
 import { petBoardingAction } from "../Slices/PetBoarding/PetBoarding";
 import { petBoardingByIdAction } from "../Slices/PetBoarding/PetBoardingById";
 import { PetSpaceBookingAction } from "../Slices/PetSpaceBooking/PetSpaceBookingSlice";
+import { phbbasicdetailsAction } from "../Slices/PetHomeBoardingSlice/PHBBasicDetailsSlice";
 import { registertopethowzAction } from "../Slices/RegisterToPethowz/RegisterToPetHowz";
+import { overallsearchAction } from "../Slices/SearchCity/OverAllSearchSlice";
 import { searchcityAction } from "../Slices/SearchCity/SearchCitySlice";
+import { searchcitygetlocalityAction } from "../Slices/SearchCity/SearchGetLocalitySlice";
 import { TermsAndConditionAction } from "../Slices/TermsAndCondition/TermsAndConditionSlice";
 import { userAddressDetailsAction } from "../Slices/userAddress/userAddressDetailsSlice";
+import { ourServiceByIdAction } from "../Slices/OurService/OurServiceById";
+import { petCareAction } from "../Slices/Grooming/GroomingService";
 
 const actions = {
   ...groomingAction,
@@ -25,6 +30,12 @@ const actions = {
   ...searchcityAction,
 
   ...PetSpaceBookingAction,
+  ...ourServiceByIdAction,
+  ...searchcitygetlocalityAction,
+  ...overallsearchAction,
+  // ...BookingRequestAction,
+  ...petCareAction,
+  ...phbbasicdetailsAction,
 };
 
 export default actions;

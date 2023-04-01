@@ -15,7 +15,7 @@ import { Grid } from "@mui/material";
 import "./BothPetHost.css";
 const BothBoardAndService = () => {
   const value = useContext(BothLabelContext);
-  console.log(value,"valueeeee");
+  console.log(value, "valueeeee");
 
   return (
     <Grid container md={12} sm={12} xs={12} lg={12}>

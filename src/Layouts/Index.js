@@ -12,7 +12,14 @@ export const Layout = () => {
       <Grid item md={12} lg={12} sm={12} xs={12} pt={"80px"}>
         <Outlet />
       </Grid>
-      <Grid sx={{ paddingTop: "10px" }} item md={12} lg={12} sm={12} xs={12}>
+      <Grid
+        sx={{ paddingTop: "10px", position: "sticky" }}
+        item
+        md={12}
+        lg={12}
+        sm={12}
+        xs={12}
+      >
         <Footer />
       </Grid>
     </Grid>
