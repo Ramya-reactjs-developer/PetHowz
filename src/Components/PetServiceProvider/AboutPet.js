@@ -5,11 +5,13 @@ import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import CustomForm from "../CustomForm/CustomForm";
 import { Grid } from "@mui/material";
+import FBEditor from "../../Components/TextEditor/TextEditor";
 import {
   AboutPetEntries,
   DefaultAboutPetValues,
 } from "../../Pages/PetService/AboutPetEntries";
 import "./style.css";
+import CustomTypography from "../Typography/Typography";
 
 const AboutPet = (props) => {
   const value = useContext(LabelContext);
@@ -30,11 +32,7 @@ const AboutPet = (props) => {
   return (
     <form>
       <h4> Become a Pet Service Provider</h4>
-      <h5>
-        {" "}
-        Share these details which describe you as a pet host/pet service
-        provider.
-      </h5>
+      <h5> Share these details which describe you as a pet grooming.</h5>
 
       <Grid>
         <CustomForm
@@ -44,6 +42,28 @@ const AboutPet = (props) => {
           // onReceiveData={onReceiveData}
           defaultValues={DefaultAboutPetValues}
         />
+      </Grid>
+      <CustomTypography variant="h4" text="FAQ's about your service"/>
+
+      <Grid item md={12} sm={12} lg={12} xs={12} pl={2}>
+        <Grid pt={1}>
+          <CustomTypography
+            text="Question"
+            type="header"
+            customClass="FaqQuestion"
+          />
+        </Grid>
+        <FBEditor />
+      </Grid>
+      <Grid item md={12} sm={12} lg={12} xs={12} pl={2}>
+        <Grid pt={1}>
+          <CustomTypography
+            text="Answer"
+            type="header"
+            customClass="FaqQuestion"
+          />
+        </Grid>
+        <FBEditor />
       </Grid>
       <Grid className="btn_align_edit">
         <ButtonGroup
@@ -59,8 +79,8 @@ const AboutPet = (props) => {
           >
             Next
           </Button>
-          </ButtonGroup>
-        </Grid>
+        </ButtonGroup>
+      </Grid>
     </form>
   );
 };
