@@ -11,7 +11,7 @@ import './CheckBox.css';
  */
 
 function CheckboxLabels(props) {
-  const { onChange, labelText, value, data, id, label, labelPlacement } = props;
+  const { onChange,onHandleChange, labelText, value, data, id, label, labelPlacement } = props;
   return (
     <Grid className="checkboxStyle">
       <FormControl>
@@ -22,6 +22,7 @@ function CheckboxLabels(props) {
           labelled="demo-controlled-radio-buttons-group"
           name="controlled-radio-buttons-group"
           onChange={onChange}
+          onHandleChange={onHandleChange}
           value={value}
           style={{ display: 'flex', flexDirection: 'row' }}
         >
@@ -49,6 +50,7 @@ export default CheckboxLabels;
 
 CheckboxLabels.propTypes = {
   onChange: PropTypes.func,
+  onHandleChange:PropTypes.func,
   data: PropTypes.arrayOf().isRequired,
   labelText: PropTypes.string,
   value: PropTypes.string,

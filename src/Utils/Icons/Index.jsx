@@ -1,5 +1,7 @@
 import Logo from "../../Assets/Icons/logo.svg";
 import Addons from "../../Assets/Icons/Addons.svg";
+import Check from "../../Assets/Icons/checkIcon.svg";
+import Warning from "../../Assets/Icons/disclaimer.svg";
 import AirCondition from "../../Assets/Icons/AirCondition.svg";
 import AllowedOnBed from "../../Assets/Icons/AllowedOnBed.svg";
 import AllowedOnFurniture from "../../Assets/Icons/AllowedOnFurniture.svg";
@@ -38,6 +40,8 @@ import Call from "../../Assets/Icons/phone-line.svg";
 import Google from "../../Assets/Icons/google.png";
 const CustomIcons = {
   Logo,
+  Check,
+  Warning,
   Google,
   Call,
   Email,

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,6 +20,8 @@ import {
 } from "./HomeStyle";
 
 import { Link } from "react-router-dom";
+import HomePetCardsSection from "../../Components/homeBoarding/homeBoarding";
+import { keyboard } from "@testing-library/user-event/dist/keyboard";
 
 export const HomePage = () => {
   const dispatch = useDispatch();
@@ -37,52 +40,17 @@ export const HomePage = () => {
     dispatch(actions.OURSERVICE(data));
   }, [dispatch]);
 
-  const { petBoarding } = useSelector((state) => state?.petBoarding);
-  console.log(petBoarding, "galleryImage");
-
   React.useEffect(() => {
     const data = {
-      data: { ...id_pass },
+      data: {
+        city: "",
+        limit: 8,
+      },
       method: "post",
       apiName: "getAllPetSpace",
     };
     dispatch(actions.PETBOARDING(data));
   }, [dispatch]);
-
-  const CardData = [
-    {
-      image: customImages.s6,
-      name: petBoarding?.data?.map((item) => item.name),
-      address: "Anna Nagar,Chennai",
-      type: "Villa",
-      distance: "0.2kms",
-      ratings: "3.5",
-      reviews: "(75 reviews)",
-      nav: "/grooming",
-    },
-    //   {
-    //     image: customImages.s6,
-    //     name: "Aadhi Pet Care",
-    //     address: "Anna Nagar,Chennai",
-    //     type: "Villa",
-    //     distance: "0.2kms",
-    //     ratings: "3.5",
-    //     reviews: "(75 reviews)",
-    //   },
-  ];
-
-  const AllSevices = [
-    {
-      image1: customImages.s1,
-      image2: customImages.s2,
-      image3: customImages.s3,
-      image4: customImages.s4,
-      image5: customImages.s5,
-      image6: customImages.s6,
-      image7: customImages.s7,
-      image8: customImages.s8,
-    },
-  ];
 
   //dispatch
   // const dispatch = useDispatch();
@@ -173,10 +141,6 @@ export const HomePage = () => {
       setCityResult(false);
     }
   };
-  // function onCheck() {
-
-  // }
-  // useEffect(() => {}, []);
 
   console.log(AllCity?.searchcity?.data.length, "value.city.length");
   console.log(cityResult, "value.city.length");
@@ -184,10 +148,6 @@ export const HomePage = () => {
   const OnSetSearch = (e) => {
     setSearchData({ ...searchData, locality: e.target.value });
     var updatedValue = { locality: e.target.value };
-    // let combinedValue = Object.assign(
-    //   searchDropdownData.city,
-    //   updatedValue.locality
-    // );
     const data1 = {
       data: { ...updatedValue, city: searchData.city },
       method: "post",
@@ -210,9 +170,6 @@ export const HomePage = () => {
       setLocalityResult(false);
     }
   };
-
-  // console.log(searchData, "searchData");
-  // console.log(searchDropdownData, "searchDropdownData");
 
   const dropdownData = [
     {
@@ -248,33 +205,6 @@ export const HomePage = () => {
     setSearchData({ ...searchData, locality: item });
     setOverAllSearchData({ ...overAllSearchData, locality: item });
     setLocalityList(false);
-    // setSearchDropdownData(
-    //   item
-    //   //   {
-    //   //   ...searchData,
-    //   //   city: value?.searchcity?.data[0].city,
-    //   //   // city: e.target.value,
-    //   // }
-    // );
-    // let updatedValue = {
-    //   ...overAllSearchData,
-    //   city: searchData.city,
-    //   locality: item,
-    //   // pet_type: searchData.pet_type,
-    //   limit: searchData.limit,
-    // };
-    // const data = {
-    //   data: updatedValue,
-    //   method: "post",
-    //   apiName: "getAllPetSpace",
-    // };
-    // if (
-    //   updatedValue.city !== "" &&
-    //   updatedValue.locality !== "" &&
-    //   tabValue === 1
-    // ) {
-    //   dispatch(actions.OVERALLSEARCH(data));
-    // }
   };
 
   // if (searchData.city !== "" || searchData.locality !== "" || tabValue === 1) {
@@ -325,69 +255,72 @@ export const HomePage = () => {
 
   console.log(searchData, "searchdata");
   console.log(overAllSearchData, "overAllSearchData");
-  // const AllSevices = [
-  //   {
-  //     image1: customImages.s1,
-  //     image2: customImages.s2,
-  //     image3: customImages.s3,
-  //     image4: customImages.s4,
-  //     image5: customImages.s5,
-  //     image6: customImages.s6,
-  //     image7: customImages.s7,
-  //     image8: customImages.s8,
-  //   },
-  // ];
+
   // const [searchData, setSearchData] = useState("");
-  // const [tmpIdArr, setTmpIdsArr] = React.useState();
-  // const [petId, setPetId] = useState();
+  const [tmpIdArr, setTmpIdsArr] = React.useState();
+  const [petTmpIdArr, setPetTmpIdsArr] = React.useState();
 
   console.log(searchData, "ss");
   // const OnSetSearch = (e) => {
   //   setSearchData(e.target.value);
   // };
 
-  useEffect(() => {}, [searchData, dispatch]);
+  const { petBoarding } = useSelector((state) => state?.petBoarding);
+  console.log(
+    petBoarding,
+    "galleryImageValue"
+  );
 
-  const onClickHandle = (key, data) => {
-    console.log(key, "key");
-    navigate("/grooming");
-    //   {
-    //   state: tmpIdArr[key],
-    //   // state: id_pass,
-    //   id_pass,
-    // };
-  };
-  // React.useEffect(() => {
+  // useEffect(() => {
   //   const tmpArr = [];
-  //   const tmpIdsArr = [];
-  //   console.log(tmpIdsArr, "tmpIdsArr");
-  //   petBoarding?.data?.map((value, index) => {
-  //     tmpIdsArr?.push(value.user_id);
+  //   const petTmpIdArr = [];
+  //   console.log(petTmpIdArr, "tmpIdsArr");
+  //   petBoarding?.data?.spaces?.map((value) => {
+  //     petTmpIdArr?.push(value.pet_space_id);
+  //       console.log(value, "index");
   //     tmpArr?.push({
-  //       sno: index,
+  //       sno: value,
   //     });
   //   });
-  //   setTmpIdsArr(tmpIdsArr);
+
+  //   setPetTmpIdsArr(petTmpIdArr);
   // }, [petBoarding]);
 
-  const serviceId = ourService?.data?.map((item) => item.service_master_id);
-  // const serviceId = ourService?.data;
-  console.log(serviceId, "serviceId");
-
-  const onHandleClick = () => {
-    // console.log(serviceId.length, "length");
-    // serviceId.length[0] && navigate("/grooming");
-    // serviceId.length[1] && <NavLink to="/petSpace" />;
-
-    if (serviceId[0]) {
-      navigate("/grooming");
-    } else {
-      navigate("/petSpace");
-    }
+  const onClickHandle = (item, index) => {
+    const petKey = item;
+    console.log(petKey, "petKeypetKey");
+    navigate("/petCare", {
+      // state: petKey,
+      state: petKey,
+      // state: id_pass,
+      // id_pass,
+    });
   };
 
-  const id_pass = petBoarding?.data?.map((item) => item.user_id);
-  console.log(id_pass, "check");
+  React.useEffect(() => {
+    const tmpArr = [];
+    const tmpIdsArr = [];
+    console.log(tmpIdsArr, "tmpIdsArr");
+    ourService?.data?.map((value, index) => {
+      tmpIdsArr?.push(value.service_master_id);
+      console.log()
+      tmpArr?.push({
+        sno: index,
+      });
+    });
+    setTmpIdsArr(tmpIdsArr);
+  }, [ourService]);
+
+  const onHandleClick = (key, index) => {
+    navigate("/grooming", {
+      state: tmpIdArr[key],
+      // state: id_pass,
+      // id_pass,
+    });
+  };
+
+  // const id_pass = petBoarding?.data?.map((item) => item.user_id);
+  // console.log(id_pass, "check");
 
   return (
     // <div>
@@ -463,17 +396,12 @@ export const HomePage = () => {
         </div>
       </Grid>
       <Grid item md={12} sm={12} xs={12} textAlign={"center"}>
-        {/* <Typography variant="h3" textAlign="center">
-          Our Services
-        </Typography> */}
         <CustomTypography
           text="Our Services"
           type="heading2"
           colorType="text"
         />
       </Grid>
-      {/* {AllSevices.map((item, key) => {
-        return ( */}
       <Grid
         item
         display={"flex"}
@@ -486,7 +414,7 @@ export const HomePage = () => {
         xs={12}
         pt={"30px"}
       >
-        {ourService?.data?.map((data) => {
+        {ourService?.data?.map((data, index) => {
           return (
             <Grid item lg={3} md={6} sm={6} xs={12}>
               <Box>
@@ -508,190 +436,20 @@ export const HomePage = () => {
                   ImageHeight={"300px"}
                   service={data?.service_name}
                   sub={"Starting From ₹ 700"}
-                  onHandleClick={onHandleClick}
+                  subId={data?.service_master_id}
+                  // onHandleClick={(id, index) => onHandleClick(id, index)}
+                  // onHandleClick={(subId, id, index) =>
+                  //   onHandleClick(subId, id, index)
+                  // }
+                  onHandleClick={() =>
+                    onHandleClick(index, data?.service_master_id)
+                  }
                 />
               </Box>
             </Grid>
           );
         })}
-
-        {/* <Box sx={{ pt: "20px" }}>
-                <ImageCards
-                  ImagePath={item.image2}
-                  CardWidth={{
-                    lg: "325px",
-                    md: "300px",
-                    sm: "280px",
-                    xs: "325px",
-                  }}
-                  CardHeight={"300px"}
-                  ImageWidth={{
-                    lg: "325px",
-                    md: "300px",
-                    sm: "280px",
-                    xs: "325px",
-                  }}
-                  ImageHeight={"300px"}
-                  service={"Pet Relocation"}
-                  sub={"Starting From ₹ 700"}
-                />
-              </Box> */}
-
-        {/* <Grid item lg={3} md={6} sm={6} xs={12} pt={{ sm: 0, xs: "20px" }}>
-              <Box>
-                {" "}
-                <ImageCards
-                  ImagePath={item.image3}
-                  CardWidth={{
-                    lg: "325px",
-                    md: "300px",
-                    sm: "280px",
-                    xs: "325px",
-                  }}
-                  CardHeight={"300px"}
-                  ImageWidth={{
-                    lg: "325px",
-                    md: "300px",
-                    sm: "280px",
-                    xs: "325px",
-                  }}
-                  ImageHeight={"300px"}
-                  service={"Pet Walking"}
-                  sub={"Starting From ₹ 700"}
-                />
-              </Box>
-              <Box sx={{ pt: "20px" }}>
-                <ImageCards
-                  ImagePath={item.image4}
-                  CardWidth={{
-                    lg: "325px",
-                    md: "300px",
-                    sm: "280px",
-                    xs: "325px",
-                  }}
-                  CardHeight={"600px"}
-                  ImageWidth={{
-                    lg: "325px",
-                    md: "300px",
-                    sm: "280px",
-                    xs: "325px",
-                  }}
-                  ImageHeight={"600px"}
-                  service={"Pet Sitting"}
-                  sub={"Starting From ₹ 700"}
-                />
-              </Box>
-            </Grid>
-            <Grid
-              item
-              lg={3}
-              md={6}
-              sm={6}
-              xs={12}
-              pt={{ lg: "0px", md: "40px", xs: "20px" }}
-            >
-              <Box>
-                {" "}
-                <ImageCards
-                  ImagePath={item.image5}
-                  CardWidth={{
-                    lg: "325px",
-                    md: "300px",
-                    sm: "280px",
-                    xs: "325px",
-                  }}
-                  CardHeight={"600px"}
-                  ImageWidth={{
-                    lg: "325px",
-                    md: "300px",
-                    sm: "280px",
-                    xs: "325px",
-                  }}
-                  ImageHeight={"600px"}
-                  service={"Pet Taxi"}
-                  sub={"Starting From ₹ 700"}
-                />
-              </Box>
-              <Box sx={{ pt: "20px" }}>
-                <ImageCards
-                  ImagePath={item.image6}
-                  CardWidth={{
-                    lg: "325px",
-                    md: "300px",
-                    sm: "280px",
-                    xs: "325px",
-                  }}
-                  CardHeight={"300px"}
-                  ImageWidth={{
-                    xl: "500px",
-                    lg: "325px",
-                    md: "300px",
-                    sm: "280px",
-                    xs: "325px",
-                  }}
-                  ImageHeight={"300px"}
-                  service={"Pet Breeding"}
-                  sub={"Starting From ₹ 700"}
-                />
-              </Box>
-            </Grid>
-            <Grid
-              item
-              lg={3}
-              md={6}
-              sm={6}
-              xs={12}
-              pt={{ lg: "0px", md: "40px", xs: "20px" }}
-            >
-              <Box>
-                {" "}
-                <ImageCards
-                  ImagePath={item.image7}
-                  CardWidth={{
-                    lg: "325px",
-                    md: "300px",
-                    sm: "280px",
-                    xs: "325px",
-                  }}
-                  CardHeight={"300px"}
-                  ImageWidth={{
-                    lg: "325px",
-                    md: "300px",
-                    sm: "280px",
-                    xs: "325px",
-                  }}
-                  ImageHeight={"300px"}
-                  service={"Pet Training"}
-                  sub={"Starting From ₹ 700"}
-                />
-              </Box>
-              <Box sx={{ pt: "20px" }}>
-                <ImageCards
-                  ImagePath={item.image8}
-                  CardWidth={{
-                    lg: "325px",
-                    md: "300px",
-                    sm: "280px",
-                    xs: "325px",
-                  }}
-                  CardHeight={"600px"}
-                  ImageWidth={{
-                    lg: "325px",
-                    md: "300px",
-                    sm: "280px",
-                    xs: "325px",
-                  }}
-                  ImageHeight={"600px"}
-                  service={"Pet Photography"}
-                  sub={"700 Jobs"}
-                />
-              </Box>
-            </Grid> */}
-        {/* </Box> */}
       </Grid>
-      {/* );
-      })} */}
-
       <Grid item textAlign={"center"} xs={12} pt={"40px"} pb={"40px"}>
         <Link to="/AllServices" style={{ textDecoration: "none" }}>
           <CustomButton
@@ -715,11 +473,14 @@ export const HomePage = () => {
         </Grid>
         <Grid item xs={12} sx={{ pt: "10px", pb: "10px" }}>
           <Box>
-            <CardsSection Data={CardData} onClickHandle={onClickHandle} />
+            <HomePetCardsSection
+              // Data={CardData}
+              onClickHandle={(item) =>onClickHandle(item)}
+            />
           </Box>
         </Grid>
         <Grid item textAlign={"center"} xs={12} pt={"60px"} pb={"60px"}>
-          <Link to="/grooming" style={{ textDecoration: "none" }}>
+          <Link to="/AllPetBoarding" style={{ textDecoration: "none" }}>
             <CustomButton
               btnTitle="Discover More!"
               color="primary"

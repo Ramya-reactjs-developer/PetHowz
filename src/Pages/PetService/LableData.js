@@ -90,12 +90,10 @@ export const LabelData = (props) => {
       });
     };
   const steps = [
+    { title: "Select Services" },
     { title: "Basic Details" },
-    { title: "About You" },
-    { title: "Services Provider" },
+    { title: "About Your Service" },
     { title: "Upload Images" },
-    { title: "Service Packages" },
-    { title: "Faq's" },
   ];
 
   return (

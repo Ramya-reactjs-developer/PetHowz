@@ -1,5 +1,4 @@
 import { AddYourPetAction } from "../Slices/AddYourPet/AddYourPetSlice";
-import { BookingRequestAction } from "../Slices/BookingRequest/BookingRequestSlice";
 import { CustomerAddAnotherPetAction } from "../Slices/CustomerAddPet/CustomerAddPetSlice";
 import { groomingAction } from "../Slices/Grooming/Grooming";
 import { loginAction } from "../Slices/Login/login";
@@ -9,6 +8,7 @@ import { petBoardingByIdAction } from "../Slices/PetBoarding/PetBoardingById";
 import { phbaypetspaceAction } from "../Slices/PetHomeBoardingSlice/PHBAYPetSpaceSlice";
 import { phbaboutyouAction } from "../Slices/PetHomeBoardingSlice/PHBAboutYouSlice";
 import { phbaddonsAction } from "../Slices/PetHomeBoardingSlice/PHBAddOnsSlice";
+import { PetSpaceBookingAction } from "../Slices/PetSpaceBooking/PetSpaceBookingSlice";
 import { phbbasicdetailsAction } from "../Slices/PetHomeBoardingSlice/PHBBasicDetailsSlice";
 import { phbrulesamentiesAction } from "../Slices/PetHomeBoardingSlice/PHBRulesAmentiesSlice";
 import { registertopethowzAction } from "../Slices/RegisterToPethowz/RegisterToPetHowz";
@@ -17,6 +17,8 @@ import { searchcityAction } from "../Slices/SearchCity/SearchCitySlice";
 import { searchcitygetlocalityAction } from "../Slices/SearchCity/SearchGetLocalitySlice";
 import { TermsAndConditionAction } from "../Slices/TermsAndCondition/TermsAndConditionSlice";
 import { userAddressDetailsAction } from "../Slices/userAddress/userAddressDetailsSlice";
+import { ourServiceByIdAction } from "../Slices/OurService/OurServiceById";
+import { petCareAction } from "../Slices/Grooming/GroomingService";
 
 const actions = {
   ...groomingAction,
@@ -30,9 +32,13 @@ const actions = {
   ...CustomerAddAnotherPetAction,
   ...AddYourPetAction,
   ...searchcityAction,
+
+  ...PetSpaceBookingAction,
+  ...ourServiceByIdAction,
   ...searchcitygetlocalityAction,
   ...overallsearchAction,
-  ...BookingRequestAction,
+  // ...BookingRequestAction,
+  ...petCareAction,
   ...phbbasicdetailsAction,
   ...phbaboutyouAction,
   ...phbaypetspaceAction,

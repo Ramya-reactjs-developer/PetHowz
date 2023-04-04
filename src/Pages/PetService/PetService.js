@@ -9,6 +9,7 @@ import UploadImage from "../../Components/PetServiceProvider/UploadImage";
 import PetHostAddOn from "../../Components/Stepper/PetHostAddOn";
 import Faqs from "../../Components/Stepper/Faqs";
 import "./PetService.css";
+import SelectService from "./SelectService/SelectService";
 
 const PetService = () => {
   const value = useContext(LabelContext);
@@ -24,18 +25,19 @@ const PetService = () => {
         justifyContent="center"
       >
         <Grid item md={5} sm={5} lg={5} xs={12} className="stepper-button">
-          {value.page !== 5 && (
+          {value.page !== 6 && (
             <Stepper steps={value.steps} activeStep={value.page} />
           )}
         </Grid>
 
         <Grid item md={7} sm={7} lg={7} xs={12}>
-          {value.page === 0 && <PetBasicDetails />}
-          {value.page === 1 && <AboutPet />}
-          {value.page === 2 && <ServiceDetails />}
-          {value.page === 3 && <UploadImage />}
-          {value.page === 4 && <PetHostAddOn />}
-          {value.page === 5 && <Faqs />}
+          {value.page === 0 && <SelectService />}
+          {value.page === 1 && <PetBasicDetails />}
+          {value.page === 2 && <AboutPet />}
+          {value.page === 3 && <ServiceDetails />}
+          {value.page === 4 && <UploadImage />}
+          {value.page === 5 && <PetHostAddOn />}
+          {value.page === 6 && <Faqs />}
         </Grid>
       </Grid>
     </Grid>

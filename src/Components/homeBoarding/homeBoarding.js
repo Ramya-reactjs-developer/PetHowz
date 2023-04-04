@@ -160,15 +160,17 @@ import {
   OverAllCArdPostions,
   ReviewsPosition,
 } from "./Style";
+import CardsSection from "../Cards/Cards";
 
-export default function GroomingCardsSection({ Data, onClickHandle }) {
+export default function HomePetCardsSection({ Data, onClickHandle }) {
   const CardData = Data;
 
-  const { ourServiceById } = useSelector((state) => state?.ourServiceById);
-  console.log(
-    ourServiceById?.data?.[0]?.datas?.map((item) => item.service_name),
-    "ourServiceByIdValue"
-  );
+  const { petBoarding } = useSelector((state) => state?.petBoarding);
+  console.log(petBoarding?.data, "petBoarding");
+  //   console.log(
+  //     petBoarding?.data?.[0]?.datas?.map((item) => item.service_name),
+  //     "ourServiceByIdValue"
+  //   );
 
   // const { onClickHandle } = props;
   // [
@@ -191,20 +193,104 @@ export default function GroomingCardsSection({ Data, onClickHandle }) {
       xs={12}
     >
       <Grid item xs={12} sx={OverAllCArdPostions}>
-        {ourServiceById?.data?.map((item, key) => {
-          return (
-            <Grid key={key} item xs={12}>
-              <Grid item xs={12}>
-                <CustomTypography
-                  text={item?.title}
-                  type="caption"
-                  colorType={"text"}
+        {/* {petBoarding?.data?.map((item, key) => {
+          return ( */}
+        <Grid item xs={12}>
+          <Grid item xs={12}>
+            <CustomTypography
+              //   text={item?.title}
+              text={petBoarding.data.title}
+              type="caption"
+              colorType={"text"}
 
-                  // customClass="groomText"
-                />
-              </Grid>
-              {item.datas.length !== 0 ? (
-                <Grid
+              // customClass="groomText"
+            />
+          </Grid>
+          <Grid item sx={OverAllCArdPostions}>
+            {petBoarding?.data?.spaces?.map((item) => {
+              return (
+                <Box key={item?.pet_space_id}>
+                  <Card sx={CardSize}>
+                    <Box>
+                      <CardActionArea>
+                        <CardMedia
+                          component="img"
+                          image={item.image}
+                          alt="dog"
+                          sx={CardMediaSize}
+                        />
+                      </CardActionArea>
+                      <CardActions sx={{ maxWidth: "250px" }}>
+                        <CardContent>
+                          <Box></Box>
+                          <CustomTypography
+                            text={item.name}
+                            type="h6"
+                            colorType="text"
+                          />
+                          <Box sx={AddressPosition}>
+                            <Box sx={AddressSubPosition1}>
+                              <img src={CustomIcons.Location} alt="location" />
+                              <CustomTypography
+                                text={item.address}
+                                type="title"
+                                customStyle={{ fontSize: "10px" }}
+                                colorType="senary"
+                              />
+                            </Box>
+                            <Box>
+                              <CustomTypography
+                                text={item.distance}
+                                type="title"
+                                customStyle={{ fontSize: "10px" }}
+                                colorType="senary"
+                              />
+                            </Box>
+                          </Box>
+
+                          <Box sx={AddressSubPosition2}>
+                            <img src={CustomIcons.Building} alt="location" />
+                            <CustomTypography
+                              text={item.type}
+                              type="title"
+                              customStyle={{ fontSize: "10px" }}
+                              colorType="senary"
+                            />
+                          </Box>
+                          <Box sx={ReviewsPosition}>
+                            <Box>
+                              <Box>
+                                <CustomizedRatings Data={item.ratings} />
+                              </Box>
+
+                              <CustomTypography
+                                text={item.reviews}
+                                type="title"
+                                customStyle={{ fontSize: "10px" }}
+                                colorType="senary"
+                              />
+                            </Box>
+
+                            <CustomButton
+                              btnTitle="View Details"
+                              color="primary"
+                              btnStyles={CardBtnStyles}
+                              onClickHandle={() =>
+                                onClickHandle(item?.pet_space_id)
+                              }
+                            />
+                          </Box>
+                        </CardContent>
+                      </CardActions>
+                    </Box>
+                  </Card>
+                </Box>
+              );
+            })}
+          </Grid>
+          {/* <CardsSection Data={petBoarding.data.spaces} /> */}
+          {/* {item.spaces.length !== 0 ? ( */}
+          {/* <Grid 
                   item
                   display={"flex"}
                   alignItems={"center"}
@@ -213,7 +299,7 @@ export default function GroomingCardsSection({ Data, onClickHandle }) {
                   xs={12}
                   pt={"10px"}
                 >
-                  {item?.datas?.map((item, key) => {
+                  {item?.spaces?.map((item, key) => {
                     return (
                       <Box key={key}>
                         <Card sx={CardSize}>
@@ -297,18 +383,18 @@ export default function GroomingCardsSection({ Data, onClickHandle }) {
                       </Box>
                     );
                   })}
-                </Grid>
-              ) : (
+                </Grid> */}
+          {/* ) : (
                 "Not Found"
-              )}
-            </Grid>
-          );
-        })}
+              )} */}
+        </Grid>
+        {/* );
+        })} */}
       </Grid>
     </Grid>
   );
 }
 
-GroomingCardsSection.propTypes = {
+HomePetCardsSection.propTypes = {
   Data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
 };

@@ -3,8 +3,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { defaultReject, defaultState } from "../../Constants";
 import { fetchData } from "../../Helpers";
 
-const BOOKINGREQUEST = createAsyncThunk(
-  "BookingRequest/BookingRequest",
+const OURSERVICEBYID = createAsyncThunk(
+  "ourServiceById/ourServiceById",
   // eslint-disable-next-line default-param-last
   async (
     // eslint-disable-next-line default-param-last
@@ -32,34 +32,34 @@ const BOOKINGREQUEST = createAsyncThunk(
   }
 );
 
-const BookingRequestSlice = createSlice({
-  name: "loginSlice",
+const ourServiceByIdSlice = createSlice({
+  name: "ourServiceByIdSlice",
   initialState: {
-    BookingRequest: {
+    ourServiceById: {
       ...defaultState.List,
     },
   },
   extraReducers: {
-    [BOOKINGREQUEST.fulfilled]: (state, action) => {
-      (state.BookingRequest.loading = false)
-        (state.BookingRequest.error = false)
-        (state.BookingRequest = action.payload);
+    [OURSERVICEBYID.fulfilled]: (state, action) => {
+      (state.ourServiceById.loading = false),
+        (state.ourServiceById.error = false),
+        (state.ourServiceById = action.payload);
     },
-    [BOOKINGREQUEST.pending]: (state, action) => {
-      (state.BookingRequest.loading = true),
-        (state.BookingRequest.error = false),
-        (state.BookingRequest.loading = true);
+    [OURSERVICEBYID.pending]: (state, action) => {
+      (state.ourServiceById.loading = true),
+        (state.ourServiceById.error = false),
+        (state.ourServiceById.loading = true);
     },
-    [BOOKINGREQUEST.rejected]: (state, action) => {
-      (state.BookingRequest.loading = false),
-        (state.BookingRequest.error = true),
-        (state.BookingRequest = action.payload);
+    [OURSERVICEBYID.rejected]: (state, action) => {
+      (state.ourServiceById.loading = false),
+        (state.ourServiceById.error = true),
+        (state.ourServiceById = action.payload);
     },
   },
 });
 
-const BookingRequestAction = {
-  BOOKINGREQUEST,
+const ourServiceByIdAction = {
+  OURSERVICEBYID,
 };
-export { BookingRequestAction };
-export default BookingRequestSlice.reducer;
+export { ourServiceByIdAction };
+export default ourServiceByIdSlice.reducer;
