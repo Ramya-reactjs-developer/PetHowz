@@ -61,7 +61,7 @@ const Faqs = () => {
       <Grid>
         <Typography variant="h4">FAQ's about your service</Typography>
 
-        <Grid item md={12} sm={12} lg={12} xs={12} pl={2} >
+        <Grid item md={12} sm={12} lg={12} xs={12} pl={2}>
           <Grid pt={1}>
             <CustomTypography
               text="Question"
@@ -71,8 +71,8 @@ const Faqs = () => {
           </Grid>
           <FBEditor />
         </Grid>
-              <Grid item md={12} sm={12} lg={12} xs={12} pl={2}>
-              <Grid pt={1}>
+        <Grid item md={12} sm={12} lg={12} xs={12} pl={2}>
+          <Grid pt={1}>
             <CustomTypography
               text="Answer"
               type="header"
