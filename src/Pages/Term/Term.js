@@ -25,6 +25,7 @@ const Terms = (props) => {
 
   const defaultValues = {};
   const {
+    
     control,
     handleSubmit,
     formState: { errors },
