@@ -101,13 +101,13 @@ export const RequestBooking = () => {
   console.log(registertopethowz, "registertopethowz");
   const navigate = useNavigate();
   const pet_details_id = useSelector(
-    (state) => state?.AddYourPet?.data?.pet_details_id
+    (state) => state?.AddYourPet?.AddYourPets?.data?.pet_details_id
   );
 
   function onReceiveData(data1) {
     const user_id = userGet?.registertopethowz?.data?.user_id;
 
-    console.log(pet_details_id);
+    console.log(pet_details_id,"pet_details_id");
     const data = {
       data: {
         ...data1,

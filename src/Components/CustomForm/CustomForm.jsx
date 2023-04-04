@@ -319,6 +319,7 @@ function CustomForm(props) {
                       uniqueText={keyValue.uniqueText}
                       requiredField={keyValue.requiredField}
                       // customClass="textBox"
+                      pattern={keyValue.pattern}
                       customClass={keyValue.customClass}
                       defaultValue={keyValue.defaultValue}
                       resetValue={resetValue}
