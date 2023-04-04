@@ -26,7 +26,7 @@ export const AddAddress = () => {
   });
 
   const userGet = useSelector((state) => state?.registertopethowz);
-
+  console.log(userGet, "userGetbbbb");
   const { registertopethowz } = useSelector(
     (state) => state?.registertopethowz
   );
@@ -34,14 +34,14 @@ export const AddAddress = () => {
   const navigate = useNavigate();
   function onReceiveData(data1) {
     const user_id = userGet?.registertopethowz?.data?.user_id;
-      const data = {
-        data: { ...data1, user_id: user_id },
-        method: "post",
-        apiName: "createUserDetails",
-      };
-      navigate("/Terms");
-      dispatch(actions.USER_ADDRESS_DETAILS(data));
-
+    console.log(user_id, "willJcak");
+    const data = {
+      data: { ...data1, user_id: user_id },
+      method: "post",
+      apiName: "createUserDetails",
+    };
+    navigate("/Terms");
+    dispatch(actions.USER_ADDRESS_DETAILS(data));
 
     reset({
       Your_Name: "",
