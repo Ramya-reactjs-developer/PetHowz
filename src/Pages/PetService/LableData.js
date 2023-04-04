@@ -17,6 +17,10 @@ export const LabelData = (props) => {
       pin_code: "",
       location: "",
     },
+    check: {
+      nr1: "",
+      nr2: "",
+    },
     receiver: {
       // professional_status: "",
       tell_us_something_about_you_and_your_passion_towards_pet: "",
@@ -74,6 +78,7 @@ export const LabelData = (props) => {
       weight: { ...labelInfo.weight, [name]: value },
       shippingOption: { ...labelInfo.shippingOption, [name]: value },
       service: { ...labelInfo.shippingOption, [name]: value },
+      check: { ...labelInfo.shippingOption, [name]: value },
     });
   };
     const handleOnChange = (event, name) => {
@@ -83,6 +88,7 @@ export const LabelData = (props) => {
         receiver: { ...labelInfo.receiver, [name]: event.target.value },
         weight: { ...labelInfo.weight, [name]: event.target.value },
         service: { ...labelInfo.weight, [name]: event.target.value },
+        check: { ...labelInfo.weight, [name]: event.target.value },
         shippingOption: {
           ...labelInfo.shippingOption,
           [name]: event.target.value,

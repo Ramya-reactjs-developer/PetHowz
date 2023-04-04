@@ -6,7 +6,7 @@ export const BasicDetailsEntries = [
   },
   {
     isProfileImageUploader: true,
-    name: "fileUploader",
+    name: "image",
     // label: "Add Photos",
     breakpoint: 4,
     customClass: "profileImageContainer",
@@ -20,7 +20,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "firstText",
+    name: "pet_service_name",
     label: "Name of your pet service",
     placeholder: "Pet service Name",
     breakpoint: 12,
@@ -33,7 +33,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "SecondText",
+    name: "name",
     label: "Contact Person Name",
     placeholder: "Enter name",
     breakpoint: 6,
@@ -46,7 +46,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "ThirdText",
+    name: "mobile_number",
     label: "Contact Person Mobile Number",
     placeholder: "Enter Mobile Number",
     breakpoint: 6,
@@ -59,7 +59,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "fourthText",
+    name: "street",
     label: "Street",
     placeholder: "",
     breakpoint: 6,
@@ -74,7 +74,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "fifthText",
+    name: "city",
     label: "City",
     placeholder: "Enter City",
     breakpoint: 6,
@@ -87,7 +87,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "seventhText",
+    name: "locality",
     label: "Locality",
     placeholder: "Enter Locality",
     breakpoint: 6,
@@ -100,7 +100,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "sixthText",
+    name: "state",
     label: "State",
     placeholder: "Enter State",
     breakpoint: 6,
@@ -126,7 +126,7 @@ export const BasicDetailsEntries = [
   },
   {
     isTextInput: true,
-    name: "location",
+    name: "pin_location",
     label: "Pin Location",
     placeholder: "Location",
     breakpoint: 6,
@@ -139,16 +139,16 @@ export const BasicDetailsEntries = [
   },
 ];
 export const DefaultBasicDetailsValues = {
-  firstText: "",
-  SecondText: "",
-  fourthText: "",
-  ThirdText: "",
-  fifthText: "",
-  sixthText: "",
-  seventhText: "",
-  fileUploader: "",
+  image: "",
+  pet_service_name: "",
+  name: "",
+  mobile_number: "",
+  street: "",
+  city: "",
+  locality: "",
+  state: "",
   pin_code: "",
-  location: "",
+  pin_location: "",
   // submit_button: '',
   // cancel_button: '',
 };

@@ -36,39 +36,43 @@ const SelectService = ({ option, disabled }) => {
       setCheckedAll(false);
     }
   }, [checked]);
-  const [agreement, setAgreement] = useState(false);
+  // const [agreement, setAgreement] = useState(false);
 
   // const handleCheck = () => {
   //   setChecked(!checked);
   // };
-  const OnHandleChange = () => {
-    // alert("text");
-    setChecked(!checked);
-  };
+  // const OnHandleChange = () => {
+  //   // alert("text");
+  //   setChecked(!checked);
+  // };
 
-  const onClick = (event) => {
-    // const checkValue = event.target.value;
-    setAgreement(event.target.value);
-    // OnHandleChange(checkValue);
-    // console.log(checkValue, "checkValue");
-  };
+  // const onClick = (event) => {
+  //   // const checkValue = event.target.value;
+  //   setAgreement(event.target.value);
+  //   // OnHandleChange(checkValue);
+  //   // console.log(checkValue, "checkValue");
+  // };
   const value = useContext(LabelContext);
+  console.log(value, "useContext");
+  const check = value.labelInfo?.check;
 
-  // const btnDisabled;
+  const btnDisabled =
+    check.nr1?.length > 0 &&
+    check.nr2?.length > 0;
   // const handleChange = (event) => {
   //   console.log(event,"jkdvuihfuihvbuifgb");
   //   setChecked(event.target.checked);
   // };
 
-  const handleChange = (event) => {
-    setChecked((prev) => {
-      if (prev.includes(event)) {
-        return prev.filter((x) => x !== event);
-      } else {
-        return [...prev, event];
-      }
-    });
-  };
+  // const handleChange = (event) => {
+  //   setChecked((prev) => {
+  //     if (prev.includes(event)) {
+  //       return prev.filter((x) => x !== event);
+  //     } else {
+  //       return [...prev, event];
+  //     }
+  //   });
+  // };
   return (
     <Grid container md={12} lg={12} xs={12} sm={12}>
       <Grid className="selectService" m={1}>
@@ -82,15 +86,15 @@ const SelectService = ({ option, disabled }) => {
             // disabled={disabled}
             className="checkInput"
           /> */}
+          <img src={customImages.Service} alt="" className="selectImg" />
           <input
             type="checkbox"
             name="nr1"
             onChange={() => toggleCheck("nr1")}
             checked={checked["nr1"]}
+            className="checkPosition"
           />
-          <img src={customImages.Service} alt="" />
         </CardActionArea>
-
         <Grid className="selectServiceText">
           <CustomTypography
             type="header"
@@ -100,7 +104,7 @@ const SelectService = ({ option, disabled }) => {
         </Grid>
       </Grid>
       <Grid className="selectService" m={1}>
-        <CardActionArea  className="selectServiceImg">
+        <CardActionArea className="selectServiceImg">
           {/* <input
             type="checkbox"
             onChange={onClick}
@@ -110,15 +114,15 @@ const SelectService = ({ option, disabled }) => {
             // disabled={disabled}
             className="checkInput"
           /> */}
+          <img src={customImages.Service} alt="" className="selectImg" />
           <input
             type="checkbox"
             name="nr2"
             onChange={() => toggleCheck("nr2")}
             checked={checked["nr2"]}
+            className="checkPosition"
           />
-          <img src={customImages.Service} alt="" />
         </CardActionArea>
-
         <Grid className="selectServiceText">
           <CustomTypography
             type="header"
