@@ -7,17 +7,22 @@ import { Grid } from "@mui/material";
 import CustomTypography from "../../Components/Typography/Typography";
 // import PetService from "../PetService/PetService";
 import "./petBoard.css";
+import { useSelector } from "react-redux";
 // import BothBoardAndService from "./BothBoardAndService/BothBoardAndService";
 
 export const BecomePetHostService = () => {
   // const navigate = useNavigate();
   // const CardData = Data;
+  const login = useSelector((state) => state?.login?.login);
+  console.log(login, "login");
   const imagePath = [
     {
       id: 1,
       image: CustomImages.Dog1,
       text: "Pet Home Boarding",
-      nav: "/PetHomeBoarding",
+      condtion: login.message,
+      nav1: "/PetHomeBoarding",
+      nav2: "/login",
     },
     // {
     //   id: 2,
@@ -29,7 +34,8 @@ export const BecomePetHostService = () => {
       id: 2,
       image: CustomImages.Dog2,
       text: "Pet Services",
-      nav: "/petService",
+      nav1: "/PetHomeBoarding",
+      nav2: "/login",
     },
   ];
   const imagePaths = [
@@ -115,6 +121,7 @@ export const BecomePetHostService = () => {
                     CustomImage="pet-image"
                     customClass="petListImage"
                     imagePath={imagePath}
+                    loginData={login}
                     // onClick={clickImage}
                     petBoardText="PetBoardImage-image"
                   />

@@ -202,11 +202,15 @@ import CustomTypography from "../../../../Components/Typography/Typography";
 import CustomRadioButton from "../../../../Components/RadioButton/RadioButton";
 import CustomButton from "../../../../Components/Button/Button";
 import CustomForm from "../../../../Components/CustomForm/CustomForm";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../../Redux/Actions";
 
 const PHBBasicDetails = (props) => {
   const dispatch = useDispatch();
+  const userGet = useSelector((state) => state?.phbbasicdetails);
+  const login = useSelector((state) => state?.login);
+  console.log(userGet.phbbasicdetails.message, "userGet");
+  console.log(login, "login");
   const defaultValues = DefaultPHBBasicDetailsValues;
   const [state, setstate] = React.useState();
   console.log(state, "state");
@@ -270,6 +274,16 @@ const PHBBasicDetails = (props) => {
 
     dispatch(actions.PHBBASICDETAILS(data));
   };
+  React.useEffect(() => {
+    if (userGet?.phbbasicdetails?.message === "SUCCESS") {
+      value.nextPage();
+    }
+  }, [userGet, value]);
+  // const onNext = () => {
+  //   if (userGet?.phbbasicdetails?.message !== "") {
+  //     value.nextPage();
+  //   }
+  // };
   return (
     <>
       <Grid container md={12} sm={12} lg={12} xs={12}>

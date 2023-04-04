@@ -15,7 +15,7 @@ export const ServiceResult = () => {
   const { state } = useLocation();
   console.log(state, "state");
   const OverAllSearchResult = useSelector((state) => state?.overallsearch);
-  console.log(OverAllSearchResult?.overallsearch.data, "OverAllSearchResult");
+  console.log(OverAllSearchResult?.overallsearch?.data, "OverAllSearchResult");
   console.log(OverAllSearchResult?.overallsearch?.data[0]?.datas, "Service");
   //   console.log(OverAllSearchResult?.overallsearch.data[1].datas, "SearchResult");
 
@@ -37,7 +37,7 @@ export const ServiceResult = () => {
       method: "post",
       apiName: "getPetServiceByServiceMasterId/:service_master_id",
     };
-    dispatch(actions.OVERALLSEARCH(data));
+    dispatch(actions?.OVERALLSEARCH(data));
   }, [dispatch]);
 
   const onDiscover = (key) => {
@@ -67,13 +67,13 @@ export const ServiceResult = () => {
         />
         <Box sx={{ display: "flex", pt: "8px" }}>
           <CustomTypography
-            text={" in " + state.city + ", "}
+            text={" in " + state?.city + ", "}
             type="header"
             colorType={"primary"}
             // customClass="groomText"
           />
           <CustomTypography
-            text={state.locality}
+            text={state?.locality}
             type="header"
             colorType={"primary"}
             // customClass="groomText"

@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import "./ImageUploader.css";
+import { useRef } from "react";
 
-const MultiImageUploader = () => {
-  const [selectedFiles, setSelectedFiles] = useState([]);
+const MultiImageUploader = ({
+  handleFileSelect,
+  handleDelete,
+  selectedFiles,
+  setSelectedFiles,
+}) => {
+  const fileRef = useRef();
+  // const [selectedFiles, setSelectedFiles] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
   const [postsPerPage] = useState(5);
@@ -10,30 +17,16 @@ const MultiImageUploader = () => {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
 
-  const handleFileSelect = (event) => {
-    const files = event.target.files;
-    if (files.length < 4 || files.length > 50) {
-      alert("Please select between 4 and 50 photos.");
-      setSelectedFiles([]);
-      return;
-    } else {
-      setSelectedFiles([...selectedFiles, ...files]);
-    }
-  };
-
-  const handleDelete = (index) => {
-    const files = [...selectedFiles];
-    files.splice(index, 1);
-    setSelectedFiles(files);
-  };
   const prevPage = () => setCurrentPage(currentPage - 1);
   const nextPage = () => setCurrentPage(currentPage + 1);
 
   return (
     <div>
       <div>
+        <label>Add Photos</label>
+        <p>Upload minimum 4 to maximum 40 photos</p>
         <div className="Label-Style">
-          <label htmlFor="file-upload">Choose Images</label>
+          <label htmlFor="file-upload">Select Images</label>
         </div>
         <input
           id="file-upload"
@@ -42,6 +35,7 @@ const MultiImageUploader = () => {
           multiple
           className="Input-Field"
           onChange={handleFileSelect}
+          ref={fileRef}
         />
       </div>
       <div style={{ marginTop: "10px" }}>
@@ -69,7 +63,7 @@ const MultiImageUploader = () => {
                 ))}
             </div>
             <div className="Align-Selsections">
-              <p>Total Images Selected {selectedFiles.length} </p>
+              <p>Total Images {selectedFiles.length} </p>
               <button
                 onClick={() => setSelectedFiles([])}
                 className="Button-Style"

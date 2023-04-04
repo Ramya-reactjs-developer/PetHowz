@@ -19,10 +19,9 @@ import Toast from "../../Utils/Notification/Toast";
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const login = useSelector((state) => state?.login?.login);
+
   const [list, setList] = useState([]);
   const [showToast, setShowToast] = useState(false);
-  console.log(login, "list");
 
   const {
     control,
@@ -39,6 +38,11 @@ const Login = () => {
     dispatch(actions.LOGIN(data));
     setShowToast(!showToast);
   };
+  const login = useSelector((state) => state?.login);
+  React.useEffect(() => {
+    console.log(login, "list");
+  }, [login]);
+
   const setNav = () => {
     setTimeout(() => {
       navigate("/home");
@@ -69,7 +73,7 @@ const Login = () => {
         },
       ]);
     }
-  }, []);
+  }, [login, dispatch]);
 
   return (
     <Grid container sm={12} xs={12}>
