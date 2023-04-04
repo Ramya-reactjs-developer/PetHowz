@@ -8,7 +8,7 @@ export const RequestBookingEntries = [
   },
   {
     isDropdown: true,
-       name: "pet_details",
+    name: "pet_details",
     labelText: "Your Pet Type",
     placeholder: "Select Profession",
     DropdownData: [],
@@ -89,7 +89,6 @@ export const RequestBookingEntries = [
     error_message: "Date of Birth",
   },
 
- 
   {
     isDateTimePicker: true,
     date: true,
@@ -100,6 +99,19 @@ export const RequestBookingEntries = [
     placeholder: "Eg: 10:00 AM",
     validation: { required: true },
     requiredField: true,
+  },
+  {
+    isTextInput: true,
+    name: "specific_request",
+    label: "Do you have any specific request for your pet",
+    placeholder: "Enter Name",
+    breakpoint: 12,
+    validation: { required: true },
+    pattern: /^([a-z0-9])(\w)+([a-z0-9])$/i,
+    requiredField: true,
+    customClass: "textBox",
+    error_message: "First Text",
+    validation_error_message: "Text is in Invalid format",
   },
   //   {
   //     isEmptySpace: true,

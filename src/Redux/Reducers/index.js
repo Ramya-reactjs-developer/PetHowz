@@ -31,7 +31,7 @@ const reducer = combineReducers({
   AddYourPets: AddYourPetSlice,
   CustomerAddAnotherPet: CustomerAddAnotherPetSlice,
   searchcity: SearchCitySlice,
- 
+
   AddYourPet: AddYourPetSlice,
   CustomerAddAnotherPet: CustomerAddAnotherPetSlice,
   searchcity: SearchCitySlice,
