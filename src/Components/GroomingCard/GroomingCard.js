@@ -160,6 +160,7 @@ import {
   OverAllCArdPostions,
   ReviewsPosition,
 } from "./Style";
+import './GroomingCard.css';
 
 export default function GroomingCardsSection({ Data, onClickHandle }) {
   const CardData = Data;
@@ -206,12 +207,10 @@ export default function GroomingCardsSection({ Data, onClickHandle }) {
               {item.datas.length !== 0 ? (
                 <Grid
                   item
-                  display={"flex"}
-                  alignItems={"center"}
-                  justifyContent={"flex-start"}
                   gap={"40px"}
                   xs={12}
                   pt={"10px"}
+                  className="card_position"
                 >
                   {item?.datas?.map((item, key) => {
                     return (

@@ -41,6 +41,11 @@ function Login() {
     dispatch(actions.LOGIN_ADMIN(data));
     setShowToast(!showToast);
   };
+  const login = useSelector((state) => state?.login);
+  React.useEffect(() => {
+    console.log(login, "list");
+  }, [login]);
+
   const setNav = () => {
     setTimeout(() => {
       navigate("/grooming");
@@ -51,10 +56,10 @@ function Login() {
       setList([
         {
           id: 1,
-          title: 'Success',
-          description: 'Login Success',
-          backgroundColor: 'check',
-          icon: 'check',
+          title: "Success",
+          description: "Login Success",
+          backgroundColor: "check",
+          icon: "check",
         },
       ]);
       setNav();
@@ -63,10 +68,10 @@ function Login() {
       setList([
         {
           id: 2,
-          title: 'Error',
-          description: 'Incorrect Email or Password',
-          backgroundColor: 'error',
-          icon: 'warning',
+          title: "Error",
+          description: "Incorrect Email or Password",
+          backgroundColor: "error",
+          icon: "warning",
         },
       ]);
     }

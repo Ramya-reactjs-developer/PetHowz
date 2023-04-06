@@ -39,6 +39,7 @@ import { AllPetBoarding } from "../Components/AllpetBoarding/AllPetBoarding";
 import { ServiceIndividualResult } from "../Pages/Result/ServiceIndividualResult";
 import PetHomeBoarding from "../Pages/JoinPetHost/PetHomeBoarding/PetHomeBoarding";
 import { PetBoardingRegistration } from "../Pages/JoinPetHost/PetBoardingRegistration/PetBoardingRegistration";
+import PHBRulesAmenties from "../Pages/JoinPetHost/PetHomeBoarding/PetHomeBoardingStepper/PHBRulesAmentiesStepper";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -54,6 +55,7 @@ export const router = createBrowserRouter(
         path="ServiceIndividualResult"
         element={<ServiceIndividualResult />}
       />
+      <Route path="PHBRulesAmenties" element={<PHBRulesAmenties />} />
       <Route path="BecomePetHostService" element={<BecomePetHostService />} />
       <Route path="PetCare" element={<PetCare />} />
       <Route path="PetHomeBoarding" element={<PetHomeBoarding />} />

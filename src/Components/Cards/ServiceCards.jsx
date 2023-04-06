@@ -27,7 +27,7 @@ export default function ServiceCardsSection({
   onDiscover,
   nos,
 }) {
-  const CardData = Data;
+  // const CardData = Data;
   // const { onClickHandle } = props;
   // [
   //   {
@@ -57,7 +57,7 @@ export default function ServiceCardsSection({
       xs={12}
     >
       <Grid item xs={12} sx={OverAllCArdPostions}>
-        {CardData?.map((item, key) => {
+        {Data?.map((item, key) => {
           return (
             <Grid key={key} item xs={12}>
               <Grid item xs={12}>
@@ -90,7 +90,7 @@ export default function ServiceCardsSection({
                             <CardActionArea>
                               <CardMedia
                                 component="img"
-                                image={item.image}
+                                image={item?.image}
                                 alt="dog"
                                 sx={CardMediaSize}
                               />
@@ -99,18 +99,18 @@ export default function ServiceCardsSection({
                               <CardContent>
                                 <Box></Box>
                                 <CustomTypography
-                                  text={item.name}
+                                  text={item?.name}
                                   type="h6"
                                   colorType="text"
                                 />
                                 <Box sx={AddressPosition}>
                                   <Box sx={AddressSubPosition1}>
                                     <img
-                                      src={CustomIcons.Location}
+                                      src={CustomIcons?.Location}
                                       alt="location"
                                     />
                                     <CustomTypography
-                                      text={item.address}
+                                      text={item?.address}
                                       type="title"
                                       customStyle={{ fontSize: "10px" }}
                                       colorType="senary"
@@ -118,7 +118,7 @@ export default function ServiceCardsSection({
                                   </Box>
                                   <Box>
                                     <CustomTypography
-                                      text={item.distance}
+                                      text={item?.distance}
                                       type="title"
                                       customStyle={{ fontSize: "10px" }}
                                       colorType="senary"
@@ -128,7 +128,7 @@ export default function ServiceCardsSection({
 
                                 <Box sx={AddressSubPosition2}>
                                   <img
-                                    src={CustomIcons.Building}
+                                    src={CustomIcons?.Building}
                                     alt="location"
                                   />
                                   <CustomTypography
@@ -141,11 +141,11 @@ export default function ServiceCardsSection({
                                 <Box sx={ReviewsPosition}>
                                   <Box>
                                     <Box>
-                                      <CustomizedRatings Data={item.ratings} />
+                                      <CustomizedRatings Data={item?.ratings} />
                                     </Box>
 
                                     <CustomTypography
-                                      text={item.reviews}
+                                      text={item?.reviews}
                                       type="title"
                                       customStyle={{ fontSize: "10px" }}
                                       colorType="senary"

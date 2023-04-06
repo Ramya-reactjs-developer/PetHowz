@@ -85,6 +85,15 @@ const getUtcTime = (date) => {
   }
   return moment.utc().unix();
 };
+
+function base64ToBinary(base64String) {
+  const binaryString = window.atob(base64String);
+  const binaryData = new Uint8Array(binaryString.length);
+  for (let i = 0; i < binaryString.length; i++) {
+    binaryData[i] = binaryString.charCodeAt(i);
+  }
+  return binaryData;
+}
 const utcTOLocal = (date, format) => {
   let Ndate = new Date();
   if (typeof date === "number") {
@@ -106,4 +115,5 @@ export {
   getUtcTime,
   utcTOLocal,
   makeName,
+  base64ToBinary,
 };
