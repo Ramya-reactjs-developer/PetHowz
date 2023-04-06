@@ -31,8 +31,8 @@ const PetService = () => {
         </Grid>
 
         <Grid item md={7} sm={7} lg={7} xs={12}>
-          {value.page === 0 && <SelectService />}
-          {value.page === 1 && <PetBasicDetails />}
+          {value.page === 0 && <PetBasicDetails />}
+          {value.page === 1 && <SelectService />}
           {value.page === 2 && <AboutPet />}
           {value.page === 3 && <ServiceDetails />}
           {value.page === 4 && <UploadImage />}

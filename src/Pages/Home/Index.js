@@ -258,7 +258,7 @@ export const HomePage = () => {
 
   // const [searchData, setSearchData] = useState("");
   const [tmpIdArr, setTmpIdsArr] = React.useState();
-  const [petTmpIdArr, setPetTmpIdsArr] = React.useState();
+  // const [petTmpIdArr, setPetTmpIdsArr] = React.useState();
 
   console.log(searchData, "ss");
   // const OnSetSearch = (e) => {
