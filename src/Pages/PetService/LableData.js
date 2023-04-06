@@ -6,24 +6,38 @@ export const LabelData = (props) => {
   const [page, setPage] = useState(0);
   const [labelInfo, setlabelInfo] = useState({
     sender: {
-      firstText: "",
-      SecondText: "",
-      fourthText: "",
-      ThirdText: "",
-      fifthText: "",
-      sixthText: "",
-      seventhText: "",
-      fileUploader: [],
+      image: [],
+      pet_service_name: "",
+      name: "",
+      mobile_number: "",
+      street: "",
+      city: "",
+      locality: "",
+      state: "",
       pin_code: "",
-      location: "",
+      pin_location: "",
+    },
+    check: {
+      meal_type: "",
+      // meal: "",
     },
     receiver: {
-      // professional_status: "",
-      tell_us_something_about_you_and_your_passion_towards_pet: "",
-      tell_us_about_the_type_of_pet_you_have_and_your_experience: "",
-      tell_us_about_the_type_of_pet_you_have_and_your_experience_two: "",
-      can_provide_oral_medication: "",
-      can_you_provide_first_aid: "",
+      professional_status: "",
+      tell_us_somthing_about_you: "",
+      years_of_experience: "",
+      service_provider_type: "",
+      service_provider_for: "",
+      no_of_pets: "",
+      grooming_kit: "",
+      mobile_grooming_van: "",
+      hair_dryer: "",
+      hair_shampoo: "",
+      carry_towel: "",
+      grooming_assistant: "",
+      service_overview: "",
+      doorstep_services: "",
+      location: "",
+      photos: "",
     },
     weight: {
       // list_the_pet_services_you_are_providing: "",
@@ -74,6 +88,7 @@ export const LabelData = (props) => {
       weight: { ...labelInfo.weight, [name]: value },
       shippingOption: { ...labelInfo.shippingOption, [name]: value },
       service: { ...labelInfo.shippingOption, [name]: value },
+      check: { ...labelInfo.shippingOption, [name]: value },
     });
   };
     const handleOnChange = (event, name) => {
@@ -83,6 +98,7 @@ export const LabelData = (props) => {
         receiver: { ...labelInfo.receiver, [name]: event.target.value },
         weight: { ...labelInfo.weight, [name]: event.target.value },
         service: { ...labelInfo.weight, [name]: event.target.value },
+        check: { ...labelInfo.weight, [name]: event.target.value },
         shippingOption: {
           ...labelInfo.shippingOption,
           [name]: event.target.value,
@@ -90,10 +106,10 @@ export const LabelData = (props) => {
       });
     };
   const steps = [
-    { title: "Select Services" },
     { title: "Basic Details" },
+    { title: "Select Services" },
     { title: "About Your Service" },
-    { title: "Upload Images" },
+    { title: "Create Package" },
   ];
 
   return (

@@ -61,7 +61,7 @@ export const Grooming = () => {
       })}
       {/* {ourServiceById?.data?.map((data) => {
         return ( */}
-      <Grid item md={12} lg={12} sm={12} xs={12}>
+      <Grid item md={12} lg={12} sm={12} xs={12} className="hhhhhhh">
         <GroomingCardsSection />
       </Grid>
       {/* );

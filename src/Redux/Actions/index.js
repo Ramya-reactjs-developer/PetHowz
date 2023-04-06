@@ -19,6 +19,7 @@ import { TermsAndConditionAction } from "../Slices/TermsAndCondition/TermsAndCon
 import { userAddressDetailsAction } from "../Slices/userAddress/userAddressDetailsSlice";
 import { ourServiceByIdAction } from "../Slices/OurService/OurServiceById";
 import { petCareAction } from "../Slices/Grooming/GroomingService";
+import { aboutPetAction } from "../Slices/AboutPet/AboutPet";
 
 const actions = {
   ...groomingAction,
@@ -44,6 +45,7 @@ const actions = {
   ...phbaypetspaceAction,
   ...phbrulesamentiesAction,
   ...phbaddonsAction,
+  ...aboutPetAction,
 };
 
 export default actions;
