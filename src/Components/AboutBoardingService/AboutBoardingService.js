@@ -6,6 +6,7 @@ import "./AboutBoardingService.css";
 
 const AboutBoardingService = (props) => {
   const {
+    onRequest,
     image,
     Name,
     professional,
@@ -14,15 +15,15 @@ const AboutBoardingService = (props) => {
     requestBtnStyles,
     btnTitle,
     BtnText,
-      Heading,
-      Area,
-      Size,
-      Type,
-      Prefer,
-      Capacity,
-      petsAccepted,
-      location,
-      Provide
+    Heading,
+    Area,
+    Size,
+    Type,
+    Prefer,
+    Capacity,
+    petsAccepted,
+    location,
+    Provide,
   } = props;
 
   return (
@@ -39,7 +40,11 @@ const AboutBoardingService = (props) => {
           />
         </Grid>
         <Grid item md={2} lg={2} sm={6} xs={6}>
-          <CustomTypography type="head" text={Name} customClass="aboutServiceName" />
+          <CustomTypography
+            type="head"
+            text={Name}
+            customClass="aboutServiceName"
+          />
         </Grid>
         <Grid item md={3} lg={3} sm={6} xs={6}>
           <CustomTypography
@@ -49,7 +54,11 @@ const AboutBoardingService = (props) => {
           />
         </Grid>
         <Grid item md={2} lg={2} sm={6} xs={6}>
-          <CustomTypography type="head" text={year} customClass="aboutServiceYear" />
+          <CustomTypography
+            type="head"
+            text={year}
+            customClass="aboutServiceYear"
+          />
         </Grid>
         <Grid item md={12} lg={12} sm={12} xs={12}>
           <CustomTypography
@@ -66,70 +75,126 @@ const AboutBoardingService = (props) => {
             <Grid item lg={2} sm={6} xs={6} className="aboutSpace-Details">
               <Grid>
                 <Grid>
-                  <CustomTypography type="head" text="Area" customClass="aboutHeader" />
+                  <CustomTypography
+                    type="head"
+                    text="Area"
+                    customClass="aboutHeader"
+                  />
                 </Grid>
                 <Grid>
-                  <CustomTypography type="head" text={Area} customClass="aboutSubHeader"/>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid item lg={2} sm={6} xs={6}>
-              <Grid>
-                <Grid>
-                  <CustomTypography type="head" text="Size" customClass="aboutHeader"/>
-                </Grid>
-                <Grid>
-                  <CustomTypography type="head" text={Size}  customClass="aboutSubHeader" />
+                  <CustomTypography
+                    type="head"
+                    text={Area}
+                    customClass="aboutSubHeader"
+                  />
                 </Grid>
               </Grid>
             </Grid>
             <Grid item lg={2} sm={6} xs={6}>
               <Grid>
                 <Grid>
-                  <CustomTypography type="head" text="Type" customClass="aboutHeader" />
+                  <CustomTypography
+                    type="head"
+                    text="Size"
+                    customClass="aboutHeader"
+                  />
                 </Grid>
                 <Grid>
-                  <CustomTypography type="head" text={Type}  customClass="aboutSubHeader"/>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid item lg={2} sm={6} xs={6}>
-              <Grid>
-                <Grid>
-                  <CustomTypography type="head" text="Prefer" customClass="aboutHeader" />
-                </Grid>
-                <Grid>
-                  <CustomTypography type="head" text={Prefer} customClass="aboutSubHeader"/>
+                  <CustomTypography
+                    type="head"
+                    text={Size}
+                    customClass="aboutSubHeader"
+                  />
                 </Grid>
               </Grid>
             </Grid>
             <Grid item lg={2} sm={6} xs={6}>
               <Grid>
                 <Grid>
-                  <CustomTypography type="head" text="Capacity"  customClass="aboutHeader"/>
+                  <CustomTypography
+                    type="head"
+                    text="Type"
+                    customClass="aboutHeader"
+                  />
                 </Grid>
                 <Grid>
-                  <CustomTypography type="head" text={Capacity} customClass="aboutSubHeader"/>
-                </Grid>
-              </Grid>
-            </Grid>
-            <Grid item lg={2} sm={6} xs={6}>
-              <Grid>
-                <Grid>
-                  <CustomTypography type="head" text="Pets Accepted" customClass="aboutHeader" />
-                </Grid>
-                <Grid>
-                  <CustomTypography type="head" text={petsAccepted} customClass="aboutSubHeader"/>
+                  <CustomTypography
+                    type="head"
+                    text={Type}
+                    customClass="aboutSubHeader"
+                  />
                 </Grid>
               </Grid>
             </Grid>
             <Grid item lg={2} sm={6} xs={6}>
               <Grid>
                 <Grid>
-                  <CustomTypography type="head" text="Location" customClass="aboutHeader"/>
+                  <CustomTypography
+                    type="head"
+                    text="Prefer"
+                    customClass="aboutHeader"
+                  />
                 </Grid>
                 <Grid>
-                  <CustomTypography type="head" text={location} customClass="aboutSubHeader"/>
+                  <CustomTypography
+                    type="head"
+                    text={Prefer}
+                    customClass="aboutSubHeader"
+                  />
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item lg={2} sm={6} xs={6}>
+              <Grid>
+                <Grid>
+                  <CustomTypography
+                    type="head"
+                    text="Capacity"
+                    customClass="aboutHeader"
+                  />
+                </Grid>
+                <Grid>
+                  <CustomTypography
+                    type="head"
+                    text={Capacity}
+                    customClass="aboutSubHeader"
+                  />
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item lg={2} sm={6} xs={6}>
+              <Grid>
+                <Grid>
+                  <CustomTypography
+                    type="head"
+                    text="Pets Accepted"
+                    customClass="aboutHeader"
+                  />
+                </Grid>
+                <Grid>
+                  <CustomTypography
+                    type="head"
+                    text={petsAccepted}
+                    customClass="aboutSubHeader"
+                  />
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item lg={2} sm={6} xs={6}>
+              <Grid>
+                <Grid>
+                  <CustomTypography
+                    type="head"
+                    text="Location"
+                    customClass="aboutHeader"
+                  />
+                </Grid>
+                <Grid>
+                  <CustomTypography
+                    type="head"
+                    text={location}
+                    customClass="aboutSubHeader"
+                  />
                 </Grid>
               </Grid>
             </Grid>
@@ -137,10 +202,18 @@ const AboutBoardingService = (props) => {
           <Grid item lg={2} sm={6} xs={6} pt={2}>
             <Grid>
               <Grid>
-                <CustomTypography type="head" text="Can Provide" customClass="aboutHeader"/>
+                <CustomTypography
+                  type="head"
+                  text="Can Provide"
+                  customClass="aboutHeader"
+                />
               </Grid>
               <Grid>
-                <CustomTypography type="head" text={Provide} customClass="aboutSubHeader"/>
+                <CustomTypography
+                  type="head"
+                  text={Provide}
+                  customClass="aboutSubHeader"
+                />
               </Grid>
             </Grid>
           </Grid>
@@ -149,6 +222,7 @@ const AboutBoardingService = (props) => {
 
       <Grid item md={12} lg={12} sm={12} xs={12} className="serviceBtn">
         <CustomButton
+          onClickHandle={onRequest}
           btnTitle={btnTitle}
           color="primary"
           customClass={requestBtnStyles}

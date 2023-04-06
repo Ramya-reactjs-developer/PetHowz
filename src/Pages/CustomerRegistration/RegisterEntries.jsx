@@ -42,8 +42,8 @@ export const RegisterEntries = [
     placeholder: "Enter Name",
     breakpoint: 6,
     validation: { required: true },
-    pattern:
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+    // pattern:
+    //   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
     requiredField: true,
     customClass: "textBox",
     error_message: "First Text",
@@ -64,6 +64,7 @@ export const RegisterEntries = [
   {
     isTextInput: true,
     name: "mobile_number",
+    type: "number",
     label: "Mobile Number",
     breakpoint: 6,
     validation: { required: true },
@@ -74,7 +75,7 @@ export const RegisterEntries = [
   },
   {
     isPasswordInput: true,
-    type: "text",
+    type: "password",
     name: "password",
     label: "Password",
     breakpoint: 6,
@@ -87,7 +88,7 @@ export const RegisterEntries = [
   },
   {
     isPasswordInput: true,
-    type: "text",
+    type: "password",
     name: "confirmPassword",
     label: "Confirm Password",
     breakpoint: 6,

@@ -173,7 +173,7 @@ function ResponsiveDrawer(props) {
         }}
       >
         {" "}
-        <div style={{ paddingTop: "50px" }}>
+        <div>
           <IconButton
             color="inherit"
             aria-label="open drawer"

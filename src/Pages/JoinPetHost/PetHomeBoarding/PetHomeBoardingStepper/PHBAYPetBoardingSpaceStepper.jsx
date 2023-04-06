@@ -130,6 +130,7 @@ const PHBAYPetBoardingSpace = (props) => {
     console.log(formData, "dddd1");
 
     dispatch(actions.PHBAYPETSPACE(data));
+    setResetValue(defaultValues);
   };
   React.useEffect(() => {
     if (AYPetSpace?.phbaypetspace?.message === "SUCCESS") {

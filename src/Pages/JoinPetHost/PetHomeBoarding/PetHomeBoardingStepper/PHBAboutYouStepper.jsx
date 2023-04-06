@@ -81,6 +81,7 @@ const PHBAboutYou = (props) => {
     console.log(formData, "dddd1");
 
     dispatch(actions.PHBABOUTYOU(data));
+    setResetValue(defaultValues);
   };
   React.useEffect(() => {
     if (AboutYou?.phbaboutyou?.message === "SUCCESS") {

@@ -208,7 +208,8 @@ import actions from "../../../../Redux/Actions";
 const PHBBasicDetails = (props) => {
   const dispatch = useDispatch();
   const userGet = useSelector((state) => state?.phbbasicdetails);
-  const login = useSelector((state) => state?.login);
+  const login = localStorage.getItem("LoginChecker");
+
   console.log(userGet.phbbasicdetails.message, "userGet");
   console.log(login, "login");
   const defaultValues = DefaultPHBBasicDetailsValues;
@@ -264,26 +265,30 @@ const PHBBasicDetails = (props) => {
     formData.append("state", data1.state);
     formData.append("pincode", data1.pincode);
     formData.append("pin_location", data1.pin_location);
-    formData.append("user_id", 1);
+    formData.append("user_id", parseInt(login));
     const data = {
       data: formData,
       method: "post",
       apiName: "createPetBoardingBasicDetails",
     };
     console.log(data1, "checkdata");
+    // setTimeout(() => {
 
     dispatch(actions.PHBBASICDETAILS(data));
+    setResetValue(defaultValues);
+    // }, 200);
   };
-  React.useEffect(() => {
-    if (userGet?.phbbasicdetails?.message === "SUCCESS") {
+  const onNext = () => {
+    if (userGet?.phbbasicdetails?.message === "SUCCESS" && value.page === 0) {
       value.nextPage();
     }
+  };
+  React.useEffect(() => {
+    onNext();
+    console.log(userGet?.phbbasicdetails?.message, "oooo");
+    console.log(value, "oooo1");
   }, [userGet, value]);
-  // const onNext = () => {
-  //   if (userGet?.phbbasicdetails?.message !== "") {
-  //     value.nextPage();
-  //   }
-  // };
+
   return (
     <>
       <Grid container md={12} sm={12} lg={12} xs={12}>

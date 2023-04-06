@@ -115,11 +115,11 @@ export default function SearchBar({
                         return (
                           <Box
                             sx={{ m: "10px 0" }}
-                            key={item.city}
-                            onClick={() => handleselect(item.city)}
+                            key={item?.city}
+                            onClick={() => handleselect(item?.city)}
                           >
                             <Typography sx={{ cursor: "pointer" }}>
-                              {item.city}
+                              {item?.city}
                             </Typography>
                           </Box>
                         );
@@ -179,11 +179,11 @@ export default function SearchBar({
                         return (
                           <Box
                             sx={{ m: "10px 0" }}
-                            key={item.locality}
-                            onClick={() => handleselect2(item.locality)}
+                            key={item?.locality}
+                            onClick={() => handleselect2(item?.locality)}
                           >
                             <Typography sx={{ cursor: "pointer" }}>
-                              {item.locality}
+                              {item?.locality}
                             </Typography>
                           </Box>
                         );

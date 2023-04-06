@@ -15,9 +15,11 @@ import {
 } from "../PetHomeBoardingEntries.jsx/PHBAddOnsEntries";
 import CustomIcons from "../../../../Utils/Icons/Index";
 import CustomImageUploader from "../../../../Components/FileUploader/FileUpload";
+import { useNavigate } from "react-router";
 
 const PHBAddOns = (props) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const userGet = useSelector((state) => state?.phbbasicdetails);
   const AboutYou = useSelector((state) => state?.phbaboutyou);
   console.log(userGet?.phbbasicdetails?.data.pet_space_id, "d");
@@ -98,6 +100,8 @@ const PHBAddOns = (props) => {
     console.log(formData, "dddd1");
 
     dispatch(actions.PHBADDONS(data));
+    setResetValue(defaultValues);
+    navigate("/HostLayout/HostDashBoard");
   };
   React.useEffect(() => {
     // if (AboutYou?.phbaboutyou?.message === "SUCCESS") {

@@ -11,9 +11,11 @@ import CustomForm from "../../Components/CustomForm/CustomForm";
 import CustomIcons from "../../Utils/Icons/Index";
 import { AddressEntries, DefaultAddressEntriesValues } from "./AddressEntries";
 import { useNavigate } from "react-router";
+import { useLocation } from "react-router-dom";
 
 export const AddAddress = () => {
   const dispatch = useDispatch();
+  const { state } = useLocation();
   // const [editId, setEditId] = useState();
   const defaultValues = {};
   const {
@@ -40,7 +42,7 @@ export const AddAddress = () => {
       method: "post",
       apiName: "createUserDetails",
     };
-    navigate("/Terms");
+    navigate("/Terms", { state: state });
     dispatch(actions.USER_ADDRESS_DETAILS(data));
 
     reset({

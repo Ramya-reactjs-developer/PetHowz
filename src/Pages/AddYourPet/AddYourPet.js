@@ -16,6 +16,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import actions from "../../Redux/Actions";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 const AddYourPetLogin = () => {
   const {
     control,
@@ -23,7 +25,7 @@ const AddYourPetLogin = () => {
     reset,
     formState: { errors },
   } = useForm({ mode: "onBlur" });
-
+  const { state } = useLocation();
   const Dispatch = useDispatch();
   useEffect(() => {
     const dropdownData = {
@@ -106,13 +108,13 @@ const AddYourPetLogin = () => {
   const navigate = useNavigate();
   function onReceiveData(data1) {
     const breed_id =
-    getYourPetType?.getPetBreed?.data?.find(
-      (item) => item.pet_breed === data1.pet_breed
-    )?.pet_breed_id || 0;
+      getYourPetType?.getPetBreed?.data?.find(
+        (item) => item.pet_breed === data1.pet_breed
+      )?.pet_breed_id || 0;
     const id =
-    getYourPetType?.getYourPetType?.data?.find(
-      (item) => item.pet_type === data1.pet_type
-    )?.pet_type_id || 0;
+      getYourPetType?.getYourPetType?.data?.find(
+        (item) => item.pet_type === data1.pet_type
+      )?.pet_type_id || 0;
     const user_id = userGet?.registertopethowz?.data?.user_id;
     const formData = new FormData();
     formData.append("pet_name", data1.pet_name);
@@ -137,7 +139,12 @@ const AddYourPetLogin = () => {
       apiName: "createPetDetails",
     };
     // console.log(data1, "checkdata");
-    navigate("/RequestBooking");
+    if (state !== null) {
+      navigate(state);
+    } else {
+      navigate("/RequestBooking");
+    }
+
     dispatch(actions.ADD_YOUR_PET(data));
     reset({
       user_id: "",
