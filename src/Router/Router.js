@@ -40,6 +40,7 @@ import { ServiceIndividualResult } from "../Pages/Result/ServiceIndividualResult
 import PetHomeBoarding from "../Pages/JoinPetHost/PetHomeBoarding/PetHomeBoarding";
 import { PetBoardingRegistration } from "../Pages/JoinPetHost/PetBoardingRegistration/PetBoardingRegistration";
 import PHBRulesAmenties from "../Pages/JoinPetHost/PetHomeBoarding/PetHomeBoardingStepper/PHBRulesAmentiesStepper";
+import BookingSubmitModal from "../Pages/RequestBooking/BookingSubmitModal";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -64,6 +65,7 @@ export const router = createBrowserRouter(
       <Route path="AddAnotherPet" element={<AddAnotherPet />} />
       <Route path="AddYourPetLogin" element={<AddYourPetLogin />} />
       <Route path="AllPetBoarding" element={<AllPetBoarding />} />
+      <Route path="BookingSubmitModal" element={<BookingSubmitModal />} />
 
       <Route
         path="PetHomeBoardingAndService"
@@ -83,7 +85,6 @@ export const router = createBrowserRouter(
         path="PetBoardingRegistration"
         element={<PetBoardingRegistration />}
       />
-
       <Route path="PetService" element={<PetService />} />
       {/* Register to PetHowz */}
       <Route path="RegisterToPethowz" element={<RegisterToPethowz />} />

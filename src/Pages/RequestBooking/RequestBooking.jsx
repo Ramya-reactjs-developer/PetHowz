@@ -39,6 +39,7 @@ export const RequestBooking = () => {
   };
   const onMoadalClose = () => {
     setModal(false);
+    navigate("/CustomerLayout/CustomerDashBoard");
   };
 
   const AddYourPet = useSelector((state) => state?.PetSpaceBooking);
@@ -107,7 +108,7 @@ export const RequestBooking = () => {
   function onReceiveData(data1) {
     const user_id = userGet?.registertopethowz?.data?.user_id;
 
-    console.log(pet_details_id,"pet_details_id");
+    console.log(pet_details_id, "pet_details_id");
     const data = {
       data: {
         ...data1,
@@ -121,7 +122,8 @@ export const RequestBooking = () => {
     };
     console.log(data, "jack");
     dispatch(actions.PET_SPACE_BOOKING(data));
-
+    // navigate("/BookingSubmitModal");
+    modalOpen();
     reset({
       booking_from_date: "",
       booking_from_time: "",
