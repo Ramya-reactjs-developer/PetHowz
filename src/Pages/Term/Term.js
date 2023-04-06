@@ -37,8 +37,9 @@ const Terms = (props) => {
   const userGet = useSelector((state) => state?.registertopethowz);
   function onSubmit() {
     console.log(onSubmit, "onSubmit");
-    const user_id = userGet?.registertopethowz?.data?.user_id;
+    // const user_id = userGet?.registertopethowz?.data?.user_id;
     console.log(userGet?.registertopethowz?.data, "ggggggggg");
+    const user_id = localStorage.getItem("LoginChecker");
     const data = {
       data: { status: 1 },
       method: "put",
