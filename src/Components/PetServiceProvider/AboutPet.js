@@ -110,7 +110,7 @@ const AboutPet = (props) => {
     formData.append("doorstep_services", data1.doorstep_services);
     formData.append("location", data1.location);
     formData.append("photos", data1.photos);
-    formData.append("service_faq", faq_value);
+    formData.append("service_faq", [faq_value]);
     formData.append("service_master_id", 1);
     formData.append("pet_service_id", 1);
     const data = {

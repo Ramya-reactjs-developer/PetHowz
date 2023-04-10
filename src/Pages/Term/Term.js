@@ -46,7 +46,6 @@ const Terms = (props) => {
       method: "put",
       apiName: `updateUserTermsCondtionStatus/${user_id}`,
     };
-
     dispatch(actions.TERMS_AND_CONDITION(data));
     reset({
       status: "",

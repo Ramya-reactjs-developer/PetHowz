@@ -148,7 +148,6 @@ export const HomePage = () => {
       method: "post",
       apiName: "getLocality",
     };
-
     if (updatedValue?.locality?.length >= 0) {
       dispatch(actions?.SEARCHCITYGETLOCALITY(data1));
 
