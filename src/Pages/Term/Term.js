@@ -13,11 +13,12 @@ import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import actions from "../../Redux/Actions";
 import { AddTermsEntries, DefaultTermsValues } from "./TermsEntries";
+import { useLocation } from "react-router-dom";
 
 const Terms = (props) => {
   const dispatch = useDispatch();
   // const [editId, setEditId] = useState();
-
+  const { state } = useLocation();
   const { TermsAndCondition } = useSelector(
     (state) => state?.TermsAndCondition
   );
@@ -25,7 +26,6 @@ const Terms = (props) => {
 
   const defaultValues = {};
   const {
-    
     control,
     handleSubmit,
     formState: { errors },
@@ -40,18 +40,18 @@ const Terms = (props) => {
     const user_id = userGet?.registertopethowz?.data?.user_id;
     console.log(userGet?.registertopethowz?.data, "ggggggggg");
     const data = {
-      data: { user_id },
+      data: { status: 1 },
       method: "put",
       apiName: `updateUserTermsCondtionStatus/${user_id}`,
     };
-    navigate("/AddYourPetLogin");
+    navigate("/AddYourPetLogin", { state: state });
     dispatch(actions.TERMS_AND_CONDITION(data));
     console.log(data, "datadata");
     reset({
       status: "",
     });
   }
-  
+
   const [resetValue, setResetValue] = useState([]);
 
   return (

@@ -2,7 +2,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   width: 70%;
-  /* border: 1px solid #ddd; */
 }
 .TableComponent {
   overflow-x: auto;
@@ -14,4 +13,3 @@ td {
   padding: 8px;
 }
 
-/* tr:nth-child(even){background-color: #f2f2f2} */

@@ -15,10 +15,13 @@ import CustomButton from "../../Components/Button/Button";
 import CustomTypography from "../../Components/Typography/Typography";
 import CustomIcons from "../../Utils/Icons/Index";
 import Toast from "../../Utils/Notification/Toast";
+import { useLocation } from "react-router-dom";
 
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { state } = useLocation();
+  console.log(state, "state");
   const loginAdmin = useSelector((state) => state?.login?.login);
   console.log(loginAdmin, "useSelector");
   const [list, setList] = useState([]);
@@ -30,7 +33,7 @@ function Login() {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm({ mode: "onBlur" });
+  } = useForm();
 
   /**
    *
@@ -41,18 +44,17 @@ function Login() {
     dispatch(actions.LOGIN_ADMIN(data));
     setShowToast(!showToast);
   };
-  const login = useSelector((state) => state?.login);
-  React.useEffect(() => {
-    console.log(login, "list");
-  }, [login]);
-
-  const setNav = () => {
-    setTimeout(() => {
-      navigate("/grooming");
-    }, 3000);
-  };
+  // const login = useSelector((state) => state?.login);
+  // React.useEffect(() => {
+  //   console.log(login, "list");
+  // }, [login]);
+  const userId = localStorage.getItem("LoginChecker");
+  const UserType = localStorage.getItem("UserType");
   useEffect(() => {
-    if (loginAdmin?.data?.Success === true) {
+    console.log(loginAdmin?.data, "loginAdmin?.data");
+    if (loginAdmin?.data?.data?.user_id) {
+      localStorage.setItem("LoginChecker", loginAdmin?.data?.data?.user_id);
+      localStorage.setItem("UserType", loginAdmin?.data?.data?.user_type);
       setList([
         {
           id: 1,
@@ -62,21 +64,62 @@ function Login() {
           icon: "check",
         },
       ]);
+
       setNav();
-    }
-    if (loginAdmin?.data?.Success === false) {
+    } else if (loginAdmin?.data?.Success === false) {
       setList([
         {
           id: 2,
           title: "Error",
-          description: "Incorrect Email or Password",
+          description: loginAdmin?.data?.Message,
           backgroundColor: "error",
           icon: "warning",
         },
       ]);
     }
-  }, [loginAdmin]);
+  }, [loginAdmin, userId, UserType, localStorage]);
 
+  // React.useEffect(() => {
+  //   if (loginAdmin?.data?.data?.user_id) {
+
+  //   }
+  //   // if (userId !== null) {
+  //   console.log(UserType, "UserType");
+  //   console.log(userId, "userId");
+  //   // }
+  // }, [loginAdmin, userId, UserType, localStorage]);
+
+  const setNav = () => {
+    setTimeout(() => {
+      if (state !== null) {
+        navigate(state);
+      } else if (state === null && loginAdmin?.data?.data?.user_type === 0) {
+        navigate("/CustomerLayout/CustomerDashBoard");
+      } else if (state === null && loginAdmin?.data?.data?.user_type === 1) {
+        navigate("/CustomerLayout/CustomerDashBoard");
+      } else if (state === null && loginAdmin?.data?.data?.user_type === 2) {
+        navigate("/HostLayout/HostDashBoard");
+      }
+      // else if (state !== "" && UserType === "0" && UserType !== null) {
+      //   navigate("/");
+      // } else if (state === "" && UserType === "1" && UserType !== null) {
+      //   navigate("/CustomerLayout/CustomerDashBoard");
+      // } else if (state === "" && UserType === "2" && UserType !== null) {
+      //   navigate("/HostLayout/HostDashBoard");
+      // }
+
+      // if (UserType === "0" && UserType !== null) {
+      //   navigate("/");
+      // } else if (UserType === "1" && UserType !== null) {
+      //   navigate("/CustomerLayout/CustomerDashBoard");
+      // } else if (UserType === "2" && UserType !== null) {
+      //   navigate("/HostLayout/HostDashBoard");
+      // }
+    }, 1000);
+  };
+  const onSignup = () => {
+    navigate("/registertopethowz", { state: state });
+  };
   return (
     <Grid container sm={12} xs={12}>
       <Grid item sm={6} xs={12}>
@@ -108,94 +151,91 @@ function Login() {
               />
             </Grid>
             <Grid item className="">
-              <form onSubmit={handleSubmit(onSubmit)}>
-                {showToast && (
-                  <>
-                    <Stack
-                      sx={{ width: "100%", color: "grey.500" }}
-                      spacing={2}
-                    >
-                      {list?.map((item) => (
-                        <LinearProgress
-                          sx={{
-                            backgroundColor: item?.id === 1 ? "#5cb85c" : "red",
-                          }}
-                        />
-                      ))}
-                    </Stack>
-                    <Toast toastList={list} position="top-right" />
-                  </>
-                )}
+              {showToast && (
+                <>
+                  <Stack sx={{ width: "100%", color: "grey.500" }} spacing={2}>
+                    {list?.map((item) => (
+                      <LinearProgress
+                        sx={{
+                          backgroundColor: item?.id === 1 ? "#5cb85c" : "red",
+                        }}
+                      />
+                    ))}
+                  </Stack>
+                  <Toast toastList={list} position="top-right" />
+                </>
+              )}
 
-                {entries?.map((keyValue) => (
-                  <Grid item>
-                    <Controller
-                      control={control}
-                      rules={{
-                        required: keyValue?.validation?.isRequired,
-                        pattern: keyValue?.pattern,
-                      }}
-                      render={({ field: { onChange, value } }) => (
-                        <Grid
-                          item
-                          md={12}
-                          sm={12}
-                          pt={2}
-                          className="MailPasswordBox"
-                        >
-                          {keyValue.textField && (
-                            <Grid className="loginTextBox">
-                              <CustomTextField
-                                value={value}
-                                placeholder={keyValue.placeholder}
-                                type={keyValue.type}
-                                onHandleChange={onChange}
-                                isLogin
-                                textInputIcon
-                              />
-                            </Grid>
-                          )}
-                        </Grid>
-                      )}
-                      name={keyValue.entryName}
-                    />
-                    {errors[keyValue.entryName]?.type === "required" && (
-                      <Grid item className="login_required">
-                        <CustomTypography
-                          customClass="login_Error_Text"
-                          text={` ${keyValue.label} is required`}
-                        />
-                      </Grid>
-                    )}
-                    {errors[keyValue.entryName]?.type === "pattern" && (
-                      <Grid item>
-                        <CustomTypography
-                          customClass="login_Error_Text"
-                          text={`${keyValue.label} is Invalid`}
-                        />
-                      </Grid>
-                    )}
-                  </Grid>
-                ))}
-                <Grid
-                  item
-                  display=" inline-flex"
-                  justifyContent="center"
-                  pt={3.5}
-                >
-                  <CustomButton
-                    btnTitle="LOGIN"
-                    color="primary"
-                    variant="contained"
-                    btnStyles={{
-                      width: "320px",
-                      color: "white",
-                      backgroundColor: "#F85A47",
-                      fontFamily: "Poppins_Medium",
+              {entries?.map((keyValue) => (
+                <Grid item>
+                  <Controller
+                    control={control}
+                    rules={{
+                      required: keyValue?.validation?.isRequired,
+                      pattern: keyValue?.pattern,
                     }}
+                    render={({ field: { onChange, value } }) => (
+                      <Grid
+                        item
+                        md={12}
+                        sm={12}
+                        pt={2}
+                        className="MailPasswordBox"
+                      >
+                        {keyValue.textField && (
+                          <Grid className="loginTextBox">
+                            <CustomTextField
+                              value={value}
+                              placeholder={keyValue.placeholder}
+                              type={keyValue.type}
+                              onHandleChange={onChange}
+                              isLogin
+                              textInputIcon
+                            />
+                          </Grid>
+                        )}
+                      </Grid>
+                    )}
+                    name={keyValue.entryName}
                   />
+                  {errors[keyValue.entryName]?.type === "required" && (
+                    <Grid item className="login_required">
+                      <CustomTypography
+                        customClass="login_Error_Text"
+                        text={` ${keyValue.label} is required`}
+                      />
+                    </Grid>
+                  )}
+                  {errors[keyValue.entryName]?.type === "pattern" && (
+                    <Grid item>
+                      <CustomTypography
+                        customClass="login_Error_Text"
+                        text={`${keyValue.label} is Invalid`}
+                      />
+                    </Grid>
+                  )}
                 </Grid>
-              </form>
+              ))}
+              <Grid
+                item
+                display=" inline-flex"
+                justifyContent="center"
+                pt={3.5}
+              >
+                <CustomButton
+                  btnTitle="LOGIN"
+                  color="primary"
+                  variant="contained"
+                  onClickHandle={handleSubmit(onSubmit)}
+                  btnStyles={{
+                    width: "320px",
+                    color: "white",
+                    backgroundColor: "#F85A47",
+                    fontFamily: "Poppins_Medium",
+                  }}
+                />
+              </Grid>
+
               <Grid item pt={2} className="googleGrid">
                 <Link
                   target="_blank"
@@ -222,17 +262,14 @@ function Login() {
                 }}
               >
                 <Typography>Don't have an account yet?</Typography>
-                <div
-                  onClick={() => {
-                    navigate("/registertopethowz");
-                  }}
-                >
+                <div>
                   <Typography
                     sx={{
                       textDecorationLine: "underline",
                       color: "#F85A47",
                       cursor: "pointer",
                     }}
+                    onClick={onSignup}
                   >
                     {" "}
                     Sign Up

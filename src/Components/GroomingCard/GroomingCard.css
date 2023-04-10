@@ -57,6 +57,5 @@
     width: 100%;
     display: inline-flex;
     flex-wrap: wrap;
-    /* margin: 10px; */
     justify-content: center;
 }

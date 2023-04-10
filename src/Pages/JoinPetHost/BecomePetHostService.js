@@ -2,25 +2,25 @@ import React from "react";
 import PetBoardImageCards from "../../Components/PetBoardCard/PetBoardImageCards";
 import CustomImages from "../../Utils/Images/index";
 // import { Route, Redirect } from "react-router-dom";
-// import { NavLink, useNavigate } from "react-router-dom";
-import { Grid } from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import { Box, Grid } from "@mui/material";
 import CustomTypography from "../../Components/Typography/Typography";
 // import PetService from "../PetService/PetService";
 import "./petBoard.css";
-import { useSelector } from "react-redux";
+import customImages from "../../Utils/Images/index";
 // import BothBoardAndService from "./BothBoardAndService/BothBoardAndService";
 
 export const BecomePetHostService = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   // const CardData = Data;
-  const login = useSelector((state) => state?.login?.login);
-  console.log(login, "login");
+  // const login = useSelector((state) => state?.login?.login);
+  const login = localStorage.getItem("LoginChecker");
+  console.log(login, "loginL");
   const imagePath = [
     {
       id: 1,
       image: CustomImages.Dog1,
       text: "Pet Home Boarding",
-      condtion: login.message,
       nav1: "/PetHomeBoarding",
       nav2: "/login",
     },
@@ -58,6 +58,20 @@ export const BecomePetHostService = () => {
   // const service = () => {
   //   navigate("/petService");
   // }
+  const onPetBoarding = () => {
+    if (login !== null) {
+      navigate("/PetHomeBoarding");
+    } else {
+      navigate("/login", { state: "/PetHomeBoarding" });
+    }
+  };
+  const onPetService = () => {
+    if (login !== null) {
+      navigate("/PetService");
+    } else {
+      navigate("/login", { state: "/PetHomeBoarding" });
+    }
+  };
   return (
     <Grid container md={12} sm={12} lg={12} xs={12}>
       <Grid container md={12} sm={12} lg={12} xs={12}>
@@ -115,7 +129,17 @@ export const BecomePetHostService = () => {
                   xs={12}
                   className="imageCard_edit"
                 >
-                  <PetBoardImageCards
+                  <Box
+                    sx={{ display: "flex", alignItems: "center", gap: "20px" }}
+                  >
+                    <div onClick={onPetBoarding} className="Choose-Service">
+                      <img src={customImages.Dog1} alt="PetBoarding" />
+                    </div>
+                    <div onClick={onPetService} className="Choose-Service">
+                      <img src={customImages.Dog2} alt="PetBoarding" />
+                    </div>
+                  </Box>
+                  {/* <PetBoardImageCards
                     // imagePath={CustomImages.Dog1}
                     text="Pet Home Boarding "
                     CustomImage="pet-image"
@@ -124,7 +148,7 @@ export const BecomePetHostService = () => {
                     loginData={login}
                     // onClick={clickImage}
                     petBoardText="PetBoardImage-image"
-                  />
+                  /> */}
                 </Grid>
                 {/* <Grid item md={3} sm={12} lg={3} xs={12}>
                 <PetBoardImageCards

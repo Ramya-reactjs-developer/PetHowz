@@ -39,8 +39,6 @@ import { AllPetBoarding } from "../Components/AllpetBoarding/AllPetBoarding";
 import { ServiceIndividualResult } from "../Pages/Result/ServiceIndividualResult";
 import PetHomeBoarding from "../Pages/JoinPetHost/PetHomeBoarding/PetHomeBoarding";
 import { PetBoardingRegistration } from "../Pages/JoinPetHost/PetBoardingRegistration/PetBoardingRegistration";
-import PHBRulesAmenties from "../Pages/JoinPetHost/PetHomeBoarding/PetHomeBoardingStepper/PHBRulesAmentiesStepper";
-import BookingSubmitModal from "../Pages/RequestBooking/BookingSubmitModal";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -56,7 +54,7 @@ export const router = createBrowserRouter(
         path="ServiceIndividualResult"
         element={<ServiceIndividualResult />}
       />
-      <Route path="PHBRulesAmenties" element={<PHBRulesAmenties />} />
+
       <Route path="BecomePetHostService" element={<BecomePetHostService />} />
       <Route path="PetCare" element={<PetCare />} />
       <Route path="PetHomeBoarding" element={<PetHomeBoarding />} />
@@ -65,7 +63,7 @@ export const router = createBrowserRouter(
       <Route path="AddAnotherPet" element={<AddAnotherPet />} />
       <Route path="AddYourPetLogin" element={<AddYourPetLogin />} />
       <Route path="AllPetBoarding" element={<AllPetBoarding />} />
-      <Route path="BookingSubmitModal" element={<BookingSubmitModal />} />
+      {/* <Route path="BookingSubmitModal" element={<BookingSubmitModal />} /> */}
 
       <Route
         path="PetHomeBoardingAndService"
@@ -90,6 +88,8 @@ export const router = createBrowserRouter(
       <Route path="RegisterToPethowz" element={<RegisterToPethowz />} />
       <Route path="AddAddress" element={<AddAddress />} />
       <Route path="RequestBooking" element={<RequestBooking />} />
+
+      {/* customer layout */}
       <Route path="CustomerLayout" element={<CustomerLayout />}>
         <Route path="CustomerDashBoard" element={<CustomerDashBoard />} />
         <Route path="MyProfileCustomerDB" element={<MyProfileCustomerDB />} />
@@ -106,6 +106,8 @@ export const router = createBrowserRouter(
           element={<MyEnquiriesCustomerDB />}
         />
       </Route>
+
+      {/* Host layout */}
       <Route path="HostLayout" element={<HostLayout />}>
         <Route path="HostDashBoard" element={<HostDashBoard />} />
         <Route path="MyProfileHostDB" element={<MyProfileHostDB />} />

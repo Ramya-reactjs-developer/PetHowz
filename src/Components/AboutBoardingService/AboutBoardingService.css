@@ -6,7 +6,6 @@
 .aboutServiceImage img{
     width: 100%;
     height: 100%;
-    /* object-fit: cover; */
 }
 .aboutServiceName{
     font-size: 18px !important;

@@ -1,7 +1,5 @@
 .PetBoardImage {
-  /* align-items: center !important; */
   position: absolute;
-  /* width: 450px !important; */
   height: 100%;
 }
 .petImage {
@@ -18,8 +16,7 @@
   height: 150px !important;
 }
 .pet-image img {
-  /* max-width: 190px !important ;
-  max-height: 190px !important; */
+
   width: 100% !important;
   height: 100% !important;
 }
@@ -32,23 +29,13 @@
   width: 600px !important;
   height: 500px !important;
   padding-top: 3rem;
-  /* display: inline-flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* position: relative; */
+
 }
 .pet-heading {
   padding-top: 1rem;
 }
-/* .pet-heading{
-    /* position: absolute; */
-/* top: 0;
-    left: 0;
-} */
+
 .petChoose {
-  /* position: absolute; */
-  /* left: 0;
-  top: 70px; */
   padding-top: 5rem;
 }
 */ .image_front_color {
@@ -86,18 +73,14 @@
   max-width: 100% !important;
 }
 .Box-Image3 {
-  /* padding-top: 18rem; */
-  /* position: fixed; */
+
   background-image: url("../../Assets/Images/Pethost\ registeration\ 1.png");
 
   background-repeat: no-repeat;
   width: 100% !important;
   height: auto;
-  /* object-fit: fill; */
   background-size: cover;
-  /* position: absolute; */
 
-  /* background-position: center; */
 }
 .Box-color3 {
   background-color: #f85a47;
@@ -106,21 +89,12 @@
   height: 100%;
   position: relative;
 }
+.Choose-Service {
+  cursor: pointer;
+}
 
-/* .textWidth{
-    width:150px !important;
 
-} */
 
 @media only screen and (max-width: 552px) {
-  /* .pet-heading{
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-    .petChoose{
-        position: absolute;
-        left: 0;
-        top: 0;
-    } */
+
 }

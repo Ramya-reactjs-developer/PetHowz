@@ -52,11 +52,11 @@ export const PHBAddOnsEntries = [
   {
     isTextInput: true,
     name: "rate",
+    type: "number",
     label: "Rate",
     placeholder: "Enter the rate of packages",
     breakpoint: 12,
     value: "state",
-    type: "text",
     customClass: "",
     // pattern: /^[a-zA-Z ]*$/,
     validation: { required: true },

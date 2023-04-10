@@ -34,7 +34,6 @@
 .uploadImageContainer {
   height: 2.4375em !important;
   width: 300px !important;
-  /* background-color: 'red'; */
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -52,12 +51,7 @@
 .none {
   display: none;
 }
-/* .imageUpload {
-  position: absolute;
-  right: -30%;
-  top: -55%;
-  width: 100px;
-} */
+
 .ProfileImageUpload{
     width: 150px;
     height: 150px;
@@ -78,7 +72,6 @@
 .textLabel {
   color: rgb(133, 131, 131) !important;
   font-size: 16px !important;
-  /* font-size: 14px !important; */
   padding-bottom: 10px !important;
   display: flex;
   justify-content: left;

@@ -135,6 +135,7 @@ const PHBRulesAmenties = () => {
     console.log(data1, "checkdata");
 
     dispatch(actions.PHBRULESAMENTIES(data));
+    setResetValue(defaultValues);
   };
   console.log(userGet?.phbbasicdetails?.data.pet_space_id, "id");
   React.useEffect(() => {

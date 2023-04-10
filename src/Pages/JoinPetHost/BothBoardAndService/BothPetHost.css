@@ -11,7 +11,6 @@
     width: 600px !important;
     height:500px !important;
     display: inline-flex;
-    /* justify-content: center; */
     align-items: center;
     position: relative;
 }
@@ -38,10 +37,7 @@ height: 100%;
 }
 .App{
     font-family: sans-serif !important;
-    /* text-align: center !important; */
-    /* justify-content: center !important; */
-    /* margin: 30px !important; */
-    /* padding: 10px !important; */
+    
   }
   h4{
     font-size: 30px !important;
@@ -51,7 +47,6 @@ height: 100%;
     font-size: 16px !important;
   }
   h3 {
-    /* position: absolute !important; */
     color: rgb(80, 150, 255);
     left: 80px;
   }
@@ -60,35 +55,17 @@ height: 100%;
   }
   .stepperPage>div>div>div>div{
     border-top: none !important;
-    /* position: unset !important; */
     color: #fff!important;
     font-size: 12px !important;
   }
-  /* .child {
-    position: relative !important;
-    margin-top: 40px !important ;
-  } */
+
   .stepperPage>div>div>div{
     height: 48px;
     width: 60% !important;
-    /* padding-left: 20px !important; */
-    /* position: unset !important; */
   }
   .stepperPage>div>div{
     display: inline-grid !important;
-    /* position: absolute; */
-    /* height: 250px; */
-    /* width: unset !important; */
+
   }
-  /* .textBox{
-    width:400px !important
-  } */
-/* .siepperImage{
-  background-image: url(../../../Assets/Images/petsStepper.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: auto;
-} */
+
 

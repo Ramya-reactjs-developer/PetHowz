@@ -37,7 +37,7 @@ export const HomePage = () => {
       method: "post",
       apiName: "getAllServiceMaster",
     };
-    dispatch(actions.OURSERVICE(data));
+    dispatch(actions?.OURSERVICE(data));
   }, [dispatch]);
 
   React.useEffect(() => {
@@ -49,7 +49,7 @@ export const HomePage = () => {
       method: "post",
       apiName: "getAllPetSpace",
     };
-    dispatch(actions.PETBOARDING(data));
+    dispatch(actions?.PETBOARDING(data));
   }, [dispatch]);
 
   //dispatch
@@ -125,10 +125,10 @@ export const HomePage = () => {
       apiName: "getAllCity",
     };
     console.log({ city: e.target.value }, "datadrop");
-    console.log(updatedValue.city.length, "length");
+    console.log(updatedValue?.city?.length, "length");
 
     if (updatedValue?.city?.length >= 0) {
-      dispatch(actions.SEARCHCITY(data1));
+      dispatch(actions?.SEARCHCITY(data1));
 
       // setDropListResult(true);
     } else if (updatedValue?.city?.length === 0) {
@@ -149,15 +149,15 @@ export const HomePage = () => {
     setSearchData({ ...searchData, locality: e.target.value });
     var updatedValue = { locality: e.target.value };
     const data1 = {
-      data: { ...updatedValue, city: searchData.city },
+      data: { ...updatedValue, city: searchData?.city },
       method: "post",
       apiName: "getLocality",
     };
     console.log({ locality: e.target.value }, "datalocality");
-    console.log(updatedValue.locality, "localitylength");
+    console.log(updatedValue?.locality, "localitylength");
     console.log(data1, "combinedValue");
     if (updatedValue?.locality?.length >= 0) {
-      dispatch(actions.SEARCHCITYGETLOCALITY(data1));
+      dispatch(actions?.SEARCHCITYGETLOCALITY(data1));
 
       // setDropListResult(true);
     } else if (updatedValue?.locality?.length === 0) {
@@ -266,10 +266,7 @@ export const HomePage = () => {
   // };
 
   const { petBoarding } = useSelector((state) => state?.petBoarding);
-  console.log(
-    petBoarding,
-    "galleryImageValue"
-  );
+  console.log(petBoarding, "galleryImageValue");
 
   // useEffect(() => {
   //   const tmpArr = [];
@@ -303,7 +300,7 @@ export const HomePage = () => {
     console.log(tmpIdsArr, "tmpIdsArr");
     ourService?.data?.map((value, index) => {
       tmpIdsArr?.push(value.service_master_id);
-      console.log()
+      console.log();
       tmpArr?.push({
         sno: index,
       });
@@ -475,7 +472,7 @@ export const HomePage = () => {
           <Box>
             <HomePetCardsSection
               // Data={CardData}
-              onClickHandle={(item) =>onClickHandle(item)}
+              onClickHandle={(item) => onClickHandle(item)}
             />
           </Box>
         </Grid>

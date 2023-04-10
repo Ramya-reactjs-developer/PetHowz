@@ -199,7 +199,7 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
           <Grid item xs={12}>
             <CustomTypography
               //   text={item?.title}
-              text={petBoarding.data.title}
+              text={petBoarding?.data?.title}
               type="caption"
               colorType={"text"}
 
@@ -215,7 +215,7 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
                       <CardActionArea>
                         <CardMedia
                           component="img"
-                          image={item.image}
+                          image={item?.image}
                           alt="dog"
                           sx={CardMediaSize}
                         />
@@ -224,7 +224,7 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
                         <CardContent>
                           <Box></Box>
                           <CustomTypography
-                            text={item.name}
+                            text={item?.name}
                             type="h6"
                             colorType="text"
                           />
@@ -232,7 +232,7 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
                             <Box sx={AddressSubPosition1}>
                               <img src={CustomIcons.Location} alt="location" />
                               <CustomTypography
-                                text={item.address}
+                                text={item?.address}
                                 type="title"
                                 customStyle={{ fontSize: "10px" }}
                                 colorType="senary"
@@ -240,7 +240,7 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
                             </Box>
                             <Box>
                               <CustomTypography
-                                text={item.distance}
+                                text={item?.distance}
                                 type="title"
                                 customStyle={{ fontSize: "10px" }}
                                 colorType="senary"

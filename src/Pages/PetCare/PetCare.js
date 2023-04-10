@@ -1,7 +1,7 @@
 import { Grid, CardActionArea } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import actions from "../../Redux/Actions/index";
 import customImages from "../../Utils/Images";
 import CustomIcons from "../../Utils/Icons/Index";
@@ -14,8 +14,7 @@ import AboutBoardingService from "../../Components/AboutBoardingService/AboutBoa
 // import ServicePackagesCards from "../../Components/Cards/ServicePackagesCard";
 
 const PetCare = () => {
-
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { state } = useLocation();
   // const location = useLocation();
@@ -29,7 +28,6 @@ const PetCare = () => {
   // const { petBoarding } = useSelector((state) => state?.petBoarding);
   // console.log(petBoarding, "petBoarding");
 
-
   useEffect(() => {
     const data = {
       data: {},
@@ -39,14 +37,11 @@ const PetCare = () => {
     dispatch(actions.PETCARE(data));
   }, [dispatch, state]);
 
-
   const [Modal, setModal] = React.useState(false);
 
   const modalOpen = () => {
     setModal(true);
   };
-
-
 
   const packageData = [
     {
@@ -117,10 +112,14 @@ const PetCare = () => {
       price: "₹ 450",
     },
   ];
+
+  const onRequest = () => {
+    navigate("/registertopethowz");
+  };
   return (
     <Grid className="container">
       {petCare?.data?.map((data) => {
-        const petPhotos =data?.petHomeImages?.map((data) => data?.photos);
+        const petPhotos = data?.petHomeImages?.map((data) => data?.photos);
         return (
           <>
             <Grid container md={12} lg={12} sm={12} xs={12}>
@@ -193,6 +192,7 @@ const PetCare = () => {
                 petsAccepted="1200 Sq.ft"
                 location="1200 Sq.ft"
                 Provide="1200 Sq.ft"
+                onRequest={onRequest}
               />
             </Grid>
             <Grid container md={12} sm={12} lg={12} xs={12} pl={3}>

@@ -17,13 +17,15 @@ import CustomButton from "../../Components/Button/Button";
 import CustomImageUploader from "../../Components/FileUploader/FileUpload";
 import actions from "../../Redux/Actions";
 import { useNavigate } from "react-router";
+import { useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const RegisterToPethowz = (props) => {
   const dispatch = useDispatch();
-
+  const { state } = useLocation();
   const defaultValues = DefaultRegisterEntriesValues;
-  const [state, setstate] = React.useState();
-  console.log(state, "state");
+  // const [state, setstate] = React.useState();
+  // console.log(state, "state");
   const [resetValue, setResetValue] = React.useState([]);
   const userGet = useSelector((state) => state?.registertopethowz);
   console.log(userGet, "userget");
@@ -52,9 +54,19 @@ export const RegisterToPethowz = (props) => {
       apiName: "createRegistration",
     };
     console.log(data1, "checkdata");
-    navigate("/AddAddress");
+
     dispatch(actions.REGISTERTOPETHOWZ(data));
+    Swal.fire("Registered Successfully", "Thank You", "success");
+    navigate("/AddAddress", { state: state });
   }
+
+  // React.useEffect(() => {
+  //   console.log(userGet?.registertopethowz?.message, "mmmm");
+  //   if (userGet?.registertopethowz?.message === "SUCCESS") {
+  //     // alert(state?.registertopethowz.data);
+
+  //   }
+  // }, [userGet]);
   const password = watch("password");
   const confirmPassword = watch("confirmPassword");
   console.log(password, "password");
@@ -119,7 +131,7 @@ export const RegisterToPethowz = (props) => {
                           type={keyValue.type}
                           placeholder={keyValue.placeholder}
                           disabled={keyValue?.disabled}
-                          uniqueText={keyValue.uniqueText}
+                          // uniqueText={keyValue.uniqueText}
                           requiredField={keyValue.requiredField}
                           // customClass="textBox"
                           customClass={keyValue.customClass}

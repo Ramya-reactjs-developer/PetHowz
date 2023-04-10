@@ -59,9 +59,7 @@
   right: 22px;
   cursor: pointer;
 }
-/* .Mui-error{
-    border: none !important;
-} */
+
 .dateIconEdit .MuiOutlinedInput-notchedOutline {
   border-color: #c1c1c1 !important;
 }
@@ -83,9 +81,7 @@
   margin-right: 10px !important;
   color: #f89122 !important;
 }
-/* .SubmitButtonColor .MuiButton-root {
-  width: 100% !important;
-} */
+
 .CancelButtonColor .MuiButton-root {
   width: 100% !important;
 }

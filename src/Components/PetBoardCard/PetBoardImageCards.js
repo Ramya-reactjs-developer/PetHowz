@@ -21,14 +21,19 @@ export default function PetBoardImageCards(props) {
   const navigate = useNavigate();
   const login = loginData;
   // const image = Data;
-  console.log(login.message, "login.message");
+  console.log(login, "login.message");
+  console.log(go, "login.message");
+
   const onNavigate = () => {
-    if (login.message !== "") {
+    if (login !== null) {
       setGo(true);
-    } else if (login.message === "") {
+    } else {
       setGo(false);
     }
   };
+  React.useEffect(() => {
+    onNavigate();
+  }, [go]);
   return (
     <Grid item md={12} sm={12} lg={12} xs={12} mr={3}>
       {/* {image?.map((item) => {
@@ -47,7 +52,7 @@ export default function PetBoardImageCards(props) {
               //     alert("nav2");
               //   }
               // }}
-              onClick={onNavigate}
+              // onClick={onNavigate}
               to={go ? nav.nav1 : nav.nav2}
               style={{ textDecoration: "none" }}
             >

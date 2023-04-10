@@ -88,6 +88,7 @@ export const PHBAYPetBoardingSpaceEntries = [
   {
     isTextInput: true,
     name: "no_of_pets",
+    type: "number",
     label: "Boarding Capacity (No. of Pets)",
     placeholder: "Enter Number",
     breakpoint: 6,
@@ -101,6 +102,7 @@ export const PHBAYPetBoardingSpaceEntries = [
   {
     isTextInput: true,
     name: "total_sq_feet_of_the_space",
+    type: "number",
     label: "Total Area of the Space (in sq.ft)",
     placeholder: "Enter Number",
     breakpoint: 6,
@@ -114,6 +116,7 @@ export const PHBAYPetBoardingSpaceEntries = [
   {
     isTextInput: true,
     name: "price_for_per_day_boarding",
+    type: "number",
     label: "Price for Per Day Boarding (24 Hours) ",
     placeholder: "Enter Price",
     breakpoint: 6,
@@ -127,6 +130,7 @@ export const PHBAYPetBoardingSpaceEntries = [
   {
     isTextInput: true,
     name: "price_for_day_care",
+    type: "number",
     label: "Price for Day Care (8 Hours)",
     placeholder: "Enter Price",
     breakpoint: 6,
@@ -140,6 +144,7 @@ export const PHBAYPetBoardingSpaceEntries = [
   {
     isTextInput: true,
     name: "no_of_bedrooms",
+    type: "number",
     label: "No of Bed Rooms",
     placeholder: "Enter Number",
     breakpoint: 6,
@@ -153,6 +158,7 @@ export const PHBAYPetBoardingSpaceEntries = [
   {
     isTextInput: true,
     name: "how_many_pets_can_you_host_at_max",
+    type: "number",
     label: "How many pets can you host at?",
     placeholder: "Enter a Number",
     breakpoint: 6,
