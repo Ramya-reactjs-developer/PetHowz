@@ -1,4 +1,11 @@
+import { useNavigate } from "react-router";
+// eslint-disable-next-line react-hooks/rules-of-hooks
+// const navigate = useNavigate();
+// const onAddAnother = () => {
+//   navigate("./AddYourPetLogin")
+// };
 export const RequestBookingEntries = [
+  
   {
     isCustomTypography: true,
     name: "name1",
@@ -12,9 +19,18 @@ export const RequestBookingEntries = [
     labelText: "Your Pet Type",
     placeholder: "Select Profession",
     DropdownData: [],
-    breakpoint: 6,
+    breakpoint: 5,
     disabled: true,
     validation: { required: true },
+  },
+  {
+    isAddButton: true,
+    name: "name7",
+    buttonTitle:"+",
+    breakpoint: 2,
+    // onClickHandle:{onAddAnother},
+    customClass: "Addbtn",
+    color: "primary"
   },
   // {
   //   isMultipleSelectChip: true,
@@ -56,7 +72,7 @@ export const RequestBookingEntries = [
     label: "Select Date and Time",
     placeholder: "Date and Time",
     pattern: /^\d{2}-[a-zA-Z]{3}-\d{4}$/,
-    breakpoint: 6,
+    breakpoint: 5,
     validation_error_message: "Date of Birth is in Invalid format",
     validation: { required: true },
     requiredField: true,

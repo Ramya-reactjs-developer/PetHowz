@@ -6,16 +6,18 @@ export const LabelData = (props) => {
   const [page, setPage] = useState(0);
   const [labelInfo, setlabelInfo] = useState({
     sender: {
-      firstText: "",
-      SecondText: "",
-      fourthText: "",
-      ThirdText: "",
-      fifthText: "",
-      sixthText: "",
-      seventhText: "",
-      fileUploader: [],
-      pin_code: "",
-      location: "",
+      nr1: [],
+      nr2:[]
+      // firstText: "",
+      // SecondText: "",
+      // fourthText: "",
+      // ThirdText: "",
+      // fifthText: "",
+      // sixthText: "",
+      // seventhText: "",
+      // fileUploader: [],
+      // pin_code: "",
+      // location: "",
     },
     receiver: {
       // professional_status: "",

@@ -37,6 +37,7 @@ function CustomForm(props) {
     handleSelect,
     customFormData,
     defaultValues,
+    onClickHandle,
     gridAlign,
     editTrue,
     // dropdownData,
@@ -153,7 +154,7 @@ function CustomForm(props) {
    * @param {*} data
    */
   const onSelectValue = (data) => {
-    console.log(data,"lllldata");
+    console.log(data, "lllldata");
     setValues(data);
   };
 
@@ -276,30 +277,30 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
-                  {keyValue?.isDateTimePicker && (
-                      <Grid
-                        item
-                        md={12}
-                        lg={12}
-                        my={2}
-                        mx={5}
-                        sm={12}
-                        xs={12}
-                        className="timeEditChange"
-                      >
-                        <CustomTimePicker
-                          labelText={keyValue.label}
-                          onHandleChange={onChange}
-                          value={keyValue.value}
-                          timeStyle={keyValue.timeStyle}
-                          time={value}
-                          requiredField={keyValue.requiredField}
-                          customClass="timeIconThis"
-                          // maxTime="03/02/2023"
-                          // minTime="03/11/2022"
-                        />
-                      </Grid>
-                    )}
+                {keyValue?.isDateTimePicker && (
+                  <Grid
+                    item
+                    md={12}
+                    lg={12}
+                    my={2}
+                    mx={5}
+                    sm={12}
+                    xs={12}
+                    className="timeEditChange"
+                  >
+                    <CustomTimePicker
+                      labelText={keyValue.label}
+                      onHandleChange={onChange}
+                      value={keyValue.value}
+                      timeStyle={keyValue.timeStyle}
+                      time={value}
+                      requiredField={keyValue.requiredField}
+                      customClass="timeIconThis"
+                      // maxTime="03/02/2023"
+                      // minTime="03/11/2022"
+                    />
+                  </Grid>
+                )}
                 {keyValue?.isTextInput && (
                   <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
                     {console.log(value, "value")}
@@ -357,7 +358,6 @@ function CustomForm(props) {
                         onChange(e);
                         handleSelect(e, keyValue.name);
                       }}
-
                       value={value}
                       // data={dropdownData}
                       data={keyValue.DropdownData}
@@ -455,6 +455,28 @@ function CustomForm(props) {
                     <ProfileImageUploader />
                   </Grid>
                 )}
+                {keyValue?.isAddButton && (
+                  <Grid item md={12} sm={12} xs={12} mx={2}>
+                    <CustomButton
+                      btnTitle={keyValue.buttonTitle}
+                      variant="contained"
+                      color="primary"
+                      customClass={keyValue.customClass}
+                      btnStyles={{
+                        color: "#fff",
+                        // background: "#F8BD22",
+                        marginTop: "45px",
+                      }}
+                      onClickHandle={onClickHandle}
+                    />
+                  </Grid>
+                )}
+                {/* <CustomButton
+            btnTitle="+"
+            color="primary"
+            onClickHandle={onAddAnother}
+            btnStyles={Addbtn}
+          /> */}
                 {keyValue?.isSubmitButton && (
                   <Grid
                     item
@@ -596,6 +618,7 @@ CustomForm.propTypes = {
   handleSelect: propTypes.func,
   customFormData: propTypes.func,
   editTrue: propTypes.string,
+  onClickHandle: propTypes.func,
 };
 CustomForm.defaultProps = {
   // handleCancel: () => null,
@@ -605,4 +628,5 @@ CustomForm.defaultProps = {
   onChangeRadioAction: () => null,
   customFormData: () => null,
   editTrue: "",
+  onClickHandle: "",
 };

@@ -36,52 +36,22 @@ const SelectService = ({ option, disabled }) => {
       setCheckedAll(false);
     }
   }, [checked]);
-  const [agreement, setAgreement] = useState(false);
 
-  // const handleCheck = () => {
-  //   setChecked(!checked);
-  // };
-  const OnHandleChange = () => {
-    // alert("text");
-    setChecked(!checked);
-  };
+ 
 
-  const onClick = (event) => {
-    // const checkValue = event.target.value;
-    setAgreement(event.target.value);
-    // OnHandleChange(checkValue);
-    // console.log(checkValue, "checkValue");
-  };
   const value = useContext(LabelContext);
+  const sender = value.labelInfo?.sender;
 
-  // const btnDisabled;
-  // const handleChange = (event) => {
-  //   console.log(event,"jkdvuihfuihvbuifgb");
-  //   setChecked(event.target.checked);
-  // };
-
-  const handleChange = (event) => {
-    setChecked((prev) => {
-      if (prev.includes(event)) {
-        return prev.filter((x) => x !== event);
-      } else {
-        return [...prev, event];
-      }
-    });
-  };
+  const btnDisabled =
+    sender.nr1?.length > 0 &&
+    sender.nr2?.length > 0;
+console.log(btnDisabled,"btnDisabled");
+ 
   return (
     <Grid container md={12} lg={12} xs={12} sm={12}>
       <Grid className="selectService" m={1}>
         <CardActionArea className="selectServiceImg">
-          {/* <input
-            type="checkbox"
-            onChange={onClick}
-            checked={checked}
-            name="Value"
-            // tabIndex={-1}
-            // disabled={disabled}
-            className="checkInput"
-          /> */}
+        
           <input
             type="checkbox"
             name="nr1"
@@ -175,9 +145,9 @@ const SelectService = ({ option, disabled }) => {
           style={{ marginTop: 15 }}
         >
           <Button
-            // disabled={!btnDisabled}
+            disabled={!btnDisabled}
             onClick={() => value.nextPage()}
-            // style={{ margin: 25 }}
+            style={{ margin: 25 }}
           >
             Next
           </Button>

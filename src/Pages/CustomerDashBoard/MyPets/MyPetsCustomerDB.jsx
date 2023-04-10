@@ -4,7 +4,7 @@ import React from "react";
 import CustomTypography from "../../../Components/Typography/Typography";
 import { MyPetsCards } from "../../../Components/MyPetsCards/MyPetsCards";
 import CustomButton from "../../../Components/Button/Button";
-import AddAnotherPet  from "./AddAnotherPet";
+import AddAnotherPet from "./AddAnotherPet";
 
 export const MyPetsCustomerDB = () => {
   const [open, setOpen] = React.useState(false);
@@ -23,11 +23,11 @@ export const MyPetsCustomerDB = () => {
     },
   ];
   const Addbtn = {
-    color: "white",
-    width: "50px",
+    color: "white", width: "50px",
     height: "60px",
     borderRadius: "50%",
     fontSize: "35px",
+   
   };
   const onAddAnother = () => {
     setOpen(true);

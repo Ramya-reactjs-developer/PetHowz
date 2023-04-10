@@ -1,5 +1,5 @@
 // /* eslint-disable react-hooks/rules-of-hooks */
-import { Box, Card, Grid } from "@mui/material";
+import { Box, Card, Dialog, Grid } from "@mui/material";
 import React, { useEffect } from "react";
 import CustomTypography from "../../Components/Typography/Typography";
 import "./ReqBookingStyle.css";
@@ -18,7 +18,7 @@ import { useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { adminUrl } from "../../Redux/Constants";
 import axios from "axios";
-
+import "./RequestBooking.css";
 export const RequestBooking = () => {
   const defaultValues = {};
   const [entry, setEntry] = React.useState([]);
@@ -103,11 +103,12 @@ export const RequestBooking = () => {
   const pet_details_id = useSelector(
     (state) => state?.AddYourPet?.AddYourPets?.data?.pet_details_id
   );
+  // const navigate = useNavigate();
 
   function onReceiveData(data1) {
     const user_id = userGet?.registertopethowz?.data?.user_id;
 
-    console.log(pet_details_id,"pet_details_id");
+    console.log(pet_details_id, "pet_details_id");
     const data = {
       data: {
         ...data1,
@@ -121,7 +122,7 @@ export const RequestBooking = () => {
     };
     console.log(data, "jack");
     dispatch(actions.PET_SPACE_BOOKING(data));
-
+    navigate("/BookingSubmitModal");
     reset({
       booking_from_date: "",
       booking_from_time: "",
@@ -146,6 +147,7 @@ export const RequestBooking = () => {
 
   return (
     <Grid container item xs={12} className="BG">
+       
       <Grid item p={"30px"} height={{ lg: "100vh" }} sm={6} xs={12}>
         <Box sx={{ pt: "20px" }}>
           <CustomTypography
@@ -177,6 +179,7 @@ export const RequestBooking = () => {
                 defaultValues={DefaultRequestBookingValues}
                 // handleSelect={customHnadleSelect}
                 // onSelectValue={selectChange}
+                // onClickHandle={modalOpen}
                 onReceiveData={onReceiveData}
               />
               {Modal ? (
