@@ -33,12 +33,18 @@ export const RequestBooking = () => {
     defaultValues,
   });
   const userGet = useSelector((state) => state?.registertopethowz);
-
+  const Booking = useSelector((state) => state?.PetSpaceBooking);
+  console.log(
+    Booking?.PetSpaceBooking?.data?.space_booking_details_id,
+    "Booking"
+  );
+  const login = localStorage.getItem("LoginChecker");
   const modalOpen = () => {
     setModal(true);
   };
   const onMoadalClose = () => {
     setModal(false);
+    navigate("/CustomerLayout/CustomerDashBoard");
   };
 
   const AddYourPet = useSelector((state) => state?.PetSpaceBooking);
@@ -126,7 +132,7 @@ export const RequestBooking = () => {
         user_id: user_id,
         pet_space_id: petSpaceId,
         pet_details_id: petId,
-        customer_id: 5,
+        customer_id: user_id,
       },
       method: "post",
       apiName: "createPetSpaceBooking",
@@ -141,6 +147,15 @@ export const RequestBooking = () => {
       booking_to_time: "",
       specific_request: "",
     });
+    setTimeout(() => {
+      if (Booking?.PetSpaceBooking?.data?.space_booking_details_id) {
+        localStorage.setItem(
+          "user_type",
+          Booking?.PetSpaceBooking?.data?.user_type
+        );
+        modalOpen();
+      }
+    }, 500);
   }
 
   const ListData = [

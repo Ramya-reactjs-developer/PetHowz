@@ -109,7 +109,7 @@ function ResponsiveDrawer(props) {
           textAlign: "center",
           ".css-14mheiv-MuiDrawer-docked .MuiDrawer-paper": {
             zIndex: "auto",
-            paddingTop: "80px",
+            paddingTop: "90px",
           },
           //   ".css-1wnlm1w-MuiButtonBase-root-MuiListItemButton-root": {
           //     color: "black",

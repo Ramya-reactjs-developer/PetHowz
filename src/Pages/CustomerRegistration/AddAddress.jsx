@@ -12,12 +12,13 @@ import CustomIcons from "../../Utils/Icons/Index";
 import { AddressEntries, DefaultAddressEntriesValues } from "./AddressEntries";
 import { useNavigate } from "react-router";
 import { useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const AddAddress = () => {
   const dispatch = useDispatch();
   const { state } = useLocation();
   // const [editId, setEditId] = useState();
-  const defaultValues = {};
+  const defaultValues = DefaultAddressEntriesValues;
   const {
     control,
     handleSubmit,
@@ -40,10 +41,6 @@ export const AddAddress = () => {
         "LoginChecker",
         userGet?.registertopethowz?.data?.user_id
       );
-      localStorage.setItem(
-        "pet_space_id",
-        userGet?.registertopethowz?.data?.pet_space_id
-      );
     }
   }, [localStorage, userGet]);
   const navigate = useNavigate();
@@ -57,21 +54,17 @@ export const AddAddress = () => {
       method: "post",
       apiName: "createUserDetails",
     };
-    navigate("/Terms", { state: state });
-    dispatch(actions.USER_ADDRESS_DETAILS(data));
 
-    reset({
-      Your_Name: "",
-      Mobile_number: "",
-      Email: "",
-      Gender: "",
-      Street: "",
-      City: "",
-      State: "",
-      Pincode: "",
-      Locality: "",
-      Location: "",
-    });
+    dispatch(actions.USER_ADDRESS_DETAILS(data));
+    reset(defaultValues);
+    Swal.fire("Address Added Successfully", "Thank You", "success").then(
+      (result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          navigate("/Terms", { state: state });
+        }
+      }
+    );
   }
 
   return (

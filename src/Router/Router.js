@@ -39,6 +39,7 @@ import { AllPetBoarding } from "../Components/AllpetBoarding/AllPetBoarding";
 import { ServiceIndividualResult } from "../Pages/Result/ServiceIndividualResult";
 import PetHomeBoarding from "../Pages/JoinPetHost/PetHomeBoarding/PetHomeBoarding";
 import { PetBoardingRegistration } from "../Pages/JoinPetHost/PetBoardingRegistration/PetBoardingRegistration";
+import ProtectedLayout from "./ProtectedLayout";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -90,6 +91,7 @@ export const router = createBrowserRouter(
       <Route path="RequestBooking" element={<RequestBooking />} />
 
       {/* customer layout */}
+
       <Route path="CustomerLayout" element={<CustomerLayout />}>
         <Route path="CustomerDashBoard" element={<CustomerDashBoard />} />
         <Route path="MyProfileCustomerDB" element={<MyProfileCustomerDB />} />

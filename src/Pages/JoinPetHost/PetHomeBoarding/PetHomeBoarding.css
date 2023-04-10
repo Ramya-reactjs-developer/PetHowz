@@ -1,12 +1,10 @@
 .strPage > div > div {
   display: inline-grid !important;
-  /* border: none !important ; */
   place-items: center;
   padding-top: 8rem;
 }
 .strPage > div > div > div > div {
   border-top: none !important;
-  /* position: unset !important; */
 }
 .stepper-bg {
   background-image: url("../../../Assets/Images/Pethost\ registeration\ 1.png");
@@ -14,6 +12,6 @@
   background-repeat: no-repeat;
   width: 100% !important;
   height: auto;
-  /* object-fit: fill; */
+
   background-size: cover;
 }

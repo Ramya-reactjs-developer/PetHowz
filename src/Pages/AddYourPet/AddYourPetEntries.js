@@ -14,7 +14,7 @@ export const AddYourPetentries = [
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
- 
+
   {
     isDropdown: true,
     name: "pet_type",
@@ -31,7 +31,7 @@ export const AddYourPetentries = [
     name: "pet_breed",
     labelText: "Your Pet Breed",
     placeholder: "Select Profession",
-    DropdownData: [ ],
+    DropdownData: [],
     breakpoint: 3,
     disabled: true,
     validation: { required: true },
@@ -41,7 +41,7 @@ export const AddYourPetentries = [
     name: "gender",
     label: "Gender",
     breakpoint: 6,
-    radioButtonData: [{ name: "Active" }, { name: "Inactive" }],
+    radioButtonData: [{ name: "Male" }, { name: "Female" }],
     validation: { required: true },
     requiredField: true,
     error_message: "Status",

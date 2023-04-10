@@ -11,7 +11,6 @@
   width: 600px !important;
   height: 500px !important;
   display: inline-flex;
-  /* justify-content: center; */
   align-items: center;
   position: relative;
 }
@@ -37,25 +36,15 @@
   height: 100% !important;
 }
 .stepper-BG {
-  /* padding-top: 18rem; */
-  /* position: fixed; */
   background-image: url("../../../Assets/Images/BookingSubmit.svg");
 
   background-repeat: no-repeat;
   width: 100% !important;
   height: auto;
-  /* object-fit: fill; */
   background-size: cover;
-  /* position: absolute; */
-
-  /* background-position: center; */
 }
 .App {
   font-family: sans-serif !important;
-  /* text-align: center !important; */
-  /* justify-content: center !important; */
-  /* margin: 30px !important; */
-  /* padding: 10px !important; */
 }
 h4 {
   font-size: 30px !important;
@@ -65,7 +54,6 @@ h5 {
   font-size: 16px !important;
 }
 h3 {
-  /* position: absolute !important; */
   color: rgb(80, 150, 255);
   left: 80px;
 }
@@ -74,43 +62,22 @@ h3 {
 }
 .stepperPage > div > div > div > div {
   border-top: none !important;
-  /* position: unset !important; */
   color: #fff !important;
   font-size: 12px !important;
 }
-/* .child {
-    position: relative !important;
-    margin-top: 40px !important ;
-  } */
 .stepperPage > div > div > div {
   height: 48px;
   width: 60% !important;
-  /* padding-left: 20px !important; */
-  /* position: unset !important; */
 }
 .stepperPage > div > div {
   display: inline-grid !important;
-  /* position: absolute; */
-  /* height: 250px; */
-  /* width: unset !important; */
 }
-/* .textBox{
-    width:400px !important
-  } */
-/* .siepperImage{
-  background-image: url(../../../Assets/Images/petsStepper.png);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: auto;
-} */
+
 .image_front_color {
   width: 100%;
   background-color: #f85a47;
   opacity: 0.5;
   height: 100%;
   position: absolute;
-  /* top: 0; */
   left: 0;
 }

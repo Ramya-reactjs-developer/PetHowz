@@ -14,6 +14,7 @@ import { useNavigate } from "react-router";
 import actions from "../../Redux/Actions";
 import { AddTermsEntries, DefaultTermsValues } from "./TermsEntries";
 import { useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Terms = (props) => {
   const dispatch = useDispatch();
@@ -45,12 +46,20 @@ const Terms = (props) => {
       method: "put",
       apiName: `updateUserTermsCondtionStatus/${user_id}`,
     };
-    navigate("/AddYourPetLogin", { state: state });
+
     dispatch(actions.TERMS_AND_CONDITION(data));
-    console.log(data, "datadata");
     reset({
       status: "",
     });
+    console.log(data, "datadata");
+    Swal.fire("Terms & Conditions Accepted", "Thank You", "success").then(
+      (result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          navigate("/AddYourPetLogin", { state: state });
+        }
+      }
+    );
   }
 
   const [resetValue, setResetValue] = useState([]);

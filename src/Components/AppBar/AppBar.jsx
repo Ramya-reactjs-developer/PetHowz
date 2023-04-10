@@ -72,6 +72,7 @@ const Header = (props) => {
   const [loginCheck, setLoginCheck] = React.useState(false);
   console.log(loginCheck, "loginCheck");
   const login = localStorage.getItem("LoginChecker");
+  const user_type = localStorage.getItem("user_type");
   console.log(login, "login");
   React.useEffect(() => {
     // if (login === undefined) {
@@ -103,9 +104,9 @@ const Header = (props) => {
   const onGoToProfile = () => {
     if (loginAdmin?.data?.data?.user_type === 0) {
       navigate("/CustomerLayout/CustomerDashBoard");
-    } else if (loginAdmin?.data?.data?.user_type === 1) {
+    } else if (loginAdmin?.data?.data?.user_type === 1 || user_type === "1") {
       navigate("/CustomerLayout/CustomerDashBoard");
-    } else if (loginAdmin?.data?.data?.user_type === 2) {
+    } else if (loginAdmin?.data?.data?.user_type === 2 || user_type === "2") {
       navigate("/HostLayout/HostDashBoard");
     }
   };

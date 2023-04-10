@@ -4,7 +4,7 @@ import React from "react";
 import CustomTypography from "../../../Components/Typography/Typography";
 import { MyPetsCards } from "../../../Components/MyPetsCards/MyPetsCards";
 import CustomButton from "../../../Components/Button/Button";
-import AddAnotherPet  from "./AddAnotherPet";
+import AddAnotherPet from "./AddAnotherPet";
 
 export const MyPetsCustomerDB = () => {
   const [open, setOpen] = React.useState(false);
@@ -42,7 +42,7 @@ export const MyPetsCustomerDB = () => {
   return (
     <Grid container item xs={12}>
       {" "}
-      <Grid item textAlign={"left"} xs={12} pt={"40px"}>
+      <Grid item textAlign={"left"} xs={12}>
         <CustomTypography text="My Pets" type="subHeading" colorType="text" />
       </Grid>
       <Grid item xs={12}>

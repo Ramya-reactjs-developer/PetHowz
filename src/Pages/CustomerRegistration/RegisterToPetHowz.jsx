@@ -56,8 +56,15 @@ export const RegisterToPethowz = (props) => {
     console.log(data1, "checkdata");
 
     dispatch(actions.REGISTERTOPETHOWZ(data));
-    Swal.fire("Registered Successfully", "Thank You", "success");
-    navigate("/AddAddress", { state: state });
+    reset(defaultValues);
+    Swal.fire("Registered Successfully", "Thank You", "success").then(
+      (result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          navigate("/AddAddress", { state: state });
+        }
+      }
+    );
   }
 
   // React.useEffect(() => {

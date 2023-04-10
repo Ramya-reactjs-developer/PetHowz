@@ -99,7 +99,7 @@ export default function ServiceCardsSection({
                               <CardContent>
                                 <Box></Box>
                                 <CustomTypography
-                                  text={item?.name}
+                                  text={item?.name || item?.service_name}
                                   type="h6"
                                   colorType="text"
                                 />

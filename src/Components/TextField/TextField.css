@@ -4,10 +4,6 @@
   font-family: Poppins_Medium !important;
 }
 
-.textBox .MuiOutlinedInput-input {
-  /* text-transform: capitalize !important; */
-}
-
 .textBox .MuiInputBase-root .MuiOutlinedInput-root {
   padding: 0px !important;
 }
