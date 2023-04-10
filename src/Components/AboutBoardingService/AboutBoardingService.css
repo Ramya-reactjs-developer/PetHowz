@@ -1,50 +1,50 @@
-.aboutServiceImage{
-    max-width: 271px !important;
-    height: 386px !important;
-    border-radius: 5px !important;
+.aboutServiceImage {
+  max-width: 271px !important;
+  height: 386px !important;
+  border-radius: 5px !important;
 }
 .aboutServiceImage img{
     width: 100%;
     height: 100%;
 }
-.aboutServiceName{
-    font-size: 18px !important;
-    font-weight: bold !important;
+.aboutServiceName {
+  font-size: 18px !important;
+  font-weight: bold !important;
 }
-.aboutServiceHeaderName{
-    font-size: 26px !important;
-    font-weight: bold !important;
-    color: #000 !important;
+.aboutServiceHeaderName {
+  font-size: 26px !important;
+  font-weight: bold !important;
+  color: #000 !important;
 }
-.aboutServiceProfessional{
-    font-size: 18px !important;
-    color: #999 !important;
+.aboutServiceProfessional {
+  font-size: 18px !important;
+  color: #999 !important;
 }
-.aboutServiceYear{
-    font-size: 18px !important;
-    color: #999 !important;
+.aboutServiceYear {
+  font-size: 18px !important;
+  color: #999 !important;
 }
 
-.aboutServiceContent{
-    color: #545A58 !important;
+.aboutServiceContent {
+  color: #545a58 !important;
 }
-.serviceBtn{
-    text-align: end;
-    padding-right: 50px !important;
+.serviceBtn {
+  text-align: end;
+  padding-right: 50px !important;
 }
-.btnBottomText{
-    padding-right: 42px;
-    padding-top: 10px;
-    color: #545A58 !important;
+.btnBottomText {
+  padding-right: 42px;
+  padding-top: 10px;
+  color: #545a58 !important;
 }
-.aboutSpace-Details{
-    width: 200px !important;
+.aboutSpace-Details {
+  width: 200px !important;
 }
-.aboutHeader{
-    color: #000  !important;
-    font-weight: bold !important;
+.aboutHeader {
+  color: #000 !important;
+  font-weight: bold !important;
 }
-.aboutSubHeader{
-    font-size: 12px !important;
-    color: #000  !important;
+.aboutSubHeader {
+  font-size: 12px !important;
+  color: #000 !important;
 }

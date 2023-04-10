@@ -64,7 +64,7 @@ export const MyServicesHostDB = () => {
   return (
     <Grid container item xs={12}>
       {" "}
-      <Grid item textAlign={"left"} xs={12} pt={"40px"}>
+      <Grid item textAlign={"left"} xs={12}>
         <CustomTypography
           text="MyServices"
           type="subHeading"

@@ -121,15 +121,14 @@ export const AddressEntries = [
     label: "Pincode",
     placeholder: "Enter Pincode",
     breakpoint: 6,
-    type: 'number',
+    type: "number",
     validation: { required: true },
-    pattern: "([1-9]{1}[0-9]{5}|[1-9]{1}[0-9]{3}\\s[0-9]{3})",
+    pattern: "/^(+d{1,3}[- ]?)?d{6}$/",
     requiredField: true,
     customClass: "textBox",
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
-
 
   //   {
   //     isEmptySpace: true,

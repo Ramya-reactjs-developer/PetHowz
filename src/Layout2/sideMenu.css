@@ -1,7 +1,6 @@
 .header {
   position: absolute;
   width: 220px;
-
 }
 
 .header .pro-sidebar {
@@ -51,20 +50,19 @@
 }
 
 .pro-inner-item:hover .icon_size img {
-  filter: brightness(0) saturate(100%) invert(74%) sepia(52%) saturate(739%) hue-rotate(349deg) brightness(104%)
-    contrast(101%);
+  filter: brightness(0) saturate(100%) invert(74%) sepia(52%) saturate(739%)
+    hue-rotate(349deg) brightness(104%) contrast(101%);
   animation: swing ease-in-out 0.5s 1 alternate;
 }
 
 .static ~ .icon_size img {
-  filter: brightness(0) saturate(100%) invert(74%) sepia(52%) saturate(739%) hue-rotate(349deg) brightness(104%)
-    contrast(101%) !important;
+  filter: brightness(0) saturate(100%) invert(74%) sepia(52%) saturate(739%)
+    hue-rotate(349deg) brightness(104%) contrast(101%) !important;
 }
 
-
 .pro-inner-item .icon_size img {
-  filter: brightness(0) saturate(100%) invert(36%) sepia(9%) saturate(5%) hue-rotate(314deg) brightness(88%)
-    contrast(81%);
+  filter: brightness(0) saturate(100%) invert(36%) sepia(9%) saturate(5%)
+    hue-rotate(314deg) brightness(88%) contrast(81%);
   animation: swing ease-in-out 0.5s 1 alternate;
 }
 .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item .icon_size {
@@ -114,7 +112,8 @@
 }
 
 .static + span img {
-  filter: invert(87%) sepia(12%) saturate(6879%) hue-rotate(342deg) brightness(105%) contrast(94%);
+  filter: invert(87%) sepia(12%) saturate(6879%) hue-rotate(342deg)
+    brightness(105%) contrast(94%);
 }
 
 .static + .icon_size {
@@ -151,10 +150,9 @@
   padding-bottom: 10px;
   padding-top: 10px;
 }
-
 .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item:hover .slideMenuImg {
-  filter: brightness(0) saturate(100%) invert(78%) sepia(79%) saturate(2206%) hue-rotate(353deg) brightness(105%)
-    contrast(95%);
+  filter: brightness(0) saturate(100%) invert(78%) sepia(79%) saturate(2206%)
+    hue-rotate(353deg) brightness(105%) contrast(95%);
 }
 .imgSource {
   border: 1px solid red;
@@ -162,17 +160,17 @@
   padding-top: 20px;
 }
 .pro-item-content {
-display: inline-flex;
+  display: inline-flex;
   align-items: center;
   color: #204768 !important;
   font-size: 16px !important;
 }
-.mainMaster{
-   width: 60px !important;
-height: 60px !important;
-margin: auto !important;
+.mainMaster {
+  width: 60px !important;
+  height: 60px !important;
+  margin: auto !important;
 }
-.mainMaster img{
- height: 100% !important;
- width: 100% !important;
+.mainMaster img {
+  height: 100% !important;
+  width: 100% !important;
 }

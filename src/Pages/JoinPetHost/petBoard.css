@@ -16,7 +16,6 @@
   height: 150px !important;
 }
 .pet-image img {
-
   width: 100% !important;
   height: 100% !important;
 }
@@ -29,7 +28,6 @@
   width: 600px !important;
   height: 500px !important;
   padding-top: 3rem;
-
 }
 .pet-heading {
   padding-top: 1rem;
@@ -38,7 +36,7 @@
 .petChoose {
   padding-top: 5rem;
 }
-*/ .image_front_color {
+.image_front_color {
   width: 100%;
   background-color: #f85a47;
   opacity: 0.5;
@@ -73,14 +71,13 @@
   max-width: 100% !important;
 }
 .Box-Image3 {
-
   background-image: url("../../Assets/Images/Pethost\ registeration\ 1.png");
 
   background-repeat: no-repeat;
   width: 100% !important;
   height: auto;
-  background-size: cover;
 
+  background-size: cover;
 }
 .Box-color3 {
   background-color: #f85a47;
@@ -91,10 +88,4 @@
 }
 .Choose-Service {
   cursor: pointer;
-}
-
-
-
-@media only screen and (max-width: 552px) {
-
 }

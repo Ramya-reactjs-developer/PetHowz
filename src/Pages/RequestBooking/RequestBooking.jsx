@@ -33,7 +33,12 @@ export const RequestBooking = () => {
     defaultValues,
   });
   const userGet = useSelector((state) => state?.registertopethowz);
-
+  const Booking = useSelector((state) => state?.PetSpaceBooking);
+  console.log(
+    Booking?.PetSpaceBooking?.data?.space_booking_details_id,
+    "Booking"
+  );
+  const login = localStorage.getItem("LoginChecker");
   const modalOpen = () => {
     setModal(true);
   };
@@ -67,7 +72,8 @@ export const RequestBooking = () => {
 
   const Dispatch = useDispatch();
   useEffect(() => {
-    const user_id = userGet?.registertopethowz?.data?.user_id;
+    // const user_id = userGet?.registertopethowz?.data?.user_id;
+    const user_id = localStorage.getItem("LoginChecker");
     console.log(userGet, "eswarUser");
     const dropdownData = {
       data: { user_id: user_id },
@@ -104,18 +110,29 @@ export const RequestBooking = () => {
   const pet_details_id = useSelector(
     (state) => state?.AddYourPet?.AddYourPets?.data?.pet_details_id
   );
+  const user_id = localStorage.getItem("LoginChecker");
+  const petId = localStorage.getItem("pet_details_id");
+  const petSpaceId = localStorage.getItem("pet_space_id");
+  React.useEffect(() => {
+    if (pet_details_id?.AddYourPet?.AddYourPets?.data?.pet_details_id) {
+      localStorage.setItem(
+        "pet_details_id",
+        pet_details_id?.AddYourPet?.AddYourPets?.data?.pet_details_id
+      );
+    }
+  }, [localStorage]);
 
   function onReceiveData(data1) {
-    const user_id = userGet?.registertopethowz?.data?.user_id;
+    // const user_id = userGet?.registertopethowz?.data?.user_id;
 
     console.log(pet_details_id, "pet_details_id");
     const data = {
       data: {
         ...data1,
         user_id: user_id,
-        pet_space_id: 1,
-        pet_details_id: pet_details_id,
-        customer_id: 5,
+        pet_space_id: petSpaceId,
+        pet_details_id: petId,
+        customer_id: user_id,
       },
       method: "post",
       apiName: "createPetSpaceBooking",
@@ -131,6 +148,15 @@ export const RequestBooking = () => {
       booking_to_time: "",
       specific_request: "",
     });
+    setTimeout(() => {
+      if (Booking?.PetSpaceBooking?.data?.space_booking_details_id) {
+        localStorage.setItem(
+          "user_type",
+          Booking?.PetSpaceBooking?.data?.user_type
+        );
+        modalOpen();
+      }
+    }, 500);
   }
 
   const ListData = [

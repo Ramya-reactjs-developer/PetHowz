@@ -21,7 +21,7 @@ export const MyProfileCustomerDB = () => {
   return (
     <Grid container item xs={12}>
       {" "}
-      <Grid item textAlign={"left"} xs={12} pt={"40px"}>
+      <Grid item textAlign={"left"} xs={12}>
         <CustomTypography
           text="My Profile"
           type="subHeading"
@@ -34,7 +34,6 @@ export const MyProfileCustomerDB = () => {
         justifyContent={"flex-start"}
         gap={"40px"}
         flexWrap={"wrap"}
-        pt={"20px"}
         xs={12}
       >
         <Grid item lg={2} md={3} sm={4} xs={12} textAlign={"center"}>

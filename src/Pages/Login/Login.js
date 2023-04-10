@@ -28,6 +28,13 @@ function Login() {
   console.log(list, "listValue");
   const [showToast, setShowToast] = useState(false);
   console.log(loginAdmin, "list");
+  const [isSignedIn, setIsSignedIn] = useState(null);
+  //  const signin = () => {
+  //    setIsSignedIn(true);
+  //  };
+  //  const signout = () => {
+  //    setIsSignedIn(false);
+  //  };
 
   const {
     control,
@@ -53,6 +60,7 @@ function Login() {
   useEffect(() => {
     console.log(loginAdmin?.data, "loginAdmin?.data");
     if (loginAdmin?.data?.data?.user_id) {
+      setIsSignedIn(true);
       localStorage.setItem("LoginChecker", loginAdmin?.data?.data?.user_id);
       localStorage.setItem("UserType", loginAdmin?.data?.data?.user_type);
       setList([

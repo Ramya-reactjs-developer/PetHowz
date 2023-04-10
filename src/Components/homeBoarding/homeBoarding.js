@@ -196,7 +196,7 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
         {/* {petBoarding?.data?.map((item, key) => {
           return ( */}
         <Grid item xs={12}>
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
             <CustomTypography
               //   text={item?.title}
               text={petBoarding?.data?.title}
@@ -205,7 +205,7 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
 
               // customClass="groomText"
             />
-          </Grid>
+          </Grid> */}
           <Grid item sx={OverAllCArdPostions}>
             {petBoarding?.data?.spaces?.map((item) => {
               return (
@@ -260,11 +260,11 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
                           <Box sx={ReviewsPosition}>
                             <Box>
                               <Box>
-                                <CustomizedRatings Data={item.ratings} />
+                                <CustomizedRatings Data={item?.ratings} />
                               </Box>
 
                               <CustomTypography
-                                text={item.reviews}
+                                text={item?.reviews}
                                 type="title"
                                 customStyle={{ fontSize: "10px" }}
                                 colorType="senary"

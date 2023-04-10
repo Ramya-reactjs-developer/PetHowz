@@ -6,7 +6,6 @@ import {
   TextFieldCustomazation,
   TextFieldCustomazation2,
 } from "./Style";
-import CustomSelect from "../Select/Select";
 import "./SearchBar.css";
 import CustomButton from "../Button/Button";
 import CustomTab from "../CustomTab/CustomTab";

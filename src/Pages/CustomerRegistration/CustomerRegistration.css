@@ -1,29 +1,26 @@
 .Box-Image {
-
   background-image: url("../../Assets/Images/Register.jpeg");
 
   background-repeat: no-repeat;
   width: 100%;
   height: auto;
-  background-size: cover;
 
+  background-size: cover;
 }
 .Box-Image1 {
-
   background-image: url("../../Assets/Images/Register.jpeg");
 
   background-repeat: no-repeat;
   width: 100%;
   height: auto;
   background-size: cover;
-
 }
-.Box-color{
+.Box-color {
   background-color: #f85a47;
   opacity: 0.5;
   width: 100%;
   height: 100%;
 }
-.sourceButton{
+.sourceButton {
   background: #f85a47;
 }

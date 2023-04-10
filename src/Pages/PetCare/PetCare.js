@@ -27,7 +27,9 @@ const PetCare = () => {
 
   // const { petBoarding } = useSelector((state) => state?.petBoarding);
   // console.log(petBoarding, "petBoarding");
-
+  React.useEffect(() => {
+    localStorage.setItem("pet_space_id", state);
+  }, []);
   useEffect(() => {
     const data = {
       data: {},
@@ -112,9 +114,13 @@ const PetCare = () => {
       price: "₹ 450",
     },
   ];
-
+  const login = localStorage.getItem("LoginChecker");
   const onRequest = () => {
-    navigate("/registertopethowz");
+    if (login !== null) {
+      navigate("/RequestBooking");
+    } else {
+      navigate("/login", { state: "/RequestBooking" });
+    }
   };
   return (
     <Grid className="container">

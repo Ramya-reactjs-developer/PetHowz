@@ -14,6 +14,7 @@ import { useNavigate } from "react-router";
 import actions from "../../Redux/Actions";
 import { AddTermsEntries, DefaultTermsValues } from "./TermsEntries";
 import { useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Terms = (props) => {
   const dispatch = useDispatch();
@@ -37,19 +38,27 @@ const Terms = (props) => {
   const userGet = useSelector((state) => state?.registertopethowz);
   function onSubmit() {
     console.log(onSubmit, "onSubmit");
-    const user_id = userGet?.registertopethowz?.data?.user_id;
+    // const user_id = userGet?.registertopethowz?.data?.user_id;
     console.log(userGet?.registertopethowz?.data, "ggggggggg");
+    const user_id = localStorage.getItem("LoginChecker");
     const data = {
       data: { status: 1 },
       method: "put",
       apiName: `updateUserTermsCondtionStatus/${user_id}`,
     };
-    navigate("/AddYourPetLogin", { state: state });
     dispatch(actions.TERMS_AND_CONDITION(data));
-    console.log(data, "datadata");
     reset({
       status: "",
     });
+    console.log(data, "datadata");
+    Swal.fire("Terms & Conditions Accepted", "Thank You", "success").then(
+      (result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          navigate("/AddYourPetLogin", { state: state });
+        }
+      }
+    );
   }
 
   const [resetValue, setResetValue] = useState([]);

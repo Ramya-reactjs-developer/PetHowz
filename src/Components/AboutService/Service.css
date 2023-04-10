@@ -1,37 +1,37 @@
-.serviceImage{
-    max-width: 220px !important;
-    border-radius: 5px !important;
+.serviceImage {
+  max-width: 220px !important;
+  border-radius: 5px !important;
 }
-.serviceImage img{
-    width: 100%;
-    height: 100%;
+.serviceImage img {
+  width: 100%;
+  height: 100%;
 }
-.serviceName{
-    font-size: 18px !important;
-    font-weight: bold !important;
+.serviceName {
+  font-size: 18px !important;
+  font-weight: bold !important;
 }
-.serviceHeaderName{
-    font-size: 26px !important;
-    font-weight: bold !important;
-    color: #000 !important;
+.serviceHeaderName {
+  font-size: 26px !important;
+  font-weight: bold !important;
+  color: #000 !important;
 }
-.serviceProfessional{
-    font-size: 18px !important;
-    color: #999 !important;
+.serviceProfessional {
+  font-size: 18px !important;
+  color: #999 !important;
 }
-.serviceYear{
-    font-size: 18px !important;
-    color: #999 !important;
+.serviceYear {
+  font-size: 18px !important;
+  color: #999 !important;
 }
 
-.serviceContent{
-    color: #545A58 !important;
+.serviceContent {
+  color: #545a58 !important;
 }
-.serviceBtn{
-    text-align: end;
+.serviceBtn {
+  text-align: end;
 }
-.btnBottomText{
-    padding-right: 42px;
-    padding-top: 10px;
-    color: #545A58 !important;
+.btnBottomText {
+  padding-right: 42px;
+  padding-top: 10px;
+  color: #545a58 !important;
 }

@@ -1,12 +1,11 @@
 .loginImg {
-
   background-image: url("../../Assets/Images/LoginSide.jpg");
 
   background-repeat: no-repeat;
   width: 100%;
   height: auto;
-  background-size: cover;
 
+  background-size: cover;
 }
 
 .loginImg img {

@@ -1,9 +1,7 @@
 .header {
   position: absolute;
   width: 220px;
- 
 }
-
 .header .pro-sidebar {
   height: 94vh !important;
 }
@@ -60,7 +58,6 @@
   filter: brightness(0) saturate(100%) invert(74%) sepia(52%) saturate(739%)
     hue-rotate(349deg) brightness(104%) contrast(101%) !important;
 }
-
 
 .pro-inner-item .icon_size img {
   filter: brightness(0) saturate(100%) invert(36%) sepia(9%) saturate(5%)
@@ -152,7 +149,6 @@
   padding-bottom: 10px;
   padding-top: 10px;
 }
-
 .pro-sidebar .pro-menu .pro-menu-item > .pro-inner-item:hover .slideMenuImg {
   filter: brightness(0) saturate(100%) invert(78%) sepia(79%) saturate(2206%)
     hue-rotate(353deg) brightness(105%) contrast(95%);

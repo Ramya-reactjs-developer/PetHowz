@@ -97,37 +97,37 @@
   text-transform: capitalize !important;
 }
 
-.SubmitButtonColor .MuiButton-root:hover{
-    color: aliceblue !important;
-    background-color: #f4a01c !important;
- }
- .SubmitButtonColor{
-    margin: 0px !important;
-    margin-right: 10px !important;
-    color: #f89122 !important;
- }
- .SubmitButtonColor .MuiButton-root {
-  width:100% !important;
+.SubmitButtonColor .MuiButton-root:hover {
+  color: aliceblue !important;
+  background-color: #f4a01c !important;
+}
+.SubmitButtonColor {
+  margin: 0px !important;
+  margin-right: 10px !important;
+  color: #f89122 !important;
+}
+.SubmitButtonColor .MuiButton-root {
+  width: 100% !important;
   margin-top: 0 !important;
- }
- .CancelButtonColor .MuiButton-root {
-    width:100% !important;
- }
- .CancelButtonColor{
-    margin: 0px !important;
-    margin-right: 10px !important;
- }
- .table_name h5{
-    color: #204768 !important;
-    font-size: 20px !important;
- }
- .text_Capitalize .MuiFormControl-root-MuiTextField-root{
-text-transform: capitalize !important;
- }
+}
+.CancelButtonColor .MuiButton-root {
+  width: 100% !important;
+}
+.CancelButtonColor {
+  margin: 0px !important;
+  margin-right: 10px !important;
+}
+.table_name h5 {
+  color: #204768 !important;
+  font-size: 20px !important;
+}
+.text_Capitalize .MuiFormControl-root-MuiTextField-root {
+  text-transform: capitalize !important;
+}
 
 .forDescription.input:first-letter {
-        text-transform: capitalize !important;
-    }
+  text-transform: capitalize !important;
+}
 
 .forDescription.input:first-letter {
   text-transform: capitalize !important;
@@ -135,4 +135,3 @@ text-transform: capitalize !important;
 body label {
   color: black !important;
 }
-
