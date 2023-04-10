@@ -28,7 +28,7 @@ export const AboutPetEntries = [
   },
   {
     isTextInput: true,
-    name: "tell_us_something_about_you_and_your_passion_towards_pet",
+    name: "tell_us_somthing_about_you",
     label: "Tell us Something about you and your passion towards pet",
     placeholder: "Enter Name",
     breakpoint: 10,
@@ -43,8 +43,8 @@ export const AboutPetEntries = [
   },
   {
     isDropdown: true,
-    name: "professional_status",
-    labelText: "Professional Status",
+    name: "years_of_experience",
+    labelText: "Year of Experience",
     placeholder: "Select Profession",
     DropdownData: [
       {
@@ -70,8 +70,8 @@ export const AboutPetEntries = [
   },
   {
     isDropdown: true,
-    name: "professional_status",
-    labelText: "Professional Status",
+    name: "service_provider_type",
+    labelText: "Service Provider Type",
     placeholder: "Select Profession",
     DropdownData: [
       {
@@ -97,9 +97,9 @@ export const AboutPetEntries = [
   },
   {
     isMultipleSelectChip: true,
-    name: "list_the_pet_services_you_are_providing",
+    name: "service_provider_for",
     breakpoint: 6,
-    label: "List the Pet Services you are Providing",
+    label: "Service Provider For",
     labelText: "Primary Skills",
     dropPlaceholder: "Primary Skills",
     disabled: true,
@@ -130,8 +130,8 @@ export const AboutPetEntries = [
   },
   {
     isDropdown: true,
-    name: "professional_status",
-    labelText: "Professional Status",
+    name: "no_of_pets",
+    labelText: "Boarding Capacity",
     placeholder: "Select Profession",
     dropPlaceholder: "Primary Skills",
     DropdownData: [
@@ -164,8 +164,8 @@ export const AboutPetEntries = [
   },
   {
     isRadioAction: true,
-    name: "can_provide_oral_medication",
-    label: "Can provide oral medication?",
+    name: "grooming_kit",
+    label: "Do You have carry own grooming kit?",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
     validation: { required: true },
@@ -174,8 +174,8 @@ export const AboutPetEntries = [
   },
   {
     isRadioAction: true,
-    name: "can_provide_oral_medication",
-    label: "Can provide oral medication?",
+    name: "mobile_grooming_van",
+    label: "Do you have mobile grooming van?",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
     validation: { required: true },
@@ -184,8 +184,8 @@ export const AboutPetEntries = [
   },
   {
     isRadioAction: true,
-    name: "can_provide_oral_medication",
-    label: "Can provide oral medication?",
+    name: "hair_dryer",
+    label: "Will you carry hair dryer?",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
     validation: { required: true },
@@ -194,8 +194,8 @@ export const AboutPetEntries = [
   },
   {
     isRadioAction: true,
-    name: "can_provide_oral_medication",
-    label: "Can provide oral medication?",
+    name: "hair_shampoo",
+    label: "Will you carry hair shampoo/conditioner?",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
     validation: { required: true },
@@ -204,8 +204,8 @@ export const AboutPetEntries = [
   },
   {
     isRadioAction: true,
-    name: "can_provide_oral_medication",
-    label: "Can provide oral medication?",
+    name: "carry_towel",
+    label: "Will you carry towel to dry pets ofter bath?",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
     validation: { required: true },
@@ -214,8 +214,8 @@ export const AboutPetEntries = [
   },
   {
     isRadioAction: true,
-    name: "can_provide_oral_medication",
-    label: "Can provide oral medication?",
+    name: "grooming_assistant",
+    label: "Do you bring a grooming assistant?",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
     validation: { required: true },
@@ -245,8 +245,8 @@ export const AboutPetEntries = [
   },
   {
     isRadioAction: true,
-    name: "can_provide_oral_medication",
-    label: "Can provide oral medication?",
+    name: "doorstep_services",
+    label: "Do you provide doorstep services?",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
     validation: { required: true },
@@ -270,7 +270,7 @@ export const AboutPetEntries = [
   },
   {
     isProfileImageUploader: true,
-    name: "fileUploader",
+    name: "photos",
     label: "Add Photos",
     breakpoint: 5,
     customClass: "profileImageContainer",
@@ -285,9 +285,19 @@ export const AboutPetEntries = [
 ];
 export const DefaultAboutPetValues = {
   professional_status: "",
-  tell_us_something_about_you_and_your_passion_towards_pet: "",
-  tell_us_about_the_type_of_pet_you_have_and_your_experience: "",
-  tell_us_about_the_type_of_pet_you_have_and_your_experience_two: "",
-  can_provide_oral_medication: "",
-  can_you_provide_first_aid: "",
+  tell_us_somthing_about_you: "",
+  years_of_experience: "",
+  service_provider_type: "",
+  service_provider_for: "",
+  no_of_pets: "",
+  grooming_kit: "",
+  mobile_grooming_van: "",
+  hair_dryer: "",
+  hair_shampoo: "",
+  carry_towel: "",
+  grooming_assistant: "",
+  service_overview: "",
+  doorstep_services: "",
+  location: "",
+  photos:"",
 };

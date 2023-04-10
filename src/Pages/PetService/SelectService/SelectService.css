@@ -1,27 +1,26 @@
-.selectServiceImg{
-    width: 150px !important;
-    height: 130px;
-    opacity: 0.7;
+.selectServiceImg {
+  width: 150px !important;
+  height: 130px;
+  opacity: 0.7;
 }
-.selectService{
-    position: relative;
+.selectImg {
+  position: relative;
 }
-.selectServiceImg img{
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
+.selectServiceImg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
 }
-.selectServiceText{
-    position: absolute;
-    top: 55px;
-    left: 22px;
+.checkPosition {
+  position: absolute;
+  right: 10px;
 }
-.selectImgText{
-    color: #fff !important;
-    font-weight: bold !important;
+.selectImgText {
+  color: #fff !important;
+  font-weight: bold !important;
 }
-.checkInput{
-    position: absolute;
-    top: 0;
-    right: 10px;
+.checkInput {
+  position: absolute;
+  top: 0;
+  right: 10px;
 }

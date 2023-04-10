@@ -1,70 +1,61 @@
 .pet-Image {
-    width: 650px !important;
-    height: 500px !important
+  width: 650px !important;
+  height: 500px !important;
 }
 
 .pet-Image img {
-    width: 100% !important;
-    height: 100% !important
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .petHost-Header {
-    width: 600px !important;
-    height: 500px !important;
-    display: inline-flex;
-    /* justify-content: center; */
-    align-items: center;
-    position: relative;
+  width: 600px !important;
+  height: 500px !important;
+
+  align-items: center;
+  position: relative;
 }
 
 .pet-Host {
-    font-size: 25px !important;
-    color: #000 !important;
-    font-weight: 700 !important;
+  font-size: 25px !important;
+  color: #000 !important;
+  font-weight: 700 !important;
 }
 
 .petHostService {
-    color: #2C3051 !important;
-    font-family: sans-serif !important;
-    font-size: 17px !important;
-    font-weight: 500 !important;
+  color: #2c3051 !important;
+  font-family: sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 500 !important;
 }
 
-
-/* petSpace */
-
 .App {
-    font-family: sans-serif !important;
-    /* text-align: center !important; */
-    /* justify-content: center !important; */
-    /* margin: 30px !important; */
-    /* padding: 10px !important; */
+  font-family: sans-serif !important;
 }
 
 h4 {
-    font-size: 30px !important;
+  font-size: 30px !important;
 }
 
 h5 {
-    color: rgb(80, 150, 255);
-    font-size: 16px !important;
+  color: rgb(80, 150, 255);
+  font-size: 16px !important;
 }
 
 h3 {
-    /* position: absolute !important; */
-    color: rgb(80, 150, 255);
-    left: 80px;
+  color: rgb(80, 150, 255);
+  left: 80px;
 }
 
 .form {
-    min-height: 180px !important;
+  min-height: 180px !important;
 }
 
 .child {
-    position: relative !important;
-    margin-top: 40px !important;
+  position: relative !important;
+  margin-top: 40px !important;
 }
 
-.stepper-button>div>div {
-    display: inline-grid !important;
+.stepper-button > div > div {
+  display: inline-grid !important;
 }

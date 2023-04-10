@@ -23,9 +23,11 @@ import { NavLink, useNavigate } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CustomIcons from "../../Utils/Icons/Index";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
-import PropTypes from "prop-types";
+import PropTypes, { number, string } from "prop-types";
 import { Link } from "react-router-dom";
 import "./AppBar.css";
+import { useDispatch, useSelector } from "react-redux";
+import actions from "../../Redux/Actions";
 function ElevationScroll(props) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -65,7 +67,49 @@ const Header = (props) => {
   const DashBoard = () => {
     navigate("/Pet-howz");
   };
+  const dispatch = useDispatch();
+  const loginAdmin = useSelector((state) => state?.login?.login);
+  const [loginCheck, setLoginCheck] = React.useState(false);
+  console.log(loginCheck, "loginCheck");
+  const login = localStorage.getItem("LoginChecker");
+  const user_type = localStorage.getItem("user_type");
+  console.log(login, "login");
+  React.useEffect(() => {
+    // if (login === undefined) {
+    //   setLoginCheck(false);
+    // } else {
+    //   setLoginCheck(true);
+    // }
+  }, [loginCheck, login]);
 
+  const onLogin = () => {
+    navigate("/Login", { state: "/CustomerLayout/CustomerDashBoard" });
+  };
+  // const onLogout = () => {
+  //   localStorage.clear();
+  //   window.onload = function () {
+  //     window.reload();
+  //   };
+  //   navigate("/");
+  // };
+  const onLogout = () => {
+    localStorage.clear();
+    // window.location.reload();
+    const data = { data: {}, method: "get", apiName: "" };
+    dispatch(actions.LOGIN_ADMIN(data));
+    setTimeout(() => {
+      navigate("/Login");
+    }, 500);
+  };
+  const onGoToProfile = () => {
+    if (loginAdmin?.data?.data?.user_type === 0) {
+      navigate("/CustomerLayout/CustomerDashBoard");
+    } else if (loginAdmin?.data?.data?.user_type === 1 || user_type === "1") {
+      navigate("/CustomerLayout/CustomerDashBoard");
+    } else if (loginAdmin?.data?.data?.user_type === 2 || user_type === "2") {
+      navigate("/HostLayout/HostDashBoard");
+    }
+  };
   return (
     <>
       <ElevationScroll {...props}>
@@ -176,7 +220,7 @@ const Header = (props) => {
                       <Tab className="text_align" label="Home" />
                     </Link>
                     <Link
-                      to="/grooming"
+                      to="/AllPetBoarding"
                       activeClassName="active"
                       style={{ textDecoration: "none" }}
                     >
@@ -213,19 +257,27 @@ const Header = (props) => {
                   xs={2}
                   pt={1}
                   className="Appbar_btn"
+                  display={"flex"}
+                  gap={"5px"}
                 >
-                  <Button
-                    // sx={{
-                    //   marginLeft: "auto",
-                    //   borderRadius: "50px",
-                    //   height: "40px",
-                    // }}
-                    variant="contained"
-                    color="secondary"
-                  >
-                    Franchise
-                  </Button>
-                  <NavLink to="/Login" style={{ textDecoration: "none" }}>
+                  {login !== null ? (
+                    <Button
+                      // sx={{
+                      //   marginLeft: "auto",
+                      //   borderRadius: "50px",
+                      //   height: "40px",
+                      // }}
+                      variant="contained"
+                      color="secondary"
+                      onClick={onGoToProfile}
+                    >
+                      Profile
+                    </Button>
+                  ) : (
+                    ""
+                  )}
+                  {login === null ? (
+                    // <NavLink to="/Login" style={{ textDecoration: "none" }}>
                     <Button
                       // sx={{
                       //   marginLeft: "10px",
@@ -233,10 +285,26 @@ const Header = (props) => {
                       //   height: "40px",
                       // }}
                       variant="contained"
+                      onClick={onLogin}
                     >
                       Login
                     </Button>
-                  </NavLink>
+                  ) : (
+                    // </NavLink>
+                    <NavLink style={{ textDecoration: "none" }}>
+                      <Button
+                        // sx={{
+                        //   marginLeft: "10px",
+                        //   borderRadius: "50px",
+                        //   height: "40px",
+                        // }}
+                        variant="contained"
+                        onClick={onLogout}
+                      >
+                        Logout
+                      </Button>
+                    </NavLink>
+                  )}
                 </Grid>
               </>
             )}

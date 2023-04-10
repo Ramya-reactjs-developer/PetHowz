@@ -11,11 +11,14 @@ import CustomForm from "../../Components/CustomForm/CustomForm";
 import CustomIcons from "../../Utils/Icons/Index";
 import { AddressEntries, DefaultAddressEntriesValues } from "./AddressEntries";
 import { useNavigate } from "react-router";
+import { useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
 export const AddAddress = () => {
   const dispatch = useDispatch();
+  const { state } = useLocation();
   // const [editId, setEditId] = useState();
-  const defaultValues = {};
+  const defaultValues = DefaultAddressEntriesValues;
   const {
     control,
     handleSubmit,
@@ -26,35 +29,42 @@ export const AddAddress = () => {
   });
 
   const userGet = useSelector((state) => state?.registertopethowz);
+
   console.log(userGet, "userGetbbbb");
   const { registertopethowz } = useSelector(
     (state) => state?.registertopethowz
   );
   console.log(registertopethowz, "registertopethowz");
+  React.useEffect(() => {
+    if (userGet?.registertopethowz?.data?.user_id) {
+      localStorage.setItem(
+        "LoginChecker",
+        userGet?.registertopethowz?.data?.user_id
+      );
+    }
+  }, [localStorage, userGet]);
   const navigate = useNavigate();
   function onReceiveData(data1) {
-    const user_id = userGet?.registertopethowz?.data?.user_id;
+    // const user_id = userGet?.registertopethowz?.data?.user_id;
+    const user_id = localStorage.getItem("LoginChecker");
+
     console.log(user_id, "willJcak");
     const data = {
       data: { ...data1, user_id: user_id },
       method: "post",
       apiName: "createUserDetails",
     };
-    navigate("/Terms");
-    dispatch(actions.USER_ADDRESS_DETAILS(data));
 
-    reset({
-      Your_Name: "",
-      Mobile_number: "",
-      Email: "",
-      Gender: "",
-      Street: "",
-      City: "",
-      State: "",
-      Pincode: "",
-      Locality: "",
-      Location: "",
-    });
+    dispatch(actions.USER_ADDRESS_DETAILS(data));
+    reset(defaultValues);
+    Swal.fire("Address Added Successfully", "Thank You", "success").then(
+      (result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          navigate("/Terms", { state: state });
+        }
+      }
+    );
   }
 
   return (

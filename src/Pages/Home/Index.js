@@ -21,7 +21,6 @@ import {
 
 import { Link } from "react-router-dom";
 import HomePetCardsSection from "../../Components/homeBoarding/homeBoarding";
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
 
 export const HomePage = () => {
   const dispatch = useDispatch();
@@ -32,12 +31,12 @@ export const HomePage = () => {
   React.useEffect(() => {
     const data = {
       data: {
-        limit: 5,
+        limit: 8,
       },
       method: "post",
       apiName: "getAllServiceMaster",
     };
-    dispatch(actions.OURSERVICE(data));
+    dispatch(actions?.OURSERVICE(data));
   }, [dispatch]);
 
   React.useEffect(() => {
@@ -49,7 +48,7 @@ export const HomePage = () => {
       method: "post",
       apiName: "getAllPetSpace",
     };
-    dispatch(actions.PETBOARDING(data));
+    dispatch(actions?.PETBOARDING(data));
   }, [dispatch]);
 
   //dispatch
@@ -117,18 +116,16 @@ export const HomePage = () => {
   console.log(tabValue, "tabvalue");
   //search city
   const OnSetDropdownSearch = (e) => {
-    setSearchData({ ...searchData, city: e.target.value });
-    var updatedValue = { city: e.target.value };
+    setSearchData({ ...searchData, city: e?.target?.value });
+    var updatedValue = { city: e?.target?.value };
     const data1 = {
       data: updatedValue,
       method: "post",
       apiName: "getAllCity",
     };
-    console.log({ city: e.target.value }, "datadrop");
-    console.log(updatedValue.city.length, "length");
 
     if (updatedValue?.city?.length >= 0) {
-      dispatch(actions.SEARCHCITY(data1));
+      dispatch(actions?.SEARCHCITY(data1));
 
       // setDropListResult(true);
     } else if (updatedValue?.city?.length === 0) {
@@ -142,22 +139,17 @@ export const HomePage = () => {
     }
   };
 
-  console.log(AllCity?.searchcity?.data.length, "value.city.length");
-  console.log(cityResult, "value.city.length");
   //search loaclity
   const OnSetSearch = (e) => {
-    setSearchData({ ...searchData, locality: e.target.value });
-    var updatedValue = { locality: e.target.value };
+    setSearchData({ ...searchData, locality: e?.target?.value });
+    var updatedValue = { locality: e?.target?.value };
     const data1 = {
-      data: { ...updatedValue, city: searchData.city },
+      data: { ...updatedValue, city: searchData?.city },
       method: "post",
       apiName: "getLocality",
     };
-    console.log({ locality: e.target.value }, "datalocality");
-    console.log(updatedValue.locality, "localitylength");
-    console.log(data1, "combinedValue");
     if (updatedValue?.locality?.length >= 0) {
-      dispatch(actions.SEARCHCITYGETLOCALITY(data1));
+      dispatch(actions?.SEARCHCITYGETLOCALITY(data1));
 
       // setDropListResult(true);
     } else if (updatedValue?.locality?.length === 0) {
@@ -216,7 +208,9 @@ export const HomePage = () => {
   //   dispatch(actions.OVERALLSEARCH(data));
   // }
 
-  useEffect(() => {}, [searchData, cityResult]);
+  useEffect(() => {
+    console.log(overAllSearchData, "hhhhhh");
+  }, [searchData, cityResult]);
 
   // const SendResult = overAllSearchResultValue?.overallsearch?.data;
   //overAllSearch
@@ -231,8 +225,8 @@ export const HomePage = () => {
       });
     }
     if (
-      overAllSearchData?.city !== "" &&
-      overAllSearchData?.locality !== "" &&
+      overAllSearchData?.city !== ("" && undefined) &&
+      overAllSearchData?.locality !== ("" && undefined) &&
       tabValue === 0
     ) {
       navigate("/ServiceResult", {
@@ -253,12 +247,9 @@ export const HomePage = () => {
     // });
   };
 
-  console.log(searchData, "searchdata");
-  console.log(overAllSearchData, "overAllSearchData");
-
   // const [searchData, setSearchData] = useState("");
   const [tmpIdArr, setTmpIdsArr] = React.useState();
-  const [petTmpIdArr, setPetTmpIdsArr] = React.useState();
+  // const [petTmpIdArr, setPetTmpIdsArr] = React.useState();
 
   console.log(searchData, "ss");
   // const OnSetSearch = (e) => {
@@ -266,10 +257,7 @@ export const HomePage = () => {
   // };
 
   const { petBoarding } = useSelector((state) => state?.petBoarding);
-  console.log(
-    petBoarding,
-    "galleryImageValue"
-  );
+  console.log(petBoarding, "galleryImageValue");
 
   // useEffect(() => {
   //   const tmpArr = [];
@@ -303,7 +291,7 @@ export const HomePage = () => {
     console.log(tmpIdsArr, "tmpIdsArr");
     ourService?.data?.map((value, index) => {
       tmpIdsArr?.push(value.service_master_id);
-      console.log()
+      console.log();
       tmpArr?.push({
         sno: index,
       });
@@ -340,12 +328,6 @@ export const HomePage = () => {
           <Box sx={HomeBanner}>
             <Box>
               <Box>
-                {/* <Typography variant="h3" fontWeight="bolder" color="primary">
-                  FIND PET BOARDING SPACES
-                </Typography>
-                <Typography variant="h3" fontWeight="bolder" color="primary">
-                  & PET SERVICE PROVIDERS
-                </Typography> */}
                 <CustomTypography
                   text="FIND PET BOARDING SPACES"
                   type="heading2"
@@ -475,7 +457,7 @@ export const HomePage = () => {
           <Box>
             <HomePetCardsSection
               // Data={CardData}
-              onClickHandle={(item) =>onClickHandle(item)}
+              onClickHandle={(item) => onClickHandle(item)}
             />
           </Box>
         </Grid>

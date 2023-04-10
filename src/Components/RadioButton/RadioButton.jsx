@@ -1,8 +1,15 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import { FormControl, FormControlLabel, FormLabel, Grid, Radio, RadioGroup } from '@mui/material';
-import CustomTypography from '../Typography/Typography';
-import './RadioButton.css';
+import * as React from "react";
+import PropTypes from "prop-types";
+import {
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Grid,
+  Radio,
+  RadioGroup,
+} from "@mui/material";
+import CustomTypography from "../Typography/Typography";
+import "./RadioButton.css";
 /**
  *
  * @param {*} props --required props
@@ -13,7 +20,7 @@ function CustomRadioButton(props) {
   // const [value, setValue] = React.useState('female');
   // console.log('valu', defaultValue);
   // const [initialValue, setInitialDefaultValue] = React.useState();
-  console.log(value, 'twygfg');
+  console.log(value, "twygfg");
 
   // React.useEffect(() => {
   //   setInitialDefaultValue(defaultValue);
@@ -23,7 +30,12 @@ function CustomRadioButton(props) {
     <Grid item md={12} sm={12} xs={12} className="radioLabel">
       <FormControl>
         <FormLabel id="demo-controlled-radio-buttons-group">
-          <CustomTypography text={labelText} requiredField={requiredField && 'required'} customClass="textDropdown" />
+          <CustomTypography
+            text={labelText}
+            requiredField={requiredField && "required"}
+            colorType={"senary"}
+            customClass="textDropdown"
+          />
         </FormLabel>
         <RadioGroup
           aria-labelledby="demo-radio-buttons-group-label"
@@ -39,7 +51,11 @@ function CustomRadioButton(props) {
             const key = index;
             return (
               <Grid key={key}>
-                <FormControlLabel value={item.name} control={<Radio color="secondary" />} label={item.name} />
+                <FormControlLabel
+                  value={item.name}
+                  control={<Radio color="secondary" />}
+                  label={item.name}
+                />
               </Grid>
             );
           })}
@@ -61,8 +77,8 @@ CustomRadioButton.propTypes = {
 };
 CustomRadioButton.defaultProps = {
   onChange: () => null,
-  labelText: '',
-  value: '',
+  labelText: "",
+  value: "",
   // defaultValue: '',
-  requiredField: '',
+  requiredField: "",
 };

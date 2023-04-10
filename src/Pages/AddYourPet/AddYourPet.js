@@ -16,6 +16,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import actions from "../../Redux/Actions";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
+
 const AddYourPetLogin = () => {
   const {
     control,
@@ -23,8 +26,10 @@ const AddYourPetLogin = () => {
     reset,
     formState: { errors },
   } = useForm({ mode: "onBlur" });
-
+  const { state } = useLocation();
+  const navigate = useNavigate();
   const Dispatch = useDispatch();
+  const defaultValues = DefaultAddYourPetValues;
   useEffect(() => {
     const dropdownData = {
       data: {},
@@ -103,16 +108,19 @@ const AddYourPetLogin = () => {
     (state) => state?.registertopethowz
   );
   // console.log(registertopethowz, "registertopethowz");
-  const navigate = useNavigate();
+
+  const pet_details_id = useSelector(
+    (state) => state?.AddYourPet?.AddYourPets?.data?.pet_details_id
+  );
   function onReceiveData(data1) {
     const breed_id =
-    getYourPetType?.getPetBreed?.data?.find(
-      (item) => item.pet_breed === data1.pet_breed
-    )?.pet_breed_id || 0;
+      getYourPetType?.getPetBreed?.data?.find(
+        (item) => item.pet_breed === data1.pet_breed
+      )?.pet_breed_id || 0;
     const id =
-    getYourPetType?.getYourPetType?.data?.find(
-      (item) => item.pet_type === data1.pet_type
-    )?.pet_type_id || 0;
+      getYourPetType?.getYourPetType?.data?.find(
+        (item) => item.pet_type === data1.pet_type
+      )?.pet_type_id || 0;
     const user_id = userGet?.registertopethowz?.data?.user_id;
     const formData = new FormData();
     formData.append("pet_name", data1.pet_name);
@@ -137,25 +145,58 @@ const AddYourPetLogin = () => {
       apiName: "createPetDetails",
     };
     // console.log(data1, "checkdata");
-    navigate("/RequestBooking");
+
     dispatch(actions.ADD_YOUR_PET(data));
-    reset({
-      user_id: "",
-      pet_name: "",
-      pet_type: "",
-      pet_breed: "",
-      dob: "",
-      gender: "",
-      weight: "",
-      vaccination_card: "",
-      license: "",
-      description: "",
-      interests: "",
-      food_preference: "",
-      walking_routine: "",
-      photos: "",
-    });
+    // reset({
+    //   user_id: "",
+    //   pet_name: "",
+    //   pet_type: "",
+    //   pet_breed: "",
+    //   dob: "",
+    //   gender: "",
+    //   weight: "",
+    //   vaccination_card: "",
+    //   license: "",
+    //   description: "",
+    //   interests: "",
+    //   food_preference: "",
+    //   walking_routine: "",
+    //   photos: "",
+    // });
+    reset(defaultValues);
+
+    // Swal.fire("Pets Added Successfully", "Thank You", "success").then(
+    //   (result) => {
+    //     /* Read more about isConfirmed, isDenied below */
+    //     if (result.isConfirmed) {
+    //       if (state !== null) {
+    //         navigate(state);
+    //       } else {
+    //         // navigate("/RequestBooking");
+    //         console.log(pet_details_id, "pet_details_id");
+    //       }
+    //     }
+    //   }
+    // );
   }
+  React.useEffect(() => {
+    if (pet_details_id !== "") {
+      Swal.fire("Pets Added Successfully", "Thank You", "success").then(
+        (result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            if (state !== null) {
+              navigate(state);
+            } else {
+              navigate("/RequestBooking");
+              // console.log(pet_details_id, "pet_details_id");
+            }
+          }
+        }
+      );
+    }
+  }, [pet_details_id]);
+  console.log(pet_details_id, "pet_details_id");
   return (
     <Grid container md={12} lg={12} sm={12} xs={12}>
       <Grid item md={6} lg={6} sm={12} xs={12} className="AddPetForm">

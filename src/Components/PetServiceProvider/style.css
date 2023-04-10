@@ -1,16 +1,15 @@
-.nextBtn{
-    background-color: #ff183b !important;
-    color: #fff !important;
-    padding: 7px 30px !important;
+.nextBtn {
+  background-color: #ff183b !important;
+  color: #fff !important;
+  padding: 7px 30px !important;
 }
-.gridAlign{
-    text-align: end;
+.gridAlign {
+  text-align: end;
 }
-.btn_align_edit{
-    text-align: right;
-    padding: 20px 30px;
+.btn_align_edit {
+  text-align: right;
+  padding: 20px 30px;
 }
-.btn_align_edit button{
-    color: #fff !important;
-    /* background-color: #ff183b !important; */
+.btn_align_edit button {
+  color: #fff !important;
 }

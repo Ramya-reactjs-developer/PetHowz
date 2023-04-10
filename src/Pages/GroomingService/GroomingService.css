@@ -1,91 +1,90 @@
-.leftImage{
-    width: 200px;
-    height: 400px;
+.leftImage {
+  width: 200px;
+  height: 400px;
 }
-.leftImage img{
-    width: 100%;
-    height: 100%;
-    border-radius: 30px;
+.leftImage img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
 }
-.centerImage{
-    width: 200px;
-    height: 400px;
+.centerImage {
+  width: 200px;
+  height: 400px;
 }
-.centerImage img{
-     width: 100%;
-    height: 100%;
-    border-radius: 30px;
+.centerImage img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
 }
-.rightTop{
-    width: 300px;
-    height: 194px;
+.rightTop {
+  width: 300px;
+  height: 194px;
 }
-.rightTop img{
-    width: 100%;
-    height: 100%;
-    border-radius: 30px;
+.rightTop img {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
 }
-.rightBottom{
-    width: 300px;
-    height: 194px;
+.rightBottom {
+  width: 300px;
+  height: 194px;
 }
 .rightBottom img {
-    width: 100%;
-    height: 100%;
-    border-radius: 30px;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
 }
 
-.serviceHeader{
-    color: #000000 !important;
-    font-size: 22px !important;
-    font-weight: bold !important;
-    padding: 30px 0;
+.serviceHeader {
+  color: #000000 !important;
+  font-size: 22px !important;
+  font-weight: bold !important;
+  padding: 30px 0;
 }
 
-.location_Area{
-    background-color: #FFEEE7 !important;
-    border-radius: 15px;
-    padding: 10px;
+.location_Area {
+  background-color: #ffeee7 !important;
+  border-radius: 15px;
+  padding: 10px;
 }
-.firstLocation{
-    font-size: 18px !important;
-    font-weight: bold !important;
-    color: #000 !important;
+.firstLocation {
+  font-size: 18px !important;
+  font-weight: bold !important;
+  color: #000 !important;
 }
-.secondLocation{
-    color: #545A58 !important;
-    font-size: 16px !important;
-    padding-top: 10px;
+.secondLocation {
+  color: #545a58 !important;
+  font-size: 16px !important;
+  padding-top: 10px;
 }
-.aboutPet{
-    color: #000 !important;
-    font-size: 22px !important;
-    font-weight: bold !important;
-    padding: 30px 0;
+.aboutPet {
+  color: #000 !important;
+  font-size: 22px !important;
+  font-weight: bold !important;
+  padding: 30px 0;
 }
-.requestBtn{
-    background-color: #F85A47 !important;
-    color: #fff !important;
-    width: 240px;
+.requestBtn {
+  background-color: #f85a47 !important;
+  color: #fff !important;
+  width: 240px;
 }
-.overviewSec{
-    border: 4px solid #FFEEE7;
-    padding: 10px;
+.overviewSec {
+  border: 4px solid #ffeee7;
+  padding: 10px;
 }
-.serviceOverview{
-    font-size: 22px !important;
-    font-weight: bold !important;
+.serviceOverview {
+  font-size: 22px !important;
+  font-weight: bold !important;
 }
-.overviewContent{
-    color: #545A58 !important;
-    padding: 10px 0;
+.overviewContent {
+  color: #545a58 !important;
+  padding: 10px 0;
 }
-.groomingPackage{
-    /* background-color: #FFEEE7; */
-    padding: 20px;
-    border-radius: 10px;
+.groomingPackage {
+  padding: 20px;
+  border-radius: 10px;
 }
-.packageHead{
-    font-size: 22px !important;
-    font-weight: bold !important;
+.packageHead {
+  font-size: 22px !important;
+  font-weight: bold !important;
 }

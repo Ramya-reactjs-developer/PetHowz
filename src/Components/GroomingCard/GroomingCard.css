@@ -1,55 +1,61 @@
-.CardPositions{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    flex-wrap: wrap;
+.CardPositions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
-.mainCard{
-    display: inline-flex;
+.mainCard {
+  display: inline-flex;
 }
-.mainCardSize{
-    width: 100%;
-    max-width: 248px;
+.mainCardSize {
+  width: 100%;
+  max-width: 248px;
 }
-.AddressSubPosition1{
-    display: flex;
-    align-items: center;
-    gap: 7px;
+.AddressSubPosition1 {
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
-.AddressSubPosition2{
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    padding-top: 10px;
+.AddressSubPosition2 {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding-top: 10px;
 }
-.CardStyles{
-    color: #fff;
+.CardStyles {
+  color: #fff;
 }
-.ReviewsPosition{
-    display: flex;
-    align-items: center;
-    padding-top: 20px;
-    justify-content: space-between;
-    gap: 18px;
+.ReviewsPosition {
+  display: flex;
+  align-items: center;
+  padding-top: 20px;
+  justify-content: space-between;
+  gap: 18px;
 }
-.AddressArea{
-    display: flex;
-    align-items: center;
-    padding-top: 5px;
-    gap: 1.45rem;
+.AddressArea {
+  display: flex;
+  align-items: center;
+  padding-top: 5px;
+  gap: 1.45rem;
 }
-.AddressArea1{
-    display: inline-flex;
+.AddressArea1 {
+  display: inline-flex;
 }
-.addressText{
-    padding-left: 5px;
+.addressText {
+  padding-left: 5px;
 }
-.groomImage{
-    width: 220px !important;
-    height: 150px;
+.groomImage {
+  width: 220px !important;
+  height: 150px;
 }
-.groomImage img{
-    width: 100%;
-    height: 100%;
+.groomImage img {
+  width: 100%;
+  height: 100%;
+}
+.card_position {
+  width: 100%;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }

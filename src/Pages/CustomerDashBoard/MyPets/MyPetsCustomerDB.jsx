@@ -42,7 +42,7 @@ export const MyPetsCustomerDB = () => {
   return (
     <Grid container item xs={12}>
       {" "}
-      <Grid item textAlign={"left"} xs={12} pt={"40px"}>
+      <Grid item textAlign={"left"} xs={12}>
         <CustomTypography text="My Pets" type="subHeading" colorType="text" />
       </Grid>
       <Grid item xs={12}>

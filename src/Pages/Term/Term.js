@@ -13,11 +13,13 @@ import { Controller, useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import actions from "../../Redux/Actions";
 import { AddTermsEntries, DefaultTermsValues } from "./TermsEntries";
+import { useLocation } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Terms = (props) => {
   const dispatch = useDispatch();
   // const [editId, setEditId] = useState();
-
+  const { state } = useLocation();
   const { TermsAndCondition } = useSelector(
     (state) => state?.TermsAndCondition
   );
@@ -25,7 +27,6 @@ const Terms = (props) => {
 
   const defaultValues = {};
   const {
-    
     control,
     handleSubmit,
     formState: { errors },
@@ -37,21 +38,29 @@ const Terms = (props) => {
   const userGet = useSelector((state) => state?.registertopethowz);
   function onSubmit() {
     console.log(onSubmit, "onSubmit");
-    const user_id = userGet?.registertopethowz?.data?.user_id;
+    // const user_id = userGet?.registertopethowz?.data?.user_id;
     console.log(userGet?.registertopethowz?.data, "ggggggggg");
+    const user_id = localStorage.getItem("LoginChecker");
     const data = {
-      data: { user_id },
+      data: { status: 1 },
       method: "put",
       apiName: `updateUserTermsCondtionStatus/${user_id}`,
     };
-    navigate("/AddYourPetLogin");
     dispatch(actions.TERMS_AND_CONDITION(data));
-    console.log(data, "datadata");
     reset({
       status: "",
     });
+    console.log(data, "datadata");
+    Swal.fire("Terms & Conditions Accepted", "Thank You", "success").then(
+      (result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          navigate("/AddYourPetLogin", { state: state });
+        }
+      }
+    );
   }
-  
+
   const [resetValue, setResetValue] = useState([]);
 
   return (

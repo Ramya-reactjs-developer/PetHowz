@@ -52,7 +52,7 @@ export const MyEnquiriesCustomerDB = () => {
   };
   return (
     <Grid container item xs={12}>
-      <Grid className="customTab" item pt={3} xs={12}>
+      <Grid className="customTab" item xs={12}>
         <CustomTab
           tabList={tabList}
           handleChange={handleChange}

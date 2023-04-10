@@ -34,7 +34,6 @@
 .uploadImageContainer {
   height: 2.4375em !important;
   width: 300px !important;
-  /* background-color: 'red'; */
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -52,33 +51,27 @@
 .none {
   display: none;
 }
-/* .imageUpload {
+
+.ProfileImageUpload {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
   position: absolute;
-  right: -30%;
-  top: -55%;
-  width: 100px;
-} */
-.ProfileImageUpload{
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    position: absolute;
-    top: -160px;
-    border: 1px solid #F85A47;
+  top: -160px;
+  border: 1px solid #f85a47;
 }
 
 .regFormImageUpload {
   position: absolute;
   right: 40%;
   top: 40%;
-  filter: brightness(0) saturate(100%) invert(74%) sepia(52%) saturate(739%) hue-rotate(349deg) brightness(104%)
-    contrast(101%) !important;
+  filter: brightness(0) saturate(100%) invert(74%) sepia(52%) saturate(739%)
+    hue-rotate(349deg) brightness(104%) contrast(101%) !important;
 }
 .textLabel {
   color: rgb(133, 131, 131) !important;
   font-size: 16px !important;
-  /* font-size: 14px !important; */
   padding-bottom: 10px !important;
   display: flex;
   justify-content: left;
@@ -87,7 +80,7 @@
 .uploadProfileLabel {
   font-size: 14px !important;
   color: #8b8d90;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   padding-right: 10px !important;
 }
 .ToolTip_Icon {

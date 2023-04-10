@@ -4,6 +4,7 @@ import {
   Box,
   Grid,
 } from "@mui/material";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../Redux/Actions/index";
 import CustomTypography from "../../Components/Typography/Typography";
@@ -11,7 +12,7 @@ import ImageCards from "../../Components/Cards/ImageCards";
 
 export const AllServices = () => {
 
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { ourService } = useSelector((state) => state?.ourService);
   console.log(ourService, "galleryImage");
@@ -26,6 +27,30 @@ export const AllServices = () => {
     };
     dispatch(actions.OURSERVICE(data));
   }, [dispatch]);
+
+  const [tmpIdArr, setTmpIdsArr] = React.useState();
+
+  React.useEffect(() => {
+    const tmpArr = [];
+    const tmpIdsArr = [];
+    console.log(tmpIdsArr, "tmpIdsArr");
+    ourService?.data?.map((value, index) => {
+      tmpIdsArr?.push(value.service_master_id);
+      console.log();
+      tmpArr?.push({
+        sno: index,
+      });
+    });
+    setTmpIdsArr(tmpIdsArr);
+  }, [ourService]);
+
+  const onHandleClick = (key, index) => {
+    navigate("/grooming", {
+      state: tmpIdArr[key],
+      // state: id_pass,
+      // id_pass,
+    });
+  };
 
 
   const AllSevices = [
@@ -130,7 +155,7 @@ export const AllServices = () => {
           p: "20px",
         }}
       >
-        {ourService?.data?.map((item) => {
+        {ourService?.data?.map((item,index) => {
           return (
             <Box>
               <ImageCards
@@ -153,6 +178,9 @@ export const AllServices = () => {
                 ImageHeight={"300px"}
                 service={item.service_name}
                 sub={item.sub}
+                onHandleClick={() =>
+                  onHandleClick(index, item?.service_master_id)
+                }
               />
             </Box>
           );

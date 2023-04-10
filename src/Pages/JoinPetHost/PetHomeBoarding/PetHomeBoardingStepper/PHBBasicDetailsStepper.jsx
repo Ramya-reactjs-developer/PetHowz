@@ -202,11 +202,16 @@ import CustomTypography from "../../../../Components/Typography/Typography";
 import CustomRadioButton from "../../../../Components/RadioButton/RadioButton";
 import CustomButton from "../../../../Components/Button/Button";
 import CustomForm from "../../../../Components/CustomForm/CustomForm";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../../Redux/Actions";
 
 const PHBBasicDetails = (props) => {
   const dispatch = useDispatch();
+  const userGet = useSelector((state) => state?.phbbasicdetails);
+  const login = localStorage.getItem("LoginChecker");
+
+  console.log(userGet.phbbasicdetails.message, "userGet");
+  console.log(login, "login");
   const defaultValues = DefaultPHBBasicDetailsValues;
   const [state, setstate] = React.useState();
   console.log(state, "state");
@@ -260,16 +265,30 @@ const PHBBasicDetails = (props) => {
     formData.append("state", data1.state);
     formData.append("pincode", data1.pincode);
     formData.append("pin_location", data1.pin_location);
-    formData.append("user_id", 1);
+    formData.append("user_id", parseInt(login));
     const data = {
       data: formData,
       method: "post",
       apiName: "createPetBoardingBasicDetails",
     };
     console.log(data1, "checkdata");
+    // setTimeout(() => {
 
     dispatch(actions.PHBBASICDETAILS(data));
+    setResetValue(defaultValues);
+    // }, 200);
   };
+  const onNext = () => {
+    if (userGet?.phbbasicdetails?.message === "SUCCESS" && value.page === 0) {
+      value.nextPage();
+    }
+  };
+  React.useEffect(() => {
+    onNext();
+    console.log(userGet?.phbbasicdetails?.message, "oooo");
+    console.log(value, "oooo1");
+  }, [userGet, value]);
+
   return (
     <>
       <Grid container md={12} sm={12} lg={12} xs={12}>

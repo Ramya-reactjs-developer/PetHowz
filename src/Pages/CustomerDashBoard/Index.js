@@ -76,7 +76,6 @@ export const CustomerDashBoard = () => {
         //   xs: "30px",
         // }}
         gap={"30px"}
-        pt={"30px"}
         xs={12}
       >
         <Grid item xl={3} lg={3} md={4} sm={5} xs={8}>

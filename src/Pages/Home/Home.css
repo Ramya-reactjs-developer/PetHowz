@@ -1,10 +1,7 @@
 .Home-Banner {
-  /* padding-top: 18rem; */
   background-image: url("../../Assets/Images/Home\ BG.png");
   background-repeat: no-repeat;
   width: 100%;
-  /* height: auto; */
-  /* object-fit: fill; */
   background-size: cover;
   background-position: center;
 }
