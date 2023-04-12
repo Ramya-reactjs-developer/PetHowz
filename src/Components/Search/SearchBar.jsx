@@ -15,6 +15,7 @@ import {
   SearchButtonPadding,
   SearchButtonStyle,
 } from "../../Pages/Home/HomeStyle";
+import CustomTypography from "../Typography/Typography";
 export default function SearchBar({
   tabList,
   tabHandleChange,
@@ -25,6 +26,8 @@ export default function SearchBar({
   dropdownValue,
   dropdownName,
   handleDropdownChange,
+  handleDropdownClick,
+  handleSearchClick,
   AllCITY,
   handleselect,
   droplist,
@@ -32,7 +35,9 @@ export default function SearchBar({
   AllLOCALITY,
   handleselect2,
   overAllSearch,
+  cityHide,
   cityResult,
+  localityHide,
   localityResult,
 }) {
   return (
@@ -87,56 +92,75 @@ export default function SearchBar({
                 value={dropdownValue}
                 placeholder="Select City"
                 onChange={handleDropdownChange}
+                onClick={handleDropdownClick}
                 InputProps={{
                   disableUnderline: true,
                 }}
               />{" "}
-              {droplist ? (
-                <Box
-                  sx={{
-                    position: "absolute",
-                    // overflow: "scroll",
-                    zIndex: "1",
-                    p: "30px 0 0 10px ",
-                  }}
-                >
-                  {cityResult ? (
-                    <Card
+              {cityHide ? (
+                <>
+                  {droplist ? (
+                    <Box
                       sx={{
-                        mt: "17px",
-                        p: "5px 15px 5px 10px",
-                        width: "auto",
-                        textAlign: "left",
+                        position: "absolute",
+                        // overflow: "scroll",
+                        zIndex: "1",
+                        p: "30px 0 0 10px ",
                       }}
                     >
-                      <p>Choose City</p>
-                      {AllCITY?.map((item) => {
-                        return (
-                          <Box
-                            sx={{ m: "10px 0" }}
-                            key={item?.city}
-                            onClick={() => handleselect(item?.city)}
-                          >
-                            <Typography sx={{ cursor: "pointer" }}>
-                              {item?.city}
-                            </Typography>
-                          </Box>
-                        );
-                      })}
-                    </Card>
+                      {cityResult ? (
+                        <Card
+                          sx={{
+                            mt: "17px",
+                            p: "5px 15px 5px 10px",
+                            width: "auto",
+                            textAlign: "left",
+                          }}
+                        >
+                          <CustomTypography
+                            text="Choose City"
+                            colorType={"primary"}
+                            type="caption"
+                          />
+                          {AllCITY?.map((item) => {
+                            return (
+                              <Box
+                                sx={{ m: "10px 0" }}
+                                key={item?.city}
+                                onClick={() => handleselect(item?.city)}
+                              >
+                                <Typography sx={{ cursor: "pointer" }}>
+                                  {item?.city}
+                                </Typography>
+                              </Box>
+                            );
+                          })}
+                        </Card>
+                      ) : (
+                        <Card
+                          sx={{
+                            p: "5px 15px 5px 10px",
+                            width: "auto",
+                            textAlign: "left",
+                          }}
+                        >
+                          <CustomTypography
+                            text="Choose City"
+                            colorType={"primary"}
+                            type="caption"
+                          />
+                          <CustomTypography
+                            text="City Not Found"
+                            type="caption"
+                            colorType={"text"}
+                          />
+                        </Card>
+                      )}
+                    </Box>
                   ) : (
-                    <Card
-                      sx={{
-                        p: "5px 15px 5px 10px",
-                        width: "auto",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p>Choose City</p>
-                      <p>Not Found</p>
-                    </Card>
+                    ""
                   )}
-                </Box>
+                </>
               ) : (
                 ""
               )}
@@ -152,55 +176,74 @@ export default function SearchBar({
                 value={SearchValue}
                 placeholder="Enter Locality"
                 onChange={handleSearch}
+                onClick={handleSearchClick}
                 InputProps={{
                   disableUnderline: true,
                 }}
               />
-              {localityList ? (
-                <Box
-                  sx={{
-                    position: "absolute",
-                    // overflow: "scroll",
-                    zIndex: "1",
-                    p: "30px 0 0 10px ",
-                  }}
-                >
-                  {localityResult ? (
-                    <Card
+              {localityHide ? (
+                <>
+                  {localityList ? (
+                    <Box
                       sx={{
-                        p: "5px 25px 5px 25px",
-                        width: "225px",
-                        textAlign: "left",
+                        position: "absolute",
+                        // overflow: "scroll",
+                        zIndex: "1",
+                        p: "30px 0 0 10px ",
                       }}
                     >
-                      <p>Choose Locality</p>
-                      {AllLOCALITY?.map((item) => {
-                        return (
-                          <Box
-                            sx={{ m: "10px 0" }}
-                            key={item?.locality}
-                            onClick={() => handleselect2(item?.locality)}
-                          >
-                            <Typography sx={{ cursor: "pointer" }}>
-                              {item?.locality}
-                            </Typography>
-                          </Box>
-                        );
-                      })}
-                    </Card>
+                      {localityResult ? (
+                        <Card
+                          sx={{
+                            p: "5px 25px 5px 25px",
+                            width: "225px",
+                            textAlign: "left",
+                          }}
+                        >
+                          <CustomTypography
+                            text="Choose Locality"
+                            colorType={"primary"}
+                            type="caption"
+                          />
+                          {AllLOCALITY?.map((item) => {
+                            return (
+                              <Box
+                                sx={{ m: "10px 0" }}
+                                key={item?.locality}
+                                onClick={() => handleselect2(item?.locality)}
+                              >
+                                <Typography sx={{ cursor: "pointer" }}>
+                                  {item?.locality}
+                                </Typography>
+                              </Box>
+                            );
+                          })}
+                        </Card>
+                      ) : (
+                        <Card
+                          sx={{
+                            p: "5px 25px 5px 25px",
+                            width: "225px",
+                            textAlign: "left",
+                          }}
+                        >
+                          <CustomTypography
+                            text="Choose Locality "
+                            colorType={"primary"}
+                            type="caption"
+                          />
+                          <CustomTypography
+                            text="Locality Not Found"
+                            type="caption"
+                            colorType={"text"}
+                          />
+                        </Card>
+                      )}
+                    </Box>
                   ) : (
-                    <Card
-                      sx={{
-                        p: "5px 25px 5px 25px",
-                        width: "225px",
-                        textAlign: "left",
-                      }}
-                    >
-                      <p>Choose City</p>
-                      <p>Not Found</p>
-                    </Card>
+                    ""
                   )}
-                </Box>
+                </>
               ) : (
                 ""
               )}

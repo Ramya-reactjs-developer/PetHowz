@@ -14,18 +14,24 @@ export const ServiceResult = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   console.log(state, "state");
-  const OverAllSearchResult = useSelector((state) => state?.overallsearch);
-  console.log(OverAllSearchResult?.overallsearch?.data, "OverAllSearchResult");
-  console.log(OverAllSearchResult?.overallsearch?.data[0]?.datas, "Service");
-
   useEffect(() => {
     const data = {
       data: state,
       method: "post",
-      apiName: "getPetServiceByServiceMasterId/:service_master_id",
+      apiName: `getPetServiceByServiceMasterId/${state.service_master_id}`,
     };
     dispatch(actions.OVERALLSEARCH(data));
+    // reload();
   }, [dispatch]);
+  const OverAllSearchResult = useSelector((state) => state?.overallsearch);
+  console.log(OverAllSearchResult?.overallsearch?.data, "OverAllSearchResult");
+  console.log(OverAllSearchResult?.overallsearch?.data[0]?.datas, "Service");
+
+  // const reload = () => {
+  //   if (OverAllSearchResult?.overallsearch?.data[0]?.datas === undefined) {
+  //     window.location.reload();
+  //   }
+  // };
 
   const onDiscover = (key) => {
     navigate("/ServiceIndividualResult", {
@@ -34,54 +40,55 @@ export const ServiceResult = () => {
   };
   return (
     <>
-      {OverAllSearchResult?.overallsearch?.data?.length !== 0 ? (
-        <Grid className="container" item md={12} lg={12} sm={12} xs={12}>
-          <Grid
-            item
-            p={"15px"}
-            display={"flex"}
-            alignItems={"center"}
-            justifyContent={"flex-start"}
-            flexWrap={"wrap"}
-            gap={"5px"}
-            md={12}
-            lg={12}
-            sm={12}
-            xs={12}
-          >
+      {/* {OverAllSearchResult?.overallsearch?.data?.length !== 0 ? ( */}
+      <Grid className="container" item md={12} lg={12} sm={12} xs={12}>
+        <Grid
+          item
+          p={"15px"}
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent={"flex-start"}
+          flexWrap={"wrap"}
+          gap={"5px"}
+          md={12}
+          lg={12}
+          sm={12}
+          xs={12}
+        >
+          <CustomTypography
+            text={"Pet Services"}
+            type="heading3"
+            // customClass="groomText"
+          />
+          <Box sx={{ display: "flex", pt: "8px" }}>
             <CustomTypography
-              text={"Pet Services"}
-              type="heading3"
+              text={" in " + state?.city + ", "}
+              type="header"
+              colorType={"primary"}
               // customClass="groomText"
             />
-            <Box sx={{ display: "flex", pt: "8px" }}>
-              <CustomTypography
-                text={" in " + state?.city + ", "}
-                type="header"
-                colorType={"primary"}
-                // customClass="groomText"
-              />
-              <CustomTypography
-                text={state?.locality}
-                type="header"
-                colorType={"primary"}
-                // customClass="groomText"
-              />
-            </Box>
-          </Grid>
-          <Grid item md={12} lg={12} sm={12} xs={12}>
-            <ServiceCardsSection
-              Data={OverAllSearchResult?.overallsearch?.data}
-              onDiscover={(key) => onDiscover(key)}
-              nos={5}
+            <CustomTypography
+              text={state?.locality}
+              type="header"
+              colorType={"primary"}
+              // customClass="groomText"
             />
-          </Grid>
+          </Box>
         </Grid>
-      ) : (
-        <Box height={"50vh"} sx={{ display: "grid", placeItems: "center" }}>
-          <Typography variant="h3"> Loading</Typography>
-        </Box>
-      )}
+        <Grid item md={12} lg={12} sm={12} xs={12}>
+          <ServiceCardsSection
+            Data={OverAllSearchResult?.overallsearch?.data}
+            onDiscover={(key) => onDiscover(key)}
+            nos={5}
+          />
+        </Grid>
+      </Grid>
+      {/* // ) : ( //{" "}
+      <Box height={"50vh"} sx={{ display: "grid", placeItems: "center" }}>
+        // <Typography variant="h3"> Loading</Typography>
+        //{" "}
+      </Box>
+      // )} */}
     </>
   );
 };

@@ -5,3 +5,11 @@
   background-size: cover;
   background-position: center;
 }
+.Banner-Header {
+  font-family: cooper_regular;
+}
+
+@font-face {
+  font-family: cooper_regular;
+  src: url(../../Assets//Fonts/Cooper\ Black\ Regular.ttf);
+}
