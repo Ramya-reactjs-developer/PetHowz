@@ -232,7 +232,7 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
                             <Box sx={AddressSubPosition1}>
                               <img src={CustomIcons.Location} alt="location" />
                               <CustomTypography
-                                text={item.address}
+                                text={item?.address}
                                 type="title"
                                 customStyle={{ fontSize: "10px" }}
                                 colorType="senary"

@@ -3,9 +3,9 @@
   height: 386px !important;
   border-radius: 5px !important;
 }
-.aboutServiceImage img {
-  width: 100%;
-  height: 100%;
+.aboutServiceImage img{
+    width: 100%;
+    height: 100%;
 }
 .aboutServiceName {
   font-size: 18px !important;

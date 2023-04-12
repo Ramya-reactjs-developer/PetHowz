@@ -139,7 +139,8 @@ export const RequestBooking = () => {
     };
     console.log(data, "jack");
     dispatch(actions.PET_SPACE_BOOKING(data));
-
+    // navigate("/BookingSubmitModal");
+    modalOpen();
     reset({
       booking_from_date: "",
       booking_from_time: "",

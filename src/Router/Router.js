@@ -64,6 +64,7 @@ export const router = createBrowserRouter(
       <Route path="AddAnotherPet" element={<AddAnotherPet />} />
       <Route path="AddYourPetLogin" element={<AddYourPetLogin />} />
       <Route path="AllPetBoarding" element={<AllPetBoarding />} />
+      {/* <Route path="BookingSubmitModal" element={<BookingSubmitModal />} /> */}
 
       <Route
         path="PetHomeBoardingAndService"
@@ -83,7 +84,6 @@ export const router = createBrowserRouter(
         path="PetBoardingRegistration"
         element={<PetBoardingRegistration />}
       />
-
       <Route path="PetService" element={<PetService />} />
       {/* Register to PetHowz */}
       <Route path="RegisterToPethowz" element={<RegisterToPethowz />} />
@@ -91,7 +91,6 @@ export const router = createBrowserRouter(
       <Route path="RequestBooking" element={<RequestBooking />} />
 
       {/* customer layout */}
-
       <Route path="CustomerLayout" element={<CustomerLayout />}>
         <Route path="CustomerDashBoard" element={<CustomerDashBoard />} />
         <Route path="MyProfileCustomerDB" element={<MyProfileCustomerDB />} />
