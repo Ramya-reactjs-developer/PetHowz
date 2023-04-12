@@ -23,18 +23,22 @@ import {
   DefaultAboutPetValues,
 } from "../../Pages/PetService/AboutPetEntries";
 import "./style.css";
+import CustomMultiFileUploader from "../FileUploader/MultipleFileUploader";
+import { base64ToBinary } from "../../Redux/Helpers";
 
 const AboutPet = (props) => {
   const dispatch = useDispatch();
-    const {
-      control,
-      handleSubmit,
-      formState: { errors },
-      reset,
-    } = useForm({
-      DefaultAboutPetValues,
-    });
-  
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    DefaultAboutPetValues,
+  });
+
+  const aboutPet = useSelector((state) => state?.aboutPet);
+
   const [upload, setUpload] = React.useState(null);
   const getImage = (val) => {
     setUpload(val);
@@ -58,7 +62,7 @@ const AboutPet = (props) => {
 
   const btnDisabled =
     receiver.professional_status?.length > 0 &&
-    receiver.tell_us_somthing_about_you?.length >0 &&
+    receiver.tell_us_somthing_about_you?.length > 0 &&
     receiver.years_of_experience?.length > 0 &&
     receiver.service_provider_type?.length > 0 &&
     receiver.service_provider_for?.length > 0 &&
@@ -74,27 +78,29 @@ const AboutPet = (props) => {
     receiver.location?.length > 0 &&
     receiver.photos?.length > 0;
 
-    const faq_value = [
-      {
-        pet_service_id: 1,
-        pet_service: [
-          {
-            question: "what kind of services?",
-            answer: "many",
-          },
-          {
-            question: "service name?",
-            answer: "walking",
-          },
-        ],
-      },
-    ];
-  
+  const faq_value = [
+    {
+      pet_service: [
+        {
+          question: "what kind of services?",
+          answer: "many",
+        },
+        {
+          question: "service name?",
+          answer: "walking",
+        },
+      ],
+    },
+  ];
+
   const onSubmit = (data1) => {
     console.log(data1, "checkdata");
     const formData = new FormData();
     formData.append("professional_status", data1.professional_status);
-    formData.append("tell_us_somthing_about_you", data1.tell_us_somthing_about_you);
+    formData.append(
+      "tell_us_somthing_about_you",
+      data1.tell_us_somthing_about_you
+    );
     formData.append("years_of_experience", data1.years_of_experience);
     formData.append("service_provider_type", data1.service_provider_type);
     formData.append("service_provider_for", data1.service_provider_for);
@@ -109,10 +115,18 @@ const AboutPet = (props) => {
     formData.append("service_overview", data1.service_overview);
     formData.append("doorstep_services", data1.doorstep_services);
     formData.append("location", data1.location);
-    formData.append("photos", data1.photos);
-    formData.append("service_faq", [faq_value]);
+    data1.photos.forEach((photo, index) => {
+      const base64String = photo.replace(/^data:image\/(png|jpeg);base64,/, "");
+      const binaryData = base64ToBinary(base64String);
+      formData.append(`photos`, new Blob([binaryData], { type: "image/jpeg" }));
+    });
+    // formData.append("photos", data1.photos[0]);
+    // formData.append("service_faq", [faq_value.pet_service]);
     formData.append("service_master_id", 1);
     formData.append("pet_service_id", 1);
+    const serviceFaqJson = JSON.stringify(faq_value);
+
+    formData.append("service_faq", serviceFaqJson);
     const data = {
       data: formData,
       method: "post",
@@ -122,9 +136,11 @@ const AboutPet = (props) => {
 
     dispatch(actions.ABOUTPET(data));
   };
-
-
-  
+  React.useEffect(() => {
+    if (aboutPet?.aboutPet?.message === "SUCCESS") {
+      value.nextPage();
+    }
+  }, [aboutPet, value]);
 
   return (
     <form>
@@ -195,7 +211,7 @@ const AboutPet = (props) => {
                       />
                     </Grid>
                   )}
-                  {keyValue?.isProfileImageUploader && (
+                  {/* {keyValue?.isProfileImageUploader && (
                     <Grid
                       item
                       md={12}
@@ -223,7 +239,7 @@ const AboutPet = (props) => {
                         resetValue={resetValue}
                       />
                     </Grid>
-                  )}
+                  )} */}
                   {keyValue?.isMultipleSelectChip && (
                     <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
                       <MultipleSelectChip
@@ -240,7 +256,7 @@ const AboutPet = (props) => {
                       />
                     </Grid>
                   )}
-                  {keyValue?.isFileUploader && (
+                  {/* {keyValue?.isFileUploader && (
                     <Grid
                       item
                       md={12}
@@ -251,6 +267,52 @@ const AboutPet = (props) => {
                       className="circleLogoBox"
                     >
                       <CustomImageUploader
+                        upLoad={CustomIcons.LogoUploader}
+                        label={keyValue.label}
+                        // onHandleChange={(e) => {
+                        //   onChange(e);
+                        //   props.textFieldChange(e, keyValue.name);
+                        // }}
+                        customClass={keyValue.customClass}
+                        getImage={(val) => {
+                          onChange(val);
+                          // getImage(val);
+                          props.textFieldChange(val, keyValue.name);
+                        }}
+                        regForm={keyValue.regForm}
+                        defaultImage={keyValue.defaultImage}
+                        resetValue={resetValue}
+                      />
+                    </Grid>
+                  )} */}
+                  {keyValue?.isFileUploader && (
+                    <Grid
+                      item
+                      md={12}
+                      sm={12}
+                      xs={12}
+                      my={2}
+                      mx={2}
+                      className="circleLogoBox"
+                    >
+                      {/* <MultiImageUploader
+                        upLoad={CustomIcons.LogoUploader}
+                        label={keyValue.label}
+                        // onHandleChange={(e) => {
+                        //   onChange(e);
+                        //   props.textFieldChange(e, keyValue.name);
+                        // }}
+                        customClass={keyValue.customClass}
+                        getImage={(val) => {
+                          onChange(val);
+                          // getImage(val);
+                          props.textFieldChange(val, keyValue.name);
+                        }}
+                        regForm={keyValue.regForm}
+                        defaultImage={keyValue.defaultImage}
+                        resetValue={resetValue}
+                      /> */}
+                      <CustomMultiFileUploader
                         upLoad={CustomIcons.LogoUploader}
                         label={keyValue.label}
                         // onHandleChange={(e) => {

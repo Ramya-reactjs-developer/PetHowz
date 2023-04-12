@@ -269,7 +269,7 @@ export const AboutPetEntries = [
     validation_error_message: "Text is in Invalid format",
   },
   {
-    isProfileImageUploader: true,
+    isFileUploader: true,
     name: "photos",
     label: "Add Photos",
     breakpoint: 5,
