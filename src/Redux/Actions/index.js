@@ -21,6 +21,7 @@ import { ourServiceByIdAction } from "../Slices/OurService/OurServiceById";
 import { petCareAction } from "../Slices/Grooming/GroomingService";
 import { aboutPetAction } from "../Slices/AboutPet/AboutPet";
 import { createPackageAction } from "../Slices/CreatePackage/CreatePackage";
+import { basicDetailsAction } from "../Slices/ServiceBasicDetails/BasicDetails";
 
 const actions = {
   ...groomingAction,
@@ -48,6 +49,7 @@ const actions = {
   ...phbaddonsAction,
   ...aboutPetAction,
   ...createPackageAction,
+  ...basicDetailsAction,
 };
 
 export default actions;

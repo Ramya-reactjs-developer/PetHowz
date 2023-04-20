@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect } from "react";
 import { LabelContext } from "../../Pages/PetService/LableData";
 // import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -38,7 +38,7 @@ const AboutPet = (props) => {
   });
 
   const aboutPet = useSelector((state) => state?.aboutPet);
-
+console.log(aboutPet, "aboutPet");
   const [upload, setUpload] = React.useState(null);
   const getImage = (val) => {
     setUpload(val);
@@ -136,7 +136,7 @@ const AboutPet = (props) => {
 
     dispatch(actions.ABOUTPET(data));
   };
-  React.useEffect(() => {
+  useEffect(() => {
     if (aboutPet?.aboutPet?.message === "SUCCESS") {
       value.nextPage();
     }

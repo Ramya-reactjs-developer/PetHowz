@@ -33,6 +33,9 @@ const ServiceDetails = (props) => {
 
   const weight = value.labelInfo?.weight;
 
+  const createPackage = useSelector((state) => state?.createPackage);
+  console.log(createPackage, "createPackage");
+
   const btnDisabled =
     weight.package_name?.length > 0 &&
     weight.included?.length > 0 &&

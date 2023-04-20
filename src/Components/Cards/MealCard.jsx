@@ -140,11 +140,9 @@
 import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-
 import Typography from "@mui/material/Typography";
-
+import { useSelector } from "react-redux";
 import { Box, Button, CardActions, CardMedia, Grid } from "@mui/material";
-
 import {
   MealCardButtonPostion,
   MealCardButtonStyle,
@@ -162,6 +160,10 @@ import CustomIcons from "../../Utils/Icons/Index";
 
 export default function MealCard({ Data }) {
   const CardData = Data;
+
+  const { petCare } = useSelector((state) => state?.petCareService);
+
+
   //  [
   //   {
   //     mealImage:
@@ -197,12 +199,12 @@ export default function MealCard({ Data }) {
           flexWrap: "wrap",
         }}
       >
-        {CardData.map((item, key) => {
+        {petCare?.data?.addons?.map((item, key) => {
           return (
             <Grid item key={key}>
               <Box sx={MealCardTopButtonPosition}>
                 <CustomButton
-                  btnTitle="Meow Meal"
+                  btnTitle={item.package_name}
                   color="primary"
                   btnStyles={MealCardTopButton}
                   fontSize="12px"
@@ -218,7 +220,7 @@ export default function MealCard({ Data }) {
                             <Box>
                               <CardMedia
                                 component="img"
-                                image={item.mealImage}
+                                image={item.images}
                                 alt="Meal"
                                 sx={MealCardMedia}
                               />
@@ -226,19 +228,19 @@ export default function MealCard({ Data }) {
                             <Box>
                               {" "}
                               <Typography variant="h6" sx={textAlign}>
-                                Whats Included
+                                Whats Included ?
                               </Typography>
                               <Box sx={MealTypography}>
-                                <img src={CustomIcons.DoneTick} alt="tick" />
+                                {/* <img src={CustomIcons.DoneTick} alt="tick" /> */}
 
                                 <Typography
                                   color="text.secondary"
                                   fontSize="16"
                                 >
-                                  {item.meal1}
+                                  {item.included}
                                 </Typography>
                               </Box>
-                              <Box sx={MealTypography}>
+                              {/* <Box sx={MealTypography}>
                                 <img src={CustomIcons.DoneTick} alt="tick" />
                                 <Typography
                                   color="text.secondary"
@@ -264,7 +266,7 @@ export default function MealCard({ Data }) {
                                 >
                                   {item.meal4}
                                 </Typography>
-                              </Box>
+                              </Box> */}
                             </Box>
                           </Box>
                         </Box>
@@ -277,8 +279,7 @@ export default function MealCard({ Data }) {
                           }}
                         >
                           <Typography color="text.secondary" fontSize="12">
-                            Meow meal is an authentic food prepared <br></br>
-                            by our expert cooks exclusively for pets
+                            {item.description}
                           </Typography>
                           <Box>
                             <Typography
@@ -287,7 +288,7 @@ export default function MealCard({ Data }) {
                               lineHeight="normal"
                               textAlign={"center"}
                             >
-                              {item.price}
+                              {item.rate}
                             </Typography>
                             <Typography
                               fontWeight="bold"

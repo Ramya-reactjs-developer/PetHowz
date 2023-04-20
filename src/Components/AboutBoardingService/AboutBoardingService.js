@@ -8,6 +8,7 @@ const AboutBoardingService = (props) => {
   const {
     onRequest,
     image,
+    firstName,
     Name,
     professional,
     year,
@@ -39,9 +40,19 @@ const AboutBoardingService = (props) => {
             customClass="aboutServiceHeaderName"
           />
         </Grid>
-        <Grid item md={2} lg={2} sm={6} xs={6}>
+        <Grid item md={3} lg={3} sm={6} xs={6}>
           <CustomTypography
-            type="head"
+            type="link"
+            text={firstName}
+            customClass="aboutServiceName"
+          />
+          <CustomTypography
+            type="link"
+            text="&nbsp;"
+            customClass="aboutServiceName"
+          />
+          <CustomTypography
+            type="link"
             text={Name}
             customClass="aboutServiceName"
           />
@@ -55,8 +66,13 @@ const AboutBoardingService = (props) => {
         </Grid>
         <Grid item md={2} lg={2} sm={6} xs={6}>
           <CustomTypography
-            type="head"
+            type="link"
             text={year}
+            customClass="aboutServiceYear"
+          />
+          <CustomTypography
+            type="link"
+            text="&nbsp;Years"
             customClass="aboutServiceYear"
           />
         </Grid>

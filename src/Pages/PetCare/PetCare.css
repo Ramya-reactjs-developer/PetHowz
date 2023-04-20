@@ -1,8 +1,8 @@
-.leftImage {
-  width: 200px;
+.petLeftImage {
+  max-width: 300px !important;
   height: 400px;
 }
-.leftImage img {
+.petLeftImage img {
   width: 100%;
   height: 100%;
   border-radius: 30px;

@@ -97,7 +97,6 @@ export const LabelData = (props) => {
     { title: "Select Services" },
     { title: "About Your Service" },
     { title: "Create Package" },
-    { title: "Create value" },
   ];
 
   return (
