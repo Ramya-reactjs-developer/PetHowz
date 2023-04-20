@@ -57,7 +57,11 @@ const PetCare = () => {
       service6: "Combing/Brushing",
     },
   ];
+
+
+
   const imageList = [
+  
     {
       image: CustomIcons.BoardingArea,
       text: "Dedicated Boarding Area",
@@ -122,13 +126,16 @@ const PetCare = () => {
       navigate("/login", { state: "/RequestBooking" });
     }
   };
+  const petPhotos = petCare?.data?.petHomeImages?.map((data) => data?.photos);
+  console.log(petPhotos, "petPhotos");
   return (
     <Grid className="container">
-      {petCare?.data?.map((data) => {
-        const petPhotos = data?.petHomeImages?.map((data) => data?.photos);
-        return (
-          <>
-            <Grid container md={12} lg={12} sm={12} xs={12}>
+      {/* {petCare?.data?.map((data) => {
+        return ( */}
+      <>
+        <Grid container md={12} lg={12} sm={12} xs={12}>
+          {petCare?.data?.petHomeImages?.map((data) => {
+            return (
               <Grid
                 item
                 md={12}
@@ -136,11 +143,14 @@ const PetCare = () => {
                 sm={12}
                 xs={12}
                 m={1}
-                className="leftImage"
+                className="petLeftImage"
               >
-                <img src={petPhotos} alt="" />
+                <img src={data?.photos} alt="" />
               </Grid>
-              {/* <Grid
+            );
+          })}
+
+          {/* <Grid
                 item
                 md={3.5}
                 lg={3.5}
@@ -162,202 +172,234 @@ const PetCare = () => {
                   {Modal && <GroomModal />}
                 </Grid>
               </Grid> */}
+        </Grid>
+        {/* {petCare?.data?.map((data) => {
+          return ( */}
+        <Grid item md={12} lg={12} sm={12} xs={12}>
+          <CustomTypography
+            type="head"
+            text={petCare?.data?.pet_boarding_space_name}
+            customClass="aboutPet"
+          />
+        </Grid>
+        {/* );
+        })} */}
+        {/* {petCare?.data?.map((data) => {
+          return ( */}
+        <Grid
+          container
+          item
+          md={12}
+          lg={12}
+          sm={12}
+          xs={12}
+          pb={2}
+          className="AboutPetBoard"
+        >
+          <AboutBoardingService
+            image={petCare?.data?.image}
+            Heading="About Me"
+            firstName="Hey, I am"
+            Name={petCare?.data?.name}
+            professional={petCare?.data?.professional_status}
+            year={petCare?.data?.years_of_experience}
+            content="I am a pet lover and would love to take care of furry friends. I have a 5 year old dog at my parents house, but I don't have any pets right here in Bangalore at my place. I absolutely adore animals, and as I work from home I think I would be able to properly take care of them. I have taken care of my own dog in my hometown for 5 years, a labrador named Alex. I have d1 pet sitting for a lot of my friends. I do realise if the pet is not doing well by observing their eating habits and how active they are. I have also given oral medications to my own dog. Also, I will not leave the pet unattended at anytime."
+            btnTitle="Request Booking"
+            requestBtnStyles="requestBtn"
+            BtnText="Response Time 1 hour"
+            Area={petCare?.data?.total_sq_feet_of_the_space}
+            Size={petCare?.data?.no_of_bedrooms}
+            Type={petCare?.data?.type_of_boarding}
+            Prefer="1200 Sq.ft"
+            Capacity="1200 Sq.ft"
+            petsAccepted={petCare?.data?.category_of_pet_boarded}
+            location={petCare?.data?.locality}
+            Provide={petCare?.data?.can_provide}
+            onRequest={onRequest}
+          />
+        </Grid>
+        {/* );
+        })} */}
+
+        <Grid container md={12} sm={12} lg={12} xs={12} pl={3}>
+          <Grid item md={12} sm={12} lg={12} xs={12} display="flex">
+            <Grid className="AmenitiesImage">
+              <img src={CustomIcons.Amenities} alt="" />
             </Grid>
-            <Grid item md={12} lg={12} sm={12} xs={12}>
+            <Grid pl={3}>
               <CustomTypography
                 type="head"
-                text={data?.Pet_boarding_space_name}
-                customClass="aboutPet"
+                text="Amenities"
+                customClass="AmenitiesHeader"
               />
             </Grid>
-            <Grid
-              container
-              item
-              md={12}
-              lg={12}
-              sm={12}
-              xs={12}
-              pb={2}
-              className="AboutPetBoard"
-            >
-              <AboutBoardingService
-                image={data?.image}
-                Heading="About Me"
-                Name="Hey, I am John,"
-                professional="Professional Pet Boarder"
-                year="2 years"
-                content="I am a pet lover and would love to take care of furry friends. I have a 5 year old dog at my parents house, but I don't have any pets right here in Bangalore at my place. I absolutely adore animals, and as I work from home I think I would be able to properly take care of them. I have taken care of my own dog in my hometown for 5 years, a labrador named Alex. I have d1 pet sitting for a lot of my friends. I do realise if the pet is not doing well by observing their eating habits and how active they are. I have also given oral medications to my own dog. Also, I will not leave the pet unattended at anytime."
-                btnTitle="Request Booking"
-                requestBtnStyles="requestBtn"
-                BtnText="Response Time 1 hour"
-                Area="1200 Sq.ft"
-                Size="1200 Sq.ft"
-                Type="1200 Sq.ft"
-                Prefer="1200 Sq.ft"
-                Capacity="1200 Sq.ft"
-                petsAccepted="1200 Sq.ft"
-                location="1200 Sq.ft"
-                Provide="1200 Sq.ft"
-                onRequest={onRequest}
+          </Grid>
+          <ImageList imageLists={imageList} />
+          {/* {petCare?.data?.amenities?.map((data) => {
+            return (
+              <Grid>
+                <ImageList
+                  // imageLists={imageList}
+                  image={CustomIcons.BoardingArea}
+                  text={
+                    data?.do_you_have_dedicated_boarding_area_for_pets
+                      ?.length === 3
+                      ? "Dedicated Boarding Area" + "aboutPetSpace"
+                      : "Dedicated Boarding Area" + "aboutPetSpace"
+                  }
+                  // text="Dedicated Boarding Area"
+                />
+              </Grid>
+            );
+          })} */}
+        </Grid>
+        <Grid container md={12} sm={12} lg={12} xs={12} pt={3} pl={3}>
+          <Grid item md={12} sm={12} lg={12} xs={12} display="flex">
+            <Grid className="AmenitiesImage">
+              <img src={CustomIcons.Food} alt="" />
+            </Grid>
+            <Grid pl={3}>
+              <CustomTypography
+                type="head"
+                text="Food"
+                customClass="AmenitiesHeader"
               />
             </Grid>
-            <Grid container md={12} sm={12} lg={12} xs={12} pl={3}>
-              <Grid item md={12} sm={12} lg={12} xs={12} display="flex">
-                <Grid className="AmenitiesImage">
-                  <img src={CustomIcons.Amenities} alt="" />
-                </Grid>
-                <Grid pl={3}>
-                  <CustomTypography
-                    type="head"
-                    text="Amenities"
-                    customClass="AmenitiesHeader"
-                  />
-                </Grid>
+          </Grid>
+          <Grid item md={12} sm={12} lg={12} xs={12} pt={3}>
+            <Grid item md={12} sm={12} lg={12} xs={12} display="flex">
+              <Grid item className="AmenitiesImage">
+                <img src={CustomIcons.Vegnonveg} alt="" />
               </Grid>
-              <ImageList imageLists={imageList} />
-            </Grid>
-            <Grid container md={12} sm={12} lg={12} xs={12} pt={3} pl={3}>
-              <Grid item md={12} sm={12} lg={12} xs={12} display="flex">
-                <Grid className="AmenitiesImage">
-                  <img src={CustomIcons.Food} alt="" />
-                </Grid>
-                <Grid pl={3}>
-                  <CustomTypography
-                    type="head"
-                    text="Food"
-                    customClass="AmenitiesHeader"
-                  />
-                </Grid>
-              </Grid>
-              <Grid item md={12} sm={12} lg={12} xs={12} pt={3}>
-                <Grid item md={12} sm={12} lg={12} xs={12} display="flex">
-                  <Grid item className="AmenitiesImage">
-                    <img src={CustomIcons.Vegnonveg} alt="" />
-                  </Grid>
-                  <Grid pl={3} display="flex">
+              <Grid pl={3} display="flex">
+                {petCare?.data?.food?.map((data) => {
+                  return (
                     <Grid>
                       <CustomTypography
                         type="head"
-                        text="Veg & Non Veg"
+                        text={data?.meal_type}
                         customClass="vegNonVeg"
                       />
                     </Grid>
-                    <Grid pl={2}>
-                      <CustomTypography
-                        type="head"
-                        text="Veg & Non Veg"
-                        customClass="vegNonVeg"
-                      />
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item display="flex" pt={1}>
-                <Grid>
+                  );
+                })}
+
+                {/* <Grid pl={2}>
                   <CustomTypography
                     type="head"
-                    text="Note"
-                    customClass="noteAmenity"
+                    text="Veg & Non Veg"
+                    customClass="vegNonVeg"
                   />
-                </Grid>
-                <Grid pl={2}>
-                  <CustomTypography
-                    type="head"
-                    text="Normal serving of 2 meal of chicken soup per day pet owner to provide their preferred food to the pets"
-                    customClass="noteAmenitySub"
-                  />
-                </Grid>
+                </Grid> */}
               </Grid>
             </Grid>
-            <Grid container pt={3} pl={3}>
-              <Grid item md={12} sm={12} lg={12} xs={12} display="flex">
-                <Grid className="AmenitiesImage">
-                  <img src={CustomIcons.Addons} alt="" />
-                </Grid>
-                <Grid pl={3}>
-                  <CustomTypography
-                    type="head"
-                    text="Add Ons"
-                    customClass="AmenitiesHeader"
-                  />
-                </Grid>
-              </Grid>
-              <Grid pt={3}>
-                <CustomTypography
-                  type="head"
-                  text="Add-ons from the host"
-                  customClass="noteAmenitySub"
-                />
-              </Grid>
+          </Grid>
+          <Grid item display="flex" pt={1}>
+            <Grid>
+              <CustomTypography
+                type="head"
+                text="Note"
+                customClass="noteAmenity"
+              />
             </Grid>
-            <Grid pt={2}>
-              <MealCard Data={CardData} />
+            <Grid pl={2}>
+              <CustomTypography
+                type="head"
+                text="Normal serving of 2 meal of chicken soup per day pet owner to provide their preferred food to the pets"
+                customClass="noteAmenitySub"
+              />
             </Grid>
-            <Grid
-              container
-              md={12}
-              sm={12}
-              lg={12}
-              xs={12}
-              className="BoardingRules"
-            >
-              <Grid item>
-                <Grid item>
-                  <CustomTypography
-                    type="head"
-                    text="Boarding Rules"
-                    customClass="noteAmenity"
-                  />
-                </Grid>
-                <Grid item>
-                  <CustomTypography
-                    type="head"
-                    text="Pet should be Vaccinated "
-                    customClass="noteAmenitySub"
-                  />
-                </Grid>
-                <Grid item>
-                  <CustomTypography
-                    type="head"
-                    text="Pet should be Potty trained"
-                    customClass="noteAmenitySub"
-                  />
-                </Grid>
-              </Grid>
-              <Grid item className="petBoardingRules">
-                <Grid item>
-                  <CustomTypography
-                    type="head"
-                    text="Boarding Rules"
-                    customClass="noteAmenity"
-                  />
-                </Grid>
-                <Grid item>
-                  <CustomTypography
-                    type="head"
-                    text="Shin Tsu Male 3 Years"
-                    customClass="noteAmenitySub"
-                  />
-                </Grid>
-                <Grid item>
-                  <CustomTypography
-                    type="head"
-                    text="Lab Male 3 Years"
-                    customClass="noteAmenitySub"
-                  />
-                </Grid>
-                <Grid item>
-                  <CustomTypography
-                    type="head"
-                    text="Kids"
-                    customClass="noteAmenitySub"
-                  />
-                </Grid>
-              </Grid>
+          </Grid>
+        </Grid>
+        <Grid container pt={3} pl={3}>
+          <Grid item md={12} sm={12} lg={12} xs={12} display="flex">
+            <Grid className="AmenitiesImage">
+              <img src={CustomIcons.Addons} alt="" />
             </Grid>
-          </>
-        );
-      })}
+            <Grid pl={3}>
+              <CustomTypography
+                type="head"
+                text="Add Ons"
+                customClass="AmenitiesHeader"
+              />
+            </Grid>
+          </Grid>
+          <Grid pt={3}>
+            <CustomTypography
+              type="head"
+              text="Add-ons from the host"
+              customClass="noteAmenitySub"
+            />
+          </Grid>
+        </Grid>
+        <Grid pt={2}>
+          <MealCard Data={CardData} />
+        </Grid>
+        <Grid
+          container
+          md={12}
+          sm={12}
+          lg={12}
+          xs={12}
+          className="BoardingRules"
+        >
+          <Grid item>
+            <Grid item>
+              <CustomTypography
+                type="head"
+                text="Boarding Rules"
+                customClass="noteAmenity"
+              />
+            </Grid>
+            <Grid item>
+              <CustomTypography
+                type="head"
+                text="Pet should be Vaccinated "
+                customClass="noteAmenitySub"
+              />
+            </Grid>
+            <Grid item>
+              <CustomTypography
+                type="head"
+                text="Pet should be Potty trained"
+                customClass="noteAmenitySub"
+              />
+            </Grid>
+          </Grid>
+          <Grid item className="petBoardingRules">
+            <Grid item>
+              <CustomTypography
+                type="head"
+                text="Boarding Rules"
+                customClass="noteAmenity"
+              />
+            </Grid>
+            <Grid item>
+              <CustomTypography
+                type="head"
+                text="Shin Tsu Male 3 Years"
+                customClass="noteAmenitySub"
+              />
+            </Grid>
+            <Grid item>
+              <CustomTypography
+                type="head"
+                text="Lab Male 3 Years"
+                customClass="noteAmenitySub"
+              />
+            </Grid>
+            <Grid item>
+              <CustomTypography
+                type="head"
+                text="Kids"
+                customClass="noteAmenitySub"
+              />
+            </Grid>
+          </Grid>
+        </Grid>
+      </>
+      {/* );
+      })} */}
     </Grid>
   );
 };

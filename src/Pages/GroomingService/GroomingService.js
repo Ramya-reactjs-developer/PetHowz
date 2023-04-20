@@ -103,7 +103,7 @@ const GroomingService = () => {
   return (
     <Grid className="container">
       <Grid container md={12} lg={12} sm={12} xs={12}>
-        <Grid item md={5} lg={5} sm={12} xs={12} m={1} className="leftImage">
+        <Grid item md={5} lg={5} sm={12} xs={12} m={1} className="groomingLeftImage">
           <img src={customImages.Service} alt="" />
         </Grid>
         <Grid

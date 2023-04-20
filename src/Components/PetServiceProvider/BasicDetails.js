@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 // import React, { useContext } from "react";
 // // import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
 // import { LabelContext } from "../../Pages/PetService/LableData";
@@ -80,13 +81,17 @@ import CustomIcons from "../../Utils/Icons/Index";
 import CustomTypography from "../../Components/Typography/Typography";
 import CustomRadioButton from "../../Components/RadioButton/RadioButton";
 import CustomButton from "../../Components/Button/Button";
+import Button from "@material-ui/core/Button";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
 // import CustomForm from "../../../../Components/CustomForm/CustomForm";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import actions from "../../Redux/Actions";
 import CustomProfileUploader from "../ProfileUploader/ProfileUpload";
 
 const PetBasicDetails = (props) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const userGet = useSelector((state) => state?.phbbasicdetails);
   const login = useSelector((state) => state?.login);
   console.log(login, "login");
@@ -107,7 +112,7 @@ const PetBasicDetails = (props) => {
   console.log(sender, "manoj");
 
   // const pg = value.page;
-  const btnDisbaled =
+  const btnDisabled =
     sender.pet_service_name?.length > 0 &&
     sender.name?.length > 0 &&
     sender.mobile_number?.length > 0 &&
@@ -120,6 +125,9 @@ const PetBasicDetails = (props) => {
     sender.pin_location?.length > 0;
 
   const onSubmit = (data1) => {
+
+    const serviceId = [1,2]
+
     console.log(data1, "checkdata");
     const formData = new FormData();
     formData.append("pet_service_name", data1.pet_service_name);
@@ -132,16 +140,30 @@ const PetBasicDetails = (props) => {
     formData.append("state", data1.state);
     formData.append("pin_code", data1.pin_code);
     formData.append("pin_location", data1.pin_location);
-    formData.append("service_master_id", 1);
+    formData.append("service_master_id", serviceId);
     formData.append("user_id", 1);
-    const data = {
-      data: formData,
-      method: "post",
-      apiName: "createPetServiceBasicDetails",
-    };
-    console.log(data1, "checkdata");
 
-    dispatch(actions.PHBBASICDETAILS(data));
+    console.log(formData, "formData");
+    const passData = data1;
+    console.log(passData, "formDataValue");
+    if (formData !== undefined) {
+     navigate("/SelectService",
+       {
+         state: passData,
+       });
+        console.log(passData, "passData");
+
+    }
+    // }, [value, formData]);
+    // const data = {
+    //   data: formData,
+    //   method: "post",
+    //   apiName: "createPetServiceBasicDetails",
+    // };
+    // // props.func(formData)
+    // console.log(data1, "checkdata");
+
+    // dispatch(actions.PHBBASICDETAILS(data));
   };
   React.useEffect(() => {
     if (userGet?.phbbasicdetails?.message === "SUCCESS") {
@@ -410,12 +432,12 @@ const [upload, setUpload] = React.useState(null);
           Previous
         </Button> 
           <Button
-            disabled={!btnDisbaled}
+            disabled={!btnDisabled}
             onClick={() => {
-              value.nextPage() &&
-               handleSubmit(onSubmit);
+              value.nextPage() && handleSubmit(onSubmit);
             }}
             style={{ margin: 10 }}
+            onClick={() => value.nextPage()}
           >
             {console.log(value, "vvvvvv")}Next
           </Button>

@@ -13,6 +13,7 @@ import SelectService from "./SelectService/SelectService";
 
 const PetService = () => {
   const value = useContext(LabelContext);
+  
   return (
     <Grid container md={12} sm={12} xs={12} lg={12} className="App">
       <Grid
@@ -25,7 +26,7 @@ const PetService = () => {
         justifyContent="center"
       >
         <Grid item md={5} sm={5} lg={5} xs={12} className="stepper-button">
-          {value.page !== 6 && (
+          {value.page !== 4 && (
             <Stepper steps={value.steps} activeStep={value.page} />
           )}
         </Grid>
@@ -35,9 +36,9 @@ const PetService = () => {
           {value.page === 1 && <SelectService />}
           {value.page === 2 && <AboutPet />}
           {value.page === 3 && <ServiceDetails />}
-          {value.page === 4 && <UploadImage />}
+          {/* {value.page === 4 && <UploadImage />}
           {value.page === 5 && <PetHostAddOn />}
-          {value.page === 6 && <Faqs />}
+          {value.page === 6 && <Faqs />} */}
         </Grid>
       </Grid>
     </Grid>
