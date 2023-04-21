@@ -1,5 +1,5 @@
 // /* eslint-disable react-hooks/rules-of-hooks */
-import { Box, Card, Grid } from "@mui/material";
+import { Box, Card, Dialog, Grid } from "@mui/material";
 import React, { useEffect } from "react";
 import CustomTypography from "../../Components/Typography/Typography";
 import "./ReqBookingStyle.css";
@@ -14,11 +14,10 @@ import CustomButton from "../../Components/Button/Button";
 import BookingSubmitModal from "./BookingSubmitModal";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../Redux/Actions";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { adminUrl } from "../../Redux/Constants";
 import axios from "axios";
-
 export const RequestBooking = () => {
   const defaultValues = {};
   const [entry, setEntry] = React.useState([]);
@@ -38,18 +37,19 @@ export const RequestBooking = () => {
     Booking?.PetSpaceBooking?.data?.space_booking_details_id,
     "Booking"
   );
+  const dispatch = useDispatch();
   const login = localStorage.getItem("LoginChecker");
   const modalOpen = () => {
     setModal(true);
   };
   const onMoadalClose = () => {
     setModal(false);
-    navigate("/CustomerLayout/CustomerDashBoard");
+ 
   };
 
   const AddYourPet = useSelector((state) => state?.PetSpaceBooking);
   console.log(AddYourPet, "AddYourPetbvfbg");
-  const Dispatched = useDispatch();
+  // const dispatch = useDispatch();
   const addDrpdownData = (json) => {
     const tmpArr = [];
     console.log(tmpArr, "tmpArr");
@@ -69,8 +69,27 @@ export const RequestBooking = () => {
       return i;
     });
   };
+  
+  const { petCare } = useSelector((state) => state?.petCareService);
+  console.log(petCare, "ServiceData");
 
-  const Dispatch = useDispatch();
+
+  const { state } = useLocation();
+  useEffect(() => {
+//     const PetSpaceid = petCare;
+// console.log(PetSpaceid,"PetSpaceid");
+const PetSpaceid= localStorage.getItem("pet_space_id");
+    const data = {
+      data: {id:PetSpaceid},
+      method: "get",
+      apiName: `getPetBoardingById/${PetSpaceid}`,
+    };
+    dispatch(actions.GET_PET_BOARDING_SPACE_BOOKING(data));
+  }, [dispatch, state]);
+
+
+
+
   useEffect(() => {
     // const user_id = userGet?.registertopethowz?.data?.user_id;
     const user_id = localStorage.getItem("LoginChecker");
@@ -80,7 +99,7 @@ export const RequestBooking = () => {
       method: "get",
       apiName: `getPetDetailsByUserId/${user_id}`,
     };
-    Dispatch(actions.GET_PET_SPACE_BOOKING(dropdownData));
+    dispatch(actions.GET_PET_SPACE_BOOKING(dropdownData));
     // console.log(dropdownData, "dropdownData");
   }, []);
 
@@ -100,13 +119,12 @@ export const RequestBooking = () => {
   //   }
   // };
 
-  const dispatch = useDispatch();
   console.log(userGet, "userGetbbbb");
   const { registertopethowz } = useSelector(
     (state) => state?.registertopethowz
   );
   console.log(registertopethowz, "registertopethowz");
-  const navigate = useNavigate();
+  
   const pet_details_id = useSelector(
     (state) => state?.AddYourPet?.AddYourPets?.data?.pet_details_id
   );
@@ -171,9 +189,13 @@ export const RequestBooking = () => {
       canProvide: "Oral Medication",
     },
   ];
-
+  const navigate = useNavigate();
+ function onAssPet() {
+  navigate("/AddYourPetLogin");
+ } 
   return (
     <Grid container item xs={12} className="BG">
+       
       <Grid item p={"30px"} height={{ lg: "100vh" }} sm={6} xs={12}>
         <Box sx={{ pt: "20px" }}>
           <CustomTypography
@@ -203,12 +225,14 @@ export const RequestBooking = () => {
                 // AllEntries={RequestBookingEntries}
                 AllEntries={addDrpdownData(RequestBookingEntries)}
                 defaultValues={DefaultRequestBookingValues}
+                onAddClickHandle={onAssPet}
                 // handleSelect={customHnadleSelect}
                 // onSelectValue={selectChange}
+                // onClickHandle={modalOpen}
                 onReceiveData={onReceiveData}
               />
               {Modal ? (
-                <BookingSubmitModal open={open} onModalClose={onMoadalClose} />
+                <BookingSubmitModal  onModalClose={onMoadalClose} />
               ) : (
                 ""
               )}
