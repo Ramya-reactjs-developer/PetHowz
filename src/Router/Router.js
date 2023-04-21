@@ -40,6 +40,7 @@ import { ServiceIndividualResult } from "../Pages/Result/ServiceIndividualResult
 import PetHomeBoarding from "../Pages/JoinPetHost/PetHomeBoarding/PetHomeBoarding";
 import { PetBoardingRegistration } from "../Pages/JoinPetHost/PetBoardingRegistration/PetBoardingRegistration";
 import ProtectedLayout from "./ProtectedLayout";
+import { RequestServiceBooking } from "../Pages/RequestBooking/RequestServiceBooking/RequestServiceBooking";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -89,6 +90,7 @@ export const router = createBrowserRouter(
       <Route path="RegisterToPethowz" element={<RegisterToPethowz />} />
       <Route path="AddAddress" element={<AddAddress />} />
       <Route path="RequestBooking" element={<RequestBooking />} />
+      <Route path="RequestServiceBooking" element={<RequestServiceBooking />} />
 
       {/* customer layout */}
       <Route path="CustomerLayout" element={<CustomerLayout />}>

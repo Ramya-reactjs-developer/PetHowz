@@ -40,6 +40,7 @@ function CustomForm(props) {
     onClickHandle,
     gridAlign,
     editTrue,
+    onAddClickHandle
     // dropdownData,
   } = props;
   const [values, setValues] = React.useState([]);
@@ -467,7 +468,7 @@ function CustomForm(props) {
                         // background: "#F8BD22",
                         marginTop: "45px",
                       }}
-                      onClickHandle={onClickHandle}
+                      onClickHandle={onAddClickHandle}
                     />
                   </Grid>
                 )}
@@ -619,6 +620,7 @@ CustomForm.propTypes = {
   customFormData: propTypes.func,
   editTrue: propTypes.string,
   onClickHandle: propTypes.func,
+  onAddClickHandle: propTypes.func,
 };
 CustomForm.defaultProps = {
   // handleCancel: () => null,
@@ -629,4 +631,5 @@ CustomForm.defaultProps = {
   customFormData: () => null,
   editTrue: "",
   onClickHandle: "",
+  onAddClickHandle:"",
 };

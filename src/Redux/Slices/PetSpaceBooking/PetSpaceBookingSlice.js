@@ -172,7 +172,34 @@ const GET_PET_SPACE_BOOKING = createAsyncThunk(
     }
   }
 );
+const GET_PET_BOARDING_SPACE_BOOKING = createAsyncThunk(
+  "getPetBoardingSpaceBooking/getPetBoardingSpaceBooking",
+  // eslint-disable-next-line default-param-last
+  async (
+    // eslint-disable-next-line default-param-last
+    payload = {},
 
+    { rejectWithValue }
+  ) => {
+    try {
+      const data = await fetchData(
+        payload?.data,
+        payload?.method,
+        payload?.apiName
+      );
+      return {
+        ...defaultState.List,
+        message: data?.data.Message,
+        data: data?.data?.data,
+      };
+    } catch (error) {
+      return rejectWithValue({
+        ...defaultReject.List,
+        message: error.message,
+      });
+    }
+  }
+);
 const PetSpaceBookingSlice = createSlice({
   name: "PetSpaceBookingSlice",
   initialState: {
@@ -180,6 +207,9 @@ const PetSpaceBookingSlice = createSlice({
       ...defaultState.List,
     },
     getPetSpaceBooking: {
+      ...defaultState.List,
+    },
+    getPetBoardingSpaceBooking: {
       ...defaultState.List,
     },
    
@@ -215,12 +245,28 @@ const PetSpaceBookingSlice = createSlice({
         (state.getPetSpaceBooking.error = true),
         (state.getPetSpaceBooking = action.payload);
     },
+    [GET_PET_BOARDING_SPACE_BOOKING.fulfilled]: (state, action) => {
+      (state.getPetBoardingSpaceBooking.loading = false),
+        (state.getPetBoardingSpaceBooking.error = false),
+        (state.getPetBoardingSpaceBooking = action.payload);
+    },
+    [GET_PET_BOARDING_SPACE_BOOKING.pending]: (state, action) => {
+      (state.getPetBoardingSpaceBooking.loading = true),
+        (state.getPetBoardingSpaceBooking.error = false),
+        (state.getPetBoardingSpaceBooking.loading = true);
+    },
+    [GET_PET_BOARDING_SPACE_BOOKING.rejected]: (state, action) => {
+      (state.getPetBoardingSpaceBooking.loading = false),
+        (state.getPetBoardingSpaceBooking.error = true),
+        (state.getPetBoardingSpaceBooking = action.payload);
+    },
   },
 });
 
 const PetSpaceBookingAction = {
   PET_SPACE_BOOKING,
   GET_PET_SPACE_BOOKING,
+  GET_PET_BOARDING_SPACE_BOOKING,
 
 };
 export { PetSpaceBookingAction };
