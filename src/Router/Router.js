@@ -41,6 +41,7 @@ import PetHomeBoarding from "../Pages/JoinPetHost/PetHomeBoarding/PetHomeBoardin
 import { PetBoardingRegistration } from "../Pages/JoinPetHost/PetBoardingRegistration/PetBoardingRegistration";
 import ProtectedLayout from "./ProtectedLayout";
 import { RequestServiceBooking } from "../Pages/RequestBooking/RequestServiceBooking/RequestServiceBooking";
+import SelectService from "../Pages/PetService/SelectService/SelectService";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -56,7 +57,6 @@ export const router = createBrowserRouter(
         path="ServiceIndividualResult"
         element={<ServiceIndividualResult />}
       />
-
       <Route path="BecomePetHostService" element={<BecomePetHostService />} />
       <Route path="PetCare" element={<PetCare />} />
       <Route path="PetHomeBoarding" element={<PetHomeBoarding />} />
@@ -64,9 +64,10 @@ export const router = createBrowserRouter(
       <Route path="Terms" element={<Terms />} />
       <Route path="AddAnotherPet" element={<AddAnotherPet />} />
       <Route path="AddYourPetLogin" element={<AddYourPetLogin />} />
-      <Route path="AllPetBoarding" element={<AllPetBoarding />} />
-      {/* <Route path="BookingSubmitModal" element={<BookingSubmitModal />} /> */}
 
+      <Route path="AllPetBoarding" element={<AllPetBoarding />} />
+      <Route path="SelectService" element={<SelectService />} />
+      {/* <Route path="BookingSubmitModal" element={<BookingSubmitModal />} /> */}
       <Route
         path="PetHomeBoardingAndService"
         element={<PetHomeBoardingAndService />}
@@ -109,7 +110,6 @@ export const router = createBrowserRouter(
           element={<MyEnquiriesCustomerDB />}
         />
       </Route>
-
       {/* Host layout */}
       <Route path="HostLayout" element={<HostLayout />}>
         <Route path="HostDashBoard" element={<HostDashBoard />} />

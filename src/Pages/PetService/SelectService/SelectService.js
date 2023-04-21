@@ -1,11 +1,14 @@
 import { CardActionArea, Checkbox, Grid } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
+import { useLocation, useNavigate } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { LabelContext } from "../../PetService/LableData";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import CustomTypography from "../../../Components/Typography/Typography";
 import customImages from "../../../Utils/Images";
+import { useDispatch, useSelector } from "react-redux";
+import actions from "../../../Redux/Actions/index";
 import {
   SelectServiceEntries,
   DefaultSelectServiceValues,
@@ -31,6 +34,12 @@ const SelectService = ({ option, disabled }) => {
   } = useForm({
     DefaultSelectServiceValues,
   });
+
+  const dispatch = useDispatch();
+  const { state } = useLocation();
+  console.log(state,"stateValue")
+    const userGet = useSelector((state) => state?.phbbasicdetails);
+
   const toggleCheck = (inputName) => {
     console.log(inputName, "inputName");
     setChecked((prevState) => {
@@ -86,22 +95,34 @@ const SelectService = ({ option, disabled }) => {
   // const [onSubmit, setOnSubmit] = useState();
   const [data, setData] = useState();
   console.log(data,"checkboxValue")
-
-  const onSubmit = (data) => {
-    setData(data);
-    console.log(data, "checkdata");
+  const BesicDetails = state;
+  console.log(BesicDetails, "BesicDetails");
+  const onSubmit = (data1) => {
+    setData(data1);
+    console.log(data1, "checkdata");
     const formData = new FormData();
-    formData.append("meal_type", data.meal_type);
+    formData.append("meal_type", data1.meal_type);
+    // formData.append("image", "img.png");
     // formData.append("meal", data.meal);
     // const addValue = (data1) => value.nextPage(data1);
+    const meal_type = data1.meal_type;
+    const data = {
+      data: { ...state, meal_type },
+      method: "post",
+      apiName: "createPetServiceBasicDetails",
+    };
+    // props.func(formData)
+    console.log(data, "checkDataValue");
+
+    dispatch(actions.PHBBASICDETAILS(data));
   };
-  React.useEffect(() => {
-    console.log(data, "data");
-    if (data !== undefined) {
-      value.nextPage();
-      // alert(data?.);
-    }
-  }, [value, data]);
+  // React.useEffect(() => {
+  //   console.log(data, "data");
+  //   if (data !== undefined) {
+  //     value.nextPage();
+  //     // alert(data?.);
+  //   }
+  // }, [value, data]);
 
   // const handleChange = (event) => {
   //   setChecked((prev) => {
@@ -115,162 +136,164 @@ const SelectService = ({ option, disabled }) => {
   // const checkBoxData= [{ name: "" }]
   return (
     <Grid container md={12} lg={12} xs={12} sm={12}>
-      <Grid container md={12} lg={12} sm={12} xs={12}>
-        {/* <CheckboxLabels
+      <Grid item md={6} lg={6} sm={12} xs={12}></Grid>
+      <Grid item md={6} lg={6} sm={12} xs={12}>
+        <Grid container md={12} lg={12} sm={12} xs={12}>
+          {/* <CheckboxLabels
           labelText="checkBox"
           value={value}
           data={checkBoxData}
         /> */}
-        {SelectServiceEntries?.map((keyValue) => (
-          <Grid
-            item
-            md={keyValue.breakpoint}
-            xs={12}
-            sm={6}
-            className="book_form_align"
-          >
-            <Controller
-              control={control}
-              rules={{
-                required: keyValue?.validation?.required,
-                pattern: keyValue?.pattern,
-                maxLength: keyValue?.validation?.maxLength,
-                // validate: (value) => handleValidate(value),
-              }}
-              render={({ field: { onChange, value } }) => (
-                <>
-                  {keyValue?.isCheckBoxAction && (
-                    <Grid
-                      item
-                      md={12}
-                      my={2}
-                      mx={2}
-                      sm={12}
-                      xs={12}
-                      className="checkboxRow"
-                    >
-                      <MultiCheckboxLabels
-                        data={keyValue?.checkBoxData}
-                        onChange={onChange}
-                        value={value}
-                        disabled={keyValue.disabled}
-                        labelText={keyValue.label}
-                        requiredField={keyValue.requiredField}
-                        id={keyValue.id}
-                        forWidth={keyValue.forWidth}
-                      />
-                    </Grid>
-                  )}
-                  {keyValue?.isCheckBoxEdit && (
-                    <Grid
-                      item
-                      md={12}
-                      lg={12}
-                      my={2}
-                      mx={5}
-                      sm={12}
-                      xs={12}
-                      className="checkboxRow"
-                    >
-                      <CheckboxLabels
-                        labelText={keyValue.label}
-                        // labelText={`${keyValue.label} ${datas}`}
-                        // customClass="icon_data"
-                        onChange={onChange}
-                        value={value}
-                        data={keyValue.checkBoxData}
-                        // disabled={keyValue.disabled}
-                        requiredField={keyValue.requiredField}
-                        id={keyValue.id}
-                        labelPlacement={keyValue.labelPlacement}
-                        // forWidth={keyValue.forWidth}
-                      />
-                      <Grid>
-                        <CustomTypography
-                          type="header"
-                          customClass="check_text_edit"
-                          text="I'm 18 and above"
+          {SelectServiceEntries?.map((keyValue) => (
+            <Grid
+              item
+              md={keyValue.breakpoint}
+              xs={12}
+              sm={6}
+              className="book_form_align"
+            >
+              <Controller
+                control={control}
+                rules={{
+                  required: keyValue?.validation?.required,
+                  pattern: keyValue?.pattern,
+                  maxLength: keyValue?.validation?.maxLength,
+                  // validate: (value) => handleValidate(value),
+                }}
+                render={({ field: { onChange, value } }) => (
+                  <>
+                    {keyValue?.isCheckBoxAction && (
+                      <Grid
+                        item
+                        md={12}
+                        my={2}
+                        mx={2}
+                        sm={12}
+                        xs={12}
+                        className="checkboxRow"
+                      >
+                        <MultiCheckboxLabels
+                          data={keyValue?.checkBoxData}
+                          onChange={onChange}
+                          value={value}
+                          disabled={keyValue.disabled}
+                          labelText={keyValue.label}
+                          requiredField={keyValue.requiredField}
+                          id={keyValue.id}
+                          forWidth={keyValue.forWidth}
                         />
                       </Grid>
-                    </Grid>
-                  )}
-                </>
+                    )}
+                    {keyValue?.isCheckBoxEdit && (
+                      <Grid
+                        item
+                        md={12}
+                        lg={12}
+                        my={2}
+                        mx={5}
+                        sm={12}
+                        xs={12}
+                        className="checkboxRow"
+                      >
+                        <CheckboxLabels
+                          labelText={keyValue.label}
+                          // labelText={`${keyValue.label} ${datas}`}
+                          // customClass="icon_data"
+                          onChange={onChange}
+                          value={value}
+                          data={keyValue.checkBoxData}
+                          // disabled={keyValue.disabled}
+                          requiredField={keyValue.requiredField}
+                          id={keyValue.id}
+                          labelPlacement={keyValue.labelPlacement}
+                          // forWidth={keyValue.forWidth}
+                        />
+                        <Grid>
+                          <CustomTypography
+                            type="header"
+                            customClass="check_text_edit"
+                            text="I'm 18 and above"
+                          />
+                        </Grid>
+                      </Grid>
+                    )}
+                  </>
+                )}
+                name={keyValue?.name}
+              />
+              {errors && errors[keyValue?.name]?.type === "required" && (
+                <Grid>
+                  <CustomTypography
+                    text={`${keyValue?.error_message}`}
+                    colorType="error"
+                    type="error"
+                  />
+                </Grid>
               )}
-              name={keyValue?.name}
-            />
-            {errors && errors[keyValue?.name]?.type === "required" && (
-              <Grid>
-                <CustomTypography
-                  text={`${keyValue?.error_message}`}
-                  colorType="error"
-                  type="error"
-                />
-              </Grid>
-            )}
-            {errors && errors[keyValue?.name]?.type === "maxLength" && (
-              <Grid>
-                <CustomTypography
-                  text="Invalid Format"
-                  colorType="error"
-                  type="error"
-                />
-              </Grid>
-            )}
-            {errors && errors[keyValue?.name]?.type === "pattern" && (
-              <Grid>
-                <CustomTypography
-                  text={`${keyValue?.validation_error_message}`}
-                  colorType="error"
-                  type="error"
-                />
-              </Grid>
-            )}
-            {errors && errors[keyValue?.name]?.type === "focus" && (
-              <Grid>
-                <CustomTypography
-                  text={`${keyValue?.validation_error_message}`}
-                  colorType="error"
-                  type="error"
-                />
-              </Grid>
-            )}
-          </Grid>
-        ))}
-      </Grid>
-      <Grid
-        container
-        md={12}
-        lg={12}
-        sm={12}
-        xs={12}
-        display="inline-flex"
-        justifyContent="space-around"
-        pt={"60px"}
-      >
-        <Grid item xs={5}></Grid>
-        <Grid item>
-          <CustomButton
-            btnTitle="Next"
-            variant="contained"
-            color="primary"
-            btnStyles={{
-              color: "#fff",
-              background: "#f85a47",
-              width: {
-                lg: "250px",
-                md: "200px",
-                sm: "150px",
-                xs: "200px",
-              },
-              fontSize: "17px",
-              fontFamily: "Poppins_Medium",
-            }}
-            onClickHandle={handleSubmit(onSubmit)}
-          />
+              {errors && errors[keyValue?.name]?.type === "maxLength" && (
+                <Grid>
+                  <CustomTypography
+                    text="Invalid Format"
+                    colorType="error"
+                    type="error"
+                  />
+                </Grid>
+              )}
+              {errors && errors[keyValue?.name]?.type === "pattern" && (
+                <Grid>
+                  <CustomTypography
+                    text={`${keyValue?.validation_error_message}`}
+                    colorType="error"
+                    type="error"
+                  />
+                </Grid>
+              )}
+              {errors && errors[keyValue?.name]?.type === "focus" && (
+                <Grid>
+                  <CustomTypography
+                    text={`${keyValue?.validation_error_message}`}
+                    colorType="error"
+                    type="error"
+                  />
+                </Grid>
+              )}
+            </Grid>
+          ))}
         </Grid>
-      </Grid>
-      <Grid className="selectService" m={1}>
-        {/* <CardActionArea className="selectServiceImg">
+        <Grid
+          container
+          md={12}
+          lg={12}
+          sm={12}
+          xs={12}
+          display="inline-flex"
+          justifyContent="space-around"
+          pt={"60px"}
+        >
+          <Grid item xs={5}></Grid>
+          <Grid item>
+            <CustomButton
+              btnTitle="Next"
+              variant="contained"
+              color="primary"
+              btnStyles={{
+                color: "#fff",
+                background: "#f85a47",
+                width: {
+                  lg: "250px",
+                  md: "200px",
+                  sm: "150px",
+                  xs: "200px",
+                },
+                fontSize: "17px",
+                fontFamily: "Poppins_Medium",
+              }}
+              onClickHandle={handleSubmit(onSubmit)}
+            />
+          </Grid>
+        </Grid>
+        <Grid className="selectService" m={1}>
+          {/* <CardActionArea className="selectServiceImg">
           <img src={customImages.Service} alt="" className="selectImg" />
           <input
             type="checkbox"
@@ -287,9 +310,9 @@ const SelectService = ({ option, disabled }) => {
             customClass="selectImgText"
           />
         </Grid> */}
-      </Grid>
-      <Grid className="selectService" m={1}>
-        {/* <CardActionArea className="selectServiceImg">
+        </Grid>
+        <Grid className="selectService" m={1}>
+          {/* <CardActionArea className="selectServiceImg">
           <img src={customImages.Service} alt="" className="selectImg" />
           <input
             type="checkbox"
@@ -299,14 +322,16 @@ const SelectService = ({ option, disabled }) => {
             className="checkPosition"
           />
         </CardActionArea> */}
-        {/* <Grid className="selectServiceText">
+          {/* <Grid className="selectServiceText">
           <CustomTypography
             type="header"
             text="Pet Grooming"
             customClass="selectImgText"
           />
         </Grid> */}
+        </Grid>
       </Grid>
+
       {/* <Grid className="selectService" m={1}>
         <CardActionArea onClick={OnHandleChange} className="selectServiceImg">
           <input

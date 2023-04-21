@@ -40,6 +40,22 @@ export default function ServiceCardsSection({
   //     reviews: "(75 reviews)",
   //   },
   // ];
+  // alert(JSON.stringify(Data));
+  React.useEffect(() => {
+    // if (Data === "") {
+    //   window.location.reload();
+    //   alert("1");
+    // }
+    // if (!Data) {
+    //   window.location.reload();
+    //   alert("2");
+    // }
+    if (typeof Data !== "object" || !Data.map) {
+      alert("Data is not an array", Data);
+      // or return an error message, or do something else
+    }
+  }, []);
+
   const [currentPage, setCurrentPage] = React.useState(1);
 
   const [postsPerPage] = React.useState(nos);
@@ -132,7 +148,7 @@ export default function ServiceCardsSection({
                                     alt="location"
                                   />
                                   <CustomTypography
-                                    text={item.type}
+                                    text={item?.type}
                                     type="title"
                                     customStyle={{ fontSize: "10px" }}
                                     colorType="senary"
@@ -191,6 +207,6 @@ export default function ServiceCardsSection({
   );
 }
 
-ServiceCardsSection.propTypes = {
-  Data: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
-};
+// ServiceCardsSection.propTypes = {
+//   Data: PropTypes.any.isRequired,
+// };

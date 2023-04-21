@@ -1,6 +1,6 @@
 {
   "name": "pet-howz",
-  "homepage":"http://122.165.52.124:8000",
+  "homepage": "http://122.165.52.124:8000/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

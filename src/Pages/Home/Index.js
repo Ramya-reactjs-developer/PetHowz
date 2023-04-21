@@ -21,6 +21,7 @@ import {
 
 import { Link } from "react-router-dom";
 import HomePetCardsSection from "../../Components/homeBoarding/homeBoarding";
+import CustomFonts from "../../Utils/Fonts";
 
 export const HomePage = () => {
   const dispatch = useDispatch();
@@ -89,7 +90,9 @@ export const HomePage = () => {
   // const [searchDropdownData, setSearchDropdownData] = useState({ city: "" });
   const [dropList, setDropList] = useState(false);
   const [cityResult, setCityResult] = useState(false);
+  const [cityHide, setCityHide] = useState(false);
   const [localityList, setLocalityList] = useState(false);
+  const [localityHide, setLocalityHide] = useState(false);
   const [localityResult, setLocalityResult] = useState(false);
 
   //tab
@@ -116,6 +119,8 @@ export const HomePage = () => {
   console.log(tabValue, "tabvalue");
   //search city
   const OnSetDropdownSearch = (e) => {
+    // setOverAllSearchData({ ...overAllSearchData, city: "" });
+    setCityHide(true);
     setSearchData({ ...searchData, city: e?.target?.value });
     var updatedValue = { city: e?.target?.value };
     const data1 = {
@@ -124,27 +129,30 @@ export const HomePage = () => {
       apiName: "getAllCity",
     };
 
-    if (updatedValue?.city?.length >= 0) {
+    if (updatedValue?.city?.length >= 2) {
       dispatch(actions?.SEARCHCITY(data1));
 
       // setDropListResult(true);
-    } else if (updatedValue?.city?.length === 0) {
+    } else {
       setDropList(false);
     }
-    if (AllCity?.searchcity?.data?.length !== 0) {
-      setCityResult(true);
-      setDropList(true);
-    } else {
-      setCityResult(false);
-    }
+    // else if (updatedValue?.city?.length === 0) {
+    //   setDropList(false);
+    // }
+
+    // else {
+    //   setCityResult(false);
+    // }
   };
 
   //search loaclity
   const OnSetSearch = (e) => {
+    setLocalityHide(true);
+
     setSearchData({ ...searchData, locality: e?.target?.value });
     var updatedValue = { locality: e?.target?.value };
     const data1 = {
-      data: { ...updatedValue, city: searchData?.city },
+      data: { ...updatedValue, city: overAllSearchData?.city },
       method: "post",
       apiName: "getLocality",
     };
@@ -152,16 +160,39 @@ export const HomePage = () => {
       dispatch(actions?.SEARCHCITYGETLOCALITY(data1));
 
       // setDropListResult(true);
-    } else if (updatedValue?.locality?.length === 0) {
+    } else {
       setLocalityList(false);
     }
+    //  else if (updatedValue?.locality?.length === 0) {
+    //   setLocalityList(false);
+    // }
+  };
+  React.useEffect(() => {
+    if (AllCity?.searchcity?.data?.length !== 0) {
+      setDropList(true);
+      setCityResult(true);
+    } else {
+      setCityResult(false);
+    }
+
     if (AllLocality?.searchcitygetlocality?.data?.length !== 0) {
       setLocalityResult(true);
       setLocalityList(true);
     } else {
       setLocalityResult(false);
     }
-  };
+  }, [
+    AllCity,
+    AllLocality,
+    searchData,
+    cityResult,
+    localityHide,
+    overAllSearchData,
+    localityHide,
+    localityList,
+    localityResult,
+    AllLocality,
+  ]);
 
   const dropdownData = [
     {
@@ -180,9 +211,10 @@ export const HomePage = () => {
   const handleselect = (item) => {
     console.log(item, "e.taget");
     // setSearchData({ ...searchData, pet_type: tabValue });
-    setSearchData({ ...searchData, city: item });
-    setOverAllSearchData({ ...overAllSearchData, city: item });
+    setSearchData({ ...searchData, city: item, locality: "" });
+    setOverAllSearchData({ ...overAllSearchData, city: item, locality: "" });
     setDropList(false);
+    setCityHide(false);
     // setSearchDropdownData(
     //   item
     //   //   {
@@ -197,6 +229,7 @@ export const HomePage = () => {
     setSearchData({ ...searchData, locality: item });
     setOverAllSearchData({ ...overAllSearchData, locality: item });
     setLocalityList(false);
+    setLocalityHide(false);
   };
 
   // if (searchData.city !== "" || searchData.locality !== "" || tabValue === 1) {
@@ -207,10 +240,7 @@ export const HomePage = () => {
   //   };
   //   dispatch(actions.OVERALLSEARCH(data));
   // }
-
-  useEffect(() => {
-    console.log(overAllSearchData, "hhhhhh");
-  }, [searchData, cityResult]);
+  console.log(AllCity, "hhhhhh");
 
   // const SendResult = overAllSearchResultValue?.overallsearch?.data;
   //overAllSearch
@@ -226,7 +256,9 @@ export const HomePage = () => {
     }
     if (
       overAllSearchData?.city !== ("" && undefined) &&
+      searchData?.city?.length >= 3 &&
       overAllSearchData?.locality !== ("" && undefined) &&
+      searchData?.locality?.length >= 3 &&
       tabValue === 0
     ) {
       navigate("/ServiceResult", {
@@ -332,13 +364,13 @@ export const HomePage = () => {
                   text="FIND PET BOARDING SPACES"
                   type="heading2"
                   colorType="primary"
-                  customStyle={{ fontFamily: "Cooper" }}
+                  customStyle={{ fontFamily: "cooper_regular" }}
                 />
                 <CustomTypography
                   text="& PET SERVICE PROVIDERS"
                   type="heading2"
                   colorType="primary"
-                  customStyle={{ fontFamily: "Cooper" }}
+                  customStyle={{ fontFamily: "cooper_regular" }}
                 />
               </Box>
               <Box sx={SearchBarStyle}>
@@ -362,10 +394,18 @@ export const HomePage = () => {
                     dropdownValue={searchData?.city}
                     SearchValue={searchData?.locality}
                     dropdownName={"city"}
+                    cityHide={cityHide}
+                    handleDropdownClick={() => {
+                      setLocalityHide(false);
+                    }}
                     handleDropdownChange={(e) => {
                       OnSetDropdownSearch(e);
                     }}
                     // SearchValue={searchData}
+                    localityHide={localityHide}
+                    handleSearchClick={() => {
+                      setCityHide(false);
+                    }}
                     handleSearch={(e) => {
                       OnSetSearch(e);
                     }}

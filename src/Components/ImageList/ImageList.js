@@ -11,19 +11,23 @@ export default function ImageList(props) {
       return (
         <Grid container md={12} sm={12} lg={12} xs={12} >
          {imageLists.map((item) => {
-            return(
-            <Grid item md={4} lg={4} pt={3} display="flex">
-            <Grid item className="ImageAmenities">
-              <img src={item.image} alt="" />
-            </Grid>
-            <Grid item pl={2}>
-              <CustomTypography
-                type="head"
-                text={item.text}
-                customClass="aboutPetSpace"
-              />
-            </Grid>
-          </Grid>
+            return (
+              <Grid item md={4} lg={4} pt={3} display="flex">
+                <Grid item className="ImageAmenities">
+                  <img src={item.image} alt="" />
+                </Grid>
+                <Grid item pl={2}>
+                  <CustomTypography
+                    type="head"
+                    text={item.text}
+                    customClass="aboutPetSpace"
+                    // className={`${
+                    //   (type === "NotOverWrite" && "aboutPetSpace") ||
+                    //   (type === "OverWrite" && "aboutPetSpaceOverWrite")
+                    // }`}
+                  />
+                </Grid>
+              </Grid>
             );
  })}
         </Grid>
