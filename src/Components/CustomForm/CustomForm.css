@@ -66,7 +66,7 @@
 .dateIconEdit .MuiOutlinedInput-input {
   border: " 2px solid #c1c1c1!important";
   cursor: pointer;
-  padding: 8.5px 14px !important;
+  /* padding: 8.5px 14px !important; */
 }
 
 .dateIconEdit .MuiInputBase-input-MuiOutlinedInput-input {

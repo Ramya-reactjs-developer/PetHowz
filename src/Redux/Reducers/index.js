@@ -22,6 +22,8 @@ import PHBAYPetSpaceSlice from "../Slices/PetHomeBoardingSlice/PHBAYPetSpaceSlic
 import PHBRulesAmentiesSlice from "../Slices/PetHomeBoardingSlice/PHBRulesAmentiesSlice";
 import PHBAddOnsSlice from "../Slices/PetHomeBoardingSlice/PHBAddOnsSlice";
 import aboutPetSlice from "../Slices/AboutPet/AboutPet";
+import createPackageSlice from "../Slices/CreatePackage/CreatePackage";
+import basicDetailsSlice from "../Slices/ServiceBasicDetails/BasicDetails";
 
 const reducer = combineReducers({
   grooming: groomingSlice,
@@ -51,6 +53,8 @@ const reducer = combineReducers({
   phbrulesamenties: PHBRulesAmentiesSlice,
   phbaddons: PHBAddOnsSlice,
   aboutPet: aboutPetSlice,
+  createPackage: createPackageSlice,
+  basicDetails: basicDetailsSlice,
 });
 
 const store = configureStore({
