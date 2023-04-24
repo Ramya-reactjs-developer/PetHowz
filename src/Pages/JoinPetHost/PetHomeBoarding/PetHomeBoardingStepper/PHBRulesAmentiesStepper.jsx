@@ -136,21 +136,27 @@ const PHBRulesAmenties = () => {
     console.log(data1, "checkdata");
 
     dispatch(actions.PHBRULESAMENTIES(data));
-    setResetValue(defaultValues);
   };
   console.log(userGet?.phbbasicdetails?.data.pet_space_id, "id");
   React.useEffect(() => {
-    if (rulesAmenties?.phbrulesamenties?.message === "SUCCESS") {
-      Swal.fire(
-        "Rules & Amenties Added Successfully",
-        "Thank You",
-        "success"
-      ).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-          value.nextPage();
-        }
-      });
+    // if (rulesAmenties?.phbrulesamenties?.message === "SUCCESS" &&  value.page === 3) {
+    //   Swal.fire(
+    //     "Rules & Amenties Added Successfully",
+    //     "Thank You",
+    //     "success"
+    //   ).then((result) => {
+    //     /* Read more about isConfirmed, isDenied below */
+    //     if (result.isConfirmed) {
+    //       value.nextPage();
+    //     }
+    //   });
+    // }
+    if (
+      rulesAmenties?.phbrulesamenties?.message === "SUCCESS" &&
+      value.page === 3
+    ) {
+      setResetValue(defaultValues);
+      value.nextPage();
     }
   }, [userGet, value, rulesAmenties]);
   // const onNext = () => {
@@ -161,7 +167,7 @@ const PHBRulesAmenties = () => {
   return (
     <form>
       <h4> Become a Pet Service Provider</h4>
-      <h5> Fill up details about the pet boarding</h5>
+      {/* <h5> Fill up details about the pet boarding</h5> */}
       <Grid container className="NewsBorder" md={12}>
         {PHBRulesAmentiesEntries?.map((keyValue) => (
           <Grid item md={keyValue.breakpoint} sm={12} xs={12}>
@@ -233,8 +239,9 @@ const PHBRulesAmenties = () => {
                       <CustomTypography
                         type="header"
                         text={keyValue.text}
-                        customClass={keyValue.customClass}
-                        colorType={keyValue.colorType}
+                        customStyle={{ fontWeight: "700" }}
+                        // customClass={keyValue.customClass}
+                        colorType={"text"}
                       />
                       <CustomTypography
                         type="title"
