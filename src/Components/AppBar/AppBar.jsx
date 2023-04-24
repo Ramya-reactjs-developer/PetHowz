@@ -81,8 +81,13 @@ const Header = (props) => {
     // } else {
     //   setLoginCheck(true);
     // }
-    localStorage.setItem("user_type", loginAdmin?.data?.data?.user_type);
-  }, [loginCheck, login, user_type]);
+    if (
+      loginAdmin?.data?.data?.user_type !== "" &&
+      loginAdmin?.data?.data?.user_type !== undefined
+    ) {
+      localStorage.setItem("user_type", loginAdmin?.data?.data?.user_type);
+    }
+  }, [loginCheck, login, user_type, dispatch]);
 
   const onLogin = () => {
     navigate("/petHowz/Login", {
@@ -98,12 +103,12 @@ const Header = (props) => {
   // };
   const onLogout = () => {
     localStorage.clear();
-    // window.location.reload();
+
     const data = { data: {}, method: "get", apiName: "" };
     dispatch(actions.LOGIN_ADMIN(data));
     setTimeout(() => {
       navigate("/petHowz/Login");
-    }, 500);
+    }, 1500);
   };
   const onGoToProfile = () => {
     // if (loginAdmin?.data?.data?.user_type === 0) {

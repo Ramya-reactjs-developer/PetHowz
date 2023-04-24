@@ -39,8 +39,8 @@ function MultiCheckboxLabels(props) {
         <FormLabel id="demo-controlled-radio-buttons-group">
           <CustomTypography
             text={labelText}
-            colorType="primary"
-            customClass="textLabel"
+            colorType="text"
+            customStyle={{ fontFamily: "Roboto-Regular" }}
           />
         </FormLabel>
         <FormGroup
@@ -48,14 +48,14 @@ function MultiCheckboxLabels(props) {
           name="controlled-radio-buttons-group"
           onChange={handleChange}
           value={value}
-          style={{ display: "flex", flexDirection: "row" }}
+          sx={{ display: "flex", flexDirection: "row" }}
         >
           {data?.map((item, index) => {
             const key = index;
             return (
               <Grid key={key}>
                 <FormControlLabel
-                  style={{ display: "flex" }}
+                  sx={{ display: "flex" }}
                   id={id && "customStyle"}
                   control={
                     <Checkbox

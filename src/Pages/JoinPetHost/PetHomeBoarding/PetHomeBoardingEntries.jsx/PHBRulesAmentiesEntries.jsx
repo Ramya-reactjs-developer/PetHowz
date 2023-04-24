@@ -1,5 +1,12 @@
 export const PHBRulesAmentiesEntries = [
   {
+    isCustomTypography: true,
+    name: "",
+    text: "Amenties",
+    breakpoint: 12,
+    customClass: "login_header",
+  },
+  {
     isRadioAction: true,
     name: "do_you_have_deticated_boardng_area_for_pets",
     label: "Do you have dedicated boarding area for pets?",
