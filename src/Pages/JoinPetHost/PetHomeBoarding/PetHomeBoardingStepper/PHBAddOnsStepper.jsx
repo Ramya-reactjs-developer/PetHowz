@@ -16,12 +16,14 @@ import {
 import CustomIcons from "../../../../Utils/Icons/Index";
 import CustomImageUploader from "../../../../Components/FileUploader/FileUpload";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 const PHBAddOns = (props) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userGet = useSelector((state) => state?.phbbasicdetails);
   const AboutYou = useSelector((state) => state?.phbaboutyou);
+  const AddOns = useSelector((state) => state?.phbaddons);
   console.log(userGet?.phbbasicdetails?.data.pet_space_id, "d");
   console.log(AboutYou, "lll");
   const defaultValues = DefaultPHBAddOnsValues;
@@ -98,16 +100,39 @@ const PHBAddOns = (props) => {
     };
     console.log(data1, "dddd");
     console.log(formData, "dddd1");
-
+    setResetValue(data1);
     dispatch(actions.PHBADDONS(data));
-    setResetValue(defaultValues);
-    navigate("/HostLayout/HostDashBoard");
   };
   React.useEffect(() => {
-    // if (AboutYou?.phbaboutyou?.message === "SUCCESS") {
-    //   value.nextPage();
-    // }
-  }, [userGet, AboutYou, value]);
+    console.log(resetValue, "reset");
+    if (
+      AddOns?.phbaddons?.message === "SUCCESS" &&
+      resetValue.package_name !== ""
+    ) {
+      Swal.fire("Addons Added Successfully", "Thank You", "success").then(
+        (result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            navigate("/petHowz/HostLayout/HostDashBoard");
+          }
+        }
+      );
+    } else if (
+      AddOns?.phbaddons?.message === "SUCCESS" &&
+      resetValue.package_name === ""
+    ) {
+      Swal.fire(
+        "Addons Added Successfully",
+        "Add Another Package",
+        "success"
+      ).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          setResetValue();
+        }
+      });
+    }
+  }, [userGet, AboutYou, value, AddOns]);
   return (
     <form>
       <h4> Become a Pet Service Provider</h4>

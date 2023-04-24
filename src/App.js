@@ -1,10 +1,11 @@
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./Assets/Theme/Index";
 import { Provider } from "react-redux";
-import store from './Redux/Reducers';
+import store from "./Redux/Reducers";
 import RouterNavigation from "./Router/Index";
 // import Login from "./Pages/Login/Login";
-import './App.css';
+import "./App.css";
+import React from "react";
 // import { Grooming } from "./Pages/Grooming/Grooming";
 // import { HomePage } from "./Pages/Home/Index";
 // import Masters from './Pages/Masters/Index';

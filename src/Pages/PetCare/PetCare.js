@@ -121,9 +121,9 @@ const PetCare = () => {
   const login = localStorage.getItem("LoginChecker");
   const onRequest = () => {
     if (login !== null) {
-      navigate("/RequestBooking");
+      navigate("/petHowz/RequestBooking");
     } else {
-      navigate("/login", { state: "/RequestBooking" });
+      navigate("/petHowz/login", { state: "/petHowz/RequestBooking" });
     }
   };
   const petPhotos = petCare?.data?.petHomeImages?.map((data) => data?.photos);

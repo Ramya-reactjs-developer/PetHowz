@@ -13,6 +13,7 @@ import CustomTypography from "../../../../Components/Typography/Typography";
 import CustomRadioButton from "../../../../Components/RadioButton/RadioButton";
 import CustomSelect from "../../../../Components/Select/Select";
 import CustomButton from "../../../../Components/Button/Button";
+import Swal from "sweetalert2";
 
 const PHBAboutYou = (props) => {
   const dispatch = useDispatch();
@@ -84,8 +85,15 @@ const PHBAboutYou = (props) => {
     setResetValue(defaultValues);
   };
   React.useEffect(() => {
-    if (AboutYou?.phbaboutyou?.message === "SUCCESS") {
-      value.nextPage();
+    if (AboutYou?.phbaboutyou?.message === "SUCCESS" && value.page === 1) {
+      Swal.fire("About You Added Successfully", "Thank You", "success").then(
+        (result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            value.nextPage();
+          }
+        }
+      );
     }
   }, [userGet, AboutYou, value]);
   return (

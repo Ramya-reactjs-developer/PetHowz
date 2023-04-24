@@ -380,9 +380,9 @@ const SelectService = ({ option, disabled }) => {
           style={{ marginTop: 15 }}
         >
           <Button
-            // disabled={!btnDisabled}
+            disabled={!btnDisabled}
             onClick={() => value.nextPage()}
-            // style={{ margin: 25 }}
+            style={{ margin: 25 }}
           >
             Next
           </Button>

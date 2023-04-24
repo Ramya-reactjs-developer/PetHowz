@@ -204,6 +204,7 @@ import CustomButton from "../../../../Components/Button/Button";
 import CustomForm from "../../../../Components/CustomForm/CustomForm";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../../Redux/Actions";
+import Swal from "sweetalert2";
 
 const PHBBasicDetails = (props) => {
   const dispatch = useDispatch();
@@ -280,7 +281,14 @@ const PHBBasicDetails = (props) => {
   };
   const onNext = () => {
     if (userGet?.phbbasicdetails?.message === "SUCCESS" && value.page === 0) {
-      value.nextPage();
+      Swal.fire("Details Added Successfully", "Thank You", "success").then(
+        (result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            value.nextPage();
+          }
+        }
+      );
     }
   };
   React.useEffect(() => {

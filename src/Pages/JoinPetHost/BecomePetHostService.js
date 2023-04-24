@@ -21,8 +21,8 @@ export const BecomePetHostService = () => {
       id: 1,
       image: CustomImages.Dog1,
       text: "Pet Home Boarding",
-      nav1: "/PetHomeBoarding",
-      nav2: "/login",
+      nav1: "/petHowz/PetHomeBoarding",
+      nav2: "/petHowz/login",
     },
     // {
     //   id: 2,
@@ -34,8 +34,8 @@ export const BecomePetHostService = () => {
       id: 2,
       image: CustomImages.Dog2,
       text: "Pet Services",
-      nav1: "/PetHomeBoarding",
-      nav2: "/login",
+      nav1: "/petHowz/PetHomeBoarding",
+      nav2: "/petHowz/login",
     },
   ];
   const imagePaths = [
@@ -60,16 +60,16 @@ export const BecomePetHostService = () => {
   // }
   const onPetBoarding = () => {
     if (login !== null) {
-      navigate("/PetHomeBoarding");
+      navigate("/petHowz/PetHomeBoarding");
     } else {
-      navigate("/login", { state: "/PetHomeBoarding" });
+      navigate("/petHowz/login", { state: "/petHowz/PetHomeBoarding" });
     }
   };
   const onPetService = () => {
     if (login !== null) {
-      navigate("/PetService");
+      navigate("/petHowz/PetService");
     } else {
-      navigate("/login", { state: "/PetHomeBoarding" });
+      navigate("/petHowz/login", { state: "/petHowz/PetHomeBoarding" });
     }
   };
   return (
