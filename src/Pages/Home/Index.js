@@ -250,7 +250,7 @@ export const HomePage = () => {
       overAllSearchData?.locality !== "" &&
       tabValue === 1
     ) {
-      navigate("/BoardingResult", {
+      navigate("/petHowz/BoardingResult", {
         state: overAllSearchData,
       });
     }
@@ -261,7 +261,7 @@ export const HomePage = () => {
       searchData?.locality?.length >= 3 &&
       tabValue === 0
     ) {
-      navigate("/ServiceResult", {
+      navigate("/petHowz/ServiceResult", {
         state: overAllSearchData,
       });
     }
@@ -309,7 +309,7 @@ export const HomePage = () => {
   const onClickHandle = (item, index) => {
     const petKey = item;
     console.log(petKey, "petKeypetKey");
-    navigate("/petCare", {
+    navigate("/petHowz/petCare", {
       // state: petKey,
       state: petKey,
       // state: id_pass,
@@ -332,7 +332,7 @@ export const HomePage = () => {
   }, [ourService]);
 
   const onHandleClick = (key, index) => {
-    navigate("/grooming", {
+    navigate("/petHowz/grooming", {
       state: tmpIdArr[key],
       // state: id_pass,
       // id_pass,
@@ -473,7 +473,7 @@ export const HomePage = () => {
         })}
       </Grid>
       <Grid item textAlign={"center"} xs={12} pt={"40px"} pb={"40px"}>
-        <Link to="/AllServices" style={{ textDecoration: "none" }}>
+        <Link to="/petHowz/AllServices" style={{ textDecoration: "none" }}>
           <CustomButton
             btnTitle="Discover More!"
             color="primary"
@@ -502,7 +502,7 @@ export const HomePage = () => {
           </Box>
         </Grid>
         <Grid item textAlign={"center"} xs={12} pt={"60px"} pb={"60px"}>
-          <Link to="/AllPetBoarding" style={{ textDecoration: "none" }}>
+          <Link to="/petHowz/AllPetBoarding" style={{ textDecoration: "none" }}>
             <CustomButton
               btnTitle="Discover More!"
               color="primary"

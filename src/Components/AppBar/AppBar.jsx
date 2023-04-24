@@ -74,16 +74,20 @@ const Header = (props) => {
   const login = localStorage.getItem("LoginChecker");
   const user_type = localStorage.getItem("user_type");
   console.log(login, "login");
+  console.log(user_type, "user_type");
   React.useEffect(() => {
     // if (login === undefined) {
     //   setLoginCheck(false);
     // } else {
     //   setLoginCheck(true);
     // }
-  }, [loginCheck, login]);
+    localStorage.setItem("user_type", loginAdmin?.data?.data?.user_type);
+  }, [loginCheck, login, user_type]);
 
   const onLogin = () => {
-    navigate("/Login", { state: "/CustomerLayout/CustomerDashBoard" });
+    navigate("/petHowz/Login", {
+      state: "/petHowz/CustomerLayout/CustomerDashBoard",
+    });
   };
   // const onLogout = () => {
   //   localStorage.clear();
@@ -98,16 +102,23 @@ const Header = (props) => {
     const data = { data: {}, method: "get", apiName: "" };
     dispatch(actions.LOGIN_ADMIN(data));
     setTimeout(() => {
-      navigate("/Login");
+      navigate("/petHowz/Login");
     }, 500);
   };
   const onGoToProfile = () => {
-    if (loginAdmin?.data?.data?.user_type === 0) {
-      navigate("/CustomerLayout/CustomerDashBoard");
-    } else if (loginAdmin?.data?.data?.user_type === 1 || user_type === "1") {
-      navigate("/CustomerLayout/CustomerDashBoard");
-    } else if (loginAdmin?.data?.data?.user_type === 2 || user_type === "2") {
-      navigate("/HostLayout/HostDashBoard");
+    // if (loginAdmin?.data?.data?.user_type === 0) {
+    //   navigate("/petHowz/CustomerLayout/CustomerDashBoard");
+    // } else if (loginAdmin?.data?.data?.user_type === 1 || user_type === "1") {
+    //   navigate("/petHowz/CustomerLayout/CustomerDashBoard");
+    // } else if (loginAdmin?.data?.data?.user_type === 2 || user_type === "2") {
+    //   navigate("/petHowz/HostLayout/HostDashBoard");
+    // }
+    if (user_type === "0") {
+      navigate("/petHowz/CustomerLayout/CustomerDashBoard");
+    } else if (user_type === "1") {
+      navigate("/petHowz/CustomerLayout/CustomerDashBoard");
+    } else if (user_type === "2") {
+      navigate("/petHowz/HostLayout/HostDashBoard");
     }
   };
   return (
@@ -212,7 +223,7 @@ const Header = (props) => {
                     onChange={(e, value) => setValue(value)}
                   >
                     <Link
-                      to="/"
+                      to="/petHowz"
                       activeClassName="active"
                       style={{ textDecoration: "none" }}
                     >
@@ -220,7 +231,7 @@ const Header = (props) => {
                       <Tab className="text_align" label="Home" />
                     </Link>
                     <Link
-                      to="/AllPetBoarding"
+                      to="/petHowz/AllPetBoarding"
                       activeClassName="active"
                       style={{ textDecoration: "none" }}
                     >
@@ -229,7 +240,7 @@ const Header = (props) => {
                     </Link>
                     <Link
                       exact
-                      to="/BecomePetHostService"
+                      to="/petHowz/BecomePetHostService"
                       activeClassName="active"
                       className="nav-links"
                       style={{ textDecoration: "none" }}
@@ -238,7 +249,7 @@ const Header = (props) => {
                     </Link>
                     <Link
                       exact
-                      to="/AllServices"
+                      to="/petHowz/AllServices"
                       activeClassName="active"
                       className="nav-links"
                       style={{ textDecoration: "none" }}

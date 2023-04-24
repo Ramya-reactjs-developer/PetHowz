@@ -24,7 +24,6 @@ export const Grooming = () => {
     "ourServiceById"
   );
 
-
   const { ourService } = useSelector((state) => state?.ourService);
   console.log(ourService, "ourService");
 

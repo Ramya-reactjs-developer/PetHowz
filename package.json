@@ -1,6 +1,7 @@
 {
   "name": "pet-howz",
   "version": "0.1.0",
+  "homepage": "http://122.165.52.124:8081/petHowz",
   "private": true,
   "dependencies": {
     "@babel/preset-env": "^7.20.2",

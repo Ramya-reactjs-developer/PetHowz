@@ -46,6 +46,7 @@ function Login() {
    *
    * @param {*} e
    */
+
   const onSubmit = (dat) => {
     const data = { data: dat, method: "post", apiName: "userLogin" };
     dispatch(actions.LOGIN_ADMIN(data));
@@ -102,11 +103,11 @@ function Login() {
       if (state !== null) {
         navigate(state);
       } else if (state === null && loginAdmin?.data?.data?.user_type === 0) {
-        navigate("/CustomerLayout/CustomerDashBoard");
+        navigate("/petHowz/CustomerLayout/CustomerDashBoard");
       } else if (state === null && loginAdmin?.data?.data?.user_type === 1) {
-        navigate("/CustomerLayout/CustomerDashBoard");
+        navigate("/petHowz/CustomerLayout/CustomerDashBoard");
       } else if (state === null && loginAdmin?.data?.data?.user_type === 2) {
-        navigate("/HostLayout/HostDashBoard");
+        navigate("/petHowz/HostLayout/HostDashBoard");
       }
       // else if (state !== "" && UserType === "0" && UserType !== null) {
       //   navigate("/");
@@ -126,7 +127,7 @@ function Login() {
     }, 1000);
   };
   const onSignup = () => {
-    navigate("/registertopethowz", { state: state });
+    navigate("/petHowz/registertopethowz", { state: state });
   };
   return (
     <Grid container sm={12} xs={12}>

@@ -61,7 +61,7 @@ export const RegisterToPethowz = (props) => {
       (result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          navigate("/AddAddress", { state: state });
+          navigate("/petHowz/AddAddress", { state: state });
         }
       }
     );

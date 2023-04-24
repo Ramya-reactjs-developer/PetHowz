@@ -1,9 +1,6 @@
 import React from "react";
 import customImages from "../../Utils/Images";
-import {
-  Box,
-  Grid,
-} from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../Redux/Actions/index";
@@ -11,7 +8,6 @@ import CustomTypography from "../../Components/Typography/Typography";
 import ImageCards from "../../Components/Cards/ImageCards";
 
 export const AllServices = () => {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { ourService } = useSelector((state) => state?.ourService);
@@ -45,13 +41,12 @@ export const AllServices = () => {
   }, [ourService]);
 
   const onHandleClick = (key, index) => {
-    navigate("/grooming", {
+    navigate("/petHowz/grooming", {
       state: tmpIdArr[key],
       // state: id_pass,
       // id_pass,
     });
   };
-
 
   const AllSevices = [
     {
@@ -155,7 +150,7 @@ export const AllServices = () => {
           p: "20px",
         }}
       >
-        {ourService?.data?.map((item,index) => {
+        {ourService?.data?.map((item, index) => {
           return (
             <Box>
               <ImageCards

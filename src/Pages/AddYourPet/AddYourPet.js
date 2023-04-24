@@ -188,7 +188,7 @@ const AddYourPetLogin = () => {
             if (state !== null) {
               navigate(state);
             } else {
-              navigate("/RequestBooking");
+              navigate("/petHowz/RequestBooking");
               // console.log(pet_details_id, "pet_details_id");
             }
           }

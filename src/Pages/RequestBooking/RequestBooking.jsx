@@ -44,7 +44,7 @@ export const RequestBooking = () => {
   };
   const onMoadalClose = () => {
     setModal(false);
-    navigate("/CustomerLayout/CustomerDashBoard");
+    navigate("/petHowz/CustomerLayout/CustomerDashBoard");
   };
 
   const AddYourPet = useSelector((state) => state?.PetSpaceBooking);

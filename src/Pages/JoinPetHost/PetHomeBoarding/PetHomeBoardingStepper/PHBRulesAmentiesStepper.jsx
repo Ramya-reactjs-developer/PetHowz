@@ -15,6 +15,7 @@ import CustomButton from "../../../../Components/Button/Button";
 import { PHBAboutYouEntries } from "../PetHomeBoardingEntries.jsx/PHBAboutYouEntries";
 import CheckboxLabels from "../../../../Components/CheckBox/CheckBox";
 import MultiCheckboxLabels from "../../../../Components/CheckBox/MultiCheckBox";
+import Swal from "sweetalert2";
 
 const PHBRulesAmenties = () => {
   const dispatch = useDispatch();
@@ -140,7 +141,16 @@ const PHBRulesAmenties = () => {
   console.log(userGet?.phbbasicdetails?.data.pet_space_id, "id");
   React.useEffect(() => {
     if (rulesAmenties?.phbrulesamenties?.message === "SUCCESS") {
-      value.nextPage();
+      Swal.fire(
+        "Rules & Amenties Added Successfully",
+        "Thank You",
+        "success"
+      ).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          value.nextPage();
+        }
+      });
     }
   }, [userGet, value, rulesAmenties]);
   // const onNext = () => {
