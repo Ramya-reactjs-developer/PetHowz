@@ -458,7 +458,7 @@ export const HomePage = () => {
                   ImageHeight={"300px"}
                   service={data?.service_name}
                   sub={"Starting From ₹ 700"}
-                  subId={data?.service_master_id}
+                  // subId={data?.service_master_id}
                   // onHandleClick={(id, index) => onHandleClick(id, index)}
                   // onHandleClick={(subId, id, index) =>
                   //   onHandleClick(subId, id, index)
