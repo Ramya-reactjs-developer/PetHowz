@@ -224,7 +224,7 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
                         <CardContent>
                           <Box></Box>
                           <CustomTypography
-                            text={item?.name}
+                            text={item?.pet_boarding_space_name}
                             type="h6"
                             colorType="text"
                           />
@@ -232,7 +232,7 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
                             <Box sx={AddressSubPosition1}>
                               <img src={CustomIcons.Location} alt="location" />
                               <CustomTypography
-                                text={item?.address}
+                                text={item?.locality}
                                 type="title"
                                 customStyle={{ fontSize: "10px" }}
                                 colorType="senary"
@@ -251,7 +251,7 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
                           <Box sx={AddressSubPosition2}>
                             <img src={CustomIcons.Building} alt="location" />
                             <CustomTypography
-                              text={item.type}
+                              text={item.type_of_boarding}
                               type="title"
                               customStyle={{ fontSize: "10px" }}
                               colorType="senary"
