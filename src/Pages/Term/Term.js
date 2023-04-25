@@ -24,6 +24,7 @@ const Terms = (props) => {
     (state) => state?.TermsAndCondition
   );
   console.log(TermsAndCondition, "TermsAndCondition");
+  console.log(state, "stateTerms");
 
   const defaultValues = {};
   const {
@@ -36,11 +37,12 @@ const Terms = (props) => {
   });
   const navigate = useNavigate();
   const userGet = useSelector((state) => state?.registertopethowz);
+  const user_id = localStorage.getItem("LoginChecker");
   function onSubmit() {
     console.log(onSubmit, "onSubmit");
     // const user_id = userGet?.registertopethowz?.data?.user_id;
     console.log(userGet?.registertopethowz?.data, "ggggggggg");
-    const user_id = localStorage.getItem("LoginChecker");
+
     const data = {
       data: { status: 1 },
       method: "put",

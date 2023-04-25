@@ -4,8 +4,8 @@ import { useNavigate } from "react-router";
 // const onAddAnother = () => {
 //   navigate("./AddYourPetLogin")
 // };
+
 export const RequestBookingEntries = [
-  
   {
     isCustomTypography: true,
     name: "name1",
@@ -23,14 +23,26 @@ export const RequestBookingEntries = [
     disabled: true,
     validation: { required: true },
   },
+  // {
+  //   isMultipleSelectChip: true,
+  //   name: "pet_details",
+  //   breakpoint: 5,
+  //   label: "Booking For",
+  //   labelText: "Booking For",
+  //   dropPlaceholder: "Select Your Pet",
+  //   disabled: true,
+  //   DropdownData: [],
+  //   validation: { required: true },
+  //   error_message: "Primary Skills",
+  // },
   {
     isAddButton: true,
     name: "name7",
-    buttonTitle:"+",
+    buttonTitle: "+",
     breakpoint: 2,
     // onClickHandle:{onAddAnother},
     customClass: "Addbtn",
-    color: "primary"
+    color: "primary",
   },
   // {
   //   isMultipleSelectChip: true,
@@ -67,7 +79,7 @@ export const RequestBookingEntries = [
   // },
   {
     isBirthdayPicker: true,
-    name: "name4",
+    name: "booking_from_date",
     date: true,
     label: "From Date",
     placeholder: "Select Date",
@@ -82,7 +94,7 @@ export const RequestBookingEntries = [
   {
     isDateTimePicker: true,
     date: true,
-    name: "what_is_the_suitable_time_for_an_intervie",
+    name: "booking_from_time",
     label: "From time",
     error_message: "Interview time is required.",
     breakpoint: 6,
@@ -92,7 +104,7 @@ export const RequestBookingEntries = [
   },
   {
     isBirthdayPicker: true,
-    name: "name",
+    name: "booking_to_date",
     date: true,
     label: "To Date",
     placeholder: "Date and Time",
@@ -108,7 +120,7 @@ export const RequestBookingEntries = [
   {
     isDateTimePicker: true,
     date: true,
-    name: "what_is_the_suitable_time_for_an_interview",
+    name: "booking_to_time",
     label: "To Time",
     error_message: "Interview time is required.",
     breakpoint: 6,
@@ -151,11 +163,10 @@ export const RequestBookingEntries = [
 ];
 
 export const DefaultRequestBookingValues = {
-  name1: "",
-  name2: "",
-  name3: "",
-  name4: "",
-  name6: "",
-  name7: "",
-  fourthText: "",
+  booking_from_time: "",
+  booking_from_date: "",
+  booking_to_date: "",
+  booking_to_time: "",
+  specific_request: "",
+  pet_details: "",
 };
