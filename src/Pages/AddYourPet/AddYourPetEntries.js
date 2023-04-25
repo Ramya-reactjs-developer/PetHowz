@@ -105,7 +105,7 @@ export const AddYourPetentries = [
     isFileUploader: true,
     name: "license",
     label: "Add License",
-    breakpoint: 3,
+    breakpoint: 6,
     customClass: "uploadImageContainer",
     validation: { required: true },
     error_message: "Upload Image",
@@ -114,7 +114,7 @@ export const AddYourPetentries = [
     isFileUploader: true,
     name: "vaccination_card",
     label: "Add Vaccination Card",
-    breakpoint: 3,
+    breakpoint: 6,
     customClass: "uploadImageContainer",
     validation: { required: true },
     error_message: "Upload Image",
@@ -174,15 +174,30 @@ export const AddYourPetentries = [
   {
     isFileUploader: true,
     name: "photos",
-    label: "Add Photos",
-    breakpoint: 3,
+    label: "Add Pet Photos",
+    breakpoint: 6,
     customClass: "uploadImageContainer",
     validation: { required: true },
     error_message: "Upload Image",
   },
+  // {
+  //   isEmptySpace: true,
+  //   breakpoint: 6,
+  //   name: "space",
+  // },
+
+  {
+    isSubmitButton: true,
+    name: "",
+    buttonTitle: "Add More Pets",
+    breakpoint: 3,
+    // onClickHandle:{onAddAnother},
+    // customClass: "Addbtn",
+    color: "primary",
+  },
   {
     isEmptySpace: true,
-    breakpoint: 9,
+    breakpoint: 12,
     name: "space",
   },
   {
@@ -190,6 +205,13 @@ export const AddYourPetentries = [
     breakpoint: 8,
     name: "space",
   },
+
+  // {
+  //   isEmptySpace: true,
+  //   breakpoint: 8,
+  //   name: "space",
+  // },
+
   {
     isSubmitButton: true,
     name: "submit_button",

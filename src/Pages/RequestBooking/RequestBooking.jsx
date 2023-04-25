@@ -127,14 +127,14 @@ const RequestBooking = () => {
   const user_id = localStorage.getItem("LoginChecker");
   // const petId = localStorage.getItem("pet_details_id");
   const petSpaceId = localStorage.getItem("pet_space_id");
-  React.useEffect(() => {
-    if (pet_details_id?.AddYourPet?.AddYourPets?.data?.pet_details_id) {
-      localStorage.setItem(
-        "pet_details_id",
-        pet_details_id?.AddYourPet?.AddYourPets?.data?.pet_details_id
-      );
-    }
-  }, [localStorage]);
+  // React.useEffect(() => {
+  //   if (pet_details_id?.AddYourPet?.AddYourPets?.data?.pet_details_id) {
+  //     localStorage.setItem(
+  //       "pet_details_id",
+  //       pet_details_id?.AddYourPet?.AddYourPets?.data?.pet_details_id
+  //     );
+  //   }
+  // }, [localStorage]);
 
   function onReceiveData(data1) {
     // const user_id = userGet?.registertopethowz?.data?.user_id;
@@ -187,7 +187,7 @@ const RequestBooking = () => {
   ];
   const navigate = useNavigate();
   function onAssPet() {
-    navigate("/AddYourPetLogin");
+    navigate("/petHowz/AddYourPetLogin");
   }
   return (
     <Grid container item xs={12} className="BG">
