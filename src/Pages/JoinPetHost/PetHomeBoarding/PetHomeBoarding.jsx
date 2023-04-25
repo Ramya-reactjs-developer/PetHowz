@@ -18,7 +18,7 @@ const PetHomeBoarding = () => {
     <Grid container item sm={12} xs={12}>
       <Grid item sm={4} xs={12} className="stepper-bg">
         <Grid item sm={12} xs={12} className="strPage">
-          {value.page !== 4 && (
+          {value.page !== 5 && (
             <Stepper steps={value.steps} activeStep={value.page} />
           )}
         </Grid>

@@ -213,29 +213,6 @@ const BasicDetails = () => {
     BD.location?.length > 0;
   console.log(BD.NameofPet, "name");
   console.log(BD.Status1, "gen");
-  // BD.Address?.length > 0 &&
-  // BD.City?.length > 0 &&
-  // BD.State?.length > 0 &&
-  // BD.Locality?.length > 0 &&
-  // BD.Pincode?.length > 0;
-  // BD.mobile_number?.length > 0 &&
-  // BD.Gender?.length > 0 &&
-  // BD.dob?.length > 0 &&
-  // BD.NNameOfYourPetBoardingSpace?.length > 0 &&
-  // BD.Address?.length > 0 &&
-  // BD.City?.length > 0 &&
-  // BD.State?.length > 0 &&
-  // BD.Locality?.length > 0 &&
-  // BD.Pincode?.length > 0;
-  //  mobile_number: "",
-  // Gender: "",
-  // dob: "",
-  // NameOfYourPetBoardingSpace: "",
-  // Address: "",
-  // City: "",
-  // State: "",
-  // Locality: "",
-  // Pincode: "",
   console.log(pg, "pg");
   console.log(BD, "BD");
   console.log(value, "valueBD");

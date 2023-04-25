@@ -61,7 +61,7 @@ export const AddAddress = () => {
       (result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          navigate("/Terms", { state: state });
+          navigate("/petHowz/Terms", { state: state });
         }
       }
     );

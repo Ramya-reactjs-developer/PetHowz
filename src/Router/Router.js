@@ -40,11 +40,12 @@ import { ServiceIndividualResult } from "../Pages/Result/ServiceIndividualResult
 import PetHomeBoarding from "../Pages/JoinPetHost/PetHomeBoarding/PetHomeBoarding";
 import { PetBoardingRegistration } from "../Pages/JoinPetHost/PetBoardingRegistration/PetBoardingRegistration";
 import ProtectedLayout from "./ProtectedLayout";
+import { RequestServiceBooking } from "../Pages/RequestBooking/RequestServiceBooking/RequestServiceBooking";
 import SelectService from "../Pages/PetService/SelectService/SelectService";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
+    <Route path="/petHowz" element={<Layout />}>
       <Route index element={<HomePage />} />
       <Route path="Login" element={<Login />} />
       <Route path="AllServices" element={<AllServices />} />
@@ -72,7 +73,7 @@ export const router = createBrowserRouter(
         element={<PetHomeBoardingAndService />}
       />
       <Route path="PetHomeBoarding" element={<PetHomeBoarding />} />
-      <Route path="/PetService" element={<PetService />} />
+      <Route path="PetService" element={<PetService />} />
       <Route path="BothBoardAndService" element={<BothBoardAndService />} />
       <Route path="Terms" element={<Terms />} />
       <Route path="AddAnotherPet" element={<AddAnotherPet />} />
@@ -85,11 +86,13 @@ export const router = createBrowserRouter(
         path="PetBoardingRegistration"
         element={<PetBoardingRegistration />}
       />
-      <Route path="PetService" element={<PetService />} />
+      {/* <Route path="PetService" element={<PetService />} /> */}
       {/* Register to PetHowz */}
       <Route path="RegisterToPethowz" element={<RegisterToPethowz />} />
       <Route path="AddAddress" element={<AddAddress />} />
       <Route path="RequestBooking" element={<RequestBooking />} />
+      <Route path="RequestServiceBooking" element={<RequestServiceBooking />} />
+
       {/* customer layout */}
       <Route path="CustomerLayout" element={<CustomerLayout />}>
         <Route path="CustomerDashBoard" element={<CustomerDashBoard />} />

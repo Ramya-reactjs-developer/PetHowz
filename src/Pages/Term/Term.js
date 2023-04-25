@@ -55,7 +55,7 @@ const Terms = (props) => {
       (result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
-          navigate("/AddYourPetLogin", { state: state });
+          navigate("/petHowz/AddYourPetLogin", { state: state });
         }
       }
     );

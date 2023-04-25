@@ -157,6 +157,12 @@ const utcTOLocal = (date, format) => {
   }
   return moment.utc(Ndate).local();
 };
+
+const reload = ({ OverAllSearchResult }) => {
+  if (OverAllSearchResult?.overallsearch?.data[0]?.datas === undefined) {
+    window.location.href = window.location.href;
+  }
+};
 export {
   getAge,
   validateNetworkError,
@@ -166,4 +172,5 @@ export {
   utcTOLocal,
   makeName,
   base64ToBinary,
+  reload,
 };

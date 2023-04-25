@@ -54,7 +54,7 @@ export default function ServiceCardsSection({
       alert("Data is not an array", Data);
       // or return an error message, or do something else
     }
-  }, []);
+  }, [Data]);
 
   const [currentPage, setCurrentPage] = React.useState(1);
 

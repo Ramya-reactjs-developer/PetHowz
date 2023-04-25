@@ -17,6 +17,7 @@ import CustomIcons from "../../../../Utils/Icons/Index";
 import MultipleSelectChip from "../../../../Components/MultipleDropdown/MultipleDropdown";
 import { base64ToBinary } from "../../../../Redux/Helpers";
 import CustomMultiFileUploader from "../../../../Components/FileUploader/MultipleFileUploader";
+import Swal from "sweetalert2";
 
 const PHBAYPetBoardingSpace = (props) => {
   const dispatch = useDispatch();
@@ -134,7 +135,16 @@ const PHBAYPetBoardingSpace = (props) => {
   };
   React.useEffect(() => {
     if (AYPetSpace?.phbaypetspace?.message === "SUCCESS") {
-      value.nextPage();
+      Swal.fire(
+        "About Your Boarding Space Added Successfully",
+        "Thank You",
+        "success"
+      ).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          value.nextPage();
+        }
+      });
     }
   }, [userGet, AboutYou, AYPetSpace, value]);
 

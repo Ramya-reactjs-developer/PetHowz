@@ -180,7 +180,7 @@ const AddYourPetLogin = () => {
     // );
   }
   React.useEffect(() => {
-    if (pet_details_id !== "") {
+    if (pet_details_id !== "" && pet_details_id !== undefined) {
       Swal.fire("Pets Added Successfully", "Thank You", "success").then(
         (result) => {
           /* Read more about isConfirmed, isDenied below */
@@ -188,7 +188,7 @@ const AddYourPetLogin = () => {
             if (state !== null) {
               navigate(state);
             } else {
-              navigate("/RequestBooking");
+              navigate("/petHowz/RequestBooking");
               // console.log(pet_details_id, "pet_details_id");
             }
           }

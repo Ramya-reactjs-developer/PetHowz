@@ -1,10 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { useLocation, useNavigate } from "react-router-dom";
 import CustomTypography from "../../Components/Typography/Typography";
-// import GroomingCardsSection from "../../Components/GroomingCard/GroomingCard";
-import CustomButton from "../../Components/Button/Button";
-import { useEffect } from "react";
 import actions from "../../Redux/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import ServiceCardsSection from "../../Components/Cards/ServiceCards";
@@ -14,33 +11,34 @@ export const ServiceResult = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   console.log(state, "state");
-  useEffect(() => {
-    const data = {
-      data: state,
-      method: "post",
-      apiName: `getPetServiceByServiceMasterId/${state.service_master_id}`,
-    };
-    dispatch(actions.OVERALLSEARCH(data));
-    // reload();
-  }, [dispatch]);
   const OverAllSearchResult = useSelector((state) => state?.overallsearch);
   console.log(OverAllSearchResult?.overallsearch?.data, "OverAllSearchResult");
-  console.log(OverAllSearchResult?.overallsearch?.data[0]?.datas, "Service");
+  console.log(OverAllSearchResult?.overallsearch?.message, "OverAllSearch");
 
-  // const reload = () => {
-  //   if (OverAllSearchResult?.overallsearch?.data[0]?.datas === undefined) {
-  //     window.location.reload();
-  //   }
-  // };
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = {
+        data: {
+          service_master_id: 0,
+          city: state.city,
+          locality: state.locality,
+          limit: -1,
+        },
+        method: "post",
+        apiName: `getPetServiceByServiceMasterId/:service_master_id`,
+      };
+      dispatch(actions.OVERALLSEARCH(data));
+    };
+    fetchData();
+  }, [dispatch, state.city, state.locality]);
 
   const onDiscover = (key) => {
-    navigate("/ServiceIndividualResult", {
+    navigate("/petHowz/ServiceIndividualResult", {
       state: OverAllSearchResult?.overallsearch?.data[key],
     });
   };
   return (
     <>
-      {/* {OverAllSearchResult?.overallsearch?.data?.length !== 0 ? ( */}
       <Grid className="container" item md={12} lg={12} sm={12} xs={12}>
         <Grid
           item
@@ -83,12 +81,6 @@ export const ServiceResult = () => {
           />
         </Grid>
       </Grid>
-      {/* // ) : ( //{" "}
-      <Box height={"50vh"} sx={{ display: "grid", placeItems: "center" }}>
-        // <Typography variant="h3"> Loading</Typography>
-        //{" "}
-      </Box>
-      // )} */}
     </>
   );
 };

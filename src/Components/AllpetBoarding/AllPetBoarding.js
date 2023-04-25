@@ -41,7 +41,7 @@ export const AllPetBoarding = () => {
   const onClickHandle = (item, index) => {
     const petKey = item;
     console.log(petKey, "petKeypetKey");
-    navigate("/petCare", {
+    navigate("/petHowz/petCare", {
       // state: petKey,
       state: petKey,
       // state: id_pass,
