@@ -130,13 +130,36 @@ export const BecomePetHostService = () => {
                   className="imageCard_edit"
                 >
                   <Box
-                    sx={{ display: "flex", alignItems: "center", gap: "20px" }}
+                    sx={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "60px",
+                      textAlign: "center",
+                    }}
                   >
                     <div onClick={onPetBoarding} className="Choose-Service">
-                      <img src={customImages.Dog1} alt="PetBoarding" />
+                      <img
+                        src={customImages.Dog1}
+                        height={150}
+                        alt="PetBoarding"
+                      />
+                      <CustomTypography
+                        text="Pet Home Boarding"
+                        type="title"
+                        colorType={"senary"}
+                      />
                     </div>
                     <div onClick={onPetService} className="Choose-Service">
-                      <img src={customImages.Dog2} alt="PetBoarding" />
+                      <img
+                        src={customImages.Dog2}
+                        height={150}
+                        alt="PetBoarding"
+                      />{" "}
+                      <CustomTypography
+                        text="Pet Services"
+                        type="title"
+                        colorType={"senary"}
+                      />
                     </div>
                   </Box>
                   {/* <PetBoardImageCards

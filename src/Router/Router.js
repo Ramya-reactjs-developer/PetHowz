@@ -32,7 +32,6 @@ import BothBoardAndService from "../Pages/JoinPetHost/BothBoardAndService/BothBo
 import AddAnotherPet from "../Pages/CustomerDashBoard/MyPets/AddAnotherPet";
 import Terms from "../Pages/Term/Term";
 import AddYourPetLogin from "../Pages/AddYourPet/AddYourPet";
-import { RequestBooking } from "../Pages/RequestBooking/RequestBooking";
 import { BoardingResult } from "../Pages/Result/BoardingResult";
 import { ServiceResult } from "../Pages/Result/ServiceResult";
 import { AllPetBoarding } from "../Components/AllpetBoarding/AllPetBoarding";
@@ -42,6 +41,7 @@ import { PetBoardingRegistration } from "../Pages/JoinPetHost/PetBoardingRegistr
 import ProtectedLayout from "./ProtectedLayout";
 import { RequestServiceBooking } from "../Pages/RequestBooking/RequestServiceBooking/RequestServiceBooking";
 import SelectService from "../Pages/PetService/SelectService/SelectService";
+import RequestBooking from "../Pages/RequestBooking/RequestBooking";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(

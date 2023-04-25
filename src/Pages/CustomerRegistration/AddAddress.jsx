@@ -17,6 +17,7 @@ import Swal from "sweetalert2";
 export const AddAddress = () => {
   const dispatch = useDispatch();
   const { state } = useLocation();
+  console.log(state, "stateAddress");
   // const [editId, setEditId] = useState();
   const defaultValues = DefaultAddressEntriesValues;
   const {
@@ -30,25 +31,29 @@ export const AddAddress = () => {
 
   const userGet = useSelector((state) => state?.registertopethowz);
 
-  console.log(userGet, "userGetbbbb");
-  const { registertopethowz } = useSelector(
-    (state) => state?.registertopethowz
-  );
-  console.log(registertopethowz, "registertopethowz");
+  console.log(userGet?.registertopethowz?.data?.user_id, "userGetbbbb");
+  // const { registertopethowz } = useSelector(
+  //   (state) => state?.registertopethowz
+  // );
+  // console.log(registertopethowz, "registertopethowz");
   React.useEffect(() => {
     if (userGet?.registertopethowz?.data?.user_id) {
       localStorage.setItem(
         "LoginChecker",
         userGet?.registertopethowz?.data?.user_id
       );
+      localStorage.setItem(
+        "user_type",
+        userGet?.registertopethowz?.data?.user_type
+      );
     }
   }, [localStorage, userGet]);
   const navigate = useNavigate();
+  const user_id = localStorage.getItem("LoginChecker");
+  console.log(user_id, "user_idAddress");
   function onReceiveData(data1) {
     // const user_id = userGet?.registertopethowz?.data?.user_id;
-    const user_id = localStorage.getItem("LoginChecker");
 
-    console.log(user_id, "willJcak");
     const data = {
       data: { ...data1, user_id: user_id },
       method: "post",

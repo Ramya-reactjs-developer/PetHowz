@@ -29,6 +29,7 @@ export const RegisterToPethowz = (props) => {
   const [resetValue, setResetValue] = React.useState([]);
   const userGet = useSelector((state) => state?.registertopethowz);
   console.log(userGet, "userget");
+  console.log(state, "stateReg");
   const {
     register,
     control,
@@ -103,7 +104,7 @@ export const RegisterToPethowz = (props) => {
         /> */}
 
         {/* manual customform */}
-        <Grid container className="NewsBorder" md={12}>
+        <Grid container className="NewsBorder" textAlign={"left"} md={12}>
           {RegisterEntries?.map((keyValue) => (
             <Grid item md={keyValue.breakpoint} sm={12} xs={12}>
               <Controller

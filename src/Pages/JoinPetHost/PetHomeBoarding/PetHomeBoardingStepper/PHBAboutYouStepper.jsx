@@ -82,18 +82,22 @@ const PHBAboutYou = (props) => {
     console.log(formData, "dddd1");
 
     dispatch(actions.PHBABOUTYOU(data));
-    setResetValue(defaultValues);
   };
   React.useEffect(() => {
+    // if (AboutYou?.phbaboutyou?.message === "SUCCESS" && value.page === 1) {
+    //   Swal.fire("About You Added Successfully", "Thank You", "success").then(
+    //     (result) => {
+    //       /* Read more about isConfirmed, isDenied below */
+    //       if (result.isConfirmed) {
+    //         value.nextPage();
+    //       }
+    //     }
+    //   );
+    // }
+
     if (AboutYou?.phbaboutyou?.message === "SUCCESS" && value.page === 1) {
-      Swal.fire("About You Added Successfully", "Thank You", "success").then(
-        (result) => {
-          /* Read more about isConfirmed, isDenied below */
-          if (result.isConfirmed) {
-            value.nextPage();
-          }
-        }
-      );
+      setResetValue(defaultValues);
+      value.nextPage();
     }
   }, [userGet, AboutYou, value]);
   return (
@@ -157,7 +161,7 @@ const PHBAboutYou = (props) => {
                         value={value}
                         data={keyValue.DropdownData}
                         requiredField={keyValue.requiredField}
-                        // placeholder={keyValue.placeholder}
+                        placeholder={keyValue.placeholder}
                       />
                     </Grid>
                   )}
@@ -171,12 +175,12 @@ const PHBAboutYou = (props) => {
                       my={2}
                       mx={2}
                     >
-                      <CustomTypography
+                      {/* <CustomTypography
                         type="header"
                         text={keyValue.text}
                         customClass={keyValue.customClass}
                         colorType={keyValue.colorType}
-                      />
+                      /> */}
                       <CustomRadioButton
                         labelText={keyValue.label}
                         onChange={(e) => {

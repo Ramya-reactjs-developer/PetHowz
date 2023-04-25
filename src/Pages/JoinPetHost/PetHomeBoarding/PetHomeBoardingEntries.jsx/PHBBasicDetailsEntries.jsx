@@ -19,7 +19,6 @@ export const PHBBasicDetailsEntries = [
     name: "image",
     label: "Choose Image",
     breakpoint: 12,
-    customClass: "uploadImageContainer",
     validation: { required: true },
     error_message: "Upload Image",
   },
@@ -33,7 +32,7 @@ export const PHBBasicDetailsEntries = [
     validation: { required: true },
     // pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
@@ -47,7 +46,7 @@ export const PHBBasicDetailsEntries = [
     validation: { required: true },
     // pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
@@ -61,7 +60,7 @@ export const PHBBasicDetailsEntries = [
     validation: { required: true },
     pattern: /^(\+\d{1,3}[- ]?)?\d{10}$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
@@ -78,7 +77,7 @@ export const PHBBasicDetailsEntries = [
     validation: { required: true },
     // pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
@@ -92,7 +91,7 @@ export const PHBBasicDetailsEntries = [
     validation: { required: true },
     // pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
@@ -106,7 +105,7 @@ export const PHBBasicDetailsEntries = [
     validation: { required: true },
     // pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
@@ -120,7 +119,7 @@ export const PHBBasicDetailsEntries = [
     validation: { required: true },
     // pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
@@ -135,7 +134,7 @@ export const PHBBasicDetailsEntries = [
     validation: { required: true },
     pattern: /^(\+\d{1,3}[- ]?)?\d{6}$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "Pincode",
     validation_error_message: "Text is in Invalid format",
   },
@@ -149,7 +148,7 @@ export const PHBBasicDetailsEntries = [
     validation: { required: true },
     pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },

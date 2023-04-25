@@ -33,8 +33,9 @@ function CustomSelect(props) {
           type="caption"
           text={labelText}
           placeholder={placeholder}
-          customClass="textDropdown"
-          // colorType="senary"
+          // customClass="textDropdown"
+          colorType="text"
+          customStyle={{ fontFamily: "Roboto-Regular" }}
           requiredField={requiredField}
         />
       </Box>
@@ -67,7 +68,6 @@ function CustomSelect(props) {
           value={value || ""}
           label={label}
           selectedValue={selectedValue}
-
           data={data}
           className={`${customClass} ${disabled && "disable"} customDropdown`}
           onChange={(e) => handleChange(e)}

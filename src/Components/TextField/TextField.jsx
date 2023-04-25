@@ -45,7 +45,11 @@ function CustomTextField(props) {
   return (
     <Grid>
       <Grid className="textGrid">
-        <CustomTypography text={label} customClass="textLabel" />
+        <CustomTypography
+          text={label}
+          customStyle={{ fontFamily: "Roboto-Regular" }}
+          colorType={"text"}
+        />
         <TextField
           variant="outlined"
           size="small"

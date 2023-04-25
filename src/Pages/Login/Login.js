@@ -21,7 +21,7 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { state } = useLocation();
-  console.log(state, "state");
+  console.log(state, "statelogin");
   const loginAdmin = useSelector((state) => state?.login?.login);
   console.log(loginAdmin, "useSelector");
   const [list, setList] = useState([]);
@@ -60,10 +60,15 @@ function Login() {
   const UserType = localStorage.getItem("UserType");
   useEffect(() => {
     console.log(loginAdmin?.data, "loginAdmin?.data");
-    if (loginAdmin?.data?.data?.user_id) {
+    if (
+      loginAdmin?.data?.data?.user_id !== "" &&
+      loginAdmin?.data?.data?.user_id !== undefined &&
+      loginAdmin?.data?.data?.user_type !== "" &&
+      loginAdmin?.data?.data?.user_type !== undefined
+    ) {
       setIsSignedIn(true);
       localStorage.setItem("LoginChecker", loginAdmin?.data?.data?.user_id);
-      localStorage.setItem("UserType", loginAdmin?.data?.data?.user_type);
+      localStorage.setItem("user_type", loginAdmin?.data?.data?.user_type);
       setList([
         {
           id: 1,

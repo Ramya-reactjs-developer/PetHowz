@@ -103,34 +103,52 @@ const PHBAddOns = (props) => {
     setResetValue(data1);
     dispatch(actions.PHBADDONS(data));
   };
+
   React.useEffect(() => {
     console.log(resetValue, "reset");
+    // if (
+    //   AddOns?.phbaddons?.message === "SUCCESS" &&
+    //   resetValue.package_name !== "" &&
+    //   value.page === 4
+    // ) {
+    //   Swal.fire("Addons Added Successfully", "Thank You", "success").then(
+    //     (result) => {
+    //       /* Read more about isConfirmed, isDenied below */
+    //       if (result.isConfirmed) {
+    //         navigate("/petHowz/HostLayout/HostDashBoard");
+    //       }
+    //     }
+    //   );
+    // } else if (
+    //   AddOns?.phbaddons?.message === "SUCCESS" &&
+    //   resetValue.package_name === "" &&
+    //   value.page === 4
+    // ) {
+    //   Swal.fire(
+    //     "Addons Added Successfully",
+    //     "Add Another Package",
+    //     "success"
+    //   ).then((result) => {
+    //     /* Read more about isConfirmed, isDenied below */
+    //     if (result.isConfirmed) {
+    //       setResetValue();
+    //     }
+    //   });
+    // }
+
     if (
       AddOns?.phbaddons?.message === "SUCCESS" &&
-      resetValue.package_name !== ""
+      resetValue.package_name !== "" &&
+      value.page === 4
     ) {
-      Swal.fire("Addons Added Successfully", "Thank You", "success").then(
-        (result) => {
-          /* Read more about isConfirmed, isDenied below */
-          if (result.isConfirmed) {
-            navigate("/petHowz/HostLayout/HostDashBoard");
-          }
-        }
-      );
+      setResetValue();
+      navigate("/petHowz/HostLayout/HostDashBoard");
     } else if (
       AddOns?.phbaddons?.message === "SUCCESS" &&
-      resetValue.package_name === ""
+      resetValue.package_name === "" &&
+      value.page === 4
     ) {
-      Swal.fire(
-        "Addons Added Successfully",
-        "Add Another Package",
-        "success"
-      ).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-          setResetValue();
-        }
-      });
+      setResetValue();
     }
   }, [userGet, AboutYou, value, AddOns]);
   return (
