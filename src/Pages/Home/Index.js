@@ -422,6 +422,7 @@ export const HomePage = () => {
           text="Our Services"
           type="heading2"
           colorType="text"
+          customStyle={{ fontFamily: "Roboto-Regular" }}
         />
       </Grid>
       <Grid
@@ -487,7 +488,11 @@ export const HomePage = () => {
         sx={{ background: "#ffeee8", mt: "30px", pt: "50px", pb: "30px" }}
       >
         <Grid item xs={12} pt={"30px"}>
-          <Typography fontSize={"40px"} textAlign="center">
+          <Typography
+            fontSize={"40px"}
+            textAlign="center"
+            fontFamily={"Roboto-Regular"}
+          >
             Recommended{" "}
             <span style={{ fontWeight: "bold" }}>Pet Boarding Spaces </span>{" "}
             Near You

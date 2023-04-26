@@ -3,6 +3,7 @@ export const PHBAboutYouEntries = [
     isDropdown: true,
     name: "professional_status",
     label: "Professional Status",
+    labelText: "Professional Status",
     placeholder: "Select Profession",
     DropdownData: [
       {
@@ -30,6 +31,7 @@ export const PHBAboutYouEntries = [
     isDropdown: true,
     name: "years_of_experience",
     label: "Years Of Experience",
+    labelText: "Years Of Experience",
     placeholder: "Select Years",
     DropdownData: [
       {
@@ -92,7 +94,7 @@ export const PHBAboutYouEntries = [
     validation: { required: true },
     pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
@@ -108,7 +110,7 @@ export const PHBAboutYouEntries = [
     validation: { required: true },
     pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
@@ -124,7 +126,7 @@ export const PHBAboutYouEntries = [
   //     validation: { required: true },
   //     pattern: /^[a-zA-Z ]*$/,
   //     requiredField: true,
-  //     customClass: "textBox",
+  //
   //     error_message: "First Text",
   //     validation_error_message: "Text is in Invalid format",
   //   },

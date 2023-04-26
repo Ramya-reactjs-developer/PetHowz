@@ -33,8 +33,9 @@ function CustomRadioButton(props) {
           <CustomTypography
             text={labelText}
             requiredField={requiredField && "required"}
-            colorType={"senary"}
-            customClass="textDropdown"
+            colorType={"text"}
+            customStyle={{ fontFamily: "Roboto-Regular" }}
+            // customClass="textDropdown"
           />
         </FormLabel>
         <RadioGroup

@@ -122,7 +122,8 @@ function CustomFileUploader(props) {
             <CustomTypography
               text={label}
               type="caption"
-              customClass="textLabel"
+              colorType={"text"}
+              customStyle={{ fontFamily: "Roboto-Regular" }}
             />
             <Tooltip
               title="Image size should be below 1 MB"

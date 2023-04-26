@@ -9,7 +9,7 @@ export const PHBAYPetBoardingSpaceEntries = [
     validation: { required: true },
     pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
@@ -52,7 +52,7 @@ export const PHBAYPetBoardingSpaceEntries = [
     name: "category_of_pet_boarded",
     breakpoint: 6,
     label: "Category of Pet Boarded",
-    labelText: "Category of Pet Boarded",
+    labelText: "Category of Pet Boarded ",
     dropPlaceholder: "Category of Pet Boarded",
     disabled: true,
     DropdownData: [
@@ -81,7 +81,7 @@ export const PHBAYPetBoardingSpaceEntries = [
   //     validation: { required: true },
   //     pattern: /^[a-zA-Z ]*$/,
   //     requiredField: true,
-  //     customClass: "textBox",
+  //
   //     error_message: "First Text",
   //     validation_error_message: "Text is in Invalid format",
   //   },
@@ -95,7 +95,7 @@ export const PHBAYPetBoardingSpaceEntries = [
     validation: { required: true },
     // pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
@@ -109,7 +109,7 @@ export const PHBAYPetBoardingSpaceEntries = [
     validation: { required: true },
     // pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
@@ -123,7 +123,7 @@ export const PHBAYPetBoardingSpaceEntries = [
     validation: { required: true },
     // pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
@@ -137,7 +137,7 @@ export const PHBAYPetBoardingSpaceEntries = [
     validation: { required: true },
     // pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
@@ -151,7 +151,7 @@ export const PHBAYPetBoardingSpaceEntries = [
     validation: { required: true },
     // pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
@@ -165,14 +165,15 @@ export const PHBAYPetBoardingSpaceEntries = [
     validation: { required: true },
     // pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
-    customClass: "textBox",
+
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
   {
     isFileUploader: true,
     name: "photos",
-    label: "Add Photos",
+    label: "Add Photos (Ctrl + Select Image) Choose minimum 4 images",
+    placeholder: "Choose minimum 4 images",
     breakpoint: 12,
     customClass: "uploadImageContainer",
     validation: { required: true },

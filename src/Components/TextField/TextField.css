@@ -1,9 +1,11 @@
-.textLabel {
-  color: rgb(133 131 131 / 45%) !important;
+/* .textLabel {
   padding-bottom: 0px !important;
-  font-family: Poppins_Medium !important;
+  font-family: Roboto-Regular !important;
+} */
+@font-face {
+  font-family: Roboto-Regular;
+  src: url(../../Assets//Fonts/Roboto-Regular.ttf);
 }
-
 .textBox .MuiInputBase-root .MuiOutlinedInput-root {
   padding: 0px !important;
 }

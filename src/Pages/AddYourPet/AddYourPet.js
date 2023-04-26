@@ -30,6 +30,7 @@ const AddYourPetLogin = () => {
   const navigate = useNavigate();
   const Dispatch = useDispatch();
   const defaultValues = DefaultAddYourPetValues;
+  console.log(state, "stateAddpet");
   useEffect(() => {
     const dropdownData = {
       data: {},
@@ -163,7 +164,6 @@ const AddYourPetLogin = () => {
     //   walking_routine: "",
     //   photos: "",
     // });
-    reset(defaultValues);
 
     // Swal.fire("Pets Added Successfully", "Thank You", "success").then(
     //   (result) => {
@@ -184,6 +184,7 @@ const AddYourPetLogin = () => {
       Swal.fire("Pets Added Successfully", "Thank You", "success").then(
         (result) => {
           /* Read more about isConfirmed, isDenied below */
+          reset(defaultValues);
           if (result.isConfirmed) {
             if (state !== null) {
               navigate(state);

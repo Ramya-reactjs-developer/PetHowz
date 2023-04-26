@@ -276,19 +276,23 @@ const PHBBasicDetails = (props) => {
     // setTimeout(() => {
 
     dispatch(actions.PHBBASICDETAILS(data));
-    setResetValue(defaultValues);
+
     // }, 200);
   };
   const onNext = () => {
+    // if (userGet?.phbbasicdetails?.message === "SUCCESS" && value.page === 0) {
+    //   Swal.fire("Details Added Successfully", "Thank You", "success").then(
+    //     (result) => {
+    //       /* Read more about isConfirmed, isDenied below */
+    //       if (result.isConfirmed) {
+    //         value.nextPage();
+    //       }
+    //     }
+    //   );
+    // }
     if (userGet?.phbbasicdetails?.message === "SUCCESS" && value.page === 0) {
-      Swal.fire("Details Added Successfully", "Thank You", "success").then(
-        (result) => {
-          /* Read more about isConfirmed, isDenied below */
-          if (result.isConfirmed) {
-            value.nextPage();
-          }
-        }
-      );
+      setResetValue(defaultValues);
+      value.nextPage();
     }
   };
   React.useEffect(() => {
@@ -350,7 +354,7 @@ const PHBBasicDetails = (props) => {
                             uniqueText={keyValue.uniqueText}
                             requiredField={keyValue.requiredField}
                             // customClass="textBox"
-                            customClass={keyValue.customClass}
+                            // customClass={keyValue.customClass}
                             defaultValue={keyValue.defaultValue}
                             resetValue={resetValue}
                           />

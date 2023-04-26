@@ -131,20 +131,24 @@ const PHBAYPetBoardingSpace = (props) => {
     console.log(formData, "dddd1");
 
     dispatch(actions.PHBAYPETSPACE(data));
-    setResetValue(defaultValues);
   };
   React.useEffect(() => {
-    if (AYPetSpace?.phbaypetspace?.message === "SUCCESS") {
-      Swal.fire(
-        "About Your Boarding Space Added Successfully",
-        "Thank You",
-        "success"
-      ).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-          value.nextPage();
-        }
-      });
+    // if (AYPetSpace?.phbaypetspace?.message === "SUCCESS" && value.page === 2) {
+    //   Swal.fire(
+    //     "About Your Boarding Space Added Successfully",
+    //     "Thank You",
+    //     "success"
+    //   ).then((result) => {
+    //     /* Read more about isConfirmed, isDenied below */
+    //     if (result.isConfirmed) {
+    //       value.nextPage();
+    //     }
+    //   });
+    // }
+
+    if (AYPetSpace?.phbaypetspace?.message === "SUCCESS" && value.page === 2) {
+      setResetValue(defaultValues);
+      value.nextPage();
     }
   }, [userGet, AboutYou, AYPetSpace, value]);
 
@@ -152,11 +156,7 @@ const PHBAYPetBoardingSpace = (props) => {
   return (
     <form>
       <h4> Become a Pet Service Provider</h4>
-      <h5>
-        {" "}
-        Share these details which describe you as a pet host/pet service
-        provider.
-      </h5>
+      <h5> Fill up details about the pet boarding</h5>
       <Grid container className="NewsBorder" md={12}>
         {PHBAYPetBoardingSpaceEntries?.map((keyValue) => (
           <Grid item md={keyValue.breakpoint} sm={12} xs={12}>

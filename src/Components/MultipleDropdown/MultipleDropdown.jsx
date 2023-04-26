@@ -1,10 +1,18 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Box, OutlinedInput, MenuItem, FormControl, Select, Chip, Grid } from '@mui/material';
-import CustomTypography from '../Typography/Typography';
-import './MultipleDropdown.css';
-import customIcons from '../../Utils/Icons/Index';
+import React from "react";
+import PropTypes from "prop-types";
+import {
+  Box,
+  OutlinedInput,
+  MenuItem,
+  FormControl,
+  Select,
+  Chip,
+  Grid,
+} from "@mui/material";
+import CustomTypography from "../Typography/Typography";
+import "./MultipleDropdown.css";
+import customIcons from "../../Utils/Icons/Index";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -23,7 +31,15 @@ const MenuProps = {
  * @returns {React.ReactElement} - returns the MultipleSelectChip component
  */
 function MultipleSelectChip(props) {
-  const { label, dropDownList, onSelectValue, onChipClose, requiredField, disabled, labelText } = props;
+  const {
+    label,
+    dropDownList,
+    onSelectValue,
+    onChipClose,
+    requiredField,
+    disabled,
+    labelText,
+  } = props;
   const [values, setValues] = React.useState([]);
 
   /**
@@ -32,7 +48,7 @@ function MultipleSelectChip(props) {
    */
   const handleChange = (event) => {
     const val = event.target.value;
-    onSelectValue(typeof val === 'string' ? val.split(',') : val);
+    onSelectValue(typeof val === "string" ? val.split(",") : val);
     setValues(event.target.value);
   };
   /**
@@ -51,15 +67,15 @@ function MultipleSelectChip(props) {
           <CustomTypography
             type="caption"
             text={labelText}
-            colorType="senary"
-            customClass="textLabel"
+            colorType="text"
+            customStyle={{ fontFamily: "Roboto-Regular" }}
+            // customClass="textLabel"
             requiredField={requiredField}
           />
         </Box>
         <FormControl className="formControl" fullWidth disabled={disabled}>
           <Select
-            size="large"
-            fullWidth
+            size="small"
             labelId="demo-multiple-chip-label"
             id="demo-multiple-chip"
             multiple
@@ -68,7 +84,7 @@ function MultipleSelectChip(props) {
             onChange={handleChange}
             input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
             renderValue={(selected) => (
-              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+              <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
                 {selected?.map((value) => (
                   <div className="chipHolder">
                     <Chip
@@ -115,9 +131,9 @@ MultipleSelectChip.propTypes = {
   labelText: PropTypes.string,
 };
 MultipleSelectChip.defaultProps = {
-  label: '',
+  label: "",
   onChipClose: () => {},
   requiredField: false,
   disabled: false,
-  labelText: '',
+  labelText: "",
 };
