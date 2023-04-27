@@ -42,6 +42,7 @@ import ProtectedLayout from "./ProtectedLayout";
 import { RequestServiceBooking } from "../Pages/RequestBooking/RequestServiceBooking/RequestServiceBooking";
 import SelectService from "../Pages/PetService/SelectService/SelectService";
 import RequestBooking from "../Pages/RequestBooking/RequestBooking";
+import PetBasicDetails from "../Components/PetServiceProvider/BasicDetails";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -64,9 +65,9 @@ export const router = createBrowserRouter(
       <Route path="Terms" element={<Terms />} />
       <Route path="AddAnotherPet" element={<AddAnotherPet />} />
       <Route path="AddYourPetLogin" element={<AddYourPetLogin />} />
-
       <Route path="AllPetBoarding" element={<AllPetBoarding />} />
       <Route path="SelectService" element={<SelectService />} />
+      <Route path="PetBasicDetails" element={<PetBasicDetails />} />
       {/* <Route path="BookingSubmitModal" element={<BookingSubmitModal />} /> */}
       <Route
         path="PetHomeBoardingAndService"
@@ -92,7 +93,6 @@ export const router = createBrowserRouter(
       <Route path="AddAddress" element={<AddAddress />} />
       <Route path="RequestBooking" element={<RequestBooking />} />
       <Route path="RequestServiceBooking" element={<RequestServiceBooking />} />
-
       {/* customer layout */}
       <Route path="CustomerLayout" element={<CustomerLayout />}>
         <Route path="CustomerDashBoard" element={<CustomerDashBoard />} />

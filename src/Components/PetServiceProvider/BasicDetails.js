@@ -147,10 +147,9 @@ const PetBasicDetails = (props) => {
     const passData = data1;
     console.log(passData, "formDataValue");
     if (formData !== undefined) {
-     navigate("/SelectService",
-       {
-         state: passData,
-       });
+     navigate("/petHowz/SelectService", {
+       state: passData,
+     });
         console.log(passData, "passData");
 
     }
