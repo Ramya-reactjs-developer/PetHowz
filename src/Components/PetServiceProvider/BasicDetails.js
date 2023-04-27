@@ -16,8 +16,6 @@
 //   const value = useContext(LabelContext);
 //   const sender = value.labelInfo?.sender;
 //   console.log(value, "sender");
-  
-
 
 //   const btnDisabled =
 //     sender.firstText?.length > 0 &&
@@ -107,7 +105,7 @@ const PetBasicDetails = (props) => {
     DefaultBasicDetailsValues,
   });
   const value = useContext(LabelContext);
-    const sender = value.labelInfo?.sender;
+  const sender = value.labelInfo?.sender;
 
   console.log(sender, "manoj");
 
@@ -125,8 +123,7 @@ const PetBasicDetails = (props) => {
     sender.pin_location?.length > 0;
 
   const onSubmit = (data1) => {
-
-    const serviceId = [1,2]
+    const serviceId = [1, 2];
 
     console.log(data1, "checkdata");
     const formData = new FormData();
@@ -140,19 +137,17 @@ const PetBasicDetails = (props) => {
     formData.append("state", data1.state);
     formData.append("pin_code", data1.pin_code);
     formData.append("pin_location", data1.pin_location);
-    formData.append("service_master_id", serviceId);
+    formData.append("service_master_id", [serviceId]);
     formData.append("user_id", 1);
 
     console.log(formData, "formData");
     const passData = data1;
     console.log(passData, "formDataValue");
     if (formData !== undefined) {
-     navigate("/SelectService",
-       {
-         state: passData,
-       });
-        console.log(passData, "passData");
-
+      navigate("/petHowz/SelectService", {
+        state: passData,
+      });
+      console.log(passData, "passData");
     }
     // }, [value, formData]);
     // const data = {
@@ -175,11 +170,11 @@ const PetBasicDetails = (props) => {
   //     value.nextPage();
   //   }
   // };
-const [upload, setUpload] = React.useState(null);
-    const getImage = (val) => {
-      setUpload(val);
-      console.log(val, "val");
-    };
+  const [upload, setUpload] = React.useState(null);
+  const getImage = (val) => {
+    setUpload(val);
+    console.log(val, "val");
+  };
   return (
     <>
       <Grid container md={12} sm={12} lg={12} xs={12}>
@@ -447,4 +442,3 @@ const [upload, setUpload] = React.useState(null);
   );
 };
 export default PetBasicDetails;
-
