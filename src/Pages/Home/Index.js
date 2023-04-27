@@ -22,6 +22,7 @@ import {
 import { Link } from "react-router-dom";
 import HomePetCardsSection from "../../Components/homeBoarding/homeBoarding";
 import CustomFonts from "../../Utils/Fonts";
+import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
 
 export const HomePage = () => {
   const dispatch = useDispatch();
@@ -346,6 +347,7 @@ export const HomePage = () => {
     // <div>
     //   HomePage
     <Grid item container xl={12} lg={12} md={12} sm={12} xs={12}>
+      <ScrollToTop />
       <Grid
         // alignItems={"center"}
         // justifyContent={"center"}

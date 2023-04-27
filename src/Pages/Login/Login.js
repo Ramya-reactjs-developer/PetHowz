@@ -107,11 +107,25 @@ function Login() {
     setTimeout(() => {
       if (state !== null) {
         navigate(state);
-      } else if (state === null && loginAdmin?.data?.data?.user_type === 0) {
+      } else if (
+        (state === null && loginAdmin?.data?.data?.user_type === 0) ||
+        UserType === "0"
+      ) {
         navigate("/petHowz/CustomerLayout/CustomerDashBoard");
-      } else if (state === null && loginAdmin?.data?.data?.user_type === 1) {
+      } else if (
+        (state === null && loginAdmin?.data?.data?.user_type === 1) ||
+        UserType == "1"
+      ) {
         navigate("/petHowz/CustomerLayout/CustomerDashBoard");
-      } else if (state === null && loginAdmin?.data?.data?.user_type === 2) {
+      } else if (
+        (state === null && loginAdmin?.data?.data?.user_type === 2) ||
+        UserType == "2"
+      ) {
+        navigate("/petHowz/HostLayout/HostDashBoard");
+      } else if (
+        (state === null && loginAdmin?.data?.data?.user_type === 3) ||
+        UserType == "3"
+      ) {
         navigate("/petHowz/HostLayout/HostDashBoard");
       }
       // else if (state !== "" && UserType === "0" && UserType !== null) {

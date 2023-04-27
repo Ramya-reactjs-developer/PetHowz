@@ -58,14 +58,17 @@ export const RegisterToPethowz = (props) => {
 
     dispatch(actions.REGISTERTOPETHOWZ(data));
     reset(defaultValues);
-    Swal.fire("Registered Successfully", "Thank You", "success").then(
-      (result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-          navigate("/petHowz/AddAddress", { state: state });
-        }
+    Swal.fire({
+      title: "Registered Successfully",
+      text: "Thank You",
+      icon: "success",
+      allowOutsideClick: false,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        navigate("/petHowz/AddAddress", { state: state });
       }
-    );
+    });
   }
 
   // React.useEffect(() => {
@@ -88,7 +91,7 @@ export const RegisterToPethowz = (props) => {
       height={{ xl: "120vh", lg: "120vh", md: "auto", sm: "auto", xs: "auto" }}
     >
       <Grid item textAlign={"center"} sm={6} xs={12}>
-        <img src={CustomIcons.Logo} alt="logo" />
+        {/* <img src={CustomIcons.Logo} alt="logo" /> */}
         <Box sx={{ pt: "20px" }}>
           <CustomTypography
             text="Register to Pethowz"

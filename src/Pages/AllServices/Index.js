@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import actions from "../../Redux/Actions/index";
 import CustomTypography from "../../Components/Typography/Typography";
 import ImageCards from "../../Components/Cards/ImageCards";
+import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
 
 export const AllServices = () => {
   const navigate = useNavigate();
@@ -131,6 +132,7 @@ export const AllServices = () => {
       xs={12}
       pt={"20px"}
     >
+      <ScrollToTop />
       <Grid item textAlign={"left"} xs={12} pt={"40px"}>
         <CustomTypography
           text="Pet Services Near You"

@@ -11,6 +11,7 @@ import MealCard from "../../Components/Cards/MealCard";
 import "./PetCare.css";
 import CustomTypography from "../../Components/Typography/Typography";
 import AboutBoardingService from "../../Components/AboutBoardingService/AboutBoardingService";
+import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
 // import ServicePackagesCards from "../../Components/Cards/ServicePackagesCard";
 
 const PetCare = () => {
@@ -58,10 +59,7 @@ const PetCare = () => {
     },
   ];
 
-
-
   const imageList = [
-  
     {
       image: CustomIcons.BoardingArea,
       text: "Dedicated Boarding Area",
@@ -134,6 +132,7 @@ const PetCare = () => {
         return ( */}
       <>
         <Grid container md={12} lg={12} sm={12} xs={12}>
+          <ScrollToTop />
           {petCare?.data?.petHomeImages?.map((data) => {
             return (
               <Grid

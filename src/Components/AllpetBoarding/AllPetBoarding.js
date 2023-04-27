@@ -7,6 +7,7 @@ import actions from "../../Redux/Actions/index";
 // import CustomButton from "../../Components/Button/Button";
 import "./AllPetBoarding.css";
 import HomePetCardsSection from "../homeBoarding/homeBoarding";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
 export const AllPetBoarding = () => {
   const dispatch = useDispatch();
@@ -54,6 +55,7 @@ export const AllPetBoarding = () => {
 
   return (
     <Grid className="container" item md={12} lg={12} sm={12} xs={12}>
+      <ScrollToTop />
       {/* {ourServiceById?.data?.map((data) => {
         return (
           <Grid item md={12} lg={12} sm={12} xs={12}>

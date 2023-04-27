@@ -25,7 +25,7 @@ export const RequestBookingEntries = [
   // },
   {
     isMultipleSelectChip: true,
-    name: "pet_details",
+    name: "pet_details_id",
     breakpoint: 5,
     label: "Booking For",
     labelText: "Booking For",
@@ -135,7 +135,7 @@ export const RequestBookingEntries = [
     placeholder: "Enter Name",
     breakpoint: 12,
     validation: { required: true },
-    pattern: /^([a-z0-9])(\w)+([a-z0-9])$/i,
+    // pattern: /^([a-z0-9])(\w)+([a-z0-9])$/i,
     requiredField: true,
     multiline: true,
     rows: 3,
@@ -168,5 +168,5 @@ export const DefaultRequestBookingValues = {
   booking_to_date: "",
   booking_to_time: "",
   specific_request: "",
-  pet_details: "",
+  pet_details_id: "",
 };
