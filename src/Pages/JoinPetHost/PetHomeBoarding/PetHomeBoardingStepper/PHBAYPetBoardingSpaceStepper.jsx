@@ -67,17 +67,6 @@ const PHBAYPetBoardingSpace = (props) => {
     setValues(values.filter((name) => name !== value));
   };
   const value = useContext(PetHomeBoardingContext);
-  const AV = value.labelInfo?.AYPetSpace;
-  console.log(AV, "valkjndjhfdjiue");
-
-  const btnDisabled =
-    // receiver.professional_status?.length > 0 &&
-    AV.tell_us_something_about_you_and_your_passion_towards_pet?.length > 0 &&
-    AV.tell_us_about_the_type_of_pet_you_have_and_your_experience?.length > 0 &&
-    AV.tell_us_about_the_type_of_pet_you_have_and_your_experience_two?.length >
-      0 &&
-    AV.can_provide_oral_medication?.length > 0 &&
-    AV.can_you_provide_first_aid?.length > 0;
 
   const onSubmit = (data1) => {
     console.log(data1, "checkdata");

@@ -229,29 +229,7 @@ const PHBBasicDetails = (props) => {
     DefaultPHBBasicDetailsValues,
   });
   const value = useContext(PetHomeBoardingContext);
-  const BD = value.labelInfo?.BasicDetails;
-  console.log(BD, "manoj");
-
-  const pg = value.page;
-  const btnDisbaled =
-    BD.pet_boarding_space_name?.length > 0 &&
-    BD.name?.length > 0 &&
-    BD.mobile_number?.length > 0 &&
-    BD.street?.length > 0 &&
-    BD.city?.length > 0 &&
-    BD.locality?.length > 0 &&
-    BD.state?.length > 0 &&
-    BD.pincode?.length > 0 &&
-    BD.image?.length > 0 &&
-    BD.pin_location?.length > 0;
-
-  console.log(BD.NameofPet, "name");
-  console.log(BD.Status1, "gen");
-
-  console.log(pg, "pg");
-  console.log(BD, "BD");
   console.log(value, "valueBD");
-  console.log(btnDisbaled, "btnDisbaled");
 
   const onSubmit = (data1) => {
     console.log(data1, "checkdata");
@@ -292,6 +270,7 @@ const PHBBasicDetails = (props) => {
     // }
     if (userGet?.phbbasicdetails?.message === "SUCCESS" && value.page === 0) {
       setResetValue(defaultValues);
+
       value.nextPage();
     }
   };

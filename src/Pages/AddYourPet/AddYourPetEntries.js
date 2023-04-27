@@ -98,14 +98,14 @@ export const AddYourPetentries = [
     validation_error_message: "Date of Birth is in Invalid format",
     validation: { required: true },
     requiredField: true,
-    maxDate: "11/02/2004",
+    maxDate: new Date(),
     error_message: "Date of Birth",
   },
   {
     isFileUploader: true,
     name: "license",
     label: "Add License",
-    breakpoint: 6,
+    breakpoint: 3,
     customClass: "uploadImageContainer",
     validation: { required: true },
     error_message: "Upload Image",
@@ -114,7 +114,7 @@ export const AddYourPetentries = [
     isFileUploader: true,
     name: "vaccination_card",
     label: "Add Vaccination Card",
-    breakpoint: 6,
+    breakpoint: 3,
     customClass: "uploadImageContainer",
     validation: { required: true },
     error_message: "Upload Image",
@@ -174,30 +174,15 @@ export const AddYourPetentries = [
   {
     isFileUploader: true,
     name: "photos",
-    label: "Add Pet Photos",
-    breakpoint: 6,
+    label: "Add Photos",
+    breakpoint: 3,
     customClass: "uploadImageContainer",
     validation: { required: true },
     error_message: "Upload Image",
   },
-  // {
-  //   isEmptySpace: true,
-  //   breakpoint: 6,
-  //   name: "space",
-  // },
-
-  {
-    isSubmitButton: true,
-    name: "",
-    buttonTitle: "Add More Pets",
-    breakpoint: 3,
-    // onClickHandle:{onAddAnother},
-    // customClass: "Addbtn",
-    color: "primary",
-  },
   {
     isEmptySpace: true,
-    breakpoint: 12,
+    breakpoint: 9,
     name: "space",
   },
   {
@@ -205,13 +190,6 @@ export const AddYourPetentries = [
     breakpoint: 8,
     name: "space",
   },
-
-  // {
-  //   isEmptySpace: true,
-  //   breakpoint: 8,
-  //   name: "space",
-  // },
-
   {
     isSubmitButton: true,
     name: "submit_button",

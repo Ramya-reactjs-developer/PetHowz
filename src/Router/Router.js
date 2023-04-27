@@ -42,6 +42,7 @@ import ProtectedLayout from "./ProtectedLayout";
 import { RequestServiceBooking } from "../Pages/RequestBooking/RequestServiceBooking/RequestServiceBooking";
 import SelectService from "../Pages/PetService/SelectService/SelectService";
 import RequestBooking from "../Pages/RequestBooking/RequestBooking";
+import ScrollToTop from "../Components/ScrollToTop/ScrollToTop";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
