@@ -41,7 +41,7 @@ import { PetBoardingRegistration } from "../Pages/JoinPetHost/PetBoardingRegistr
 import ProtectedLayout from "./ProtectedLayout";
 import { RequestServiceBooking } from "../Pages/RequestBooking/RequestServiceBooking/RequestServiceBooking";
 import SelectService from "../Pages/PetService/SelectService/SelectService";
-import RequestBooking from "../Pages/RequestBooking/RequestBooking";
+import {RequestBooking} from "../Pages/RequestBooking/RequestBooking";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(

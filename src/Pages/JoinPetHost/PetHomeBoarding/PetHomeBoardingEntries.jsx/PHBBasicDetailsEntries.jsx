@@ -13,12 +13,17 @@ export const PHBBasicDetailsEntries = [
   //   validation: { required: true },
   //   error_message: "Upload Image",
   // },
-
+  {
+    isEmptySpace: true,
+    breakpoint: 4,
+    name: "space",
+  },
   {
     isFileUploader: true,
     name: "image",
     label: "Choose Image",
-    breakpoint: 12,
+    // placeholder:"choose",
+    breakpoint: 4,
     validation: { required: true },
     error_message: "Upload Image",
   },
