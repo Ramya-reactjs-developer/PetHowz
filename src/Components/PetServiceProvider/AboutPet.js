@@ -26,6 +26,7 @@ import {
 import "./style.css";
 import CustomMultiFileUploader from "../FileUploader/MultipleFileUploader";
 import MultiImage from "../MultiImageUpload/MultiImageUpload";
+import { base64ToBinary } from "../../Redux/Helpers";
 // import { base64ToBinary } from "../../Redux/Helpers";
 
 const AboutPet = (props) => {
@@ -119,9 +120,14 @@ const AboutPet = (props) => {
   ];
 
   const onSubmit = (data1) => {
-    alert("hcdhshdchs");
+    // alert("hcdhshdchs");
     console.log(data1, "checkdataValue");
     const formData = new FormData();
+    data1.photos.forEach((photo, index) => {
+      const base64String = photo.replace(/^data:image\/(png|jpeg);base64,/, "");
+      const binaryData = base64ToBinary(base64String);
+      formData.append(`photos`, new Blob([binaryData], { type: "image/jpeg" }));
+    });
     formData.append("professional_status", data1.professional_status);
     formData.append(
       "tell_us_somthing_about_you",
@@ -141,18 +147,6 @@ const AboutPet = (props) => {
     formData.append("service_overview", data1.service_overview);
     formData.append("doorstep_services", data1.doorstep_services);
     formData.append("location", data1.location);
-    // data1.photos.forEach((photo, index) => {
-    //   const base64String = photo.replace(/^data:image\/(png|jpeg);base64,/, "");
-    //   const binaryData = base64ToBinary(base64String);
-    //   formData.append(`photos`, new Blob([binaryData], { type: "image/jpeg" }));
-    // });
-    // data1.photos.forEach((photo, index) => {
-    //   const base64String = photo.replace(/^data:image\/(png|jpeg);base64,/, "");
-    //   const binaryData = base64ToBinary(base64String);
-    //   formData.append(`photos`, new Blob([binaryData], { type: "image/jpeg" }));
-    // });
-    formData.append("photos", data1.photos[0]);
-    // formData.append("service_faq", [faq_value.pet_service]);
     formData.append("service_master_id", 1);
     formData.append("pet_service_id", 1);
     const serviceFaqJson = JSON.stringify(faq_value);
@@ -353,23 +347,6 @@ const AboutPet = (props) => {
                           mx={2}
                           className="circleLogoBox"
                         >
-                          {/* <MultiImageUploader
-                        upLoad={CustomIcons.LogoUploader}
-                        label={keyValue.label}
-                        // onHandleChange={(e) => {
-                        //   onChange(e);
-                        //   props.textFieldChange(e, keyValue.name);
-                        // }}
-                        customClass={keyValue.customClass}
-                        getImage={(val) => {
-                          onChange(val);
-                          // getImage(val);
-                          props.textFieldChange(val, keyValue.name);
-                        }}
-                        regForm={keyValue.regForm}
-                        defaultImage={keyValue.defaultImage}
-                        resetValue={resetValue}
-                      /> */}
                           <CustomMultiFileUploader
                             upLoad={CustomIcons.LogoUploader}
                             label={keyValue.label}
