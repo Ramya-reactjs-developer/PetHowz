@@ -7,6 +7,7 @@ const MultiImageUploader = ({
   handleDelete,
   selectedFiles,
   setSelectedFiles,
+  value,
 }) => {
   const fileRef = useRef();
   // const [selectedFiles, setSelectedFiles] = useState([]);
@@ -33,6 +34,7 @@ const MultiImageUploader = ({
           type="file"
           accept="image/*"
           multiple
+          value={value}
           className="Input-Field"
           onChange={handleFileSelect}
           ref={fileRef}

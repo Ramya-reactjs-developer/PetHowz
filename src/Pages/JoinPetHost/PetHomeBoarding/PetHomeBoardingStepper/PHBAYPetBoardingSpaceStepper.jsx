@@ -18,6 +18,7 @@ import MultipleSelectChip from "../../../../Components/MultipleDropdown/Multiple
 import { base64ToBinary } from "../../../../Redux/Helpers";
 import CustomMultiFileUploader from "../../../../Components/FileUploader/MultipleFileUploader";
 import Swal from "sweetalert2";
+import MultiImageUploader from "../../../../Components/ImageUploader/MultiImageUploader";
 
 const PHBAYPetBoardingSpace = (props) => {
   const dispatch = useDispatch();
@@ -42,23 +43,23 @@ const PHBAYPetBoardingSpace = (props) => {
   } = useForm({
     DefaultPHBAYPetBoardingSpaceValues,
   });
-  // console.log(selectedFiles, "selectedFiles");
-  // const handleFileSelect = (e) => {
-  //   alert("slect");
-  //   const files = e.target.files;
-  //   if (files.length < 4 || files.length > 50) {
-  //     alert("Please select between 4 and 50 photos.");
-  //     setSelectedFiles([]);
-  //     return;
-  //   } else {
-  //     setSelectedFiles([...selectedFiles, ...files]);
-  //   }
-  // };
-  // const handleDeleteImage = (index) => {
-  //   const files = [...selectedFiles];
-  //   files.splice(index, 1);
-  //   setSelectedFiles(files);
-  // };
+  console.log(selectedFiles, "selectedFiles");
+  const handleFileSelect = (e) => {
+    alert("slect");
+    const files = e.target.files;
+    if (files.length < 4 || files.length > 50) {
+      alert("Please select between 4 and 50 photos.");
+      setSelectedFiles([]);
+      return;
+    } else {
+      setSelectedFiles([...selectedFiles, ...files]);
+    }
+  };
+  const handleDeleteImage = (index) => {
+    const files = [...selectedFiles];
+    files.splice(index, 1);
+    setSelectedFiles(files);
+  };
   const onSelectValue = (data) => {
     setValues(data);
   };
@@ -190,6 +191,17 @@ const PHBAYPetBoardingSpace = (props) => {
                       />
                     </Grid>
                   )}
+                  {/* {keyValue?.isFileUploader && (
+                    <Grid item md={12} sm={12} xs={12} my={2} mx={2}>
+                      <MultiImageUploader
+                        handleFileSelect={handleFileSelect}
+                        handleDelete={handleDeleteImage}
+                        selectedFiles={selectedFiles}
+                        setSelectedFiles={setSelectedFiles}
+                        value={value}
+                      />
+                    </Grid>
+                  )} */}
                   {keyValue?.isFileUploader && (
                     <Grid
                       item
@@ -200,23 +212,6 @@ const PHBAYPetBoardingSpace = (props) => {
                       mx={2}
                       className="circleLogoBox"
                     >
-                      {/* <MultiImageUploader
-                        upLoad={CustomIcons.LogoUploader}
-                        label={keyValue.label}
-                        // onHandleChange={(e) => {
-                        //   onChange(e);
-                        //   props.textFieldChange(e, keyValue.name);
-                        // }}
-                        customClass={keyValue.customClass}
-                        getImage={(val) => {
-                          onChange(val);
-                          // getImage(val);
-                          props.textFieldChange(val, keyValue.name);
-                        }}
-                        regForm={keyValue.regForm}
-                        defaultImage={keyValue.defaultImage}
-                        resetValue={resetValue}
-                      /> */}
                       <CustomMultiFileUploader
                         upLoad={CustomIcons.LogoUploader}
                         label={keyValue.label}

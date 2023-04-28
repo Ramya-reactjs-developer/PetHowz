@@ -19,7 +19,7 @@ export const RegisterEntries = [
     pattern: /^([a-z0-9])(\w)+([a-z0-9])$/i,
     requiredField: true,
     customClass: "textBox",
-    error_message: "First Text",
+    error_message: "Is Invalid Format",
     validation_error_message: "Text is in Invalid format",
   },
 
@@ -32,7 +32,7 @@ export const RegisterEntries = [
     radioButtonData: [{ name: "Male" }, { name: "Female" }, { name: "Others" }],
     validation: { required: true },
     requiredField: true,
-    error_message: "Gender",
+    error_message: "Is Invalid Format",
   },
   {
     isTextInput: true,
@@ -42,25 +42,12 @@ export const RegisterEntries = [
     placeholder: "Enter Name",
     breakpoint: 6,
     validation: { required: true },
-    // pattern:
-    //   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+    pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
     requiredField: true,
     customClass: "textBox",
-    error_message: "First Text",
+    error_message: "Is Invalid Format",
     validation_error_message: "Text is in Invalid format",
   },
-  // {
-  //   isTextInput: true,
-  //   name: "email",
-  //   label: "Email",
-  //   breakpoint: 6,
-  //   validation: { required: true },
-  //   pattern:
-  //     /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-  //   requiredField: true,
-  //   customClass: "textBox",
-  //   validation_error_message: "Text is in Invalid format",
-  // },
   {
     isTextInput: true,
     name: "mobile_number",
@@ -72,41 +59,36 @@ export const RegisterEntries = [
     requiredField: true,
     customClass: "textBox",
     validation_error_message: "Text is in Invalid format",
+    error_message: "Is Invalid Format",
   },
   {
-    isPasswordInput: true,
-    type: "password",
+    isPasswordInput1: true,
     name: "password",
     label: "Password",
+    type: "password",
     breakpoint: 6,
-
     validation: { required: true },
-    pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/,
     requiredField: true,
-    customClass: "textBox",
+    pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,}$/,
+    validators: {
+      required: true,
+    },
     validation_error_message: "Text is in Invalid format",
+    error_message:
+      "is should contain at least 8 characters including at least 1 special character and 1 number",
   },
   {
-    isPasswordInput: true,
-    type: "password",
+    isPasswordInput2: true,
+    breakpoint: 6,
     name: "confirmPassword",
     label: "Confirm Password",
-    breakpoint: 6,
-    validation: { required: true },
-
+    type: "password",
     requiredField: true,
-    errorMessage: "not match",
-    customClass: "textBox",
-    validation_error_message: "Text is in Invalid format",
+    validation: { required: true },
+    validation: {
+      required: true,
+    },
   },
-
-  // {
-  //   isSubmitButton: true,
-  //   name: "submit_button",
-  //   buttonTitle: "Next",
-  //   breakpoint: 5.6,
-  //   customClass: "sourceButton",
-  // },
 ];
 
 export const DefaultRegisterEntriesValues = {

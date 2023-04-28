@@ -329,5 +329,5 @@ export const DefaultAboutPetValues = {
   service_overview: "",
   doorstep_services: "",
   location: "",
-  photos:"",
+  photos: "",
 };

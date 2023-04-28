@@ -134,7 +134,11 @@ function CustomMultiFileUploader(props) {
           onClick={() => fileRef.current.click()}
           className={regForm ? "uploadimageGrid" : "uploadImageContainer"}
         >
-          {selectedImage ? (
+          {selectedImage.map((item) => (
+            <img key={item} src={item} alt="" width={200} />
+          ))}
+
+          {/* {selectedImage ? (
             <img
               src={(fileType === "image" && selectedImage) || defaultImage}
               alt=""
@@ -151,7 +155,7 @@ function CustomMultiFileUploader(props) {
             //
             // eslint-disable-next-line react/jsx-no-useless-fragment
             <></>
-          )}
+          )} */}
           {/* {selectedImage ? (
             <video
               className={selectedImage ? 'imageUpload' : 'none'}

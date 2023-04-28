@@ -70,7 +70,7 @@ export const BecomePetHostService = () => {
     if (login !== null) {
       navigate("/petHowz/PetService");
     } else {
-      navigate("/petHowz/login", { state: "/petHowz/PetHomeBoarding" });
+      navigate("/petHowz/login", { state: "/petHowz/PetService" });
     }
   };
   return (

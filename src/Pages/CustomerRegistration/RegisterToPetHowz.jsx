@@ -2,11 +2,6 @@ import React, { useEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import CustomTypography from "../../Components/Typography/Typography";
 import "./CustomerRegistration.css";
-
-import {
-  DefaultRegisterEntriesValues,
-  RegisterEntries,
-} from "./RegisterEntries";
 import CustomIcons from "../../Utils/Icons/Index";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -19,6 +14,10 @@ import actions from "../../Redux/Actions";
 import { useNavigate } from "react-router";
 import { useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
+import {
+  DefaultRegisterEntriesValues,
+  RegisterEntries,
+} from "./RegisterEntries";
 
 export const RegisterToPethowz = (props) => {
   const dispatch = useDispatch();
@@ -30,6 +29,7 @@ export const RegisterToPethowz = (props) => {
   const userGet = useSelector((state) => state?.registertopethowz);
   console.log(userGet, "userget");
   console.log(state, "stateReg");
+
   const {
     register,
     control,
@@ -38,8 +38,9 @@ export const RegisterToPethowz = (props) => {
     formState: { errors },
     reset,
   } = useForm({
-    DefaultRegisterEntriesValues,
+    defaultValues,
   });
+
   const navigate = useNavigate();
   function onSubmit(data1) {
     const formData = new FormData();
@@ -79,6 +80,7 @@ export const RegisterToPethowz = (props) => {
   //   }
   // }, [userGet]);
   const password = watch("password");
+
   const confirmPassword = watch("confirmPassword");
   console.log(password, "password");
   console.log(confirmPassword, "confirmPassword");
@@ -115,7 +117,12 @@ export const RegisterToPethowz = (props) => {
                 rules={{
                   required: keyValue?.validation?.required,
                   pattern: keyValue.pattern,
-                  // validate: (value) => value === password,
+                  validate: (value) => {
+                    if (keyValue.name === "confirmPassword") {
+                      return password === value || "The passwords do not match";
+                    }
+                    return true;
+                  },
                 }}
                 control={control}
                 render={({ field: { onChange, value } }) => (
@@ -180,45 +187,7 @@ export const RegisterToPethowz = (props) => {
                         />
                       </Grid>
                     )}
-                    {keyValue?.isPasswordInput && (
-                      <Grid
-                        className="textInputWidth"
-                        item
-                        md={12}
-                        sm={12}
-                        xs={12}
-                        my={2}
-                        mx={2}
-                      >
-                        <CustomTextField
-                          label={keyValue.label}
-                          onHandleChange={(e) => {
-                            onChange(e);
-                            // textFieldChange(e, keyValue.name);
-                          }}
-                          value={value}
-                          multiline={keyValue.multiline}
-                          rows={keyValue.rows}
-                          type={keyValue.type}
-                          placeholder={keyValue.placeholder}
-                          disabled={keyValue?.disabled}
-                          uniqueText={keyValue.uniqueText}
-                          requiredField={keyValue.requiredField}
-                          // customClass="textBox"
-                          customClass={keyValue.customClass}
-                          defaultValue={keyValue.defaultValue}
-                          resetValue={resetValue}
-                          // textInputIcon={true}
-                        />{" "}
-                        {/* {errors &&
-                          errors[keyValue?.name]?.type === "validate" && (
-                            <CustomTypography
-                              text={`${keyValue?.label} not match`}
-                              type="error"
-                            />
-                          )} */}
-                      </Grid>
-                    )}
+
                     {keyValue?.isRadioAction && (
                       <Grid
                         item
@@ -249,6 +218,53 @@ export const RegisterToPethowz = (props) => {
                         />
                       </Grid>
                     )}
+                    {keyValue?.isPasswordInput1 && (
+                      <Grid
+                        className="textInputWidth"
+                        item
+                        md={12}
+                        sm={12}
+                        xs={12}
+                        my={2}
+                        mx={2}
+                      >
+                        <CustomTextField
+                          label="Password"
+                          onHandleChange={(e) => onChange(e)}
+                          value={value}
+                          type="password"
+                          requiredField={true}
+                          error={errors.password && true}
+                          helperText={
+                            errors.password && errors.password.message
+                          }
+                        />
+                      </Grid>
+                    )}
+                    {keyValue?.isPasswordInput2 && (
+                      <Grid
+                        className="textInputWidth"
+                        item
+                        md={12}
+                        sm={12}
+                        xs={12}
+                        my={2}
+                        mx={2}
+                      >
+                        <CustomTextField
+                          label="Confirm Password"
+                          onHandleChange={(e) => onChange(e)}
+                          value={value}
+                          type="password"
+                          requiredField={true}
+                          error={errors.confirmPassword && true}
+                          helperText={
+                            errors.confirmPassword &&
+                            errors.confirmPassword.message
+                          }
+                        />
+                      </Grid>
+                    )}
                   </>
                 )}
               />
@@ -262,8 +278,12 @@ export const RegisterToPethowz = (props) => {
               )}
               {errors && errors[keyValue?.name]?.type === "pattern" && (
                 <Grid>
-                  <CustomTypography
+                  {/* <CustomTypography
                     text={`${keyValue?.label} is Invalid`}
+                    type="error"
+                  /> */}
+                  <CustomTypography
+                    text={`${keyValue?.label} ${keyValue?.error_message}`}
                     type="error"
                   />
                 </Grid>

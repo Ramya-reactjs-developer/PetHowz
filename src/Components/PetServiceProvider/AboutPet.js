@@ -43,32 +43,32 @@ const AboutPet = (props) => {
   const formWatchFields = watch();
 
   const aboutPet = useSelector((state) => state?.aboutPet);
-console.log(aboutPet, "aboutPet");
+  console.log(aboutPet, "aboutPet");
   const [upload, setUpload] = React.useState(null);
   const [ableToGetLogoUrl, setAbleToGetLogoUrl] = useState(false);
   const [multiImage, setMultiImage] = useState(null);
-	const [list, setList] = useState();
+  const [list, setList] = useState();
   const getImage = (val) => {
     setUpload(val);
     console.log(val, "val");
   };
-  	const getMultipleImage = (value) => {
-      setMultiImage(value[0]);
-    };
-  
-  	useEffect(() => {
-      if (multiImage === null) return;
-      setList([
-        {
-          id: 1,
-          title: "FILE UPLOAD",
-          description: "Image uploading Please wait",
-          backgroundColor: "warning",
-          icon: "warning",
-        },
-      ]);
-      setAbleToGetLogoUrl(true);
-    }, [multiImage]);
+  const getMultipleImage = (value) => {
+    setMultiImage(value[0]);
+  };
+
+  useEffect(() => {
+    if (multiImage === null) return;
+    setList([
+      {
+        id: 1,
+        title: "FILE UPLOAD",
+        description: "Image uploading Please wait",
+        backgroundColor: "warning",
+        icon: "warning",
+      },
+    ]);
+    setAbleToGetLogoUrl(true);
+  }, [multiImage]);
 
   const [values, setValues] = React.useState([]);
 
@@ -119,7 +119,7 @@ console.log(aboutPet, "aboutPet");
   ];
 
   const onSubmit = (data1) => {
-    alert("hcdhshdchs")
+    alert("hcdhshdchs");
     console.log(data1, "checkdataValue");
     const formData = new FormData();
     formData.append("professional_status", data1.professional_status);
@@ -166,9 +166,9 @@ console.log(aboutPet, "aboutPet");
     // console.log(data1, "checkdataValue");
 
     dispatch(actions.ABOUTPET(data));
-     if (aboutPet?.aboutPet?.message === "SUCCESS") {
-       navigate("/petHowz/ServiceDetails");
-     }
+    if (aboutPet?.aboutPet?.message === "SUCCESS") {
+      navigate("/petHowz/ServiceDetails");
+    }
   };
   useEffect(() => {
     if (aboutPet?.aboutPet?.message === "SUCCESS") {
