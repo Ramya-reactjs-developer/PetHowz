@@ -13,6 +13,7 @@ const ABOUTPET = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
+      console.log(payload, "dataValue");
       const data = await fetchData(
         payload?.data,
         payload?.method,

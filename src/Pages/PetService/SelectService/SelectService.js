@@ -94,7 +94,9 @@ const SelectService = ({ option, disabled }) => {
 
   // const [onSubmit, setOnSubmit] = useState();
   const user_id = localStorage.getItem("LoginChecker");
+  console.log(user_id,"dsvsdvvsdvsd")
   const [data, setData] = useState();
+  const navigate = useNavigate();
   console.log(data, "checkboxValue");
   const BesicDetails = state;
   console.log(BesicDetails, "BesicDetails");
@@ -132,7 +134,15 @@ const SelectService = ({ option, disabled }) => {
     console.log(data, "checkDataValue");
 
     dispatch(actions.PHBBASICDETAILS(data));
+      if (userGet?.phbbasicdetails?.message === "SUCCESS") {
+        navigate("/petHowz/AboutPet");
+      }
   };
+  React.useEffect(() => {
+    if (userGet?.phbbasicdetails?.message === "SUCCESS") {
+      value.nextPage();
+    }
+  }, [userGet, value]);
   // React.useEffect(() => {
   //   console.log(data, "data");
   //   if (data !== undefined) {
