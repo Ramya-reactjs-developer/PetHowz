@@ -19,15 +19,16 @@ import "./CheckBox.css";
  */
 
 function MultiCheckboxLabels(props) {
-  const { onChange, labelText, value, data, id, label, labelPlacement } = props;
+  const { onChange, labelText, value, data, labelPlacement } = props;
 
   const handleChange = (event) => {
-    const { value: checkedValue } = event.target;
+    const { value: checkedValue, name: checkedName } = event.target;
     const updatedValue = [...value]; // make a copy of the current checked values
+    const id = parseInt(checkedValue, 10);
     if (event.target.checked) {
-      updatedValue.push(checkedValue); // add the new checked value
+      updatedValue.push(id); // add the new checked value
     } else {
-      const index = updatedValue.indexOf(checkedValue);
+      const index = updatedValue.indexOf(id);
       updatedValue.splice(index, 1); // remove the unchecked value
     }
     onChange(updatedValue); // update the checked values
@@ -50,21 +51,21 @@ function MultiCheckboxLabels(props) {
           value={value}
           sx={{ display: "flex", flexDirection: "row" }}
         >
-          {data?.map((item, index) => {
-            const key = index;
+          {data?.map((item) => {
+            const { id, name } = item;
             return (
-              <Grid key={key}>
+              <Grid key={id}>
                 <FormControlLabel
                   sx={{ display: "flex" }}
-                  id={id && "customStyle"}
                   control={
                     <Checkbox
                       color="warning"
-                      checked={value.includes(item.name)}
+                      checked={value.includes(id)}
+                      name={name}
+                      value={id}
                     />
                   }
-                  label={item.name}
-                  value={item.name}
+                  label={name}
                   labelPlacement={labelPlacement}
                 />
               </Grid>
@@ -80,12 +81,15 @@ export default MultiCheckboxLabels;
 
 MultiCheckboxLabels.propTypes = {
   onChange: PropTypes.func,
-  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
   labelText: PropTypes.string,
-  value: PropTypes.arrayOf(PropTypes.string),
+  value: PropTypes.arrayOf(PropTypes.number),
   labelPlacement: PropTypes.string,
-  id: PropTypes.string,
-  label: PropTypes.string,
 };
 
 MultiCheckboxLabels.defaultProps = {
@@ -93,6 +97,4 @@ MultiCheckboxLabels.defaultProps = {
   labelText: "",
   value: [],
   labelPlacement: "",
-  id: "",
-  label: "",
 };

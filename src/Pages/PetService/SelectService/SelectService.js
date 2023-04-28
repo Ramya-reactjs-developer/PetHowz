@@ -37,8 +37,8 @@ const SelectService = ({ option, disabled }) => {
 
   const dispatch = useDispatch();
   const { state } = useLocation();
-  console.log(state,"stateValue")
-    const userGet = useSelector((state) => state?.phbbasicdetails);
+  console.log(state, "stateValue");
+  const userGet = useSelector((state) => state?.phbbasicdetails);
 
   const toggleCheck = (inputName) => {
     console.log(inputName, "inputName");
@@ -93,21 +93,40 @@ const SelectService = ({ option, disabled }) => {
   // };
 
   // const [onSubmit, setOnSubmit] = useState();
+  const user_id = localStorage.getItem("LoginChecker");
+  console.log(user_id,"dsvsdvvsdvsd")
   const [data, setData] = useState();
-  console.log(data,"checkboxValue")
+  const navigate = useNavigate();
+  console.log(data, "checkboxValue");
   const BesicDetails = state;
   console.log(BesicDetails, "BesicDetails");
   const onSubmit = (data1) => {
     setData(data1);
     console.log(data1, "checkdata");
     const formData = new FormData();
-    formData.append("meal_type", data1.meal_type);
+    // formData.append("pet_service_name", data1.meal_type);
     // formData.append("image", "img.png");
     // formData.append("meal", data.meal);
     // const addValue = (data1) => value.nextPage(data1);
-    const meal_type = data1.meal_type;
+    // const meal_type = data1.meal_type;
+    formData.append(
+      "service_master_id",
+      JSON.stringify(data1.service_master_id)
+    );
+    formData.append("user_id", parseInt(user_id));
+    formData.append("pet_service_name", state.pet_service_name);
+    formData.append("name", state.name);
+    formData.append("mobile_number", state.mobile_number);
+    formData.append("street", state.street);
+    formData.append("city", state.city);
+    formData.append("locality", state.locality);
+    formData.append("image", state.image[0]);
+    formData.append("state", state.state);
+    formData.append("pin_code", state.pin_code);
+    formData.append("pin_location", state.pin_location);
+
     const data = {
-      data: { ...state, meal_type },
+      data: formData,
       method: "post",
       apiName: "createPetServiceBasicDetails",
     };
@@ -115,7 +134,15 @@ const SelectService = ({ option, disabled }) => {
     console.log(data, "checkDataValue");
 
     dispatch(actions.PHBBASICDETAILS(data));
+      if (userGet?.phbbasicdetails?.message === "SUCCESS") {
+        navigate("/petHowz/AboutPet");
+      }
   };
+  React.useEffect(() => {
+    if (userGet?.phbbasicdetails?.message === "SUCCESS") {
+      value.nextPage();
+    }
+  }, [userGet, value]);
   // React.useEffect(() => {
   //   console.log(data, "data");
   //   if (data !== undefined) {

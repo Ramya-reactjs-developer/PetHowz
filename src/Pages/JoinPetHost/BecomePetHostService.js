@@ -8,6 +8,7 @@ import CustomTypography from "../../Components/Typography/Typography";
 // import PetService from "../PetService/PetService";
 import "./petBoard.css";
 import customImages from "../../Utils/Images/index";
+import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
 // import BothBoardAndService from "./BothBoardAndService/BothBoardAndService";
 
 export const BecomePetHostService = () => {
@@ -69,11 +70,12 @@ export const BecomePetHostService = () => {
     if (login !== null) {
       navigate("/petHowz/PetService");
     } else {
-      navigate("/petHowz/login", { state: "/petHowz/PetHomeBoarding" });
+      navigate("/petHowz/login", { state: "/petHowz/PetService" });
     }
   };
   return (
     <Grid container md={12} sm={12} lg={12} xs={12}>
+      <ScrollToTop />
       <Grid container md={12} sm={12} lg={12} xs={12}>
         {/* <Grid item md={6} sm={6} lg={6} xs={12}>
           {/* {CardData?.map((item) => {

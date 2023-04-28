@@ -175,6 +175,7 @@ export const PHBAYPetBoardingSpaceEntries = [
     label: "Add Photos (Ctrl + Select Image) Choose minimum 4 images",
     placeholder: "Choose minimum 4 images",
     breakpoint: 12,
+    pattern: /^.{0,499999}$/i,
     customClass: "uploadImageContainer",
     validation: { required: true },
     error_message: "Upload Image",

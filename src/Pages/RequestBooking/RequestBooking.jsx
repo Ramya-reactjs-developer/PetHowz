@@ -17,6 +17,8 @@ import actions from "../../Redux/Actions";
 import { useLocation, useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { adminUrl } from "../../Redux/Constants";
+import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
+
 import axios from "axios";
 export const RequestBooking = () => {
   const defaultValues = {};
@@ -38,13 +40,26 @@ export const RequestBooking = () => {
     "Booking"
   );
   const dispatch = useDispatch();
+  const user_type = localStorage.getItem("user_type");
+  console.log(Modal, "Modalm");
+  const loginAdmin = useSelector((state) => state?.login?.login);
   const login = localStorage.getItem("LoginChecker");
+
   const modalOpen = () => {
     setModal(true);
   };
+
   const onMoadalClose = () => {
     setModal(false);
-    navigate("/petHowz/CustomerLayout/CustomerDashBoard");
+    if (user_type === "0" || loginAdmin?.data?.data?.user_type == 0) {
+      navigate("/petHowz/CustomerLayout/CustomerDashBoard");
+    } else if (user_type === "1" || loginAdmin?.data?.data?.user_type === 1) {
+      navigate("/petHowz/CustomerLayout/CustomerDashBoard");
+    } else if (user_type === "2" || loginAdmin?.data?.data?.user_type === 2) {
+      navigate("/petHowz/HostLayout/HostDashBoard");
+    } else if (user_type === "3" || loginAdmin?.data?.data?.user_type === 3) {
+      navigate("/petHowz/HostLayout/HostDashBoard");
+    }
   };
 
   const AddYourPet = useSelector((state) => state?.PetSpaceBooking);
@@ -61,7 +76,7 @@ export const RequestBooking = () => {
       });
     });
     return json.map((i) => {
-      if (i.name === "pet_details") {
+      if (i.name === "pet_details_id") {
         return {
           ...i,
           DropdownData: tmpArr,
@@ -128,14 +143,14 @@ export const RequestBooking = () => {
   const user_id = localStorage.getItem("LoginChecker");
   const petId = localStorage.getItem("pet_details_id");
   const petSpaceId = localStorage.getItem("pet_space_id");
-  React.useEffect(() => {
-    if (pet_details_id?.AddYourPet?.AddYourPets?.data?.pet_details_id) {
-      localStorage.setItem(
-        "pet_details_id",
-        pet_details_id?.AddYourPet?.AddYourPets?.data?.pet_details_id
-      );
-    }
-  }, [localStorage]);
+  // React.useEffect(() => {
+  //   if (pet_details_id?.AddYourPet?.AddYourPets?.data?.pet_details_id) {
+  //     localStorage.setItem(
+  //       "pet_details_id",
+  //       pet_details_id?.AddYourPet?.AddYourPets?.data?.pet_details_id
+  //     );
+  //   }
+  // }, [localStorage]);
 
   function onReceiveData(data1) {
     // const user_id = userGet?.registertopethowz?.data?.user_id;
@@ -155,24 +170,105 @@ export const RequestBooking = () => {
     console.log(data, "jack");
     dispatch(actions.PET_SPACE_BOOKING(data));
     // navigate("/BookingSubmitModal");
-    modalOpen();
+    // modalOpen();
     reset({
       booking_from_date: "",
       booking_from_time: "",
       booking_to_date: "",
       booking_to_time: "",
       specific_request: "",
+      pet_details_id: "",
     });
-    setTimeout(() => {
-      if (Booking?.PetSpaceBooking?.data?.space_booking_details_id) {
-        localStorage.setItem(
-          "user_type",
-          Booking?.PetSpaceBooking?.data?.user_type
-        );
-        modalOpen();
-      }
-    }, 500);
+    // setInterval(() => {
+    //   if (Booking?.PetSpaceBooking?.data?.space_booking_details_id) {
+    //     alert("kkk");
+    //     modalOpen();
+    //     alert("5");
+
+    //     localStorage.setItem(
+    //       "user_type",
+    //       Booking?.PetSpaceBooking?.data?.user_type
+    //     );
+    //     if (Modal === true) {
+    //       const data = {
+    //         data: {},
+    //         method: "post",
+    //         apiName: "",
+    //       };
+    //       dispatch(actions.PET_SPACE_BOOKING(data));
+    //     }
+    //   }
+    // }, 500);
+    // setTimeout(() => {
+    //   if (Booking?.PetSpaceBooking?.data?.space_booking_details_id) {
+    //     alert("kkk");
+    //     modalOpen();
+
+    //     localStorage.setItem(
+    //       "user_type",
+    //       Booking?.PetSpaceBooking?.data?.user_type
+    //     );
+    //     const data = {
+    //       data: {},
+    //       method: "post",
+    //       apiName: "",
+    //     };
+    //     dispatch(actions.PET_SPACE_BOOKING(data));
+    //   } else {
+    //     alert("failed");
+    //   }
+    // }, 50000);
   }
+  React.useEffect(() => {
+    if (Booking?.PetSpaceBooking?.data?.space_booking_details_id) {
+      localStorage.setItem(
+        "user_type",
+        Booking?.PetSpaceBooking?.data?.user_type
+      );
+      modalOpen();
+
+      if (Modal === true) {
+        const data = {
+          data: {},
+          method: "get",
+          apiName: "",
+        };
+        dispatch(actions.PET_SPACE_BOOKING(data));
+      }
+    }
+
+    // setTimeout(() => {
+    //   if (Booking?.PetSpaceBooking?.data?.space_booking_details_id) {
+    //     alert("kkk");
+    //     modalOpen();
+
+    //     localStorage.setItem(
+    //       "user_type",
+    //       Booking?.PetSpaceBooking?.data?.user_type
+    //     );
+    //     if (Modal === true) {
+    //       const data = {
+    //         data: {},
+    //         method: "post",
+    //         apiName: "",
+    //       };
+    //       dispatch(actions.PET_SPACE_BOOKING(data));
+    //     }
+    //   } else {
+    //     alert("failed");
+    //   }
+    // }, 50000);
+  }, [Booking, Modal]);
+  // React.useEffect(() => {
+  //   if (Booking?.PetSpaceBooking?.data?.space_booking_details_id) {
+  //     modalOpen();
+  //     localStorage.setItem(
+  //       "user_type",
+  //       Booking?.PetSpaceBooking?.data?.user_type
+  //     );
+  //     modalOpen();
+  //   }
+  // }, []);
 
   const ListData = [
     {
@@ -188,10 +284,11 @@ export const RequestBooking = () => {
   ];
   const navigate = useNavigate();
   function onAssPet() {
-    navigate("/AddYourPetLogin");
+    navigate("/petHowz/AddYourPetLogin", { state: "/petHowz/RequestBooking" });
   }
   return (
     <Grid container item xs={12} className="BG">
+      <ScrollToTop />
       <Grid item p={"30px"} height={{ lg: "100vh" }} sm={6} xs={12}>
         <Box sx={{ pt: "20px" }}>
           <CustomTypography
@@ -227,7 +324,14 @@ export const RequestBooking = () => {
                 // onClickHandle={modalOpen}
                 onReceiveData={onReceiveData}
               />
-              {Modal ? <BookingSubmitModal onModalClose={onMoadalClose} /> : ""}
+              {Modal ? (
+                <BookingSubmitModal
+                  onModalClose={onMoadalClose}
+                  open={modalOpen}
+                />
+              ) : (
+                ""
+              )}
               {/* <CustomButton
                 btnTitle="Booking Request Submitting"
                 color={"primary"}

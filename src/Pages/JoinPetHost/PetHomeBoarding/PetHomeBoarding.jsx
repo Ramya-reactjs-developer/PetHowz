@@ -9,6 +9,7 @@ import PHBAboutYou from "./PetHomeBoardingStepper/PHBAboutYouStepper";
 import PHBAYPetBoardingSpace from "./PetHomeBoardingStepper/PHBAYPetBoardingSpaceStepper";
 import PHBRulesAmenties from "./PetHomeBoardingStepper/PHBRulesAmentiesStepper";
 import PHBAddOns from "./PetHomeBoardingStepper/PHBAddOnsStepper";
+import ScrollToTop from "../../../Components/ScrollToTop/ScrollToTop";
 
 const PetHomeBoarding = () => {
   const value = useContext(PetHomeBoardingContext);
@@ -16,6 +17,7 @@ const PetHomeBoarding = () => {
 
   return (
     <Grid container item sm={12} xs={12}>
+      <ScrollToTop />
       <Grid item sm={4} xs={12} className="stepper-bg">
         <Grid item sm={12} xs={12} className="strPage">
           {value.page !== 5 && (
@@ -24,9 +26,9 @@ const PetHomeBoarding = () => {
         </Grid>
       </Grid>
       <Grid item sm={8} xs={12} p={2}>
-        {value.page === 0 && <PHBBasicDetails />}
+        {value.page === 0 && <PHBAYPetBoardingSpace />}
         {value.page === 1 && <PHBAboutYou />}
-        {value.page === 2 && <PHBAYPetBoardingSpace />}
+        {value.page === 2 && <PHBBasicDetails />}
         {value.page === 3 && <PHBRulesAmenties />}
         {value.page === 4 && <PHBAddOns />}
       </Grid>

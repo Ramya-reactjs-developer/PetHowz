@@ -113,7 +113,7 @@ export const AddYourPetentries = [
     validation_error_message: "Date of Birth is in Invalid format",
     validation: { required: true },
     requiredField: true,
-    maxDate: "11/02/2004",
+    maxDate: new Date(),
     error_message: "Date of Birth",
   },
   {

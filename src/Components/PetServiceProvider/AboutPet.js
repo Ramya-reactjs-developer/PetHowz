@@ -1,4 +1,4 @@
-import React, { useContext,useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { LabelContext } from "../../Pages/PetService/LableData";
 // import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
@@ -16,6 +16,7 @@ import CustomProfileUploader from "../ProfileUploader/ProfileUpload";
 import CustomForm from "../CustomForm/CustomForm";
 import { Grid } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import actions from "../../Redux/Actions";
 import FBEditor from "../../Components/TextEditor/TextEditor";
 import {
@@ -23,27 +24,52 @@ import {
   DefaultAboutPetValues,
 } from "../../Pages/PetService/AboutPetEntries";
 import "./style.css";
-import CustomMultiFileUploader from "../FileUploader/MultipleFileUploader";
+import CustomMultiFileUploader from "../ImageUploader/MultiImageUploader";
+import MultiImage from "../MultiImageUpload/MultiImageUpload";
 import { base64ToBinary } from "../../Redux/Helpers";
+// import { base64ToBinary } from "../../Redux/Helpers";
 
 const AboutPet = (props) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     control,
     handleSubmit,
+    watch,
     formState: { errors },
     reset,
   } = useForm({
     DefaultAboutPetValues,
   });
+  const formWatchFields = watch();
 
   const aboutPet = useSelector((state) => state?.aboutPet);
-console.log(aboutPet, "aboutPet");
+  console.log(aboutPet, "aboutPet");
   const [upload, setUpload] = React.useState(null);
+  const [ableToGetLogoUrl, setAbleToGetLogoUrl] = useState(false);
+  const [multiImage, setMultiImage] = useState(null);
+  const [list, setList] = useState();
   const getImage = (val) => {
     setUpload(val);
     console.log(val, "val");
   };
+  const getMultipleImage = (value) => {
+    setMultiImage(value[0]);
+  };
+
+  useEffect(() => {
+    if (multiImage === null) return;
+    setList([
+      {
+        id: 1,
+        title: "FILE UPLOAD",
+        description: "Image uploading Please wait",
+        backgroundColor: "warning",
+        icon: "warning",
+      },
+    ]);
+    setAbleToGetLogoUrl(true);
+  }, [multiImage]);
 
   const [values, setValues] = React.useState([]);
 
@@ -94,8 +120,14 @@ console.log(aboutPet, "aboutPet");
   ];
 
   const onSubmit = (data1) => {
-    console.log(data1, "checkdata");
+    // alert("hcdhshdchs");
+    console.log(data1, "checkdataValue");
     const formData = new FormData();
+    data1.photos.forEach((photo, index) => {
+      const base64String = photo.replace(/^data:image\/(png|jpeg);base64,/, "");
+      const binaryData = base64ToBinary(base64String);
+      formData.append(`photos`, new Blob([binaryData], { type: "image/jpeg" }));
+    });
     formData.append("professional_status", data1.professional_status);
     formData.append(
       "tell_us_somthing_about_you",
@@ -115,13 +147,6 @@ console.log(aboutPet, "aboutPet");
     formData.append("service_overview", data1.service_overview);
     formData.append("doorstep_services", data1.doorstep_services);
     formData.append("location", data1.location);
-    data1.photos.forEach((photo, index) => {
-      const base64String = photo.replace(/^data:image\/(png|jpeg);base64,/, "");
-      const binaryData = base64ToBinary(base64String);
-      formData.append(`photos`, new Blob([binaryData], { type: "image/jpeg" }));
-    });
-    // formData.append("photos", data1.photos[0]);
-    // formData.append("service_faq", [faq_value.pet_service]);
     formData.append("service_master_id", 1);
     formData.append("pet_service_id", 1);
     const serviceFaqJson = JSON.stringify(faq_value);
@@ -132,9 +157,12 @@ console.log(aboutPet, "aboutPet");
       method: "post",
       apiName: "createPetServiceAboutYou",
     };
-    console.log(data1, "checkdata");
+    // console.log(data1, "checkdataValue");
 
     dispatch(actions.ABOUTPET(data));
+    if (aboutPet?.aboutPet?.message === "SUCCESS") {
+      navigate("/petHowz/ServiceDetails");
+    }
   };
   useEffect(() => {
     if (aboutPet?.aboutPet?.message === "SUCCESS") {
@@ -143,75 +171,78 @@ console.log(aboutPet, "aboutPet");
   }, [aboutPet, value]);
 
   return (
-    <form>
-      <h4> Become a Pet Service Provider</h4>
-      <h5> Share these details which describe you as a pet grooming.</h5>
+    <Grid container md={12} lg={12} sm={12} xs={12}>
+      <Grid item md={5} lg={5}></Grid>
+      <Grid item md={7} lg={7}>
+        <form>
+          <h4> Become a Pet Service Provider</h4>
+          <h5> Share these details which describe you as a pet grooming.</h5>
 
-      <Grid>
-        {/* <CustomForm
+          <Grid>
+            {/* <CustomForm
           AllEntries={AboutPetEntries}
           onChangeRadioAction={value.handleOnChange}
           textFieldChange={value.handleChange}
           // onReceiveData={onReceiveData}
           defaultValues={DefaultAboutPetValues}
         /> */}
-        {AboutPetEntries?.map((keyValue) => (
-          <Grid item md={keyValue.breakpoint} sm={12} xs={12}>
-            <Controller
-              name={keyValue.name}
-              rules={{
-                required: keyValue?.validation?.required,
-                pattern: keyValue.pattern,
-                // validate: (value) => value === password,
-              }}
-              control={control}
-              render={({ field: { onChange, value } }) => (
-                <>
-                  {keyValue?.isTextInput && (
-                    <Grid
-                      className="textInputWidth"
-                      item
-                      md={12}
-                      sm={12}
-                      xs={12}
-                      my={2}
-                      mx={2}
-                    >
-                      <CustomTextField
-                        label={keyValue.label}
-                        onHandleChange={(e) => {
-                          onChange(e);
-                          // textFieldChange(e, keyValue.name);
-                        }}
-                        value={value}
-                        multiline={keyValue.multiline}
-                        rows={keyValue.rows}
-                        type={keyValue.type}
-                        placeholder={keyValue.placeholder}
-                        disabled={keyValue?.disabled}
-                        uniqueText={keyValue.uniqueText}
-                        requiredField={keyValue.requiredField}
-                        // customClass="textBox"
-                        customClass={keyValue.customClass}
-                        defaultValue={keyValue.defaultValue}
-                        // resetValue={resetValue}
-                      />
-                    </Grid>
-                  )}
-                  {keyValue?.isDropdown && (
-                    <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
-                      <CustomSelect
-                        label={keyValue?.label}
-                        labelText={keyValue.labelText}
-                        handleChange={onChange}
-                        value={value}
-                        data={keyValue.DropdownData}
-                        requiredField={keyValue.requiredField}
-                        // placeholder={keyValue.placeholder}
-                      />
-                    </Grid>
-                  )}
-                  {/* {keyValue?.isProfileImageUploader && (
+            {AboutPetEntries?.map((keyValue) => (
+              <Grid item md={keyValue.breakpoint} sm={12} xs={12}>
+                <Controller
+                  name={keyValue.name}
+                  rules={{
+                    required: keyValue?.validation?.required,
+                    pattern: keyValue.pattern,
+                    // validate: (value) => value === password,
+                  }}
+                  control={control}
+                  render={({ field: { onChange, value } }) => (
+                    <>
+                      {keyValue?.isTextInput && (
+                        <Grid
+                          className="textInputWidth"
+                          item
+                          md={12}
+                          sm={12}
+                          xs={12}
+                          my={2}
+                          mx={2}
+                        >
+                          <CustomTextField
+                            label={keyValue.label}
+                            onHandleChange={(e) => {
+                              onChange(e);
+                              // textFieldChange(e, keyValue.name);
+                            }}
+                            value={value}
+                            multiline={keyValue.multiline}
+                            rows={keyValue.rows}
+                            type={keyValue.type}
+                            placeholder={keyValue.placeholder}
+                            disabled={keyValue?.disabled}
+                            uniqueText={keyValue.uniqueText}
+                            requiredField={keyValue.requiredField}
+                            // customClass="textBox"
+                            customClass={keyValue.customClass}
+                            defaultValue={keyValue.defaultValue}
+                            // resetValue={resetValue}
+                          />
+                        </Grid>
+                      )}
+                      {keyValue?.isDropdown && (
+                        <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
+                          <CustomSelect
+                            label={keyValue?.label}
+                            labelText={keyValue.labelText}
+                            handleChange={onChange}
+                            value={value}
+                            data={keyValue.DropdownData}
+                            requiredField={keyValue.requiredField}
+                            // placeholder={keyValue.placeholder}
+                          />
+                        </Grid>
+                      )}
+                      {/* {keyValue?.isProfileImageUploader && (
                     <Grid
                       item
                       md={12}
@@ -240,23 +271,23 @@ console.log(aboutPet, "aboutPet");
                       />
                     </Grid>
                   )} */}
-                  {keyValue?.isMultipleSelectChip && (
-                    <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
-                      <MultipleSelectChip
-                        onSelectValue={(e) => {
-                          onChange(e);
-                          onSelectValue(e, keyValue.name);
-                        }}
-                        selectValue={value}
-                        onChipClose={(e, val) => handleDelete(e, val)}
-                        label={keyValue.label}
-                        labelText={keyValue.labelText}
-                        dropDownList={keyValue.DropdownData}
-                        requiredField={keyValue.requiredField}
-                      />
-                    </Grid>
-                  )}
-                  {/* {keyValue?.isFileUploader && (
+                      {keyValue?.isMultipleSelectChip && (
+                        <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
+                          <MultipleSelectChip
+                            onSelectValue={(e) => {
+                              onChange(e);
+                              onSelectValue(e, keyValue.name);
+                            }}
+                            selectValue={value}
+                            onChipClose={(e, val) => handleDelete(e, val)}
+                            label={keyValue.label}
+                            labelText={keyValue.labelText}
+                            dropDownList={keyValue.DropdownData}
+                            requiredField={keyValue.requiredField}
+                          />
+                        </Grid>
+                      )}
+                      {/* {keyValue?.isFileUploader && (
                     <Grid
                       item
                       md={12}
@@ -285,199 +316,203 @@ console.log(aboutPet, "aboutPet");
                       />
                     </Grid>
                   )} */}
-                  {keyValue?.isFileUploader && (
-                    <Grid
-                      item
-                      md={12}
-                      sm={12}
-                      xs={12}
-                      my={2}
-                      mx={2}
-                      className="circleLogoBox"
-                    >
-                      {/* <MultiImageUploader
-                        upLoad={CustomIcons.LogoUploader}
-                        label={keyValue.label}
-                        // onHandleChange={(e) => {
-                        //   onChange(e);
-                        //   props.textFieldChange(e, keyValue.name);
-                        // }}
-                        customClass={keyValue.customClass}
-                        getImage={(val) => {
-                          onChange(val);
-                          // getImage(val);
-                          props.textFieldChange(val, keyValue.name);
-                        }}
-                        regForm={keyValue.regForm}
-                        defaultImage={keyValue.defaultImage}
-                        resetValue={resetValue}
-                      /> */}
-                      <CustomMultiFileUploader
-                        upLoad={CustomIcons.LogoUploader}
-                        label={keyValue.label}
-                        // onHandleChange={(e) => {
-                        //   onChange(e);
-                        //   props.textFieldChange(e, keyValue.name);
-                        // }}
-                        customClass={keyValue.customClass}
-                        getImage={(val) => {
-                          onChange(val);
-                          // getImage(val);
-                          props.textFieldChange(val, keyValue.name);
-                        }}
-                        regForm={keyValue.regForm}
-                        defaultImage={keyValue.defaultImage}
-                        resetValue={resetValue}
-                      />
-                    </Grid>
-                  )}
-                  {keyValue?.isPasswordInput && (
-                    <Grid
-                      className="textInputWidth"
-                      item
-                      md={12}
-                      sm={12}
-                      xs={12}
-                      my={2}
-                      mx={2}
-                    >
-                      <CustomTextField
-                        label={keyValue.label}
-                        onHandleChange={(e) => {
-                          onChange(e);
-                          // textFieldChange(e, keyValue.name);
-                        }}
-                        value={value}
-                        multiline={keyValue.multiline}
-                        rows={keyValue.rows}
-                        type={keyValue.type}
-                        placeholder={keyValue.placeholder}
-                        disabled={keyValue?.disabled}
-                        uniqueText={keyValue.uniqueText}
-                        requiredField={keyValue.requiredField}
-                        // customClass="textBox"
-                        customClass={keyValue.customClass}
-                        defaultValue={keyValue.defaultValue}
-                        resetValue={resetValue}
-                        // textInputIcon={true}
-                      />{" "}
-                      {errors &&
-                        errors[keyValue?.name]?.type === "validate" && (
-                          <CustomTypography
-                            text={`${keyValue?.label} not match`}
-                            type="error"
+                      {keyValue?.isMultiImageUpload && (
+                        <Grid item md={12} sm={12} className="shop_img_align">
+                          <div className="fex">
+                            {formWatchFields.photos?.map((imageSrc, key) => (
+                              <div className="shop_img">
+                                <img src={imageSrc} alt="" />
+                              </div>
+                            ))}
+                          </div>
+
+                          <MultiImage
+                            // label="Shop image"
+                            // upLoad={CustomIcons.UploadIcon}
+                            getImage={(val) => {
+                              onChange(val);
+                              getMultipleImage(val);
+                            }}
+                            // customClass="shop_img_align"
                           />
-                        )}
-                    </Grid>
+                        </Grid>
+                      )}
+                      {keyValue?.isFileUploader && (
+                        <Grid
+                          item
+                          md={12}
+                          sm={12}
+                          xs={12}
+                          my={2}
+                          mx={2}
+                          className="circleLogoBox"
+                        >
+                          <CustomMultiFileUploader
+                            upLoad={CustomIcons.LogoUploader}
+                            label={keyValue.label}
+                            // onHandleChange={(e) => {
+                            //   onChange(e);
+                            //   props.textFieldChange(e, keyValue.name);
+                            // }}
+                            customClass={keyValue.customClass}
+                            getImage={(val) => {
+                              onChange(val);
+                              // getImage(val);
+                              props.textFieldChange(val, keyValue.name);
+                            }}
+                            regForm={keyValue.regForm}
+                            defaultImage={keyValue.defaultImage}
+                            resetValue={resetValue}
+                          />
+                        </Grid>
+                      )}
+                      {keyValue?.isPasswordInput && (
+                        <Grid
+                          className="textInputWidth"
+                          item
+                          md={12}
+                          sm={12}
+                          xs={12}
+                          my={2}
+                          mx={2}
+                        >
+                          <CustomTextField
+                            label={keyValue.label}
+                            onHandleChange={(e) => {
+                              onChange(e);
+                              // textFieldChange(e, keyValue.name);
+                            }}
+                            value={value}
+                            multiline={keyValue.multiline}
+                            rows={keyValue.rows}
+                            type={keyValue.type}
+                            placeholder={keyValue.placeholder}
+                            disabled={keyValue?.disabled}
+                            uniqueText={keyValue.uniqueText}
+                            requiredField={keyValue.requiredField}
+                            // customClass="textBox"
+                            customClass={keyValue.customClass}
+                            defaultValue={keyValue.defaultValue}
+                            resetValue={resetValue}
+                            // textInputIcon={true}
+                          />{" "}
+                          {errors &&
+                            errors[keyValue?.name]?.type === "validate" && (
+                              <CustomTypography
+                                text={`${keyValue?.label} not match`}
+                                type="error"
+                              />
+                            )}
+                        </Grid>
+                      )}
+                      {keyValue?.isRadioAction && (
+                        <Grid
+                          item
+                          textAlign={"left"}
+                          md={12}
+                          sm={12}
+                          xs={12}
+                          my={2}
+                          mx={2}
+                        >
+                          <CustomTypography
+                            type="header"
+                            text={keyValue.text}
+                            customClass={keyValue.customClass}
+                            colorType={keyValue.colorType}
+                          />
+                          <CustomRadioButton
+                            labelText={keyValue.label}
+                            onChange={(e) => {
+                              onChange(e);
+                              // onChangeRadioAction(e, keyValue.name);
+                            }}
+                            value={value}
+                            data={keyValue.radioButtonData}
+                            requiredField={keyValue.requiredField}
+                            defaultValue
+                            customClass={keyValue.customClass}
+                          />
+                        </Grid>
+                      )}
+                    </>
                   )}
-                  {keyValue?.isRadioAction && (
-                    <Grid
-                      item
-                      textAlign={"left"}
-                      md={12}
-                      sm={12}
-                      xs={12}
-                      my={2}
-                      mx={2}
-                    >
-                      <CustomTypography
-                        type="header"
-                        text={keyValue.text}
-                        customClass={keyValue.customClass}
-                        colorType={keyValue.colorType}
-                      />
-                      <CustomRadioButton
-                        labelText={keyValue.label}
-                        onChange={(e) => {
-                          onChange(e);
-                          // onChangeRadioAction(e, keyValue.name);
-                        }}
-                        value={value}
-                        data={keyValue.radioButtonData}
-                        requiredField={keyValue.requiredField}
-                        defaultValue
-                        customClass={keyValue.customClass}
-                      />
-                    </Grid>
-                  )}
-                </>
-              )}
-            />
-            {errors && errors[keyValue?.name]?.type === "required" && (
-              <Grid>
-                <CustomTypography
-                  text={`${keyValue?.label} is Required`}
-                  type="error"
                 />
+                {errors && errors[keyValue?.name]?.type === "required" && (
+                  <Grid>
+                    <CustomTypography
+                      text={`${keyValue?.label} is Required`}
+                      type="error"
+                    />
+                  </Grid>
+                )}
+                {errors && errors[keyValue?.name]?.type === "pattern" && (
+                  <Grid>
+                    <CustomTypography
+                      text={`${keyValue?.label} is Invalid`}
+                      type="error"
+                    />
+                  </Grid>
+                )}
               </Grid>
-            )}
-            {errors && errors[keyValue?.name]?.type === "pattern" && (
-              <Grid>
-                <CustomTypography
-                  text={`${keyValue?.label} is Invalid`}
-                  type="error"
-                />
-              </Grid>
-            )}
+            ))}
           </Grid>
-        ))}
-      </Grid>
 
-      <CustomTypography variant="h4" text="FAQ's about your service" />
+          <CustomTypography variant="h4" text="FAQ's about your service" />
 
-      <Grid item md={12} sm={12} lg={12} xs={12} pl={2}>
-        <Grid pt={1}>
-          <CustomTypography
-            text="Question"
-            type="header"
-            customClass="FaqQuestion"
-          />
-        </Grid>
-        <FBEditor />
-      </Grid>
-      <Grid item md={12} sm={12} lg={12} xs={12} pl={2}>
-        <Grid pt={1}>
-          <CustomTypography
-            text="Answer"
-            type="header"
-            customClass="FaqQuestion"
-          />
-        </Grid>
-        <FBEditor />
-      </Grid>
-      <Grid
-        container
-        md={12}
-        lg={12}
-        sm={12}
-        xs={12}
-        display="inline-flex"
-        justifyContent="space-around"
-        pt={"60px"}
-      >
-        <Grid item xs={5}></Grid>
-        <Grid item>
-          <CustomButton
-            btnTitle="Next"
-            variant="contained"
-            color="primary"
-            btnStyles={{
-              color: "#fff",
-              background: "#f85a47",
-              width: {
-                lg: "250px",
-                md: "200px",
-                sm: "150px",
-                xs: "200px",
-              },
-              fontSize: "17px",
-              fontFamily: "Poppins_Medium",
-            }}
-            onClickHandle={handleSubmit(onSubmit)}
-          />
-        </Grid>
-      </Grid>
-      {/* <Grid className="btn_align_edit">
+          <Grid item md={12} sm={12} lg={12} xs={12} pl={2}>
+            <Grid pt={1}>
+              <CustomTypography
+                text="Question"
+                type="header"
+                customClass="FaqQuestion"
+              />
+            </Grid>
+            <FBEditor />
+          </Grid>
+          <Grid item md={12} sm={12} lg={12} xs={12} pl={2}>
+            <Grid pt={1}>
+              <CustomTypography
+                text="Answer"
+                type="header"
+                customClass="FaqQuestion"
+              />
+            </Grid>
+            <FBEditor />
+          </Grid>
+          <Grid
+            container
+            md={12}
+            lg={12}
+            sm={12}
+            xs={12}
+            display="inline-flex"
+            justifyContent="space-around"
+            pt={"60px"}
+          >
+            <Grid item xs={5}></Grid>
+            <Grid item>
+              <CustomButton
+                btnTitle="Next"
+                variant="contained"
+                color="primary"
+                btnStyles={{
+                  color: "#fff",
+                  background: "#f85a47",
+                  width: {
+                    lg: "250px",
+                    md: "200px",
+                    sm: "150px",
+                    xs: "200px",
+                  },
+                  fontSize: "17px",
+                  fontFamily: "Poppins_Medium",
+                }}
+                onClickHandle={handleSubmit(onSubmit)}
+              />
+            </Grid>
+          </Grid>
+          {/* <Grid className="btn_align_edit">
         <ButtonGroup
           variant="contained"
           color="primary"
@@ -493,7 +528,9 @@ console.log(aboutPet, "aboutPet");
           </Button>
         </ButtonGroup>
       </Grid> */}
-    </form>
+        </form>
+      </Grid>
+    </Grid>
   );
 };
 export default AboutPet;

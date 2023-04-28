@@ -53,19 +53,22 @@ const Terms = (props) => {
       status: "",
     });
     console.log(data, "datadata");
-    Swal.fire("Terms & Conditions Accepted", "Thank You", "success").then(
-      (result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-          if (state === "/petHowz/PetHomeBoarding") {
-            navigate(state);
-          } else {
-            navigate("/petHowz/AddYourPetLogin", { state: state });
-            // console.log(pet_details_id, "pet_details_id");
-          }
+    Swal.fire({
+      title: "Terms & Conditions Accepted",
+      text: "Thank You",
+      icon: "success",
+      allowOutsideClick: false,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        if (state === "/petHowz/PetHomeBoarding") {
+          navigate(state);
+        } else {
+          navigate("/petHowz/AddYourPetLogin", { state: state });
+          // console.log(pet_details_id, "pet_details_id");
         }
       }
-    );
+    });
   }
 
   const [resetValue, setResetValue] = useState([]);

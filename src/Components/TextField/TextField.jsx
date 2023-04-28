@@ -1,15 +1,39 @@
-import React, { useEffect } from "react";
-import { Grid, TextField, InputAdornment } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Grid, TextField, InputAdornment, IconButton } from "@mui/material";
 import PropTypes from "prop-types";
 import CustomTypography from "../Typography/Typography";
 import "./TextField.css";
+
+import { makeStyles } from "@mui/styles";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+
+const useStyles = makeStyles((theme) => ({
+  disabledStepButtons: {
+    "& input[type=number]::-webkit-inner-spin-button": {
+      "-webkit-appearance": "none",
+      margin: 0,
+    },
+    "& input[type=number]::-webkit-outer-spin-button": {
+      "-webkit-appearance": "none",
+      margin: 0,
+    },
+    "& .MuiTextField-root": {
+      "& .Mui-disabled": {
+        "& .MuiIconButton-root": {
+          display: "none",
+        },
+      },
+    },
+  },
+}));
 /**
- *
  * @param {object} props - required props in TextInput component
  * @returns {React.ReactElement} - returns the TextInput component
  */
 function CustomTextField(props) {
   const {
+    error,
+    helperText,
     label,
     onHandleChange,
     value,
@@ -21,13 +45,12 @@ function CustomTextField(props) {
     type,
     placeholder,
     textInputIcon,
-    // isLogin,
-    // uniqueText,
     defaultValue,
     resetValue,
   } = props;
+
+  const classes = useStyles();
   const [onChangeValue, setOnChangeValue] = React.useState(defaultValue);
-  console.log("default", resetValue, value);
 
   useEffect(() => {
     setOnChangeValue(defaultValue);
@@ -42,6 +65,16 @@ function CustomTextField(props) {
     onHandleChange(inputValue);
     setOnChangeValue(inputValue);
   };
+  const [showPassword, setShowPassword] = useState(false);
+  const isPasswordInput = type === "password";
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleMouseDownPassword = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <Grid>
       <Grid className="textGrid">
@@ -57,33 +90,59 @@ function CustomTextField(props) {
           placeholder={placeholder}
           onChange={handleChange}
           value={onChangeValue}
-          type={type}
+          type={showPassword && isPasswordInput ? "text" : type}
           autoComplete="off"
           autoCapitalize="off"
           autoCorrect="off"
           multiline={multiline}
-          // className={customClass}
-
-          // className={`${isLogin && 'loginBox'} ${customClass} textBox`}
-          // id={uniqueText && 'uppercase'}
-          // className="textBox"
-          // disabled
-          // disabled={true}
           className={customClass}
           rows={rows}
           defaultValue={defaultValue}
-          InputProps={{
-            endAdornment: (
-              <InputAdornment position="start">
-                {/* {textInputIcon && <img src={iconSource} alt="password" />} */}
-              </InputAdornment>
-            ),
+          error={error}
+          helperText={helperText}
+          FormHelperTextProps={{
+            style: {
+              color: "red",
+              fontSize: "14px",
+              paddingLeft: "45px",
+              paddingTop: "10px",
+            }, // Change the color to your desired color
+            // Use the custom styled FormHelperText component
           }}
+          InputProps={{
+            endAdornment:
+              type === "password" ? (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              ) : (
+                ""
+              ),
+            inputProps: { min: 0, max: 999999, step: 1 },
+            // disableIncrement: true,
+            // disableDecrement: true,
+            // endAdornment: (
+            //   <InputAdornment>
+            //     <button className={classes.hiddenButton} />
+            //     <button className={classes.hiddenButton} />
+            //   </InputAdornment>
+            // ),
+          }}
+          classes={{ root: classes.disabledStepButtons }}
+          stepButtons={false}
         />
       </Grid>
     </Grid>
   );
 }
+
 export default CustomTextField;
 
 CustomTextField.propTypes = {
@@ -96,13 +155,16 @@ CustomTextField.propTypes = {
   disabled: PropTypes.bool,
   iconSource: PropTypes.string,
   textInputIcon: PropTypes.bool,
-  // isLogin: PropTypes.bool,
   placeholder: PropTypes.string,
-  // uniqueText: PropTypes.bool,
   customClass: PropTypes.string,
   defaultValue: PropTypes.string,
   resetValue: PropTypes.bool,
+  requiredField: PropTypes.bool,
+  validation_error_message: PropTypes.string,
+  error: PropTypes.any,
+  helperText: PropTypes.any,
 };
+
 CustomTextField.defaultProps = {
   label: "",
   multiline: false,
@@ -111,10 +173,10 @@ CustomTextField.defaultProps = {
   type: "",
   iconSource: "",
   textInputIcon: false,
-  // isLogin: false,
   placeholder: "",
-  // uniqueText: false,
   customClass: "",
   defaultValue: "",
   resetValue: false,
+  requiredField: false,
+  validation_error_message: "",
 };

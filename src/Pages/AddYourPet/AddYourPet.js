@@ -122,7 +122,8 @@ const AddYourPetLogin = () => {
       getYourPetType?.getYourPetType?.data?.find(
         (item) => item.pet_type === data1.pet_type
       )?.pet_type_id || 0;
-    const user_id = userGet?.registertopethowz?.data?.user_id;
+    // const user_id = userGet?.registertopethowz?.data?.user_id;
+    const user_id = localStorage.getItem("LoginChecker");
     const formData = new FormData();
     formData.append("pet_name", data1.pet_name);
     formData.append("pet_type", id);
@@ -148,6 +149,25 @@ const AddYourPetLogin = () => {
     // console.log(data1, "checkdata");
 
     dispatch(actions.ADD_YOUR_PET(data));
+    reset(defaultValues);
+    // setTimeout(() => {
+    //   if (pet_details_id !== "" && pet_details_id !== undefined) {
+    //     Swal.fire("Pets Added Successfully", "Thank You", "success").then(
+    //       (result) => {
+    //         /* Read more about isConfirmed, isDenied below */
+    //         reset(defaultValues);
+    //         if (result.isConfirmed) {
+    //           if (state !== null) {
+    //             navigate(state);
+    //           } else {
+    //             navigate("/petHowz/RequestBooking");
+    //             // console.log(pet_details_id, "pet_details_id");
+    //           }
+    //         }
+    //       }
+    //     );
+    //   }
+    // }, 1000);
     // reset({
     //   user_id: "",
     //   pet_name: "",
@@ -180,21 +200,47 @@ const AddYourPetLogin = () => {
     // );
   }
   React.useEffect(() => {
+    // if (pet_details_id !== "" && pet_details_id !== undefined) {
+    //   Swal.fire("Pets Added Successfully", "Thank You", "success").then(
+    //     (result) => {
+    //       /* Read more about isConfirmed, isDenied below */
+    //       reset(defaultValues);
+    //       if (result.isConfirmed) {
+    //         if (state !== null) {
+    //           navigate(state);
+    //         } else {
+    //           navigate("/petHowz/RequestBooking");
+    //           // console.log(pet_details_id, "pet_details_id");
+    //         }
+    //       }
+    //     }
+    //   );
+    // }
     if (pet_details_id !== "" && pet_details_id !== undefined) {
-      Swal.fire("Pets Added Successfully", "Thank You", "success").then(
-        (result) => {
-          /* Read more about isConfirmed, isDenied below */
-          reset(defaultValues);
-          if (result.isConfirmed) {
-            if (state !== null) {
-              navigate(state);
-            } else {
-              navigate("/petHowz/RequestBooking");
-              // console.log(pet_details_id, "pet_details_id");
-            }
+      const data = {
+        data: {},
+        method: "get",
+        apiName: "",
+      };
+
+      dispatch(actions.ADD_YOUR_PET(data));
+      Swal.fire({
+        title: "Pets Added Successfully",
+        text: "Thank You",
+        icon: "success",
+        allowOutsideClick: false,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+
+        if (result.isConfirmed) {
+          if (state !== null) {
+            navigate(state);
+          } else {
+            navigate("/petHowz/RequestBooking");
+            // console.log(pet_details_id, "pet_details_id");
           }
         }
-      );
+      });
     }
   }, [pet_details_id]);
   console.log(pet_details_id, "pet_details_id");

@@ -10,7 +10,6 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-
 import {
   Drawer,
   IconButton,
@@ -28,6 +27,7 @@ import { Link } from "react-router-dom";
 import "./AppBar.css";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../Redux/Actions";
+import { loginAction } from "../../Redux/Slices/Login/login";
 function ElevationScroll(props) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -87,7 +87,10 @@ const Header = (props) => {
     ) {
       localStorage.setItem("user_type", loginAdmin?.data?.data?.user_type);
     }
-  }, [loginCheck, login, user_type, dispatch]);
+    // if (!loginAdmin?.data) {
+    //   navigate("/petHowz/Login");
+    // }
+  }, [loginCheck, login, user_type]);
 
   const onLogin = () => {
     navigate("/petHowz/Login", {
@@ -102,13 +105,14 @@ const Header = (props) => {
   //   navigate("/");
   // };
   const onLogout = () => {
+    // const data = { data: {}, method: "get", apiName: "" };
+    // dispatch(actions.LOGIN_ADMIN(data));
+    dispatch(loginAction.logout());
     localStorage.clear();
 
-    const data = { data: {}, method: "get", apiName: "" };
-    dispatch(actions.LOGIN_ADMIN(data));
     setTimeout(() => {
       navigate("/petHowz/Login");
-    }, 1500);
+    }, 2000);
   };
   const onGoToProfile = () => {
     // if (loginAdmin?.data?.data?.user_type === 0) {
@@ -118,11 +122,13 @@ const Header = (props) => {
     // } else if (loginAdmin?.data?.data?.user_type === 2 || user_type === "2") {
     //   navigate("/petHowz/HostLayout/HostDashBoard");
     // }
-    if (user_type === "0") {
+    if (user_type === "0" || loginAdmin?.data?.data?.user_type === 0) {
       navigate("/petHowz/CustomerLayout/CustomerDashBoard");
-    } else if (user_type === "1") {
+    } else if (user_type === "1" || loginAdmin?.data?.data?.user_type === 1) {
       navigate("/petHowz/CustomerLayout/CustomerDashBoard");
-    } else if (user_type === "2") {
+    } else if (user_type === "2" || loginAdmin?.data?.data?.user_type === 2) {
+      navigate("/petHowz/HostLayout/HostDashBoard");
+    } else if (user_type === "3" || loginAdmin?.data?.data?.user_type === 3) {
       navigate("/petHowz/HostLayout/HostDashBoard");
     }
   };

@@ -2,7 +2,13 @@ import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import { Box, CardActionArea, CardActions, Grid } from "@mui/material";
+import {
+  Box,
+  CardActionArea,
+  CardActions,
+  Grid,
+  Typography,
+} from "@mui/material";
 // import { AddressPosition, CardBtnStyles, ReviewsPosition } from "./Style";
 import PropTypes from "prop-types";
 import CustomTypography from "../Typography/Typography";
@@ -50,10 +56,10 @@ export default function ServiceCardsSection({
     //   window.location.reload();
     //   alert("2");
     // }
-    if (typeof Data !== "object" || !Data.map) {
-      alert("Data is not an array", Data);
-      // or return an error message, or do something else
-    }
+    // if (typeof Data !== "object" || !Data.map) {
+    //   alert("Data is not an array", Data);
+    //   // or return an error message, or do something else
+    // }
   }, [Data]);
 
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -72,137 +78,156 @@ export default function ServiceCardsSection({
       item
       xs={12}
     >
-      <Grid item xs={12} sx={OverAllCArdPostions}>
-        {Data?.map((item, key) => {
-          return (
-            <Grid key={key} item xs={12}>
-              <Grid item xs={12}>
-                <CustomTypography
-                  text={item?.title}
-                  type="caption"
-                  colorType={"text"}
+      {Array.isArray(Data) && Data.length > 0 ? (
+        <Grid item xs={12} sx={OverAllCArdPostions}>
+          {Data?.map((item, key) => {
+            return (
+              <Grid key={key} item xs={12}>
+                <Grid item xs={12}>
+                  <CustomTypography
+                    text={item?.title}
+                    type="caption"
+                    colorType={"text"}
 
-                  // customClass="groomText"
-                />
-              </Grid>
-              {/* {item.datas.length !==0 ? ():("Not Found")} */}
-              <Grid
-                item
-                display={"flex"}
-                alignItems={"center"}
-                justifyContent={"flex-start"}
-                flexWrap={"wrap"}
-                gap={"40px"}
-                xs={12}
-                pt={"10px"}
-              >
-                {item?.datas
-                  ?.slice(indexOfFirstPost, indexOfLastPost)
-                  .map((item, key) => {
-                    return (
-                      <Box key={key}>
-                        <Card sx={CardSize}>
-                          <Box>
-                            <CardActionArea>
-                              <CardMedia
-                                component="img"
-                                image={item?.image}
-                                alt="dog"
-                                sx={CardMediaSize}
-                              />
-                            </CardActionArea>
-                            <CardActions sx={{ maxWidth: "250px" }}>
-                              <CardContent>
-                                <Box></Box>
-                                <CustomTypography
-                                  text={item?.name || item?.service_name}
-                                  type="h6"
-                                  colorType="text"
+                    // customClass="groomText"
+                  />
+                </Grid>
+                {/* {item.datas.length !==0 ? ():("Not Found")} */}
+                <Grid
+                  item
+                  display={"flex"}
+                  alignItems={"center"}
+                  justifyContent={"flex-start"}
+                  flexWrap={"wrap"}
+                  gap={"40px"}
+                  xs={12}
+                  pt={"10px"}
+                >
+                  {item?.datas
+                    ?.slice(indexOfFirstPost, indexOfLastPost)
+                    .map((item, key) => {
+                      return (
+                        <Box key={key}>
+                          <Card sx={CardSize}>
+                            <Box>
+                              <CardActionArea>
+                                <CardMedia
+                                  component="img"
+                                  image={item?.image}
+                                  alt="dog"
+                                  sx={CardMediaSize}
                                 />
-                                <Box sx={AddressPosition}>
-                                  <Box sx={AddressSubPosition1}>
+                              </CardActionArea>
+                              <CardActions sx={{ maxWidth: "250px" }}>
+                                <CardContent>
+                                  <Box></Box>
+                                  <CustomTypography
+                                    text={item?.name || item?.service_name}
+                                    type="h6"
+                                    colorType="text"
+                                  />
+                                  <Box sx={AddressPosition}>
+                                    <Box sx={AddressSubPosition1}>
+                                      <img
+                                        src={CustomIcons?.Location}
+                                        alt="location"
+                                      />
+                                      <CustomTypography
+                                        text={item?.address}
+                                        type="title"
+                                        customStyle={{ fontSize: "10px" }}
+                                        colorType="senary"
+                                      />
+                                    </Box>
+                                    <Box>
+                                      <CustomTypography
+                                        text={item?.distance}
+                                        type="title"
+                                        customStyle={{ fontSize: "10px" }}
+                                        colorType="senary"
+                                      />
+                                    </Box>
+                                  </Box>
+
+                                  <Box sx={AddressSubPosition2}>
                                     <img
-                                      src={CustomIcons?.Location}
+                                      src={CustomIcons?.Building}
                                       alt="location"
                                     />
                                     <CustomTypography
-                                      text={item?.address}
+                                      text={item?.type}
                                       type="title"
                                       customStyle={{ fontSize: "10px" }}
                                       colorType="senary"
                                     />
                                   </Box>
-                                  <Box>
-                                    <CustomTypography
-                                      text={item?.distance}
-                                      type="title"
-                                      customStyle={{ fontSize: "10px" }}
-                                      colorType="senary"
-                                    />
-                                  </Box>
-                                </Box>
-
-                                <Box sx={AddressSubPosition2}>
-                                  <img
-                                    src={CustomIcons?.Building}
-                                    alt="location"
-                                  />
-                                  <CustomTypography
-                                    text={item?.type}
-                                    type="title"
-                                    customStyle={{ fontSize: "10px" }}
-                                    colorType="senary"
-                                  />
-                                </Box>
-                                <Box sx={ReviewsPosition}>
-                                  <Box>
+                                  <Box sx={ReviewsPosition}>
                                     <Box>
-                                      <CustomizedRatings Data={item?.ratings} />
+                                      <Box>
+                                        <CustomizedRatings
+                                          Data={item?.ratings}
+                                        />
+                                      </Box>
+
+                                      <CustomTypography
+                                        text={item?.reviews}
+                                        type="title"
+                                        customStyle={{ fontSize: "10px" }}
+                                        colorType="senary"
+                                      />
                                     </Box>
 
-                                    <CustomTypography
-                                      text={item?.reviews}
-                                      type="title"
-                                      customStyle={{ fontSize: "10px" }}
-                                      colorType="senary"
+                                    <CustomButton
+                                      btnTitle="View Details"
+                                      color="primary"
+                                      btnStyles={CardBtnStyles}
+                                      onClickHandle={onClickHandle}
                                     />
                                   </Box>
-
-                                  <CustomButton
-                                    btnTitle="View Details"
-                                    color="primary"
-                                    btnStyles={CardBtnStyles}
-                                    onClickHandle={onClickHandle}
-                                  />
-                                </Box>
-                              </CardContent>
-                            </CardActions>
-                          </Box>
-                        </Card>
-                      </Box>
-                    );
-                  })}
+                                </CardContent>
+                              </CardActions>
+                            </Box>
+                          </Card>
+                        </Box>
+                      );
+                    })}
+                </Grid>
+                <Grid
+                  item
+                  md={12}
+                  lg={12}
+                  sm={12}
+                  xs={12}
+                  className="groomButton"
+                >
+                  <CustomButton
+                    btnTitle="Discover More"
+                    color="primary"
+                    customClass="groomCardStyles"
+                    fontSize="12px"
+                    onClickHandle={() => onDiscover(key)}
+                  />
+                </Grid>
               </Grid>
-              <Grid
-                item
-                md={12}
-                lg={12}
-                sm={12}
-                xs={12}
-                className="groomButton"
-              >
-                <CustomButton
-                  btnTitle="Discover More"
-                  color="primary"
-                  customClass="groomCardStyles"
-                  fontSize="12px"
-                  onClickHandle={() => onDiscover(key)}
-                />
-              </Grid>
-            </Grid>
-          );
-        })}
-      </Grid>
+            );
+          })}
+        </Grid>
+      ) : (
+        <Grid container item xs={12} height={"50vh"}>
+          <Grid
+            item
+            sx={{
+              display: "grid",
+              placeItems: "center",
+            }}
+            xs={12}
+          >
+            <Typography fontFamily={"Roboto-Regular"} variant="h4">
+              No Results Found
+            </Typography>
+          </Grid>
+        </Grid>
+      )}
     </Grid>
   );
 }

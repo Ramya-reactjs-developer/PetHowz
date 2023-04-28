@@ -22,6 +22,7 @@ import {
 import { Link } from "react-router-dom";
 import HomePetCardsSection from "../../Components/homeBoarding/homeBoarding";
 import CustomFonts from "../../Utils/Fonts";
+import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
 
 export const HomePage = () => {
   const dispatch = useDispatch();
@@ -346,6 +347,7 @@ export const HomePage = () => {
     // <div>
     //   HomePage
     <Grid item container xl={12} lg={12} md={12} sm={12} xs={12}>
+      <ScrollToTop />
       <Grid
         // alignItems={"center"}
         // justifyContent={"center"}
@@ -422,6 +424,7 @@ export const HomePage = () => {
           text="Our Services"
           type="heading2"
           colorType="text"
+          customStyle={{ fontFamily: "Roboto-Regular" }}
         />
       </Grid>
       <Grid
@@ -487,7 +490,11 @@ export const HomePage = () => {
         sx={{ background: "#ffeee8", mt: "30px", pt: "50px", pb: "30px" }}
       >
         <Grid item xs={12} pt={"30px"}>
-          <Typography fontSize={"40px"} textAlign="center">
+          <Typography
+            fontSize={"40px"}
+            textAlign="center"
+            fontFamily={"Roboto-Regular"}
+          >
             Recommended{" "}
             <span style={{ fontWeight: "bold" }}>Pet Boarding Spaces </span>{" "}
             Near You
