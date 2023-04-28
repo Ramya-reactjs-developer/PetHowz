@@ -1,94 +1,81 @@
-.root {
-  overflow: hidden;
+.uploadImageContainerNew {
+  background-color: red;
+  width: 250px;
+  height: 30px;
+  color: #fff;
+  padding: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.textView {
-  margin-left: 20px;
+.Label-Style {
+  background-color: #ff9062;
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 200px;
   text-align: center;
 }
-
-.fileText {
-  font-size: 12px;
-}
-
-.fileUploader {
-  position: absolute;
-  height: 400px !important;
-  width: 10px !important;
-  left: -200px !important;
-  top: -200px !important;
-  background: transparent !important;
-}
-
-.preview {
-  margin-top: 50px !important;
-}
-
-.uploadimageGrid {
-  width: 127px !important;
-  height: 126px !important;
-  border-radius: 71px !important;
-  background: #d2d2d826 !important;
-  position: relative;
-}
-.uploadImageContainer {
-  height: 2.4375em !important;
-  width: 300px !important;
-  border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #c4c4c4 !important;
-  box-sizing: content-box;
-  position: relative;
-}
-
-.logoImg {
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-}
-.none {
+.Input-Field {
   display: none;
 }
-.imageUpload {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+.Button-Style {
+  background-color: red;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 0px;
 }
+.Preview-Images {
+  display: inline-block;
+  margin: 5px;
+  position: absolute;
+}
+.Image-Size {
+  width: 100px;
+  height: 100px;
+}
+.Button-Position {
+  position: relative !important;
 
-.regFormImageUpload {
-  position: absolute;
-  right: 40%;
-  top: 40%;
-  filter: brightness(0) saturate(100%) invert(74%) sepia(52%) saturate(739%)
-    hue-rotate(349deg) brightness(104%) contrast(101%) !important;
+  right: 30px !important;
 }
-.textLabel {
-  color: rgb(133, 131, 131) !important;
-  font-size: 16px !important;
-  padding-bottom: 10px !important;
+.Delete-Button-Style {
+  width: 25px !important;
+  height: 25px !important;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid #ff9062 !important;
+  color: #ff9062 !important;
+  cursor: pointer;
   display: flex;
-  justify-content: left;
-  padding-top: 4px;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px !important;
 }
-.uploadProfileLabel {
-  font-size: 14px !important;
-  color: #8b8d90;
-  font-family: "Poppins";
-  padding-right: 10px !important;
+.Align-Selsections {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* gap: 50px; */
 }
-.ToolTip_Icon {
-  display: inline-flex;
+.Arrow-Style {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ff9062;
+  color: white;
 }
-.inputUpload {
-  position: relative;
-}
-.imageName {
-  position: absolute;
-  top: 10px;
-}
-.ToolTip_Icon .MuiIconButton-root {
-  padding: 0px 5px !important;
+.Arrow-Position {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }

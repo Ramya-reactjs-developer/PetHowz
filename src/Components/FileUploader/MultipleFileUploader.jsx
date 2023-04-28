@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 /* eslint-disable no-console */
-import { Grid } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import React, { useRef, useState } from "react";
 import propTypes from "prop-types";
 import Tooltip from "@mui/material/Tooltip";
@@ -99,116 +99,147 @@ function CustomMultiFileUploader(props) {
   const dropEvent = () => {};
   console.log("selectedImage", upLoad);
 
+  const onDelete = (index) => {
+    const newImages = [...selectedImage];
+    newImages.splice(index, 1);
+    setSelectedImages(newImages);
+  };
+  const onClear = () => {
+    setSelectedImages([]);
+  };
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const [postsPerPage] = useState(5);
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+
+  const prevPage = () => setCurrentPage(currentPage - 1);
+  const nextPage = () => setCurrentPage(currentPage + 1);
   return (
-    <Grid className="textGrid">
-      <Grid md={12} lg={12} sm={12} xs={12} className="ToolTip_Icon">
-        {!regForm && (
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <CustomTypography
-              text={label}
-              type="caption"
-              colorType={"text"}
-              customStyle={{ fontFamily: "Roboto-Regular" }}
-              // customClass="textLabel"
-            />
-            <Tooltip
-              title="Image size should be below 1 MB"
-              placement="top-start"
-            >
-              <IconButton>
-                <img src={CustomIcons.Information} alt="" />
-              </IconButton>
-            </Tooltip>
-          </div>
-        )}
-      </Grid>
-      <Grid
-        container
-        item
-        md={12}
-        xs={12}
-        display="flex"
-        justifyContent="center"
-      >
+    <Grid container item md={12} xs={12} display={"inline-block"} rowGap={50}>
+      <Grid item>
+        <Typography>{label}</Typography>
         <Grid
           onClick={() => fileRef.current.click()}
-          className={regForm ? "uploadimageGrid" : "uploadImageContainer"}
+          className="uploadImageContainerNew"
         >
-          {selectedImage.map((item) => (
-            <img key={item} src={item} alt="" width={200} />
-          ))}
+          <Typography>Choose Images</Typography>
+          {/* <img
+            src={defaultImage || upLoad}
+            alt=""
+            // className="uploadImage"
 
-          {/* {selectedImage ? (
-            <img
-              src={(fileType === "image" && selectedImage) || defaultImage}
-              alt=""
-              className={selectedImage ? "imageUpload" : "none"}
-            />
-          ) : (
-            // </div>
-            // <img
-            //   // src={defaultImage || upLoad}
-            //   src={defaultImage}
-            //   alt=""
-            //   className={regForm ? 'regFormImageUpload' : 'imageUpload'}
-            // />
-            //
-            // eslint-disable-next-line react/jsx-no-useless-fragment
-            <></>
-          )} */}
-          {/* {selectedImage ? (
-            <video
-              className={selectedImage ? 'imageUpload' : 'none'}
-              width="100%"
-              height="140"
-              controls
-              src={fileType === 'video'}
-            />
-          ) : (
-            <img src={fileType === 'image'} alt="" className={selectedImage ? 'imageUpload' : 'none'} />
-          )} */}
+            style={{ display: selectedImage.length ? "none" : "block" }}
+          /> */}
         </Grid>
-        <Grid display="inline-flex">
-          <input
-            type="file"
-            className="fileUploader"
-            onChange={handleFileChange}
-            onDragOver={dragEvent}
-            onDrop={dropEvent}
-            accept={acceptType}
-            ref={fileRef}
-            hidden
-            multiple
-          />
-        </Grid>
-        {/* <input
+        <input
           type="file"
           className="fileUploader"
-          onChange={imageChange}
-          onDragOver={dragEvent}
-          onDrop={dropEvent}
+          onChange={handleFileChange}
           accept={acceptType}
           ref={fileRef}
-          hidden
-        /> */}
+          multiple
+        />
       </Grid>
-      {regForm && (
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <CustomTypography
-            text={label}
-            type="caption"
-            customClass="textLabel"
-          />
-          <Tooltip
-            title="Image size should be below 1 MB"
-            placement="top-start"
-          >
-            <IconButton>
-              <img src={CustomIcons.Information} alt="" />
-            </IconButton>
-          </Tooltip>
-        </div>
-      )}
+      <Grid
+        md={6}
+        xs={12}
+        item
+        paddingTop={5}
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"flex-start"}
+        gap={"5px"}
+        // className="selectedImagesContainer"
+      >
+        {selectedImage
+          .slice(indexOfFirstPost, indexOfLastPost)
+          .map((image, index) => (
+            <Grid container item md={4} sm={6} xs={12} key={index}>
+              <Grid
+                item
+                display={"flex"}
+                alignItems={"center"}
+                justifyContent={"flex-start"}
+                gap={"5px"}
+                className="Preview-Images"
+              >
+                {fileType === "image" ? (
+                  <img
+                    src={image}
+                    alt=""
+                    width={100}
+                    className="selectedImage"
+                  />
+                ) : (
+                  <video
+                    src={image}
+                    width="100%"
+                    height="140"
+                    controls
+                    className="selectedVideo"
+                  />
+                )}
+
+                <Tooltip
+                  title="Delete"
+                  placement="top"
+                  className="Button-Position "
+                >
+                  <IconButton
+                    className="Delete-Button-Style"
+                    onClick={() => onDelete(index)}
+                  >
+                    x
+                  </IconButton>
+                </Tooltip>
+              </Grid>
+              {/* <div>
+                <button
+                  className="Delete-Button-Style"
+                  onClick={() => onDelete(index)}
+                >
+                  X
+                </button>
+              </div> */}
+            </Grid>
+          ))}
+      </Grid>
+      <Grid item pt={"5px"}>
+        {selectedImage.length >= 1 ? (
+          <div className="Align-Selsections">
+            <p>Total Images {selectedImage.length} </p>
+            <button
+              onClick={() => setSelectedImages([])}
+              className="Button-Style"
+            >
+              Clear Selection
+            </button>
+            <div className="Arrow-Position">
+              <button
+                onClick={() => prevPage()}
+                href="!#"
+                disabled={currentPage === 1}
+                className="Arrow-Style"
+              >
+                {" "}
+                ←
+              </button>
+              <button
+                onClick={() => nextPage()}
+                href="!#"
+                disabled={currentPage === Math.ceil(selectedImage.length / 5)}
+                className="Arrow-Style"
+              >
+                →
+              </button>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
+      </Grid>
     </Grid>
   );
 }
