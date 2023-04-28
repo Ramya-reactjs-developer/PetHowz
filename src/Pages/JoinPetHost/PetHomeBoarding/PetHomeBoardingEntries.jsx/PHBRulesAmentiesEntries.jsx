@@ -162,8 +162,8 @@ export const PHBRulesAmentiesEntries = [
     label: "Meal Type",
     breakpoint: 6,
     checkBoxData: [
-      { id: 0, name: "Veg" },
-      { id: 1, name: "Non-Veg" },
+      { id: 1, name: "Veg" },
+      { id: 2, name: "Non-Veg" },
     ],
 
     // pattern: /^[A-Za-z][A-Za-z0-9_]{7,29}$/,
