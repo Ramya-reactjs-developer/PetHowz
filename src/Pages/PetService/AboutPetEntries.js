@@ -49,19 +49,35 @@ export const AboutPetEntries = [
     DropdownData: [
       {
         id: 1,
-        value: "Student",
+        value: "1",
       },
       {
         id: 2,
-        value: "Housewife",
+        value: "2",
       },
       {
         id: 3,
-        value: "Professional boarder",
+        value: "3",
       },
       {
         id: 4,
-        value: "Working Professional",
+        value: "4",
+      },
+      {
+        id: 5,
+        value: "5",
+      },
+      {
+        id: 6,
+        value: "6",
+      },
+      {
+        id: 7,
+        value: "7",
+      },
+      {
+        id: 8,
+        value: "8",
       },
     ],
     breakpoint: 6,
@@ -76,19 +92,11 @@ export const AboutPetEntries = [
     DropdownData: [
       {
         id: 1,
-        value: "Student",
+        value: "Independent Groomer",
       },
       {
         id: 2,
-        value: "Housewife",
-      },
-      {
-        id: 3,
-        value: "Professional boarder",
-      },
-      {
-        id: 4,
-        value: "Working Professional",
+        value: "company",
       },
     ],
     breakpoint: 6,
@@ -100,29 +108,33 @@ export const AboutPetEntries = [
     name: "service_provider_for",
     breakpoint: 6,
     label: "Service Provider For",
-    labelText: "Primary Skills",
+    labelText: "Service Provider For",
     dropPlaceholder: "Primary Skills",
     disabled: true,
     DropdownData: [
       {
         id: 1,
-        value: "Cartomancy",
+        value: "Cats",
       },
       {
         id: 2,
-        value: "Face Reading",
+        value: "Dogs",
       },
       {
         id: 3,
-        value: "Lal Kitab",
+        value: "Rabbit",
       },
       {
         id: 4,
-        value: "Life Coach",
+        value: "Bird",
       },
       {
         id: 5,
-        value: "Loshu Grid",
+        value: "Turtle",
+      },
+      {
+        id: 6,
+        value: "Fish",
       },
     ],
     validation: { required: true },
@@ -137,19 +149,31 @@ export const AboutPetEntries = [
     DropdownData: [
       {
         id: 1,
-        value: "Student",
+        value: "1",
       },
       {
         id: 2,
-        value: "Housewife",
+        value: "2",
       },
       {
         id: 3,
-        value: "Professional boarder",
+        value: "3",
       },
       {
         id: 4,
-        value: "Working Professional",
+        value: "5",
+      },
+      {
+        id: 6,
+        value: "6",
+      },
+      {
+        id: 7,
+        value: "7",
+      },
+      {
+        id: 8,
+        value: "8",
       },
     ],
     breakpoint: 6,
@@ -268,14 +292,20 @@ export const AboutPetEntries = [
     error_message: "First Text",
     validation_error_message: "Text is in Invalid format",
   },
+  // {
+  //   isFileUploader: true,
+  //   name: "photos",
+  //   label: "Add Photos",
+  //   breakpoint: 5,
+  //   customClass: "profileImageContainer",
+  //   validation: { required: true },
+  //   error_message: "Upload Image",
+  // },
   {
-    isFileUploader: true,
+    isMultiImageUpload: true,
     name: "photos",
-    label: "Add Photos",
     breakpoint: 5,
-    customClass: "profileImageContainer",
-    validation: { required: true },
-    error_message: "Upload Image",
+    validation: { required: false },
   },
   {
     isEmptySpace: true,
