@@ -24,7 +24,7 @@ import {
   DefaultAboutPetValues,
 } from "../../Pages/PetService/AboutPetEntries";
 import "./style.css";
-import CustomMultiFileUploader from "../FileUploader/MultipleFileUploader";
+import CustomMultiFileUploader from "../ImageUploader/MultiImageUploader";
 import MultiImage from "../MultiImageUpload/MultiImageUpload";
 import { base64ToBinary } from "../../Redux/Helpers";
 // import { base64ToBinary } from "../../Redux/Helpers";

@@ -10,6 +10,7 @@ import CustomTypography from "../../Components/Typography/Typography";
 import CustomButton from "../../Components/Button/Button";
 import "./Grooming.css";
 
+
 export const Grooming = () => {
   const dispatch = useDispatch();
   // const { state } = useLocation();
