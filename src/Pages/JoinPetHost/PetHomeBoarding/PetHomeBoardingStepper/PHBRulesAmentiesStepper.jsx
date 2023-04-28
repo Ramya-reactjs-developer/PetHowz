@@ -91,7 +91,7 @@ const PHBRulesAmenties = () => {
       "meals_included_in_boarding_charges",
       data1.meals_included_in_boarding_charges
     );
-    formData.append("meal_type", [data1.meal_type]);
+    formData.append("meal_type", JSON.stringify(data1.meal_type));
     formData.append(
       "what_you_provide_in_meals_as_your_boarding",
       data1.what_you_provide_in_meals_as_your_boarding
