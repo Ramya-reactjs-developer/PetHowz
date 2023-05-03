@@ -17,9 +17,10 @@ import actions from "../../Redux/Actions";
 import { useLocation, useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import { adminUrl } from "../../Redux/Constants";
-import axios from "axios";
 import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
-const RequestBooking = () => {
+
+import axios from "axios";
+export const RequestBooking = () => {
   const defaultValues = {};
   const [entry, setEntry] = React.useState([]);
   const [open, setOpen] = React.useState(true);
@@ -64,7 +65,8 @@ const RequestBooking = () => {
   const AddYourPet = useSelector((state) => state?.PetSpaceBooking);
   console.log(AddYourPet, "AddYourPetbvfbg");
   // const dispatch = useDispatch();
-  const addDrpdownData = (json) => {
+  const
+    addDrpdownData = (json) => {
     const tmpArr = [];
     console.log(tmpArr, "tmpArr");
     AddYourPet?.getPetSpaceBooking?.data?.map((item) => {
@@ -139,7 +141,7 @@ const RequestBooking = () => {
     (state) => state?.AddYourPet?.AddYourPets?.data?.pet_details_id
   );
   const user_id = localStorage.getItem("LoginChecker");
-  // const petId = localStorage.getItem("pet_details_id");
+  const petId = localStorage.getItem("pet_details_id");
   const petSpaceId = localStorage.getItem("pet_space_id");
   // React.useEffect(() => {
   //   if (pet_details_id?.AddYourPet?.AddYourPets?.data?.pet_details_id) {
@@ -159,7 +161,7 @@ const RequestBooking = () => {
         ...data1,
         user_id: user_id,
         pet_space_id: petSpaceId,
-        // pet_details_id: petId,
+        pet_details_id: petId,
         customer_id: user_id,
       },
       method: "post",
@@ -342,4 +344,3 @@ const RequestBooking = () => {
     </Grid>
   );
 };
-export default RequestBooking;

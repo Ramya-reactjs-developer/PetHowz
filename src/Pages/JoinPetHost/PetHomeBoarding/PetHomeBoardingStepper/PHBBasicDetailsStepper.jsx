@@ -197,7 +197,7 @@ import {
 import { PetHomeBoardingContext } from "../PetHomeBoardingContext";
 import CustomTextField from "../../../../Components/TextField/TextField";
 import CustomImageUploader from "../../../../Components/FileUploader/FileUpload";
-import CustomIcons from "../../../../Utils/Icons/Index";
+// import CustomIcons from "../../../../Utils/Icons/Index";
 import CustomTypography from "../../../../Components/Typography/Typography";
 import CustomRadioButton from "../../../../Components/RadioButton/RadioButton";
 import CustomButton from "../../../../Components/Button/Button";
@@ -205,6 +205,9 @@ import CustomForm from "../../../../Components/CustomForm/CustomForm";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../../Redux/Actions";
 import Swal from "sweetalert2";
+import CustomFileUploader from "../../../../Components/FileUploader/FileUpload";
+import { useState } from "react";
+import { FileUpload } from "@mui/icons-material";
 
 const PHBBasicDetails = (props) => {
   const dispatch = useDispatch();
@@ -240,7 +243,7 @@ const PHBBasicDetails = (props) => {
     formData.append("street", data1.street);
     formData.append("city", data1.city);
     formData.append("locality", data1.locality);
-    formData.append("image", data1.image[0]);
+    formData.append("image", image.raw);
     formData.append("state", data1.state);
     formData.append("pincode", data1.pincode);
     formData.append("pin_location", data1.pin_location);
@@ -280,6 +283,31 @@ const PHBBasicDetails = (props) => {
     console.log(value, "oooo1");
   }, [userGet, value]);
 
+  const [image, setImage] = useState({ preview: "", raw: "" });
+  const handleChange = (e) => {
+    console.log(e, "eswar");
+    if (e.target.files.length) {
+      setImage({
+        preview: URL.createObjectURL(e.target.files[0]),
+        raw: e.target.files[0],
+      });
+    }
+  };
+  const handleUpload = async (e) => {
+    console.log(e, "fileUpload");
+    e.preventDefault();
+    const formData = new FormData();
+    console.log(image.raw, "formData");
+    formData.append("image", image.raw);
+
+    await fetch("YOUR_URL", {
+      method: "POST",
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      body: formData,
+    });
+  };
   return (
     <>
       <Grid container md={12} sm={12} lg={12} xs={12}>
@@ -339,6 +367,7 @@ const PHBBasicDetails = (props) => {
                           />
                         </Grid>
                       )}
+
                       {keyValue?.isFileUploader && (
                         <Grid
                           item
@@ -349,19 +378,16 @@ const PHBBasicDetails = (props) => {
                           mx={2}
                           className="circleLogoBox"
                         >
-                          <CustomImageUploader
-                            upLoad={CustomIcons.LogoUploader}
-                            label={keyValue.label}
-                            // onHandleChange={(e) => {
-                            //   onChange(e);
-                            //   props.textFieldChange(e, keyValue.name);
-                            // }}
-                            customClass={keyValue.customClass}
-                            getImage={(val) => {
-                              onChange(val);
-                              // getImage(val);
-                              props.textFieldChange(val, keyValue.name);
+                          <CustomFileUploader
+                            // handleChange={handleChange}
+
+                            handleChange={(e) => {
+                              onChange(e);
+                              handleChange(e);
+                              // handleUpload(e);
                             }}
+                            Image={image}
+                            value={value}
                             regForm={keyValue.regForm}
                             defaultImage={keyValue.defaultImage}
                             resetValue={resetValue}

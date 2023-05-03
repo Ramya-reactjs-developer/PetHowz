@@ -16,7 +16,7 @@ import CustomRadioButton from "../../../../Components/RadioButton/RadioButton";
 import CustomIcons from "../../../../Utils/Icons/Index";
 import MultipleSelectChip from "../../../../Components/MultipleDropdown/MultipleDropdown";
 import { base64ToBinary } from "../../../../Redux/Helpers";
-import CustomMultiFileUploader from "../../../../Components/FileUploader/MultipleFileUploader";
+import CustomMultiFileUploader from "../../../../Components/ImageUploader/MultiImageUploader";
 import Swal from "sweetalert2";
 import MultiImageUploader from "../../../../Components/ImageUploader/MultiImageUploader";
 

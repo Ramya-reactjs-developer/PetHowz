@@ -160,7 +160,7 @@ import {
   OverAllCArdPostions,
   ReviewsPosition,
 } from "./Style";
-import './GroomingCard.css';
+import "./GroomingCard.css";
 
 export default function GroomingCardsSection({ Data, onClickHandle }) {
   const CardData = Data;
