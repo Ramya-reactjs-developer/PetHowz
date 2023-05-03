@@ -37,7 +37,7 @@ const PHBAboutYou = (props) => {
     DefaultPHBAboutYouValues,
   });
   const value = useContext(PetHomeBoardingContext);
-
+  const pet_space_id = localStorage.getItem("pet_space_id");
   const onSubmit = (data1) => {
     console.log(data1, "checkdata");
     const formData = new FormData();
@@ -58,10 +58,7 @@ const PHBAboutYou = (props) => {
       "do_you_have_other_pets_at_home",
       data1.do_you_have_other_pets_at_home
     );
-    formData.append(
-      "pet_space_id",
-      userGet?.phbbasicdetails?.data.pet_space_id
-    );
+    formData.append("pet_space_id", parseInt(pet_space_id));
     const data = {
       data: formData,
       method: "post",
@@ -71,6 +68,7 @@ const PHBAboutYou = (props) => {
     console.log(formData, "dddd1");
 
     dispatch(actions.PHBABOUTYOU(data));
+    setResetValue(defaultValues);
   };
   React.useEffect(() => {
     // if (AboutYou?.phbaboutyou?.message === "SUCCESS" && value.page === 1) {
@@ -86,7 +84,7 @@ const PHBAboutYou = (props) => {
 
     if (AboutYou?.phbaboutyou?.message === "SUCCESS" && value.page === 1) {
       setResetValue(defaultValues);
-      value.nextPage();
+      // value.nextPage();
     }
   }, [userGet, AboutYou, value]);
   return (

@@ -208,6 +208,7 @@ import Swal from "sweetalert2";
 import CustomFileUploader from "../../../../Components/FileUploader/FileUpload";
 import { useState } from "react";
 import { FileUpload } from "@mui/icons-material";
+import { phbbasicdetailsAction } from "../../../../Redux/Slices/PetHomeBoardingSlice/PHBBasicDetailsSlice";
 
 const PHBBasicDetails = (props) => {
   const dispatch = useDispatch();
@@ -257,7 +258,8 @@ const PHBBasicDetails = (props) => {
     // setTimeout(() => {
 
     dispatch(actions.PHBBASICDETAILS(data));
-
+    setResetValue(defaultValues);
+    reset(defaultValues);
     // }, 200);
   };
   const onNext = () => {
@@ -273,7 +275,16 @@ const PHBBasicDetails = (props) => {
     // }
     if (userGet?.phbbasicdetails?.message === "SUCCESS" && value.page === 0) {
       setResetValue(defaultValues);
-
+      localStorage.setItem(
+        "user_type",
+        userGet?.phbbasicdetails?.data?.user_type
+      );
+      localStorage.setItem(
+        "pet_space_id",
+        userGet?.phbbasicdetails?.data?.pet_space_id
+      );
+      alert(1);
+      // dispatch(phbbasicdetailsAction.reset());
       value.nextPage();
     }
   };

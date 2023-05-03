@@ -58,8 +58,9 @@ function Login() {
   // }, [login]);
   const userId = localStorage.getItem("LoginChecker");
   const UserType = localStorage.getItem("UserType");
+  console.log(UserType, "UserType");
   useEffect(() => {
-    console.log(loginAdmin?.data, "loginAdmin?.data");
+    console.log(loginAdmin?.data?.data?.user_type, "loginAdmin?.data");
     if (
       loginAdmin?.data?.data?.user_id !== "" &&
       loginAdmin?.data?.data?.user_id !== undefined &&
@@ -105,27 +106,18 @@ function Login() {
 
   const setNav = () => {
     setTimeout(() => {
-      if (state !== null) {
+      if (
+        state !== null &&
+        state !== "/petHowz/CustomerLayout/CustomerDashBoard"
+      ) {
         navigate(state);
-      } else if (
-        (state === null && loginAdmin?.data?.data?.user_type === 0) ||
-        UserType === "0"
-      ) {
+      } else if (loginAdmin?.data?.data?.user_type === 0 || UserType === "0") {
         navigate("/petHowz/CustomerLayout/CustomerDashBoard");
-      } else if (
-        (state === null && loginAdmin?.data?.data?.user_type === 1) ||
-        UserType == "1"
-      ) {
+      } else if (loginAdmin?.data?.data?.user_type === 1 || UserType == "1") {
         navigate("/petHowz/CustomerLayout/CustomerDashBoard");
-      } else if (
-        (state === null && loginAdmin?.data?.data?.user_type === 2) ||
-        UserType == "2"
-      ) {
+      } else if (loginAdmin?.data?.data?.user_type === 2 || UserType == "2") {
         navigate("/petHowz/HostLayout/HostDashBoard");
-      } else if (
-        (state === null && loginAdmin?.data?.data?.user_type === 3) ||
-        UserType == "3"
-      ) {
+      } else if (loginAdmin?.data?.data?.user_type === 3 || UserType == "3") {
         navigate("/petHowz/HostLayout/HostDashBoard");
       }
       // else if (state !== "" && UserType === "0" && UserType !== null) {
@@ -146,7 +138,10 @@ function Login() {
     }, 1000);
   };
   const onSignup = () => {
-    navigate("/petHowz/registertopethowz", { state: state });
+    navigate("/petHowz/registertopethowz", {
+      state:
+        state !== null ? state : "/petHowz/CustomerLayout/CustomerDashBoard",
+    });
   };
   return (
     <Grid container sm={12} xs={12}>

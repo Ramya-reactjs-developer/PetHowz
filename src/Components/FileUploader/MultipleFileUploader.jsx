@@ -151,37 +151,19 @@ function CustomMultiFileUploader(props) {
         alignItems={"center"}
         justifyContent={"flex-start"}
         gap={"5px"}
-        // className="selectedImagesContainer"
       >
         {selectedImage
           .slice(indexOfFirstPost, indexOfLastPost)
           .map((image, index) => (
             <Grid container item md={4} sm={6} xs={12} key={index}>
-              <Grid
-                item
-                display={"flex"}
-                alignItems={"center"}
-                justifyContent={"flex-start"}
-                gap={"5px"}
-                className="Preview-Images"
-              >
-                {fileType === "image" ? (
-                  <img
-                    src={image}
-                    alt=""
-                    width={100}
-                    className="selectedImage"
-                  />
-                ) : (
-                  <video
-                    src={image}
-                    width="100%"
-                    height="140"
-                    controls
-                    className="selectedVideo"
-                  />
-                )}
-
+              <Grid item>
+                <Grid item className="selectedImagesTiles">
+                  {fileType === "image" ? (
+                    <img src={image} alt="" width={100} height={100} />
+                  ) : (
+                    <video src={image} width="100%" height="140" controls />
+                  )}
+                </Grid>
                 <Tooltip
                   title="Delete"
                   placement="top"
@@ -195,21 +177,13 @@ function CustomMultiFileUploader(props) {
                   </IconButton>
                 </Tooltip>
               </Grid>
-              {/* <div>
-                <button
-                  className="Delete-Button-Style"
-                  onClick={() => onDelete(index)}
-                >
-                  X
-                </button>
-              </div> */}
             </Grid>
           ))}
       </Grid>
-      <Grid item pt={"5px"}>
+      <Grid item pt={"15px"}>
         {selectedImage.length >= 1 ? (
           <div className="Align-Selsections">
-            <p>Total Images {selectedImage.length} </p>
+            <p>Total Images Selected {selectedImage.length} </p>
             <button
               onClick={() => setSelectedImages([])}
               className="Button-Style"

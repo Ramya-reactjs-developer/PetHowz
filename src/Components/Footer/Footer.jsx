@@ -77,7 +77,7 @@ const Footer = () => {
           />
           {/* <Typography variant="body1">098840 42119</Typography> */}
           <CustomTypography
-            text="098840 42119<"
+            text="098840 42119"
             type="header"
             customClass="RegisterOffice"
           />
@@ -153,7 +153,7 @@ const Footer = () => {
       </Grid>
       <Grid item xs={12} sm={12} md={3}>
         <CustomTypography
-          text="Service We Provide<"
+          text="Service We Provide"
           type="header"
           customClass="headPffice"
         />

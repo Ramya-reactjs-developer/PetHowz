@@ -28,6 +28,7 @@ import "./AppBar.css";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../Redux/Actions";
 import { loginAction } from "../../Redux/Slices/Login/login";
+
 function ElevationScroll(props) {
   const { children, window } = props;
   // Note that you normally won't need to set the window ref as useScrollTrigger
@@ -104,6 +105,7 @@ const Header = (props) => {
   //   };
   //   navigate("/");
   // };
+
   const onLogout = () => {
     // const data = { data: {}, method: "get", apiName: "" };
     // dispatch(actions.LOGIN_ADMIN(data));
