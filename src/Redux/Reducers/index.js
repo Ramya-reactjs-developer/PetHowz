@@ -24,9 +24,11 @@ import PHBAddOnsSlice from "../Slices/PetHomeBoardingSlice/PHBAddOnsSlice";
 import aboutPetSlice from "../Slices/AboutPet/AboutPet";
 import createPackageSlice from "../Slices/CreatePackage/CreatePackage";
 import basicDetailsSlice from "../Slices/ServiceBasicDetails/BasicDetails";
-
+import groomingServiceSlice from "../Slices/Grooming/Grooming";
+import groomingPetServiceSlice from "../Slices/Grooming/Grooming"
 const reducer = combineReducers({
   grooming: groomingSlice,
+  groomingPetService:groomingPetServiceSlice,
   userAddressDetails: userAddressDetailsSlice,
   login: loginSlice,
   ourService: ourServiceSlice,
@@ -38,7 +40,7 @@ const reducer = combineReducers({
   AddYourPets: AddYourPetSlice,
   CustomerAddAnotherPet: CustomerAddAnotherPetSlice,
   searchcity: SearchCitySlice,
-
+  groomingService:groomingServiceSlice,
   AddYourPet: AddYourPetSlice,
   CustomerAddAnotherPet: CustomerAddAnotherPetSlice,
   searchcity: SearchCitySlice,

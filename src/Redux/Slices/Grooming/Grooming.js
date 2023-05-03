@@ -3,8 +3,8 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { defaultReject, defaultState } from "../../Constants";
 import { fetchData } from "../../Helpers";
 
-const GROOMING = createAsyncThunk(
-  "grooming/grooming",
+const GROOMINPETGSERVICE = createAsyncThunk(
+  "groomingPetService/groomingPetService",
   // eslint-disable-next-line default-param-last
   async (
     // eslint-disable-next-line default-param-last
@@ -13,8 +13,8 @@ const GROOMING = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
+      console.log(payload, "paylfmnvoad");
       const data = await fetchData(
-        payload?.id,
         payload?.data,
         payload?.method,
         payload?.apiName
@@ -33,34 +33,34 @@ const GROOMING = createAsyncThunk(
   }
 );
 
-const groomingSlice = createSlice({
-  name: "groomingSlice",
+const groomingPetServiceSlice = createSlice({
+  name: "groomingServiceSlice",
   initialState: {
-    grooming: {
+    groomingPetService: {
       ...defaultState.List,
     },
   },
   extraReducers: {
-    [GROOMING.fulfilled]: (state, action) => {
-      (state.grooming.loading = false),
-        (state.grooming.error = false),
-        (state.grooming = action.payload);
+    [GROOMINPETGSERVICE.fulfilled]: (state, action) => {
+      (state.groomingPetService.loading = false),
+        (state.groomingPetService.error = false),
+        (state.groomingPetService = action.payload);
     },
-    [GROOMING.pending]: (state, action) => {
-      (state.grooming.loading = true),
-        (state.grooming.error = false),
-        (state.grooming.loading = true);
+    [GROOMINPETGSERVICE.pending]: (state, action) => {
+      (state.groomingPetService.loading = true),
+        (state.groomingPetService.error = false),
+        (state.groomingPetService.loading = true);
     },
-    [GROOMING.rejected]: (state, action) => {
-      (state.grooming.loading = false),
-        (state.grooming.error = true),
-        (state.grooming = action.payload);
+    [GROOMINPETGSERVICE.rejected]: (state, action) => {
+      (state.groomingPetService.loading = false),
+        (state.groomingPetService.error = true),
+        (state.groomingPetService = action.payload);
     },
   },
 });
 
-const groomingAction = {
-  GROOMING,
+const groomingPetServiceAction = {
+  GROOMINPETGSERVICE,
 };
-export { groomingAction };
-export default groomingSlice.reducer;
+export { groomingPetServiceAction };
+export default groomingPetServiceSlice.reducer;

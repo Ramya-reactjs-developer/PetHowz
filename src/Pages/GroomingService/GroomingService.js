@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Grid, CardActionArea } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import actions from "../../Redux/Actions/index";
 import CustomIcons from "../../Utils/Icons/Index";
 import CustomTypography from "../../Components/Typography/Typography";
@@ -14,30 +14,31 @@ import "./GroomingService.css";
 
 const GroomingService = () => {
   const [Modal, setModal] = React.useState(false);
-
+  // const navigate = useNavigate();
   // const dispatch = useDispatch();
-  // // const { state } = useLocation();
-  // const location = useLocation();
-
-  // const value = location.state;
-  // console.log(value, "valueState");
-
-  // const { groomingService } = useSelector((state) => state?.groomingService);
-  // console.log(groomingService, "groomingService");
-
-  // const { ourService } = useSelector((state) => state?.ourService);
-  // console.log(ourService, "ourService");
+  // const { state } = useLocation();
+  // console.log(state, "eswarState");
 
   // useEffect(() => {
   //   const data = {
-  //     data: { pet_space_id: value },
+  //     data: {},
   //     method: "get",
-  //     // apiName: `getPetServiceByServiceMasterId/${state.response?.[0]?.service_master_id}`,
-  //     apiName: `getPetBoardingById/pet_space_id`,
+  //     apiName: `getPetServiceById/${76}`,
   //   };
-  //   dispatch(actions.GROOMINGSERVICE(data));
-  // }, [dispatch, value]);
+  //   // console.log(data, "jkvjfhuvh");
 
+  //   dispatch(actions.GROOMINGSERVICE(data));
+  // }, [dispatch, state]);
+
+  const dispatch = useDispatch();
+  const { state } = useLocation();
+  console.log(state, "eswarState");
+  // React.useEffect(() => {
+  //   localStorage.setItem("pet_service_id", state);
+  // }, []);
+  // React.useEffect(() => {
+  //   localStorage.setItem("service_master_id", state);
+  // }, []);
   const modalOpen = () => {
     setModal(true);
   };
@@ -100,39 +101,84 @@ const GroomingService = () => {
       text: "CCTV (@ Boarding area)",
     },
   ];
+
+  // const tmpArr = [];
+  // console.log(tmpArr, "tmpArr");
+  // const { ourService } = useSelector((state) => state?.ourService);
+  // const serviceMasterid = ourService?.data?.map((item) => {
+  //   tmpArr.push({
+  //     id: item.service_master_id,
+  //   });
+  // });
+  // console.log(state, "serviceMasterid");
+
+  const tmpArr = [];
+  const { groomingPetService } = useSelector(
+    (state) => state?.groomingPetService
+  );
+  const GroomingData = groomingPetService?.data?.map((item) => {
+    tmpArr.push({
+      id: item,
+    });
+  });
+  console.log(
+    groomingPetService,
+
+    "vgrooming"
+  );
+  useEffect(() => {
+    // alert(serviceMasterid)
+    const data = {
+      data: { id: state.masterId },
+      method: "post",
+      apiName: `getPetServiceById/${state.serviceId}`,
+    };
+    dispatch(actions.GROOMINPETGSERVICE(data));
+  }, [dispatch, state]);
+
   return (
     <Grid className="container">
-      <Grid container md={12} lg={12} sm={12} xs={12}>
-        <Grid item md={5} lg={5} sm={12} xs={12} m={1} className="groomingLeftImage">
-          <img src={customImages.Service} alt="" />
-        </Grid>
-        <Grid
-          item
-          md={3.5}
-          lg={3.5}
-          sm={12}
-          xs={12}
-          m={1}
-          className="centerImage"
-        >
-          <img src={customImages.PetImage} alt="" />
-        </Grid>
-        <Grid item md={3} lg={3} sm={12} xs={12}>
-          <Grid item m={1} className="rightTop">
-            <img src={customImages.Service} alt="" />
+      {groomingPetService?.data?.map((item) => {
+        <Grid container md={12} lg={12} sm={12} xs={12}>
+          <Grid
+            item
+            md={5}
+            lg={5}
+            sm={12}
+            xs={12}
+            m={1}
+            className="groomingLeftImage"
+          >
+            <img src={ item.image} alt="" />
           </Grid>
-          <Grid m={1} className="rightBottom">
-            <CardActionArea onClick={modalOpen}>
-              <img
-                src={customImages.PetImage}
-                alt=""
-                // onClick={(id) => modalOpen(id)}
-              />
-            </CardActionArea>
-            {Modal && <GroomModal />}
+          <Grid
+            item
+            md={3.5}
+            lg={3.5}
+            sm={12}
+            xs={12}
+            m={1}
+            className="centerImage"
+          >
+            <img src={item.image} alt="" />
           </Grid>
-        </Grid>
-      </Grid>
+          <Grid item md={3} lg={3} sm={12} xs={12}>
+            <Grid item m={1} className="rightTop">
+              <img src={item.image} alt="" />
+            </Grid>
+            <Grid m={1} className="rightBottom">
+              <CardActionArea onClick={modalOpen}>
+                <img
+                  src={item.image}
+                  alt=""
+                  // onClick={(id) => modalOpen(id)}
+                />
+              </CardActionArea>
+              {Modal && <GroomModal />}
+            </Grid>
+          </Grid>
+        </Grid>;
+      })}
       <Grid>
         <CustomTypography
           type="head"

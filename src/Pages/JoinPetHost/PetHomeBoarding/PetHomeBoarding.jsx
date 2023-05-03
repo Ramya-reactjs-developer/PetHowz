@@ -14,7 +14,6 @@ import ScrollToTop from "../../../Components/ScrollToTop/ScrollToTop";
 const PetHomeBoarding = () => {
   const value = useContext(PetHomeBoardingContext);
   console.log(value, "valueeeee");
-
   return (
     <Grid container item sm={12} xs={12}>
       <ScrollToTop />
