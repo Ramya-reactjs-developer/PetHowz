@@ -39,7 +39,7 @@ const PHBRulesAmenties = () => {
     DefaultPHBRulesAmentiesValues,
   });
   const value = useContext(PetHomeBoardingContext);
-
+  const pet_space_id = localStorage.getItem("pet_space_id");
   const onSubmit = (data1) => {
     console.log(data1, "checkdata");
 
@@ -101,10 +101,7 @@ const PHBRulesAmenties = () => {
       data1.anything_else_is_provided
     );
 
-    formData.append(
-      "pet_space_id",
-      userGet?.phbbasicdetails?.data.pet_space_id
-    );
+    formData.append("pet_space_id", pet_space_id);
     const data = {
       data: formData,
       method: "post",
@@ -113,6 +110,7 @@ const PHBRulesAmenties = () => {
     console.log(data1, "checkdata");
 
     dispatch(actions.PHBRULESAMENTIES(data));
+    setResetValue(defaultValues);
   };
   console.log(userGet?.phbbasicdetails?.data.pet_space_id, "id");
   React.useEffect(() => {

@@ -1,27 +1,19 @@
-/* eslint-disable no-unused-expressions */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { defaultReject, defaultState } from "../../Constants";
+import { defaultReject, defaultState } from "../../Constants/commonSchema";
 import { fetchData } from "../../Helpers";
 
 const REGISTERTOPETHOWZ = createAsyncThunk(
   "registertopethowz/registertopethowz",
-  // eslint-disable-next-line default-param-last
-  async (
-    // eslint-disable-next-line default-param-last
-    payload = {},
-
-    { rejectWithValue }
-  ) => {
+  async (payload = {}, { rejectWithValue }) => {
     try {
       const data = await fetchData(
         payload?.data,
         payload?.method,
         payload?.apiName
       );
+
       return {
-        ...defaultState.List,
-        message: data?.data.Message,
-        data: data?.data?.data,
+        data: data?.data,
       };
     } catch (error) {
       return rejectWithValue({
@@ -33,33 +25,46 @@ const REGISTERTOPETHOWZ = createAsyncThunk(
 );
 
 const registertopethowzSlice = createSlice({
-  name: "Slice",
+  name: "registertopethowzSlice",
   initialState: {
     registertopethowz: {
       ...defaultState.List,
     },
   },
+  reducers: {
+    reset: (state) => {
+      state.registertopethowz = defaultState.List;
+    },
+  },
   extraReducers: {
     [REGISTERTOPETHOWZ.fulfilled]: (state, action) => {
-      (state.registertopethowz.loading = false),
-        (state.registertopethowz.error = false),
-        (state.registertopethowz = action.payload);
+      state.registertopethowz = {
+        loading: false,
+        error: false,
+        data: action.payload,
+      };
     },
-    [REGISTERTOPETHOWZ.pending]: (state, action) => {
-      (state.registertopethowz.loading = true),
-        (state.registertopethowz.error = false),
-        (state.registertopethowz.loading = true);
+    [REGISTERTOPETHOWZ.pending]: (state) => {
+      state.registertopethowz = {
+        loading: true,
+        error: false,
+        data: null,
+      };
     },
     [REGISTERTOPETHOWZ.rejected]: (state, action) => {
-      (state.registertopethowz.loading = false),
-        (state.registertopethowz.error = true),
-        (state.registertopethowz = action.payload);
+      state.registertopethowz = {
+        loading: false,
+        error: true,
+        data: action.payload,
+      };
     },
   },
 });
 
 const registertopethowzAction = {
   REGISTERTOPETHOWZ,
+  reset: registertopethowzSlice.actions.reset,
 };
+
 export { registertopethowzAction };
 export default registertopethowzSlice.reducer;

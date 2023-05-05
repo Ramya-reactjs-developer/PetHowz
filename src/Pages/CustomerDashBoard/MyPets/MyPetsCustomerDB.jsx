@@ -23,11 +23,11 @@ export const MyPetsCustomerDB = () => {
     },
   ];
   const Addbtn = {
-    color: "white", width: "50px",
+    color: "white",
+    width: "50px",
     height: "60px",
     borderRadius: "50%",
     fontSize: "35px",
-   
   };
   const onAddAnother = () => {
     setOpen(true);

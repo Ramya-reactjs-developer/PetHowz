@@ -68,7 +68,7 @@ export const AddressEntries = [
     pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
     customClass: "textBox",
-    error_message: "First Text",
+    error_message: "Street",
     validation_error_message: "Text is in Invalid format",
   },
   {
@@ -81,7 +81,7 @@ export const AddressEntries = [
     pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
     customClass: "textBox",
-    error_message: "First Text",
+    error_message: "City",
     validation_error_message: "Text is in Invalid format",
   },
   {
@@ -94,7 +94,7 @@ export const AddressEntries = [
     pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
     customClass: "textBox",
-    error_message: "First Text",
+    error_message: "Locality",
     validation_error_message: "Text is in Invalid format",
   },
   //   {
@@ -112,7 +112,7 @@ export const AddressEntries = [
     pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
     customClass: "textBox",
-    error_message: "First Text",
+    error_message: "State",
     validation_error_message: "Text is in Invalid format",
   },
   {
@@ -126,7 +126,7 @@ export const AddressEntries = [
     pattern: "/^(+d{1,3}[- ]?)?d{6}$/",
     requiredField: true,
     customClass: "textBox",
-    error_message: "First Text",
+    error_message: "Pincode",
     validation_error_message: "Text is in Invalid format",
   },
 
@@ -146,7 +146,7 @@ export const AddressEntries = [
     pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
     customClass: "textBox",
-    error_message: "First Text",
+    error_message: "Location",
     validation_error_message: "Text is in Invalid format",
   },
 

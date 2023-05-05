@@ -3,7 +3,6 @@ import React, { UseEffect } from "react";
 import { Box, Grid } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { Controller, useForm } from "react-hook-form";
-
 import actions from "../../Redux/Actions/index";
 import CustomTypography from "../../Components/Typography/Typography";
 import "./CustomerRegistration.css";
@@ -13,6 +12,7 @@ import { AddressEntries, DefaultAddressEntriesValues } from "./AddressEntries";
 import { useNavigate } from "react-router";
 import { useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
+import { userAddressDetailsAction } from "../../Redux/Slices/userAddress/userAddressDetailsSlice";
 
 export const AddAddress = () => {
   const dispatch = useDispatch();
@@ -29,25 +29,11 @@ export const AddAddress = () => {
     defaultValues,
   });
 
-  const userGet = useSelector((state) => state?.registertopethowz);
+  const userGet = useSelector((state) => state?.userAddressDetails);
 
-  console.log(userGet?.registertopethowz?.data?.user_id, "userGetbbbb");
-  // const { registertopethowz } = useSelector(
-  //   (state) => state?.registertopethowz
-  // );
-  // console.log(registertopethowz, "registertopethowz");
-  React.useEffect(() => {
-    if (userGet?.registertopethowz?.data?.user_id) {
-      localStorage.setItem(
-        "LoginChecker",
-        userGet?.registertopethowz?.data?.user_id
-      );
-      localStorage.setItem(
-        "user_type",
-        userGet?.registertopethowz?.data?.user_type
-      );
-    }
-  }, [localStorage, userGet]);
+  console.log(userGet?.userAddressDetails?.data, "userGetbbbb");
+
+  React.useEffect(() => {}, [localStorage, userGet]);
   const navigate = useNavigate();
   const user_id = localStorage.getItem("LoginChecker");
   console.log(user_id, "user_idAddress");
@@ -62,18 +48,45 @@ export const AddAddress = () => {
 
     dispatch(actions.USER_ADDRESS_DETAILS(data));
     reset(defaultValues);
-    Swal.fire({
-      title: "Address Added Successfully",
-      text: "Thank You",
-      icon: "success",
-      allowOutsideClick: false,
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        navigate("/petHowz/Terms", { state: state });
-      }
-    });
+
+    // Swal.fire({
+    //   title: "Address Added Successfully",
+    //   text: "Thank You",
+    //   icon: "success",
+    //   allowOutsideClick: false,
+    // }).then((result) => {
+    //   /* Read more about isConfirmed, isDenied below */
+    //   if (result.isConfirmed) {
+    //     navigate("/petHowz/Terms", { state: state });
+    //   }
+    // });
   }
+  React.useEffect(() => {
+    console.log(userGet?.userAddressDetails?.data?.data?.Message, "mmmm1");
+    if (userGet?.userAddressDetails?.data?.data?.Message === "SUCCESS") {
+      // localStorage.setItem(
+      //   "LoginChecker",
+      //   userGet?.registertopethowz?.data?.data?.data?.user_id
+      // );
+      // localStorage.setItem(
+      //   "user_type",
+      //   userGet?.registertopethowz?.data?.data?.data?.user_type
+      // );
+
+      Swal.fire({
+        title: "Address Added Successfully",
+        text: "Thank You",
+        icon: "success",
+        allowOutsideClick: false,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          dispatch(userAddressDetailsAction.reset());
+          navigate("/petHowz/Terms", { state: state });
+        }
+      });
+    }
+  }, [userGet]);
 
   return (
     <Grid container item xs={12}>

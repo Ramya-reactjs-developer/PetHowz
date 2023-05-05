@@ -43,11 +43,9 @@
   /* position: relative; */
   background-color: #f85a47 !important;
   position: absolute !important;
-
 }
-.textLabel{
-position: relative !important;
-
+.textLabel {
+  position: relative !important;
 }
 .logoImg {
   border-radius: 50%;
@@ -76,7 +74,7 @@ position: relative !important;
     hue-rotate(349deg) brightness(104%) contrast(101%) !important;
 }
 .textLabel {
-  color: #fff !important;
+  color: #120f0f !important;
   font-size: 16px !important;
   padding-bottom: 10px !important;
   display: flex;

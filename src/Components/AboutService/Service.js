@@ -8,6 +8,7 @@ const Service = (props) => {
   const {
     image,
     Name,
+    Name1,
     professional,
     year,
     content,
@@ -22,8 +23,21 @@ const Service = (props) => {
         <img src={image} alt="" />
       </Grid>
       <Grid container item md={10} lg={10} sm={12} xs={12} pl={2}>
-        <Grid item md={2} lg={2} sm={6} xs={6}>
-          <CustomTypography type="head" text={Name} customClass="serviceName" />
+        <Grid item md={2} lg={2} sm={6} xs={6} display="inline-flex">
+          <Grid>
+            <CustomTypography
+              type="head"
+              text={Name}
+              customClass="serviceName"
+            />
+          </Grid>
+          <Grid  pl={1}>
+            <CustomTypography
+              type="head"
+              text={Name1}
+              customClass="serviceName"
+            />
+          </Grid>
         </Grid>
         <Grid item md={3} lg={3} sm={6} xs={6}>
           <CustomTypography

@@ -1,14 +1,23 @@
 export const RegisterEntries = [
   {
+    isEmptySpace: true,
+    breakpoint: 2,
+    name: "space",
+  },
+  {
     isFileUploader: true,
     name: "image",
-    label: "Add Photos",
-    breakpoint: 12,
-    customClass: "uploadImageContainer",
+    label: "Choose Image",
+    // placeholder:"choose",
+    breakpoint: 8,
     validation: { required: true },
-    requiredField: true,
     error_message: "Upload Image",
   },
+  // {
+  //   isEmptySpace: true,
+  //   breakpoint: 1,
+  //   name: "space",
+  // },
   {
     isTextInput: true,
     name: "name",
@@ -22,6 +31,11 @@ export const RegisterEntries = [
     error_message: "Is Invalid Format",
     validation_error_message: "Text is in Invalid format",
   },
+  // {
+  //   isEmptySpace: true,
+  //   breakpoint: 1,
+  //   name: "space",
+  // },
 
   {
     isRadioAction: true,
@@ -34,6 +48,11 @@ export const RegisterEntries = [
     requiredField: true,
     error_message: "Is Invalid Format",
   },
+  // {
+  //   isEmptySpace: true,
+  //   breakpoint: 1,
+  //   name: "space",
+  // },
   {
     isTextInput: true,
     type: "email",
@@ -48,6 +67,11 @@ export const RegisterEntries = [
     error_message: "Is Invalid Format",
     validation_error_message: "Text is in Invalid format",
   },
+  // {
+  //   isEmptySpace: true,
+  //   breakpoint: 1,
+  //   name: "space",
+  // },
   {
     isTextInput: true,
     name: "mobile_number",
@@ -61,6 +85,11 @@ export const RegisterEntries = [
     validation_error_message: "Text is in Invalid format",
     error_message: "Is Invalid Format",
   },
+  // {
+  //   isEmptySpace: true,
+  //   breakpoint: 1,
+  //   name: "space",
+  // },
   {
     isPasswordInput1: true,
     name: "password",
@@ -77,6 +106,12 @@ export const RegisterEntries = [
     error_message:
       "is should contain at least 8 characters including at least 1 special character and 1 number",
   },
+
+  // {
+  //   isEmptySpace: true,
+  //   breakpoint: 1,
+  //   name: "space",
+  // },
   {
     isPasswordInput2: true,
     breakpoint: 6,

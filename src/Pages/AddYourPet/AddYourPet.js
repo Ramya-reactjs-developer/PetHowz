@@ -18,6 +18,7 @@ import actions from "../../Redux/Actions";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AddYourPetAction } from "../../Redux/Slices/AddYourPet/AddYourPetSlice";
 
 const AddYourPetLogin = () => {
   const {
@@ -41,10 +42,10 @@ const AddYourPetLogin = () => {
     // console.log(dropdownData, "dropdownData");
   }, []);
   const getYourPetType = useSelector((state) => state?.AddYourPets);
-  console.log(getYourPetType?.getYourPetType?.data, "getYourPetType");
+  console.log(getYourPetType?.getYourPetType?.data?.data, "getYourPetType");
   const tmpArr = [];
   // console.log(tmpArr, "tmpArr");
-  getYourPetType?.getYourPetType?.data?.map((item) => {
+  getYourPetType?.getYourPetType?.data?.data?.map((item) => {
     tmpArr.push({
       id: item.pet_type_id,
       value: item.pet_type,
@@ -56,14 +57,14 @@ const AddYourPetLogin = () => {
     const tmpArr = [];
     const tmpBreedArr = [];
     // console.log(tmpArr, "tmpArr");
-    getYourPetType?.getYourPetType?.data?.map((item) => {
+    getYourPetType?.getYourPetType?.data?.data?.map((item) => {
       tmpArr.push({
         id: item.pet_type_id,
         value: item.pet_type,
       });
     });
 
-    getYourPetType?.getPetBreed?.data?.map((item) => {
+    getYourPetType?.getPetBreed?.data?.data?.map((item) => {
       tmpBreedArr.push({
         id: item.pet_breed_id,
         value: item.pet_breed,
@@ -90,7 +91,7 @@ const AddYourPetLogin = () => {
   const customHnadleSelect = (event, name) => {
     // console.log(event, name, "eventName");
     const id =
-      getYourPetType?.getYourPetType?.data?.find(
+      getYourPetType?.getYourPetType?.data?.data?.find(
         (item) => item.pet_type === event.target.value
       )?.pet_type_id || 0;
     if (id) {
@@ -234,9 +235,11 @@ const AddYourPetLogin = () => {
 
         if (result.isConfirmed) {
           if (state !== null) {
+            dispatch(AddYourPetAction.reset());
             navigate(state);
           } else {
             navigate("/petHowz/RequestBooking");
+            dispatch(AddYourPetAction.reset());
             // console.log(pet_details_id, "pet_details_id");
           }
         }
@@ -248,7 +251,7 @@ const AddYourPetLogin = () => {
     <Grid container md={12} lg={12} sm={12} xs={12}>
       <Grid item md={6} lg={6} sm={12} xs={12} className="AddPetForm">
         <Grid item md={12} lg={12} sm={12} xs={12} className="loginText">
-          <CustomTypography type="head" text="Add Your Pet," customClass="" />
+          <CustomTypography type="head" text="Add Your Pet" customClass="" />
         </Grid>
         <Grid className="yourButton" p={3}>
           <CustomForm

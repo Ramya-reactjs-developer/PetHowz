@@ -21,6 +21,7 @@ import MultipleSelectChip from "../MultipleDropdown/MultipleDropdown";
 import ProfileImageUploader from "../ProfileImageUploader/ProfileImageUploader";
 import CustomProfileUploader from "../ProfileUploader/ProfileUpload";
 import CustomTimePicker from "../TimePicker/TimePicker";
+import CustomSingleUploader from "../FileUploader/SingleUploader";
 
 /**
  * @param {*} props defines the prop
@@ -40,7 +41,7 @@ function CustomForm(props) {
     onClickHandle,
     gridAlign,
     editTrue,
-    onAddClickHandle
+    onAddClickHandle,
     // dropdownData,
   } = props;
   const [values, setValues] = React.useState([]);
@@ -451,6 +452,37 @@ function CustomForm(props) {
                     />
                   </Grid>
                 )}
+                {keyValue?.isSingleUploader && (
+                  <Grid
+                    item
+                    md={12}
+                    sm={12}
+                    xs={12}
+                    my={2}
+                    mx={2}
+                    className="circleLogoBox"
+                  >
+                    <CustomSingleUploader
+                      // handleChange={handleChange}
+                      label={keyValue.label}
+                      // handleChange={(e) => {
+                      //   onChange(e);
+                      //   // handleChange(e);
+                      //   // handleUpload(e);
+                      // }}
+                      // Image={image}
+                      value={value}
+                      getImage={(val) => {
+                        onChange(val);
+                        getImage(val);
+                        props.textFieldChange(val, keyValue.name);
+                      }}
+                      regForm={keyValue.regForm}
+                      defaultImage={keyValue.defaultImage}
+                      resetValue={resetValue}
+                    />
+                  </Grid>
+                )}
                 {keyValue?.isProfileUploader && (
                   <Grid item md={12} sm={12} my={2} mx={2} xs={12}>
                     <ProfileImageUploader />
@@ -631,5 +663,5 @@ CustomForm.defaultProps = {
   customFormData: () => null,
   editTrue: "",
   onClickHandle: "",
-  onAddClickHandle:"",
+  onAddClickHandle: "",
 };

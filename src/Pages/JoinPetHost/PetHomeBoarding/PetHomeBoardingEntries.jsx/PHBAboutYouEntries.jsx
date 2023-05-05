@@ -35,10 +35,6 @@ export const PHBAboutYouEntries = [
     placeholder: "Select Years",
     DropdownData: [
       {
-        id: 1,
-        value: 0,
-      },
-      {
         id: 2,
         value: 1,
       },
@@ -85,14 +81,14 @@ export const PHBAboutYouEntries = [
   },
   {
     isTextInput: true,
-    name: "tell_us_something_about_you_and_your_passion_towards_pet",
+    name: "tell_us_somthing_about_you",
     label: "Tell us Something about you and your passion towards pet",
     placeholder: "",
     breakpoint: 12,
     multiline: true,
     rows: 4,
     validation: { required: true },
-    pattern: /^[a-zA-Z ]*$/,
+    // pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
 
     error_message: "First Text",
@@ -100,7 +96,7 @@ export const PHBAboutYouEntries = [
   },
   {
     isTextInput: true,
-    name: "tell_us_about_the_type_of_pet_you_have_and_your_experience",
+    name: "tell_us_about_the_type_of_pet_and_your_experience",
     label:
       "Tell us about the type of pet you have and your experience in boarding",
     placeholder: "",
@@ -108,7 +104,7 @@ export const PHBAboutYouEntries = [
     multiline: true,
     rows: 4,
     validation: { required: true },
-    pattern: /^[a-zA-Z ]*$/,
+    // pattern: /^[a-zA-Z ]*$/,
     requiredField: true,
 
     error_message: "First Text",

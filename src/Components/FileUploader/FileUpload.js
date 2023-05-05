@@ -21,34 +21,36 @@ const CustomFileUploader = (props) => {
   const dropEvent = () => {};
 
   return (
-    <Grid>
-      <label htmlFor="upload-button">
-        {Image.preview ? (
-          <img src={Image.preview} alt="dummy" className="imageProfile" />
-        ) : (
-          <>
-            <span className="">
-              <img src={CustomIcons.ProfileAvatar} alt="" />
-            </span>
-          </>
-        )}
-      </label>
-      <input
-        type="file"
-        id="upload-button"
-        // label="cfhcffc"
-        value={onChangeValue}
-        accept={acceptType}
-        onDrop={dropEvent}
-        placeholder="choose Image"
-        ref={fileRef}
-        hidden
-        style={{ display: "none" }}
-        onChange={handleChange}
-      />
-      <br />
-      <Grid pt={1}>
-        <label className="chooesImage">choose Image</label>
+    <Grid container item justifyContent={"center"}>
+      <Grid item>
+        <label htmlFor="upload-button">
+          {Image.preview ? (
+            <img src={Image.preview} alt="dummy" className="imageProfile" />
+          ) : (
+            <>
+              <span className="">
+                <img src={CustomIcons.ProfileAvatar} alt="" />
+              </span>
+            </>
+          )}
+        </label>
+        <input
+          type="file"
+          id="upload-button"
+          // label="cfhcffc"
+          value={onChangeValue}
+          accept={acceptType}
+          onDrop={dropEvent}
+          placeholder="choose Image"
+          ref={fileRef}
+          hidden
+          style={{ display: "none" }}
+          onChange={handleChange}
+        />
+        <br />
+        <Grid pt={2} onClick={() => fileRef.current.click()}>
+          <label className="chooesImage">choose Image</label>
+        </Grid>
       </Grid>
       {regForm && (
         <div style={{ display: "flex", justifyContent: "center" }}>
