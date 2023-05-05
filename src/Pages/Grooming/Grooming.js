@@ -3,18 +3,18 @@ import React, { useEffect } from "react";
 import GroomingCardsSection from "../../Components/GroomingCard/GroomingCard";
 import { Grid } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import actions from "../../Redux/Actions/index";
 import customImages from "../../Utils/Images/index";
 import CustomTypography from "../../Components/Typography/Typography";
 import CustomButton from "../../Components/Button/Button";
 import "./Grooming.css";
 
-
 export const Grooming = () => {
   const dispatch = useDispatch();
   // const { state } = useLocation();
   const location = useLocation();
+  const navigate = useNavigate();
 
   const value = location.state;
   console.log(value, "value");
@@ -44,7 +44,16 @@ export const Grooming = () => {
 
   const { state } = useLocation();
   console.log(state, "state");
-
+  const onClickHandleService = (item, index) => {
+    const petKey = item;
+    console.log(petKey, "petKeypetKey");
+    navigate("/petHowz/GroomingService", {
+      // state: petKey,
+      state: petKey,
+      // state: id_pass,
+      // id_pass,
+    });
+  };
   return (
     <Grid className="container" item md={12} lg={12} sm={12} xs={12}>
       {ourServiceById?.data?.map((data) => {
@@ -62,7 +71,9 @@ export const Grooming = () => {
       {/* {ourServiceById?.data?.map((data) => {
         return ( */}
       <Grid item md={12} lg={12} sm={12} xs={12} className="hhhhhhh">
-        <GroomingCardsSection />
+        <GroomingCardsSection
+          onClickHandle={(item) => onClickHandleService(item)}
+        />
       </Grid>
       {/* );
        })} */}

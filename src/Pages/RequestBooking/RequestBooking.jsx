@@ -65,8 +65,7 @@ export const RequestBooking = () => {
   const AddYourPet = useSelector((state) => state?.PetSpaceBooking);
   console.log(AddYourPet, "AddYourPetbvfbg");
   // const dispatch = useDispatch();
-  const
-    addDrpdownData = (json) => {
+  const addDrpdownData = (json) => {
     const tmpArr = [];
     console.log(tmpArr, "tmpArr");
     AddYourPet?.getPetSpaceBooking?.data?.map((item) => {
