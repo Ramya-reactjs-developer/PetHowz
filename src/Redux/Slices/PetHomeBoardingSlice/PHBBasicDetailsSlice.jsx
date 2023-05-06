@@ -49,7 +49,7 @@ const phbbasicdetailsSlice = createSlice({
       state.phbbasicdetails = {
         loading: false,
         error: false,
-        data: action.payload.data,
+        data: action.payload
       };
     },
     [PHBBASICDETAILS.pending]: (state, action) => {

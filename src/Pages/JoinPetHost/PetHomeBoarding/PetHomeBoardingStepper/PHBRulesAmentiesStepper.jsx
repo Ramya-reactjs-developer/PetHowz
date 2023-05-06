@@ -16,6 +16,7 @@ import { PHBAboutYouEntries } from "../PetHomeBoardingEntries.jsx/PHBAboutYouEnt
 import CheckboxLabels from "../../../../Components/CheckBox/CheckBox";
 import MultiCheckboxLabels from "../../../../Components/CheckBox/MultiCheckBox";
 import Swal from "sweetalert2";
+import { phbrulesamentiesAction } from "../../../../Redux/Slices/PetHomeBoardingSlice/PHBRulesAmentiesSlice";
 
 const PHBRulesAmenties = () => {
   const dispatch = useDispatch();
@@ -127,10 +128,11 @@ const PHBRulesAmenties = () => {
     //   });
     // }
     if (
-      rulesAmenties?.phbrulesamenties?.message === "SUCCESS" &&
+      rulesAmenties?.phbrulesamenties?.data?.message === "SUCCESS" &&
       value.page === 3
     ) {
       setResetValue(defaultValues);
+      dispatch(phbrulesamentiesAction.reset());
       value.nextPage();
     }
   }, [userGet, value, rulesAmenties]);
