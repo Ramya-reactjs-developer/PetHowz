@@ -42,23 +42,23 @@ const ServiceDetails = (props) => {
     weight.rate?.length > 0;
   // console.log(btnDisabled, "btnDisbaled");
 
-    const onSubmit = (data1) => {
-      console.log(data1, "checkdata");
-      const formData = new FormData();
-      formData.append("package_name", data1.package_name);
-      formData.append("included", data1.included);
-      formData.append("rate", data1.rate);
-      formData.append("service_master_id", 1);
-      formData.append("pet_service_id", 1);
-      const data = {
-        data: formData,
-        method: "post",
-        apiName: "createPetServicePackage",
-      };
-      console.log(data1, "checkdata");
-
-      dispatch(actions.CREATEPACKAGE(data));
+  function onSubmit (data1) {
+    console.log(data1, "checkdata");
+    const formData = new FormData();
+    formData.append("package_name", data1.package_name);
+    formData.append("included", data1.included);
+    formData.append("rate", data1.rate);
+    formData.append("service_master_id", 1);
+    formData.append("pet_service_id", 1);
+    const data = {
+      data: formData,
+      method: "post",
+      apiName: "createPetServicePackage",
     };
+    console.log(data, "createPetServicePackage");
+
+    dispatch(actions.CREATEPACKAGE(data));
+  };
 
   return (
     <form>

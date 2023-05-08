@@ -84,25 +84,25 @@ const AboutPet = (props) => {
   const [resetValue, setResetValue] = React.useState([]);
   const value = useContext(LabelContext);
   const receiver = value.labelInfo?.receiver;
-  console.log(receiver, "valkjndjhfdjiue");
+  // console.log(receiver, "valkjndjhfdjiue");
 
-  const btnDisabled =
-    receiver.professional_status?.length > 0 &&
-    receiver.tell_us_somthing_about_you?.length > 0 &&
-    receiver.years_of_experience?.length > 0 &&
-    receiver.service_provider_type?.length > 0 &&
-    receiver.service_provider_for?.length > 0 &&
-    receiver.no_of_pets?.length > 0 &&
-    receiver.grooming_kit?.length > 0 &&
-    receiver.mobile_grooming_van?.length > 0 &&
-    receiver.hair_dryer?.length > 0 &&
-    receiver.hair_shampoo?.length > 0 &&
-    receiver.carry_towel?.length > 0 &&
-    receiver.grooming_assistant?.length > 0 &&
-    receiver.service_overview?.length > 0 &&
-    receiver.doorstep_services?.length > 0 &&
-    receiver.location?.length > 0 &&
-    receiver.photos?.length > 0;
+  // const btnDisabled =
+  //   receiver.professional_status?.length > 0 &&
+  //   receiver.tell_us_somthing_about_you?.length > 0 &&
+  //   receiver.years_of_experience?.length > 0 &&
+  //   receiver.service_provider_type?.length > 0 &&
+  //   receiver.service_provider_for?.length > 0 &&
+  //   receiver.no_of_pets?.length > 0 &&
+  //   receiver.grooming_kit?.length > 0 &&
+  //   receiver.mobile_grooming_van?.length > 0 &&
+  //   receiver.hair_dryer?.length > 0 &&
+  //   receiver.hair_shampoo?.length > 0 &&
+  //   receiver.carry_towel?.length > 0 &&
+  //   receiver.grooming_assistant?.length > 0 &&
+  //   receiver.service_overview?.length > 0 &&
+  //   receiver.doorstep_services?.length > 0 &&
+  //   receiver.location?.length > 0 &&
+  //   receiver.photos?.length > 0;
 
   const faq_value = [
     {
@@ -164,11 +164,11 @@ const AboutPet = (props) => {
       navigate("/petHowz/ServiceDetails");
     }
   };
-  useEffect(() => {
-    if (aboutPet?.aboutPet?.message === "SUCCESS") {
-      value.nextPage();
-    }
-  }, [aboutPet, value]);
+  // useEffect(() => {
+  //   if (aboutPet?.aboutPet?.message === "SUCCESS") {
+  //     value.nextPage();
+  //   }
+  // }, [aboutPet, value]);
 
   return (
     <Grid container md={12} lg={12} sm={12} xs={12}>
