@@ -120,8 +120,8 @@ const GroomingService = () => {
     const data = {
       data: { id: state.masterId },
       method: "post",
-      // apiName: `getPetServiceById/${state.serviceId}`,
-      apiName: `getPetServiceById/${76}`,
+      apiName: `getPetServiceById/${state.serviceId}`,
+      // apiName: `getPetServiceById/${76}`,
     };
     dispatch(actions.GROOMINPETGSERVICE(data));
   }, [dispatch, state]);
