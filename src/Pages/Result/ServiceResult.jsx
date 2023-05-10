@@ -6,13 +6,19 @@ import actions from "../../Redux/Actions";
 import { useDispatch, useSelector } from "react-redux";
 import ServiceCardsSection from "../../Components/Cards/ServiceCards";
 
-export const ServiceResult = () => {
+export const ServiceResult = (onClickHandle) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { state } = useLocation();
-  console.log(state, "state");
+  console.log(state, "kjnfvn");
   const OverAllSearchResult = useSelector((state) => state?.overallsearch);
-  console.log(OverAllSearchResult?.overallsearch?.data, "OverAllSearchResult");
+  console.log(
+    OverAllSearchResult?.overallsearch?.data?.map((item) => {
+      console.log(item, "itemnnnn");
+      return item.service_name;
+    }),
+    "OverAllSearchResult"
+  );
   console.log(OverAllSearchResult?.overallsearch?.message, "OverAllSearch");
 
   useEffect(() => {
@@ -35,6 +41,26 @@ export const ServiceResult = () => {
   const onDiscover = (key) => {
     navigate("/petHowz/ServiceIndividualResult", {
       state: OverAllSearchResult?.overallsearch?.data[key],
+    });
+  };
+  useEffect(() => {
+    // alert(serviceMasterid)
+    const data = {
+      data: { id: state.masterId },
+      method: "post",
+      apiName: `getPetServiceById/${state.serviceId}`,
+      // apiName: `getPetServiceById/${76}`,
+    };
+    dispatch(actions.GROOMINPETGSERVICE(data));
+  }, [dispatch, state]);
+  const onClickHandleServiceResult = (item, index) => {
+    const petKey = item;
+    console.log(petKey, "petKeypetKey");
+    navigate("/petHowz/GroomingService", {
+      // state: petKey,
+      state: petKey,
+      // state: id_pass,
+      // id_pass,
     });
   };
   return (
@@ -78,6 +104,14 @@ export const ServiceResult = () => {
             Data={OverAllSearchResult?.overallsearch?.data}
             onDiscover={(key) => onDiscover(key)}
             nos={5}
+          onClickHandle={(item) => onClickHandleServiceResult(item)}
+
+            // onClickHandle={() =>
+            //   onClickHandle({
+            //     serviceId: item?.pet_service_id,
+            //     masterId: item.service_master_id,
+            //   })
+            // }
           />
         </Grid>
       </Grid>
