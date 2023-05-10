@@ -14,6 +14,7 @@ import CustomRadioButton from "../../../../Components/RadioButton/RadioButton";
 import CustomSelect from "../../../../Components/Select/Select";
 import CustomButton from "../../../../Components/Button/Button";
 import Swal from "sweetalert2";
+import { phbaboutyouAction } from "../../../../Redux/Slices/PetHomeBoardingSlice/PHBAboutYouSlice";
 
 const PHBAboutYou = (props) => {
   const dispatch = useDispatch();
@@ -37,7 +38,7 @@ const PHBAboutYou = (props) => {
     DefaultPHBAboutYouValues,
   });
   const value = useContext(PetHomeBoardingContext);
-
+  const pet_space_id = localStorage.getItem("pet_space_id");
   const onSubmit = (data1) => {
     console.log(data1, "checkdata");
     const formData = new FormData();
@@ -58,10 +59,7 @@ const PHBAboutYou = (props) => {
       "do_you_have_other_pets_at_home",
       data1.do_you_have_other_pets_at_home
     );
-    formData.append(
-      "pet_space_id",
-      userGet?.phbbasicdetails?.data.pet_space_id
-    );
+    formData.append("pet_space_id", parseInt(pet_space_id));
     const data = {
       data: formData,
       method: "post",
@@ -71,6 +69,7 @@ const PHBAboutYou = (props) => {
     console.log(formData, "dddd1");
 
     dispatch(actions.PHBABOUTYOU(data));
+    setResetValue(defaultValues);
   };
   React.useEffect(() => {
     // if (AboutYou?.phbaboutyou?.message === "SUCCESS" && value.page === 1) {
@@ -84,8 +83,9 @@ const PHBAboutYou = (props) => {
     //   );
     // }
 
-    if (AboutYou?.phbaboutyou?.message === "SUCCESS" && value.page === 1) {
+    if (AboutYou?.phbaboutyou?.data?.message === "SUCCESS" && value.page === 1) {
       setResetValue(defaultValues);
+      dispatch(phbaboutyouAction.reset());
       value.nextPage();
     }
   }, [userGet, AboutYou, value]);
@@ -232,7 +232,7 @@ const PHBAboutYou = (props) => {
                 xs: "200px",
               },
               fontSize: "17px",
-              fontFamily: "Poppins_Medium",
+              fontFamily: " Roboto-Regular",
             }}
             onClickHandle={handleSubmit(onSubmit)}
           />

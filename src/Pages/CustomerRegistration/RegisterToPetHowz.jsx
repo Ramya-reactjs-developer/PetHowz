@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Grid } from "@mui/material";
 import CustomTypography from "../../Components/Typography/Typography";
 import "./CustomerRegistration.css";
@@ -9,7 +9,6 @@ import { Controller, useForm } from "react-hook-form";
 import CustomTextField from "../../Components/TextField/TextField";
 import CustomRadioButton from "../../Components/RadioButton/RadioButton";
 import CustomButton from "../../Components/Button/Button";
-import CustomImageUploader from "../../Components/FileUploader/FileUpload";
 import actions from "../../Redux/Actions";
 import { useNavigate } from "react-router";
 import { useLocation } from "react-router-dom";
@@ -18,6 +17,8 @@ import {
   DefaultRegisterEntriesValues,
   RegisterEntries,
 } from "./RegisterEntries";
+import CustomFileUploader from "../../Components/FileUploader/FileUpload";
+import { registertopethowzAction } from "../../Redux/Slices/RegisterToPethowz/RegisterToPetHowz";
 
 export const RegisterToPethowz = (props) => {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ export const RegisterToPethowz = (props) => {
     formData.append("gender", data1.gender);
     formData.append("email", data1.email);
     formData.append("password", data1.password);
-    formData.append("image", data1.image[0]);
+    formData.append("image", image.raw);
     const data = {
       data: formData,
       method: "post",
@@ -59,32 +60,51 @@ export const RegisterToPethowz = (props) => {
 
     dispatch(actions.REGISTERTOPETHOWZ(data));
     reset(defaultValues);
-    Swal.fire({
-      title: "Registered Successfully",
-      text: "Thank You",
-      icon: "success",
-      allowOutsideClick: false,
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        navigate("/petHowz/AddAddress", { state: state });
-      }
-    });
+    setResetValue(defaultValues);
   }
 
-  // React.useEffect(() => {
-  //   console.log(userGet?.registertopethowz?.message, "mmmm");
-  //   if (userGet?.registertopethowz?.message === "SUCCESS") {
-  //     // alert(state?.registertopethowz.data);
+  React.useEffect(() => {
+    console.log(userGet?.registertopethowz?.data?.data?.data?.user_id, "mmmm");
+    if (userGet?.registertopethowz?.data?.data?.Message === "SUCCESS") {
+      localStorage.setItem(
+        "LoginChecker",
+        userGet?.registertopethowz?.data?.data?.data?.user_id
+      );
+      localStorage.setItem(
+        "user_type",
+        userGet?.registertopethowz?.data?.data?.data?.user_type
+      );
 
-  //   }
-  // }, [userGet]);
+      Swal.fire({
+        title: "Registered Successfully",
+        text: "Thank You",
+        icon: "success",
+        allowOutsideClick: false,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          dispatch(registertopethowzAction.reset());
+          navigate("/petHowz/AddAddress", { state: state });
+        }
+      });
+    }
+  }, [userGet]);
   const password = watch("password");
 
   const confirmPassword = watch("confirmPassword");
   console.log(password, "password");
   console.log(confirmPassword, "confirmPassword");
 
+  const [image, setImage] = useState({ preview: "", raw: "" });
+  const handleChange = (e) => {
+    console.log(e, "eswar");
+    if (e.target.files.length) {
+      setImage({
+        preview: URL.createObjectURL(e.target.files[0]),
+        raw: e.target.files[0],
+      });
+    }
+  };
   return (
     <Grid
       container
@@ -168,26 +188,22 @@ export const RegisterToPethowz = (props) => {
                         mx={2}
                         className="circleLogoBox"
                       >
-                        <CustomImageUploader
-                          upLoad={CustomIcons.LogoUploader}
-                          label={keyValue.label}
-                          // onHandleChange={(e) => {
-                          //   onChange(e);
-                          //   props.textFieldChange(e, keyValue.name);
-                          // }}
-                          customClass={keyValue.customClass}
-                          getImage={(val) => {
-                            onChange(val);
-                            // getImage(val);
-                            props.textFieldChange(val, keyValue.name);
+                        <CustomFileUploader
+                          // handleChange={handleChange}
+
+                          handleChange={(e) => {
+                            onChange(e);
+                            handleChange(e);
+                            // handleUpload(e);
                           }}
+                          Image={image}
+                          value={value}
                           regForm={keyValue.regForm}
                           defaultImage={keyValue.defaultImage}
                           resetValue={resetValue}
                         />
                       </Grid>
                     )}
-
                     {keyValue?.isRadioAction && (
                       <Grid
                         item
@@ -317,7 +333,7 @@ export const RegisterToPethowz = (props) => {
                   xs: "200px",
                 },
                 fontSize: "17px",
-                fontFamily: "Poppins_Medium",
+                fontFamily: " Roboto-Regular",
               }}
               onClickHandle={handleSubmit(onSubmit)}
             />

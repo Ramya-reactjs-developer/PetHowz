@@ -1,19 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
-import { LabelContext } from "../../Pages/PetService/LableData";
-// import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
+import React, { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
 import MultipleSelectChip from "../../Components/MultipleDropdown/MultipleDropdown";
 import CustomTextField from "../../Components/TextField/TextField";
-import CustomImageUploader from "../../Components/FileUploader/FileUpload";
 import CustomIcons from "../../Utils/Icons/Index";
 import CustomTypography from "../../Components/Typography/Typography";
 import CustomRadioButton from "../../Components/RadioButton/RadioButton";
 import CustomButton from "../../Components/Button/Button";
 import CustomSelect from "../../Components/Select/Select";
-import CustomProfileUploader from "../ProfileUploader/ProfileUpload";
-import CustomForm from "../CustomForm/CustomForm";
 import { Grid } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -24,10 +17,9 @@ import {
   DefaultAboutPetValues,
 } from "../../Pages/PetService/AboutPetEntries";
 import "./style.css";
-import CustomMultiFileUploader from "../FileUploader/MultipleFileUploader";
+import CustomMultiFileUploader from "../FileUploader/MultipleFileUploader.jsx";
 import MultiImage from "../MultiImageUpload/MultiImageUpload";
 import { base64ToBinary } from "../../Redux/Helpers";
-// import { base64ToBinary } from "../../Redux/Helpers";
 
 const AboutPet = (props) => {
   const dispatch = useDispatch();
@@ -45,14 +37,9 @@ const AboutPet = (props) => {
 
   const aboutPet = useSelector((state) => state?.aboutPet);
   console.log(aboutPet, "aboutPet");
-  const [upload, setUpload] = React.useState(null);
   const [ableToGetLogoUrl, setAbleToGetLogoUrl] = useState(false);
   const [multiImage, setMultiImage] = useState(null);
   const [list, setList] = useState();
-  const getImage = (val) => {
-    setUpload(val);
-    console.log(val, "val");
-  };
   const getMultipleImage = (value) => {
     setMultiImage(value[0]);
   };
@@ -82,27 +69,6 @@ const AboutPet = (props) => {
   };
 
   const [resetValue, setResetValue] = React.useState([]);
-  const value = useContext(LabelContext);
-  const receiver = value.labelInfo?.receiver;
-  // console.log(receiver, "valkjndjhfdjiue");
-
-  // const btnDisabled =
-  //   receiver.professional_status?.length > 0 &&
-  //   receiver.tell_us_somthing_about_you?.length > 0 &&
-  //   receiver.years_of_experience?.length > 0 &&
-  //   receiver.service_provider_type?.length > 0 &&
-  //   receiver.service_provider_for?.length > 0 &&
-  //   receiver.no_of_pets?.length > 0 &&
-  //   receiver.grooming_kit?.length > 0 &&
-  //   receiver.mobile_grooming_van?.length > 0 &&
-  //   receiver.hair_dryer?.length > 0 &&
-  //   receiver.hair_shampoo?.length > 0 &&
-  //   receiver.carry_towel?.length > 0 &&
-  //   receiver.grooming_assistant?.length > 0 &&
-  //   receiver.service_overview?.length > 0 &&
-  //   receiver.doorstep_services?.length > 0 &&
-  //   receiver.location?.length > 0 &&
-  //   receiver.photos?.length > 0;
 
   const faq_value = [
     {
@@ -120,7 +86,6 @@ const AboutPet = (props) => {
   ];
 
   const onSubmit = (data1) => {
-    // alert("hcdhshdchs");
     console.log(data1, "checkdataValue");
     const formData = new FormData();
     data1.photos.forEach((photo, index) => {
@@ -157,18 +122,15 @@ const AboutPet = (props) => {
       method: "post",
       apiName: "createPetServiceAboutYou",
     };
-    // console.log(data1, "checkdataValue");
 
     dispatch(actions.ABOUTPET(data));
+
+  };
+  useEffect(() => {
     if (aboutPet?.aboutPet?.message === "SUCCESS") {
       navigate("/petHowz/ServiceDetails");
     }
-  };
-  // useEffect(() => {
-  //   if (aboutPet?.aboutPet?.message === "SUCCESS") {
-  //     value.nextPage();
-  //   }
-  // }, [aboutPet, value]);
+  });
 
   return (
     <Grid container md={12} lg={12} sm={12} xs={12}>
@@ -506,7 +468,7 @@ const AboutPet = (props) => {
                     xs: "200px",
                   },
                   fontSize: "17px",
-                  fontFamily: "Poppins_Medium",
+                  fontFamily: " Roboto-Regular",
                 }}
                 onClickHandle={handleSubmit(onSubmit)}
               />

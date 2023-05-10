@@ -64,7 +64,7 @@
 // };
 // export default PetBasicDetails;
 
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   BasicDetailsEntries,
   DefaultBasicDetailsValues,
@@ -74,21 +74,14 @@ import { Controller, useForm } from "react-hook-form";
 import { LabelContext } from "../../Pages/PetService/LableData";
 // import { PetHomeBoardingContext } from "../PetHomeBoardingContext";
 import CustomTextField from "../../Components/TextField/TextField";
-import CustomImageUploader from "../../Components/FileUploader/FileUpload";
-import CustomIcons from "../../Utils/Icons/Index";
 import CustomTypography from "../../Components/Typography/Typography";
 import CustomRadioButton from "../../Components/RadioButton/RadioButton";
 import CustomButton from "../../Components/Button/Button";
-import Button from "@material-ui/core/Button";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
-// import CustomForm from "../../../../Components/CustomForm/CustomForm";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import actions from "../../Redux/Actions";
-import CustomProfileUploader from "../ProfileUploader/ProfileUpload";
+import CustomFileUploader from "../../Components/FileUploader/FileUpload";
 
 const PetBasicDetails = (props) => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const userGet = useSelector((state) => state?.phbbasicdetails);
   const login = useSelector((state) => state?.login);
@@ -109,19 +102,6 @@ const PetBasicDetails = (props) => {
 
   console.log(sender, "manoj");
 
-  // const pg = value.page;
-  const btnDisabled =
-    sender.pet_service_name?.length > 0 &&
-    sender.name?.length > 0 &&
-    sender.mobile_number?.length > 0 &&
-    sender.street?.length > 0 &&
-    sender.city?.length > 0 &&
-    sender.locality?.length > 0 &&
-    sender.state?.length > 0 &&
-    sender.pin_code?.length > 0 &&
-    sender.image?.length > 0 &&
-    sender.pin_location?.length > 0;
-
   const onSubmit = (data1) => {
     const serviceId = [1, 2];
 
@@ -133,7 +113,7 @@ const PetBasicDetails = (props) => {
     formData.append("street", data1.street);
     formData.append("city", data1.city);
     formData.append("locality", data1.locality);
-    formData.append("image", data1.image[0]);
+    formData.append("image", image.raw);
     formData.append("state", data1.state);
     formData.append("pin_code", data1.pin_code);
     formData.append("pin_location", data1.pin_location);
@@ -145,36 +125,22 @@ const PetBasicDetails = (props) => {
     console.log(passData, "formDataValue");
     if (formData !== undefined) {
       navigate("/petHowz/SelectService", {
-        state: passData,
+        state: { a: passData, b: image.raw },
       });
       console.log(passData, "passData");
     }
-    // }, [value, formData]);
-    // const data = {
-    //   data: formData,
-    //   method: "post",
-    //   apiName: "createPetServiceBasicDetails",
-    // };
-    // // props.func(formData)
-    // console.log(data1, "checkdata");
-
-    // dispatch(actions.PHBBASICDETAILS(data));
   };
-  React.useEffect(() => {
-    if (userGet?.phbbasicdetails?.message === "SUCCESS") {
-      value.nextPage();
+  const [image, setImage] = useState({ preview: "", raw: "" });
+  const handleChange = (e) => {
+    console.log(e, "createObjectURL");
+    if (e.target.files.length) {
+      setImage({
+        preview: URL.createObjectURL(e.target.files[0]),
+        raw: e.target.files[0],
+      });
     }
-  }, [userGet, value]);
-  // const onNext = () => {
-  //   if (userGet?.phbbasicdetails?.message !== "") {
-  //     value.nextPage();
-  //   }
-  // };
-  const [upload, setUpload] = React.useState(null);
-  const getImage = (val) => {
-    setUpload(val);
-    console.log(val, "val");
   };
+
   return (
     <>
       <Grid container md={12} sm={12} lg={12} xs={12}>
@@ -182,14 +148,6 @@ const PetBasicDetails = (props) => {
           <Grid item md={12} sm={12} lg={12} xs={12}>
             <Typography variant="h4">Fill Up Your Basic Details</Typography>
           </Grid>
-          {/* <Grid item md={12} sm={12} lg={12} xs={12}>
-            <CustomForm
-              AllEntries={PHBBasicDetailsEntries}
-              textFieldChange={value.handleChange}
-              // onReceiveData={onReceiveData}
-              defaultValues={DefaultPHBBasicDetailsValues}
-            />
-          </Grid> */}
           <Grid container className="NewsBorder" md={12}>
             {BasicDetailsEntries?.map((keyValue) => (
               <Grid item md={keyValue.breakpoint} sm={12} xs={12}>
@@ -198,7 +156,6 @@ const PetBasicDetails = (props) => {
                   rules={{
                     required: keyValue?.validation?.required,
                     pattern: keyValue.pattern,
-                    // validate: (value) => value === password,
                   }}
                   control={control}
                   render={({ field: { onChange, value } }) => (
@@ -234,35 +191,6 @@ const PetBasicDetails = (props) => {
                           />
                         </Grid>
                       )}
-                      {keyValue?.isProfileImageUploader && (
-                        <Grid
-                          item
-                          md={12}
-                          sm={12}
-                          my={2}
-                          mx={2}
-                          xs={12}
-                          className="circleLogoBox"
-                        >
-                          <CustomProfileUploader
-                            upLoad={CustomIcons.LogoUploader}
-                            label={keyValue.label}
-                            // onHandleChange={(e) => {
-                            //   onChange(e);
-                            //   props.textFieldChange(e, keyValue.name);
-                            // }}
-                            customClass={keyValue.customClass}
-                            getImage={(val) => {
-                              onChange(val);
-                              getImage(val);
-                              props.textFieldChange(val, keyValue.name);
-                            }}
-                            regForm={keyValue.regForm}
-                            defaultImage={keyValue.defaultImage}
-                            resetValue={resetValue}
-                          />
-                        </Grid>
-                      )}
                       {keyValue?.isFileUploader && (
                         <Grid
                           item
@@ -273,19 +201,16 @@ const PetBasicDetails = (props) => {
                           mx={2}
                           className="circleLogoBox"
                         >
-                          <CustomImageUploader
-                            upLoad={CustomIcons.LogoUploader}
-                            label={keyValue.label}
-                            // onHandleChange={(e) => {
-                            //   onChange(e);
-                            //   props.textFieldChange(e, keyValue.name);
-                            // }}
-                            customClass={keyValue.customClass}
-                            getImage={(val) => {
-                              onChange(val);
-                              // getImage(val);
-                              props.textFieldChange(val, keyValue.name);
+                          <CustomFileUploader
+                            // handleChange={handleChange}
+
+                            handleChange={(e) => {
+                              onChange(e);
+                              handleChange(e);
+                              // handleUpload(e);
                             }}
+                            Image={image}
+                            value={value}
                             regForm={keyValue.regForm}
                             defaultImage={keyValue.defaultImage}
                             resetValue={resetValue}
@@ -409,7 +334,7 @@ const PetBasicDetails = (props) => {
                     xs: "200px",
                   },
                   fontSize: "17px",
-                  fontFamily: "Poppins_Medium",
+                  fontFamily: " Roboto-Regular",
                 }}
                 onClickHandle={handleSubmit(onSubmit)}
               />

@@ -6,17 +6,16 @@ import { Controller, useForm } from "react-hook-form";
 import actions from "../../../../Redux/Actions";
 import CustomTextField from "../../../../Components/TextField/TextField";
 import CustomTypography from "../../../../Components/Typography/Typography";
-import CustomRadioButton from "../../../../Components/RadioButton/RadioButton";
-import CustomSelect from "../../../../Components/Select/Select";
 import CustomButton from "../../../../Components/Button/Button";
 import {
   DefaultPHBAddOnsValues,
   PHBAddOnsEntries,
 } from "../PetHomeBoardingEntries.jsx/PHBAddOnsEntries";
 import CustomIcons from "../../../../Utils/Icons/Index";
-import CustomImageUploader from "../../../../Components/FileUploader/FileUpload";
 import { useNavigate } from "react-router";
-import Swal from "sweetalert2";
+import CustomSingleUploader from "../../../../Components/FileUploader/SingleUploader";
+import { phbaddonsAction } from "../../../../Redux/Slices/PetHomeBoardingSlice/PHBAddOnsSlice";
+
 
 const PHBAddOns = (props) => {
   const dispatch = useDispatch();
@@ -26,6 +25,7 @@ const PHBAddOns = (props) => {
   const AddOns = useSelector((state) => state?.phbaddons);
   console.log(userGet?.phbbasicdetails?.data.pet_space_id, "d");
   console.log(AboutYou, "lll");
+  
   const defaultValues = DefaultPHBAddOnsValues;
   const [state, setstate] = React.useState();
   console.log(state, "state");
@@ -42,7 +42,7 @@ const PHBAddOns = (props) => {
     DefaultPHBAddOnsValues,
   });
   const value = useContext(PetHomeBoardingContext);
-
+  const pet_space_id = localStorage.getItem("pet_space_id");
   const onAdd = (data1) => {
     console.log(data1, "checkdata");
 
@@ -53,10 +53,7 @@ const PHBAddOns = (props) => {
     formData.append("rate", data1.rate);
     formData.append("images", data1.images[0]);
 
-    formData.append(
-      "pet_space_id",
-      userGet?.phbbasicdetails?.data.pet_space_id
-    );
+    formData.append("pet_space_id", pet_space_id);
     const data = {
       data: formData,
       method: "post",
@@ -80,7 +77,7 @@ const PHBAddOns = (props) => {
 
     formData.append(
       "pet_space_id",
-      userGet?.phbbasicdetails?.data.pet_space_id
+      pet_space_id
     );
     const data = {
       data: formData,
@@ -89,12 +86,14 @@ const PHBAddOns = (props) => {
     };
     console.log(data1, "dddd");
     console.log(formData, "dddd1");
-    setResetValue(data1);
+
     dispatch(actions.PHBADDONS(data));
+    setResetValue(data1);
   };
 
   React.useEffect(() => {
-    console.log(resetValue, "reset");
+    console.log(AddOns?.phbaddons?.data?.message, "reset");
+    console.log(resetValue, "resetV");
     // if (
     //   AddOns?.phbaddons?.message === "SUCCESS" &&
     //   resetValue.package_name !== "" &&
@@ -126,18 +125,22 @@ const PHBAddOns = (props) => {
     // }
 
     if (
-      AddOns?.phbaddons?.message === "SUCCESS" &&
-      resetValue.package_name !== "" &&
-      value.page === 4
+      AddOns?.phbaddons?.data?.message === "SUCCESS" &&
+      resetValue.package_name !== "" 
     ) {
       setResetValue();
+      
+      dispatch(phbaddonsAction.reset());
+     
       navigate("/petHowz/HostLayout/HostDashBoard");
     } else if (
-      AddOns?.phbaddons?.message === "SUCCESS" &&
-      resetValue.package_name === "" &&
-      value.page === 4
+      AddOns?.phbaddons?.data?.message === "SUCCESS" &&
+      resetValue.package_name === "" 
     ) {
       setResetValue();
+     
+      dispatch(phbaddonsAction.reset());
+      
     }
   }, [userGet, AboutYou, value, AddOns]);
   return (
@@ -202,7 +205,7 @@ const PHBAddOns = (props) => {
                       mx={2}
                       className="circleLogoBox"
                     >
-                      <CustomImageUploader
+                      <CustomSingleUploader
                         upLoad={CustomIcons.LogoUploader}
                         label={keyValue.label}
                         // onHandleChange={(e) => {
@@ -280,7 +283,7 @@ const PHBAddOns = (props) => {
                 xs: "200px",
               },
               fontSize: "17px",
-              fontFamily: "Poppins_Medium",
+              fontFamily: " Roboto-Regular",
             }}
             onClickHandle={handleSubmit(onAdd)}
           />
@@ -312,7 +315,7 @@ const PHBAddOns = (props) => {
                 xs: "200px",
               },
               fontSize: "17px",
-              fontFamily: "Poppins_Medium",
+              fontFamily: " Roboto-Regular",
             }}
             onClickHandle={handleSubmit(onSubmit)}
           />

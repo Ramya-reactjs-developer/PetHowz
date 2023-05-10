@@ -6,10 +6,10 @@
   background-position: center;
 }
 .Banner-Header {
-  font-family: cooper_regular;
+  font-family: Roboto-Regular !important;
 }
 
 @font-face {
-  font-family: cooper_regular;
+  font-family: Roboto-Regular !important;
   src: url(../../Assets//Fonts/Cooper\ Black\ Regular.ttf);
 }

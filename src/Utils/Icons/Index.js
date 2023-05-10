@@ -38,6 +38,8 @@ import Edit from "../../Assets/Icons/pencil-line.svg";
 import Email from "../../Assets/Icons/mail-line.svg";
 import Call from "../../Assets/Icons/phone-line.svg";
 import Google from "../../Assets/Icons/google.png";
+import Information from "../../Assets/Icons/information.svg"
+
 const CustomIcons = {
   Logo,
   Check,
@@ -45,6 +47,7 @@ const CustomIcons = {
   Google,
   Call,
   Email,
+  Information,
   Location2,
   Edit,
   modalClose,

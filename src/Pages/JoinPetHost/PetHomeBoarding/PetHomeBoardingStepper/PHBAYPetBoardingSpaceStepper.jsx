@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 
 import CustomButton from "../../../../Components/Button/Button";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,8 +17,7 @@ import CustomIcons from "../../../../Utils/Icons/Index";
 import MultipleSelectChip from "../../../../Components/MultipleDropdown/MultipleDropdown";
 import { base64ToBinary } from "../../../../Redux/Helpers";
 import CustomMultiFileUploader from "../../../../Components/FileUploader/MultipleFileUploader";
-import Swal from "sweetalert2";
-import MultiImageUploader from "../../../../Components/ImageUploader/MultiImageUploader";
+import { phbaypetspaceAction } from "../../../../Redux/Slices/PetHomeBoardingSlice/PHBAYPetSpaceSlice";
 
 const PHBAYPetBoardingSpace = (props) => {
   const dispatch = useDispatch();
@@ -68,7 +67,7 @@ const PHBAYPetBoardingSpace = (props) => {
     setValues(values.filter((name) => name !== value));
   };
   const value = useContext(PetHomeBoardingContext);
-
+  const pet_space_id = localStorage.getItem("pet_space_id");
   const onSubmit = (data1) => {
     console.log(data1, "checkdata");
     // data1.categoryOfPetBoarded.forEach((value) => {
@@ -107,10 +106,7 @@ const PHBAYPetBoardingSpace = (props) => {
       data1.how_many_pets_can_you_host_at_max
     );
     // formData.append("photos", data1.photos[0]);
-    formData.append(
-      "pet_space_id",
-      userGet?.phbbasicdetails?.data.pet_space_id
-    );
+    formData.append("pet_space_id", pet_space_id);
 
     const data = {
       data: formData,
@@ -121,6 +117,7 @@ const PHBAYPetBoardingSpace = (props) => {
     console.log(formData, "dddd1");
 
     dispatch(actions.PHBAYPETSPACE(data));
+    setResetValue(defaultValues);
   };
   React.useEffect(() => {
     // if (AYPetSpace?.phbaypetspace?.message === "SUCCESS" && value.page === 2) {
@@ -136,8 +133,9 @@ const PHBAYPetBoardingSpace = (props) => {
     //   });
     // }
 
-    if (AYPetSpace?.phbaypetspace?.message === "SUCCESS" && value.page === 2) {
+    if (AYPetSpace?.phbaypetspace?.data?.data?.Message === "SUCCESS" && value.page === 2) {
       setResetValue(defaultValues);
+      dispatch(phbaypetspaceAction.reset());
       value.nextPage();
     }
   }, [userGet, AboutYou, AYPetSpace, value]);
@@ -326,7 +324,7 @@ const PHBAYPetBoardingSpace = (props) => {
                 xs: "200px",
               },
               fontSize: "17px",
-              fontFamily: "Poppins_Medium",
+              fontFamily: " Roboto-Regular",
             }}
             onClickHandle={handleSubmit(onSubmit)}
           />

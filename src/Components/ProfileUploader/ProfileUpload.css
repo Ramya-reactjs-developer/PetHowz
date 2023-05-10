@@ -40,9 +40,13 @@
   align-items: center;
   border: 1px solid #c4c4c4 !important;
   box-sizing: content-box;
-  position: relative;
+  /* position: relative; */
+  background-color: #f85a47 !important;
+  position: absolute !important;
 }
-
+.textLabel {
+  position: relative !important;
+}
 .logoImg {
   border-radius: 50%;
   width: 100%;
@@ -70,7 +74,7 @@
     hue-rotate(349deg) brightness(104%) contrast(101%) !important;
 }
 .textLabel {
-  color: rgb(133, 131, 131) !important;
+  color: #120f0f !important;
   font-size: 16px !important;
   padding-bottom: 10px !important;
   display: flex;
@@ -85,7 +89,10 @@
 }
 .ToolTip_Icon {
   display: inline-flex;
+  position: absolute;
+  z-index: 1;
 }
+
 .inputUpload {
   position: relative;
 }

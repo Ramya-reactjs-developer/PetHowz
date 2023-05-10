@@ -73,7 +73,7 @@ const CustomTypography = (props) => {
       className={`${type === "error" && "errorText"} ${customClass}`}
     >
       {text}
-      {requiredField && <span className="required">*</span>}
+      {requiredField && <span className="required"></span>}
     </Typography>
   );
 };

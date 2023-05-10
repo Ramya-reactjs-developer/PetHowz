@@ -1,0 +1,15 @@
+.headPffice{
+    font-weight: bold !important;
+    color:  #000 !important;
+}
+.RegisterOffice{
+    font-size: 14px !important;
+    font-weight: bold !important;
+    color:  #000 !important;
+}
+.addressDetails{
+    font-size: 12px !important;
+    color:  #000 !important;
+font-family: Roboto-Regular !important;
+padding: 2px !important;
+}

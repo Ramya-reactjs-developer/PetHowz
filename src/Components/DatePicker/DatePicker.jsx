@@ -1,14 +1,14 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable no-restricted-globals */
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import { Grid } from '@mui/material';
-import TextField from '@mui/material/TextField';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import moment from 'moment';
-import CustomTypography from '../Typography/Typography';
+import * as React from "react";
+import PropTypes from "prop-types";
+import { Grid } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import moment from "moment";
+import CustomTypography from "../Typography/Typography";
 
 function CustomDatePicker(props) {
   const {
@@ -43,7 +43,7 @@ function CustomDatePicker(props) {
         <CustomTypography
           text={labelText}
           colorType="primary"
-          requiredField={requiredField && 'required'}
+          requiredField={requiredField && "required"}
           customClass="textLabel"
         />
         <DatePicker
@@ -52,21 +52,27 @@ function CustomDatePicker(props) {
           // maxDate={maxDate && new Date(maxDate)}
           maxDate={maxDate}
           disableMaskedInput
-          views={year ? ['year'] : ['year', 'month', 'day']}
+          views={year ? ["year"] : ["year", "month", "day"]}
           label={label}
           inputFormat="DD MMM YYYY"
           // value={(!isNaN(new Date(date)) && date) || new Date()}
-          value={(!isNaN(new Date(date)) && date) || 'dd-mm-yyyy' || defaultValue || new Date()}
+          value={
+            (!isNaN(new Date(date)) && date) ||
+            "dd-mm-yyyy" ||
+            defaultValue ||
+            new Date()
+          }
           onChange={(e) => {
-            onHandleChange(moment(new Date(e)).format('DD-MMM-yyyy'));
+            onHandleChange(moment(new Date(e)).format("DD-MMM-yyyy"));
             // setOnChangeValue(e.target.value);
           }}
           // onChange={handleChange}
           renderInput={(params) => (
             <TextField
+              size="small"
               {...params}
               color="secondary"
-              sx={{ width: '100%' }}
+              sx={{ width: "100%" }}
               className={dateStyle}
               placeholder={placeholder}
             />
@@ -95,16 +101,16 @@ CustomDatePicker.propTypes = {
   // resetValue: PropTypes.bool,
 };
 CustomDatePicker.defaultProps = {
-  label: '',
+  label: "",
   year: false,
   calendarPicker: false,
   disabled: false,
-  minDate: '',
-  maxDate: '',
-  dateStyle: '',
-  placeholder: '',
-  labelText: '',
-  requiredField: '',
-  defaultValue: '',
+  minDate: "",
+  maxDate: "",
+  dateStyle: "",
+  placeholder: "",
+  labelText: "",
+  requiredField: "",
+  defaultValue: "",
   // resetValue: false,
 };

@@ -1,94 +1,130 @@
-.root {
-  overflow: hidden;
-}
-
-.textView {
-  margin-left: 20px;
-  text-align: center;
-}
-
-.fileText {
-  font-size: 12px;
-}
-
-.fileUploader {
-  position: absolute;
-  height: 400px !important;
-  width: 10px !important;
-  left: -200px !important;
-  top: -200px !important;
-  background: transparent !important;
-}
-
-.preview {
-  margin-top: 50px !important;
-}
-
-.uploadimageGrid {
-  width: 127px !important;
-  height: 126px !important;
-  border-radius: 71px !important;
-  background: #d2d2d826 !important;
-  position: relative;
-}
-.uploadImageContainer {
-  height: 2.4375em !important;
-  width: 300px !important;
-  border-radius: 5px;
+#file-upload-button::-webkit-file-upload-button {
+  background-color: red;
+  /* width: 250px;
+  height: 30px; */
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
   display: flex;
-  justify-content: center;
   align-items: center;
-  border: 1px solid #c4c4c4 !important;
-  box-sizing: content-box;
-  position: relative;
+  justify-content: center;
+  text-align: center;
+  row-gap: 10px;
 }
 
-.logoImg {
-  border-radius: 50%;
-  width: 100%;
-  height: 100%;
-}
-.none {
-  display: none;
-}
-.imageUpload {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
+#file-upload-button::-moz-file-upload-button {
+  background-color: red;
+  width: 250px;
+  height: 30px;
+  color: #fff;
+  padding: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 
-.regFormImageUpload {
-  position: absolute;
-  right: 40%;
-  top: 40%;
-  filter: brightness(0) saturate(100%) invert(74%) sepia(52%) saturate(739%)
-    hue-rotate(349deg) brightness(104%) contrast(101%) !important;
-}
-.textLabel {
-  color: rgb(133, 131, 131) !important;
-  font-size: 16px !important;
-  padding-bottom: 10px !important;
   display: flex;
-  justify-content: left;
-  padding-top: 4px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  row-gap: 10px;
 }
-.uploadProfileLabel {
-  font-size: 14px !important;
-  color: #8b8d90;
-  font-family: "Poppins";
-  padding-right: 10px !important;
+
+.uploadImageContainerNew {
+  background-color: red;
+  width: 250px;
+  height: 30px;
+  color: #fff;
+  padding: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.ToolTip_Icon {
-  display: inline-flex;
+.Button-Style {
+  background-color: red;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 0px;
 }
-.inputUpload {
-  position: relative;
+
+.Image-Size {
+  width: 100px;
+  height: 100px;
 }
-.imageName {
-  position: absolute;
-  top: 10px;
+/* .selectedImagesTiles {
+  position: absolute !important;
+} */
+.Button-Position {
+  position: relative !important;
+  bottom: 105px;
+  left: 75px;
 }
-.ToolTip_Icon .MuiIconButton-root {
-  padding: 0px 5px !important;
+.Delete-Button-Style {
+  background-color: #000 !important;
+  width: 25px !important;
+  height: 25px !important;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid #ff9062 !important;
+  color: #ff9062 !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px !important;
+}
+.Align-Selsections {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 50px;
+}
+.Arrow-Style {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ff9062;
+  color: white;
+}
+.Arrow-Position {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.imageProfile {
+  border-radius: 50% !important;
+  width: 150px;
+  height: 150px;
+}
+.chooesImage {
+  border: 1px solid #000;
+  padding: 5px;
+  background-color: #e7796b;
+  color: #fff !important;
+  margin-left: 20px;
+}
+.uploadSingleImageContainer {
+  background-color: red;
+  width: 250px;
+  height: 30px;
+  color: #fff;
+  padding: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

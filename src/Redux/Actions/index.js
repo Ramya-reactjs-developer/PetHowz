@@ -1,6 +1,6 @@
 import { AddYourPetAction } from "../Slices/AddYourPet/AddYourPetSlice";
 import { CustomerAddAnotherPetAction } from "../Slices/CustomerAddPet/CustomerAddPetSlice";
-import { groomingAction } from "../Slices/Grooming/Grooming";
+// import { groomingAction } from "../Slices/Grooming/Grooming";
 import { loginAction } from "../Slices/Login/login";
 import { ourServiceAction } from "../Slices/OurService/OurService";
 import { petBoardingAction } from "../Slices/PetBoarding/PetBoarding";
@@ -22,9 +22,12 @@ import { petCareAction } from "../Slices/Grooming/GroomingService";
 import { aboutPetAction } from "../Slices/AboutPet/AboutPet";
 import { createPackageAction } from "../Slices/CreatePackage/CreatePackage";
 import { basicDetailsAction } from "../Slices/ServiceBasicDetails/BasicDetails";
+import { groomingPetServiceAction } from "../Slices/Grooming/Grooming";
+import { serviceDetailsAction } from "../Slices/ServiceDetails/ServiceDetails";
 
 const actions = {
-  ...groomingAction,
+  // ...groomingAction,
+  ...groomingPetServiceAction,
   ...loginAction,
   ...ourServiceAction,
   ...petBoardingAction,
@@ -35,7 +38,6 @@ const actions = {
   ...CustomerAddAnotherPetAction,
   ...AddYourPetAction,
   ...searchcityAction,
-
   ...PetSpaceBookingAction,
   ...ourServiceByIdAction,
   ...searchcitygetlocalityAction,
@@ -50,6 +52,7 @@ const actions = {
   ...aboutPetAction,
   ...createPackageAction,
   ...basicDetailsAction,
+  ...serviceDetailsAction,
 };
 
 export default actions;

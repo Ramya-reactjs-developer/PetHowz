@@ -36,7 +36,7 @@ function AddAnotherPet() {
       apiName: "createPetDetails",
     };
     dispatch(actions.CUSTOMER_ADD_ANOTHER_PET(data));
-    console.log(data,"datadata")
+    console.log(data, "datadata");
     reset({
       Your_Name: "",
       Mobile_number: "",

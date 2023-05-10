@@ -39,27 +39,39 @@ const phbaboutyouSlice = createSlice({
       ...defaultState.List,
     },
   },
+  reducers: {
+    reset: (state) => {
+      state.phbaboutyou = defaultState.List;
+    },
+  },
   extraReducers: {
     [PHBABOUTYOU.fulfilled]: (state, action) => {
-      (state.phbaboutyou.loading = false),
-        (state.phbaboutyou.error = false),
-        (state.phbaboutyou = action.payload);
+      state.phbaboutyou = {
+        loading: false,
+        error: false,
+        data: action.payload
+      };
     },
     [PHBABOUTYOU.pending]: (state, action) => {
-      (state.phbaboutyou.loading = true),
-        (state.phbaboutyou.error = false),
-        (state.phbaboutyou.loading = true);
+      state.phbaboutyou = {
+        loading: true,
+        error: false,
+        data: null,
+      };
     },
     [PHBABOUTYOU.rejected]: (state, action) => {
-      (state.phbaboutyou.loading = false),
-        (state.phbaboutyou.error = true),
-        (state.phbaboutyou = action.payload);
+      state.phbaboutyou = {
+        loading: false,
+        error: true,
+        data: action.payload,
+      };
     },
   },
 });
 
 const phbaboutyouAction = {
   PHBABOUTYOU,
+  reset: phbaboutyouSlice.actions.reset,
 };
 export { phbaboutyouAction };
 export default phbaboutyouSlice.reducer;

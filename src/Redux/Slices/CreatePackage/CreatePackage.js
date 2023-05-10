@@ -13,6 +13,7 @@ const CREATEPACKAGE = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
+      console.log(payload, "fetchData");
       const data = await fetchData(
         payload?.data,
         payload?.method,

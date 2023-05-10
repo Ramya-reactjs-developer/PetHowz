@@ -162,8 +162,8 @@ export const PHBRulesAmentiesEntries = [
     label: "Meal Type",
     breakpoint: 6,
     checkBoxData: [
-      { id: 0, name: "Veg" },
-      { id: 1, name: "Non-Veg" },
+      { id: 1, name: "Veg" },
+      { id: 2, name: "Non-Veg" },
     ],
 
     // pattern: /^[A-Za-z][A-Za-z0-9_]{7,29}$/,
@@ -210,7 +210,7 @@ export const PHBRulesAmentiesEntries = [
     placeholder: "Individual House",
     breakpoint: 6,
     validation: { required: true },
-    pattern: /^[a-zA-Z ]*$/,
+    // pattern: /^[a-zA-Z ]*$/,
     multiline: true,
     rows: 2,
     requiredField: true,
@@ -226,7 +226,7 @@ export const PHBRulesAmentiesEntries = [
     placeholder: "Individual House",
     breakpoint: 6,
     validation: { required: true },
-    pattern: /^[a-zA-Z ]*$/,
+    // pattern: /^[a-zA-Z ]*$/,
     multiline: true,
     rows: 2,
     requiredField: true,

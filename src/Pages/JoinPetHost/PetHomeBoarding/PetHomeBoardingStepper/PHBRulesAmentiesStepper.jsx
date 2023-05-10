@@ -16,6 +16,7 @@ import { PHBAboutYouEntries } from "../PetHomeBoardingEntries.jsx/PHBAboutYouEnt
 import CheckboxLabels from "../../../../Components/CheckBox/CheckBox";
 import MultiCheckboxLabels from "../../../../Components/CheckBox/MultiCheckBox";
 import Swal from "sweetalert2";
+import { phbrulesamentiesAction } from "../../../../Redux/Slices/PetHomeBoardingSlice/PHBRulesAmentiesSlice";
 
 const PHBRulesAmenties = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const PHBRulesAmenties = () => {
     DefaultPHBRulesAmentiesValues,
   });
   const value = useContext(PetHomeBoardingContext);
-
+  const pet_space_id = localStorage.getItem("pet_space_id");
   const onSubmit = (data1) => {
     console.log(data1, "checkdata");
 
@@ -91,7 +92,7 @@ const PHBRulesAmenties = () => {
       "meals_included_in_boarding_charges",
       data1.meals_included_in_boarding_charges
     );
-    formData.append("meal_type", [data1.meal_type]);
+    formData.append("meal_type", JSON.stringify(data1.meal_type));
     formData.append(
       "what_you_provide_in_meals_as_your_boarding",
       data1.what_you_provide_in_meals_as_your_boarding
@@ -101,10 +102,7 @@ const PHBRulesAmenties = () => {
       data1.anything_else_is_provided
     );
 
-    formData.append(
-      "pet_space_id",
-      userGet?.phbbasicdetails?.data.pet_space_id
-    );
+    formData.append("pet_space_id", pet_space_id);
     const data = {
       data: formData,
       method: "post",
@@ -113,6 +111,7 @@ const PHBRulesAmenties = () => {
     console.log(data1, "checkdata");
 
     dispatch(actions.PHBRULESAMENTIES(data));
+    setResetValue(defaultValues);
   };
   console.log(userGet?.phbbasicdetails?.data.pet_space_id, "id");
   React.useEffect(() => {
@@ -129,10 +128,11 @@ const PHBRulesAmenties = () => {
     //   });
     // }
     if (
-      rulesAmenties?.phbrulesamenties?.message === "SUCCESS" &&
+      rulesAmenties?.phbrulesamenties?.data?.message === "SUCCESS" &&
       value.page === 3
     ) {
       setResetValue(defaultValues);
+      dispatch(phbrulesamentiesAction.reset());
       value.nextPage();
     }
   }, [userGet, value, rulesAmenties]);
@@ -307,7 +307,7 @@ const PHBRulesAmenties = () => {
                 xs: "200px",
               },
               fontSize: "17px",
-              fontFamily: "Poppins_Medium",
+              fontFamily: " Roboto-Regular",
             }}
             onClickHandle={handleSubmit(onSubmit)}
           />

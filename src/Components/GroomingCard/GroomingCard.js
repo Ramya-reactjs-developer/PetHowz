@@ -160,7 +160,7 @@ import {
   OverAllCArdPostions,
   ReviewsPosition,
 } from "./Style";
-import './GroomingCard.css';
+import "./GroomingCard.css";
 
 export default function GroomingCardsSection({ Data, onClickHandle }) {
   const CardData = Data;
@@ -286,7 +286,10 @@ export default function GroomingCardsSection({ Data, onClickHandle }) {
                                     btnTitle="View Details"
                                     color="primary"
                                     btnStyles={CardBtnStyles}
-                                    onClickHandle={onClickHandle}
+                                    // onClickHandle={onClickHandle}
+                                    onClickHandle={() =>
+                                      onClickHandle({serviceId:item?.pet_service_id ,masterId:item.service_master_id})
+                                    }
                                   />
                                 </Box>
                               </CardContent>

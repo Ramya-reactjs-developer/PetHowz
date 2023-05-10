@@ -39,27 +39,39 @@ const phbbasicdetailsSlice = createSlice({
       ...defaultState.List,
     },
   },
+  reducers: {
+    reset: (state) => {
+      state.phbbasicdetails = defaultState.List;
+    },
+  },
   extraReducers: {
     [PHBBASICDETAILS.fulfilled]: (state, action) => {
-      (state.phbbasicdetails.loading = false),
-        (state.phbbasicdetails.error = false),
-        (state.phbbasicdetails = action.payload);
+      state.phbbasicdetails = {
+        loading: false,
+        error: false,
+        data: action.payload
+      };
     },
     [PHBBASICDETAILS.pending]: (state, action) => {
-      (state.phbbasicdetails.loading = true),
-        (state.phbbasicdetails.error = false),
-        (state.phbbasicdetails.loading = true);
+      state.phbbasicdetails = {
+        loading: true,
+        error: false,
+        data: null,
+      };
     },
     [PHBBASICDETAILS.rejected]: (state, action) => {
-      (state.phbbasicdetails.loading = false),
-        (state.phbbasicdetails.error = true),
-        (state.phbbasicdetails = action.payload);
+      state.phbbasicdetails = {
+        loading: false,
+        error: true,
+        data: action.payload,
+      };
     },
   },
 });
 
 const phbbasicdetailsAction = {
   PHBBASICDETAILS,
+  reset: phbbasicdetailsSlice.actions.reset,
 };
 export { phbbasicdetailsAction };
 export default phbbasicdetailsSlice.reducer;

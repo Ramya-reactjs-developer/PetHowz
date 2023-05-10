@@ -1,8 +1,8 @@
-import {
-  Route,
-  createBrowserRouter,
-  createRoutesFromElements,
-} from "react-router-dom";
+// import {
+//   Route,
+//   createBrowserRouter,
+//   createRoutesFromElements,
+// } from "react-router-dom";
 import { Layout } from "../Layouts/Index";
 import { HomePage } from "../Pages/Home/Index";
 import Login from "../Pages/Login/Login";
@@ -14,19 +14,6 @@ import PetCare from "../Pages/PetCare/PetCare";
 import PetService from "../Pages/PetService/PetService";
 import { RegisterToPethowz } from "../Pages/CustomerRegistration/RegisterToPetHowz";
 import { AddAddress } from "../Pages/CustomerRegistration/AddAddress";
-import { CustomerLayout } from "../Layouts/CustomerLayout";
-import { CustomerDashBoard } from "../Pages/CustomerDashBoard/Index";
-import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfile/MyProfileCustomerDB";
-import { MyPetsCustomerDB } from "../Pages/CustomerDashBoard/MyPets/MyPetsCustomerDB";
-import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookings/MyBookingsCustomerDb";
-import { MyEnquiriesCustomerDB } from "../Pages/CustomerDashBoard/MyEnquiries/MyEnquiries";
-import { HostLayout } from "../Layouts/HostLayout";
-import { HostDashBoard } from "../Pages/HostDashBoard/Index";
-import { MyProfileHostDB } from "../Pages/HostDashBoard/MyProfile/MyProfileHostDB";
-import { MyBookingsHostDB } from "../Pages/HostDashBoard/MyBookings/MyBookingsHostDB";
-import { MyBoardingSpaceHostDB } from "../Pages/HostDashBoard/MyBoardingSpace/MyBoardingSpaceHostDB";
-import { MyServicesHostDB } from "../Pages/HostDashBoard/MyServices/MyServicesHostDB";
-import { BookingRequestsHostDB } from "../Pages/HostDashBoard/MyBookingRequest/BookingRequestsHostDb";
 import PetHomeBoardingAndService from "../Pages/JoinPetHost/BothBoardAndService/BothBoardAndService";
 import BothBoardAndService from "../Pages/JoinPetHost/BothBoardAndService/BothBoardAndService";
 import AddAnotherPet from "../Pages/CustomerDashBoard/MyPets/AddAnotherPet";
@@ -41,11 +28,28 @@ import { PetBoardingRegistration } from "../Pages/JoinPetHost/PetBoardingRegistr
 import ProtectedLayout from "./ProtectedLayout";
 import { RequestServiceBooking } from "../Pages/RequestBooking/RequestServiceBooking/RequestServiceBooking";
 import SelectService from "../Pages/PetService/SelectService/SelectService";
-import RequestBooking from "../Pages/RequestBooking/RequestBooking";
-import ScrollToTop from "../Components/ScrollToTop/ScrollToTop";
+import { RequestBooking } from "../Pages/RequestBooking/RequestBooking";
 import PetBasicDetails from "../Components/PetServiceProvider/BasicDetails";
 import AboutPet from "../Components/PetServiceProvider/AboutPet";
 import ServiceDetails from "../Components/PetServiceProvider/ServiceDetails";
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+} from "react-router-dom";
+import { HostLayout } from "../Layouts/HostLayout";
+import { HostDashBoard } from "../Pages/HostDashBoard/Index";
+import { MyProfileHostDB } from "../Pages/HostDashBoard/MyProfile/MyProfileHostDB";
+import { MyBookingsHostDB } from "../Pages/HostDashBoard/MyBookings/MyBookingsHostDB";
+import { MyBoardingSpaceHostDB } from "../Pages/HostDashBoard/MyBoardingSpace/MyBoardingSpaceHostDB";
+import { MyServicesHostDB } from "../Pages/HostDashBoard/MyServices/MyServicesHostDB";
+import { BookingRequestsHostDB } from "../Pages/HostDashBoard/MyBookingRequest/BookingRequestsHostDb";
+import { CustomerLayout } from "../Layouts/CustomerLayout";
+import { CustomerDashBoard } from "../Pages/CustomerDashBoard/Index";
+import { MyProfileCustomerDB } from "../Pages/CustomerDashBoard/MyProfile/MyProfileCustomerDB";
+import { MyPetsCustomerDB } from "../Pages/CustomerDashBoard/MyPets/MyPetsCustomerDB";
+import { MyBookingsCustomerDB } from "../Pages/CustomerDashBoard/MyBookings/MyBookingsCustomerDb";
+import { MyEnquiriesCustomerDB } from "../Pages/CustomerDashBoard/MyEnquiries/MyEnquiries";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -99,6 +103,7 @@ export const router = createBrowserRouter(
       <Route path="AddAddress" element={<AddAddress />} />
       <Route path="RequestBooking" element={<RequestBooking />} />
       <Route path="RequestServiceBooking" element={<RequestServiceBooking />} />
+
       {/* customer layout */}
       <Route path="CustomerLayout" element={<CustomerLayout />}>
         <Route path="CustomerDashBoard" element={<CustomerDashBoard />} />
@@ -121,7 +126,7 @@ export const router = createBrowserRouter(
         <Route path="HostDashBoard" element={<HostDashBoard />} />
         <Route path="MyProfileHostDB" element={<MyProfileHostDB />} />
         <Route path="MyBookingsHostDB" index element={<MyBookingsHostDB />} />
-        <Route path="MyBookingsHostDB" index element={<MyBookingsHostDB />} />
+        {/* <Route path="MyBookingsHostDB" index element={<MyBookingsHostDB />} /> */}
 
         <Route
           path="MyBoardingSpaceHostDB"

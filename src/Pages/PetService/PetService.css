@@ -24,13 +24,13 @@
 
 .petHostService {
   color: #2c3051 !important;
-  font-family: sans-serif !important;
+  font-family:  Roboto-Regular !important;
   font-size: 17px !important;
   font-weight: 500 !important;
 }
 
 .App {
-  font-family: sans-serif !important;
+  font-family:  Roboto-Regular !important;
 }
 
 h4 {
