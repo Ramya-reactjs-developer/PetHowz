@@ -1,7 +1,7 @@
 import React from "react";
 import { Tabs, Tab, Box } from "@mui/material";
 import PropTypes from "prop-types";
-// import "./customTab.css";
+import "./customTab.css";
 /**
  *
  * @param {object} props - require props in CustomTab component

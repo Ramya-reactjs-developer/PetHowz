@@ -39,7 +39,7 @@ const CustomFileUploader = (props) => {
           id="upload-button"
           // label="cfhcffc"
           value={onChangeValue}
-          accept={acceptType}
+          accept={props.acceptType}
           onDrop={dropEvent}
           placeholder="choose Image"
           ref={fileRef}

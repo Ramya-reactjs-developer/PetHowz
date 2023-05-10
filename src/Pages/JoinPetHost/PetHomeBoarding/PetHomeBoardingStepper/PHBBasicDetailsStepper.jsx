@@ -219,6 +219,8 @@ const PHBBasicDetails = (props) => {
   console.log(login, "login");
   const defaultValues = DefaultPHBBasicDetailsValues;
   const [state, setstate] = React.useState();
+  const [fileError, setFileError] = React.useState();
+
   console.log(state, "state");
   const [resetValue, setResetValue] = React.useState([]);
 
@@ -274,7 +276,10 @@ const PHBBasicDetails = (props) => {
     //     }
     //   );
     // }
-    if (userGet?.phbbasicdetails?.data?.message === "SUCCESS" && value.page === 0) {
+    if (
+      userGet?.phbbasicdetails?.data?.message === "SUCCESS" &&
+      value.page === 0
+    ) {
       setResetValue(defaultValues);
       localStorage.setItem(
         "user_type",
@@ -297,13 +302,18 @@ const PHBBasicDetails = (props) => {
 
   const [image, setImage] = useState({ preview: "", raw: "" });
   const handleChange = (e) => {
-    console.log(e, "eswar");
-    if (e.target.files.length) {
-      setImage({
-        preview: URL.createObjectURL(e.target.files[0]),
-        raw: e.target.files[0],
-      });
+    if (e.target.files[0] && e.target.files[0].size <= 1000000) {
+      // setImage(e.target.files[0]);
+      if (e.target.files.length) {
+        setImage({
+          preview: URL.createObjectURL(e.target.files[0]),
+          raw: e.target.files[0],
+        });
+      }
+    } else {
+      setFileError("Please select an image file that is below 1 MB.");
     }
+    console.log(e, "eswar");
   };
   const handleUpload = async (e) => {
     console.log(e, "fileUpload");
@@ -400,10 +410,16 @@ const PHBBasicDetails = (props) => {
                             }}
                             Image={image}
                             value={value}
+                            acceptType="image/jpeg, image/jpg, image/png"
                             regForm={keyValue.regForm}
                             defaultImage={keyValue.defaultImage}
                             resetValue={resetValue}
                           />
+                        </Grid>
+                      )}
+                      {fileError && keyValue.name === "image" && (
+                        <Grid>
+                          <CustomTypography text={fileError} type="error" />
                         </Grid>
                       )}
                       {keyValue?.isPasswordInput && (
