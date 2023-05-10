@@ -24,7 +24,9 @@ import HomePetCardsSection from "../../Components/homeBoarding/homeBoarding";
 import CustomFonts from "../../Utils/Fonts";
 import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
 
-export const HomePage = () => {
+export const
+  
+  HomePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { ourService } = useSelector((state) => state?.ourService);

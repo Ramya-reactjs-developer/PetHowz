@@ -5,6 +5,13 @@ export const PetHomeBoardingContext = createContext();
 
 export const PetHomeBoardingProvider = (props) => {
   const [page, setPage] = useState(0);
+ 
+  // React.useEffect(()=>{
+  //   localStorage.setItem("pages",page)
+
+  // },[page])
+  // const pages = localStorage.getItem("pages")
+
   console.log(page, "klnkhcui");
   const [labelInfo, setlabelInfo] = useState({
     BasicDetails: {
@@ -73,6 +80,7 @@ export const PetHomeBoardingProvider = (props) => {
 
   const nextPage = () => {
     setPage(page + 1);
+
   };
 
   const prevPage = () => {

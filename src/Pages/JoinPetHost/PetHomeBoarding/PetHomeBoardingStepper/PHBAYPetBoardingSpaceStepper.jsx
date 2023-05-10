@@ -137,6 +137,7 @@ const PHBAYPetBoardingSpace = (props) => {
       setResetValue(defaultValues);
       dispatch(phbaypetspaceAction.reset());
       value.nextPage();
+      localStorage.setItem("pages",value.page+1)
     }
   }, [userGet, AboutYou, AYPetSpace, value]);
 

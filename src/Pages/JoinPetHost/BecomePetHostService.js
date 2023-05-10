@@ -60,6 +60,7 @@ export const BecomePetHostService = () => {
   //   navigate("/petService");
   // }
   const onPetBoarding = () => {
+    localStorage.setItem("pages",0)
     if (login !== null) {
       navigate("/petHowz/PetHomeBoarding");
     } else {
