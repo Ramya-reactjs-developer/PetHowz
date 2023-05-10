@@ -76,7 +76,7 @@ export const ServiceIndividualResult = () => {
         </Box>
       </Grid>
       <Grid item md={12} lg={12} sm={12} xs={12}>
-        <CardsSection Data={state?.datas} />
+        {/* <CardsSection Data={state?.datas} /> */}
       </Grid>
       <Grid item md={12} lg={12} sm={12} xs={12} className="groomButton">
         <CustomButton
