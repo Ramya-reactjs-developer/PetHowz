@@ -87,6 +87,7 @@ const PHBAboutYou = (props) => {
       setResetValue(defaultValues);
       dispatch(phbaboutyouAction.reset());
       value.nextPage();
+      localStorage.setItem("pages",value.page+1)
     }
   }, [userGet, AboutYou, value]);
   return (

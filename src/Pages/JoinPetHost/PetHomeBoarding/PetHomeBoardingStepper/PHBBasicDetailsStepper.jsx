@@ -287,6 +287,7 @@ const PHBBasicDetails = (props) => {
       // alert(1);
       dispatch(phbbasicdetailsAction.reset());
       value.nextPage();
+      localStorage.setItem("pages",value.page+1)
     }
   };
   React.useEffect(() => {
