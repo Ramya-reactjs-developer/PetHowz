@@ -14,6 +14,8 @@ import {
 import CustomIcons from "../../../../Utils/Icons/Index";
 import { useNavigate } from "react-router";
 import CustomSingleUploader from "../../../../Components/FileUploader/SingleUploader";
+import { phbaddonsAction } from "../../../../Redux/Slices/PetHomeBoardingSlice/PHBAddOnsSlice";
+
 
 const PHBAddOns = (props) => {
   const dispatch = useDispatch();
@@ -23,6 +25,7 @@ const PHBAddOns = (props) => {
   const AddOns = useSelector((state) => state?.phbaddons);
   console.log(userGet?.phbbasicdetails?.data.pet_space_id, "d");
   console.log(AboutYou, "lll");
+  
   const defaultValues = DefaultPHBAddOnsValues;
   const [state, setstate] = React.useState();
   console.log(state, "state");
@@ -74,7 +77,7 @@ const PHBAddOns = (props) => {
 
     formData.append(
       "pet_space_id",
-      userGet?.phbbasicdetails?.data.pet_space_id
+      pet_space_id
     );
     const data = {
       data: formData,
@@ -89,7 +92,8 @@ const PHBAddOns = (props) => {
   };
 
   React.useEffect(() => {
-    console.log(resetValue, "reset");
+    console.log(AddOns?.phbaddons?.data?.message, "reset");
+    console.log(resetValue, "resetV");
     // if (
     //   AddOns?.phbaddons?.message === "SUCCESS" &&
     //   resetValue.package_name !== "" &&
@@ -121,18 +125,22 @@ const PHBAddOns = (props) => {
     // }
 
     if (
-      AddOns?.phbaddons?.message === "SUCCESS" &&
-      resetValue.package_name !== "" &&
-      value.page === 4
+      AddOns?.phbaddons?.data?.message === "SUCCESS" &&
+      resetValue.package_name !== "" 
     ) {
       setResetValue();
+      
+      dispatch(phbaddonsAction.reset());
+     
       navigate("/petHowz/HostLayout/HostDashBoard");
     } else if (
-      AddOns?.phbaddons?.message === "SUCCESS" &&
-      resetValue.package_name === "" &&
-      value.page === 4
+      AddOns?.phbaddons?.data?.message === "SUCCESS" &&
+      resetValue.package_name === "" 
     ) {
       setResetValue();
+     
+      dispatch(phbaddonsAction.reset());
+      
     }
   }, [userGet, AboutYou, value, AddOns]);
   return (

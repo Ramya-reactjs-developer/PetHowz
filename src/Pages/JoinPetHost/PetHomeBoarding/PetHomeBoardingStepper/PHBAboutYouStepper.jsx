@@ -14,6 +14,7 @@ import CustomRadioButton from "../../../../Components/RadioButton/RadioButton";
 import CustomSelect from "../../../../Components/Select/Select";
 import CustomButton from "../../../../Components/Button/Button";
 import Swal from "sweetalert2";
+import { phbaboutyouAction } from "../../../../Redux/Slices/PetHomeBoardingSlice/PHBAboutYouSlice";
 
 const PHBAboutYou = (props) => {
   const dispatch = useDispatch();
@@ -82,9 +83,10 @@ const PHBAboutYou = (props) => {
     //   );
     // }
 
-    if (AboutYou?.phbaboutyou?.message === "SUCCESS" && value.page === 1) {
+    if (AboutYou?.phbaboutyou?.data?.message === "SUCCESS" && value.page === 1) {
       setResetValue(defaultValues);
-      // value.nextPage();
+      dispatch(phbaboutyouAction.reset());
+      value.nextPage();
     }
   }, [userGet, AboutYou, value]);
   return (

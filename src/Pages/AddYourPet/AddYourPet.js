@@ -112,17 +112,19 @@ const AddYourPetLogin = () => {
   // console.log(registertopethowz, "registertopethowz");
 
   const pet_details_id = useSelector(
-    (state) => state?.AddYourPet?.AddYourPets?.data?.pet_details_id
+    (state) => state?.AddYourPet?.AddYourPets?.data?.data?.data?.pet_details_id
   );
   function onReceiveData(data1) {
     const breed_id =
-      getYourPetType?.getPetBreed?.data?.find(
+      getYourPetType?.getPetBreed?.data?.data?.find(
         (item) => item.pet_breed === data1.pet_breed
       )?.pet_breed_id || 0;
     const id =
-      getYourPetType?.getYourPetType?.data?.find(
+      getYourPetType?.getYourPetType?.data?.data?.find(
         (item) => item.pet_type === data1.pet_type
       )?.pet_type_id || 0;
+      console.log(id,"id")
+      console.log(breed_id,"idb")
     // const user_id = userGet?.registertopethowz?.data?.user_id;
     const user_id = localStorage.getItem("LoginChecker");
     const formData = new FormData();
@@ -218,13 +220,13 @@ const AddYourPetLogin = () => {
     //   );
     // }
     if (pet_details_id !== "" && pet_details_id !== undefined) {
-      const data = {
-        data: {},
-        method: "get",
-        apiName: "",
-      };
+      // const data = {
+      //   data: {},
+      //   method: "get",
+      //   apiName: "",
+      // };
 
-      dispatch(actions.ADD_YOUR_PET(data));
+      // dispatch(actions.ADD_YOUR_PET(data));
       Swal.fire({
         title: "Pets Added Successfully",
         text: "Thank You",

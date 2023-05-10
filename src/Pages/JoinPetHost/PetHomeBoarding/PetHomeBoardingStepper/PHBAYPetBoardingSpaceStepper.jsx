@@ -17,6 +17,7 @@ import CustomIcons from "../../../../Utils/Icons/Index";
 import MultipleSelectChip from "../../../../Components/MultipleDropdown/MultipleDropdown";
 import { base64ToBinary } from "../../../../Redux/Helpers";
 import CustomMultiFileUploader from "../../../../Components/FileUploader/MultipleFileUploader";
+import { phbaypetspaceAction } from "../../../../Redux/Slices/PetHomeBoardingSlice/PHBAYPetSpaceSlice";
 
 const PHBAYPetBoardingSpace = (props) => {
   const dispatch = useDispatch();
@@ -132,8 +133,9 @@ const PHBAYPetBoardingSpace = (props) => {
     //   });
     // }
 
-    if (AYPetSpace?.phbaypetspace?.message === "SUCCESS" && value.page === 2) {
+    if (AYPetSpace?.phbaypetspace?.data?.data?.Message === "SUCCESS" && value.page === 2) {
       setResetValue(defaultValues);
+      dispatch(phbaypetspaceAction.reset());
       value.nextPage();
     }
   }, [userGet, AboutYou, AYPetSpace, value]);

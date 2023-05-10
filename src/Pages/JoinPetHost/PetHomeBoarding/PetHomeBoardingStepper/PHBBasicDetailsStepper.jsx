@@ -233,6 +233,7 @@ const PHBBasicDetails = (props) => {
     DefaultPHBBasicDetailsValues,
   });
   const value = useContext(PetHomeBoardingContext);
+
   console.log(value, "valueBD");
 
   const onSubmit = (data1) => {
@@ -273,18 +274,18 @@ const PHBBasicDetails = (props) => {
     //     }
     //   );
     // }
-    if (userGet?.phbbasicdetails?.message === "SUCCESS" && value.page === 0) {
+    if (userGet?.phbbasicdetails?.data?.message === "SUCCESS" && value.page === 0) {
       setResetValue(defaultValues);
       localStorage.setItem(
         "user_type",
-        userGet?.phbbasicdetails?.data?.user_type
+        userGet?.phbbasicdetails?.data?.data?.user_type
       );
       localStorage.setItem(
         "pet_space_id",
-        userGet?.phbbasicdetails?.data?.pet_space_id
+        userGet?.phbbasicdetails?.data?.data?.pet_space_id
       );
-      alert(1);
-      // dispatch(phbbasicdetailsAction.reset());
+      // alert(1);
+      dispatch(phbbasicdetailsAction.reset());
       value.nextPage();
     }
   };
