@@ -13,3 +13,13 @@
 .btn_align_edit button {
   color: #fff !important;
 }
+.uploadImageContainer{
+  position: relative;
+}
+/* .uploadImageContainer img{
+  position: absolute;
+  top: 30px;
+  width: 150px;
+  height: 100px;
+  border-radius: 20px;
+} */

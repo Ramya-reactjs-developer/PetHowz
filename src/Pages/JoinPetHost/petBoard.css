@@ -23,6 +23,7 @@
   font-size: 28px !important;
   color: #000 !important;
   font-weight: 700 !important;
+  font-family: Roboto-Regular !important;
 }
 .petHostHeader {
   width: 600px !important;
@@ -50,7 +51,7 @@
 }
 .petService {
   color: grey !important;
-  font-family: sans-serif !important;
+  font-family: Roboto-Regular !important;
   font-size: 20px !important;
   font-weight: 500 !important;
 }
@@ -88,4 +89,5 @@
 }
 .Choose-Service {
   cursor: pointer;
+  font-family: Roboto-Regular !important;
 }

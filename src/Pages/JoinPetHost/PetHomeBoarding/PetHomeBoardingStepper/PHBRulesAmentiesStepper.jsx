@@ -134,6 +134,7 @@ const PHBRulesAmenties = () => {
       setResetValue(defaultValues);
       dispatch(phbrulesamentiesAction.reset());
       value.nextPage();
+      localStorage.setItem("pages",value.page+1)
     }
   }, [userGet, value, rulesAmenties]);
   // const onNext = () => {
@@ -307,7 +308,7 @@ const PHBRulesAmenties = () => {
                 xs: "200px",
               },
               fontSize: "17px",
-              fontFamily: "Poppins_Medium",
+              fontFamily: " Roboto-Regular",
             }}
             onClickHandle={handleSubmit(onSubmit)}
           />

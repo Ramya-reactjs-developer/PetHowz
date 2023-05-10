@@ -292,6 +292,7 @@ const PHBBasicDetails = (props) => {
       // alert(1);
       dispatch(phbbasicdetailsAction.reset());
       value.nextPage();
+      localStorage.setItem("pages",value.page+1)
     }
   };
   React.useEffect(() => {
@@ -539,7 +540,7 @@ const PHBBasicDetails = (props) => {
                     xs: "200px",
                   },
                   fontSize: "17px",
-                  fontFamily: "Poppins_Medium",
+                  fontFamily: " Roboto-Regular",
                 }}
                 onClickHandle={handleSubmit(onSubmit)}
               />

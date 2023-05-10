@@ -2,17 +2,13 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  font-family: Roboto-Regular !important;
 }
 
 #customText {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
+  font-family: Roboto-Regular !important;
 }
 
-/* .checkboxStyle .MuiTypography-root {
-  font-family: Poppins_Medium !important;
-  font-size: 18px;
-  font-weight: normal;
-  color: rgb(133 131 131 / 45%) !important;
-} */

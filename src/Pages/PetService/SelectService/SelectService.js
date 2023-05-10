@@ -17,6 +17,7 @@ import "./SelectService.css";
 import CheckboxLabels from "../../../Components/CheckBox/CheckBox";
 import MultiCheckboxLabels from "../../../Components/CheckBox/MultiCheckBox";
 import CustomButton from "../../../Components/Button/Button";
+import CustomFileUploader from "../../../Components/FileUploader/FileUpload";
 
 const SelectService = ({ option, disabled }) => {
   // const [checked, setChecked] = useState(false);
@@ -39,6 +40,7 @@ const SelectService = ({ option, disabled }) => {
   const { state } = useLocation();
   console.log(state, "stateValue");
   const userGet = useSelector((state) => state?.phbbasicdetails);
+  console.log(userGet, "inputNameddd");
 
   const toggleCheck = (inputName) => {
     console.log(inputName, "inputName");
@@ -62,39 +64,13 @@ const SelectService = ({ option, disabled }) => {
       setCheckedAll(false);
     }
   }, [checked]);
-  // const [agreement, setAgreement] = useState(false);
-
-  // const handleCheck = () => {
-  //   setChecked(!checked);
-  // };
-  // const OnHandleChange = () => {
-  //   // alert("text");
-  //   setChecked(!checked);
-  // };
-
-  // const onClick = (event) => {
-  //   // const checkValue = event.target.value;
-  //   setAgreement(event.target.value);
-  //   // OnHandleChange(checkValue);
-  //   // console.log(checkValue, "checkValue");
-  // };
   const value = useContext(LabelContext);
   console.log(value, "useContext");
   const check = value.labelInfo?.check;
   console.log(check, "check");
 
-  const btnDisabled =
-    check.meal_type?.length > 0 &&
-    // check.check_name?.length > 0 &&
-    check.meal?.length > 0;
-  // const handleChange = (event) => {
-  //   console.log(event,"jkdvuihfuihvbuifgb");
-  //   setChecked(event.target.checked);
-  // };
-
-  // const [onSubmit, setOnSubmit] = useState();
   const user_id = localStorage.getItem("LoginChecker");
-  console.log(user_id,"dsvsdvvsdvsd")
+  console.log(user_id, "dsvsdvvsdvsd");
   const [data, setData] = useState();
   const navigate = useNavigate();
   console.log(data, "checkboxValue");
@@ -104,26 +80,22 @@ const SelectService = ({ option, disabled }) => {
     setData(data1);
     console.log(data1, "checkdata");
     const formData = new FormData();
-    // formData.append("pet_service_name", data1.meal_type);
-    // formData.append("image", "img.png");
-    // formData.append("meal", data.meal);
-    // const addValue = (data1) => value.nextPage(data1);
-    // const meal_type = data1.meal_type;
     formData.append(
       "service_master_id",
       JSON.stringify(data1.service_master_id)
     );
     formData.append("user_id", parseInt(user_id));
-    formData.append("pet_service_name", state.pet_service_name);
-    formData.append("name", state.name);
-    formData.append("mobile_number", state.mobile_number);
-    formData.append("street", state.street);
-    formData.append("city", state.city);
-    formData.append("locality", state.locality);
-    formData.append("image", state.image[0]);
-    formData.append("state", state.state);
-    formData.append("pin_code", state.pin_code);
-    formData.append("pin_location", state.pin_location);
+    formData.append("pet_service_name", state.a.pet_service_name);
+
+    formData.append("name", state.a.name);
+    formData.append("mobile_number", state.a.mobile_number);
+    formData.append("street", state.a.street);
+    formData.append("city", state.a.city);
+    formData.append("locality", state.a.locality);
+    formData.append("image", state.b);
+    formData.append("state", state.a.state);
+    formData.append("pin_code", state.a.pin_code);
+    formData.append("pin_location", state.a.pin_location);
 
     const data = {
       data: formData,
@@ -134,33 +106,26 @@ const SelectService = ({ option, disabled }) => {
     console.log(data, "checkDataValue");
 
     dispatch(actions.PHBBASICDETAILS(data));
-      if (userGet?.phbbasicdetails?.message === "SUCCESS") {
-        navigate("/petHowz/AboutPet");
-      }
   };
   React.useEffect(() => {
-    if (userGet?.phbbasicdetails?.message === "SUCCESS") {
-      value.nextPage();
+    console.log(userGet?.phbbasicdetails?.data?.message, "message");
+    if (userGet?.phbbasicdetails?.data?.message === "SUCCESS") {
+      navigate("/petHowz/AboutPet");
     }
-  }, [userGet, value]);
-  // React.useEffect(() => {
-  //   console.log(data, "data");
-  //   if (data !== undefined) {
-  //     value.nextPage();
-  //     // alert(data?.);
-  //   }
-  // }, [value, data]);
+  });
 
-  // const handleChange = (event) => {
-  //   setChecked((prev) => {
-  //     if (prev.includes(event)) {
-  //       return prev.filter((x) => x !== event);
-  //     } else {
-  //       return [...prev, event];
-  //     }
-  //   });
-  // };
-  // const checkBoxData= [{ name: "" }]
+  console.log(state.a.pet_service_name, "dfbdbdfbdfbfd");
+  const [image, setImage] = useState({ preview: "", raw: "" });
+  const handleChange = (e) => {
+    console.log(e, "createObjectURL");
+    if (e.target.files.length) {
+      setImage({
+        preview: URL.createObjectURL(e.target.files[0]),
+        raw: e.target.files[0],
+      });
+    }
+  };
+
   return (
     <Grid container md={12} lg={12} xs={12} sm={12}>
       <Grid item md={6} lg={6} sm={12} xs={12}></Grid>
@@ -208,6 +173,32 @@ const SelectService = ({ option, disabled }) => {
                           requiredField={keyValue.requiredField}
                           id={keyValue.id}
                           forWidth={keyValue.forWidth}
+                        />
+                      </Grid>
+                    )}
+                    {keyValue?.isFileUploader && (
+                      <Grid
+                        item
+                        md={12}
+                        sm={12}
+                        xs={12}
+                        my={2}
+                        mx={2}
+                        className="circleLogoBox"
+                      >
+                        <CustomFileUploader
+                          // handleChange={handleChange}
+
+                          handleChange={(e) => {
+                            onChange(e);
+                            handleChange(e);
+                            // handleUpload(e);
+                          }}
+                          Image={image}
+                          value={value}
+                          regForm={keyValue.regForm}
+                          defaultImage={keyValue.defaultImage}
+                          // resetValue={resetValue}
                         />
                       </Grid>
                     )}
@@ -313,7 +304,7 @@ const SelectService = ({ option, disabled }) => {
                   xs: "200px",
                 },
                 fontSize: "17px",
-                fontFamily: "Poppins_Medium",
+                fontFamily: " Roboto-Regular",
               }}
               onClickHandle={handleSubmit(onSubmit)}
             />
