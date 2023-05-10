@@ -15,6 +15,7 @@ import CustomTypography from "../Typography/Typography";
 import CustomButton from "../Button/Button";
 import CustomIcons from "../../Utils/Icons/Index";
 import { CustomizedRatings } from "../StarRatings/CustomizedRatings";
+import { useSelector } from "react-redux";
 import {
   AddressPosition,
   AddressSubPosition1,
@@ -40,6 +41,9 @@ export default function CardsSection({ Data, onClickHandle }) {
   //     reviews: "(75 reviews)",
   //   },
   // ];
+
+  const OverAllSearchResult = useSelector((state) => state?.overallsearch);
+  console.log(OverAllSearchResult, "OverAllSearchResult");
 
   return (
     <Grid
@@ -67,7 +71,7 @@ export default function CardsSection({ Data, onClickHandle }) {
                       <CardContent>
                         <Box></Box>
                         <CustomTypography
-                          text={item?.name || item?.service_name}
+                          text={item?.pet_boarding_space_name}
                           type="h6"
                           colorType="text"
                         />
@@ -75,7 +79,7 @@ export default function CardsSection({ Data, onClickHandle }) {
                           <Box sx={AddressSubPosition1}>
                             <img src={CustomIcons.Location} alt="location" />
                             <CustomTypography
-                              text={item.address}
+                              text={item.locality}
                               type="title"
                               customStyle={{ fontSize: "10px" }}
                               colorType="senary"
@@ -94,7 +98,7 @@ export default function CardsSection({ Data, onClickHandle }) {
                         <Box sx={AddressSubPosition2}>
                           <img src={CustomIcons.Building} alt="location" />
                           <CustomTypography
-                            text={item.type}
+                            text={item.type_of_boarding}
                             type="title"
                             customStyle={{ fontSize: "10px" }}
                             colorType="senary"
@@ -118,7 +122,10 @@ export default function CardsSection({ Data, onClickHandle }) {
                             btnTitle="View Details"
                             color="primary"
                             btnStyles={CardBtnStyles}
-                            onClickHandle={onClickHandle}
+                            // onClickHandle={onClickHandle}
+                            onClickHandle={() =>
+                              onClickHandle(item?.pet_space_id)
+                            }
                           />
                         </Box>
                       </CardContent>

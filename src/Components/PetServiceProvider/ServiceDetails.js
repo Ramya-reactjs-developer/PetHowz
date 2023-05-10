@@ -1,13 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Controller, useForm } from "react-hook-form";
-import { LabelContext } from "../../Pages/PetService/LableData";
-import Button from "@material-ui/core/Button";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
 import {
   ServiceDetailsEntries,
   DefaultServiceDetailsValues,
 } from "../../Pages/PetService/ServiceDetailsEntries";
-import CustomForm from "../CustomForm/CustomForm";
 import { Grid } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../Redux/Actions";
@@ -20,45 +16,42 @@ const ServiceDetails = (props) => {
   const dispatch = useDispatch();
   const [resetValue, setResetValue] = React.useState([]);
 
-    const {
-      control,
-      handleSubmit,
-      formState: { errors },
-      reset,
-    } = useForm({
-      DefaultServiceDetailsValues,
-    });
-  const value = useContext(LabelContext);
-  console.log(value, "senderValue");
-
-  const weight = value.labelInfo?.weight;
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({
+    DefaultServiceDetailsValues,
+  });
 
   const createPackage = useSelector((state) => state?.createPackage);
   console.log(createPackage, "createPackage");
 
-  const btnDisabled =
-    weight.package_name?.length > 0 &&
-    weight.included?.length > 0 &&
-    weight.rate?.length > 0;
-  // console.log(btnDisabled, "btnDisbaled");
+  const userGet = useSelector((state) => state?.phbbasicdetails);
+  console.log(userGet, "phbbasicdetails");
 
-    const onSubmit = (data1) => {
-      console.log(data1, "checkdata");
-      const formData = new FormData();
-      formData.append("package_name", data1.package_name);
-      formData.append("included", data1.included);
-      formData.append("rate", data1.rate);
-      formData.append("service_master_id", 1);
-      formData.append("pet_service_id", 1);
-      const data = {
-        data: formData,
-        method: "post",
-        apiName: "createPetServicePackage",
-      };
-      console.log(data1, "checkdata");
+  const serviceMasterId =
+    userGet?.phbbasicdetails?.data?.data?.service_master_id;
+  const petServiceId = userGet?.phbbasicdetails?.data?.data?.pet_service_id;
 
-      dispatch(actions.CREATEPACKAGE(data));
+  const onSubmit = (data1) => {
+    console.log(data1, "checkData");
+    const formData = new FormData();
+    formData.append("package_name", data1.package_name);
+    formData.append("included", data1.included);
+    formData.append("rate", data1.rate);
+    formData.append("service_master_id", serviceMasterId);
+    formData.append("pet_service_id", petServiceId);
+
+    const data = {
+      data: formData,
+      method: "post",
+      apiName: "createPetServicePackage",
     };
+    console.log(data, "createPetServicePackage");
+    dispatch(actions.SERVICEDETAILS(data));
+  };
 
   return (
     <form>
@@ -66,13 +59,6 @@ const ServiceDetails = (props) => {
       <h5> What are the pet Services you are providing?</h5>
 
       <Grid>
-        {/* <CustomForm
-          AllEntries={ServiceDetailsEntries}
-          textFieldChange={value.handleChange}
-          onChangeRadioAction={value.handleOnChange}
-          // onReceiveData={onReceiveData}
-          defaultValues={DefaultServiceDetailsValues}
-        /> */}
         {ServiceDetailsEntries?.map((keyValue) => (
           <Grid item md={keyValue.breakpoint} sm={12} xs={12}>
             <Controller
@@ -80,7 +66,6 @@ const ServiceDetails = (props) => {
               rules={{
                 required: keyValue?.validation?.required,
                 pattern: keyValue.pattern,
-                // validate: (value) => value === password,
               }}
               control={control}
               render={({ field: { onChange, value } }) => (
@@ -164,28 +149,12 @@ const ServiceDetails = (props) => {
                 xs: "200px",
               },
               fontSize: "17px",
-              fontFamily: "Poppins_Medium",
+              fontFamily: " Roboto-Regular",
             }}
             onClickHandle={handleSubmit(onSubmit)}
           />
         </Grid>
       </Grid>
-      {/* <Grid className="btn_align_edit">
-        <ButtonGroup
-          variant="contained"
-          color="primary"
-          aria-label="text primary button group"
-          style={{ marginTop: 15 }}
-        >
-          <Button
-            disabled={!btnDisabled}
-            onClick={() => value.nextPage()}
-            // style={{ margin: 25 }}
-          >
-            Next
-          </Button>
-        </ButtonGroup>
-      </Grid> */}
     </form>
   );
 };

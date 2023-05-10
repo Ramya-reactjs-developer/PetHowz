@@ -27,6 +27,8 @@ function CustomMultiFileUploader(props) {
 
   const [selectedImage, setSelectedImages] = useState([]);
   const [uploadProgress, setUploadProgress] = useState(0);
+  const [imageupload, SetImageupload] = useState();
+  const [file, setFile] = useState([]);
   const image = "image/png,image/jpeg/image/jpg";
   const video = ".mov,.mp4";
   const [acceptType, setAcceptType] = useState("");
@@ -85,6 +87,21 @@ function CustomMultiFileUploader(props) {
     setAcceptType(fileType === "image" ? image : video);
     await getImage(newImages);
   };
+  // function uploadSingleFile(e) {
+  //   const arr = [];
+  //   arr.push(e.target.files);
+  //   e.preventDefault();
+  //   SetImageupload(e.target.files[0]);
+  //   const ImagesArray = Object.entries(e.target.files).map((item) =>
+  //     URL.createObjectURL(item[1])
+  //   );
+  //   setFile([...file, ...ImagesArray]);
+  //   getImage(arr);
+  // }
+  function deleteFile(e) {
+    const s = file.filter((item, index) => index !== e);
+    setFile(s);
+  }
 
   /**
    * @param {*} event defines the event that function

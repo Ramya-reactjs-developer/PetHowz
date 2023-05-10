@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CustomTypography from "../../Components/Typography/Typography";
 // import GroomingCardsSection from "../../Components/GroomingCard/GroomingCard";
 import CustomButton from "../../Components/Button/Button";
@@ -11,6 +12,7 @@ import CardsSection from "../../Components/Cards/Cards";
 export const BoardingResult = () => {
   const dispatch = useDispatch();
   const { state } = useLocation();
+  const navigate = useNavigate();
   console.log(state, "state");
   const OverAllSearchResult = useSelector((state) => state?.overallsearch);
   console.log(
@@ -27,6 +29,18 @@ export const BoardingResult = () => {
     };
     dispatch(actions.OVERALLSEARCH(data));
   }, [dispatch, state]);
+
+    const onClickHandle = (item, index) => {
+      const BoardingPetKey = item;
+      console.log(BoardingPetKey, "BoardingPetKey");
+      navigate("/petHowz/petCare", {
+        // state: petKey,
+        state: BoardingPetKey,
+        // state: id_pass,
+        // id_pass,
+      });
+    };
+  
   return (
     <>
       <Grid className="container" item md={12} lg={12} sm={12} xs={12}>
@@ -65,6 +79,7 @@ export const BoardingResult = () => {
         <Grid item md={12} lg={12} sm={12} xs={12}>
           <CardsSection
             Data={OverAllSearchResult?.overallsearch?.data?.spaces}
+            onClickHandle={(item) => onClickHandle(item)}
           />
         </Grid>
         <Grid item md={12} lg={12} sm={12} xs={12} className="groomButton">

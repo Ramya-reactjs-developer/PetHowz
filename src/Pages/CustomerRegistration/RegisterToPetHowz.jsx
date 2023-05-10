@@ -333,7 +333,7 @@ export const RegisterToPethowz = (props) => {
                   xs: "200px",
                 },
                 fontSize: "17px",
-                fontFamily: "Poppins_Medium",
+                fontFamily: " Roboto-Regular",
               }}
               onClickHandle={handleSubmit(onSubmit)}
             />

@@ -18,13 +18,12 @@ import { searchcitygetlocalityAction } from "../Slices/SearchCity/SearchGetLocal
 import { TermsAndConditionAction } from "../Slices/TermsAndCondition/TermsAndConditionSlice";
 import { userAddressDetailsAction } from "../Slices/userAddress/userAddressDetailsSlice";
 import { ourServiceByIdAction } from "../Slices/OurService/OurServiceById";
-import {
-  petCareAction,
-} from "../Slices/Grooming/GroomingService";
+import { petCareAction } from "../Slices/Grooming/GroomingService";
 import { aboutPetAction } from "../Slices/AboutPet/AboutPet";
 import { createPackageAction } from "../Slices/CreatePackage/CreatePackage";
 import { basicDetailsAction } from "../Slices/ServiceBasicDetails/BasicDetails";
 import { groomingPetServiceAction } from "../Slices/Grooming/Grooming";
+import { serviceDetailsAction } from "../Slices/ServiceDetails/ServiceDetails";
 
 const actions = {
   // ...groomingAction,
@@ -39,7 +38,6 @@ const actions = {
   ...CustomerAddAnotherPetAction,
   ...AddYourPetAction,
   ...searchcityAction,
-
   ...PetSpaceBookingAction,
   ...ourServiceByIdAction,
   ...searchcitygetlocalityAction,
@@ -54,6 +52,7 @@ const actions = {
   ...aboutPetAction,
   ...createPackageAction,
   ...basicDetailsAction,
+  ...serviceDetailsAction,
 };
 
 export default actions;

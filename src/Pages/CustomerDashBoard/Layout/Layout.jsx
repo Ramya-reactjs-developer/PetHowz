@@ -64,7 +64,7 @@
 //           xs={2}
 //           sm={2}
 //           lg={2}
-//           sx={{ fontFamily: "Roboto" }}
+//           sx={{ fontFamily: "Roboto-Regular" }}
 //         >
 //           <SideMenu navList={navList} menuCollapse={menuCollapse} />
 //         </Grid>
