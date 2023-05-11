@@ -5,13 +5,17 @@
 }
 .text_align{
     color: #000 !important;
+    font-family: Roboto-Regular !important;
 }
 .Appbar_btn button{
     height: 40px;
     border-radius: 50px;
     font-size: 15px;
 }
-
+@font-face {
+    font-family: Roboto-Regular;
+    src: url(../../Assets//Fonts/Roboto-Regular.ttf);
+  }
 @media only screen and (min-width: 900px) and (max-width: 1267px){
     .Appbar_btn button{
     height: 30px;

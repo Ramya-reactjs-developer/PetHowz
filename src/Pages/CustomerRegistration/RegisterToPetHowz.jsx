@@ -75,18 +75,18 @@ export const RegisterToPethowz = (props) => {
         userGet?.registertopethowz?.data?.data?.data?.user_type
       );
 
-      Swal.fire({
-        title: "Registered Successfully",
-        text: "Thank You",
-        icon: "success",
-        allowOutsideClick: false,
-      }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-          dispatch(registertopethowzAction.reset());
-          navigate("/petHowz/AddAddress", { state: state });
-        }
-      });
+      // Swal.fire({
+      //   title: "Registered Successfully",
+      //   text: "Thank You",
+      //   icon: "success",
+      //   allowOutsideClick: false,
+      // }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      // if (result.isConfirmed) {
+      dispatch(registertopethowzAction.reset());
+      navigate("/petHowz/AddAddress", { state: state });
+      // }
+      // });
     }
   }, [userGet]);
   const password = watch("password");

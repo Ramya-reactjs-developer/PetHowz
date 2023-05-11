@@ -6,10 +6,15 @@
   background-position: center;
 }
 .Banner-Header {
-  font-family: Roboto-Regular !important;
+  font-family: cooper_regular;
 }
 
 @font-face {
-  font-family: Roboto-Regular !important;
+  font-family: cooper_regular;
   src: url(../../Assets//Fonts/Cooper\ Black\ Regular.ttf);
 }
+
+/* .FindHomeBoard{
+  font-family: cooper_regular;
+font-weight: bold !important;
+} */

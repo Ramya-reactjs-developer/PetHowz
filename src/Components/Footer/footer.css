@@ -1,11 +1,19 @@
+@font-face {
+    font-family: Roboto-Regular;
+    src: url(../../Assets//Fonts/Roboto-Regular.ttf);
+  }
+
+
 .headPffice{
     font-weight: bold !important;
-    color:  #000 !important;
+    color: #000 !important;
+    font-family: Roboto-Regular !important;
 }
 .RegisterOffice{
     font-size: 14px !important;
     font-weight: bold !important;
-    color:  #000 !important;
+    color: #000 !important;
+    font-family: Roboto-Regular !important;
 }
 .addressDetails{
     font-size: 12px !important;

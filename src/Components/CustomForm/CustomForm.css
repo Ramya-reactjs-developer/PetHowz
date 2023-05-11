@@ -28,7 +28,8 @@
 }
 
 .MuiRadio-root.Mui-checked {
-  color: #fc9518 !important;
+  /* color: #fc9518 !important; */
+  color: #e7796b !important;
   cursor: pointer;
 }
 
@@ -133,5 +134,5 @@
   text-transform: capitalize !important;
 }
 body label {
-  color: black !important;
+  color: #c1c1c1 !important;
 }

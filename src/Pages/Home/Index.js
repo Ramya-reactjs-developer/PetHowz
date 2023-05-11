@@ -368,13 +368,13 @@ export const
                   text="FIND PET BOARDING SPACES"
                   type="heading2"
                   colorType="primary"
-                  customStyle={{ fontFamily: " Roboto-Regular" }}
+                  customStyle={{ fontFamily: "cooper_regular" }}
                 />
                 <CustomTypography
                   text="& PET SERVICE PROVIDERS"
                   type="heading2"
                   colorType="primary"
-                  customStyle={{ fontFamily: " Roboto-Regular" }}
+                  customStyle={{ fontFamily: "cooper_regular" }}
                 />
               </Box>
               <Box sx={SearchBarStyle}>
