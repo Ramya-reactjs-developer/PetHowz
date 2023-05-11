@@ -22,14 +22,14 @@ const CustomFileUploader = (props) => {
 
   return (
     <Grid container item justifyContent={"center"}>
-      <Grid item>
+      <Grid item className="AddYourProfile">
         <label htmlFor="upload-button">
           {Image.preview ? (
             <img src={Image.preview} alt="dummy" className="imageProfile" />
           ) : (
             <>
               <span className="">
-                <img src={CustomIcons.ProfileAvatar} alt="" />
+                <img src={CustomIcons.ProfileAvatar} alt="" className="imageProfile" />
               </span>
             </>
           )}
@@ -49,7 +49,7 @@ const CustomFileUploader = (props) => {
         />
         <br />
         <Grid pt={2} onClick={() => fileRef.current.click()}>
-          <label className="chooesImage">choose Image</label>
+          <label className="chooesImage">Add Your Profile Image</label>
         </Grid>
       </Grid>
       {regForm && (

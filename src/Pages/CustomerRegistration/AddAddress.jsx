@@ -73,31 +73,31 @@ export const AddAddress = () => {
       //   userGet?.registertopethowz?.data?.data?.data?.user_type
       // );
 
-      Swal.fire({
-        title: "Address Added Successfully",
-        text: "Thank You",
-        icon: "success",
-        allowOutsideClick: false,
-      }).then((result) => {
-        /* Read more about isConfirmed, isDenied below */
-        if (result.isConfirmed) {
-          dispatch(userAddressDetailsAction.reset());
-          navigate("/petHowz/Terms", { state: state });
-        }
-      });
+      // Swal.fire({
+      //   title: "Address Added Successfully",
+      //   text: "Thank You",
+      //   icon: "success",
+      //   allowOutsideClick: false,
+      // }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      // if (result.isConfirmed) {
+      dispatch(userAddressDetailsAction.reset());
+      navigate("/petHowz/Terms", { state: state });
+      //   }
+      // });
     }
   }, [userGet]);
 
   return (
     <Grid container item xs={12}>
-      <Grid item textAlign={"center"} height={{ lg: "100vh" }} sm={6} xs={12}>
+      <Grid item height={{ lg: "100vh" }} sm={6} xs={12}>
         <img src={CustomIcons.Logo} alt="logo" />
         <Box sx={{ pt: "20px" }}>
           <CustomTypography
             text="Add Your Residential Address"
             type="heading3"
             colorType={"text"}
-            customStyle={{ fontWeight: "Bold" }}
+            customStyle={{ fontWeight: "Bold", textAlign: "center" }}
           />
         </Box>
         <CustomForm
@@ -106,7 +106,7 @@ export const AddAddress = () => {
           onReceiveData={onReceiveData}
         />
       </Grid>
-      <Grid item textAlign={"center"} className="Box-Image1" sm={6} xs={12}>
+      <Grid item className="Box-Image1" sm={6} xs={12}>
         <Grid item className="Box-color"></Grid>
       </Grid>
     </Grid>
