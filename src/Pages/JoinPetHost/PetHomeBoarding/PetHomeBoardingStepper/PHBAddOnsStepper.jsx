@@ -145,8 +145,8 @@ const PHBAddOns = (props) => {
   }, [userGet, AboutYou, value, AddOns]);
   return (
     <form>
-      <h4> Become a Pet Service Provider</h4>
-      <h5>
+      <h4 className="fontFamilyEdit"> Become a Pet Service Provider</h4>
+      <h5 className="fontFamilyEdit">
         {" "}
         Share these details which describe you as a pet host/pet service
         provider.

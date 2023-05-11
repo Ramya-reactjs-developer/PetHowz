@@ -144,8 +144,11 @@ const PHBAYPetBoardingSpace = (props) => {
   console.log(AYPetSpace?.phbaypetspace?.message, "sucess");
   return (
     <form>
-      <h4> Become a Pet Service Provider</h4>
-      <h5> Fill up details about the pet boarding</h5>
+      <h4 className="fontFamilyEdit"> Become a Pet Service Provider</h4>
+      <h5 className="fontFamilyEdit">
+        {" "}
+        Fill up details about the pet boarding
+      </h5>
       <Grid container className="NewsBorder" md={12}>
         {PHBAYPetBoardingSpaceEntries?.map((keyValue) => (
           <Grid item md={keyValue.breakpoint} sm={12} xs={12}>

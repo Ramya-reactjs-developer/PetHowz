@@ -303,11 +303,12 @@ const Header = (props) => {
                   {login === null ? (
                     // <NavLink to="/Login" style={{ textDecoration: "none" }}>
                     <Button
-                      // sx={{
-                      //   marginLeft: "10px",
-                      //   borderRadius: "50px",
-                      //   height: "40px",
-                      // }}
+                      sx={{
+                        // marginLeft: "10px",
+                        // borderRadius: "50px",
+                        // height: "40px",
+                        fontFamily: "Roboto-Regular",
+                      }}
                       variant="contained"
                       onClick={onLogin}
                     >
@@ -317,11 +318,12 @@ const Header = (props) => {
                     // </NavLink>
                     <NavLink style={{ textDecoration: "none" }}>
                       <Button
-                        // sx={{
-                        //   marginLeft: "10px",
-                        //   borderRadius: "50px",
-                        //   height: "40px",
-                        // }}
+                        sx={{
+                          // marginLeft: "10px",
+                          // borderRadius: "50px",
+                          // height: "40px",
+                          fontFamily: "Roboto-Regular",
+                        }}
                         variant="contained"
                         onClick={onLogout}
                       >

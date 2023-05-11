@@ -5,6 +5,7 @@
 }
 .text_align{
     color: #000 !important;
+    font-family: Roboto-Regular !important;
 }
 .Appbar_btn button{
     height: 40px;

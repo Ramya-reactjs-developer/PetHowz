@@ -84,7 +84,7 @@
 .uploadProfileLabel {
   font-size: 14px !important;
   color: #8b8d90;
-  font-family: "Poppins";
+  font-family: "Roboto-Regular" !important;
   padding-right: 10px !important;
 }
 .ToolTip_Icon {

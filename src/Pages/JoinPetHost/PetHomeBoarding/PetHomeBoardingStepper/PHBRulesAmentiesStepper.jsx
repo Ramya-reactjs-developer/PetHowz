@@ -144,7 +144,7 @@ const PHBRulesAmenties = () => {
   // };
   return (
     <form>
-      <h4> Become a Pet Service Provider</h4>
+      <h4 className="fontFamilyEdit"> Become a Pet Service Provider</h4>
       {/* <h5> Fill up details about the pet boarding</h5> */}
       <Grid container className="NewsBorder" md={12}>
         {PHBRulesAmentiesEntries?.map((keyValue) => (
