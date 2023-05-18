@@ -60,9 +60,20 @@ export default function ImageCards({
             text={service}
             type="subHeading"
             colorType="secondary"
+            customClass="fontFamilyEdit"
           />
-          <CustomTypography text={sub} type="title" colorType="secondary" />
-          <CustomTypography text={subId} type="title" colorType="secondary" />
+          <CustomTypography
+            text={sub}
+            type="title"
+            colorType="secondary"
+            customClass="fontFamilyEdit"
+          />
+          <CustomTypography
+            text={subId}
+            type="title"
+            colorType="secondary"
+            customClass="fontFamilyEdit"
+          />
         </Box>
       </Card>
     </Grid>

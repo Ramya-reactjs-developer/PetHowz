@@ -29,7 +29,11 @@ const CustomFileUploader = (props) => {
           ) : (
             <>
               <span className="">
-                <img src={CustomIcons.ProfileAvatar} alt="" className="imageProfile" />
+                <img
+                  src={CustomIcons.ProfileAvatar}
+                  alt=""
+                  className="imageProfile"
+                />
               </span>
             </>
           )}
@@ -49,7 +53,7 @@ const CustomFileUploader = (props) => {
         />
         <br />
         <Grid pt={2} onClick={() => fileRef.current.click()}>
-          <label className="chooesImage">Add Your Profile Image</label>
+          <label className="chooesImage">Store Profile image </label>
         </Grid>
       </Grid>
       {regForm && (

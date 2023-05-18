@@ -146,7 +146,9 @@ const PetBasicDetails = (props) => {
       <Grid container md={12} sm={12} lg={12} xs={12}>
         <Grid item md={12} sm={12} lg={12} xs={12}>
           <Grid item md={12} sm={12} lg={12} xs={12}>
-            <Typography variant="h4">Fill Up Your Basic Details</Typography>
+            <Typography variant="h4" fontFamily={"Roboto-Regular"}>
+              Fill Up Your Basic Details
+            </Typography>
           </Grid>
           <Grid container className="NewsBorder" md={12}>
             {BasicDetailsEntries?.map((keyValue) => (

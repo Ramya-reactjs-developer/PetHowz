@@ -40,14 +40,17 @@
 }
 h4 {
   font-size: 30px !important;
+  font-family: Roboto-Regular !important;
 }
 h5 {
   color: rgb(80, 150, 255);
   font-size: 16px !important;
+  font-family: Roboto-Regular !important;
 }
 h3 {
   color: rgb(80, 150, 255);
   left: 80px;
+  /* font-family: Roboto-Regular !important; */
 }
 .form {
   min-height: 180px !important;

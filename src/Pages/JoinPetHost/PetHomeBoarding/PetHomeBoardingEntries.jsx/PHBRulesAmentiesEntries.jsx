@@ -19,7 +19,7 @@ export const PHBRulesAmentiesEntries = [
   {
     isRadioAction: true,
     name: "pets_allowed_on_beds",
-    label: "Are Pets allowed on Beds?",
+    label: "Are pets allowed on beds?",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
     validation: { required: true },
@@ -39,7 +39,7 @@ export const PHBRulesAmentiesEntries = [
   {
     isRadioAction: true,
     name: "pets_allowed_on_furniture",
-    label: "Pets allowed on Furniture?",
+    label: "Pets allowed on furniture?",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
     validation: { required: true },
@@ -98,7 +98,7 @@ export const PHBRulesAmentiesEntries = [
   {
     isRadioAction: true,
     name: "pet_should_be_vaccinated",
-    label: "Pet should be Vaccinated?",
+    label: "Pet should be vaccinated?",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
     validation: { required: true },
@@ -109,7 +109,7 @@ export const PHBRulesAmentiesEntries = [
   {
     isRadioAction: true,
     name: "pet_should_be_potty_trained",
-    label: "Pet should be potty Trained?",
+    label: "Pet should be potty trained?",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
     validation: { required: true },
@@ -120,7 +120,7 @@ export const PHBRulesAmentiesEntries = [
   {
     isCustomTypography: true,
     name: "",
-    text: "What offered free as part of Boarding Charges",
+    text: "What offered free as part of boarding charges",
     breakpoint: 12,
     customClass: "login_header",
   },
@@ -128,7 +128,7 @@ export const PHBRulesAmentiesEntries = [
   {
     isRadioAction: true,
     name: "cuddle_time",
-    label: "Cuddle Time",
+    label: "Cuddle time",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
     validation: { required: true },
@@ -138,7 +138,7 @@ export const PHBRulesAmentiesEntries = [
   {
     isRadioAction: true,
     name: "meals_included_in_boarding_charges",
-    label: "Meals Included in Boarding Charges?",
+    label: "Meals included in boarding charges?",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
     validation: { required: true },
@@ -159,7 +159,7 @@ export const PHBRulesAmentiesEntries = [
   {
     isCheckBoxAction: true,
     name: "meal_type",
-    label: "Meal Type",
+    label: "Meal type",
     breakpoint: 6,
     checkBoxData: [
       { id: 1, name: "Veg" },
@@ -175,27 +175,7 @@ export const PHBRulesAmentiesEntries = [
   {
     isRadioAction: true,
     name: "play_time",
-    label: "Play Time",
-    breakpoint: 6,
-    radioButtonData: [{ name: "Yes" }, { name: "No" }],
-    validation: { required: true },
-    requiredField: true,
-    error_message: "Status",
-  },
-  {
-    isRadioAction: true,
-    name: "dedicated_pet_sitter_during_boarding_time",
-    label: "Dedicated pet sitter during Boarding time",
-    breakpoint: 6,
-    radioButtonData: [{ name: "Yes" }, { name: "No" }],
-    validation: { required: true },
-    requiredField: true,
-    error_message: "Status",
-  },
-  {
-    isRadioAction: true,
-    name: "periodic_update_about_pets",
-    label: "Periodic update about Pets (Photos, Videos)",
+    label: "Play time",
     breakpoint: 6,
     radioButtonData: [{ name: "Yes" }, { name: "No" }],
     validation: { required: true },
@@ -206,8 +186,7 @@ export const PHBRulesAmentiesEntries = [
     isTextInput: true,
     name: "what_you_provide_in_meals_as_your_boarding",
     label: "What you provide in meals as of your boarding",
-
-    placeholder: "Individual House",
+    placeholder: "Eg:A bowl of rice,boiled chicken(100g) per meal and we serve two meal a day",
     breakpoint: 6,
     validation: { required: true },
     // pattern: /^[a-zA-Z ]*$/,
@@ -219,11 +198,31 @@ export const PHBRulesAmentiesEntries = [
     validation_error_message: "Text is in Invalid format",
   },
   {
+    isRadioAction: true,
+    name: "dedicated_pet_sitter_during_boarding_time",
+    label: "Dedicated pet sitter during boarding time",
+    breakpoint: 6,
+    radioButtonData: [{ name: "Yes" }, { name: "No" }],
+    validation: { required: true },
+    requiredField: true,
+    error_message: "Status",
+  },
+  {
+    isRadioAction: true,
+    name: "periodic_update_about_pets",
+    label: "Periodic update about pets (Photos, Videos)",
+    breakpoint: 6,
+    radioButtonData: [{ name: "Yes" }, { name: "No" }],
+    validation: { required: true },
+    requiredField: true,
+    error_message: "Status",
+  },
+  {
     isTextInput: true,
     name: "anything_else_is_provided",
     label: "Anything else is provided?",
 
-    placeholder: "Individual House",
+    placeholder: "Eg:pet bathing",
     breakpoint: 6,
     validation: { required: true },
     // pattern: /^[a-zA-Z ]*$/,

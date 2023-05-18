@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext } from "react";
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { PetHomeBoardingContext } from "../PetHomeBoardingContext";
 import { useDispatch, useSelector } from "react-redux";
 import { Controller, useForm } from "react-hook-form";
@@ -32,19 +33,16 @@ const PHBAddOns = (props) => {
   const [resetValue, setResetValue] = React.useState([]);
 
   const {
-    register,
     control,
     handleSubmit,
-    watch,
     formState: { errors },
-    reset,
   } = useForm({
     DefaultPHBAddOnsValues,
   });
   const value = useContext(PetHomeBoardingContext);
   const pet_space_id = localStorage.getItem("pet_space_id");
   const onAdd = (data1) => {
-    console.log(data1, "checkdata");
+    console.log(data1, "checkData");
 
     const formData = new FormData();
     formData.append("package_name", data1.package_name);
@@ -66,7 +64,7 @@ const PHBAddOns = (props) => {
     setResetValue(defaultValues);
   };
   const onSubmit = (data1) => {
-    console.log(data1, "checkdata");
+    console.log(data1, "checkData");
 
     const formData = new FormData();
     formData.append("package_name", data1.package_name);
@@ -145,12 +143,8 @@ const PHBAddOns = (props) => {
   }, [userGet, AboutYou, value, AddOns]);
   return (
     <form>
-      <h4> Become a Pet Service Provider</h4>
-      <h5>
-        {" "}
-        Share these details which describe you as a pet host/pet service
-        provider.
-      </h5>
+      <h4 className="fontFamilyEdit"> Become a Pet Host</h4>
+      <h5 className="fontFamilyEditSubText">Create Add on Package</h5>
       <Grid container className="NewsBorder" md={12}>
         {PHBAddOnsEntries?.map((keyValue) => (
           <Grid item md={keyValue.breakpoint} sm={12} xs={12}>

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 // import React, { useState, useEffect, useContext } from "react";
 // import { LabelContext } from "../../Pages/JoinPetHost/petHost/labelDataContext";
 // import TextField from "@material-ui/core/TextField";
@@ -180,15 +181,8 @@
 // };
 // export default PrintOnly;
 import React, { useContext } from "react";
-
-// import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import ButtonGroup from "@material-ui/core/ButtonGroup";
-
-import { Grid, Typography } from "@mui/material";
-// import InputAdornment from "@material-ui/core/InputAdornment";
-// import "./style.css";
-
+import { Grid } from "@mui/material";
+import "./style.css";
 import { Controller, useForm } from "react-hook-form";
 import {
   DefaultPHBBasicDetailsValues,
@@ -196,18 +190,14 @@ import {
 } from "../PetHomeBoardingEntries.jsx/PHBBasicDetailsEntries";
 import { PetHomeBoardingContext } from "../PetHomeBoardingContext";
 import CustomTextField from "../../../../Components/TextField/TextField";
-import CustomImageUploader from "../../../../Components/FileUploader/FileUpload";
-// import CustomIcons from "../../../../Utils/Icons/Index";
 import CustomTypography from "../../../../Components/Typography/Typography";
 import CustomRadioButton from "../../../../Components/RadioButton/RadioButton";
 import CustomButton from "../../../../Components/Button/Button";
-import CustomForm from "../../../../Components/CustomForm/CustomForm";
 import { useDispatch, useSelector } from "react-redux";
 import actions from "../../../../Redux/Actions";
 import Swal from "sweetalert2";
 import CustomFileUploader from "../../../../Components/FileUploader/FileUpload";
 import { useState } from "react";
-import { FileUpload } from "@mui/icons-material";
 import { phbbasicdetailsAction } from "../../../../Redux/Slices/PetHomeBoardingSlice/PHBBasicDetailsSlice";
 
 const PHBBasicDetails = (props) => {
@@ -225,7 +215,6 @@ const PHBBasicDetails = (props) => {
   const [resetValue, setResetValue] = React.useState([]);
 
   const {
-    register,
     control,
     handleSubmit,
     watch,
@@ -304,7 +293,6 @@ const PHBBasicDetails = (props) => {
   const [image, setImage] = useState({ preview: "", raw: "" });
   const handleChange = (e) => {
     if (e.target.files[0] && e.target.files[0].size <= 1000000) {
-      // setImage(e.target.files[0]);
       if (e.target.files.length) {
         setImage({
           preview: URL.createObjectURL(e.target.files[0]),
@@ -336,7 +324,16 @@ const PHBBasicDetails = (props) => {
       <Grid container md={12} sm={12} lg={12} xs={12}>
         <Grid item md={12} sm={12} lg={12} xs={12}>
           <Grid item md={12} sm={12} lg={12} xs={12}>
-            <Typography variant="h4">Fill Up Your Basic Details</Typography>
+            <CustomTypography
+              text="Become a Pet Host"
+              type="heading3"
+              customClass="basicTitle"
+            />
+            <CustomTypography
+              text=" Fill up Your basic details"
+              type="heading4"
+              customClass="basicSubTitle"
+            />
           </Grid>
           {/* <Grid item md={12} sm={12} lg={12} xs={12}>
             <CustomForm
@@ -520,6 +517,7 @@ const PHBBasicDetails = (props) => {
             lg={12}
             sm={12}
             xs={12}
+            pb={3}
             display="inline-flex"
             justifyContent="space-around"
             pt={"60px"}

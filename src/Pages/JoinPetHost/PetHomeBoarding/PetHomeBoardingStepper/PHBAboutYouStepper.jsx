@@ -92,13 +92,13 @@ const PHBAboutYou = (props) => {
   }, [userGet, AboutYou, value]);
   return (
     <form>
-      <h4> Become a Pet Service Provider</h4>
-      <h5>
+      <h4 className="fontFamilyEdit"> Become a Pet Host</h4>
+      <h5 className="fontFamilyEditSubText">
         {" "}
         Share these details which describe you as a pet host/pet service
         provider.
       </h5>
-      <Grid container className="NewsBorder" md={12}>
+      <Grid container className="NewsBorder" md={12} lg={12} sm={12} xs={12}>
         {PHBAboutYouEntries?.map((keyValue) => (
           <Grid item md={keyValue.breakpoint} sm={12} xs={12}>
             <Controller
@@ -213,6 +213,7 @@ const PHBAboutYou = (props) => {
         lg={12}
         sm={12}
         xs={12}
+        pb={3}
         display="inline-flex"
         justifyContent="space-around"
         pt={"60px"}

@@ -144,8 +144,13 @@ const PHBAYPetBoardingSpace = (props) => {
   console.log(AYPetSpace?.phbaypetspace?.message, "sucess");
   return (
     <form>
-      <h4> Become a Pet Service Provider</h4>
-      <h5> Fill up details about the pet boarding</h5>
+      <Grid pl={2}>
+        <h4 className="fontFamilyEdit"> Become a Pet Host</h4>
+        <h5 className="fontFamilyEditSubText">
+          {" "}
+          Fill up details about the pet boarding
+        </h5>
+      </Grid>
       <Grid container className="NewsBorder" md={12}>
         {PHBAYPetBoardingSpaceEntries?.map((keyValue) => (
           <Grid item md={keyValue.breakpoint} sm={12} xs={12}>
@@ -246,7 +251,16 @@ const PHBAYPetBoardingSpace = (props) => {
                       />
                     </Grid>
                   )}
-
+                  {keyValue?.isCustomTypography && (
+                    <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
+                      <CustomTypography
+                        type="header"
+                        text={keyValue.text}
+                        customClass={keyValue.customClass}
+                        colorType={keyValue.colorType}
+                      />
+                    </Grid>
+                  )}
                   {keyValue?.isRadioAction && (
                     <Grid
                       item
@@ -305,6 +319,7 @@ const PHBAYPetBoardingSpace = (props) => {
         lg={12}
         sm={12}
         xs={12}
+        pb={3}
         display="inline-flex"
         justifyContent="space-around"
         pt={"60px"}
