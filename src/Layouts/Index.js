@@ -10,7 +10,7 @@ export const Layout = () => {
       <Grid item md={12} lg={12} sm={12} xs={12}>
         <AppBar />
       </Grid>
-      <Grid item md={12} lg={12} sm={12} xs={12} pt={"80px"}>
+      <Grid item md={12} lg={12} sm={12} xs={12} pt={"126px"}>
         <Outlet />
       </Grid>
       <Grid sx={{ position: "sticky" }} item md={12} lg={12} sm={12} xs={12}>

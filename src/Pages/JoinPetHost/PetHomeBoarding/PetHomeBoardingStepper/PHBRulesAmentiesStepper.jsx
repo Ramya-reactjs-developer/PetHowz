@@ -144,7 +144,9 @@ const PHBRulesAmenties = () => {
   // };
   return (
     <form>
-      <h4> Become a Pet Service Provider</h4>
+      <Grid pl={2}>
+        <h4 className="fontFamilyEdit"> Become a Pet Host</h4>
+      </Grid>
       {/* <h5> Fill up details about the pet boarding</h5> */}
       <Grid container className="NewsBorder" md={12}>
         {PHBRulesAmentiesEntries?.map((keyValue) => (
@@ -217,7 +219,7 @@ const PHBRulesAmenties = () => {
                       <CustomTypography
                         type="header"
                         text={keyValue.text}
-                        customStyle={{ fontWeight: "700" }}
+                        customStyle={{ fontWeight: "700", paddingLeft: "14px" }}
                         // customClass={keyValue.customClass}
                         colorType={"text"}
                       />
@@ -288,6 +290,7 @@ const PHBRulesAmenties = () => {
         lg={12}
         sm={12}
         xs={12}
+        pb={3}
         display="inline-flex"
         justifyContent="space-around"
         pt={"60px"}

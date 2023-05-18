@@ -1,5 +1,5 @@
 *{
-  font-family: Roboto-Regular ;
+  font-family: Roboto-Regular;
 }
 .required {
   color: red !important;
@@ -13,7 +13,8 @@
   font-family: Roboto-Regular !important;
   display: flex !important;
   align-items: center !important;
-  justify-content: center !important;
+  justify-content: left !important;
+  padding-left: 20px;
   /* padding-left: 45px !important;
     padding-top: 10px !important; */
 }

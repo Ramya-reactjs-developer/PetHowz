@@ -29,7 +29,7 @@ const PetHomeBoarding = () => {
           )}
         </Grid>
       </Grid>
-      <Grid item sm={8} xs={12} p={2}>
+      <Grid item sm={8} xs={12} pl={5}>
         {pages ==="0" && <PHBBasicDetails />}
         {pages ==="1" && <PHBAboutYou />}
         {pages ==="2" && <PHBAYPetBoardingSpace />}
