@@ -166,7 +166,7 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
   const CardData = Data;
 
   const { petBoarding } = useSelector((state) => state?.petBoarding);
-  console.log(petBoarding?.data, "petBoarding");
+  // console.log(petBoarding?.data, "petBoarding");
   //   console.log(
   //     petBoarding?.data?.[0]?.datas?.map((item) => item.service_name),
   //     "ourServiceByIdValue"
@@ -195,8 +195,7 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
       <Grid item xs={12} sx={OverAllCArdPostions}>
         {/* {petBoarding?.data?.map((item, key) => {
           return ( */}
-        <Grid item xs={12}>
-          {/* <Grid item xs={12}>
+        {/* <Grid item xs={12}>
             <CustomTypography
               //   text={item?.title}
               text={petBoarding?.data?.title}
@@ -206,71 +205,71 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
               // customClass="groomText"
             />
           </Grid> */}
-          <Grid item sx={OverAllCArdPostions}>
-            {petBoarding?.data?.spaces?.map((item) => {
-              return (
-                <Box key={item?.pet_space_id}>
-                  <Card sx={CardSize}>
-                    <Box>
-                      <CardActionArea>
-                        <CardMedia
-                          component="img"
-                          image={item?.image}
-                          alt="dog"
-                          sx={CardMediaSize}
+        <Grid item sx={OverAllCArdPostions}>
+          {petBoarding?.data?.spaces?.map((item) => {
+            return (
+              <Box key={item?.pet_space_id}>
+                <Card sx={CardSize}>
+                  <Box>
+                    <CardActionArea>
+                      <CardMedia
+                        component="img"
+                        image={item?.image}
+                        alt="dog"
+                        sx={CardMediaSize}
+                      />
+                    </CardActionArea>
+                    <CardActions sx={{ Width: "250px" }}>
+                      <CardContent sx={{ Width: "100%" }}>
+                        <CustomTypography
+                          text={item?.pet_boarding_space_name}
+                          type="h6"
+                          colorType="text"
                         />
-                      </CardActionArea>
-                      <CardActions sx={{ maxWidth: "250px" }}>
-                        <CardContent>
-                          <Box></Box>
-                          <CustomTypography
-                            text={item?.pet_boarding_space_name}
-                            type="h6"
-                            colorType="text"
-                          />
-                          <Box sx={AddressPosition}>
-                            <Box sx={AddressSubPosition1}>
-                              <img src={CustomIcons.Location} alt="location" />
-                              <CustomTypography
-                                text={item?.locality}
-                                type="title"
-                                customStyle={{ fontSize: "10px" }}
-                                colorType="senary"
-                              />
-                            </Box>
-                            <Box>
-                              <CustomTypography
-                                text={item?.distance}
-                                type="title"
-                                customStyle={{ fontSize: "10px" }}
-                                colorType="senary"
-                              />
-                            </Box>
-                          </Box>
-
-                          <Box sx={AddressSubPosition2}>
-                            <img src={CustomIcons.Building} alt="location" />
+                        <Box sx={AddressPosition}>
+                          <Box sx={AddressSubPosition1}>
+                            <img src={CustomIcons.Location} alt="location" />
                             <CustomTypography
-                              text={item.type_of_boarding}
+                              text={item?.locality}
                               type="title"
                               customStyle={{ fontSize: "10px" }}
                               colorType="senary"
                             />
                           </Box>
-                          <Box sx={ReviewsPosition}>
-                            <Box>
-                              <Box>
-                                <CustomizedRatings Data={item?.ratings} />
-                              </Box>
+                          <Box>
+                            <CustomTypography
+                              text={item?.distance}
+                              type="title"
+                              customStyle={{ fontSize: "10px" }}
+                              colorType="senary"
+                            />
+                          </Box>
+                        </Box>
 
-                              <CustomTypography
-                                text={item?.reviews}
-                                type="title"
-                                customStyle={{ fontSize: "10px" }}
-                                colorType="senary"
-                              />
-                            </Box>
+                        <Box sx={AddressSubPosition2}>
+                          <img src={CustomIcons.Building} alt="location" />
+                          <CustomTypography
+                            text={item.type_of_boarding}
+                            type="title"
+                            customStyle={{ fontSize: "10px" }}
+                            colorType="senary"
+                          />
+                        </Box>
+                        <Box sx={ReviewsPosition}>
+                          <Grid md={7}>
+                            <Grid>
+                              <CustomizedRatings Data={item?.ratings} />
+                            </Grid>
 
+                            <CustomTypography
+                              text={item?.reviews}
+                              type="title"
+                              customStyle={{ fontSize: "10px" }}
+                              colorType="senary"
+                            />
+                          </Grid>
+
+                          <Grid md={5}>
                             <CustomButton
                               btnTitle="View Details"
                               color="primary"
@@ -279,18 +278,19 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
                                 onClickHandle(item?.pet_space_id)
                               }
                             />
-                          </Box>
-                        </CardContent>
-                      </CardActions>
-                    </Box>
-                  </Card>
-                </Box>
-              );
-            })}
-          </Grid>
-          {/* <CardsSection Data={petBoarding.data.spaces} /> */}
-          {/* {item.spaces.length !== 0 ? ( */}
-          {/* <Grid 
+                          </Grid>
+                        </Box>
+                      </CardContent>
+                    </CardActions>
+                  </Box>
+                </Card>
+              </Box>
+            );
+          })}
+        </Grid>
+        {/* <CardsSection Data={petBoarding.data.spaces} /> */}
+        {/* {item.spaces.length !== 0 ? ( */}
+        {/* <Grid 
                   item
                   display={"flex"}
                   alignItems={"center"}
@@ -384,10 +384,10 @@ export default function HomePetCardsSection({ Data, onClickHandle }) {
                     );
                   })}
                 </Grid> */}
-          {/* ) : (
+        {/* ) : (
                 "Not Found"
               )} */}
-        </Grid>
+
         {/* );
         })} */}
       </Grid>

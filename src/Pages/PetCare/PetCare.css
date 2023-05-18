@@ -80,7 +80,8 @@
   border-radius: 10px;
 }
 .AboutPetBoard {
-  background-color: rgb(252, 244, 248);
+  /* background-color: rgb(252, 244, 248); */
+  background-color: #FFEEE7 !important;
 }
 .packageHead {
   font-size: 22px !important;
@@ -95,9 +96,17 @@
   width: 100% !important;
   height: 100% !important;
 }
-.AmenitiesImage {
-  height: 40px !important;
+.AmenitiesVegImage{
+  height:40px !important;
   width: 40px !important;
+}
+.AmenitiesVegImage img{
+  width: 100% !important;
+  height: 100% !important;
+}
+.AmenitiesImage {
+  height:70px !important;
+  width: 70px !important;
 }
 .AmenitiesImage img {
   width: 100% !important;

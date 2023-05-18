@@ -1,6 +1,6 @@
-import React from "react"
+import React from "react";
 export const OverAllCArdPostions = {
-  p: "25px",
+  p: "5px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -9,8 +9,8 @@ export const OverAllCArdPostions = {
 };
 
 export const CardSize = {
-  width: "100%",
-  maxWidth: "250px",
+  // width: "100%",
+  width: "250px",
 };
 export const CardMediaSize = {
   margin: "auto",
@@ -43,7 +43,12 @@ export const ReviewsPosition = {
   justifyContent: "space-between",
   pt: "20px",
 };
-export const CardBtnStyles = { color: "white" };
+export const CardBtnStyles = {
+  color: "white",
+  width: "100px",
+  background: "#F85A47",
+  fontSize: "11px",
+};
 
 export const ImageCardsSize = { maxWidth: 345, borderRadius: 3 };
 

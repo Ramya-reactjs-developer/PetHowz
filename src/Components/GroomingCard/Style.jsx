@@ -20,7 +20,12 @@ export const AddressSubPosition2 = {
   alignItems: "center",
   gap: "7px",
 };
-export const CardBtnStyles = { color: "white" };
+export const CardBtnStyles = {
+  color: "white",
+  width: "100px",
+  background: "#F85A47",
+  fontSize: "11px",
+};
 export const CardMediaSize = {
   margin: "auto",
   width: "100%",
@@ -36,9 +41,9 @@ export const PetHomeCardSize = {
 export const OverAllCArdPostions = {
   p: "25px",
   display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  gap: "30px",
+  // alignItems: "center",
+  // justifyContent: "center",
+  // gap: "30px",
   flexWrap: "wrap",
 };
 export const ReviewsPosition = {

@@ -67,9 +67,8 @@ export default function CardsSection({ Data, onClickHandle }) {
                         sx={CardMediaSize}
                       />
                     </CardActionArea>
-                    <CardActions sx={{ maxWidth: "250px" }}>
-                      <CardContent>
-                        <Box></Box>
+                    <CardActions sx={{ Width: "250px" }}>
+                      <CardContent sx={{ Width: "100%" }}>
                         <CustomTypography
                           text={item?.pet_boarding_space_name}
                           type="h6"
@@ -105,10 +104,10 @@ export default function CardsSection({ Data, onClickHandle }) {
                           />
                         </Box>
                         <Box sx={ReviewsPosition}>
-                          <Box>
-                            <Box>
+                          <Grid md={7}>
+                            <Grid>
                               <CustomizedRatings Data={item.ratings} />
-                            </Box>
+                            </Grid>
 
                             <CustomTypography
                               text={item.reviews}
@@ -116,17 +115,18 @@ export default function CardsSection({ Data, onClickHandle }) {
                               customStyle={{ fontSize: "10px" }}
                               colorType="senary"
                             />
-                          </Box>
-
-                          <CustomButton
-                            btnTitle="View Details"
-                            color="primary"
-                            btnStyles={CardBtnStyles}
-                            // onClickHandle={onClickHandle}
-                            onClickHandle={() =>
-                              onClickHandle(item?.pet_space_id)
-                            }
-                          />
+                          </Grid>
+                          <Grid md={5}>
+                            <CustomButton
+                              btnTitle="View Details"
+                              color="primary"
+                              btnStyles={CardBtnStyles}
+                              // onClickHandle={onClickHandle}
+                              onClickHandle={() =>
+                                onClickHandle(item?.pet_space_id)
+                              }
+                            />
+                          </Grid>
                         </Box>
                       </CardContent>
                     </CardActions>

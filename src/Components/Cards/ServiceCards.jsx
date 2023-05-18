@@ -106,7 +106,7 @@ export default function ServiceCardsSection({
                   {item?.datas
                     ?.slice(indexOfFirstPost, indexOfLastPost)
                     .map((item, key) => {
-                      console.log(item,"jbvhbv");
+                      console.log(item, "jbvhbv");
                       return (
                         <Box key={key}>
                           <Card sx={CardSize}>
@@ -125,6 +125,11 @@ export default function ServiceCardsSection({
                                   <CustomTypography
                                     text={item?.name || item?.service_name}
                                     type="h6"
+                                    customStyle={{
+                                      fontWeight: "800 !important",
+                                      fontSize: "12px",
+                                      padding: "2px",
+                                    }}
                                     colorType="text"
                                   />
                                   <Box sx={AddressPosition}>
@@ -162,13 +167,20 @@ export default function ServiceCardsSection({
                                       colorType="senary"
                                     />
                                   </Box>
-                                  <Box sx={ReviewsPosition}>
-                                    <Box>
-                                      <Box>
+                                  <Grid
+                                    sx={ReviewsPosition}
+                                    item
+                                    md={12}
+                                    sm={12}
+                                    xs={12}
+                                    lg={12}
+                                  >
+                                    <Grid md={7}>
+                                      <Grid>
                                         <CustomizedRatings
                                           Data={item?.ratings}
                                         />
-                                      </Box>
+                                      </Grid>
 
                                       <CustomTypography
                                         text={item?.reviews}
@@ -176,18 +188,22 @@ export default function ServiceCardsSection({
                                         customStyle={{ fontSize: "10px" }}
                                         colorType="senary"
                                       />
-                                    </Box>
-
-                                    <CustomButton
-                                      btnTitle="View Details"
-                                      color="primary"
-                                      btnStyles={CardBtnStyles}
-                                      // onClickHandle={onClickHandle}
-                                      onClickHandle={() =>
-                                        onClickHandle({serviceId:item?.pet_service_id ,masterId:item.service_master_id})
-                                      }
-                                    />
-                                  </Box>
+                                    </Grid>
+                                    <Grid md={5} pl={1}>
+                                      <CustomButton
+                                        btnTitle="Detail"
+                                        color="primary"
+                                        btnStyles={CardBtnStyles}
+                                        // onClickHandle={onClickHandle}
+                                        onClickHandle={() =>
+                                          onClickHandle({
+                                            serviceId: item?.pet_service_id,
+                                            masterId: item.service_master_id,
+                                          })
+                                        }
+                                      />
+                                    </Grid>
+                                  </Grid>
                                 </CardContent>
                               </CardActions>
                             </Box>
@@ -196,7 +212,7 @@ export default function ServiceCardsSection({
                       );
                     })}
                 </Grid>
-                <Grid
+                {/* <Grid
                   item
                   md={12}
                   lg={12}
@@ -211,7 +227,7 @@ export default function ServiceCardsSection({
                     fontSize="12px"
                     onClickHandle={() => onDiscover(key)}
                   />
-                </Grid>
+                </Grid> */}
               </Grid>
             );
           })}

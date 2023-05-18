@@ -30,17 +30,17 @@ export const BoardingResult = () => {
     dispatch(actions.OVERALLSEARCH(data));
   }, [dispatch, state]);
 
-    const onClickHandle = (item, index) => {
-      const BoardingPetKey = item;
-      console.log(BoardingPetKey, "BoardingPetKey");
-      navigate("/petHowz/petCare", {
-        // state: petKey,
-        state: BoardingPetKey,
-        // state: id_pass,
-        // id_pass,
-      });
-    };
-  
+  const onClickHandle = (item, index) => {
+    const BoardingPetKey = item;
+    console.log(BoardingPetKey, "BoardingPetKey");
+    navigate("/petHowz/petCare", {
+      // state: petKey,
+      state: BoardingPetKey,
+      // state: id_pass,
+      // id_pass,
+    });
+  };
+
   return (
     <>
       <Grid className="container" item md={12} lg={12} sm={12} xs={12}>
@@ -82,14 +82,14 @@ export const BoardingResult = () => {
             onClickHandle={(item) => onClickHandle(item)}
           />
         </Grid>
-        <Grid item md={12} lg={12} sm={12} xs={12} className="groomButton">
+        {/* <Grid item md={12} lg={12} sm={12} xs={12} className="groomButton">
           <CustomButton
             btnTitle="Load More Spaces"
             color="primary"
             customClass="groomCardStyles"
             fontSize="12px"
           />
-        </Grid>
+        </Grid> */}
       </Grid>
     </>
   );

@@ -3,6 +3,7 @@ import React from "react";
 import CustomButton from "../Button/Button";
 import CustomTypography from "../Typography/Typography";
 import "./AboutBoardingService.css";
+import CustomIcons from "../../Utils/Icons/Index";
 
 const AboutBoardingService = (props) => {
   const {
@@ -40,7 +41,7 @@ const AboutBoardingService = (props) => {
             customClass="aboutServiceHeaderName"
           />
         </Grid>
-        <Grid item md={3} lg={3} sm={6} xs={6}>
+        <Grid item md={3} lg={3} sm={6} xs={6} >
           <CustomTypography
             type="link"
             text={firstName}
@@ -57,24 +58,34 @@ const AboutBoardingService = (props) => {
             customClass="aboutServiceName"
           />
         </Grid>
-        <Grid item md={3} lg={3} sm={6} xs={6}>
-          <CustomTypography
-            type="head"
-            text={professional}
-            customClass="aboutServiceProfessional"
-          />
+        <Grid item md={3} lg={3} sm={6} xs={6}  display="flex">
+          <Grid item className="Profession-img">
+            <img src={CustomIcons.Profession} alt="" />
+          </Grid>
+          <Grid pl={1.5}>
+            <CustomTypography
+              type="head"
+              text={professional}
+              customClass="aboutServiceProfessional"
+            />
+          </Grid>
         </Grid>
-        <Grid item md={2} lg={2} sm={6} xs={6}>
-          <CustomTypography
-            type="link"
-            text={year}
-            customClass="aboutServiceYear"
-          />
-          <CustomTypography
-            type="link"
-            text="&nbsp;Years"
-            customClass="aboutServiceYear"
-          />
+        <Grid item md={2} lg={2} sm={6} xs={6}  display="flex">
+          <Grid item className="year-img">
+            <img src={CustomIcons.year} alt="" />
+          </Grid>
+          <Grid pl={1.5}>
+            <CustomTypography
+              type="link"
+              text={year}
+              customClass="aboutServiceYear"
+            />
+            <CustomTypography
+              type="link"
+              text="&nbsp;Years"
+              customClass="aboutServiceYear"
+            />
+          </Grid>
         </Grid>
         <Grid item md={12} lg={12} sm={12} xs={12}>
           <CustomTypography
@@ -84,8 +95,12 @@ const AboutBoardingService = (props) => {
           />
         </Grid>
         <Grid item md={12} sm={12} lg={12} xs={12} pt={2}>
-          <Grid>
-            <CustomTypography type="head" text="Boarding Space Details" />
+          <Grid pb={2}>
+            <CustomTypography
+              type="head"
+              text="Boarding Space Details"
+              customClass="aboutServiceName"
+            />
           </Grid>
           <Grid item md={12} sm={12} lg={12} xs={12} display="flex">
             <Grid item lg={2} sm={6} xs={6} className="aboutSpace-Details">
@@ -236,7 +251,7 @@ const AboutBoardingService = (props) => {
         </Grid>
       </Grid>
 
-      <Grid item md={12} lg={12} sm={12} xs={12} className="serviceBtn">
+      {/* <Grid item md={12} lg={12} sm={12} xs={12} className="serviceBtn">
         <CustomButton
           onClickHandle={onRequest}
           btnTitle={btnTitle}
@@ -248,7 +263,7 @@ const AboutBoardingService = (props) => {
           text={BtnText}
           customClass="btnBottomText"
         />
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };

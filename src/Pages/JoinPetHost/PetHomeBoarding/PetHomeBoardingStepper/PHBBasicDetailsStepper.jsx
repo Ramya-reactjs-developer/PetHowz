@@ -292,9 +292,10 @@ const PHBBasicDetails = (props) => {
       // alert(1);
       dispatch(phbbasicdetailsAction.reset());
       value.nextPage();
-      localStorage.setItem("pages",value.page+1)
+      localStorage.setItem("pages", value.page + 1);
     }
   };
+
   React.useEffect(() => {
     onNext();
     console.log(userGet?.phbbasicdetails?.message, "oooo");
@@ -331,6 +332,18 @@ const PHBBasicDetails = (props) => {
       body: formData,
     });
   };
+  React.useEffect(() => {
+    const data = {
+      data: {
+        country: "India",
+        state: "Tamil Nadu",
+      },
+      method: "post",
+      // apiName: `getPetServiceByServiceMasterId/${state.response?.[0]?.service_master_id}`,
+      apiName: `getState`,
+    };
+    dispatch(actions.HOMEBOARDINGSTATE(data));
+  }, [dispatch]);
   return (
     <>
       <Grid container md={12} sm={12} lg={12} xs={12}>
