@@ -82,7 +82,7 @@ export const PHBAboutYouEntries = [
   {
     isTextInput: true,
     name: "tell_us_somthing_about_you",
-    label: "Tell us Something about you and your passion towards pet",
+    label: "Tell us something about you and your passion towards pet",
     placeholder: "",
     breakpoint: 12,
     multiline: true,

@@ -1,0 +1,19 @@
+.basicTitle{
+    font-size: 30px !important;
+    font-weight: bold !important;
+    color: #000 !important;
+    font-family: Roboto-Regular !important;
+}
+
+.basicSubTitle{
+    font-family: Roboto-Regular !important;
+    font-size: 16px !important;
+    color: #414672 !important;
+    font-weight: 500 !important;
+}
+.fontFamilyEditSubText{
+    font-family: Roboto-Regular !important;
+    font-size: 16px !important;
+    color: #414672 !important;
+    font-weight: 500 !important;
+}

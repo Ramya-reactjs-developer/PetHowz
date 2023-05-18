@@ -322,6 +322,7 @@ const Header = (props) => {
                           // marginLeft: "10px",
                           // borderRadius: "50px",
                           // height: "40px",
+                          color:"#fff",
                           fontFamily: "Roboto-Regular",
                         }}
                         variant="contained"

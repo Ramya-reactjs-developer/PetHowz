@@ -22,14 +22,18 @@ const CustomFileUploader = (props) => {
 
   return (
     <Grid container item justifyContent={"center"}>
-      <Grid item>
+      <Grid item className="AddYourProfile">
         <label htmlFor="upload-button">
           {Image.preview ? (
             <img src={Image.preview} alt="dummy" className="imageProfile" />
           ) : (
             <>
               <span className="">
-                <img src={CustomIcons.ProfileAvatar} alt="" />
+                <img
+                  src={CustomIcons.ProfileAvatar}
+                  alt=""
+                  className="imageProfile"
+                />
               </span>
             </>
           )}
@@ -39,7 +43,7 @@ const CustomFileUploader = (props) => {
           id="upload-button"
           // label="cfhcffc"
           value={onChangeValue}
-          accept={acceptType}
+          accept={props.acceptType}
           onDrop={dropEvent}
           placeholder="choose Image"
           ref={fileRef}
@@ -49,7 +53,7 @@ const CustomFileUploader = (props) => {
         />
         <br />
         <Grid pt={2} onClick={() => fileRef.current.click()}>
-          <label className="chooesImage">choose Image</label>
+          <label className="chooesImage">Store Profile image </label>
         </Grid>
       </Grid>
       {regForm && (

@@ -51,6 +51,7 @@ export default function SearchBar({
           tabList={tabList}
           handleChange={tabHandleChange}
           value={tabValue}
+          
         />
       </Box>
       <Box sx={SearchBarStyle}>
