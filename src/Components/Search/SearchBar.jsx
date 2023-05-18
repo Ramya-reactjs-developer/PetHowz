@@ -51,7 +51,6 @@ export default function SearchBar({
           tabList={tabList}
           handleChange={tabHandleChange}
           value={tabValue}
-          
         />
       </Box>
       <Box sx={SearchBarStyle}>
@@ -105,8 +104,8 @@ export default function SearchBar({
                       sx={{
                         position: "absolute",
                         // overflow: "scroll",
-                        zIndex: "1",
-                        p: "30px 0 0 10px ",
+                        zIndex: "1.5",
+                        p: "5px 0 0 10px ",
                       }}
                     >
                       {cityResult ? (
@@ -188,9 +187,9 @@ export default function SearchBar({
                     <Box
                       sx={{
                         position: "absolute",
-                        // overflow: "scroll",
+                        overflow: "scroll",
                         zIndex: "1",
-                        p: "30px 0 0 10px ",
+                        p: "5px 0 0 10px ",
                       }}
                     >
                       {localityResult ? (

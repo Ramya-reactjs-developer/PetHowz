@@ -38,9 +38,17 @@ import Edit from "../../Assets/Icons/pencil-line.svg";
 import Email from "../../Assets/Icons/mail-line.svg";
 import Call from "../../Assets/Icons/phone-line.svg";
 import Google from "../../Assets/Icons/google.png";
-import Information from "../../Assets/Icons/information.svg"
-
+import Information from "../../Assets/Icons/information.svg";
+import Profession from "../../Assets/Icons/Profession.svg";
+import year from "../../Assets/Icons/year.svg";
+import petsAllowed from "../../Assets/Icons/petsAllowed.svg";
+import AC from "../../Assets/Icons/AC.svg";
+import furniture from "../../Assets/Icons/furniture.svg"
 const CustomIcons = {
+  AC,
+  furniture,
+  petsAllowed,
+  year,
   Logo,
   Check,
   Warning,
@@ -49,6 +57,7 @@ const CustomIcons = {
   Email,
   Information,
   Location2,
+  Profession,
   Edit,
   modalClose,
   Addons,

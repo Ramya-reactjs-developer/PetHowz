@@ -24,13 +24,11 @@ import HomePetCardsSection from "../../Components/homeBoarding/homeBoarding";
 import CustomFonts from "../../Utils/Fonts";
 import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
 
-export const
-  
-  HomePage = () => {
+export const HomePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { ourService } = useSelector((state) => state?.ourService);
-  console.log(ourService, "ourService");
+  // console.log(ourService, "ourService");
 
   React.useEffect(() => {
     const data = {
@@ -66,8 +64,8 @@ export const
   let localityValue = { ...AllLocality };
   // let overAllSearchResultValue = { ...OverAllSearchResult };
 
-  console.log(localityValue?.searchcitygetlocality?.data, "localityValue");
-  console.log(AllLocality, "AllLocality");
+  // console.log(localityValue?.searchcitygetlocality?.data, "localityValue");
+  // console.log(AllLocality, "AllLocality");
   // console.log(
   //   overAllSearchResultValue.overallsearch?.data,
   //   "overAllSearchResultValue"
@@ -104,12 +102,12 @@ export const
   const tabList = [
     {
       id: 0,
-      tabText: "Pet Services",
+      tabText: "Pet Boarding Spaces",
       tabColor: "red",
     },
     {
       id: 1,
-      tabText: "Pet Boarding Spaces",
+      tabText: "Pet Services",
       tabColor: "red",
     },
   ];
@@ -119,7 +117,7 @@ export const
     setTabValue(newValue);
     // setSearchData({ ...searchData, pet_type: newValue });
   };
-  console.log(tabValue, "tabvalue");
+  // console.log(tabValue, "tabvalue");
   //search city
   const OnSetDropdownSearch = (e) => {
     // setOverAllSearchData({ ...overAllSearchData, city: "" });
@@ -212,7 +210,7 @@ export const
     },
   ];
   const handleselect = (item) => {
-    console.log(item, "e.taget");
+    // console.log(item, "e.taget");
     // setSearchData({ ...searchData, pet_type: tabValue });
     setSearchData({ ...searchData, city: item, locality: "" });
     setOverAllSearchData({ ...overAllSearchData, city: item, locality: "" });
@@ -228,7 +226,7 @@ export const
     // );
   };
   const handleselect2 = (item) => {
-    console.log(item, "e.taget");
+    // console.log(item, "e.taget");
     setSearchData({ ...searchData, locality: item });
     setOverAllSearchData({ ...overAllSearchData, locality: item });
     setLocalityList(false);
@@ -243,7 +241,7 @@ export const
   //   };
   //   dispatch(actions.OVERALLSEARCH(data));
   // }
-  console.log(AllCity, "hhhhhh");
+  // console.log(AllCity, "hhhhhh");
 
   // const SendResult = overAllSearchResultValue?.overallsearch?.data;
   //overAllSearch
@@ -251,7 +249,7 @@ export const
     if (
       overAllSearchData?.city !== "" &&
       overAllSearchData?.locality !== "" &&
-      tabValue === 1
+      tabValue === 0
     ) {
       navigate("/petHowz/BoardingResult", {
         state: overAllSearchData,
@@ -262,7 +260,7 @@ export const
       searchData?.city?.length >= 3 &&
       overAllSearchData?.locality !== ("" && undefined) &&
       searchData?.locality?.length >= 3 &&
-      tabValue === 0
+      tabValue === 1  
     ) {
       navigate("/petHowz/ServiceResult", {
         state: overAllSearchData,
@@ -286,13 +284,13 @@ export const
   const [tmpIdArr, setTmpIdsArr] = React.useState();
   // const [petTmpIdArr, setPetTmpIdsArr] = React.useState();
 
-  console.log(searchData, "ss");
+  // console.log(searchData, "ss");
   // const OnSetSearch = (e) => {
   //   setSearchData(e.target.value);
   // };
 
   const { petBoarding } = useSelector((state) => state?.petBoarding);
-  console.log(petBoarding, "galleryImageValue");
+  // console.log(petBoarding, "galleryImageValue");
 
   // useEffect(() => {
   //   const tmpArr = [];
@@ -311,7 +309,7 @@ export const
 
   const onClickHandle = (item, index) => {
     const petKey = item;
-    console.log(petKey, "petKeypetKey");
+    // console.log(petKey, "petKeypetKey");
     navigate("/petHowz/petCare", {
       // state: petKey,
       state: petKey,
@@ -323,10 +321,10 @@ export const
   React.useEffect(() => {
     const tmpArr = [];
     const tmpIdsArr = [];
-    console.log(tmpIdsArr, "tmpIdsArr");
+    // console.log(tmpIdsArr, "tmpIdsArr");
     ourService?.data?.map((value, index) => {
       tmpIdsArr?.push(value.service_master_id);
-      console.log();
+      // console.log();
       tmpArr?.push({
         sno: index,
       });

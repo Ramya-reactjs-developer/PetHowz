@@ -17,16 +17,16 @@ export const Grooming = () => {
   const navigate = useNavigate();
 
   const value = location.state;
-  console.log(value, "value");
+  // console.log(value, "value");
 
   const { ourServiceById } = useSelector((state) => state?.ourServiceById);
-  console.log(
-    ourServiceById?.data?.map((item) => item?.datas),
-    "ourServiceById"
-  );
+  // console.log(
+  //   ourServiceById?.data?.map((item) => item?.datas),
+  //   "ourServiceById"
+  // );
 
   const { ourService } = useSelector((state) => state?.ourService);
-  console.log(ourService, "ourService");
+  // console.log(ourService, "ourService");
 
   useEffect(() => {
     const data = {
@@ -43,10 +43,10 @@ export const Grooming = () => {
   }, [dispatch, value]);
 
   const { state } = useLocation();
-  console.log(state, "state");
+  // console.log(state, "state");
   const onClickHandleService = (item, index) => {
     const petKey = item;
-    console.log(petKey, "petKeypetKey");
+    // console.log(petKey, "petKeypetKey");
     navigate("/petHowz/GroomingService", {
       // state: petKey,
       state: petKey,
@@ -79,12 +79,12 @@ export const Grooming = () => {
        })} */}
 
       <Grid item md={12} lg={12} sm={12} xs={12} className="groomButton">
-        <CustomButton
+        {/* <CustomButton
           btnTitle="Load More Spaces"
           color="primary"
           customClass="groomCardStyles"
           fontSize="12px"
-        />
+        /> */}
       </Grid>
     </Grid>
   );

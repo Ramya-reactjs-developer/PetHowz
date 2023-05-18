@@ -27,12 +27,13 @@ import basicDetailsSlice from "../Slices/ServiceBasicDetails/BasicDetails";
 import groomingServiceSlice from "../Slices/Grooming/Grooming";
 import groomingPetServiceSlice from "../Slices/Grooming/Grooming";
 import serviceDetailsSlice from "../Slices/ServiceDetails/ServiceDetails";
-
+import HomeBoardingStateSlice from "../Slices/HomeBoardingState/HomeBoardingState";
 const reducer = combineReducers({
   grooming: groomingSlice,
   groomingPetService: groomingPetServiceSlice,
   userAddressDetails: userAddressDetailsSlice,
   login: loginSlice,
+  HomeBoardingState: HomeBoardingStateSlice,
   ourService: ourServiceSlice,
   petBoarding: petBoardingSlice,
   petBoardingById: petBoardingByIdSlice,

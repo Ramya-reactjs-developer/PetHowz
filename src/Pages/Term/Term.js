@@ -72,46 +72,46 @@ const Terms = (props) => {
     // });
   }
   React.useEffect(() => {
-    console.log(userGet?.TermsAndCondition?.data?.data?.Message, "mmmm1");
-    if (
-      userGet?.TermsAndCondition?.data?.data?.Message === "Updated Successfully"
-    ) {
-      // localStorage.setItem(
-      //   "LoginChecker",
-      //   userGet?.registertopethowz?.data?.data?.data?.user_id
-      // );
-      // localStorage.setItem(
-      //   "user_type",
-      //   userGet?.registertopethowz?.data?.data?.data?.user_type
-      // );
+    // console.log(userGet?.TermsAndCondition?.data?.data?.Message, "mmmm1");
+    // if (
+    //   userGet?.TermsAndCondition?.data?.data?.Message === "Updated Successfully"
+    // ) {
+    //   // localStorage.setItem(
+    //   //   "LoginChecker",
+    //   //   userGet?.registertopethowz?.data?.data?.data?.user_id
+    //   // );
+    //   // localStorage.setItem(
+    //   //   "user_type",
+    //   //   userGet?.registertopethowz?.data?.data?.data?.user_type
+    //   // );
 
-      Swal.fire({
-        title: "Terms & Conditions Accepted",
-        text: "Thank You",
-        icon: "success",
-        allowOutsideClick: false,
-      }).then((result) =>
-        //  {
-        //   /* Read more about isConfirmed, isDenied below */
-        //   if (result.isConfirmed) {
-        //     dispatch(userAddressDetailsAction.reset());
-        //     navigate("/petHowz/Terms", { state: state });
-        //   }
-        // });
-        {
-          /* Read more about isConfirmed, isDenied below */
-          if (result.isConfirmed) {
-            if (state === "/petHowz/PetHomeBoarding") {
-              dispatch(TermsAndConditionAction.reset());
-              navigate(state);
-            } else {
-              dispatch(TermsAndConditionAction.reset());
-              navigate("/petHowz/AddYourPetLogin", { state: state });
-            }
-          }
-        }
-      );
+    //   Swal.fire({
+    //     title: "Terms & Conditions Accepted",
+    //     text: "Thank You",
+    //     icon: "success",
+    //     allowOutsideClick: false,
+    //   }).then((result) =>
+    //     //  {
+    //     //   /* Read more about isConfirmed, isDenied below */
+    //     //   if (result.isConfirmed) {
+    //     //     dispatch(userAddressDetailsAction.reset());
+    //     //     navigate("/petHowz/Terms", { state: state });
+    //     //   }
+    //     // });
+    //     {
+    /* Read more about isConfirmed, isDenied below */
+    // if (result.isConfirmed) {
+    if (state === "/petHowz/PetHomeBoarding") {
+      dispatch(TermsAndConditionAction.reset());
+      navigate(state);
+    } else {
+      dispatch(TermsAndConditionAction.reset());
+      navigate("/petHowz/AddYourPetLogin", { state: state });
     }
+    // }
+    //     }
+    //   );
+    // }
   }, [userGet]);
 
   const [resetValue, setResetValue] = useState([]);

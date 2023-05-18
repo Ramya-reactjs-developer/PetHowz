@@ -3,6 +3,7 @@ import React from "react";
 import CustomButton from "../Button/Button";
 import CustomTypography from "../Typography/Typography";
 import "./Service.css";
+import CustomIcons from "../../Utils/Icons/Index";
 
 const Service = (props) => {
   const {
@@ -31,7 +32,8 @@ const Service = (props) => {
               customClass="serviceName"
             />
           </Grid>
-          <Grid  pl={1}>
+
+          <Grid pl={1}>
             <CustomTypography
               type="head"
               text={Name1}
@@ -39,15 +41,30 @@ const Service = (props) => {
             />
           </Grid>
         </Grid>
-        <Grid item md={3} lg={3} sm={6} xs={6}>
-          <CustomTypography
-            type="head"
-            text={professional}
-            customClass="serviceProfessional"
-          />
+        <Grid item md={3} lg={3} sm={6} xs={6} display="flex">
+          <Grid item className="Profession-img">
+            <img src={CustomIcons.Profession} alt="" />
+          </Grid>
+          <Grid pl={1.5}>
+            <CustomTypography
+              type="head"
+              text={professional}
+              customClass="serviceProfessional"
+            />
+          </Grid>
         </Grid>
-        <Grid item md={2} lg={2} sm={6} xs={6}>
-          <CustomTypography type="head" text={year} customClass="serviceYear" />
+
+        <Grid item md={2} lg={2} sm={6} xs={6} display="flex">
+          <Grid item className="year-img">
+            <img src={CustomIcons.year} alt="" />
+          </Grid>
+          <Grid pl={1.5}>
+            <CustomTypography
+              type="head"
+              text={year}
+              customClass="serviceYear"
+            />
+          </Grid>
         </Grid>
         <Grid item md={12} lg={12} sm={12} xs={12} pt={2}>
           <CustomTypography
@@ -57,7 +74,7 @@ const Service = (props) => {
           />
         </Grid>
       </Grid>
-      <Grid item md={12} lg={12} sm={12} xs={12} className="serviceBtn">
+      {/* <Grid item md={12} lg={12} sm={12} xs={12} className="serviceBtn">
         <CustomButton
           btnTitle={btnTitle}
           color="primary"
@@ -68,7 +85,7 @@ const Service = (props) => {
           text={BtnText}
           customClass="btnBottomText"
         />
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };

@@ -12,6 +12,7 @@ import "./PetCare.css";
 import CustomTypography from "../../Components/Typography/Typography";
 import AboutBoardingService from "../../Components/AboutBoardingService/AboutBoardingService";
 import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
+import CustomButton from "../../Components/Button/Button";
 // import ServicePackagesCards from "../../Components/Cards/ServicePackagesCard";
 
 const PetCare = () => {
@@ -24,7 +25,12 @@ const PetCare = () => {
   console.log(state, "valueState");
 
   const { petCare } = useSelector((state) => state?.petCareService);
-  console.log(petCare, "groomingServiceData");
+  console.log(
+    petCare?.data?.amenities?.map((item) => {
+      return item.pet_should_be_vaccinated;
+    }),
+    "groomingServiceData"
+  );
 
   // const { petBoarding } = useSelector((state) => state?.petBoarding);
   // console.log(petBoarding, "petBoarding");
@@ -69,15 +75,15 @@ const PetCare = () => {
       text: "Dedicated Play Area",
     },
     {
-      image: CustomIcons.Service,
+      image: CustomIcons.AC,
       text: "A/C-Pet Sleeping Area",
     },
     {
-      image: CustomIcons.Service,
+      image: CustomIcons.petsAllowed,
       text: "Pets Allowed on Beds",
     },
     {
-      image: CustomIcons.Service,
+      image: CustomIcons.furniture,
       text: "Pets Allowed on Furniture",
     },
     {
@@ -127,11 +133,11 @@ const PetCare = () => {
   const petPhotos = petCare?.data?.petHomeImages?.map((data) => data?.photos);
   console.log(petPhotos, "petPhotos");
   return (
-    <Grid className="container">
+    <Grid className="container" p={3}>
       {/* {petCare?.data?.map((data) => {
         return ( */}
       <>
-        <Grid container md={12} lg={12} sm={12} xs={12}>
+        <Grid container md={12} lg={12} sm={12} xs={12} pb={3}>
           <ScrollToTop />
           {petCare?.data?.petHomeImages?.map((data) => {
             return (
@@ -174,17 +180,6 @@ const PetCare = () => {
         </Grid>
         {/* {petCare?.data?.map((data) => {
           return ( */}
-        <Grid item md={12} lg={12} sm={12} xs={12}>
-          <CustomTypography
-            type="head"
-            text={petCare?.data?.pet_boarding_space_name}
-            customClass="aboutPet"
-          />
-        </Grid>
-        {/* );
-        })} */}
-        {/* {petCare?.data?.map((data) => {
-          return ( */}
         <Grid
           container
           item
@@ -195,37 +190,54 @@ const PetCare = () => {
           pb={2}
           className="AboutPetBoard"
         >
-          <AboutBoardingService
-            image={petCare?.data?.image}
-            Heading="About Me"
-            firstName="Hey, I am"
-            Name={petCare?.data?.name}
-            professional={petCare?.data?.professional_status}
-            year={petCare?.data?.years_of_experience}
-            content="I am a pet lover and would love to take care of furry friends. I have a 5 year old dog at my parents house, but I don't have any pets right here in Bangalore at my place. I absolutely adore animals, and as I work from home I think I would be able to properly take care of them. I have taken care of my own dog in my hometown for 5 years, a labrador named Alex. I have d1 pet sitting for a lot of my friends. I do realise if the pet is not doing well by observing their eating habits and how active they are. I have also given oral medications to my own dog. Also, I will not leave the pet unattended at anytime."
-            btnTitle="Request Booking"
-            requestBtnStyles="requestBtn"
-            BtnText="Response Time 1 hour"
-            Area={petCare?.data?.total_sq_feet_of_the_space}
-            Size={petCare?.data?.no_of_bedrooms}
-            Type={petCare?.data?.type_of_boarding}
-            Prefer="1200 Sq.ft"
-            Capacity="1200 Sq.ft"
-            petsAccepted={petCare?.data?.category_of_pet_boarded}
-            location={petCare?.data?.locality}
-            Provide={petCare?.data?.can_provide}
-            onRequest={onRequest}
-          />
+          <Grid item md={12} lg={12} sm={12} xs={12} pl={3}>
+            <Grid item md={12} lg={12} sm={12} xs={12}>
+              <CustomTypography
+                type="head"
+                text={petCare?.data?.pet_boarding_space_name}
+                customClass="aboutPet"
+              />
+            </Grid>
+            <Grid container item md={12} lg={12} sm={12} xs={12} pb={2}>
+              <AboutBoardingService
+                image={petCare?.data?.image}
+                Heading="About Me"
+                firstName="Hey, I am"
+                Name={petCare?.data?.name}
+                professional={petCare?.data?.professional_status}
+                year={petCare?.data?.years_of_experience}
+                content="I am a pet lover and would love to take care of furry friends. I have a 5 year old dog at my parents house, but I don't have any pets right here in Bangalore at my place. I absolutely adore animals, and as I work from home I think I would be able to properly take care of them. I have taken care of my own dog in my hometown for 5 years, a labrador named Alex. I have d1 pet sitting for a lot of my friends. I do realise if the pet is not doing well by observing their eating habits and how active they are. I have also given oral medications to my own dog. Also, I will not leave the pet unattended at anytime."
+                // btnTitle="Request Booking"
+                // requestBtnStyles="requestBtn"
+                // BtnText="Response Time 1 hour"
+                Area={petCare?.data?.total_sq_feet_of_the_space}
+                Size={petCare?.data?.no_of_bedrooms}
+                Type={petCare?.data?.type_of_boarding}
+                Prefer="1200 Sq.ft"
+                Capacity="1200 Sq.ft"
+                petsAccepted={petCare?.data?.category_of_pet_boarded}
+                location={petCare?.data?.locality}
+                Provide={petCare?.data?.can_provide}
+                // onRequest={onRequest}
+              />
+            </Grid>
+          </Grid>
         </Grid>
+
+        {/* );
+        })} */}
+        {/* {petCare?.data?.map((data) => {
+          return ( */}
+
         {/* );
         })} */}
 
-        <Grid container md={12} sm={12} lg={12} xs={12} pl={3}>
+        <Grid container md={12} sm={12} lg={12} xs={12} pl={3} pt={2}>
           <Grid item md={12} sm={12} lg={12} xs={12} display="flex">
             <Grid className="AmenitiesImage">
               <img src={CustomIcons.Amenities} alt="" />
             </Grid>
-            <Grid pl={3}>
+            <Grid p={2}>
               <CustomTypography
                 type="head"
                 text="Amenities"
@@ -257,23 +269,30 @@ const PetCare = () => {
             <Grid className="AmenitiesImage">
               <img src={CustomIcons.Food} alt="" />
             </Grid>
-            <Grid pl={3}>
-              <CustomTypography
-                type="head"
-                text="Food"
-                customClass="AmenitiesHeader"
-              />
+            <Grid p={2}>
+              <Grid display="flex">
+                <CustomTypography
+                  type="head"
+                  text="Food Offered"
+                  customClass="AmenitiesHeader"
+                />
+                <CustomTypography
+                  type="head"
+                  text="&nbsp;(inclusive of the Boarding charges)"
+                  customClass="AmenitiesHeader"
+                />
+              </Grid>
             </Grid>
           </Grid>
-          <Grid item md={12} sm={12} lg={12} xs={12} pt={3}>
+          <Grid item md={12} sm={12} lg={12} xs={12} pt={3} pl={1.5}>
             <Grid item md={12} sm={12} lg={12} xs={12} display="flex">
-              <Grid item className="AmenitiesImage">
+              <Grid item className="AmenitiesVegImage">
                 <img src={CustomIcons.Vegnonveg} alt="" />
               </Grid>
-              <Grid pl={3} display="flex">
+              <Grid pl={2} display="flex">
                 {petCare?.data?.food?.map((data) => {
                   return (
-                    <Grid>
+                    <Grid p={1}>
                       <CustomTypography
                         type="head"
                         text={data?.meal_type}
@@ -292,27 +311,42 @@ const PetCare = () => {
                 </Grid> */}
               </Grid>
             </Grid>
-          </Grid>
-          <Grid item display="flex" pt={1}>
-            <Grid>
-              <CustomTypography
-                type="head"
-                text="Note"
-                customClass="noteAmenity"
-              />
-            </Grid>
-            <Grid pl={2}>
-              <CustomTypography
-                type="head"
-                text="Normal serving of 2 meal of chicken soup per day pet owner to provide their preferred food to the pets"
-                customClass="noteAmenitySub"
-              />
-            </Grid>
+            {petCare?.data?.amenities?.map((item) => {
+              return (
+                <Grid>
+                  <Grid item display="flex" pt={1}>
+                    <Grid>
+                      <CustomTypography
+                        type="head"
+                        text="Note :"
+                        customClass="noteAmenity"
+                      />
+                    </Grid>
+                    <Grid pl={2} pb={1}>
+                      <Grid>
+                        <CustomTypography
+                          type="head"
+                          // text="Normal serving of 2 meal of chicken soup per day"
+                          text={item.what_you_provide_in_meals_as_your_boarding}
+                          customClass="noteAmenitySub"
+                        />
+                        {/* <CustomTypography
+                    type="head"
+                    // text=" pet owner to provide their preferred food to the pets"
+                      text={item.anything_else_is_provided}
+                    customClass="noteAmenitySub"
+                  /> */}
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              );
+            })}
           </Grid>
         </Grid>
-        <Grid container pt={3} pl={3}>
+        <Grid container p={3} pl={3} className="AboutPetBoard">
           <Grid item md={12} sm={12} lg={12} xs={12} display="flex">
-            <Grid className="AmenitiesImage">
+            <Grid className="AmenitiesVegImage">
               <img src={CustomIcons.Addons} alt="" />
             </Grid>
             <Grid pl={3}>
@@ -323,7 +357,7 @@ const PetCare = () => {
               />
             </Grid>
           </Grid>
-          <Grid pt={3}>
+          <Grid pt={3} pl={1}>
             <CustomTypography
               type="head"
               text="Add-ons from the host"
@@ -334,68 +368,112 @@ const PetCare = () => {
         <Grid pt={2}>
           <MealCard Data={CardData} />
         </Grid>
-        <Grid
-          container
-          md={12}
-          sm={12}
-          lg={12}
-          xs={12}
-          className="BoardingRules"
-        >
-          <Grid item>
-            <Grid item>
-              <CustomTypography
-                type="head"
-                text="Boarding Rules"
-                customClass="noteAmenity"
-              />
-            </Grid>
-            <Grid item>
-              <CustomTypography
-                type="head"
-                text="Pet should be Vaccinated "
-                customClass="noteAmenitySub"
-              />
-            </Grid>
-            <Grid item>
-              <CustomTypography
-                type="head"
-                text="Pet should be Potty trained"
-                customClass="noteAmenitySub"
-              />
-            </Grid>
-          </Grid>
-          <Grid item className="petBoardingRules">
-            <Grid item>
-              <CustomTypography
-                type="head"
-                text="Boarding Rules"
-                customClass="noteAmenity"
-              />
-            </Grid>
-            <Grid item>
-              <CustomTypography
-                type="head"
-                text="Shin Tsu Male 3 Years"
-                customClass="noteAmenitySub"
-              />
-            </Grid>
-            <Grid item>
-              <CustomTypography
-                type="head"
-                text="Lab Male 3 Years"
-                customClass="noteAmenitySub"
-              />
-            </Grid>
-            <Grid item>
-              <CustomTypography
-                type="head"
-                text="Kids"
-                customClass="noteAmenitySub"
-              />
-            </Grid>
-          </Grid>
+        <Grid item md={12} lg={12} sm={12} xs={12} className="serviceBtn">
+          <CustomButton
+            btnTitle="Request Booking"
+            color="primary"
+            customClass="requestBtn"
+            onClickHandle={onRequest}
+          />
+          <CustomTypography
+            type="head"
+            text="Response Time 1 hour"
+            customClass="btnBottomText"
+          />
         </Grid>
+        {petCare?.data?.amenities?.map((item) => {
+          return (
+            <Grid
+              container
+              md={12}
+              sm={12}
+              lg={12}
+              xs={12}
+              className="BoardingRules"
+            >
+              <Grid item>
+                <Grid item>
+                  <CustomTypography
+                    type="head"
+                    text="Boarding Rules"
+                    customClass="noteAmenity"
+                  />
+                </Grid>
+                <Grid item>
+                  <CustomTypography
+                    type="head"
+                    // text="Pet should be Vaccinated "
+                    text={
+                      item.pet_should_be_vaccinated?.length === 3
+                        ? "Pet should be Vaccinated "
+                        : ""
+                    }
+                    customClass="noteAmenitySub"
+                  />
+                </Grid>
+                <Grid item>
+                  <CustomTypography
+                    type="head"
+                    // text="Pet should be Potty trained"
+                    text={
+                      item.pet_should_be_potty_trained.length === 3
+                        ? "Pet should be Potty trained"
+                        : ""
+                    }
+                    customClass="noteAmenitySub"
+                  />
+                  {console.log(
+                    item.pet_should_be_potty_trained?.length,
+                    "hguyg"
+                  )}
+                </Grid>
+              </Grid>
+              <Grid item className="petBoardingRules">
+                <Grid item>
+                  <CustomTypography
+                    type="head"
+                    text="Boarding Rules"
+                    customClass="noteAmenity"
+                  />
+                </Grid>
+                <Grid item>
+                  <CustomTypography
+                    type="head"
+                    // text="Shin Tsu Male 3 Years"
+                    text={
+                      petCare.data?.do_you_have_other_pets_at_home.length === 3
+                        ? "shi tsu male 5 Years "
+                        : ""
+                    }
+                    customClass="noteAmenitySub"
+                  />
+                </Grid>
+                {/* <Grid item>
+                  <CustomTypography
+                    type="head"
+                    text={
+                      petCare.data?.do_you_have_other_pets_at_home.length === 3
+                        ? "Lab Female 5 Years"
+                        : ""
+                    }
+                    customClass="noteAmenitySub"
+                  />
+                </Grid> */}
+                <Grid item>
+                  <CustomTypography
+                    type="head"
+                    text={
+                      petCare.data?.do_you_have_kids_at_home.length === 3
+                        ? "Kids "
+                        : ""
+                    }
+                    customClass="noteAmenitySub"
+                  />
+                </Grid>
+              </Grid>
+            </Grid>
+          );
+        })}
       </>
       {/* );
       })} */}

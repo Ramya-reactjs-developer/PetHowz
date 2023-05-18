@@ -163,13 +163,13 @@ import {
 import "./GroomingCard.css";
 
 export default function GroomingCardsSection({ Data, onClickHandle }) {
-  const CardData = Data;
+  // const CardData = Data;
 
   const { ourServiceById } = useSelector((state) => state?.ourServiceById);
-  console.log(
-    ourServiceById?.data?.[0]?.datas?.map((item) => item.service_name),
-    "ourServiceByIdValue"
-  );
+  // console.log(
+  //   ourServiceById?.data?.[0]?.datas?.map((item) => item.service_name),
+  //   "ourServiceByIdValue"
+  // );
 
   // const { onClickHandle } = props;
   // [
@@ -197,7 +197,7 @@ export default function GroomingCardsSection({ Data, onClickHandle }) {
             <Grid key={key} item xs={12}>
               <Grid item xs={12}>
                 <CustomTypography
-                  text={item?.title}
+                  // text={item?.title}
                   type="caption"
                   colorType={"text"}
 
@@ -269,10 +269,10 @@ export default function GroomingCardsSection({ Data, onClickHandle }) {
                                   />
                                 </Box>
                                 <Box sx={ReviewsPosition}>
-                                  <Box>
-                                    <Box>
+                                  <Grid md={7}>
+                                    <Grid>
                                       <CustomizedRatings Data={item.ratings} />
-                                    </Box>
+                                    </Grid>
 
                                     <CustomTypography
                                       text={item.reviews}
@@ -280,17 +280,21 @@ export default function GroomingCardsSection({ Data, onClickHandle }) {
                                       customStyle={{ fontSize: "10px" }}
                                       colorType="senary"
                                     />
-                                  </Box>
-
-                                  <CustomButton
-                                    btnTitle="View Details"
-                                    color="primary"
-                                    btnStyles={CardBtnStyles}
-                                    // onClickHandle={onClickHandle}
-                                    onClickHandle={() =>
-                                      onClickHandle({serviceId:item?.pet_service_id ,masterId:item.service_master_id})
-                                    }
-                                  />
+                                  </Grid>
+                                  <Grid md={5} pl={1}>
+                                    <CustomButton
+                                      btnTitle="View Details"
+                                      color="primary"
+                                      btnStyles={CardBtnStyles}
+                                      // onClickHandle={onClickHandle}
+                                      onClickHandle={() =>
+                                        onClickHandle({
+                                          serviceId: item?.pet_service_id,
+                                          masterId: item.service_master_id,
+                                        })
+                                      }
+                                    />
+                                  </Grid>
                                 </Box>
                               </CardContent>
                             </CardActions>

@@ -104,7 +104,7 @@ export const ServiceResult = (onClickHandle) => {
             Data={OverAllSearchResult?.overallsearch?.data}
             onDiscover={(key) => onDiscover(key)}
             nos={5}
-          onClickHandle={(item) => onClickHandleServiceResult(item)}
+            onClickHandle={(item) => onClickHandleServiceResult(item)}
 
             // onClickHandle={() =>
             //   onClickHandle({

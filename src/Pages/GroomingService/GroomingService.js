@@ -12,6 +12,7 @@ import customImages from "../../Utils/Images";
 import GroomModal from "./Model";
 import "./GroomingService.css";
 import ScrollToTop from "../../Components/ScrollToTop/ScrollToTop";
+import CustomButton from "../../Components/Button/Button";
 
 const GroomingService = () => {
   const [Modal, setModal] = React.useState(false);
@@ -33,7 +34,7 @@ const GroomingService = () => {
 
   const dispatch = useDispatch();
   const { state } = useLocation();
-  console.log(state, "eswarState");
+  // console.log(state, "eswarState");
   // React.useEffect(() => {
   //   localStorage.setItem("pet_service_id", state);
   // }, []);
@@ -78,15 +79,15 @@ const GroomingService = () => {
       text: "Dedicated Play Area",
     },
     {
-      image: CustomIcons.Service,
+      image: CustomIcons.AC,
       text: "A/C-Pet Sleeping Area",
     },
     {
-      image: CustomIcons.Service,
+      image: CustomIcons.petsAllowed,
       text: "Pets Allowed on Beds",
     },
     {
-      image: CustomIcons.Service,
+      image: CustomIcons.furniture,
       text: "Pets Allowed on Furniture",
     },
     {
@@ -130,7 +131,7 @@ const GroomingService = () => {
       return item.photos;
     });
   });
-  console.log(providerImage, "providerImage");
+  // console.log(providerImage, "providerImage");
   return (
     <Grid className="container">
       {groomingPetService?.data?.map((data) => {
@@ -262,9 +263,9 @@ const GroomingService = () => {
                 professional={data?.professional_status}
                 year={data?.years_of_experience}
                 content="I am a pet lover and would love to take care of furry friends. I have a 5 year old dog at my parents house, but I don't have any pets right here in Bangalore at my place. I absolutely adore animals, and as I work from home I think I would be able to properly take care of them. I have taken care of my own dog in my hometown for 5 years, a labrador named Alex. I have d1 pet sitting for a lot of my friends. I do realise if the pet is not doing well by observing their eating habits and how active they are. I have also given oral medications to my own dog. Also, I will not leave the pet unattended at anytime. I will accept any bookings according to my schedule only. I'll have all the treats in the world to pamper these furry friends. Although I don't have much experience in grooming, I used to get my dog groomed from the veterinarian clinic. I will provide a loving and comfortable stay for the pets and I will absolutely be very careful everytime I am pet sitting :)"
-                btnTitle="Request Booking"
-                requestBtnStyles="requestBtn"
-                BtnText="Response Time 1 hour"
+                // btnTitle="Request Booking"
+                // requestBtnStyles="requestBtn"
+                // BtnText="Response Time 1 hour"
               />
             </Grid>
             <Grid
@@ -319,6 +320,19 @@ const GroomingService = () => {
               />
               <Grid item md={12} lg={12} sm={12}>
                 <ServicePackagesCards Data={packageData} />
+              </Grid>
+              <Grid item md={12} lg={12} sm={12} xs={12} className="serviceBtn">
+                <CustomButton
+                  btnTitle="Request Booking"
+                  color="primary"
+                  customClass="requestBtn"
+                  // onClickHandle={onRequest}
+                />
+                <CustomTypography
+                  type="head"
+                  text="Response Time 1 hour"
+                  customClass="btnBottomText"
+                />
               </Grid>
             </Grid>
           </Grid>
