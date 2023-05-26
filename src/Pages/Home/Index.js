@@ -260,7 +260,7 @@ export const HomePage = () => {
       searchData?.city?.length >= 3 &&
       overAllSearchData?.locality !== ("" && undefined) &&
       searchData?.locality?.length >= 3 &&
-      tabValue === 1  
+      tabValue === 1
     ) {
       navigate("/petHowz/ServiceResult", {
         state: overAllSearchData,

@@ -25,12 +25,7 @@ const PetCare = () => {
   console.log(state, "valueState");
 
   const { petCare } = useSelector((state) => state?.petCareService);
-  console.log(
-    petCare?.data?.amenities?.map((item) => {
-      return item.pet_should_be_vaccinated;
-    }),
-    "groomingServiceData"
-  );
+  console.log(petCare?.data?.amenities, "groomingServiceData");
 
   // const { petBoarding } = useSelector((state) => state?.petBoarding);
   // console.log(petBoarding, "petBoarding");
@@ -64,51 +59,76 @@ const PetCare = () => {
       service6: "Combing/Brushing",
     },
   ];
+  const listData = petCare?.data?.amenities?.[0] || {};
 
+  const filteredKeys = Object.keys(listData).filter(
+    (key) => listData[key] === "No"
+  );
+  console.log(filteredKeys, "listData");
   const imageList = [
     {
-      image: CustomIcons.BoardingArea,
-      text: "Dedicated Boarding Area",
+      // image: CustomIcons.BoardingArea,
+      // text: "Dedicated Boarding Area",
+      key: "text",
     },
     {
-      image: CustomIcons.PlayArea,
-      text: "Dedicated Play Area",
+      // image: CustomIcons.PlayArea,
+      // text: "Dedicated Play Area",
+      key: "text",
     },
     {
-      image: CustomIcons.AC,
-      text: "A/C-Pet Sleeping Area",
+      // image: CustomIcons.AC,
+      // text: "A/C-Pet Sleeping Area",
+      // key: "do_you_ac_in_pet_sleeping_area",
+      key: "text",
     },
     {
-      image: CustomIcons.petsAllowed,
-      text: "Pets Allowed on Beds",
+      // image: CustomIcons.petsAllowed,
+      // text: "Pets Allowed on Beds",
+      // key: "pets_allowed_on_beds",
+      key: "text",
     },
     {
-      image: CustomIcons.furniture,
-      text: "Pets Allowed on Furniture",
+      // image: CustomIcons.furniture,
+      // text: "Pets Allowed on Furniture",
+      // key: "pets_allowed_on_furniture",
+      key: "text",
     },
     {
-      image: CustomIcons.PeriodicUpdate,
-      text: "Periodic update-Photos/Videos",
+      // image: CustomIcons.PeriodicUpdate,
+      // text: "Periodic update-Photos/Videos",
+      // key: "periodic_update_about_pets",
+      // key: "text",
     },
     {
-      image: CustomIcons.CuddleTime,
-      text: "Cuddle Time",
+      // image: CustomIcons.CuddleTime,
+      // text: "Cuddle Time",
+      // key: "cuddle_time",
+      key: "text",
     },
     {
-      image: CustomIcons.Playtime,
-      text: "Play Time",
+      // image: CustomIcons.Playtime,
+      // text: "Play Time",
+      // key: "play_time",
+      key: "text",
     },
     {
-      image: CustomIcons.PetSitter,
-      text: "Dedicated Pet Sitter",
+      // image: CustomIcons.PetSitter,
+      // text: "Dedicated Pet Sitter",
+      // key: "dedicated_pet_sitter_during_boarding_time",
+      key: "text",
     },
     {
-      image: CustomIcons.OutdoorSpace,
-      text: "Outdoor Space/Open Space",
+      // image: CustomIcons.OutdoorSpace,
+      // text: "Outdoor Space/Open Space",
+      // key: "do_you_have_openspace_at_your_boarding_space",
+      key: "text",
     },
     {
-      image: CustomIcons.Cctv,
-      text: "CCTV (@ Boarding area)",
+      // image: CustomIcons.Cctv,
+      // text: "CCTV (@ Boarding area)",
+      // key: "do_you_have_cctv_at_your_boarding_space",
+      key: "text",
     },
   ];
   const CardData = [
@@ -245,7 +265,27 @@ const PetCare = () => {
               />
             </Grid>
           </Grid>
-          <ImageList imageLists={imageList} />
+          <ImageList
+            imageLists={petCare?.data?.amenities}
+            // customClass="textthrough"
+          />
+
+          {/* <ImageList imageLists={imageList} filteredKeys={filteredKeys} /> */}
+          {/* {petCare?.data?.amenities?.map((data) => {
+            return (
+              <Grid>
+                <img src={CustomIcons.BoardingArea} alt="" />
+                <CustomTypography
+                  text={
+                    data?.pets_allowed_on_furniture?.length === 2
+                      ? "Pet should be Vaccinated "
+                      : ""
+                  }
+                />
+              </Grid>
+            );
+          })} */}
+
           {/* {petCare?.data?.amenities?.map((data) => {
             return (
               <Grid>
@@ -381,7 +421,7 @@ const PetCare = () => {
             customClass="btnBottomText"
           />
         </Grid>
-        {petCare?.data?.amenities?.map((item) => {
+        {/* {petCare?.data?.amenities?.map((item) => {
           return (
             <Grid
               container
@@ -448,17 +488,6 @@ const PetCare = () => {
                     customClass="noteAmenitySub"
                   />
                 </Grid>
-                {/* <Grid item>
-                  <CustomTypography
-                    type="head"
-                    text={
-                      petCare.data?.do_you_have_other_pets_at_home.length === 3
-                        ? "Lab Female 5 Years"
-                        : ""
-                    }
-                    customClass="noteAmenitySub"
-                  />
-                </Grid> */}
                 <Grid item>
                   <CustomTypography
                     type="head"
@@ -473,10 +502,8 @@ const PetCare = () => {
               </Grid>
             </Grid>
           );
-        })}
+        })} */}
       </>
-      {/* );
-      })} */}
     </Grid>
   );
 };

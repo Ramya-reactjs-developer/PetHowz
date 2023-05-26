@@ -83,8 +83,8 @@ function CustomMultiFileUploader(props) {
         };
       });
     }
-
-    setAcceptType(fileType === "image" ? image : video);
+    setAcceptType(fileType === "image");
+    // setAcceptType(fileType === "image" ? image : video);
     await getImage(newImages);
   };
   // function uploadSingleFile(e) {
@@ -200,7 +200,7 @@ function CustomMultiFileUploader(props) {
       <Grid item pt={"15px"}>
         {selectedImage.length >= 1 ? (
           <div className="Align-Selsections">
-            <p>Total Images Selected {selectedImage.length} </p>
+            <p>Total Images Selected : {selectedImage.length} </p>
             <button
               onClick={() => setSelectedImages([])}
               className="Button-Style"

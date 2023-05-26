@@ -89,6 +89,27 @@ const PHBAYPETSPACE = createAsyncThunk(
     }
   }
 );
+const PHBAYPETSPACETYPE = createAsyncThunk(
+  "phbaypetsspaceType/phbaypetsspaceType",
+  async (payload = {}, { rejectWithValue }) => {
+    try {
+      const data = await fetchData(
+        payload?.data,
+        payload?.method,
+        payload?.apiName
+      );
+
+      return {
+        data: data?.data,
+      };
+    } catch (error) {
+      return rejectWithValue({
+        ...defaultReject.List,
+        message: error.message,
+      });
+    }
+  }
+);
 
 const phbaypetspaceSlice = createSlice({
   name: "phbaypetspaceSlice",
@@ -96,7 +117,11 @@ const phbaypetspaceSlice = createSlice({
     phbaypetspace: {
       ...defaultState.List,
     },
+    phbaypetsspaceType: {
+      ...defaultState.List,
+    },
   },
+
   reducers: {
     reset: (state) => {
       state.phbaypetspace = defaultState.List;
@@ -124,11 +149,33 @@ const phbaypetspaceSlice = createSlice({
         data: action.payload,
       };
     },
+    [PHBAYPETSPACETYPE.fulfilled]: (state, action) => {
+      state.phbaypetsspaceType = {
+        loading: false,
+        error: false,
+        data: action.payload,
+      };
+    },
+    [PHBAYPETSPACETYPE.pending]: (state) => {
+      state.phbaypetsspaceType = {
+        loading: true,
+        error: false,
+        data: null,
+      };
+    },
+    [PHBAYPETSPACETYPE.rejected]: (state, action) => {
+      state.phbaypetsspaceType = {
+        loading: false,
+        error: true,
+        data: action.payload,
+      };
+    },
   },
 });
 
 const phbaypetspaceAction = {
   PHBAYPETSPACE,
+  PHBAYPETSPACETYPE,
   reset: phbaypetspaceSlice.actions.reset,
 };
 

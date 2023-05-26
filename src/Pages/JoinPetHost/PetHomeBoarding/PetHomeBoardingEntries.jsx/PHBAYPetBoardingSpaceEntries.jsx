@@ -1,17 +1,58 @@
 export const PHBAYPetBoardingSpaceEntries = [
-  {
-    isTextInput: true,
-    name: "type_of_boarding",
-    label: "Type of Boarding",
-    value: "state",
-    placeholder: "Individual House",
-    breakpoint: 6,
-    validation: { required: true },
-    pattern: /^[a-zA-Z ]*$/,
-    requiredField: true,
+  // {
+  //   isTextInput: true,
+  //   name: "type_of_boarding",
+  //   label: "Type of Boarding",
+  //   value: "state",
+  //   placeholder: "Individual House",
+  //   breakpoint: 6,
+  //   validation: { required: true },
+  //   pattern: /^[a-zA-Z ]*$/,
+  //   requiredField: true,
 
-    error_message: "First Text",
-    validation_error_message: "Text is in Invalid format",
+  //   error_message: "First Text",
+  //   validation_error_message: "Text is in Invalid format",
+  // },
+
+  {
+    isDropdown: true,
+    name: "type_of_boarding",
+    labelText: "Type of Boarding",
+    placeholder: "Individual House",
+    DropdownData: [
+      {
+        id: 1,
+        value: "Kennel",
+      },
+      {
+        id: 2,
+        value: "Professional Boarding Space",
+      },
+      {
+        id: 3,
+        value: "Hospital",
+      },
+      {
+        id: 4,
+        value: "Pet Resort",
+      },
+      {
+        id: 5,
+        value: "Apartment",
+      },
+      {
+        id: 6,
+        value: "Individual House",
+      },
+      {
+        id: 7,
+        value: "Villa",
+      },
+    ],
+    breakpoint: 6,
+    disabled: true,
+    customClass: "TypeOfBoarding",
+    validation: { required: true },
   },
   // {
   //   isCustomTypography: true,
@@ -56,18 +97,18 @@ export const PHBAYPetBoardingSpaceEntries = [
     dropPlaceholder: "Category of Pet Boarded",
     disabled: true,
     DropdownData: [
-      {
-        id: 1,
-        value: "Cat",
-      },
-      {
-        id: 2,
-        value: "Dog",
-      },
-      {
-        id: 3,
-        value: "Birds",
-      },
+      // {
+      //   id: 1,
+      //   value: "Cat",
+      // },
+      // {
+      //   id: 2,
+      //   value: "Dog",
+      // },
+      // {
+      //   id: 3,
+      //   value: "Birds",
+      // },
     ],
     validation: { required: true },
     error_message: "Category of Pet Boarded",
@@ -179,7 +220,7 @@ export const PHBAYPetBoardingSpaceEntries = [
   {
     isFileUploader: true,
     name: "photos",
-    label: "Choose minimum 4 images (Ctrl + Select Image)",
+    label: "Choose minimum 4 images (Ctrl + Select Image) ",
     placeholder: "Choose minimum 4 images",
     breakpoint: 12,
     pattern: /^.{0,499999}$/i,

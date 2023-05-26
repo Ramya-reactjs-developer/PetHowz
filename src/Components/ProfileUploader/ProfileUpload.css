@@ -87,11 +87,11 @@
   font-family: "Roboto-Regular" !important;
   padding-right: 10px !important;
 }
-.ToolTip_Icon {
+/* .ToolTip_Icon {
   display: inline-flex;
   position: absolute;
   z-index: 1;
-}
+} */
 
 .inputUpload {
   position: relative;
@@ -101,5 +101,6 @@
   top: 10px;
 }
 .ToolTip_Icon .MuiIconButton-root {
-  padding: 0px 5px !important;
+  /* padding: 0px 5px !important; */
+  margin-bottom: 3px !important;
 }

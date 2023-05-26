@@ -110,7 +110,6 @@
 // export { PetSpaceBookingAction };
 // export default PetSpaceBookingSlice.reducer;
 
-
 /* eslint-disable no-unused-expressions */
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { defaultReject, defaultState } from "../../Constants";
@@ -212,7 +211,6 @@ const PetSpaceBookingSlice = createSlice({
     getPetBoardingSpaceBooking: {
       ...defaultState.List,
     },
-   
   },
   extraReducers: {
     [PET_SPACE_BOOKING.fulfilled]: (state, action) => {
@@ -230,7 +228,7 @@ const PetSpaceBookingSlice = createSlice({
         (state.PetSpaceBooking.error = true),
         (state.PetSpaceBooking = action.payload);
     },
-     [GET_PET_SPACE_BOOKING.fulfilled]: (state, action) => {
+    [GET_PET_SPACE_BOOKING.fulfilled]: (state, action) => {
       (state.getPetSpaceBooking.loading = false),
         (state.getPetSpaceBooking.error = false),
         (state.getPetSpaceBooking = action.payload);
@@ -267,7 +265,6 @@ const PetSpaceBookingAction = {
   PET_SPACE_BOOKING,
   GET_PET_SPACE_BOOKING,
   GET_PET_BOARDING_SPACE_BOOKING,
-
 };
 export { PetSpaceBookingAction };
 export default PetSpaceBookingSlice.reducer;

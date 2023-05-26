@@ -16,7 +16,9 @@ import CustomIcons from "../../../../Utils/Icons/Index";
 import { useNavigate } from "react-router";
 import CustomSingleUploader from "../../../../Components/FileUploader/SingleUploader";
 import { phbaddonsAction } from "../../../../Redux/Slices/PetHomeBoardingSlice/PHBAddOnsSlice";
-
+import CustomFileUploader from "../../../../Components/FileUploader/FileUpload";
+import CustomImageFileUploader from "../../../../Components/fileUpload/FileUploader";
+import Swal from "sweetalert2";
 
 const PHBAddOns = (props) => {
   const dispatch = useDispatch();
@@ -26,9 +28,11 @@ const PHBAddOns = (props) => {
   const AddOns = useSelector((state) => state?.phbaddons);
   console.log(userGet?.phbbasicdetails?.data.pet_space_id, "d");
   console.log(AboutYou, "lll");
-  
+
   const defaultValues = DefaultPHBAddOnsValues;
   const [state, setstate] = React.useState();
+  const [upload, setUpload] = React.useState(null);
+
   console.log(state, "state");
   const [resetValue, setResetValue] = React.useState([]);
 
@@ -73,10 +77,7 @@ const PHBAddOns = (props) => {
     formData.append("rate", data1.rate);
     formData.append("images", data1.images[0]);
 
-    formData.append(
-      "pet_space_id",
-      pet_space_id
-    );
+    formData.append("pet_space_id", pet_space_id);
     const data = {
       data: formData,
       method: "post",
@@ -84,68 +85,100 @@ const PHBAddOns = (props) => {
     };
     console.log(data1, "dddd");
     console.log(formData, "dddd1");
-
     dispatch(actions.PHBADDONS(data));
     setResetValue(data1);
+    // Swal.fire({
+    //   title: "Registered Successfully",
+    //   text: "Thank You",
+    //   icon: "success",
+    //   allowOutsideClick: false,
+    // }).then((result) => {
+    //   /* Read more about isConfirmed, isDenied below */
+    //   if (result.isConfirmed) {
+    //     navigate("/petHowz/CustomerDashBoard", { state: state });
+    //   }
+    // });
   };
 
   React.useEffect(() => {
     console.log(AddOns?.phbaddons?.data?.message, "reset");
     console.log(resetValue, "resetV");
-    // if (
-    //   AddOns?.phbaddons?.message === "SUCCESS" &&
-    //   resetValue.package_name !== "" &&
-    //   value.page === 4
-    // ) {
-    //   Swal.fire("Addons Added Successfully", "Thank You", "success").then(
-    //     (result) => {
-    //       /* Read more about isConfirmed, isDenied below */
-    //       if (result.isConfirmed) {
-    //         navigate("/petHowz/HostLayout/HostDashBoard");
-    //       }
-    //     }
-    //   );
-    // } else if (
-    //   AddOns?.phbaddons?.message === "SUCCESS" &&
-    //   resetValue.package_name === "" &&
-    //   value.page === 4
-    // ) {
-    //   Swal.fire(
-    //     "Addons Added Successfully",
-    //     "Add Another Package",
-    //     "success"
-    //   ).then((result) => {
-    //     /* Read more about isConfirmed, isDenied below */
-    //     if (result.isConfirmed) {
-    //       setResetValue();
-    //     }
-    //   });
-    // }
+    if (
+      AddOns?.phbaddons?.message === "SUCCESS" &&
+      resetValue.package_name !== "" &&
+      value.page === 4
+    ) {
+      Swal.fire("Addons Added Successfully", "Thank You", "success").then(
+        (result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result.isConfirmed) {
+            navigate("/petHowz/HostLayout/HostDashBoard");
+          }
+        }
+      );
+    } else if (
+      AddOns?.phbaddons?.message === "SUCCESS" &&
+      resetValue.package_name === "" &&
+      value.page === 4
+    ) {
+      Swal.fire(
+        "Addons Added Successfully",
+        "Add Another Package",
+        "success"
+      ).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          setResetValue();
+        }
+      });
+    }
 
     if (
       AddOns?.phbaddons?.data?.message === "SUCCESS" &&
-      resetValue.package_name !== "" 
+      resetValue.package_name !== ""
     ) {
       setResetValue();
-      
+
       dispatch(phbaddonsAction.reset());
-     
-      navigate("/petHowz/HostLayout/HostDashBoard");
+      Swal.fire(
+        "'Boarding Space details updated successfully",
+        "Thank You",
+        "success"
+      ).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          navigate("/petHowz/HostLayout/HostDashBoard");
+        }
+      });
+      // navigate("/petHowz/HostLayout/HostDashBoard");
     } else if (
       AddOns?.phbaddons?.data?.message === "SUCCESS" &&
-      resetValue.package_name === "" 
+      resetValue.package_name === ""
     ) {
       setResetValue();
-     
+
       dispatch(phbaddonsAction.reset());
-      
+      Swal.fire(
+        "Addons Added Successfully",
+        "Add Another Package",
+        "success"
+      ).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          setResetValue();
+        }
+      });
     }
   }, [userGet, AboutYou, value, AddOns]);
+  const getImage = (val) => {
+    setUpload(val);
+    console.log(val, "val");
+  };
   return (
     <form>
       <h4 className="fontFamilyEdit"> Become a Pet Host</h4>
       <h5 className="fontFamilyEditSubText">Create Add on Package</h5>
-      <Grid container className="NewsBorder" md={12}>
+      <Grid container className="NewsBorder" md={12} >
         {PHBAddOnsEntries?.map((keyValue) => (
           <Grid item md={keyValue.breakpoint} sm={12} xs={12}>
             <Controller
@@ -189,7 +222,7 @@ const PHBAddOns = (props) => {
                       />
                     </Grid>
                   )}
-                  {keyValue?.isFileUploader && (
+                  {/* {keyValue?.isFileUploader && (
                     <Grid
                       item
                       md={12}
@@ -210,7 +243,31 @@ const PHBAddOns = (props) => {
                         getImage={(val) => {
                           onChange(val);
                           // getImage(val);
-                          props.textFieldChange(val, keyValue.name);
+                          // props.textFieldChange(val, keyValue.name);
+                        }}
+                        regForm={keyValue.regForm}
+                        defaultImage={keyValue.defaultImage}
+                        resetValue={resetValue}
+                      />
+                    </Grid>
+                  )} */}
+                  {keyValue?.isFileUploader && (
+                    <Grid
+                      item
+                      md={12}
+                      sm={12}
+                      my={2}
+                      mx={2}
+                      xs={12}
+                      className="circleLogoBox"
+                    >
+                      <CustomImageFileUploader
+                        upLoad={CustomIcons.LogoUploader}
+                        label={keyValue.label}
+                        customClass={keyValue.customClass}
+                        getImage={(val) => {
+                          onChange(val);
+                          getImage(val);
                         }}
                         regForm={keyValue.regForm}
                         defaultImage={keyValue.defaultImage}
@@ -239,50 +296,58 @@ const PHBAddOns = (props) => {
             )}
           </Grid>
         ))}
-      </Grid>
-      <Grid
-        container
-        md={12}
-        lg={12}
-        sm={12}
-        xs={12}
-        display="inline-flex"
-        alignItems={"center"}
-        justifyContent={"flex-end"}
-        pt={"30px"}
-      >
-        <Grid item xs={6}></Grid>
-        <Grid item xs={3}>
-          To Create Another Package
-        </Grid>
         <Grid
-          item
-          xs={3}
-          // display="inline-flex"
-          // alignItems={"center"}
-          // justifyContent="space-evenly"
+          container
+          md={6}
+          lg={6}
+          sm={6}
+          xs={6}
+          display="inline-flex"
+          alignItems={"center"}
+          textAlign={"end"}
+          // justifyContent={"flex-end"}
+          justify-items={"end"}
+          pt={"60px"}
+          margin= "0 0px 0 auto"
         >
-          {" "}
-          <CustomButton
-            btnTitle="Click Here"
-            variant="contained"
-            color="primary"
-            btnStyles={{
-              color: "#fff",
-              background: "#f85a47",
-              width: {
-                lg: "250px",
-                md: "200px",
-                sm: "150px",
-                xs: "200px",
-              },
-              fontSize: "17px",
-              fontFamily: " Roboto-Regular",
-            }}
-            onClickHandle={handleSubmit(onAdd)}
-          />
+          {/* <Grid item xs={6}></Grid> */}
+          <Grid item md={6} lg={6} xs={6} pr={1}>
+            To Create Another Package
+          </Grid>
+          <Grid
+            item
+            md={6}
+            lg={6}
+            xs={6}
+            display= "inline-flex"
+            padding="left: 20px"
+            // display="inline-flex"
+            // alignItems={"center"}
+            // justifyContent="space-evenly"
+          >
+            {" "}
+            <CustomButton
+              btnTitle="Click Here"
+              variant="contained"
+              color="primary"
+              btnStyles={{
+                color: "#fff",
+                background: "#f85a47",
+                width: {
+                  // lg: "250px",
+                  // md: "200px",
+                  // sm: "150px",
+                  // xs: "200px",
+                },
+                fontSize: "17px",
+                fontFamily: " Roboto-Regular",
+              }}
+              onClickHandle={handleSubmit(onAdd)}
+            />
+          </Grid>
         </Grid>
       </Grid>
+
       <Grid
         container
         md={12}

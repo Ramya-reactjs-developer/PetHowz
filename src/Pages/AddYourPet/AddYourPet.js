@@ -42,7 +42,7 @@ const AddYourPetLogin = () => {
     // console.log(dropdownData, "dropdownData");
   }, []);
   const getYourPetType = useSelector((state) => state?.AddYourPets);
-  console.log(getYourPetType?.getYourPetType?.data?.data, "getYourPetType");
+  console.log(getYourPetType, "getYourPetType");
   const tmpArr = [];
   // console.log(tmpArr, "tmpArr");
   getYourPetType?.getYourPetType?.data?.data?.map((item) => {
@@ -54,9 +54,10 @@ const AddYourPetLogin = () => {
   console.log();
 
   const addDrpdownData = (json) => {
+    console.log(json, "tmpArr");
+
     const tmpArr = [];
     const tmpBreedArr = [];
-    // console.log(tmpArr, "tmpArr");
     getYourPetType?.getYourPetType?.data?.data?.map((item) => {
       tmpArr.push({
         id: item.pet_type_id,
@@ -123,8 +124,8 @@ const AddYourPetLogin = () => {
       getYourPetType?.getYourPetType?.data?.data?.find(
         (item) => item.pet_type === data1.pet_type
       )?.pet_type_id || 0;
-      console.log(id,"id")
-      console.log(breed_id,"idb")
+    console.log(id, "id");
+    console.log(breed_id, "idb");
     // const user_id = userGet?.registertopethowz?.data?.user_id;
     const user_id = localStorage.getItem("LoginChecker");
     const formData = new FormData();

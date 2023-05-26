@@ -25,7 +25,6 @@ import { basicDetailsAction } from "../Slices/ServiceBasicDetails/BasicDetails";
 import { groomingPetServiceAction } from "../Slices/Grooming/Grooming";
 import { serviceDetailsAction } from "../Slices/ServiceDetails/ServiceDetails";
 import { HomeBoardingStateAction } from "../Slices/HomeBoardingState/HomeBoardingState";
-
 const actions = {
   // ...groomingAction,
   ...groomingPetServiceAction,
