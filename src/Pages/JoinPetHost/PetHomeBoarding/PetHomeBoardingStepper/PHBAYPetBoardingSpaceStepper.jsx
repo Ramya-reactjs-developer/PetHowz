@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Grid } from "@mui/material";
 
 import CustomButton from "../../../../Components/Button/Button";
@@ -18,6 +18,7 @@ import MultipleSelectChip from "../../../../Components/MultipleDropdown/Multiple
 import { base64ToBinary } from "../../../../Redux/Helpers";
 import CustomMultiFileUploader from "../../../../Components/FileUploader/MultipleFileUploader";
 import { phbaypetspaceAction } from "../../../../Redux/Slices/PetHomeBoardingSlice/PHBAYPetSpaceSlice";
+import CustomSelect from "../../../../Components/Select/Select";
 
 const PHBAYPetBoardingSpace = (props) => {
   const dispatch = useDispatch();
@@ -59,9 +60,7 @@ const PHBAYPetBoardingSpace = (props) => {
     files.splice(index, 1);
     setSelectedFiles(files);
   };
-  const onSelectValue = (data) => {
-    setValues(data);
-  };
+
   const handleDelete = (e, value) => {
     e.preventDefault();
     setValues(values.filter((name) => name !== value));
@@ -120,28 +119,97 @@ const PHBAYPetBoardingSpace = (props) => {
     setResetValue(defaultValues);
   };
   React.useEffect(() => {
-    // if (AYPetSpace?.phbaypetspace?.message === "SUCCESS" && value.page === 2) {
-    //   Swal.fire(
-    //     "About Your Boarding Space Added Successfully",
-    //     "Thank You",
-    //     "success"
-    //   ).then((result) => {
-    //     /* Read more about isConfirmed, isDenied below */
-    //     if (result.isConfirmed) {
-    //       value.nextPage();
-    //     }
-    //   });
-    // }
-
-    if (AYPetSpace?.phbaypetspace?.data?.data?.Message === "SUCCESS" && value.page === 2) {
+    if (
+      AYPetSpace?.phbaypetspace?.data?.data?.Message === "SUCCESS" &&
+      value.page === 2
+    ) {
       setResetValue(defaultValues);
       dispatch(phbaypetspaceAction.reset());
       value.nextPage();
-      localStorage.setItem("pages",value.page+1)
+      localStorage.setItem("pages", value.page + 1);
     }
   }, [userGet, AboutYou, AYPetSpace, value]);
 
-  console.log(AYPetSpace?.phbaypetspace?.message, "sucess");
+  React.useEffect(() => {
+    const data = {
+      data: {},
+      method: "get",
+      apiName: `getPetType`,
+    };
+    dispatch(actions.PHBAYPETSPACETYPE(data));
+  }, []);
+  const phbaypetsspaceType = useSelector((state) => state?.phbaypetspace);
+  console.log(phbaypetsspaceType, "phbaypetsspaceType");
+  // const multiSelect = (json) => {
+  //   console.log(json, "json");
+  //   const tmpArr = [];
+  const options = phbaypetsspaceType?.phbaypetsspaceType?.data?.data?.data?.map(
+    (item) => ({
+      id: item.pet_type_id,
+      value: item.pet_type,
+    })
+  );
+  // useEffect(() => {
+  //   const options =
+  //     phbaypetsspaceType?.phbaypetsspaceType?.data?.data?.data?.map((item) => ({
+  //       id: item.pet_type_id,
+  //       value: item.pet_type,
+  //     }));
+  // const athulValues=  PHBAYPetBoardingSpaceEntries?.map((item) => {
+  //     if (item.name === "category_of_pet_boarded")
+  //       console.log(item,"athulllll");
+  //       return {
+  //         ...item,
+  //         DropdownData: options,
+  //       };
+  //   });
+  //   console.log(options,PHBAYPetBoardingSpaceEntries,athulValues, "PHBAYPetBoardingSpaceEntries");
+  // }, [phbaypetsspaceType?.phbaypetsspaceType?.data]);
+  //   return json.map((i) => {
+  //     if (i.name === "category_of_pet_boarded") {
+  //       return {
+  //         ...i,
+  //         DropdownData: tmpArr,
+  //       };
+  //     }
+  //     return i;
+  //   });
+  // };
+  const onSelectValue = (data) => {
+    setValues(data);
+    console.log(data, "dataasss");
+  };
+  // const onSelectValue = (data, val) => {
+  //   setValues(data);
+  //   const tmpArr = [];
+  //   console.log(tmpArr, "tmpArr");
+  //   phbaypetsspaceType?.phbaypetsspaceType?.data?.data?.data?.map((item) => {
+  //     tmpArr.push({
+  //       key: item.pet_type_id,
+  //       value: item.pet_type,
+  //     });
+  //     console.log(
+  //       phbaypetsspaceType?.phbaypetsspaceType?.data?.data?.data,
+  //       "viraaat"
+  //     );
+  //   });
+  //   if (data === "category_of_pet_boarded") {
+  //     const data = {
+  //       data: { DropdownData: tmpArr },
+  //       method: "get",
+  //       apiName: `getPetType`,
+  //     };
+  //     dispatch(actions.PHBAYPETSPACETYPE(data));
+  //     console.log(val, "valuiii");
+  //   }
+  //   // if (data === "category_of_pet_boarded") {
+  //   //   return {
+  //   //     // name,
+  //   //
+  //   //   };
+  //   // }
+  // };
+
   return (
     <form>
       <Grid pl={2}>
@@ -195,17 +263,6 @@ const PHBAYPetBoardingSpace = (props) => {
                       />
                     </Grid>
                   )}
-                  {/* {keyValue?.isFileUploader && (
-                    <Grid item md={12} sm={12} xs={12} my={2} mx={2}>
-                      <MultiImageUploader
-                        handleFileSelect={handleFileSelect}
-                        handleDelete={handleDeleteImage}
-                        selectedFiles={selectedFiles}
-                        setSelectedFiles={setSelectedFiles}
-                        value={value}
-                      />
-                    </Grid>
-                  )} */}
                   {keyValue?.isFileUploader && (
                     <Grid
                       item
@@ -227,7 +284,7 @@ const PHBAYPetBoardingSpace = (props) => {
                         getImage={(val) => {
                           onChange(val);
                           // getImage(val);
-                          props.textFieldChange(val, keyValue.name);
+                          // props.textFieldChange(val, keyValue.name);
                         }}
                         regForm={keyValue.regForm}
                         defaultImage={keyValue.defaultImage}
@@ -246,7 +303,7 @@ const PHBAYPetBoardingSpace = (props) => {
                         onChipClose={(e, val) => handleDelete(e, val)}
                         label={keyValue.label}
                         labelText={keyValue.labelText}
-                        dropDownList={keyValue.DropdownData}
+                        dropDownList={options}
                         requiredField={keyValue.requiredField}
                       />
                     </Grid>
@@ -258,6 +315,20 @@ const PHBAYPetBoardingSpace = (props) => {
                         text={keyValue.text}
                         customClass={keyValue.customClass}
                         colorType={keyValue.colorType}
+                      />
+                    </Grid>
+                  )}
+                  {keyValue?.isDropdown && (
+                    <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
+                      <CustomSelect
+                        label={keyValue?.label}
+                        labelText={keyValue.labelText}
+                        handleChange={onChange}
+                        value={value}
+                        data={keyValue.DropdownData}
+                        requiredField={keyValue.requiredField}
+                        placeholder={keyValue.placeholder}
+                        customClass={keyValue.customClass}
                       />
                     </Grid>
                   )}

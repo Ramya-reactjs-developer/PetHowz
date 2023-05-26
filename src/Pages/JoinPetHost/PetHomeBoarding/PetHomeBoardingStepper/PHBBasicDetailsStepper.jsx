@@ -199,10 +199,17 @@ import Swal from "sweetalert2";
 import CustomFileUploader from "../../../../Components/FileUploader/FileUpload";
 import { useState } from "react";
 import { phbbasicdetailsAction } from "../../../../Redux/Slices/PetHomeBoardingSlice/PHBBasicDetailsSlice";
+import Dropdown from "../../../../Components/SearchDropdown/SearchDropdown";
 
 const PHBBasicDetails = (props) => {
   const dispatch = useDispatch();
   const userGet = useSelector((state) => state?.phbbasicdetails);
+  const [searchValues, SetSearchValues] = useState({
+    state: { label: "", id: "" },
+    district: { label: "", id: "" },
+    city: { label: "", id: "" },
+  });
+
   const login = localStorage.getItem("LoginChecker");
 
   console.log(userGet.phbbasicdetails.message, "userGet");
@@ -234,10 +241,11 @@ const PHBBasicDetails = (props) => {
     formData.append("name", data1.name);
     formData.append("mobile_number", data1.mobile_number);
     formData.append("street", data1.street);
-    formData.append("city", data1.city);
-    formData.append("locality", data1.locality);
     formData.append("image", image.raw);
-    formData.append("state", data1.state);
+    formData.append("state", searchValues?.state?.label);
+    formData.append("district", searchValues?.district?.label);
+    formData.append("city", searchValues?.city?.label);
+    formData.append("locality", searchValues?.locality?.label);
     formData.append("pincode", data1.pincode);
     formData.append("pin_location", data1.pin_location);
     formData.append("user_id", parseInt(login));
@@ -320,18 +328,74 @@ const PHBBasicDetails = (props) => {
       body: formData,
     });
   };
+  const HomeBoardingDistrict = useSelector(
+    (state) => state?.HomeBoardingState?.HomeBoardingDistrict?.data
+  );
+  console.log(HomeBoardingDistrict, "HomeBoardingDistrict");
+  const HomeBoardingState = useSelector(
+    (state) => state?.HomeBoardingState?.HomeBoardingState?.data
+  );
+  const HomeBoardingCity = useSelector(
+    (state) => state?.HomeBoardingState?.HomeBoardingCity?.data
+  );
+  const HomeBoardingLocality = useSelector(
+    (state) => state?.HomeBoardingState?.HomeBoardingLocality?.data
+  );
+  console.log(HomeBoardingLocality, "HomeBoardingLocality");
+  const searchState = HomeBoardingState?.map((item) => ({
+    id: item.locality_id,
+    label: item.state,
+  }));
+  const searchDistrict = HomeBoardingDistrict?.map((item) => ({
+    id: item.locality_id,
+    label: item.district,
+  }));
+  const searchCity = HomeBoardingCity?.map((item) => ({
+    id: item.locality_id,
+    label: item.city,
+  }));
+  const searchLocality = HomeBoardingCity?.map((item) => ({
+    id: item.locality_id,
+    label: item.city,
+  }));
+  // const [searchState,setSearchState] = useState(false);
+  // React.useEffect(() => {
+  //   const data = {
+  //     data: {
+  //       state: "",
+  //       district: "",
+  //     },
+  //     method: "post",
+  //     apiName: `getDistrict`,
+  //   };
+  //   dispatch(actions.HOMEBOARDINGDISTRICT(data));
+  // }, []);
   React.useEffect(() => {
     const data = {
       data: {
         country: "India",
-        state: "Tamil Nadu",
+        state: "",
       },
       method: "post",
-      // apiName: `getPetServiceByServiceMasterId/${state.response?.[0]?.service_master_id}`,
       apiName: `getState`,
     };
     dispatch(actions.HOMEBOARDINGSTATE(data));
-  }, [dispatch]);
+  }, []);
+
+  function getOption(key) {
+    if (key === "state") {
+      return searchState;
+    }
+    if (key === "district") {
+      return searchDistrict;
+    }
+    if (key === "city") {
+      return searchCity;
+    }
+    if (key === "locality") {
+      return searchLocality;
+    }
+  }
   return (
     <>
       <Grid container md={12} sm={12} lg={12} xs={12}>
@@ -361,6 +425,7 @@ const PHBBasicDetails = (props) => {
               <Grid item md={keyValue.breakpoint} sm={12} xs={12}>
                 <Controller
                   name={keyValue.name}
+                  label={keyValue.label}
                   rules={{
                     required: keyValue?.validation?.required,
                     pattern: keyValue.pattern,
@@ -400,6 +465,118 @@ const PHBBasicDetails = (props) => {
                           />
                         </Grid>
                       )}
+
+                      {keyValue?.isSearchDropdown && (
+                        <Grid item md={12} my={2} mx={2} sm={12} xs={12}>
+                          <Dropdown
+                            prompt="Select an animal..."
+                            options={getOption(keyValue.name)}
+                            text={keyValue.text}
+                            id="id"
+                            label={keyValue.labelText}
+                            name={keyValue.name}
+                            requiredField={keyValue.requiredField}
+                            value={searchValues[keyValue.name]}
+                            onChange={(val, name) => {
+                              console.log("name", name);
+                              // SetSearchValues({ ...searchValues, [name]: val });
+                              if (name === "state") {
+                                SetSearchValues({
+                                  ...searchValues,
+                                  [name]: val,
+                                  // district: { label: "", id: "" },
+                                  // city: { label: "", id: "" },
+                                  // locality: { label: "", id: "" },
+                                });
+                                const data = {
+                                  data: {
+                                    state: val.label,
+                                    district: "",
+                                  },
+                                  method: "post",
+                                  apiName: `getDistrict`,
+                                };
+                                dispatch(actions.HOMEBOARDINGDISTRICT(data));
+                                console.log(val, "valuiii");
+                              }
+                              if (name === "district") {
+                                SetSearchValues({
+                                  ...searchValues,
+                                  [name]: val,
+                                  // city: { label: "", id: "" },
+
+                                  // locality: { label: "", id: "" },
+                                });
+                                const data = {
+                                  data: {
+                                    // district:"" ,
+                                    city: val.label,
+                                  },
+                                  method: "post",
+                                  apiName: `getAllCity`,
+                                };
+                                dispatch(actions.HOMEBOARDINGCITY(data));
+                                console.log(val, "valuiii");
+                              }
+                              if (name === "city") {
+                                SetSearchValues({
+                                  ...searchValues,
+                                  [name]: val,
+                                  // locality: { label: "", id: "" },
+                                });
+                                const data = {
+                                  data: {
+                                    // district:"" ,
+                                    city: val.label,
+                                    locality: "",
+                                  },
+                                  method: "post",
+                                  apiName: `getLocality`,
+                                };
+                                dispatch(actions.HOMEBOARDINGLOCALITY(data));
+                                console.log(val, "valuiii");
+                              }
+                              if (name === "locality") {
+                                SetSearchValues({
+                                  ...searchValues,
+                                  [name]: val,
+                                });
+                              }
+                            }}
+                          />
+                        </Grid>
+                      )}
+                      {/* {console.log(searchValues, keyValue.name, "searchValues")} */}
+                      {/* {!searchValues?.state?.label &&
+                        keyValue.name === "state" &&
+                        isCreateClick && (
+                          <Grid>
+                            <CustomTypography
+                              text={"please select state"}
+                              type="error"
+                            />
+                          </Grid>
+                        )}
+                      {!searchValues?.district?.label &&
+                        keyValue.name === "district" &&
+                        isCreateClick && (
+                          <Grid>
+                            <CustomTypography
+                              text={"please select district"}
+                              type="error"
+                            />
+                          </Grid>
+                        )}
+                      {!searchValues?.city?.label &&
+                        keyValue.name === "city" &&
+                        isCreateClick && (
+                          <Grid>
+                            <CustomTypography
+                              text={"please select city"}
+                              type="error"
+                            />
+                          </Grid>
+                        )} */}
 
                       {keyValue?.isFileUploader && (
                         <Grid

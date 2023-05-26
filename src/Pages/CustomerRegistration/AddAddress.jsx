@@ -49,17 +49,17 @@ export const AddAddress = () => {
     dispatch(actions.USER_ADDRESS_DETAILS(data));
     reset(defaultValues);
 
-    // Swal.fire({
-    //   title: "Address Added Successfully",
-    //   text: "Thank You",
-    //   icon: "success",
-    //   allowOutsideClick: false,
-    // }).then((result) => {
-    //   /* Read more about isConfirmed, isDenied below */
-    //   if (result.isConfirmed) {
-    //     navigate("/petHowz/Terms", { state: state });
-    //   }
-    // });
+    Swal.fire({
+      title: "Address Added Successfully",
+      text: "Thank You",
+      icon: "success",
+      allowOutsideClick: false,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        navigate("/petHowz/Terms", { state: state });
+      }
+    });
   }
   React.useEffect(() => {
     console.log(userGet?.userAddressDetails?.data?.data?.Message, "mmmm1");

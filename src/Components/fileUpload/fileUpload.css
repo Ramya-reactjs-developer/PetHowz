@@ -1,0 +1,93 @@
+
+.root {
+  overflow: hidden;
+}
+
+.textView {
+  margin-left: 20px;
+  text-align: center;
+}
+
+.fileText {
+  font-size: 12px;
+}
+
+.fileUploader {
+  position: absolute;
+  height: 400px;
+  width: 400px;
+  left: -200px;
+  top: -200px;
+  background: transparent;
+}
+
+.preview {
+  margin-top: 50px;
+}
+
+.uploadimageGrid {
+  width: 127px;
+  height: 126px;
+  border-radius: 71px;
+  background: #d2d2d826;
+  position: relative;
+}
+
+.uploadImageContainer {
+  height: 2.4375em;
+  width: 289px;
+  /* background-color: 'red'; */
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #c4c4c4 !important;
+  box-sizing: content-box;
+  position: relative;
+}
+
+.logoImg {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.none {
+  display: none;
+}
+
+.imageUpload {
+  position: absolute;
+  right: 20%;
+  top: 100%;
+  padding-top: 5px !important;
+  /* filter: brightness(0) saturate(100%) invert(74%) sepia(52%) saturate(739%) hue-rotate(349deg) brightness(104%) contrast(101%) !important; */
+}
+
+.regFormImageUpload {
+  position: absolute;
+  right: 40%;
+  top: 40%;
+  filter: brightness(0) saturate(100%) invert(74%) sepia(52%) saturate(739%) hue-rotate(349deg) brightness(104%) contrast(101%) !important;
+}
+
+.textLabel {
+  color:#000!important;
+  font-size: 16px !important;
+  padding-bottom: 10px !important;
+}
+
+.uploadProfileLabel {
+  text-align: center;
+  color: #8b8d90;
+  font-family: 'Roboto_Regular';
+}
+.file-upload{
+  position: absolute;
+
+}
+.file-upload-text{
+  color: #fff !important;
+  /* text-align: center !important; */
+  padding: 7px 8px 0px 0px !important;
+}

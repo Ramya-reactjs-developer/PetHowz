@@ -125,7 +125,7 @@ function CustomTextField(props) {
               ) : (
                 ""
               ),
-            inputProps: { min: 0, max: 999999, step: 1 },
+            inputProps: { min: 0, step: 1 },
             // disableIncrement: true,
             // disableDecrement: true,
             // endAdornment: (
