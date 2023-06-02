@@ -18,6 +18,8 @@ import MealCardCustomized from "../../../Components/Cards/MealCardCustomized";
 import MealCard from "../../../Components/Cards/MealCard";
 import { AddBtn, EditDetailsBtn } from "./BoardingSpaceStyle";
 import "./BoardingSpaceStyle.css";
+import "../hostStyle.css"
+import Bg from "../../../Assets/Images/coming-soon3.png"
 export const MyBoardingSpaceHostDB = () => {
   const [entry] = React.useState([]);
   const ListData = [
@@ -60,6 +62,16 @@ export const MyBoardingSpaceHostDB = () => {
   return (
     <Grid container item xs={12}>
       {" "}
+      <Grid
+        container
+        className="bodyContent"
+        item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
       <Grid item textAlign={"left"} xs={12}>
         <CustomTypography
           text="My Boarding Space"
@@ -172,6 +184,19 @@ export const MyBoardingSpaceHostDB = () => {
       </Grid>
       <Grid item xs={12}>
         <MealCardCustomized Data={CardData} />
+        </Grid>
+        </Grid>
+      <Grid
+        container
+        className="imageBg boardSpace"
+        item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
+        <img src={Bg} alt="vf" />
       </Grid>
     </Grid>
   );

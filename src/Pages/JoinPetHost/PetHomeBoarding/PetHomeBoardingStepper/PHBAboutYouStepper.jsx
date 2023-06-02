@@ -82,14 +82,21 @@ const PHBAboutYou = (props) => {
     //     }
     //   );
     // }
-
+console.log(AboutYou?.phbaboutyou?.data?.message,"kkkkk")
     if (AboutYou?.phbaboutyou?.data?.message === "SUCCESS" && value.page === 1) {
       setResetValue(defaultValues);
       dispatch(phbaboutyouAction.reset());
       value.nextPage();
+      
       localStorage.setItem("pages",value.page+1)
     }
   }, [userGet, AboutYou, value]);
+
+  // const onPrevious = () => {
+  //   alert(value.page)
+  //   value.prevPage()
+  //   localStorage.setItem("pages", value.page-1);
+  // }
   return (
     <form>
       <h4 className="fontFamilyEdit"> Become a Pet Host</h4>
@@ -218,7 +225,26 @@ const PHBAboutYou = (props) => {
         justifyContent="space-around"
         pt={"60px"}
       >
-        <Grid item xs={5}></Grid>
+        <Grid item xs={5}>
+          {/* <CustomButton
+            btnTitle="Previous"
+            variant="contained"
+            color="primary"
+            btnStyles={{
+              color: "#fff",
+              background: "#f85a47",
+              width: {
+                lg: "250px",
+                md: "200px",
+                sm: "150px",
+                xs: "200px",
+              },
+              fontSize: "17px",
+              fontFamily: " Roboto-Regular",
+            }}
+              onClickHandle={onPrevious}
+        /> */}
+        </Grid>
         <Grid item>
           <CustomButton
             btnTitle="Next"

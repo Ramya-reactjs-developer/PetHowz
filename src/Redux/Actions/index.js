@@ -25,6 +25,7 @@ import { basicDetailsAction } from "../Slices/ServiceBasicDetails/BasicDetails";
 import { groomingPetServiceAction } from "../Slices/Grooming/Grooming";
 import { serviceDetailsAction } from "../Slices/ServiceDetails/ServiceDetails";
 import { HomeBoardingStateAction } from "../Slices/HomeBoardingState/HomeBoardingState";
+import { phbbasicdetailsgetAction } from "../Slices/PetHomeBoardingSlice/PHBBasicdetailsGetSlice";
 const actions = {
   // ...groomingAction,
   ...groomingPetServiceAction,
@@ -46,6 +47,7 @@ const actions = {
   // ...BookingRequestAction,
   ...petCareAction,
   ...phbbasicdetailsAction,
+  ...phbbasicdetailsgetAction,
   ...phbaboutyouAction,
   ...phbaypetspaceAction,
   ...phbrulesamentiesAction,

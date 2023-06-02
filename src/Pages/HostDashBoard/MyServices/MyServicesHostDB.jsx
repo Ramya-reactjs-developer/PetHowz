@@ -5,6 +5,8 @@ import CustomButton from "../../../Components/Button/Button";
 import CustomIcons from "../../../Utils/Icons/Index";
 import ServicePackagesHost from "../../../Components/Cards/ServicePackagesHost";
 import { AddBtn } from "../MyBoardingSpace/BoardingSpaceStyle";
+import "../hostStyle.css"
+import Bg from "../../../Assets/Images/coming-soon3.png"
 
 export const MyServicesHostDB = () => {
   // const tabNames = [
@@ -64,6 +66,16 @@ export const MyServicesHostDB = () => {
   return (
     <Grid container item xs={12}>
       {" "}
+      <Grid
+        container
+        className="bodyContent"
+        item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
       <Grid item textAlign={"left"} xs={12}>
         <CustomTypography
           text="MyServices"
@@ -189,6 +201,19 @@ export const MyServicesHostDB = () => {
         {/* <Grid md={3} sm={5} xs={12}> */}
         <ServicePackagesHost Data={CardData} />
         {/* </Grid> */}
+        </Grid>
+        </Grid>
+      <Grid
+        container
+        className="imageBg myService"
+        item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
+        <img src={Bg} alt="vf" />
       </Grid>
     </Grid>
   );

@@ -80,6 +80,7 @@ export const PetHomeBoardingProvider = (props) => {
 
   const nextPage = () => {
     setPage(page + 1);
+    
 
   };
 

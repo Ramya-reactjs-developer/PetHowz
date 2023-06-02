@@ -3,7 +3,8 @@ import React from "react";
 import CustomTypography from "../../../Components/Typography/Typography";
 import CustomTab from "../../../Components/Tab/Tab";
 import PetHomeCard from "../../../Components/Cards/PetHomeCard";
-
+import "../hostStyle.css"
+import Bg from "../../../Assets/Images/coming-soon3.png"
 export const MyBookingsHostDB = () => {
   const [value, setValue] = React.useState(0);
   const tabList = [
@@ -59,6 +60,16 @@ export const MyBookingsHostDB = () => {
   return (
     <Grid container item xs={12}>
       {" "}
+      <Grid
+        container
+        className="bodyContent"
+        item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
       <Grid item textAlign={"left"} xs={12}>
         <CustomTypography
           text="MyBookings"
@@ -77,6 +88,19 @@ export const MyBookingsHostDB = () => {
           {value === 0 && <PetHomeCard Data={CardData} />}
           {value === 1 && <PetHomeCard Data={CardData2} />}
         </Box>
+        </Grid>
+        </Grid>
+      <Grid
+        container
+        className="imageBg"
+        item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
+        <img src={Bg} alt="vf" />
       </Grid>
     </Grid>
   );

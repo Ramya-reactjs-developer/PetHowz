@@ -5,7 +5,8 @@ import CustomIcons from "../../Utils/Icons/Index";
 import CustomTypography from "../../Components/Typography/Typography";
 import CustomTab from "../../Components/Tab/Tab";
 import BookingRequestsCard from "../../Components/Cards/BookingRequestsCard";
-
+import "./hostStyle.css";
+import Bg from "../../Assets/Images/coming-soon3.png";
 export const HostDashBoard = () => {
   const CardData = [
     {
@@ -44,60 +45,83 @@ export const HostDashBoard = () => {
   return (
     <Grid container item xl={12} lg={12} md={12} sm={12} xs={12}>
       <Grid
+        container
+        className="bodyContent"
         item
-        display={"flex"}
-        alignItems={"center"}
-        justifyContent={"flex-start"}
-        flexWrap={"wrap"}
-        gap={"30px"}
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
         xs={12}
       >
-        <Grid item xl={3} lg={3} md={4} sm={5} xs={8}>
-          <DashBoardCard
-            id="card1"
-            tittle="Total Bookings"
-            icon={CustomIcons.Building}
-            number="5"
-            MWidth="300px"
+        <Grid
+          item
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent={"flex-start"}
+          flexWrap={"wrap"}
+          gap={"30px"}
+          xs={12}
+        >
+          <Grid item xl={3} lg={3} md={4} sm={5} xs={8}>
+            <DashBoardCard
+              id="card1"
+              tittle="Total Bookings"
+              icon={CustomIcons.Building}
+              number="5"
+              MWidth="300px"
+            />
+          </Grid>
+          <Grid item xl={3} lg={3} md={4} sm={5} xs={8}>
+            <DashBoardCard
+              id="card2"
+              tittle="Booking Requests"
+              icon={CustomIcons.Building}
+              number="5"
+              MWidth="300px"
+            />
+          </Grid>
+          <Grid item xl={3} lg={3} md={4} sm={5} xs={8}>
+            <DashBoardCard
+              id="card3"
+              tittle="Services Provided"
+              icon={CustomIcons.Building}
+              number="5"
+              MWidth="300px"
+            />
+          </Grid>
+        </Grid>
+        <Grid item textAlign={"left"} xs={12} pt={"40px"}>
+          <CustomTypography
+            text="Booking Request"
+            type="subHeading"
+            colorType="text"
           />
         </Grid>
-        <Grid item xl={3} lg={3} md={4} sm={5} xs={8}>
-          <DashBoardCard
-            id="card2"
-            tittle="Booking Requests"
-            icon={CustomIcons.Building}
-            number="5"
-            MWidth="300px"
+        <Grid className="customTab" item pt={3} xs={12}>
+          <CustomTab
+            tabList={tabList}
+            handleChange={handleChange}
+            value={value}
+            className="tabBar"
           />
-        </Grid>
-        <Grid item xl={3} lg={3} md={4} sm={5} xs={8}>
-          <DashBoardCard
-            id="card3"
-            tittle="Services Provided"
-            icon={CustomIcons.Building}
-            number="5"
-            MWidth="300px"
-          />
+          <Box pt={"20px"}>
+            {value === 0 && <BookingRequestsCard Data={CardData} />}
+            {value === 1 && <BookingRequestsCard Data={CardData} />}
+          </Box>
         </Grid>
       </Grid>
-      <Grid item textAlign={"left"} xs={12} pt={"40px"}>
-        <CustomTypography
-          text="Booking Request"
-          type="subHeading"
-          colorType="text"
-        />
-      </Grid>
-      <Grid className="customTab" item pt={3} xs={12}>
-        <CustomTab
-          tabList={tabList}
-          handleChange={handleChange}
-          value={value}
-          className="tabBar"
-        />
-        <Box pt={"20px"}>
-          {value === 0 && <BookingRequestsCard Data={CardData} />}
-          {value === 1 && <BookingRequestsCard Data={CardData} />}
-        </Box>
+      <Grid
+        container
+        className="imageBg"
+        item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
+        <img src={Bg} alt="vf" />
       </Grid>
     </Grid>
   );

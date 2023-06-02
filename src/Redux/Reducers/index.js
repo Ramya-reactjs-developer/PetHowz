@@ -28,6 +28,7 @@ import groomingServiceSlice from "../Slices/Grooming/Grooming";
 import groomingPetServiceSlice from "../Slices/Grooming/Grooming";
 import serviceDetailsSlice from "../Slices/ServiceDetails/ServiceDetails";
 import HomeBoardingStateSlice from "../Slices/HomeBoardingState/HomeBoardingState";
+import PHBBasicdetailsGetSlice from "../Slices/PetHomeBoardingSlice/PHBBasicdetailsGetSlice";
 const reducer = combineReducers({
   grooming: groomingSlice,
   groomingPetService: groomingPetServiceSlice,
@@ -50,9 +51,9 @@ const reducer = combineReducers({
   ourServiceById: ourServiceByIdSlice,
   searchcitygetlocality: SearchGetLocalitySlice,
   overallsearch: OverAllSearchSlice,
-
   petCareService: petCareSlice,
   phbbasicdetails: PHBBasicDetailsSlice,
+  phbbasicdetailsget:PHBBasicdetailsGetSlice,
   phbaboutyou: PHBAboutYouSlice,
   phbaypetspace: PHBAYPetSpaceSlice,
   phbrulesamenties: PHBRulesAmentiesSlice,

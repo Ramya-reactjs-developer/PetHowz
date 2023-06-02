@@ -3,7 +3,8 @@ import React from "react";
 import CustomTab from "../../../Components/Tab/Tab";
 import ProceedToPayModal from "../ProceedToPayModal";
 import BookingRequestsSend from "../../../Components/Cards/BookingRequestsSend";
-
+import "../cusStyle.css";
+import Bg from "../../../Assets/Images/coming-soon3.png";
 export const MyEnquiriesCustomerDB = () => {
   const CardData = [
     {
@@ -52,24 +53,47 @@ export const MyEnquiriesCustomerDB = () => {
   };
   return (
     <Grid container item xs={12}>
-      <Grid className="customTab" item xs={12}>
-        <CustomTab
-          tabList={tabList}
-          handleChange={handleChange}
-          value={value}
-          className="tabBar"
-        />
-        {Modal ? (
-          <ProceedToPayModal open={open} onModalClose={onMoadalClose} />
-        ) : (
-          ""
-        )}
-        <Box pt={"20px"}>
-          {value === 0 && (
-            <BookingRequestsSend Data={CardData} onClickHandle={modalOpen} />
+      <Grid
+        container
+        className="bodyContent"
+        item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
+        <Grid className="customTab" item xs={12}>
+          <CustomTab
+            tabList={tabList}
+            handleChange={handleChange}
+            value={value}
+            className="tabBar"
+          />
+          {Modal ? (
+            <ProceedToPayModal open={open} onModalClose={onMoadalClose} />
+          ) : (
+            ""
           )}
-          {value === 1 && <BookingRequestsSend Data={CardData} />}
-        </Box>
+          <Box pt={"20px"}>
+            {value === 0 && (
+              <BookingRequestsSend Data={CardData} onClickHandle={modalOpen} />
+            )}
+            {value === 1 && <BookingRequestsSend Data={CardData} />}
+          </Box>
+        </Grid>
+      </Grid>
+      <Grid
+        container
+        className="imageBg"
+        item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
+        <img src={Bg} alt="vf" />
       </Grid>
     </Grid>
   );

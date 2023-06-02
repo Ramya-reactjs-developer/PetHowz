@@ -5,8 +5,10 @@ import CustomTypography from "../../../Components/Typography/Typography";
 import { MyPetsCards } from "../../../Components/MyPetsCards/MyPetsCards";
 import CustomButton from "../../../Components/Button/Button";
 import AddAnotherPet from "./AddAnotherPet";
-
+import "../cusStyle.css";
+import Bg from "../../../Assets/Images/coming-soon3.png";
 export const MyPetsCustomerDB = () => {
+
   const [open, setOpen] = React.useState(false);
   const ListData = [
     {
@@ -42,37 +44,60 @@ export const MyPetsCustomerDB = () => {
   return (
     <Grid container item xs={12}>
       {" "}
-      <Grid item textAlign={"left"} xs={12}>
-        <CustomTypography text="My Pets" type="subHeading" colorType="text" />
-      </Grid>
-      <Grid item xs={12}>
-        <MyPetsCards ListData={ListData} onEdit={onEdit} />{" "}
+      <Grid
+        container
+        className="bodyContent"
+        item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
+        <Grid item textAlign={"left"} xs={12}>
+          <CustomTypography text="My Pets" type="subHeading" colorType="text" />
+        </Grid>
+        <Grid item xs={12}>
+          <MyPetsCards ListData={ListData} onEdit={onEdit} />{" "}
+        </Grid>
+        <Grid
+          item
+          xs={12}
+          pt={"10px"}
+          display={"flex"}
+          alignItems={"center"}
+          justifyContent={"flex-start"}
+          textAlign={"center"}
+        >
+          <Box>
+            <CustomButton
+              btnTitle="+"
+              color="primary"
+              onClickHandle={onAddAnother}
+              btnStyles={Addbtn}
+            />
+            <CustomTypography
+              text="Add Another"
+              type="subHeading"
+              colorType="primary"
+            />
+          </Box>
+        </Grid>
+        <Grid item xs={12}>
+          <AddAnotherPet open={open} onClose={onClose} />
+        </Grid>
       </Grid>
       <Grid
+        container
+        className="imageBg myPet"
         item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
         xs={12}
-        pt={"10px"}
-        display={"flex"}
-        alignItems={"center"}
-        justifyContent={"flex-start"}
-        textAlign={"center"}
       >
-        <Box>
-          <CustomButton
-            btnTitle="+"
-            color="primary"
-            onClickHandle={onAddAnother}
-            btnStyles={Addbtn}
-          />
-          <CustomTypography
-            text="Add Another"
-            type="subHeading"
-            colorType="primary"
-          />
-        </Box>
-      </Grid>
-      <Grid item xs={12}>
-        <AddAnotherPet open={open} onClose={onClose} />
+        <img src={Bg} alt="vf" />
       </Grid>
     </Grid>
   );

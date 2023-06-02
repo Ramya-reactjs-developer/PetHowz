@@ -3,7 +3,8 @@ import React from "react";
 import CustomTypography from "../../../Components/Typography/Typography";
 import CustomTab from "../../../Components/Tab/Tab";
 import PetHomeCard from "../../../Components/Cards/PetHomeCard";
-
+import "../cusStyle.css";
+import Bg from "../../../Assets/Images/coming-soon3.png";
 export const MyBookingsCustomerDB = () => {
   const [value, setValue] = React.useState(0);
   const tabList = [
@@ -59,24 +60,47 @@ export const MyBookingsCustomerDB = () => {
   return (
     <Grid container item xs={12}>
       {" "}
-      <Grid item textAlign={"left"} xs={12}>
-        <CustomTypography
-          text="MyBookings"
-          type="subHeading"
-          colorType="text"
-        />
+      <Grid
+        container
+        className="bodyContent"
+        item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
+        <Grid item textAlign={"left"} xs={12}>
+          <CustomTypography
+            text="MyBookings"
+            type="subHeading"
+            colorType="text"
+          />
+        </Grid>
+        <Grid className="customTab" item pt={3} xs={12}>
+          <CustomTab
+            tabList={tabList}
+            handleChange={handleChange}
+            value={value}
+            className="tabBar"
+          />
+          <Box pt={"20px"}>
+            {value === 0 && <PetHomeCard Data={CardData} />}
+            {value === 1 && <PetHomeCard Data={CardData2} />}
+          </Box>
+        </Grid>
       </Grid>
-      <Grid className="customTab" item pt={3} xs={12}>
-        <CustomTab
-          tabList={tabList}
-          handleChange={handleChange}
-          value={value}
-          className="tabBar"
-        />
-        <Box pt={"20px"}>
-          {value === 0 && <PetHomeCard Data={CardData} />}
-          {value === 1 && <PetHomeCard Data={CardData2} />}
-        </Box>
+      <Grid
+        container
+        className="imageBg"
+        item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
+        <img src={Bg} alt="vf" />
       </Grid>
     </Grid>
   );

@@ -8,7 +8,8 @@ import { Controller, useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { AddressEntries } from "../../CustomerRegistration/AddressEntries";
 import actions from "../../../Redux/Actions/index";
-
+import "../hostStyle.css"
+import Bg from "../../../Assets/Images/coming-soon3.png"
 import {
   ChangeAddressHost,
   ChangeEmailHost,
@@ -87,6 +88,16 @@ export const MyProfileHostDB = () => {
   return (
     <Grid container item xs={12}>
       {" "}
+      <Grid
+        container
+        className="bodyContent"
+        item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
       <Grid item textAlign={"left"} xs={12}>
         <CustomTypography
           text="My Profile"
@@ -215,6 +226,19 @@ export const MyProfileHostDB = () => {
         </Grid>
       
       </Grid> */}
+      </Grid>
+      <Grid
+        container
+        className="imageBg"
+        item
+        xl={12}
+        lg={12}
+        md={12}
+        sm={12}
+        xs={12}
+      >
+        <img src={Bg} alt="vf" />
+      </Grid>
     </Grid>
   );
 };
